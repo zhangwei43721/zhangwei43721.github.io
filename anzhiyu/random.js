@@ -1,3 +1,3 @@
-var posts=["2022/03/07/Linux命令速查手册/","2025/03/06/计算机二级C语言复习/","2025/03/11/计算机二级公共基础知识点考点整理/","2025/03/17/深澜校园网自动登陆脚本/","2025/03/06/程序员延寿指南/","2025/03/05/IOS小火箭教程/","2024/12/06/C++复习/","2024/09/05/华为ICT网络赛道初级知识点汇总笔记/","2024/06/23/Java复习/","2024/05/23/数据库复习/","2024/04/17/操作系统入门/","2020/05/23/hello-world/"];function toRandomPost(){
+var posts=["posts/15440.html","posts/29817.html","posts/49927.html","posts/28982.html","posts/58559.html","posts/58575.html","posts/50562.html","posts/45596.html","posts/61711.html","posts/51347.html","posts/55986.html","posts/16107.html"];function toRandomPost(){
     pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);
   };
