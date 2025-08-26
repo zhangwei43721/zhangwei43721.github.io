@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://image.skyforever.top/blog/2025/08/e475062f43f5cc627e3e22ed03dcde06.png">
 <meta property="og:image" content="https://image.skyforever.top/blog/2025/08/e43c7227bf0c8c43126d50dbcb46e221.png">
 <meta property="article:published_time" content="2025-08-26T03:19:17.000Z">
-<meta property="article:modified_time" content="2025-08-26T03:25:09.982Z">
+<meta property="article:modified_time" content="2025-08-26T05:31:14.272Z">
 <meta property="article:author" content="Skyforever">
 <meta property="article:tag" content="嵌入式">
 <meta property="article:tag" content="LVGL">
@@ -58,7 +58,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2025-08-26T11:19:17+08:00","dateModified":"2025-08-26T11:25:09+08:00","datePublished":"2025-08-26T11:19:17+08:00","description":"","headline":"提升嵌入式开发幸福感的小技巧","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/114516/"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/114516/","keywords":"嵌入式, LVGL, Linux, NFS, Telnet, VSCode","thumbnailUrl":null,"image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2025-08-26T11:19:17+08:00","dateModified":"2025-08-26T13:31:14+08:00","datePublished":"2025-08-26T11:19:17+08:00","description":"","headline":"提升嵌入式开发幸福感的小技巧","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/114516/"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/114516/","keywords":"嵌入式, LVGL, Linux, NFS, Telnet, VSCode","thumbnailUrl":null,"image":[]}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/xaoxuu/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/xaoxuu/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/xaoxuu/favicon/favicon-16x16.png"><link rel="manifest" href="/assets/xaoxuu/favicon/site.webmanifest"><link rel="shortcut icon" href="/assets/xaoxuu/favicon/favicon.ico"><meta name="theme-color" content="#f8f8f8"><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" media="all" />
 </head>
 <body>
@@ -90,7 +90,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Embedded/">Embedded</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2025-08-26T03:19:17.000Z">2025-08-26</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2025-08-26T03:25:09.982Z">2025-08-26</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2025-08-26T03:19:17.000Z">2025-08-26</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2025-08-26T05:31:14.272Z">2025-08-26</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -123,10 +123,10 @@
 
 <hr>
 <h2 id="1-使用telnet，避免频繁切换窗口和反复串口调试"><a href="#1-使用telnet，避免频繁切换窗口和反复串口调试" class="headerlink" title="1. 使用telnet，避免频繁切换窗口和反复串口调试"></a><strong>1. 使用telnet，避免频繁切换窗口和反复串口调试</strong></h2><p>Telnet 连接开发板分为两部分：<strong>开发板配置</strong> 和 <strong>主机配置</strong>。</p>
+<p>   注意虚拟机必须配置静态ip，如果不知道怎么配置静态IP，看这个文章：</p>
+<p>   <a href="https://skyforever.top/data/ES/Linux%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/#%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP%E7%9A%84%E6%AD%A5%E9%AA%A4">配置静态ip的步骤</a></p>
 <h3 id="开发板配置"><a href="#开发板配置" class="headerlink" title="开发板配置"></a><strong>开发板配置</strong></h3><ol>
 <li><p>确保开发板与电脑在同一网段，例如 <code>192.168.11.x</code></p>
-<p>注意虚拟机必须配置静态ip，如果不知道怎么配置静态IP，看这个文章：</p>
-<p><a href="https://skyforever.top/data/ES/Linux%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/#%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP%E7%9A%84%E6%AD%A5%E9%AA%A4">配置静态ip的步骤</a></p>
 </li>
 <li><p>将所需软件放到合适的位置。</p>
 </li>
@@ -140,14 +140,15 @@
 <li><p>在 Ubuntu 主机上安装 Telnet 客户端：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install telnet</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使用以下命令连接开发板（示例 IP <code>192.168.11.??</code>）：</p>
+<li><p>使用以下命令连接开发板：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet 192.168.11.??</span><br></pre></td></tr></table></figure>
 
 <p>连接成功后即可在电脑终端直接操作开发板</p>
 </li>
 </ol>
 <hr>
-<h2 id="2-使用nfs，将ubuntu里的文件夹挂载到开发版"><a href="#2-使用nfs，将ubuntu里的文件夹挂载到开发版" class="headerlink" title="2. 使用nfs，将ubuntu里的文件夹挂载到开发版"></a><strong>2. 使用nfs，将ubuntu里的文件夹挂载到开发版</strong></h2><p>NFS（Network File System，网络文件系统）可以让开发板直接访问Ubuntu上的目录，省去拷贝文件的步骤。</p>
+<h2 id="2-使用nfs，将ubuntu里的文件夹挂载到开发版"><a href="#2-使用nfs，将ubuntu里的文件夹挂载到开发版" class="headerlink" title="2. 使用nfs，将ubuntu里的文件夹挂载到开发版"></a><strong>2. 使用nfs，将ubuntu里的文件夹挂载到开发版</strong></h2><p>NFS（Network File System，网络文件系统）可以让开发板直接访问Ubuntu上的目录，省去拷贝文件的步骤。<br>  确保开发板与电脑在同一网段，例如 <code>192.168.11.x</code><br>   注意虚拟机必须配置静态ip，如果不知道怎么配置静态IP，看这个文章：</p>
+<p>   <a href="https://skyforever.top/data/ES/Linux%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/#%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP%E7%9A%84%E6%AD%A5%E9%AA%A4">配置静态ip的步骤</a></p>
 <h3 id="主机配置（Ubuntu）"><a href="#主机配置（Ubuntu）" class="headerlink" title="主机配置（Ubuntu）"></a><strong>主机配置（Ubuntu）</strong></h3><ol>
 <li><p>安装 NFS 服务端：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install nfs-kernel-server</span><br></pre></td></tr></table></figure>
@@ -206,7 +207,7 @@
 <li><p><strong>定制嵌入式专属环境</strong><br>切换到新创建的“C&#x2F;C++”配置文件后：</p>
 <ul>
 <li>打开 <strong>扩展</strong> 侧边栏 (<code>Ctrl+Shift+X</code>)。</li>
-<li>将所有与C&#x2F;C++嵌入式开发无关的插件<strong>禁用(Disable)</strong>。例如Python、Jupyter、Prettier、Live Server等。</li>
+<li>将所有与C&#x2F;C++嵌入式开发无关的插件<strong>禁用</strong>。例如Python、Jupyter、Prettier、Live Server等。</li>
 <li>仅保留核心插件，如：<ul>
 <li><strong>C&#x2F;C++</strong> </li>
 <li><strong>CMake Tools</strong></li>
