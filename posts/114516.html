@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://image.skyforever.top/blog/2025/08/e475062f43f5cc627e3e22ed03dcde06.png">
 <meta property="og:image" content="https://image.skyforever.top/blog/2025/08/e43c7227bf0c8c43126d50dbcb46e221.png">
 <meta property="article:published_time" content="2025-08-26T03:19:17.000Z">
-<meta property="article:modified_time" content="2025-08-26T05:51:36.521Z">
+<meta property="article:modified_time" content="2025-09-17T12:48:12.551Z">
 <meta property="article:author" content="Skyforever">
 <meta property="article:tag" content="嵌入式">
 <meta property="article:tag" content="LVGL">
@@ -58,7 +58,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2025-08-26T11:19:17+08:00","dateModified":"2025-08-26T13:51:36+08:00","datePublished":"2025-08-26T11:19:17+08:00","description":"","headline":"提升嵌入式开发幸福感的小技巧","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/114516/"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/114516/","keywords":"嵌入式, LVGL, Linux, NFS, Telnet, VSCode","thumbnailUrl":null,"image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2025-08-26T11:19:17+08:00","dateModified":"2025-09-17T20:48:12+08:00","datePublished":"2025-08-26T11:19:17+08:00","description":"","headline":"提升嵌入式开发幸福感的小技巧","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/114516/"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/114516/","keywords":"嵌入式, LVGL, Linux, NFS, Telnet, VSCode","thumbnailUrl":null,"image":[]}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/xaoxuu/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/xaoxuu/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/xaoxuu/favicon/favicon-16x16.png"><link rel="manifest" href="/assets/xaoxuu/favicon/site.webmanifest"><link rel="shortcut icon" href="/assets/xaoxuu/favicon/favicon.ico"><meta name="theme-color" content="#f8f8f8"><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" media="all" />
 </head>
 <body>
@@ -90,7 +90,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Embedded/">Embedded</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2025-08-26T03:19:17.000Z">2025-08-26</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2025-08-26T05:51:36.521Z">2025-08-26</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">Posted on: <time datetime="2025-08-26T03:19:17.000Z">2025-08-26</time></span><span class="sep updated"></span><span class="text updated">Updated on: <time datetime="2025-09-17T12:48:12.551Z">2025-09-17</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -176,6 +176,9 @@
 <hr>
 <h3 id="开发板配置（GEC6818）"><a href="#开发板配置（GEC6818）" class="headerlink" title="开发板配置（GEC6818）"></a><strong>开发板配置（GEC6818）</strong></h3><ol>
 <li><p>GEC6818 开发板自带 NFS 客户端，无需额外安装服务。</p>
+</li>
+<li><p>创建挂载点：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /mnt/nfs</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在 <code>/etc/profile</code> 中添加挂载命令，保证开机自动挂载：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ! mount | grep -q <span class="string">&quot;/mnt/nfs&quot;</span>; <span class="keyword">then</span></span><br><span class="line">    mount -t nfs -o nolock,vers=3 192.168.11.??:/media/skyforever/Data/share /mnt/nfs</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
