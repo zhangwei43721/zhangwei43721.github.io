@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://skyforever.top/wiki/LVGL-CarDashboard/</loc>
+    
+    <lastmod>2025-10-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://skyforever.top/data/ES/%E8%BF%9B%E9%98%B6/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B</loc>
     
     <lastmod>2025-10-09</lastmod>
@@ -20,15 +29,6 @@
   </url>
   
   <url>
-    <loc>http://skyforever.top/wiki/LVGL-CarDashboard/usage-obj</loc>
-    
-    <lastmod>2025-09-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://skyforever.top/wiki/LVGL-CarDashboard/usage-main</loc>
     
     <lastmod>2025-09-27</lastmod>
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://skyforever.top/wiki/LVGL-CarDashboard/</loc>
+    <loc>http://skyforever.top/wiki/LVGL-CarDashboard/usage-obj</loc>
     
     <lastmod>2025-09-27</lastmod>
     
