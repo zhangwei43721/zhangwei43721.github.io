@@ -1,0 +1,51 @@
+@startuml
+title TCP Socket通信流程与函数调用时序图
+
+participant Client
+participant Server
+
+== 1. 服务器启动与监听 ==
+note over Server: socket()  // 创建监听套接字(listen_fd)
+note over Server: bind()    // 绑定IP和端口
+note over Server: listen()  // 将套接字设为被动监听状态
+Server -> Server: (进入阻塞，等待连接)
+
+== 2. 客户端发起连接 ==
+note over Client: socket()  // 创建客户端套接字(client_fd)
+Client -> Server: connect() // 发起连接请求，客户端阻塞
+
+group [三次握手 (由内核自动完成)]
+    Client -> Server: SYN
+    Server -> Client: SYN, ACK
+    Client -> Server: ACK
+end
+
+Server -> Client: 连接建立成功
+note over Server: accept() 从阻塞中返回，\n并创建一个新的已连接套接字(conn_fd)
+note over Client: connect() 从阻塞中返回
+
+== 3. 数据交换 ==
+loop 双向通信
+    Client -> Server: send("Hello Server!")
+    note over Server: recv() 从conn_fd读取数据
+    Server -> Client: send("Hi Client!")
+    note over Client: recv() 从client_fd读取数据
+end
+
+== 4. 断开连接 (由客户端发起) ==
+note over Client: close(client_fd) // 关闭连接
+
+group [四次挥手 (由内核自动完成)]
+    Client -> Server: FIN
+    Server -> Client: ACK
+end
+
+note over Server: recv() 从conn_fd读到0字节，\n得知客户端已关闭连接
+note over Server: close(conn_fd) // 服务器关闭对应的连接
+
+group
+    Server -> Client: FIN
+    Client -> Server: ACK
+end
+
+@enduml
