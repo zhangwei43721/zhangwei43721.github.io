@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://skyforever.top/wiki/Smart_Home_System/data-persistence</loc>
+    <loc>http://skyforever.top/wiki/Smart_Home_System/prerequisites</loc>
     
     <lastmod>2025-10-24</lastmod>
     
@@ -11,9 +11,54 @@
   </url>
   
   <url>
-    <loc>http://skyforever.top/wiki/Smart_Home_System/prerequisites</loc>
+    <loc>http://skyforever.top/wiki/Smart_Home_System/code-structure</loc>
     
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/wiki/Smart_Home_System/api-integration</loc>
+    
+    <lastmod>2025-10-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/wiki/Smart_Home_System/mqtt-communication</loc>
+    
+    <lastmod>2025-10-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/wiki/Smart_Home_System/faq</loc>
+    
+    <lastmod>2025-10-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/wiki/Smart_Home_System/peripheral-control</loc>
+    
+    <lastmod>2025-10-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/wiki/Smart_Home_System/data-persistence</loc>
+    
+    <lastmod>2025-10-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -30,24 +75,6 @@
   
   <url>
     <loc>http://skyforever.top/data/ES/%E8%BF%9B%E9%98%B6/MQTT%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0</loc>
-    
-    <lastmod>2025-10-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://skyforever.top/wiki/Smart_Home_System/mqtt-communication</loc>
-    
-    <lastmod>2025-10-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://skyforever.top/wiki/Smart_Home_System/code-structure</loc>
     
     <lastmod>2025-10-23</lastmod>
     
@@ -101,24 +128,6 @@
   </url>
   
   <url>
-    <loc>http://skyforever.top/wiki/Smart_Home_System/peripheral-control</loc>
-    
-    <lastmod>2025-10-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://skyforever.top/wiki/Smart_Home_System/faq</loc>
-    
-    <lastmod>2025-10-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://skyforever.top/wiki/Smart_Home_System/dependencies</loc>
     
     <lastmod>2025-10-22</lastmod>
@@ -138,15 +147,6 @@
   
   <url>
     <loc>http://skyforever.top/wiki/Smart_Home_System/build-system</loc>
-    
-    <lastmod>2025-10-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://skyforever.top/wiki/Smart_Home_System/api-integration</loc>
     
     <lastmod>2025-10-22</lastmod>
     
@@ -575,6 +575,13 @@
   </url>
   
   <url>
+    <loc>http://skyforever.top/tags/linux/</loc>
+    <lastmod>2025-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://skyforever.top/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -611,13 +618,6 @@
   
   <url>
     <loc>http://skyforever.top/tags/VSCode/</loc>
-    <lastmod>2025-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://skyforever.top/tags/linux/</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -661,14 +661,14 @@
 
   
   <url>
-    <loc>http://skyforever.top/categories/Embedded/</loc>
+    <loc>http://skyforever.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://skyforever.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%8A%80%E6%9C%AF/</loc>
+    <loc>http://skyforever.top/categories/Embedded/</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
