@@ -281,7 +281,7 @@
   </url>
   
   <url>
-    <loc>http://skyforever.top/wiki/LVGL-CarDashboard/usage-main</loc>
+    <loc>http://skyforever.top/wiki/LVGL-CarDashboard/usage-obj</loc>
     
     <lastmod>2025-09-27</lastmod>
     
@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>http://skyforever.top/wiki/LVGL-CarDashboard/usage-obj</loc>
+    <loc>http://skyforever.top/wiki/LVGL-CarDashboard/usage-main</loc>
     
     <lastmod>2025-09-27</lastmod>
     
@@ -621,6 +621,13 @@
   </url>
   
   <url>
+    <loc>http://skyforever.top/tags/linux/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://skyforever.top/tags/GitHub/</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -650,13 +657,6 @@
   
   <url>
     <loc>http://skyforever.top/tags/Watt-Toolkit/</loc>
-    <lastmod>2025-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://skyforever.top/tags/linux/</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -768,41 +768,6 @@
   </url>
   
   <url>
-    <loc>http://skyforever.top/tags/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
-    <lastmod>2025-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://skyforever.top/tags/C%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2025-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://skyforever.top/tags/%E8%A3%B8%E6%9C%BA%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2025-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://skyforever.top/tags/%E5%A4%9A%E4%BB%BB%E5%8A%A1/</loc>
-    <lastmod>2025-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://skyforever.top/tags/%E7%8A%B6%E6%80%81%E6%9C%BA/</loc>
-    <lastmod>2025-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://skyforever.top/tags/LVGL/</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -839,6 +804,41 @@
   
   <url>
     <loc>http://skyforever.top/tags/VScode/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/tags/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/tags/C%E8%AF%AD%E8%A8%80/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/tags/%E8%A3%B8%E6%9C%BA%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/tags/%E5%A4%9A%E4%BB%BB%E5%8A%A1/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/tags/%E7%8A%B6%E6%80%81%E6%9C%BA/</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -910,7 +910,7 @@
   </url>
   
   <url>
-    <loc>http://skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
+    <loc>http://skyforever.top/categories/Embedded/</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -924,7 +924,7 @@
   </url>
   
   <url>
-    <loc>http://skyforever.top/categories/Embedded/</loc>
+    <loc>http://skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -932,6 +932,13 @@
   
   <url>
     <loc>http://skyforever.top/categories/%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -946,13 +953,6 @@
   
   <url>
     <loc>http://skyforever.top/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2025-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://skyforever.top/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
