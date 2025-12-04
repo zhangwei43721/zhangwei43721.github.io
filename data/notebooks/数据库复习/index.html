@@ -1,8 +1,1110 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1"><meta name="generator" content="Hexo 7.3.0"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000"><meta name="theme-color" content="#f9fafb"><title>数据库复习 - Sky Blog</title><meta name="description" content="数据库标红内容摘录  简述数据库的三级模式结构（主要背模式的概念） 对用户而言，外模式、模式和内模式分别对应一般用户模式、概念模式和物理模式，它们分别反映了看待数据库的三个角度。  模式也称为概念模式，是数据库中全体数据的逻辑结构和特征的描述，处于三级模式结构的中间层，不涉及数据的物理存储细节和硬件环境，与具体的应用程序、所使用的应用开发工具及高级程序设计语言无关。一个数据库只有一个模式。 （就"><meta property="og:type" content="website"><meta property="og:title" content="数据库复习"><meta property="og:url" content="http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/"><meta property="og:site_name" content="Sky Blog"><meta property="og:description" content="数据库标红内容摘录  简述数据库的三级模式结构（主要背模式的概念） 对用户而言，外模式、模式和内模式分别对应一般用户模式、概念模式和物理模式，它们分别反映了看待数据库的三个角度。  模式也称为概念模式，是数据库中全体数据的逻辑结构和特征的描述，处于三级模式结构的中间层，不涉及数据的物理存储细节和硬件环境，与具体的应用程序、所使用的应用开发工具及高级程序设计语言无关。一个数据库只有一个模式。 （就"><meta property="og:locale" content="zh_CN"><meta property="article:published_time" content="2024-05-23T13:26:01.000Z"><meta property="article:modified_time" content="2024-05-23T13:26:01.000Z"><meta property="article:author" content="Skyforever"><meta property="article:tag" content="计算机科学&#x2F;数据库"><meta name="twitter:card" content="summary"><meta name="keywords" content=""><link rel="stylesheet" href="/css/main.css?v=1.33.1"><link rel="shortcut icon" href="/images/icons/cloud.svg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"name":"数据库复习","description":" 数据库标红内容摘录\n 简述数据库的三级模式结构（主要背模式的概念）\n对用户而言，外模式、模式和内模式分别对应一般用户模式、概念模式和物理模式，它们分别反映了看待数据库的三个角度。\n\n模式也称为概念模式，是数据库中全体数据的逻辑结构和特征的描述，处于三级模式结构的中间层，不涉及数据的物理存储细节和硬件环境，与具体的应用程序、所使用的应用开发工具及高级程序设计语言无关。一个数据库只有一个模式。...","url":"http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/"}</script></head><body><div class="l_body content" id="start" layout="page" type="tech"><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container"><header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0">Write by Skyforever</div></a></div></header><div class="nav-area"><nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a></nav></div><div class="widgets"><div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/note/college" placeholder="在 大学 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div><widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">标签</span></div><div class="widget-body fs14 tag-tree"><div class="tag-subtree leaf-tag expanded" data-tag=""><a class="link" href="/note/college/"><span class="toc-text">所有笔记 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree parent-tag expanded" data-tag="编程语言"><a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="toc-text"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>编程语言 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a><div class="tag-subtree leaf-tag expanded" data-tag="编程语言/c++"><a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>C++ </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="编程语言/c语言"><a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c%E8%AF%AD%E8%A8%80/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>C语言 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="编程语言/java"><a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/java/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>Java </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div></div><div class="tag-subtree parent-tag expanded" data-tag="计算机科学"><a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"><span class="toc-text"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>计算机科学 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a><div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/操作系统"><a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>操作系统 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/数据库"><a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>数据库 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/计算机网络"><a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>计算机网络 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/认证考试"><a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A4%E8%AF%81%E8%80%83%E8%AF%95/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>认证考试 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div></div><div class="tag-subtree parent-tag expanded" data-tag="软件开发"><a class="link" href="/note/college/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/"><span class="toc-text"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>软件开发 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a><div class="tag-subtree leaf-tag expanded" data-tag="软件开发/项目实训"><a class="link" href="/note/college/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%AD/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>项目实训 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div></div></div></widget><widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/"><span class="title">ERP系统开发实训笔记</span></a><a class="item title" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/"><span class="title">计算机二级公共基础知识点考点整理</span></a><a class="item title" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/"><span class="title">计算机二级C语言复习</span></a><a class="item title" href="/data/notebooks/C++%E5%A4%8D%E4%B9%A0/"><span class="title">C++复习</span></a><a class="item title" href="/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/"><span class="title">华为ICT网络赛道初级知识点汇总笔记</span></a><a class="item title" href="/data/notebooks/Java%E5%A4%8D%E4%B9%A0/"><span class="title">Java复习</span></a><a class="item title" href="/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/"><span class="title">数据库复习</span></a><a class="item title" href="/data/notebooks/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/"><span class="title">操作系统入门</span></a></div></widget></div><footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"></a></div></footer></div></aside><div class="l_main" id="main"><div class="article banner top"><div class="content"><div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a> <span class="sep"></span> <a class="cap breadcrumb" href="/notebooks/">笔记本</a> <span class="sep"></span> <a class="cap breadcrumb" href="/note/college/">大学</a></div><div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2024-05-23T13:26:01.000Z">2024-05-23</time></span><span class="sep updated"></span><span class="text updated">发布于：<time datetime="2024-05-23T13:26:01.000Z">2024-05-23</time></span></div></div></div><div class="bottom only-title"><div class="text-area"><h1 class="text title"><span>数据库复习</span></h1></div></div></div></div><article class="md-text content"><h1 id="数据库标红内容摘录"><a class="markdownIt-Anchor" href="#数据库标红内容摘录"></a> 数据库标红内容摘录</h1><h2 id="简述数据库的三级模式结构主要背模式的概念"><a class="markdownIt-Anchor" href="#简述数据库的三级模式结构主要背模式的概念"></a> 简述数据库的三级模式结构（主要背模式的概念）</h2><p>对用户而言，外模式、模式和内模式分别对应一般用户模式、概念模式和物理模式，它们分别反映了看待数据库的三个角度。</p><p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/7da3a3880cd28574004baa906b8159c0.webp" alt="数据库三级模式结构图"></p><p><strong>模式也称为概念模式，是数据库中全体数据的逻辑结构和特征的描述，处于三级模式结构的中间层，不涉及数据的物理存储细节和硬件环境，与具体的应用程序、所使用的应用开发工具及高级程序设计语言无关。一个数据库只有一个模式。</strong></p><p>（就是描述外模式和内模式的映射关系的部分，如你定义一张存了学生选课的信息表）</p><p>外模式又称为子模式或用户模式，是三级模式结构的最外层，是与某一应用有关的数据的逻辑结构，即用户视图。外模式一般是模式的子集，一个数据库可以有多个外模式。</p><p>（就是数据库用户（包括应用程序员和最终用户）最终可以看到的内容，如你给老师和学生分别定义了他们能看选课表的哪些内容）</p><p>内模式又称存储模式或物理模式，是三级模式结构中的最内层，也是靠近物理存储的一层，即与实际存储数据方式有关的一层。它是对数据库存储结构的描述，是数据在数据库内部的表示方式。一个数据库只有一个内模式。</p><p>（数据在数据库上存储的内容，是数据在数据库内部的表示方式，如你定义学生选课信息表的数据按照学生 id 的 B+树索引存储）（例如，记录的存储方式是顺序存储、按照 B 树结构存储还是按 hash 方法存储；索引按照什么方式组织；数据是否压缩存储，是否加密；数据的存储记录结构有何规定）。</p><h2 id="三个世界指什么它们之间有什么联系"><a class="markdownIt-Anchor" href="#三个世界指什么它们之间有什么联系"></a> 三个世界指什么？它们之间有什么联系？</h2><p>三个世界是指现实世界、信息世界和计算机世界。</p><ul><li>现实世界，即客观存在的世界。其中存在着各种事物及它们之间的联系，每个事物都有自己的特征或性质。</li><li>信息世界是现实世界在人们头脑中的反映，经过人脑的分析、归纳和抽象，形成信息，人们把这些信息进行记录、整理、归类和格式化后，就构成了信息世界。</li><li>计算机世界是信息世界中信息的数据化，就是将信息用字符和数值等数据表示，便于存储在计算机中并由计算机进行识别和处理。</li></ul><p>对上面废话的总结：<strong>现实世界的客观事物 → 信息世界（大脑）的抽象实体属性 → 机器世界的数据记录</strong></p><h2 id="举例说明什么是实体完整性和参照完整性"><a class="markdownIt-Anchor" href="#举例说明什么是实体完整性和参照完整性"></a> 举例说明什么是实体完整性和参照完整性</h2><p>实体完整性是指主码的值不能为空或部分为空。</p><p>例如，教材中表 1-3 的课程关系中的主码“课程号”（cno）可以唯一标识一门课程实体。如果主码中的值为空或部分为空，即主属性为空，则不符合关系键的定义条件，不能唯一标识元组及与其相对应的实体。例如，课程关系中的主码“课程号”不能为空，授课关系中的主码“教师号+课程号”不能部分为空，即“教师号”和“课程号”两个字段的取值都不能为空。</p><ul><li><s>（文档里的原话，看不懂思密达~）<strong>参照完整性是指如果关系 R2 的外码 X 与关系 R1 的主码相符，则 X 的每个值或者等于 R1 中主码的某一个值或者取空值。</strong></s><ul><li><s>解释这句话：</s><ul><li><s><strong>关系 R1</strong>：这是一个具有主码（Primary Key）的关系（表）（主表）。主码（主键）是关系中唯一标识每一行的属性或属性组合。例如，学生表中的学号可以作为主码。</s></li><li><s><strong>关系 R2</strong>：这是另一个关系（表），其中包含一个外码（Foreign Key）（从表）。外码（外键）是关系中的一个属性，它与其他关系的主码相关联。例如，选修课表中的课程编号可以作为外码，与学生表中的学号关联。</s></li><li><s>如果关系 R2 的外码 X 与关系 R1 的主码相符，意味着 X 的每个值都必须满足以下条件：</s><ol><li><s>要么等于 R1 中某一行的主码值。</s></li><li><s>要么为空值（即没有对应的主码值）。</s></li></ol></li></ul></li></ul></li><li>用人话解释上面的内容：<strong>如果在学生表和选修课之间用学号建立关联，学生表是主表，选修课是<u>从表</u>，那么，在向选修课表（从表）中输入一条新记录时，系统要检查新记录的学号是否在学生表（主表）中已存在，如果存在，则允许执行输入操作，否则拒绝输入，这就是参照完整性。</strong></li></ul><h2 id="简述相关子查询的过程"><a class="markdownIt-Anchor" href="#简述相关子查询的过程"></a> 简述相关子查询的过程</h2><p>相关子查询的执行顺序是：</p><p>首先，选取父查询表中的第一行记录，子查询利用此行中相关的属性值在子查询设计的基本表中进行查询，然后，父查询根据子查询返回的结果判断父查询表中的此行是否满足查询条件。如果满足条件，则把该行放入父查询的查询结果集合中。重复执行这一过程，直到处理完父查询表中的每一行数据。（这句废话太长，直接看下面的例子理解）</p><p>举个例子， 假设我们有一个名为 <code>employees</code> 的表，其中包含员工的信息（例如员工 ID、姓名、薪水等）。我们想要找出薪水高于所有员工平均薪水的员工。以下是查询语句：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id, first_name, last_name, salary#</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> (<span class="keyword">SELECT</span> <span class="built_in">AVG</span>(salary) <span class="keyword">FROM</span> employees);</span><br><span class="line">#左边是主查询，右边是子查询，语句从左到右依次执行，将主查询的内容一行一行比对</span><br></pre></td></tr></table></figure><p>这将返回薪水高于平均薪水的员工列表。</p><h2 id="视图的作用"><a class="markdownIt-Anchor" href="#视图的作用"></a> 视图的作用</h2><p><strong>提升数据操作的便捷性、提升数据的逻辑独立性、提升数据的安全性、数据集成。</strong></p><p>以下是将图片中的内容直接转换为 Markdown 格式的中文版本，保留了原文的数学符号和格式：</p><hr><h2 id="函数依赖"><a class="markdownIt-Anchor" href="#函数依赖"></a> 函数依赖</h2><p><strong>是关系模式中属性之间的一种逻辑依赖关系</strong></p><p>设有关系模式 ( R(U) )，( U ) 是属性全集，( X ) 和 ( Y ) 是 ( U ) 的子集，如果 ( X \rightarrow Y )，并且对于 ( X ) 的任何一个真子集 ( X’ )，都有 ( X’ \not\rightarrow Y )，则称 ( Y ) 对 ( X ) 完全函数依赖（Full-Functional-Dependency），记作：</p><p>[<br>X \xrightarrow{f} Y<br>]</p><p>如果存在 ( X ) 的某一个真子集 ( X’ )，有 ( X’ \rightarrow Y )，则称 ( Y ) 对 ( X ) 部分函数依赖（Partial-Functional-Dependency），记作：</p><p>[<br>X \xrightarrow{p} Y<br>]</p><p>设有关系模式 ( R(U) )，( U ) 是属性全集，( X, Y, Z ) 是 ( U ) 的子集，若 ( X \rightarrow Y )，但是 ( Y \not\rightarrow X )，而且 ( Y \rightarrow Z )（( Y \in X, Z \in Y )），则称 ( Z ) 对 ( X ) 传递函数依赖（Transitive-Functional-Dependency），记作：</p><p>[<br>X \xrightarrow{t} Z<br>]</p><h2 id="试述-e-r-图转换成关系模型的转换规则"><a class="markdownIt-Anchor" href="#试述-e-r-图转换成关系模型的转换规则"></a> 试述 E-R 图转换成关系模型的转换规则</h2><p><strong>答：E-R 图向关系模型的转换一般应遵循如下原则：</strong></p><p><strong>（1）实体的转换。一个实体型转换为一个关系模式。实体的属性就是关系的属性，实体的码就是关系的码。</strong></p><p><strong>（2）联系的转换。一个联系转化为一个关系模式，与该联系相连的各实体的码以及联系的属性转化为关系的属性，该关系的码则有几种情况：</strong></p><ul><li><strong>若联系为 1:1，则每个实体的码均是该关系的候选码。</strong></li><li><strong>若联系为 1:n，则关系的码为 n 端实体的码。</strong></li><li><strong>若联系为 m:n，则关系的码为诸实体码的组合。</strong></li></ul><p>​ <strong>三个或三个以上实体间的多元联系、同一实体集内的自反联系的转换规则与二元联系相同。</strong></p><p><strong>（3）具有相同码的关系模式可合并。</strong></p><p><strong>下面为了方便理解，举一些例子：</strong></p><p><strong>一、首先了解 E-R 图中常用图形及代表的意思</strong></p><p>​ 1.1 长方形：表示实体。</p><p>​ 实体是客观存在的事物。</p><p>​ 例如用户、商品、订单、供应商等。说直白了，就是数据库的表名就可以做一个实体对象。一个系统是由很多个实体对象构成的，然后它们之间存在一定的关系和属性。</p><p>​ 1.2 椭圆形：表示属性。</p><p>​ 属性分为唯一属性（ unique attribute）和非唯一属性，唯一属性指的是唯一可用来标识该实体实例或者成员的属性，用下划线表示，一般来讲实体都至少有一个唯一属性。</p><p>​ 举个栗子：用户实体拥有属性【id（唯一属性）、姓名、年龄、电话、身份证号（唯一属性）】、商品实体拥有属性【id、商品名称、商品类型、商品价格、商品图片、商品描述、供应商名称】、订单实体拥有属性【id、订单编号、用户名称、商品名称、下单日期】、供应商实体拥有属性【id、名称、地址、联系电话】。</p><p>​ 1.3 菱形：表示关系。</p><p>​ 例如用户和商品应该购买关系（一个用户购买多件商品）、订单与商品应该是包含关系（一个订单中包含多件商品）。</p><p><strong>二、ER 图中关联关系有三种</strong></p><p>​ **一对一（1:1） ：**1 对 1 关系是指对于实体集 A 与实体集 B，A 中的每一个实体至多与 B 中一个实体有关系；反之，在实体集 B 中的每个实体至多与实体集 A 中一个实体有关系。</p><p>​ 例如：一个用户只能拥有一张身份证，而一张身份证只属于一个用户。所以这就是一对一的关系。</p><p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/3f023ec77a4e240b8e073a02bc582e25.webp" alt="一对一关系图"></p><p>​ **一对多（1:n） ：**1 对多关系是指实体集 A 与实体集 B 中至少有 n(n&gt;0)个实体有关系；并且实体集 B 中每一个实体至多与实体集 A 中一个实体有关系。</p><p>​ 例如：一对多和多对一是一样的。一个用户拥有多张银行卡，但是一张银行卡只属于一个用户。所以这就是一对多的关系。反过来说法就是多对一。</p><p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/06ac9b93525fa50a25e181d655fca159.webp" alt="一对多关系图"></p><p>​ **多对多（m:n） ：**多对多关系是指实体集 A 中的每一个实体与实体集 B 中至少有 m(m&gt;0)个实体有关系，并且实体集 B 中的每一个实体与实体集 A 中的至少 n（n&gt;0）个实体有关系。</p><p>​ 例如：用户与商品的关系，一个用户可拥有多件商品。同样一件商品可被多个用户所拥有。所以这就是多对多的关系。</p><p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/055b606d556a6c37827d491507b20732.webp" alt="多对多关系图"></p><h3 id="实体的转换"><a class="markdownIt-Anchor" href="#实体的转换"></a> 实体的转换</h3><p>每个实体型转换为一个关系模式。例如，我们有一个学生实体（Student）和一个课程实体（Course）。</p><p>转换后的关系模式：</p><ul><li>学生(学号, 姓名, 年龄)</li><li>课程(课程号, 课程名称, 学分)</li></ul><p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/0b7b02b17b7f323af0bb13d57359ff61.webp" alt="两个实体"></p><h3 id="具有相同码的关系模式可合并"><a class="markdownIt-Anchor" href="#具有相同码的关系模式可合并"></a> 具有相同码的关系模式可合并</h3><p>如果两个关系模式具有相同的码，它们可以合并。例如，一个人有基本信息和联系信息，且码都是身份证号。</p><p>转换后的关系模式可以合并为一个：</p><ul><li>人(身份证号, 姓名, 年龄, 邮箱, 电话)<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/cd77ad484786fa3de5197c8a0de9049b.webp" alt="合并关系"></li></ul><h2 id="简述数据库设计的基本步骤"><a class="markdownIt-Anchor" href="#简述数据库设计的基本步骤"></a> <strong>简述数据库设计的基本步骤。</strong></h2><p><strong>主要步骤：① 需求分析 ② 概念模型设计 ③ 逻辑模型设计 ④ 物理模型设计 ⑤ 数据库的实施 ⑥ 数据库的维护</strong></p><h2 id="游标"><a class="markdownIt-Anchor" href="#游标"></a> 游标</h2><p><strong>是一种能够从包括多条数据记录的结果集中进行逐条访问这些记录的机制。</strong></p><p>可以将游标看作一种特殊的指针，它与某个查询结果集相关联，可以指向结果集的任意位置，可以将数据放在数组、应用程序中或其他的地方，允许数据库用户对指定位置的数据进行处理。</p><h2 id="触发器trigger"><a class="markdownIt-Anchor" href="#触发器trigger"></a> 触发器（TRIGGER）</h2><p><strong>是在满足一定条件下自动触发执行的数据库对象，如向表中插入记录、更新记录或者删除记录时被系统自动地触发并执行的特殊类型的存储过程。触发器的作用是可以对表执行复杂的完整性约束。</strong></p><div class="tag-list"><a class="tag" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%BA%93/">计算机科学/数据库</a></div></article><div class="article-footer"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p></div></section><section id="share"><div class="header"><span>分享文章</span></div><div class="body"><div class="link"><input class="copy-area" readonly id="copy-link" value="http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0"></div><div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg"></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0&title=数据库复习 - Sky Blog&summary= 数据库标红内容摘录
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>数据库复习 - Sky Blog</title>
+
+  
+    <meta name="description" content="数据库标红内容摘录  简述数据库的三级模式结构（主要背模式的概念） 对用户而言，外模式、模式和内模式分别对应一般用户模式、概念模式和物理模式，它们分别反映了看待数据库的三个角度。  模式也称为概念模式，是数据库中全体数据的逻辑结构和特征的描述，处于三级模式结构的中间层，不涉及数据的物理存储细节和硬件环境，与具体的应用程序、所使用的应用开发工具及高级程序设计语言无关。一个数据库只有一个模式。 （就">
+<meta property="og:type" content="website">
+<meta property="og:title" content="数据库复习">
+<meta property="og:url" content="http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/">
+<meta property="og:site_name" content="Sky Blog">
+<meta property="og:description" content="数据库标红内容摘录  简述数据库的三级模式结构（主要背模式的概念） 对用户而言，外模式、模式和内模式分别对应一般用户模式、概念模式和物理模式，它们分别反映了看待数据库的三个角度。  模式也称为概念模式，是数据库中全体数据的逻辑结构和特征的描述，处于三级模式结构的中间层，不涉及数据的物理存储细节和硬件环境，与具体的应用程序、所使用的应用开发工具及高级程序设计语言无关。一个数据库只有一个模式。 （就">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-23T13:26:01.000Z">
+<meta property="article:modified_time" content="2024-05-23T13:26:01.000Z">
+<meta property="article:author" content="Skyforever">
+<meta property="article:tag" content="计算机科学&#x2F;数据库">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/icons/cloud.svg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"name":"数据库复习","description":" 数据库标红内容摘录\n 简述数据库的三级模式结构（主要背模式的概念）\n对用户而言，外模式、模式和内模式分别对应一般用户模式、概念模式和物理模式，它们分别反映了看待数据库的三个角度。\n\n模式也称为概念模式，是数据库中全体数据的逻辑结构和特征的描述，处于三级模式结构的中间层，不涉及数据的物理存储细节和硬件环境，与具体的应用程序、所使用的应用开发工具及高级程序设计语言无关。一个数据库只有一个模式。...","url":"http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/"}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="page" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/note/college" placeholder="在 大学 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <widget class="widget-wrapper post-list">
+    <div class="widget-header dis-select">
+      <span class="name">标签</span>
+    </div>
+    <div class="widget-body fs14 tag-tree">
+      
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="">
+    
+  
+  <a class="link" href="/note/college/">
+    <span class="toc-text">
+      
+        所有笔记
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+      
+        
+  
+  
+  
+  
+  <div class="tag-subtree parent-tag expanded" data-tag="编程语言">
+    
+  
+  <a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
+    <span class="toc-text">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        编程语言
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+      
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="编程语言/c++">
+    
+  
+  <a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        C++
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="编程语言/c语言">
+    
+  
+  <a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c%E8%AF%AD%E8%A8%80/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        C语言
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="编程语言/java">
+    
+  
+  <a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/java/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        Java
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+
+    
+  </div>
+
+      
+        
+  
+  
+  
+  
+  <div class="tag-subtree parent-tag expanded" data-tag="计算机科学">
+    
+  
+  <a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">
+    <span class="toc-text">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        计算机科学
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+      
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/操作系统">
+    
+  
+  <a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        操作系统
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/数据库">
+    
+  
+  <a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        数据库
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/计算机网络">
+    
+  
+  <a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        计算机网络
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/认证考试">
+    
+  
+  <a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A4%E8%AF%81%E8%80%83%E8%AF%95/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        认证考试
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+
+    
+  </div>
+
+      
+        
+  
+  
+  
+  
+  <div class="tag-subtree parent-tag expanded" data-tag="软件开发">
+    
+  
+  <a class="link" href="/note/college/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">
+    <span class="toc-text">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        软件开发
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+      
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="软件开发/项目实训">
+    
+  
+  <a class="link" href="/note/college/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%AD/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        项目实训
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+
+    
+  </div>
+
+      
+    </div>
+  </widget>
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/"><span class="title">ERP系统开发实训笔记</span></a><a class="item title" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/"><span class="title">计算机二级公共基础知识点考点整理</span></a><a class="item title" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/"><span class="title">计算机二级C语言复习</span></a><a class="item title" href="/data/notebooks/C++%E5%A4%8D%E4%B9%A0/"><span class="title">C++复习</span></a><a class="item title" href="/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/"><span class="title">华为ICT网络赛道初级知识点汇总笔记</span></a><a class="item title" href="/data/notebooks/Java%E5%A4%8D%E4%B9%A0/"><span class="title">Java复习</span></a><a class="item title" href="/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/"><span class="title">数据库复习</span></a><a class="item title" href="/data/notebooks/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/"><span class="title">操作系统入门</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span>
+<a class="cap breadcrumb" href="/notebooks/">笔记本</a>
+
+
+  <span class="sep"></span>
+  <a class="cap breadcrumb" href="/note/college/">大学</a>
+
+</div>
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2024-05-23T13:26:01.000Z">2024-05-23</time></span><span class="sep updated"></span><span class="text updated">发布于：<time datetime="2024-05-23T13:26:01.000Z">2024-05-23</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>数据库复习</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="数据库标红内容摘录"><a class="markdownIt-Anchor" href="#数据库标红内容摘录"></a> 数据库标红内容摘录</h1>
+<h2 id="简述数据库的三级模式结构主要背模式的概念"><a class="markdownIt-Anchor" href="#简述数据库的三级模式结构主要背模式的概念"></a> 简述数据库的三级模式结构（主要背模式的概念）</h2>
+<p>对用户而言，外模式、模式和内模式分别对应一般用户模式、概念模式和物理模式，它们分别反映了看待数据库的三个角度。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/7da3a3880cd28574004baa906b8159c0.webp" alt="数据库三级模式结构图" /></p>
+<p><strong>模式也称为概念模式，是数据库中全体数据的逻辑结构和特征的描述，处于三级模式结构的中间层，不涉及数据的物理存储细节和硬件环境，与具体的应用程序、所使用的应用开发工具及高级程序设计语言无关。一个数据库只有一个模式。</strong></p>
+<p>（就是描述外模式和内模式的映射关系的部分，如你定义一张存了学生选课的信息表）</p>
+<p>外模式又称为子模式或用户模式，是三级模式结构的最外层，是与某一应用有关的数据的逻辑结构，即用户视图。外模式一般是模式的子集，一个数据库可以有多个外模式。</p>
+<p>（就是数据库用户（包括应用程序员和最终用户）最终可以看到的内容，如你给老师和学生分别定义了他们能看选课表的哪些内容）</p>
+<p>内模式又称存储模式或物理模式，是三级模式结构中的最内层，也是靠近物理存储的一层，即与实际存储数据方式有关的一层。它是对数据库存储结构的描述，是数据在数据库内部的表示方式。一个数据库只有一个内模式。</p>
+<p>（数据在数据库上存储的内容，是数据在数据库内部的表示方式，如你定义学生选课信息表的数据按照学生 id 的 B+树索引存储）（例如，记录的存储方式是顺序存储、按照 B 树结构存储还是按 hash 方法存储；索引按照什么方式组织；数据是否压缩存储，是否加密；数据的存储记录结构有何规定）。</p>
+<h2 id="三个世界指什么它们之间有什么联系"><a class="markdownIt-Anchor" href="#三个世界指什么它们之间有什么联系"></a> 三个世界指什么？它们之间有什么联系？</h2>
+<p>三个世界是指现实世界、信息世界和计算机世界。</p>
+<ul>
+<li>现实世界，即客观存在的世界。其中存在着各种事物及它们之间的联系，每个事物都有自己的特征或性质。</li>
+<li>信息世界是现实世界在人们头脑中的反映，经过人脑的分析、归纳和抽象，形成信息，人们把这些信息进行记录、整理、归类和格式化后，就构成了信息世界。</li>
+<li>计算机世界是信息世界中信息的数据化，就是将信息用字符和数值等数据表示，便于存储在计算机中并由计算机进行识别和处理。</li>
+</ul>
+<p>对上面废话的总结：<strong>现实世界的客观事物 → 信息世界（大脑）的抽象实体属性 → 机器世界的数据记录</strong></p>
+<h2 id="举例说明什么是实体完整性和参照完整性"><a class="markdownIt-Anchor" href="#举例说明什么是实体完整性和参照完整性"></a> 举例说明什么是实体完整性和参照完整性</h2>
+<p>实体完整性是指主码的值不能为空或部分为空。</p>
+<p>例如，教材中表 1-3 的课程关系中的主码“课程号”（cno）可以唯一标识一门课程实体。如果主码中的值为空或部分为空，即主属性为空，则不符合关系键的定义条件，不能唯一标识元组及与其相对应的实体。例如，课程关系中的主码“课程号”不能为空，授课关系中的主码“教师号+课程号”不能部分为空，即“教师号”和“课程号”两个字段的取值都不能为空。</p>
+<ul>
+<li><s>（文档里的原话，看不懂思密达~）<strong>参照完整性是指如果关系 R2 的外码 X 与关系 R1 的主码相符，则 X 的每个值或者等于 R1 中主码的某一个值或者取空值。</strong></s>
+<ul>
+<li><s>解释这句话：</s>
+<ul>
+<li><s><strong>关系 R1</strong>：这是一个具有主码（Primary Key）的关系（表）（主表）。主码（主键）是关系中唯一标识每一行的属性或属性组合。例如，学生表中的学号可以作为主码。</s></li>
+<li><s><strong>关系 R2</strong>：这是另一个关系（表），其中包含一个外码（Foreign Key）（从表）。外码（外键）是关系中的一个属性，它与其他关系的主码相关联。例如，选修课表中的课程编号可以作为外码，与学生表中的学号关联。</s></li>
+<li><s>如果关系 R2 的外码 X 与关系 R1 的主码相符，意味着 X 的每个值都必须满足以下条件：</s>
+<ol>
+<li><s>要么等于 R1 中某一行的主码值。</s></li>
+<li><s>要么为空值（即没有对应的主码值）。</s></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>用人话解释上面的内容：<strong>如果在学生表和选修课之间用学号建立关联，学生表是主表，选修课是<u>从表</u>，那么，在向选修课表（从表）中输入一条新记录时，系统要检查新记录的学号是否在学生表（主表）中已存在，如果存在，则允许执行输入操作，否则拒绝输入，这就是参照完整性。</strong></li>
+</ul>
+<h2 id="简述相关子查询的过程"><a class="markdownIt-Anchor" href="#简述相关子查询的过程"></a> 简述相关子查询的过程</h2>
+<p>相关子查询的执行顺序是：</p>
+<p>首先，选取父查询表中的第一行记录，子查询利用此行中相关的属性值在子查询设计的基本表中进行查询，然后，父查询根据子查询返回的结果判断父查询表中的此行是否满足查询条件。如果满足条件，则把该行放入父查询的查询结果集合中。重复执行这一过程，直到处理完父查询表中的每一行数据。（这句废话太长，直接看下面的例子理解）</p>
+<p>举个例子， 假设我们有一个名为 <code>employees</code> 的表，其中包含员工的信息（例如员工 ID、姓名、薪水等）。我们想要找出薪水高于所有员工平均薪水的员工。以下是查询语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id, first_name, last_name, salary#</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> (<span class="keyword">SELECT</span> <span class="built_in">AVG</span>(salary) <span class="keyword">FROM</span> employees);</span><br><span class="line">#左边是主查询，右边是子查询，语句从左到右依次执行，将主查询的内容一行一行比对</span><br></pre></td></tr></table></figure>
+<p>这将返回薪水高于平均薪水的员工列表。</p>
+<h2 id="视图的作用"><a class="markdownIt-Anchor" href="#视图的作用"></a> 视图的作用</h2>
+<p><strong>提升数据操作的便捷性、提升数据的逻辑独立性、提升数据的安全性、数据集成。</strong></p>
+<p>以下是将图片中的内容直接转换为 Markdown 格式的中文版本，保留了原文的数学符号和格式：</p>
+<hr />
+<h2 id="函数依赖"><a class="markdownIt-Anchor" href="#函数依赖"></a> 函数依赖</h2>
+<p><strong>是关系模式中属性之间的一种逻辑依赖关系</strong></p>
+<p>设有关系模式 ( R(U) )，( U ) 是属性全集，( X ) 和 ( Y ) 是 ( U ) 的子集，如果 ( X \rightarrow Y )，并且对于 ( X ) 的任何一个真子集 ( X’ )，都有 ( X’ \not\rightarrow Y )，则称 ( Y ) 对 ( X ) 完全函数依赖（Full-Functional-Dependency），记作：</p>
+<p>[<br />
+X \xrightarrow{f} Y<br />
+]</p>
+<p>如果存在 ( X ) 的某一个真子集 ( X’ )，有 ( X’ \rightarrow Y )，则称 ( Y ) 对 ( X ) 部分函数依赖（Partial-Functional-Dependency），记作：</p>
+<p>[<br />
+X \xrightarrow{p} Y<br />
+]</p>
+<p>设有关系模式 ( R(U) )，( U ) 是属性全集，( X, Y, Z ) 是 ( U ) 的子集，若 ( X \rightarrow Y )，但是 ( Y \not\rightarrow X )，而且 ( Y \rightarrow Z )（( Y \in X, Z \in Y )），则称 ( Z ) 对 ( X ) 传递函数依赖（Transitive-Functional-Dependency），记作：</p>
+<p>[<br />
+X \xrightarrow{t} Z<br />
+]</p>
+<h2 id="试述-e-r-图转换成关系模型的转换规则"><a class="markdownIt-Anchor" href="#试述-e-r-图转换成关系模型的转换规则"></a> 试述 E-R 图转换成关系模型的转换规则</h2>
+<p><strong>答：E-R 图向关系模型的转换一般应遵循如下原则：</strong></p>
+<p><strong>（1）实体的转换。一个实体型转换为一个关系模式。实体的属性就是关系的属性，实体的码就是关系的码。</strong></p>
+<p><strong>（2）联系的转换。一个联系转化为一个关系模式，与该联系相连的各实体的码以及联系的属性转化为关系的属性，该关系的码则有几种情况：</strong></p>
+<ul>
+<li><strong>若联系为 1:1，则每个实体的码均是该关系的候选码。</strong></li>
+<li><strong>若联系为 1:n，则关系的码为 n 端实体的码。</strong></li>
+<li><strong>若联系为 m:n，则关系的码为诸实体码的组合。</strong></li>
+</ul>
+<p>​ <strong>三个或三个以上实体间的多元联系、同一实体集内的自反联系的转换规则与二元联系相同。</strong></p>
+<p><strong>（3）具有相同码的关系模式可合并。</strong></p>
+<p><strong>下面为了方便理解，举一些例子：</strong></p>
+<p><strong>一、首先了解 E-R 图中常用图形及代表的意思</strong></p>
+<p>​ 1.1 长方形：表示实体。</p>
+<p>​ 实体是客观存在的事物。</p>
+<p>​ 例如用户、商品、订单、供应商等。说直白了，就是数据库的表名就可以做一个实体对象。一个系统是由很多个实体对象构成的，然后它们之间存在一定的关系和属性。</p>
+<p>​ 1.2 椭圆形：表示属性。</p>
+<p>​ 属性分为唯一属性（ unique attribute）和非唯一属性，唯一属性指的是唯一可用来标识该实体实例或者成员的属性，用下划线表示，一般来讲实体都至少有一个唯一属性。</p>
+<p>​ 举个栗子：用户实体拥有属性【id（唯一属性）、姓名、年龄、电话、身份证号（唯一属性）】、商品实体拥有属性【id、商品名称、商品类型、商品价格、商品图片、商品描述、供应商名称】、订单实体拥有属性【id、订单编号、用户名称、商品名称、下单日期】、供应商实体拥有属性【id、名称、地址、联系电话】。</p>
+<p>​ 1.3 菱形：表示关系。</p>
+<p>​ 例如用户和商品应该购买关系（一个用户购买多件商品）、订单与商品应该是包含关系（一个订单中包含多件商品）。</p>
+<p><strong>二、ER 图中关联关系有三种</strong></p>
+<p>​ **一对一（1:1） ：**1 对 1 关系是指对于实体集 A 与实体集 B，A 中的每一个实体至多与 B 中一个实体有关系；反之，在实体集 B 中的每个实体至多与实体集 A 中一个实体有关系。</p>
+<p>​ 例如：一个用户只能拥有一张身份证，而一张身份证只属于一个用户。所以这就是一对一的关系。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/3f023ec77a4e240b8e073a02bc582e25.webp" alt="一对一关系图" /></p>
+<p>​ **一对多（1:n） ：**1 对多关系是指实体集 A 与实体集 B 中至少有 n(n&gt;0)个实体有关系；并且实体集 B 中每一个实体至多与实体集 A 中一个实体有关系。</p>
+<p>​ 例如：一对多和多对一是一样的。一个用户拥有多张银行卡，但是一张银行卡只属于一个用户。所以这就是一对多的关系。反过来说法就是多对一。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/06ac9b93525fa50a25e181d655fca159.webp" alt="一对多关系图" /></p>
+<p>​ **多对多（m:n） ：**多对多关系是指实体集 A 中的每一个实体与实体集 B 中至少有 m(m&gt;0)个实体有关系，并且实体集 B 中的每一个实体与实体集 A 中的至少 n（n&gt;0）个实体有关系。</p>
+<p>​ 例如：用户与商品的关系，一个用户可拥有多件商品。同样一件商品可被多个用户所拥有。所以这就是多对多的关系。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/055b606d556a6c37827d491507b20732.webp" alt="多对多关系图" /></p>
+<h3 id="实体的转换"><a class="markdownIt-Anchor" href="#实体的转换"></a> 实体的转换</h3>
+<p>每个实体型转换为一个关系模式。例如，我们有一个学生实体（Student）和一个课程实体（Course）。</p>
+<p>转换后的关系模式：</p>
+<ul>
+<li>学生(学号, 姓名, 年龄)</li>
+<li>课程(课程号, 课程名称, 学分)</li>
+</ul>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/0b7b02b17b7f323af0bb13d57359ff61.webp" alt="两个实体" /></p>
+<h3 id="具有相同码的关系模式可合并"><a class="markdownIt-Anchor" href="#具有相同码的关系模式可合并"></a> 具有相同码的关系模式可合并</h3>
+<p>如果两个关系模式具有相同的码，它们可以合并。例如，一个人有基本信息和联系信息，且码都是身份证号。</p>
+<p>转换后的关系模式可以合并为一个：</p>
+<ul>
+<li>人(身份证号, 姓名, 年龄, 邮箱, 电话)<br />
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/cd77ad484786fa3de5197c8a0de9049b.webp" alt="合并关系" /></li>
+</ul>
+<h2 id="简述数据库设计的基本步骤"><a class="markdownIt-Anchor" href="#简述数据库设计的基本步骤"></a> <strong>简述数据库设计的基本步骤。</strong></h2>
+<p><strong>主要步骤：① 需求分析 ② 概念模型设计 ③ 逻辑模型设计 ④ 物理模型设计 ⑤ 数据库的实施 ⑥ 数据库的维护</strong></p>
+<h2 id="游标"><a class="markdownIt-Anchor" href="#游标"></a> 游标</h2>
+<p><strong>是一种能够从包括多条数据记录的结果集中进行逐条访问这些记录的机制。</strong></p>
+<p>可以将游标看作一种特殊的指针，它与某个查询结果集相关联，可以指向结果集的任意位置，可以将数据放在数组、应用程序中或其他的地方，允许数据库用户对指定位置的数据进行处理。</p>
+<h2 id="触发器trigger"><a class="markdownIt-Anchor" href="#触发器trigger"></a> 触发器（TRIGGER）</h2>
+<p><strong>是在满足一定条件下自动触发执行的数据库对象，如向表中插入记录、更新记录或者删除记录时被系统自动地触发并执行的特殊类型的存储过程。触发器的作用是可以对表执行复杂的完整性约束。</strong></p>
+
+
+  <div class="tag-list">
+    
+      
+      <a class="tag" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%BA%93/">计算机科学/数据库</a>
+    
+  </div>
+
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0&title=数据库复习 - Sky Blog&summary= 数据库标红内容摘录
  简述数据库的三级模式结构（主要背模式的概念）
 对用户而言，外模式、模式和内模式分别对应一般用户模式、概念模式和物理模式，它们分别反映了看待数据库的三个角度。
 
-模式也称为概念模式，是数据库中全体数据的逻辑结构和..."><img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg"></a><a class="social share-item email" href="mailto:?subject=数据库复习 - Sky Blog&amp;body=http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0"><img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg"></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg"></a></div><div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0"><img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0"></div></div></section></div><div class="related-wrap md-text" id="comments"><section class="header cmt-title cap theme"><p>快来参与讨论吧~</p></section><section class="body cmt-body giscus"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg><div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div></section></div><footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/UEC/">大学生扫盲</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13"> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p></div></footer><div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right"><div class="widgets"><widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E7%BA%A2%E5%86%85%E5%AE%B9%E6%91%98%E5%BD%95"><span class="toc-text">数据库标红内容摘录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E4%B8%BB%E8%A6%81%E8%83%8C%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text">简述数据库的三级模式结构（主要背模式的概念）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E4%B8%96%E7%95%8C%E6%8C%87%E4%BB%80%E4%B9%88%E5%AE%83%E4%BB%AC%E4%B9%8B%E9%97%B4%E6%9C%89%E4%BB%80%E4%B9%88%E8%81%94%E7%B3%BB"><span class="toc-text">三个世界指什么？它们之间有什么联系？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E5%92%8C%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="toc-text">举例说明什么是实体完整性和参照完整性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0%E7%9B%B8%E5%85%B3%E5%AD%90%E6%9F%A5%E8%AF%A2%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">简述相关子查询的过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">视图的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96"><span class="toc-text">函数依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%95%E8%BF%B0-e-r-%E5%9B%BE%E8%BD%AC%E6%8D%A2%E6%88%90%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><span class="toc-text">试述 E-R 图转换成关系模型的转换规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-text">实体的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E6%9C%89%E7%9B%B8%E5%90%8C%E7%A0%81%E7%9A%84%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%E5%8F%AF%E5%90%88%E5%B9%B6"><span class="toc-text">具有相同码的关系模式可合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="toc-text">简述数据库设计的基本步骤。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%A0%87"><span class="toc-text">游标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8trigger"><span class="toc-text">触发器（TRIGGER）</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget></div></aside><div class="float-panel"><button type="button" style="display:none" class="laptop-only rightbar-toggle mobile" onclick="sidebar.rightbar()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></button> <button type="button" style="display:none" class="mobile-only leftbar-toggle mobile" onclick="sidebar.leftbar()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg></button></div></div><div class="scripts"><script>window.canonical={originalHost:null,officialHosts:["localhost"],encoded:""};let ctx={date_suffix:{just:"刚刚",min:"分钟前",hour:"小时前",day:"天前"},root:"/",tag_plugins:{chat:Object.assign({api:"https://siteinfo.listentothewind.cn/api/v1"})},search:{}};if((ctx.search.service="local_search")==ctx.search.service){let e=Object.assign({},'{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}');ctx.search[ctx.search.service]=e}let def={avatar:"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg",cover:"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg",loading:"https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd"},deps={jquery:"https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js",marked:"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js",lazyload:"/%5Bobject%20Object%5D"}</script><script>function RunItem(){function o(e,t){this.name=t||e.name,this.run=()=>{try{e()}catch(e){console.log(e)}}}this.list=[],this.start=()=>{for(var e=0;e<this.list.length;e++)this.list[e].run()},this.push=(e,t,r=!0)=>{let i=e,s=new o(i=r?()=>{utils.requestAnimationFrame(e)}:i,t);this.list.push(s)},this.remove=t=>{for(let e=0;e<this.list.length;e++)this.list[e].name==t&&this.list.splice(e,1)}}let utils={css:(e,t,r,i)=>{var s,o,a=window.document,n=a.createElement("link"),l=(o=t||(s=(a.body||a.getElementsByTagName("head")[0]).childNodes)[s.length-1],a.styleSheets);if(i)for(var d in i)i.hasOwnProperty(d)&&n.setAttribute(d,i[d]);n.rel="stylesheet",n.href=e,n.media="only x",function e(t){if(a.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(n,t?o:o.nextSibling)});function u(e){for(var t=n.href,r=l.length;r--;)if(l[r].href===t)return e();setTimeout(function(){u(e)})}function h(){n.addEventListener&&n.removeEventListener("load",h),n.media=r||"all"}return n.addEventListener&&n.addEventListener("load",h),n.onloadcssdefined=u,u(h),n},js:(s,o)=>new Promise((t,e)=>{var r=document.createElement("script");if(s.startsWith("/")&&(s=ctx.root+s.substring(1)),r.src=s,o)for(var i of Object.keys(o))r[i]=o[i];else r.async=!0;r.onerror=e,r.onload=r.onreadystatechange=function(){var e=this.readyState;e&&"loaded"!==e&&"complete"!==e||(r.onload=r.onreadystatechange=null,t())},document.head.appendChild(r)}),jq:e=>{"undefined"==typeof jQuery?utils.js(deps.jquery).then(e):e()},onLoading:e=>{e&&$(e).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>')},onLoadSuccess:e=>{e&&$(e).find(".loading-wrap").remove()},onLoadFailure:e=>{e&&($(e).find(".loading-wrap svg").remove(),$(e).find(".loading-wrap").append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>'),$(e).find(".loading-wrap").addClass("error"))},request:(a,e,n,l)=>{let d=0;return new Promise((i,s)=>{let o=()=>{utils.onLoading?.(a);let t=!1,r=setTimeout(()=>{t=!0,console.warn("[request] 超时:",e),3<=++d?(utils.onLoadFailure?.(a),l?.(),s("请求超时")):setTimeout(o,1e3)},5e3);fetch(e).then(e=>{if(!t){if(clearTimeout(r),e.ok)return e;throw new Error("响应失败")}}).then(e=>{t||(utils.onLoadSuccess?.(a),n(e),i(e))}).catch(e=>{clearTimeout(r),console.warn("[request] 错误:",e),3<=++d?(utils.onLoadFailure?.(a),l?.(),s(e)):setTimeout(o,1e3)})};o()})},requestWithoutLoading:(e,a={},n=2,l=5e3)=>new Promise((r,i)=>{let s=0,o=()=>{let t=setTimeout(()=>{++s>n?i("timeout"):o()},l);fetch(e,a).then(e=>{if(clearTimeout(t),!e.ok)throw new Error("bad response");r(e)}).catch(e=>{clearTimeout(t),++s>n?i(e):setTimeout(o,500)})};o()}),requestAnimationFrame:e=>{window.requestAnimationFrame||(window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame),window.requestAnimationFrame(e)},dark:{}};utils.dark.method={toggle:new RunItem},utils.dark=Object.assign(utils.dark,{push:utils.dark.method.toggle.push})</script><script>let sidebar={leftbar:()=>{l_body&&(l_body.toggleAttribute("leftbar"),l_body.removeAttribute("rightbar"))},rightbar:()=>{l_body&&(l_body.toggleAttribute("rightbar"),l_body.removeAttribute("leftbar"))},dismiss:()=>{l_body&&(l_body.removeAttribute("leftbar"),l_body.removeAttribute("rightbar"))},toggleTOC:()=>{document.querySelector("#data-toc").classList.toggle("collapse")}}</script><script>(()=>{var e;for(e of document.querySelectorAll(".tag-subtree.parent-tag > a > .tag-switcher-wrapper"))e.addEventListener("click",e=>{e.target.closest(".tag-subtree.parent-tag").classList.toggle("expanded"),e.preventDefault()});var t=new URLSearchParams(window.location.search).get("tag");if(t){let e=document.querySelector(`.tag-subtree[data-tag="${t}"]`);if(e)for(e.querySelector("a").classList.add("active");e;)e.classList.add("expanded"),e=e.parentElement.closest(".tag-subtree.parent-tag")}})()</script><script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script><script>window.lazyLoadOptions={elements_selector:".lazy",callback_loaded:e=>{e.classList.add("loaded");e=e.closest(".lazy-box")?.querySelector(".lazy-icon");e&&e.remove()}},window.addEventListener("LazyLoad::Initialized",function(e){window.lazyLoadInstance=e.detail.instance},!1),document.addEventListener("DOMContentLoaded",function(){window.lazyLoadInstance?.update()}),window.wrapLazyloadImages=e=>{(e="string"==typeof e?document.querySelector(e):e)&&(e.querySelectorAll("img").forEach(e=>{var a,t,d;e.classList.contains("lazy")||(d=e.getAttribute("src"))&&((a=document.createElement("div")).className="lazy-box",(t=e.cloneNode()).removeAttribute("src"),t.setAttribute("data-src",d),t.classList.add("lazy"),(d=document.createElement("div")).className="lazy-icon",def.loading&&(d.style.backgroundImage=`url("${def.loading}")`),a.appendChild(t),a.appendChild(d),e.replaceWith(a))}),window.lazyLoadInstance?.update)&&window.lazyLoadInstance.update()}</script><script src="/js/main.js?v=1.33.1" defer></script><script>let applyTheme=e=>{"auto"===e?document.documentElement.removeAttribute("data-theme"):document.documentElement.setAttribute("data-theme",e)},applyThemeToGiscus=e=>{var t=document.getElementById("giscus"),t=(t&&t.setAttribute("data-theme",e),document.querySelector("#comments > section.giscus > iframe"));t&&(e=t.src.replace(/theme=[\w]+/,"theme="+e),t.src=e)},switchTheme=()=>{let e;switch(document.documentElement.getAttribute("data-theme")){case"light":e="dark";break;case"dark":e="auto";break;default:e="light"}applyTheme(e),window.localStorage.setItem("Stellar.theme",e),utils.dark.mode="auto"===e?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":e,utils.dark.method.toggle.start(),hud?.toast?.({light:"切换到浅色模式",dark:"切换到深色模式",auto:"切换到跟随系统配色"}[e])};(()=>{var e=window.localStorage.getItem("Stellar.theme");null!==e?applyTheme(e):utils.dark.mode=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",utils.dark.method.toggle.start()})()</script><script type="module">const el = document.querySelector('#comments #giscus');
+模式也称为概念模式，是数据库中全体数据的逻辑结构和..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=数据库复习 - Sky Blog&amp;body=http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/UEC/">大学生扫盲</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br />
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br />
+<img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E7%BA%A2%E5%86%85%E5%AE%B9%E6%91%98%E5%BD%95"><span class="toc-text"> 数据库标红内容摘录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E4%B8%BB%E8%A6%81%E8%83%8C%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text"> 简述数据库的三级模式结构（主要背模式的概念）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E4%B8%96%E7%95%8C%E6%8C%87%E4%BB%80%E4%B9%88%E5%AE%83%E4%BB%AC%E4%B9%8B%E9%97%B4%E6%9C%89%E4%BB%80%E4%B9%88%E8%81%94%E7%B3%BB"><span class="toc-text"> 三个世界指什么？它们之间有什么联系？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E5%92%8C%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="toc-text"> 举例说明什么是实体完整性和参照完整性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0%E7%9B%B8%E5%85%B3%E5%AD%90%E6%9F%A5%E8%AF%A2%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text"> 简述相关子查询的过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text"> 视图的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96"><span class="toc-text"> 函数依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%95%E8%BF%B0-e-r-%E5%9B%BE%E8%BD%AC%E6%8D%A2%E6%88%90%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><span class="toc-text"> 试述 E-R 图转换成关系模型的转换规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-text"> 实体的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E6%9C%89%E7%9B%B8%E5%90%8C%E7%A0%81%E7%9A%84%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%E5%8F%AF%E5%90%88%E5%B9%B6"><span class="toc-text"> 具有相同码的关系模式可合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="toc-text"> 简述数据库设计的基本步骤。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%A0%87"><span class="toc-text"> 游标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8trigger"><span class="toc-text"> 触发器（TRIGGER）</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
   util.viewportLazyload(el, load_discus, false);
 
   function load_discus() {
@@ -21,7 +1123,284 @@
         }
       }
       el.appendChild(script);
-  }</script><script defer>window.addEventListener("DOMContentLoaded",e=>{ctx.services=Object.assign({},JSON.parse('{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}'));for(let s of Object.keys(ctx.services)){let e=ctx.services[s].js;"siteinfo"==s?(ctx.cardlinks=document.querySelectorAll("a.link-card[cardlink]"),0<ctx.cardlinks?.length&&utils.js(e,{defer:!0}).then(function(){setCardLink(ctx.cardlinks)})):"voice"==s?(ctx.voiceAudios=document.querySelectorAll(".voice>audio"),0<ctx.voiceAudios?.length&&utils.js(e,{defer:!0}).then(function(){createVoiceDom(ctx.voiceAudios)})):"video"==s?(ctx.videos=document.querySelectorAll(".video>video"),0<ctx.videos?.length&&utils.js(e,{defer:!0}).then(function(){videoEvents(ctx.videos)})):"download-file"==s?(ctx.files=document.querySelectorAll(".file"),0<ctx.files?.length&&utils.js(e,{defer:!0}).then(function(){downloadFileEvent(ctx.files)})):0<document.getElementsByClassName("ds-"+s)?.length&&utils.jq(()=>{s,utils.js(deps.marked).then(function(){utils.js(e,{defer:!0})})})}let o=document.querySelectorAll(".chat .status-bar .time");var s,t;function i(){for(let e=0;e<o.length;++e){var s=o[e],t=new Date,i=t.getHours(),t=t.getMinutes();s.innerHTML=n(i)+":"+n(t)}}function n(e){return e<10?"0"+e:e}0<o.length&&(i(),s=(new Date).getSeconds(),t=setInterval(function(){i(),clearInterval(t),setInterval(i,6e4)},1e3*(60-s)));let c=new IntersectionObserver((e,t)=>{e.filter(e=>e.isIntersecting).sort((e,s)=>e.intersectionRect.y!==s.intersectionRect.y?e.intersectionRect.y-s.intersectionRect.y:e.intersectionRect.x-s.intersectionRect.x).forEach((e,s)=>{t.unobserve(e.target),setTimeout(()=>{e.target.classList.add("quote-blink"),setTimeout(()=>{e.target.classList.remove("quote-blink")},1e3)},Math.max(100,16)*(s+1))})}),r=document.querySelectorAll(".chat .talk .quote");r.forEach(i=>{i.addEventListener("click",function(){var e,s,t=document.getElementById("quote-"+i.getAttribute("quotedCellTag"));t&&(s=(e=t.parentElement).clientHeight/2,t.offsetTop>s-t.clientHeight/2?e.scrollTo({top:t.offsetTop-s+t.clientHeight/2,behavior:"smooth"}):e.scrollTo({top:0,behavior:"smooth"}),c.observe(t))})})})</script><script>window.addEventListener("DOMContentLoaded",e=>{ctx.search={path:"/search.json"},utils.js("/js/search/local-search.js",{defer:!0})})</script><script>window.FPConfig={delay:0,ignoreKeywords:[],maxRPS:5,hoverDelay:25}</script><script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>ctx.fancybox={selector:'.md-text img[alt]:not([alt="icon"]):not([alt="cover"])',css:"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css",js:"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"};var selector="[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])",needFancybox=(ctx.fancybox.selector&&(selector+=", "+ctx.fancybox.selector),0!==document.querySelectorAll(selector).length);if(!needFancybox){let t=document.getElementsByClassName("ds-memos"),e=(null!=t&&0<t.length&&(needFancybox=!0),document.getElementsByClassName("with-fancybox"));null!=e&&0<e.length&&(needFancybox=!0)}needFancybox&&(utils.css(ctx.fancybox.css),utils.js(ctx.fancybox.js,{defer:!0}).then(function(){Fancybox.bind(selector,{hideScrollbar:!1,Thumbs:{autoStart:!1},caption:(t,e)=>e.triggerEl.alt||e.triggerEl.dataset.caption||null})}))</script><script>window.addEventListener("DOMContentLoaded",e=>{let t=document.getElementById("swiper-api");null!=t&&(utils.css("https://unpkg.com/swiper@10.3/swiper-bundle.min.css"),utils.js("https://unpkg.com/swiper@10.3/swiper-bundle.min.js",{defer:!0}).then(function(){var e=t.getAttribute("effect")||"";new Swiper(".swiper#swiper-api",{slidesPerView:"auto",spaceBetween:8,centeredSlides:!0,effect:e,rewind:!0,pagination:{el:".swiper-pagination",clickable:!0},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}})}))})</script><link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css"><script defer src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script><script>window.addEventListener("DOMContentLoaded",e=>{var a={startOnLoad:!0,theme:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"neutral",logLevel:3,themeVariables:{darkMode:!0},flowchart:{useMaxWidth:!1,htmlLabels:!0,curve:"linear"},gantt:{axisFormat:"%Y/%m/%d"},sequence:{actorMargin:50}};mermaid.initialize(a)})</script><script>document.addEventListener("DOMContentLoaded",function(){window.codeElements=document.querySelectorAll(".code"),0<window.codeElements.length&&(ctx.copycode={default_text:"Copy",success_text:"Copied",toast:"复制成功"},utils.js("/js/plugins/copycode.js"))})</script><script>var _hmt=_hmt||[];(()=>{var e=document.createElement("script"),t=(e.src="https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902",document.getElementsByTagName("script")[0]);t.parentNode.insertBefore(e,t)})()</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-JST56Q8277")</script><script>((e,t,n,r,a,c)=>{e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)},(a=t.createElement(r)).async=1,a.src="https://www.clarity.ms/tag/rp0i6z4yyg",(c=t.getElementsByTagName(r)[0]).parentNode.insertBefore(a,c)})(window,document,"clarity","script")</script></div>
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.md-text img[alt]:not([alt="icon"]):not([alt="cover"])`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
+<script defer type="text/javascript" src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var mermaid_config = {
+      startOnLoad: true,
+      theme:
+        "auto" == "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "neutral",
+      logLevel: 3,
+      themeVariables: {
+        darkMode: true
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: "linear"
+      },
+      gantt: {
+        axisFormat: "%Y/%m/%d"
+      },
+      sequence: {
+        actorMargin: 50
+      }
+    }
+    mermaid.initialize(mermaid_config);
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script><!-- Baidu Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JST56Q8277');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rp0i6z4yyg");
+</script>
+
+
+
+<!-- inject -->
+
+</div>
         <style>
             [bg-lazy] {
                 background-image: none !important;

@@ -1,4 +1,1515 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1"><meta name="generator" content="Hexo 7.3.0"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000"><meta name="theme-color" content="#f9fafb"><title>C语言-库的制作和使用 - Sky Blog</title><meta name="description" content="一份关于C语言库制作与使用的笔记，内容涵盖静态库、动态库的创建、使用、版本管理及动态加载技术"><meta property="og:type" content="website"><meta property="og:title" content="C语言-库的制作和使用"><meta property="og:url" content="http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8/"><meta property="og:site_name" content="Sky Blog"><meta property="og:description" content="一份关于C语言库制作与使用的笔记，内容涵盖静态库、动态库的创建、使用、版本管理及动态加载技术"><meta property="og:locale" content="zh_CN"><meta property="article:published_time" content="2025-08-21T02:41:54.000Z"><meta property="article:modified_time" content="2025-08-21T02:41:54.000Z"><meta property="article:author" content="Skyforever"><meta property="article:tag" content="基础&#x2F;库与框架"><meta name="twitter:card" content="summary"><meta name="keywords" content=""><link rel="stylesheet" href="/css/main.css?v=1.33.1"><link rel="shortcut icon" href="/images/icons/cloud.svg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8/","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"name":"C语言-库的制作和使用","description":"一份关于C语言库制作与使用的笔记，内容涵盖静态库、动态库的创建、使用、版本管理及动态加载技术","url":"http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8/"}</script></head><body><div class="l_body content" id="start" layout="page" type="tech"><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container"><header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0">Write by Skyforever</div></a></div></header><div class="nav-area"><nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a></nav></div><div class="widgets"><div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/note/ES" placeholder="在 嵌入式 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div><widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">标签</span></div><div class="widget-body fs14 tag-tree"><div class="tag-subtree leaf-tag expanded" data-tag=""><a class="link" href="/note/ES/"><span class="toc-text">所有笔记 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree parent-tag expanded" data-tag="图形界面开发"><a class="link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/"><span class="toc-text"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>图形界面开发 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a><div class="tag-subtree parent-tag expanded" data-tag="图形界面开发/lvgl"><a class="link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/lvgl/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>LVGL </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a><div class="tag-subtree leaf-tag expanded" data-tag="图形界面开发/lvgl/多媒体"><a class="link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/lvgl/%E5%A4%9A%E5%AA%92%E4%BD%93/"><span class="toc-text" style="padding-left:1.75rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>多媒体 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="图形界面开发/lvgl/核心概念"><a class="link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/lvgl/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/"><span class="toc-text" style="padding-left:1.75rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>核心概念 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div></div></div><div class="tag-subtree parent-tag expanded" data-tag="基础"><a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/"><span class="toc-text"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>基础 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a><div class="tag-subtree leaf-tag expanded" data-tag="基础/c语言"><a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/c%E8%AF%AD%E8%A8%80/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>C语言 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="基础/linux基础"><a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/linux%E5%9F%BA%E7%A1%80/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>Linux基础 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="基础/库与框架"><a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E5%BA%93%E4%B8%8E%E6%A1%86%E6%9E%B6/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>库与框架 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree parent-tag expanded" data-tag="基础/数据结构与算法"><a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>数据结构与算法 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a><div class="tag-subtree leaf-tag expanded" data-tag="基础/数据结构与算法/内核链表"><a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%86%85%E6%A0%B8%E9%93%BE%E8%A1%A8/"><span class="toc-text" style="padding-left:1.75rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>内核链表 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div></div><div class="tag-subtree leaf-tag expanded" data-tag="基础/文件io"><a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E6%96%87%E4%BB%B6io/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>文件IO </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div></div><div class="tag-subtree parent-tag expanded" data-tag="硬件"><a class="link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/"><span class="toc-text"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>硬件 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a><div class="tag-subtree leaf-tag expanded" data-tag="硬件/stm32"><a class="link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/stm32/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>STM32 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="硬件/单片机"><a class="link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/%E5%8D%95%E7%89%87%E6%9C%BA/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>单片机 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="硬件/电子基础"><a class="link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/%E7%94%B5%E5%AD%90%E5%9F%BA%E7%A1%80/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>电子基础 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div></div><div class="tag-subtree leaf-tag expanded" data-tag="程序框架"><a class="link" href="/note/ES/tags/%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/"><span class="toc-text"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>程序框架 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree parent-tag expanded" data-tag="进阶"><a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/"><span class="toc-text"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>进阶 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a><div class="tag-subtree parent-tag expanded" data-tag="进阶/linux并发编程"><a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>Linux并发编程 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a><div class="tag-subtree leaf-tag expanded" data-tag="进阶/linux并发编程/线程"><a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B/"><span class="toc-text" style="padding-left:1.75rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>线程 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="进阶/linux并发编程/进程"><a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E8%BF%9B%E7%A8%8B/"><span class="toc-text" style="padding-left:1.75rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>进程 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div></div><div class="tag-subtree leaf-tag expanded" data-tag="进阶/linux网络"><a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E7%BD%91%E7%BB%9C/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>Linux网络 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div><div class="tag-subtree leaf-tag expanded" data-tag="进阶/mqtt物联网"><a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/mqtt%E7%89%A9%E8%81%94%E7%BD%91/"><span class="toc-text" style="padding-left:.875rem"><span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>MQTT物联网 </span><span class="toc-text tag-switcher-wrapper"><span class="tag-switcher"></span></a></div></div></div></widget><widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/data/ES/%E7%A1%AC%E4%BB%B6/STM32F407%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"><span class="title">STM32F407的内存管理</span></a><a class="item title" href="/data/ES/%E7%A1%AC%E4%BB%B6/%E4%B8%A4%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A1%86%E6%9E%B6%E7%90%86%E8%AE%BA%EF%BC%88%E5%9B%9B%E5%8C%BA%E4%B8%80%E7%BA%BF%EF%BC%8Cswitch%E5%A4%96%E5%8A%A0%E5%AE%9A%E6%97%B6%E4%B8%AD%E6%96%AD%EF%BC%89/"><span class="title">两大核心框架理论（四区一线，switch外加定时中断）</span></a><a class="item title" href="/data/ES/%E7%A1%AC%E4%BB%B6/%E6%95%B0%E7%94%B5%E5%9F%BA%E7%A1%80/"><span class="title">数字电路基础</span></a><a class="item title" href="/data/ES/%E7%A1%AC%E4%BB%B6/%E6%A8%A1%E7%94%B5%E5%9F%BA%E7%A1%80/"><span class="title">模拟电路基础</span></a><a class="item title" href="/data/ES/%E7%A1%AC%E4%BB%B6/%E7%94%B5%E5%AD%A6%E6%A6%82%E5%BF%B5/"><span class="title">电学概念</span></a><a class="item title" href="/data/ES/%E8%BF%9B%E9%98%B6/MQTT%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"><span class="title">MQTT 使用笔记</span></a><a class="item title" href="/data/ES/%E8%BF%9B%E9%98%B6/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"><span class="title">Linux 网络编程</span></a><a class="item title" href="/data/ES/%E8%BF%9B%E9%98%B6/%E7%BA%BF%E7%A8%8B/"><span class="title">Linux 多线程编程：Pthreads 核心函数与资源管理详解</span></a><a class="item title" href="/data/ES/%E8%BF%9B%E9%98%B6/%E8%BF%9B%E7%A8%8B/"><span class="title">Linux 进程管理与调度</span></a><a class="item title" href="/data/ES/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/LVGL%20%E5%9B%BE%E5%83%8F%E4%B8%8E%E5%AD%97%E4%BD%93%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"><span class="title">LVGL 图像与字体使用笔记</span></a></div></widget></div><footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"></a></div></footer></div></aside><div class="l_main" id="main"><div class="article banner top"><div class="content"><div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a> <span class="sep"></span> <a class="cap breadcrumb" href="/notebooks/">笔记本</a> <span class="sep"></span> <a class="cap breadcrumb" href="/note/ES/">嵌入式</a></div><div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2025-08-21T02:41:54.000Z">2025-08-21</time></span><span class="sep updated"></span><span class="text updated">发布于：<time datetime="2025-08-21T02:41:54.000Z">2025-08-21</time></span></div></div></div><div class="bottom only-title"><div class="text-area"><h1 class="text title"><span>C语言-库的制作和使用</span></h1></div></div></div></div><article class="md-text content"><h3 id="1-基础概念什么是库"><a class="markdownIt-Anchor" href="#1-基础概念什么是库"></a> <strong>1. 基础概念：什么是库？</strong></h3><p>在嵌入式开发中，<strong>库（Library）</strong> 本质上是已编译好的二进制目标文件（<code>*.o</code>）的集合。</p><p>它将可复用的代码模块打包，方便其他程序链接和使用。</p><p>库分为两种：静态库和动态库。</p><ul><li><p><strong>编译过程回顾</strong>：一个 <code>.c</code> 文件经过 <code>预处理 -&gt; 编译 -&gt; 汇编</code> 最终生成 <code>.o</code> 文件。</p><p><strong>链接</strong> 步骤就是将一个或多个 <code>.o</code> 文件（以及它们所依赖的库）捆绑成一个最终的可执行文件。</p></li><li><p><strong>静态库 (<code>.a</code>)</strong></p><ul><li><strong>原理</strong>：在链接阶段，将库中被调用到的代码完整地<strong>复制</strong>到最终的可执行文件中。</li><li><strong>优点</strong>：程序不依赖外部库文件即可运行，执行效率只高一点点。</li><li><strong>缺点</strong>：生成的可执行文件体积较大，库升级时需要重新编译整个程序。</li></ul></li><li><p><strong>动态库 (<code>.so</code>)</strong></p><ul><li><strong>原理</strong>：在链接阶段，只记录所需函数的<strong>位置信息</strong>。程序运行时，才动态地加载库代码到内存中。</li><li><strong>优点</strong>：节省磁盘和内存空间，多个程序可共享同一份库。库升级时，只需替换库文件，程序无需重新编译即可获益。</li><li><strong>缺点</strong>：程序运行依赖外部库文件，存在潜在的运行时链接问题。</li></ul></li></ul><blockquote><p><strong>命名规范</strong>：库文件名通常遵循 <code>lib&lt;库名&gt;.后缀</code> 的格式。例如 <code>libmath.a</code> 或 <code>libcustom.so</code>。链接时使用 <code>-l&lt;库名&gt;</code>，如 <code>-lmath</code>、<code>-lcustom</code>。</p></blockquote><hr><h3 id="2-静态库的制作与使用"><a class="markdownIt-Anchor" href="#2-静态库的制作与使用"></a> <strong>2. 静态库的制作与使用</strong></h3><h4 id="21-制作静态库"><a class="markdownIt-Anchor" href="#21-制作静态库"></a> <strong>2.1 制作静态库</strong></h4><p>假设有功能模块 <code>a.c</code> 和 <code>b.c</code>。</p><ol><li><p><strong>生成目标文件 (<code>.o</code>)</strong>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -c 选项表示只编译不链接</span></span><br><span class="line">gcc a.c -o a.o -c</span><br><span class="line">gcc b.c -o b.o -c</span><br></pre></td></tr></table></figure></li><li><p><strong>打包成静态库 (<code>.a</code>)</strong><code>archive</code>：<br>使用 <code>ar</code> (archiver) 命令。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># c: 创建库 r: 替换(或添加)文件 s: 创建索引</span></span><br><span class="line">ar crs libx.a a.o b.o</span><br></pre></td></tr></table></figure></li></ol><h4 id="22-使用静态库"><a class="markdownIt-Anchor" href="#22-使用静态库"></a> <strong>2.2 使用静态库</strong></h4><p>假设主程序 <code>main.c</code> 调用了 <code>libx.a</code> 中的函数。</p><ol><li><strong>编译链接</strong>：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -L&lt;路径&gt;: 指定库文件所在的目录</span></span><br><span class="line"><span class="comment"># -l&lt;库名&gt;: 指定要链接的库</span></span><br><span class="line">gcc main.c -o main -L. -lx</span><br></pre></td></tr></table></figure><ul><li><code>-L.</code> 表示在当前目录查找库文件。</li><li><code>-lx</code> 表示链接 <code>libx.a</code>，链接时去掉<code>lib</code>和<code>.a</code>这种通用记号。</li></ul></li></ol><h4 id="重点库的依赖顺序"><a class="markdownIt-Anchor" href="#重点库的依赖顺序"></a> 重点：库的依赖顺序</h4><blockquote><p>如果库 <code>libb.a</code> 依赖于 <code>liba.a</code>，那么在链接时，被依赖的库最好放在后面，不然链接器找不到定义</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 正确: -la 在 -lb 之后</span></span><br><span class="line">gcc main.c -o main -L. -lb -la</span><br><span class="line"></span><br><span class="line"><span class="comment"># 错误: 链接器找不到 fa 的定义</span></span><br><span class="line">gcc main.c -o main -L. -la -lb</span><br></pre></td></tr></table></figure></blockquote><hr><h3 id="3-动态库的制作与应用"><a class="markdownIt-Anchor" href="#3-动态库的制作与应用"></a> <strong>3. 动态库的制作与应用</strong></h3><h4 id="31-制作动态库"><a class="markdownIt-Anchor" href="#31-制作动态库"></a> <strong>3.1 制作动态库</strong></h4><ol><li><p><strong>生成位置无关的目标文件 (<code>.o</code>)</strong>：<br>动态库的代码必须是<strong>位置无关代码 (PIC)</strong>，因为它在内存中的加载地址是不固定的</p><p>且<strong>不能包含主函数<code>main</code></strong>，不可能对一个主函数引用另外一个有主函数的库</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -fPIC: 生成位置无关代码</span></span><br><span class="line">gcc a.c -o a.o -c -fPIC</span><br><span class="line">gcc b.c -o b.o -c -fPIC</span><br></pre></td></tr></table></figure></li><li><p><strong>打包成动态库 (<code>.so</code>) <code>share object</code></strong>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -shared: 生成共享库(动态库)</span></span><br><span class="line">gcc -shared -fPIC -o libx.so a.o b.o</span><br></pre></td></tr></table></figure></li></ol><h4 id="32-使用动态库与运行时链接"><a class="markdownIt-Anchor" href="#32-使用动态库与运行时链接"></a> <strong>3.2 使用动态库与运行时链接</strong></h4><ol><li><p><strong>编译链接</strong>：<br>命令与静态库完全相同。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c -o main -L. -lx</span><br></pre></td></tr></table></figure></li><li><p><strong>解决运行时找不到库的问题</strong>：<br>直接运行 <code>./main</code> 会报错，因为操作系统不知道去哪里找 <code>libx.so</code>。有多种种解决方法：</p><ul><li><p><strong>方法一：编译时指定（推荐）</strong><br>使用 <code>-rpath</code> 选项将库路径硬编码到可执行文件中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -Wl, 表示将后续参数传递给链接器(ld)</span></span><br><span class="line"><span class="comment"># 这里指定rpath为程序所在的相对路径</span></span><br><span class="line">gcc main.c -o main -L. -lx -Wl,-rpath=.</span><br></pre></td></tr></table></figure></li><li><p><strong>方法二：设置环境变量</strong><br>临时将库路径添加到 <code>LD_LIBRARY_PATH</code> 环境变量中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:.</span><br><span class="line">./main</span><br></pre></td></tr></table></figure></li></ul></li></ol><p>​ 其他方法不推荐</p><hr><h3 id="4-动态库的升级与版本管理"><a class="markdownIt-Anchor" href="#4-动态库的升级与版本管理"></a> <strong>4. 动态库的升级与版本管理</strong></h3><p>动态库的核心优势在于升级维护。一个标准的动态库版本管理流程如下：</p><ol><li><p><strong>版本号命名</strong>：<code>lib&lt;库名&gt;.so.&lt;主版本号&gt;.&lt;次版本号&gt;.&lt;修订号&gt;</code>，例如 <code>liba.so.1.0.0</code>。</p><ul><li><strong>主版本号</strong>：发生不向前兼容的重大变更时修改。</li><li><strong>次版本号</strong>：增加新功能，但保持向前兼容。</li><li><strong>修订版本号</strong>：修复 Bug。</li></ul></li><li><p><strong>SONAME</strong>: 这是库的一个别名，格式为 <code>lib&lt;库名&gt;.so.&lt;主版本号&gt;</code>。程序在运行时是根据 <code>SONAME</code> 来查找库的。</p></li><li><p><strong>标准制作流程</strong>：</p><ul><li><p><strong>(1) 编译库并指定 <code>SONAME</code></strong>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -Wl,-soname,&lt;你的SONAME&gt;</span></span><br><span class="line">gcc -shared -fPIC a.c -o liba.so.1.0.0 -Wl,-soname,liba.so.1</span><br></pre></td></tr></table></figure></li><li><p><strong>(2) 创建 <code>SONAME</code> 软链接</strong>：<br><code>ldconfig</code> 命令可以自动扫描当前目录的库文件，并根据其 <code>SONAME</code> 创建软链接。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -n .: 在当前目录操作</span></span><br><span class="line">ldconfig -n .</span><br><span class="line"><span class="comment"># 执行后会生成： liba.so.1 -&gt; liba.so.1.0.0</span></span><br></pre></td></tr></table></figure></li><li><p><strong>(3) 创建编译器链接名</strong>：<br>编译器在链接时查找的是不带版本号的名字，如 <code>liba.so</code>。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s liba.so.1 liba.so</span><br><span class="line"><span class="comment"># 执行后会生成： liba.so -&gt; liba.so.1</span></span><br></pre></td></tr></table></figure></li><li><p><strong>(4) 编译主程序</strong>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c -o main -L. -la</span><br></pre></td></tr></table></figure></li></ul></li><li><p><strong>无缝升级</strong>：<br>当库升级到 <code>liba.so.1.0.1</code> 时，只需替换旧文件，然后重新执行 <code>ldconfig -n .</code> 更新 <code>liba.so.1</code> 的指向即可。<code>main</code> 程序<strong>无需重新编译</strong>，下次运行时就会自动加载新版库。</p></li></ol><hr><h3 id="5-动态库的动态加载-实现插件化与条件加载"><a class="markdownIt-Anchor" href="#5-动态库的动态加载-实现插件化与条件加载"></a> <strong>5. 动态库的动态加载 (实现插件化与条件加载)</strong></h3><p>除了在编译时链接，我们还可以在程序运行时，根据需要<strong>手动加载和卸载</strong>动态库。这种技术是实现高级软件架构的基石，它允许程序在不重新启动的情况下扩展功能，或根据特定条件选择不同的代码路径。</p><p>这主要应用于两大场景：</p><ol><li><strong>插件化架构</strong>：主程序提供一个框架，具体功能由第三方或后续开发的“插件”（即动态库）提供。</li><li><strong>条件加载</strong>：主程序根据运行时的数据、用户输入或环境来决定加载哪个功能模块。</li></ol><h4 id="51-核心-api"><a class="markdownIt-Anchor" href="#51-核心-api"></a> <strong>5.1 核心 API</strong></h4><p>要使用动态加载功能，必须包含头文件 <code>&lt;dlfcn.h&gt;</code>，并掌握以下几个核心函数：</p><ul><li><p><code>void *dlopen(const char *filename, int flag);</code></p><ul><li><strong>功能</strong>：打开并加载一个动态库。</li><li><strong><code>filename</code></strong>：库文件的路径，如 <code>&quot;./libcolor.so&quot;</code>。若设为<code>NULL</code>，则在当前进程的全局符号表中搜索。</li><li><strong><code>flag</code></strong>：加载标志。常用<code>RTLD_LAZY</code>（延迟解析，用到函数时才解析地址）或<code>RTLD_NOW</code>（立即解析所有符号）。</li><li><strong>返回值</strong>：成功返回一个库句柄（handle），失败返回<code>NULL</code>。</li></ul></li><li><p><code>void *dlsym(void *handle, const char *symbol);</code></p><ul><li><strong>功能</strong>：在已加载的库中查找符号（通常是函数名）的地址。</li><li><strong><code>handle</code></strong>：由<code>dlopen</code>返回的库句柄。</li><li><strong><code>symbol</code></strong>：要查找的符号名称字符串，如 <code>&quot;detection&quot;</code>。</li><li><strong>返回值</strong>：成功返回符号的地址，失败返回<code>NULL</code>。</li></ul></li><li><p><code>char *dlerror(void);</code></p><ul><li><strong>功能</strong>：返回一个描述最后一次 <code>dlopen</code>, <code>dlsym</code>, <code>dlclose</code> 调用错误的字符串。每次调用后，错误状态会被清除。这是调试动态加载问题的<strong>首选工具</strong>。</li></ul></li><li><p><code>int dlclose(void *handle);</code></p><ul><li><strong>功能</strong>：卸载一个动态库，减少其引用计数。当引用计数降为 0 时，库被从内存中移除。</li></ul></li></ul><h4 id="52-重要提醒处理插件的间接依赖"><a class="markdownIt-Anchor" href="#52-重要提醒处理插件的间接依赖"></a> <strong>5.2 重要提醒：处理插件的间接依赖</strong></h4><p>这是一个在使用 <code>dlopen</code> 时极易遇到的陷阱。</p><p><strong>场景</strong>：假设你的主程序 <code>main</code> 动态加载一个插件 <code>libplugin.so</code>，而这个插件本身又依赖于另一个基础库 <code>libbase.so</code></p><p><code>main</code> — (dlopen) —&gt; <code>libplugin.so</code> — (依赖) —&gt; <code>libbase.so</code></p><p><strong>问题</strong>：在编译主程序 <code>main</code> 时，编译器只知道 <code>main</code> 的直接依赖，它对 <code>libplugin.so</code> 的内部依赖一无所知。因此，即使不链接 <code>-lbase</code>，编译也能通过。然而，当程序运行并成功 <code>dlopen(&quot;libplugin.so&quot;)</code> 后，一旦调用到 <code>libplugin.so</code> 中使用了 <code>libbase.so</code> 功能的函数时，动态链接器会因为找不到 <code>libbase.so</code> 中的符号而报错，导致程序崩溃。</p><p><strong>解决方案</strong>：</p><p>将插件的间接依赖库与主程序一起链接。这样，在 <code>dlopen</code> 加载插件之前，所需的符号已经存在于主程序的全局符号表中。编译主程序时，不要忘记链接<code>-ldl</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将libbase.so与主程序一起编译，并链接-ldl</span></span><br><span class="line">gcc main.c -o main -L . -lbase -ldl</span><br></pre></td></tr></table></figure><p><strong>设计原则</strong>：尽量让插件（被动态加载的库）自包含，不依赖或少依赖其他非系统标准库。这能从根本上避免此类问题，让插件更加独立和健壮</p><hr><h4 id="53-应用场景一基于配置的插件系统-系统扩展"><a class="markdownIt-Anchor" href="#53-应用场景一基于配置的插件系统-系统扩展"></a> <strong>5.3 应用场景一：基于配置的插件系统 (系统扩展)</strong></h4><p><strong>需求</strong>：开发一个检测系统，它能根据配置文件加载不同的检测模块，而无需重新编译主程序。</p><ol><li><p><strong>约定接口</strong>：所有检测插件都必须实现一个同名函数，如 <code>void detection(void);</code></p></li><li><p><strong>制作插件库</strong>：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// color.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">detection</span><span class="params">()</span> &#123; <span class="built_in">printf</span>(<span class="string">&quot;正在检测颜色是否均匀...\n&quot;</span>); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// shape.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">detection</span><span class="params">()</span> &#123; <span class="built_in">printf</span>(<span class="string">&quot;正在检测外观是否破损...\n&quot;</span>); &#125;</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc color.c -fPIC -shared -o libcolor.so</span><br><span class="line">gcc shape.c -fPIC -shared -o libshape.so</span><br></pre></td></tr></table></figure></li><li><p><strong>编写配置文件</strong> <code>config</code>，指定要加载的插件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libcolor.so</span><br></pre></td></tr></table></figure></li><li><p><strong>主程序实现动态加载</strong>：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;dlfcn.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1. 从配置文件读取要加载的库名</span></span><br><span class="line">    FILE *fp = fopen(<span class="string">&quot;config&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (fp == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        perror(<span class="string">&quot;打开配置文件失败&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> lib_name[<span class="number">50</span>];</span><br><span class="line">    fgets(lib_name, <span class="keyword">sizeof</span>(lib_name), fp);</span><br><span class="line">    fclose(fp);</span><br><span class="line"></span><br><span class="line">    strtok(lib_name, <span class="string">&quot;\n&quot;</span>); <span class="comment">// 移除 fgets 读取到的末尾换行符</span></span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> path[<span class="number">60</span>];</span><br><span class="line">    <span class="built_in">snprintf</span>(path, <span class="keyword">sizeof</span>(path), <span class="string">&quot;./%s&quot;</span>, lib_name);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 使用 dlopen 加载指定的库</span></span><br><span class="line">    <span class="type">void</span> *handle = dlopen(path, RTLD_NOW);</span><br><span class="line">    <span class="keyword">if</span> (handle == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;加载动态库 [%s] 失败: %s\n&quot;</span>, path, dlerror());</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 使用 dlsym 查找约定的函数接口</span></span><br><span class="line">    <span class="type">void</span> (*detect_func)(<span class="type">void</span>);</span><br><span class="line">    detect_func = dlsym(handle, <span class="string">&quot;detection&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (detect_func == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;查找符号 [detection] 失败: %s\n&quot;</span>, dlerror());</span><br><span class="line">        dlclose(handle);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 调用函数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;开始执行检测...\n&quot;</span>);</span><br><span class="line">    detect_func();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;检测完成。\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 关闭句柄，释放资源</span></span><br><span class="line">    dlclose(handle);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><p>通过修改 <code>config</code> 文件的内容（例如改成 <code>libshape.so</code>），主程序就能在不重新编译的情况下调用不同的检测功能，实现了真正的插件化</p><hr><h4 id="54-应用场景二基于输入的条件加载-行为选择"><a class="markdownIt-Anchor" href="#54-应用场景二基于输入的条件加载-行为选择"></a> <strong>5.4 应用场景二：基于输入的条件加载 (行为选择)</strong></h4><p><strong>需求</strong>：开发一个图片查看器，能根据用户输入的图片文件后缀（如 <code>.jpg</code> 或 <code>.bmp</code>），自动加载对应的解码库来显示图片</p><ol><li><p><strong>约定接口</strong>：所有图片解码库都必须提供一个统一的显示函数</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在一个公共头文件(如 display.h)中定义</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;./src/lcd.h&quot;</span> <span class="comment">// 假设lcd.h定义了LCD_info和显示模式</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">display</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="type">const</span> <span class="keyword">struct</span> LCD_info *plcd, <span class="type">uint8_t</span> mode)</span>;</span><br></pre></td></tr></table></figure></li><li><p><strong>制作不同格式的解码库</strong>：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// libjpg.c: 负责解码和显示JPG图片</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;display.h&quot;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">display</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="type">const</span> <span class="keyword">struct</span> LCD_info *plcd, <span class="type">uint8_t</span> mode)</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;使用JPG解码库显示图片: %s\n&quot;</span>, pathname);</span><br><span class="line">    <span class="comment">// ... 此处是真实的JPG解码和LCD显示代码 ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// libbmp.c: 负责解码和显示BMP图片</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;display.h&quot;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">display</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="type">const</span> <span class="keyword">struct</span> LCD_info *plcd, <span class="type">uint8_t</span> mode)</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;使用BMP解码库显示图片: %s\n&quot;</span>, pathname);</span><br><span class="line">    <span class="comment">// ... 此处是真实的BMP解码和LCD显示代码 ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc libjpg.c -fPIC -shared -o libjpg.so</span><br><span class="line">gcc libbmp.c -fPIC -shared -o libbmp.so</span><br></pre></td></tr></table></figure></li><li><p><strong>主程序根据输入条件动态加载</strong>：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;dlfcn.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;display.h&quot;</span> <span class="comment">// 包含统一接口和所需结构体定义</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> <span class="type">const</span> *argv[])</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (argc &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;用法: %s &lt;图片文件名&gt;\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">void</span> *handle = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">char</span> *lib_path = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 根据输入的文件名后缀，决定加载哪个库</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strstr</span>(argv[<span class="number">1</span>], <span class="string">&quot;.jpg&quot;</span>) != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        lib_path = <span class="string">&quot;./libjpg.so&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">strstr</span>(argv[<span class="number">1</span>], <span class="string">&quot;.bmp&quot;</span>) != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        lib_path = <span class="string">&quot;./libbmp.so&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;错误: 不支持的文件格式，目前仅支持 .jpg 和 .bmp\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 加载选定的动态库</span></span><br><span class="line">    handle = dlopen(lib_path, RTLD_NOW);</span><br><span class="line">    <span class="keyword">if</span> (handle == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;打开动态库 [%s] 失败: %s\n&quot;</span>, lib_path, dlerror());</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;成功加载库: %s\n&quot;</span>, lib_path);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 查找统一的显示函数 `display`</span></span><br><span class="line">    <span class="type">void</span> (*display_func)(<span class="type">const</span> <span class="type">char</span> *, <span class="type">const</span> <span class="keyword">struct</span> LCD_info *, <span class="type">uint8_t</span>);</span><br><span class="line">    display_func = dlsym(handle, <span class="string">&quot;display&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (display_func == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;从动态库获取函数 [display] 失败: %s\n&quot;</span>, dlerror());</span><br><span class="line">        dlclose(handle);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 准备环境并调用函数</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LCD_info</span> <span class="title">lcdinfo</span>;</span></span><br><span class="line">    init_LCD(&amp;lcdinfo); <span class="comment">// 假设这是初始化LCD屏幕的函数</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;调用显示函数...\n&quot;</span>);</span><br><span class="line">    <span class="comment">// 调用从动态库中获取的函数</span></span><br><span class="line">    display_func(argv[<span class="number">1</span>], &amp;lcdinfo, CENTER | ZOOM); <span class="comment">// 假设CENTER和ZOOM是定义好的模式</span></span><br><span class="line"></span><br><span class="line">    relese_LCD(&amp;lcdinfo); <span class="comment">// 假设这是释放LCD资源的函数</span></span><br><span class="line">    dlclose(handle);      <span class="comment">// 关闭库句柄</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样，程序就能根据用户输入的文件名，在运行时才决定加载哪个解码库</p><p>未来如果需要支持 <code>.png</code> 格式，只需新增一个 <code>libpng.so</code> 并更新主程序的判断逻辑即可，无需改动现有代码，极大地增强了程序的灵活性和可扩展性</p></li></ol><div class="tag-list"><a class="tag" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E5%BA%93%E4%B8%8E%E6%A1%86%E6%9E%B6/">基础/库与框架</a></div></article><div class="article-footer"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p></div></section><section id="share"><div class="header"><span>分享文章</span></div><div class="body"><div class="link"><input class="copy-area" readonly id="copy-link" value="http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8"></div><div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg"></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8&title=C语言-库的制作和使用 - Sky Blog&summary=一份关于C语言库制作与使用的笔记，内容涵盖静态库、动态库的创建、使用、版本管理及动态加载技术"><img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg"></a><a class="social share-item email" href="mailto:?subject=C语言-库的制作和使用 - Sky Blog&amp;body=http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8"><img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg"></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg"></a></div><div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0"><img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8"></div></div></section></div><div class="related-wrap md-text" id="comments"><section class="header cmt-title cap theme"><p>快来参与讨论吧~</p></section><section class="body cmt-body giscus"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg><div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div></section></div><footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/UEC/">大学生扫盲</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13"> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p></div></footer><div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right"><div class="widgets"><widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E4%BB%80%E4%B9%88%E6%98%AF%E5%BA%93"><span class="toc-text">1. 基础概念：什么是库？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-text">2. 静态库的制作与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#21-%E5%88%B6%E4%BD%9C%E9%9D%99%E6%80%81%E5%BA%93"><span class="toc-text">2.1 制作静态库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#22-%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E5%BA%93"><span class="toc-text">2.2 使用静态库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E7%82%B9%E5%BA%93%E7%9A%84%E4%BE%9D%E8%B5%96%E9%A1%BA%E5%BA%8F"><span class="toc-text">重点：库的依赖顺序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-text">3. 动态库的制作与应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#31-%E5%88%B6%E4%BD%9C%E5%8A%A8%E6%80%81%E5%BA%93"><span class="toc-text">3.1 制作动态库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#32-%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E5%BA%93%E4%B8%8E%E8%BF%90%E8%A1%8C%E6%97%B6%E9%93%BE%E6%8E%A5"><span class="toc-text">3.2 使用动态库与运行时链接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%8D%87%E7%BA%A7%E4%B8%8E%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-text">4. 动态库的升级与版本管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD-%E5%AE%9E%E7%8E%B0%E6%8F%92%E4%BB%B6%E5%8C%96%E4%B8%8E%E6%9D%A1%E4%BB%B6%E5%8A%A0%E8%BD%BD"><span class="toc-text">5. 动态库的动态加载 (实现插件化与条件加载)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#51-%E6%A0%B8%E5%BF%83-api"><span class="toc-text">5.1 核心 API</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#52-%E9%87%8D%E8%A6%81%E6%8F%90%E9%86%92%E5%A4%84%E7%90%86%E6%8F%92%E4%BB%B6%E7%9A%84%E9%97%B4%E6%8E%A5%E4%BE%9D%E8%B5%96"><span class="toc-text">5.2 重要提醒：处理插件的间接依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#53-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%80%E5%9F%BA%E4%BA%8E%E9%85%8D%E7%BD%AE%E7%9A%84%E6%8F%92%E4%BB%B6%E7%B3%BB%E7%BB%9F-%E7%B3%BB%E7%BB%9F%E6%89%A9%E5%B1%95"><span class="toc-text">5.3 应用场景一：基于配置的插件系统 (系统扩展)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#54-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%BA%8C%E5%9F%BA%E4%BA%8E%E8%BE%93%E5%85%A5%E7%9A%84%E6%9D%A1%E4%BB%B6%E5%8A%A0%E8%BD%BD-%E8%A1%8C%E4%B8%BA%E9%80%89%E6%8B%A9"><span class="toc-text">5.4 应用场景二：基于输入的条件加载 (行为选择)</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget></div></aside><div class="float-panel"><button type="button" style="display:none" class="laptop-only rightbar-toggle mobile" onclick="sidebar.rightbar()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></button> <button type="button" style="display:none" class="mobile-only leftbar-toggle mobile" onclick="sidebar.leftbar()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg></button></div></div><div class="scripts"><script>window.canonical={originalHost:null,officialHosts:["localhost"],encoded:""};let ctx={date_suffix:{just:"刚刚",min:"分钟前",hour:"小时前",day:"天前"},root:"/",tag_plugins:{chat:Object.assign({api:"https://siteinfo.listentothewind.cn/api/v1"})},search:{}};if((ctx.search.service="local_search")==ctx.search.service){let e=Object.assign({},'{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}');ctx.search[ctx.search.service]=e}let def={avatar:"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg",cover:"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg",loading:"https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd"},deps={jquery:"https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js",marked:"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js",lazyload:"/%5Bobject%20Object%5D"}</script><script>function RunItem(){function o(e,t){this.name=t||e.name,this.run=()=>{try{e()}catch(e){console.log(e)}}}this.list=[],this.start=()=>{for(var e=0;e<this.list.length;e++)this.list[e].run()},this.push=(e,t,r=!0)=>{let i=e,s=new o(i=r?()=>{utils.requestAnimationFrame(e)}:i,t);this.list.push(s)},this.remove=t=>{for(let e=0;e<this.list.length;e++)this.list[e].name==t&&this.list.splice(e,1)}}let utils={css:(e,t,r,i)=>{var s,o,a=window.document,n=a.createElement("link"),l=(o=t||(s=(a.body||a.getElementsByTagName("head")[0]).childNodes)[s.length-1],a.styleSheets);if(i)for(var d in i)i.hasOwnProperty(d)&&n.setAttribute(d,i[d]);n.rel="stylesheet",n.href=e,n.media="only x",function e(t){if(a.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(n,t?o:o.nextSibling)});function u(e){for(var t=n.href,r=l.length;r--;)if(l[r].href===t)return e();setTimeout(function(){u(e)})}function h(){n.addEventListener&&n.removeEventListener("load",h),n.media=r||"all"}return n.addEventListener&&n.addEventListener("load",h),n.onloadcssdefined=u,u(h),n},js:(s,o)=>new Promise((t,e)=>{var r=document.createElement("script");if(s.startsWith("/")&&(s=ctx.root+s.substring(1)),r.src=s,o)for(var i of Object.keys(o))r[i]=o[i];else r.async=!0;r.onerror=e,r.onload=r.onreadystatechange=function(){var e=this.readyState;e&&"loaded"!==e&&"complete"!==e||(r.onload=r.onreadystatechange=null,t())},document.head.appendChild(r)}),jq:e=>{"undefined"==typeof jQuery?utils.js(deps.jquery).then(e):e()},onLoading:e=>{e&&$(e).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>')},onLoadSuccess:e=>{e&&$(e).find(".loading-wrap").remove()},onLoadFailure:e=>{e&&($(e).find(".loading-wrap svg").remove(),$(e).find(".loading-wrap").append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>'),$(e).find(".loading-wrap").addClass("error"))},request:(a,e,n,l)=>{let d=0;return new Promise((i,s)=>{let o=()=>{utils.onLoading?.(a);let t=!1,r=setTimeout(()=>{t=!0,console.warn("[request] 超时:",e),3<=++d?(utils.onLoadFailure?.(a),l?.(),s("请求超时")):setTimeout(o,1e3)},5e3);fetch(e).then(e=>{if(!t){if(clearTimeout(r),e.ok)return e;throw new Error("响应失败")}}).then(e=>{t||(utils.onLoadSuccess?.(a),n(e),i(e))}).catch(e=>{clearTimeout(r),console.warn("[request] 错误:",e),3<=++d?(utils.onLoadFailure?.(a),l?.(),s(e)):setTimeout(o,1e3)})};o()})},requestWithoutLoading:(e,a={},n=2,l=5e3)=>new Promise((r,i)=>{let s=0,o=()=>{let t=setTimeout(()=>{++s>n?i("timeout"):o()},l);fetch(e,a).then(e=>{if(clearTimeout(t),!e.ok)throw new Error("bad response");r(e)}).catch(e=>{clearTimeout(t),++s>n?i(e):setTimeout(o,500)})};o()}),requestAnimationFrame:e=>{window.requestAnimationFrame||(window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame),window.requestAnimationFrame(e)},dark:{}};utils.dark.method={toggle:new RunItem},utils.dark=Object.assign(utils.dark,{push:utils.dark.method.toggle.push})</script><script>let sidebar={leftbar:()=>{l_body&&(l_body.toggleAttribute("leftbar"),l_body.removeAttribute("rightbar"))},rightbar:()=>{l_body&&(l_body.toggleAttribute("rightbar"),l_body.removeAttribute("leftbar"))},dismiss:()=>{l_body&&(l_body.removeAttribute("leftbar"),l_body.removeAttribute("rightbar"))},toggleTOC:()=>{document.querySelector("#data-toc").classList.toggle("collapse")}}</script><script>(()=>{var e;for(e of document.querySelectorAll(".tag-subtree.parent-tag > a > .tag-switcher-wrapper"))e.addEventListener("click",e=>{e.target.closest(".tag-subtree.parent-tag").classList.toggle("expanded"),e.preventDefault()});var t=new URLSearchParams(window.location.search).get("tag");if(t){let e=document.querySelector(`.tag-subtree[data-tag="${t}"]`);if(e)for(e.querySelector("a").classList.add("active");e;)e.classList.add("expanded"),e=e.parentElement.closest(".tag-subtree.parent-tag")}})()</script><script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script><script>window.lazyLoadOptions={elements_selector:".lazy",callback_loaded:e=>{e.classList.add("loaded");e=e.closest(".lazy-box")?.querySelector(".lazy-icon");e&&e.remove()}},window.addEventListener("LazyLoad::Initialized",function(e){window.lazyLoadInstance=e.detail.instance},!1),document.addEventListener("DOMContentLoaded",function(){window.lazyLoadInstance?.update()}),window.wrapLazyloadImages=e=>{(e="string"==typeof e?document.querySelector(e):e)&&(e.querySelectorAll("img").forEach(e=>{var a,t,d;e.classList.contains("lazy")||(d=e.getAttribute("src"))&&((a=document.createElement("div")).className="lazy-box",(t=e.cloneNode()).removeAttribute("src"),t.setAttribute("data-src",d),t.classList.add("lazy"),(d=document.createElement("div")).className="lazy-icon",def.loading&&(d.style.backgroundImage=`url("${def.loading}")`),a.appendChild(t),a.appendChild(d),e.replaceWith(a))}),window.lazyLoadInstance?.update)&&window.lazyLoadInstance.update()}</script><script src="/js/main.js?v=1.33.1" defer></script><script>let applyTheme=e=>{"auto"===e?document.documentElement.removeAttribute("data-theme"):document.documentElement.setAttribute("data-theme",e)},applyThemeToGiscus=e=>{var t=document.getElementById("giscus"),t=(t&&t.setAttribute("data-theme",e),document.querySelector("#comments > section.giscus > iframe"));t&&(e=t.src.replace(/theme=[\w]+/,"theme="+e),t.src=e)},switchTheme=()=>{let e;switch(document.documentElement.getAttribute("data-theme")){case"light":e="dark";break;case"dark":e="auto";break;default:e="light"}applyTheme(e),window.localStorage.setItem("Stellar.theme",e),utils.dark.mode="auto"===e?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":e,utils.dark.method.toggle.start(),hud?.toast?.({light:"切换到浅色模式",dark:"切换到深色模式",auto:"切换到跟随系统配色"}[e])};(()=>{var e=window.localStorage.getItem("Stellar.theme");null!==e?applyTheme(e):utils.dark.mode=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",utils.dark.method.toggle.start()})()</script><script type="module">const el = document.querySelector('#comments #giscus');
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>C语言-库的制作和使用 - Sky Blog</title>
+
+  
+    <meta name="description" content="一份关于C语言库制作与使用的笔记，内容涵盖静态库、动态库的创建、使用、版本管理及动态加载技术">
+<meta property="og:type" content="website">
+<meta property="og:title" content="C语言-库的制作和使用">
+<meta property="og:url" content="http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8/">
+<meta property="og:site_name" content="Sky Blog">
+<meta property="og:description" content="一份关于C语言库制作与使用的笔记，内容涵盖静态库、动态库的创建、使用、版本管理及动态加载技术">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-08-21T02:41:54.000Z">
+<meta property="article:modified_time" content="2025-08-21T02:41:54.000Z">
+<meta property="article:author" content="Skyforever">
+<meta property="article:tag" content="基础&#x2F;库与框架">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/icons/cloud.svg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8/","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"name":"C语言-库的制作和使用","description":"一份关于C语言库制作与使用的笔记，内容涵盖静态库、动态库的创建、使用、版本管理及动态加载技术","url":"http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8/"}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="page" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/note/ES" placeholder="在 嵌入式 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <widget class="widget-wrapper post-list">
+    <div class="widget-header dis-select">
+      <span class="name">标签</span>
+    </div>
+    <div class="widget-body fs14 tag-tree">
+      
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="">
+    
+  
+  <a class="link" href="/note/ES/">
+    <span class="toc-text">
+      
+        所有笔记
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+      
+        
+  
+  
+  
+  
+  <div class="tag-subtree parent-tag expanded" data-tag="图形界面开发">
+    
+  
+  <a class="link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/">
+    <span class="toc-text">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        图形界面开发
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+      
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree parent-tag expanded" data-tag="图形界面开发/lvgl">
+    
+  
+  <a class="link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/lvgl/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        LVGL
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+      
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="图形界面开发/lvgl/多媒体">
+    
+  
+  <a class="link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/lvgl/%E5%A4%9A%E5%AA%92%E4%BD%93/">
+    <span class="toc-text" style="padding-left: 1.75rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        多媒体
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="图形界面开发/lvgl/核心概念">
+    
+  
+  <a class="link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/lvgl/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">
+    <span class="toc-text" style="padding-left: 1.75rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        核心概念
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+
+    
+  </div>
+
+  
+
+    
+  </div>
+
+      
+        
+  
+  
+  
+  
+  <div class="tag-subtree parent-tag expanded" data-tag="基础">
+    
+  
+  <a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/">
+    <span class="toc-text">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        基础
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+      
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="基础/c语言">
+    
+  
+  <a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/c%E8%AF%AD%E8%A8%80/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        C语言
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="基础/linux基础">
+    
+  
+  <a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/linux%E5%9F%BA%E7%A1%80/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        Linux基础
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="基础/库与框架">
+    
+  
+  <a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E5%BA%93%E4%B8%8E%E6%A1%86%E6%9E%B6/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        库与框架
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree parent-tag expanded" data-tag="基础/数据结构与算法">
+    
+  
+  <a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        数据结构与算法
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+      
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="基础/数据结构与算法/内核链表">
+    
+  
+  <a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%86%85%E6%A0%B8%E9%93%BE%E8%A1%A8/">
+    <span class="toc-text" style="padding-left: 1.75rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        内核链表
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="基础/文件io">
+    
+  
+  <a class="link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E6%96%87%E4%BB%B6io/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        文件IO
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+
+    
+  </div>
+
+      
+        
+  
+  
+  
+  
+  <div class="tag-subtree parent-tag expanded" data-tag="硬件">
+    
+  
+  <a class="link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/">
+    <span class="toc-text">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        硬件
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+      
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="硬件/stm32">
+    
+  
+  <a class="link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/stm32/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        STM32
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="硬件/单片机">
+    
+  
+  <a class="link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/%E5%8D%95%E7%89%87%E6%9C%BA/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        单片机
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="硬件/电子基础">
+    
+  
+  <a class="link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/%E7%94%B5%E5%AD%90%E5%9F%BA%E7%A1%80/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        电子基础
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+
+    
+  </div>
+
+      
+        
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="程序框架">
+    
+  
+  <a class="link" href="/note/ES/tags/%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/">
+    <span class="toc-text">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        程序框架
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+      
+        
+  
+  
+  
+  
+  <div class="tag-subtree parent-tag expanded" data-tag="进阶">
+    
+  
+  <a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/">
+    <span class="toc-text">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        进阶
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+      
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree parent-tag expanded" data-tag="进阶/linux并发编程">
+    
+  
+  <a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        Linux并发编程
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+      
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="进阶/linux并发编程/线程">
+    
+  
+  <a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B/">
+    <span class="toc-text" style="padding-left: 1.75rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        线程
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="进阶/linux并发编程/进程">
+    
+  
+  <a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E8%BF%9B%E7%A8%8B/">
+    <span class="toc-text" style="padding-left: 1.75rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        进程
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="进阶/linux网络">
+    
+  
+  <a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E7%BD%91%E7%BB%9C/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        Linux网络
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+    
+  
+  
+  
+  
+  <div class="tag-subtree leaf-tag expanded" data-tag="进阶/mqtt物联网">
+    
+  
+  <a class="link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/mqtt%E7%89%A9%E8%81%94%E7%BD%91/">
+    <span class="toc-text" style="padding-left: 0.875rem;">
+      
+        
+        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
+        MQTT物联网
+      
+    </span>
+    <span class="toc-text tag-switcher-wrapper">
+      <span class="tag-switcher" />
+    </span>
+  </a>
+
+    
+  </div>
+
+  
+
+    
+  </div>
+
+      
+    </div>
+  </widget>
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/data/ES/%E7%A1%AC%E4%BB%B6/STM32F407%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"><span class="title">STM32F407的内存管理</span></a><a class="item title" href="/data/ES/%E7%A1%AC%E4%BB%B6/%E4%B8%A4%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A1%86%E6%9E%B6%E7%90%86%E8%AE%BA%EF%BC%88%E5%9B%9B%E5%8C%BA%E4%B8%80%E7%BA%BF%EF%BC%8Cswitch%E5%A4%96%E5%8A%A0%E5%AE%9A%E6%97%B6%E4%B8%AD%E6%96%AD%EF%BC%89/"><span class="title">两大核心框架理论（四区一线，switch外加定时中断）</span></a><a class="item title" href="/data/ES/%E7%A1%AC%E4%BB%B6/%E6%95%B0%E7%94%B5%E5%9F%BA%E7%A1%80/"><span class="title">数字电路基础</span></a><a class="item title" href="/data/ES/%E7%A1%AC%E4%BB%B6/%E6%A8%A1%E7%94%B5%E5%9F%BA%E7%A1%80/"><span class="title">模拟电路基础</span></a><a class="item title" href="/data/ES/%E7%A1%AC%E4%BB%B6/%E7%94%B5%E5%AD%A6%E6%A6%82%E5%BF%B5/"><span class="title">电学概念</span></a><a class="item title" href="/data/ES/%E8%BF%9B%E9%98%B6/MQTT%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"><span class="title">MQTT 使用笔记</span></a><a class="item title" href="/data/ES/%E8%BF%9B%E9%98%B6/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"><span class="title">Linux 网络编程</span></a><a class="item title" href="/data/ES/%E8%BF%9B%E9%98%B6/%E7%BA%BF%E7%A8%8B/"><span class="title">Linux 多线程编程：Pthreads 核心函数与资源管理详解</span></a><a class="item title" href="/data/ES/%E8%BF%9B%E9%98%B6/%E8%BF%9B%E7%A8%8B/"><span class="title">Linux 进程管理与调度</span></a><a class="item title" href="/data/ES/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/LVGL%20%E5%9B%BE%E5%83%8F%E4%B8%8E%E5%AD%97%E4%BD%93%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"><span class="title">LVGL 图像与字体使用笔记</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span>
+<a class="cap breadcrumb" href="/notebooks/">笔记本</a>
+
+
+  <span class="sep"></span>
+  <a class="cap breadcrumb" href="/note/ES/">嵌入式</a>
+
+</div>
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2025-08-21T02:41:54.000Z">2025-08-21</time></span><span class="sep updated"></span><span class="text updated">发布于：<time datetime="2025-08-21T02:41:54.000Z">2025-08-21</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>C语言-库的制作和使用</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h3 id="1-基础概念什么是库"><a class="markdownIt-Anchor" href="#1-基础概念什么是库"></a> <strong>1. 基础概念：什么是库？</strong></h3>
+<p>在嵌入式开发中，<strong>库（Library）</strong> 本质上是已编译好的二进制目标文件（<code>*.o</code>）的集合。</p>
+<p>它将可复用的代码模块打包，方便其他程序链接和使用。</p>
+<p>库分为两种：静态库和动态库。</p>
+<ul>
+<li>
+<p><strong>编译过程回顾</strong>：一个 <code>.c</code> 文件经过 <code>预处理 -&gt; 编译 -&gt; 汇编</code> 最终生成 <code>.o</code> 文件。</p>
+<p><strong>链接</strong> 步骤就是将一个或多个 <code>.o</code> 文件（以及它们所依赖的库）捆绑成一个最终的可执行文件。</p>
+</li>
+<li>
+<p><strong>静态库 (<code>.a</code>)</strong></p>
+<ul>
+<li><strong>原理</strong>：在链接阶段，将库中被调用到的代码完整地<strong>复制</strong>到最终的可执行文件中。</li>
+<li><strong>优点</strong>：程序不依赖外部库文件即可运行，执行效率只高一点点。</li>
+<li><strong>缺点</strong>：生成的可执行文件体积较大，库升级时需要重新编译整个程序。</li>
+</ul>
+</li>
+<li>
+<p><strong>动态库 (<code>.so</code>)</strong></p>
+<ul>
+<li><strong>原理</strong>：在链接阶段，只记录所需函数的<strong>位置信息</strong>。程序运行时，才动态地加载库代码到内存中。</li>
+<li><strong>优点</strong>：节省磁盘和内存空间，多个程序可共享同一份库。库升级时，只需替换库文件，程序无需重新编译即可获益。</li>
+<li><strong>缺点</strong>：程序运行依赖外部库文件，存在潜在的运行时链接问题。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>命名规范</strong>：库文件名通常遵循 <code>lib&lt;库名&gt;.后缀</code> 的格式。例如 <code>libmath.a</code> 或 <code>libcustom.so</code>。链接时使用 <code>-l&lt;库名&gt;</code>，如 <code>-lmath</code>、<code>-lcustom</code>。</p>
+</blockquote>
+<hr />
+<h3 id="2-静态库的制作与使用"><a class="markdownIt-Anchor" href="#2-静态库的制作与使用"></a> <strong>2. 静态库的制作与使用</strong></h3>
+<h4 id="21-制作静态库"><a class="markdownIt-Anchor" href="#21-制作静态库"></a> <strong>2.1 制作静态库</strong></h4>
+<p>假设有功能模块 <code>a.c</code> 和 <code>b.c</code>。</p>
+<ol>
+<li>
+<p><strong>生成目标文件 (<code>.o</code>)</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -c 选项表示只编译不链接</span></span><br><span class="line">gcc a.c -o a.o -c</span><br><span class="line">gcc b.c -o b.o -c</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>打包成静态库 (<code>.a</code>)</strong><code>archive</code>：<br />
+使用 <code>ar</code> (archiver) 命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># c: 创建库 r: 替换(或添加)文件 s: 创建索引</span></span><br><span class="line">ar crs libx.a a.o b.o</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="22-使用静态库"><a class="markdownIt-Anchor" href="#22-使用静态库"></a> <strong>2.2 使用静态库</strong></h4>
+<p>假设主程序 <code>main.c</code> 调用了 <code>libx.a</code> 中的函数。</p>
+<ol>
+<li><strong>编译链接</strong>：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -L&lt;路径&gt;: 指定库文件所在的目录</span></span><br><span class="line"><span class="comment"># -l&lt;库名&gt;: 指定要链接的库</span></span><br><span class="line">gcc main.c -o main -L. -lx</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-L.</code> 表示在当前目录查找库文件。</li>
+<li><code>-lx</code> 表示链接 <code>libx.a</code>，链接时去掉<code>lib</code>和<code>.a</code>这种通用记号。</li>
+</ul>
+</li>
+</ol>
+<h4 id="重点库的依赖顺序"><a class="markdownIt-Anchor" href="#重点库的依赖顺序"></a> 重点：库的依赖顺序</h4>
+<blockquote>
+<p>如果库 <code>libb.a</code> 依赖于 <code>liba.a</code>，那么在链接时，被依赖的库最好放在后面，不然链接器找不到定义</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 正确: -la 在 -lb 之后</span></span><br><span class="line">gcc main.c -o main -L. -lb -la</span><br><span class="line"></span><br><span class="line"><span class="comment"># 错误: 链接器找不到 fa 的定义</span></span><br><span class="line">gcc main.c -o main -L. -la -lb</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr />
+<h3 id="3-动态库的制作与应用"><a class="markdownIt-Anchor" href="#3-动态库的制作与应用"></a> <strong>3. 动态库的制作与应用</strong></h3>
+<h4 id="31-制作动态库"><a class="markdownIt-Anchor" href="#31-制作动态库"></a> <strong>3.1 制作动态库</strong></h4>
+<ol>
+<li>
+<p><strong>生成位置无关的目标文件 (<code>.o</code>)</strong>：<br />
+动态库的代码必须是<strong>位置无关代码 (PIC)</strong>，因为它在内存中的加载地址是不固定的</p>
+<p>且<strong>不能包含主函数<code>main</code></strong>，不可能对一个主函数引用另外一个有主函数的库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -fPIC: 生成位置无关代码</span></span><br><span class="line">gcc a.c -o a.o -c -fPIC</span><br><span class="line">gcc b.c -o b.o -c -fPIC</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>打包成动态库 (<code>.so</code>) <code>share object</code></strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -shared: 生成共享库(动态库)</span></span><br><span class="line">gcc -shared -fPIC -o libx.so a.o b.o</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="32-使用动态库与运行时链接"><a class="markdownIt-Anchor" href="#32-使用动态库与运行时链接"></a> <strong>3.2 使用动态库与运行时链接</strong></h4>
+<ol>
+<li>
+<p><strong>编译链接</strong>：<br />
+命令与静态库完全相同。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c -o main -L. -lx</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>解决运行时找不到库的问题</strong>：<br />
+直接运行 <code>./main</code> 会报错，因为操作系统不知道去哪里找 <code>libx.so</code>。有多种种解决方法：</p>
+<ul>
+<li>
+<p><strong>方法一：编译时指定（推荐）</strong><br />
+使用 <code>-rpath</code> 选项将库路径硬编码到可执行文件中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -Wl, 表示将后续参数传递给链接器(ld)</span></span><br><span class="line"><span class="comment"># 这里指定rpath为程序所在的相对路径</span></span><br><span class="line">gcc main.c -o main -L. -lx -Wl,-rpath=.</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>方法二：设置环境变量</strong><br />
+临时将库路径添加到 <code>LD_LIBRARY_PATH</code> 环境变量中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:.</span><br><span class="line">./main</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<p>​ 其他方法不推荐</p>
+<hr />
+<h3 id="4-动态库的升级与版本管理"><a class="markdownIt-Anchor" href="#4-动态库的升级与版本管理"></a> <strong>4. 动态库的升级与版本管理</strong></h3>
+<p>动态库的核心优势在于升级维护。一个标准的动态库版本管理流程如下：</p>
+<ol>
+<li>
+<p><strong>版本号命名</strong>：<code>lib&lt;库名&gt;.so.&lt;主版本号&gt;.&lt;次版本号&gt;.&lt;修订号&gt;</code>，例如 <code>liba.so.1.0.0</code>。</p>
+<ul>
+<li><strong>主版本号</strong>：发生不向前兼容的重大变更时修改。</li>
+<li><strong>次版本号</strong>：增加新功能，但保持向前兼容。</li>
+<li><strong>修订版本号</strong>：修复 Bug。</li>
+</ul>
+</li>
+<li>
+<p><strong>SONAME</strong>: 这是库的一个别名，格式为 <code>lib&lt;库名&gt;.so.&lt;主版本号&gt;</code>。程序在运行时是根据 <code>SONAME</code> 来查找库的。</p>
+</li>
+<li>
+<p><strong>标准制作流程</strong>：</p>
+<ul>
+<li>
+<p><strong>(1) 编译库并指定 <code>SONAME</code></strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -Wl,-soname,&lt;你的SONAME&gt;</span></span><br><span class="line">gcc -shared -fPIC a.c -o liba.so.1.0.0 -Wl,-soname,liba.so.1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>(2) 创建 <code>SONAME</code> 软链接</strong>：<br />
+<code>ldconfig</code> 命令可以自动扫描当前目录的库文件，并根据其 <code>SONAME</code> 创建软链接。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -n .: 在当前目录操作</span></span><br><span class="line">ldconfig -n .</span><br><span class="line"><span class="comment"># 执行后会生成： liba.so.1 -&gt; liba.so.1.0.0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>(3) 创建编译器链接名</strong>：<br />
+编译器在链接时查找的是不带版本号的名字，如 <code>liba.so</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s liba.so.1 liba.so</span><br><span class="line"><span class="comment"># 执行后会生成： liba.so -&gt; liba.so.1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>(4) 编译主程序</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c -o main -L. -la</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>无缝升级</strong>：<br />
+当库升级到 <code>liba.so.1.0.1</code> 时，只需替换旧文件，然后重新执行 <code>ldconfig -n .</code> 更新 <code>liba.so.1</code> 的指向即可。<code>main</code> 程序<strong>无需重新编译</strong>，下次运行时就会自动加载新版库。</p>
+</li>
+</ol>
+<hr />
+<h3 id="5-动态库的动态加载-实现插件化与条件加载"><a class="markdownIt-Anchor" href="#5-动态库的动态加载-实现插件化与条件加载"></a> <strong>5. 动态库的动态加载 (实现插件化与条件加载)</strong></h3>
+<p>除了在编译时链接，我们还可以在程序运行时，根据需要<strong>手动加载和卸载</strong>动态库。这种技术是实现高级软件架构的基石，它允许程序在不重新启动的情况下扩展功能，或根据特定条件选择不同的代码路径。</p>
+<p>这主要应用于两大场景：</p>
+<ol>
+<li><strong>插件化架构</strong>：主程序提供一个框架，具体功能由第三方或后续开发的“插件”（即动态库）提供。</li>
+<li><strong>条件加载</strong>：主程序根据运行时的数据、用户输入或环境来决定加载哪个功能模块。</li>
+</ol>
+<h4 id="51-核心-api"><a class="markdownIt-Anchor" href="#51-核心-api"></a> <strong>5.1 核心 API</strong></h4>
+<p>要使用动态加载功能，必须包含头文件 <code>&lt;dlfcn.h&gt;</code>，并掌握以下几个核心函数：</p>
+<ul>
+<li>
+<p><code>void *dlopen(const char *filename, int flag);</code></p>
+<ul>
+<li><strong>功能</strong>：打开并加载一个动态库。</li>
+<li><strong><code>filename</code></strong>：库文件的路径，如 <code>&quot;./libcolor.so&quot;</code>。若设为<code>NULL</code>，则在当前进程的全局符号表中搜索。</li>
+<li><strong><code>flag</code></strong>：加载标志。常用<code>RTLD_LAZY</code>（延迟解析，用到函数时才解析地址）或<code>RTLD_NOW</code>（立即解析所有符号）。</li>
+<li><strong>返回值</strong>：成功返回一个库句柄（handle），失败返回<code>NULL</code>。</li>
+</ul>
+</li>
+<li>
+<p><code>void *dlsym(void *handle, const char *symbol);</code></p>
+<ul>
+<li><strong>功能</strong>：在已加载的库中查找符号（通常是函数名）的地址。</li>
+<li><strong><code>handle</code></strong>：由<code>dlopen</code>返回的库句柄。</li>
+<li><strong><code>symbol</code></strong>：要查找的符号名称字符串，如 <code>&quot;detection&quot;</code>。</li>
+<li><strong>返回值</strong>：成功返回符号的地址，失败返回<code>NULL</code>。</li>
+</ul>
+</li>
+<li>
+<p><code>char *dlerror(void);</code></p>
+<ul>
+<li><strong>功能</strong>：返回一个描述最后一次 <code>dlopen</code>, <code>dlsym</code>, <code>dlclose</code> 调用错误的字符串。每次调用后，错误状态会被清除。这是调试动态加载问题的<strong>首选工具</strong>。</li>
+</ul>
+</li>
+<li>
+<p><code>int dlclose(void *handle);</code></p>
+<ul>
+<li><strong>功能</strong>：卸载一个动态库，减少其引用计数。当引用计数降为 0 时，库被从内存中移除。</li>
+</ul>
+</li>
+</ul>
+<h4 id="52-重要提醒处理插件的间接依赖"><a class="markdownIt-Anchor" href="#52-重要提醒处理插件的间接依赖"></a> <strong>5.2 重要提醒：处理插件的间接依赖</strong></h4>
+<p>这是一个在使用 <code>dlopen</code> 时极易遇到的陷阱。</p>
+<p><strong>场景</strong>：假设你的主程序 <code>main</code> 动态加载一个插件 <code>libplugin.so</code>，而这个插件本身又依赖于另一个基础库 <code>libbase.so</code></p>
+<p><code>main</code> — (dlopen) —&gt; <code>libplugin.so</code> — (依赖) —&gt; <code>libbase.so</code></p>
+<p><strong>问题</strong>：在编译主程序 <code>main</code> 时，编译器只知道 <code>main</code> 的直接依赖，它对 <code>libplugin.so</code> 的内部依赖一无所知。因此，即使不链接 <code>-lbase</code>，编译也能通过。然而，当程序运行并成功 <code>dlopen(&quot;libplugin.so&quot;)</code> 后，一旦调用到 <code>libplugin.so</code> 中使用了 <code>libbase.so</code> 功能的函数时，动态链接器会因为找不到 <code>libbase.so</code> 中的符号而报错，导致程序崩溃。</p>
+<p><strong>解决方案</strong>：</p>
+<p>将插件的间接依赖库与主程序一起链接。这样，在 <code>dlopen</code> 加载插件之前，所需的符号已经存在于主程序的全局符号表中。编译主程序时，不要忘记链接<code>-ldl</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将libbase.so与主程序一起编译，并链接-ldl</span></span><br><span class="line">gcc main.c -o main -L . -lbase -ldl</span><br></pre></td></tr></table></figure>
+<p><strong>设计原则</strong>：尽量让插件（被动态加载的库）自包含，不依赖或少依赖其他非系统标准库。这能从根本上避免此类问题，让插件更加独立和健壮</p>
+<hr />
+<h4 id="53-应用场景一基于配置的插件系统-系统扩展"><a class="markdownIt-Anchor" href="#53-应用场景一基于配置的插件系统-系统扩展"></a> <strong>5.3 应用场景一：基于配置的插件系统 (系统扩展)</strong></h4>
+<p><strong>需求</strong>：开发一个检测系统，它能根据配置文件加载不同的检测模块，而无需重新编译主程序。</p>
+<ol>
+<li>
+<p><strong>约定接口</strong>：所有检测插件都必须实现一个同名函数，如 <code>void detection(void);</code></p>
+</li>
+<li>
+<p><strong>制作插件库</strong>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// color.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">detection</span><span class="params">()</span> &#123; <span class="built_in">printf</span>(<span class="string">&quot;正在检测颜色是否均匀...\n&quot;</span>); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// shape.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">detection</span><span class="params">()</span> &#123; <span class="built_in">printf</span>(<span class="string">&quot;正在检测外观是否破损...\n&quot;</span>); &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc color.c -fPIC -shared -o libcolor.so</span><br><span class="line">gcc shape.c -fPIC -shared -o libshape.so</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>编写配置文件</strong> <code>config</code>，指定要加载的插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libcolor.so</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>主程序实现动态加载</strong>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;dlfcn.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1. 从配置文件读取要加载的库名</span></span><br><span class="line">    FILE *fp = fopen(<span class="string">&quot;config&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (fp == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        perror(<span class="string">&quot;打开配置文件失败&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> lib_name[<span class="number">50</span>];</span><br><span class="line">    fgets(lib_name, <span class="keyword">sizeof</span>(lib_name), fp);</span><br><span class="line">    fclose(fp);</span><br><span class="line"></span><br><span class="line">    strtok(lib_name, <span class="string">&quot;\n&quot;</span>); <span class="comment">// 移除 fgets 读取到的末尾换行符</span></span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> path[<span class="number">60</span>];</span><br><span class="line">    <span class="built_in">snprintf</span>(path, <span class="keyword">sizeof</span>(path), <span class="string">&quot;./%s&quot;</span>, lib_name);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 使用 dlopen 加载指定的库</span></span><br><span class="line">    <span class="type">void</span> *handle = dlopen(path, RTLD_NOW);</span><br><span class="line">    <span class="keyword">if</span> (handle == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;加载动态库 [%s] 失败: %s\n&quot;</span>, path, dlerror());</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 使用 dlsym 查找约定的函数接口</span></span><br><span class="line">    <span class="type">void</span> (*detect_func)(<span class="type">void</span>);</span><br><span class="line">    detect_func = dlsym(handle, <span class="string">&quot;detection&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (detect_func == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;查找符号 [detection] 失败: %s\n&quot;</span>, dlerror());</span><br><span class="line">        dlclose(handle);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 调用函数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;开始执行检测...\n&quot;</span>);</span><br><span class="line">    detect_func();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;检测完成。\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 关闭句柄，释放资源</span></span><br><span class="line">    dlclose(handle);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>通过修改 <code>config</code> 文件的内容（例如改成 <code>libshape.so</code>），主程序就能在不重新编译的情况下调用不同的检测功能，实现了真正的插件化</p>
+<hr />
+<h4 id="54-应用场景二基于输入的条件加载-行为选择"><a class="markdownIt-Anchor" href="#54-应用场景二基于输入的条件加载-行为选择"></a> <strong>5.4 应用场景二：基于输入的条件加载 (行为选择)</strong></h4>
+<p><strong>需求</strong>：开发一个图片查看器，能根据用户输入的图片文件后缀（如 <code>.jpg</code> 或 <code>.bmp</code>），自动加载对应的解码库来显示图片</p>
+<ol>
+<li>
+<p><strong>约定接口</strong>：所有图片解码库都必须提供一个统一的显示函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在一个公共头文件(如 display.h)中定义</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;./src/lcd.h&quot;</span> <span class="comment">// 假设lcd.h定义了LCD_info和显示模式</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">display</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="type">const</span> <span class="keyword">struct</span> LCD_info *plcd, <span class="type">uint8_t</span> mode)</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>制作不同格式的解码库</strong>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// libjpg.c: 负责解码和显示JPG图片</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;display.h&quot;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">display</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="type">const</span> <span class="keyword">struct</span> LCD_info *plcd, <span class="type">uint8_t</span> mode)</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;使用JPG解码库显示图片: %s\n&quot;</span>, pathname);</span><br><span class="line">    <span class="comment">// ... 此处是真实的JPG解码和LCD显示代码 ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// libbmp.c: 负责解码和显示BMP图片</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;display.h&quot;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">display</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="type">const</span> <span class="keyword">struct</span> LCD_info *plcd, <span class="type">uint8_t</span> mode)</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;使用BMP解码库显示图片: %s\n&quot;</span>, pathname);</span><br><span class="line">    <span class="comment">// ... 此处是真实的BMP解码和LCD显示代码 ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc libjpg.c -fPIC -shared -o libjpg.so</span><br><span class="line">gcc libbmp.c -fPIC -shared -o libbmp.so</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>主程序根据输入条件动态加载</strong>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;dlfcn.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;display.h&quot;</span> <span class="comment">// 包含统一接口和所需结构体定义</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> <span class="type">const</span> *argv[])</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (argc &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;用法: %s &lt;图片文件名&gt;\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">void</span> *handle = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">char</span> *lib_path = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 根据输入的文件名后缀，决定加载哪个库</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strstr</span>(argv[<span class="number">1</span>], <span class="string">&quot;.jpg&quot;</span>) != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        lib_path = <span class="string">&quot;./libjpg.so&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">strstr</span>(argv[<span class="number">1</span>], <span class="string">&quot;.bmp&quot;</span>) != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        lib_path = <span class="string">&quot;./libbmp.so&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;错误: 不支持的文件格式，目前仅支持 .jpg 和 .bmp\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 加载选定的动态库</span></span><br><span class="line">    handle = dlopen(lib_path, RTLD_NOW);</span><br><span class="line">    <span class="keyword">if</span> (handle == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;打开动态库 [%s] 失败: %s\n&quot;</span>, lib_path, dlerror());</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;成功加载库: %s\n&quot;</span>, lib_path);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 查找统一的显示函数 `display`</span></span><br><span class="line">    <span class="type">void</span> (*display_func)(<span class="type">const</span> <span class="type">char</span> *, <span class="type">const</span> <span class="keyword">struct</span> LCD_info *, <span class="type">uint8_t</span>);</span><br><span class="line">    display_func = dlsym(handle, <span class="string">&quot;display&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (display_func == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;从动态库获取函数 [display] 失败: %s\n&quot;</span>, dlerror());</span><br><span class="line">        dlclose(handle);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 准备环境并调用函数</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LCD_info</span> <span class="title">lcdinfo</span>;</span></span><br><span class="line">    init_LCD(&amp;lcdinfo); <span class="comment">// 假设这是初始化LCD屏幕的函数</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;调用显示函数...\n&quot;</span>);</span><br><span class="line">    <span class="comment">// 调用从动态库中获取的函数</span></span><br><span class="line">    display_func(argv[<span class="number">1</span>], &amp;lcdinfo, CENTER | ZOOM); <span class="comment">// 假设CENTER和ZOOM是定义好的模式</span></span><br><span class="line"></span><br><span class="line">    relese_LCD(&amp;lcdinfo); <span class="comment">// 假设这是释放LCD资源的函数</span></span><br><span class="line">    dlclose(handle);      <span class="comment">// 关闭库句柄</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，程序就能根据用户输入的文件名，在运行时才决定加载哪个解码库</p>
+<p>未来如果需要支持 <code>.png</code> 格式，只需新增一个 <code>libpng.so</code> 并更新主程序的判断逻辑即可，无需改动现有代码，极大地增强了程序的灵活性和可扩展性</p>
+</li>
+</ol>
+
+
+  <div class="tag-list">
+    
+      
+      <a class="tag" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E5%BA%93%E4%B8%8E%E6%A1%86%E6%9E%B6/">基础/库与框架</a>
+    
+  </div>
+
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8&title=C语言-库的制作和使用 - Sky Blog&summary=一份关于C语言库制作与使用的笔记，内容涵盖静态库、动态库的创建、使用、版本管理及动态加载技术"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=C语言-库的制作和使用 - Sky Blog&amp;body=http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/UEC/">大学生扫盲</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br />
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br />
+<img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E4%BB%80%E4%B9%88%E6%98%AF%E5%BA%93"><span class="toc-text"> 1. 基础概念：什么是库？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-text"> 2. 静态库的制作与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#21-%E5%88%B6%E4%BD%9C%E9%9D%99%E6%80%81%E5%BA%93"><span class="toc-text"> 2.1 制作静态库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#22-%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E5%BA%93"><span class="toc-text"> 2.2 使用静态库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E7%82%B9%E5%BA%93%E7%9A%84%E4%BE%9D%E8%B5%96%E9%A1%BA%E5%BA%8F"><span class="toc-text"> 重点：库的依赖顺序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-text"> 3. 动态库的制作与应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#31-%E5%88%B6%E4%BD%9C%E5%8A%A8%E6%80%81%E5%BA%93"><span class="toc-text"> 3.1 制作动态库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#32-%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E5%BA%93%E4%B8%8E%E8%BF%90%E8%A1%8C%E6%97%B6%E9%93%BE%E6%8E%A5"><span class="toc-text"> 3.2 使用动态库与运行时链接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%8D%87%E7%BA%A7%E4%B8%8E%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-text"> 4. 动态库的升级与版本管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD-%E5%AE%9E%E7%8E%B0%E6%8F%92%E4%BB%B6%E5%8C%96%E4%B8%8E%E6%9D%A1%E4%BB%B6%E5%8A%A0%E8%BD%BD"><span class="toc-text"> 5. 动态库的动态加载 (实现插件化与条件加载)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#51-%E6%A0%B8%E5%BF%83-api"><span class="toc-text"> 5.1 核心 API</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#52-%E9%87%8D%E8%A6%81%E6%8F%90%E9%86%92%E5%A4%84%E7%90%86%E6%8F%92%E4%BB%B6%E7%9A%84%E9%97%B4%E6%8E%A5%E4%BE%9D%E8%B5%96"><span class="toc-text"> 5.2 重要提醒：处理插件的间接依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#53-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%80%E5%9F%BA%E4%BA%8E%E9%85%8D%E7%BD%AE%E7%9A%84%E6%8F%92%E4%BB%B6%E7%B3%BB%E7%BB%9F-%E7%B3%BB%E7%BB%9F%E6%89%A9%E5%B1%95"><span class="toc-text"> 5.3 应用场景一：基于配置的插件系统 (系统扩展)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#54-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%BA%8C%E5%9F%BA%E4%BA%8E%E8%BE%93%E5%85%A5%E7%9A%84%E6%9D%A1%E4%BB%B6%E5%8A%A0%E8%BD%BD-%E8%A1%8C%E4%B8%BA%E9%80%89%E6%8B%A9"><span class="toc-text"> 5.4 应用场景二：基于输入的条件加载 (行为选择)</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
   util.viewportLazyload(el, load_discus, false);
 
   function load_discus() {
@@ -17,7 +1528,284 @@
         }
       }
       el.appendChild(script);
-  }</script><script defer>window.addEventListener("DOMContentLoaded",e=>{ctx.services=Object.assign({},JSON.parse('{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}'));for(let s of Object.keys(ctx.services)){let e=ctx.services[s].js;"siteinfo"==s?(ctx.cardlinks=document.querySelectorAll("a.link-card[cardlink]"),0<ctx.cardlinks?.length&&utils.js(e,{defer:!0}).then(function(){setCardLink(ctx.cardlinks)})):"voice"==s?(ctx.voiceAudios=document.querySelectorAll(".voice>audio"),0<ctx.voiceAudios?.length&&utils.js(e,{defer:!0}).then(function(){createVoiceDom(ctx.voiceAudios)})):"video"==s?(ctx.videos=document.querySelectorAll(".video>video"),0<ctx.videos?.length&&utils.js(e,{defer:!0}).then(function(){videoEvents(ctx.videos)})):"download-file"==s?(ctx.files=document.querySelectorAll(".file"),0<ctx.files?.length&&utils.js(e,{defer:!0}).then(function(){downloadFileEvent(ctx.files)})):0<document.getElementsByClassName("ds-"+s)?.length&&utils.jq(()=>{s,utils.js(deps.marked).then(function(){utils.js(e,{defer:!0})})})}let o=document.querySelectorAll(".chat .status-bar .time");var s,t;function i(){for(let e=0;e<o.length;++e){var s=o[e],t=new Date,i=t.getHours(),t=t.getMinutes();s.innerHTML=n(i)+":"+n(t)}}function n(e){return e<10?"0"+e:e}0<o.length&&(i(),s=(new Date).getSeconds(),t=setInterval(function(){i(),clearInterval(t),setInterval(i,6e4)},1e3*(60-s)));let c=new IntersectionObserver((e,t)=>{e.filter(e=>e.isIntersecting).sort((e,s)=>e.intersectionRect.y!==s.intersectionRect.y?e.intersectionRect.y-s.intersectionRect.y:e.intersectionRect.x-s.intersectionRect.x).forEach((e,s)=>{t.unobserve(e.target),setTimeout(()=>{e.target.classList.add("quote-blink"),setTimeout(()=>{e.target.classList.remove("quote-blink")},1e3)},Math.max(100,16)*(s+1))})}),r=document.querySelectorAll(".chat .talk .quote");r.forEach(i=>{i.addEventListener("click",function(){var e,s,t=document.getElementById("quote-"+i.getAttribute("quotedCellTag"));t&&(s=(e=t.parentElement).clientHeight/2,t.offsetTop>s-t.clientHeight/2?e.scrollTo({top:t.offsetTop-s+t.clientHeight/2,behavior:"smooth"}):e.scrollTo({top:0,behavior:"smooth"}),c.observe(t))})})})</script><script>window.addEventListener("DOMContentLoaded",e=>{ctx.search={path:"/search.json"},utils.js("/js/search/local-search.js",{defer:!0})})</script><script>window.FPConfig={delay:0,ignoreKeywords:[],maxRPS:5,hoverDelay:25}</script><script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>ctx.fancybox={selector:'.md-text img[alt]:not([alt="icon"]):not([alt="cover"])',css:"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css",js:"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"};var selector="[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])",needFancybox=(ctx.fancybox.selector&&(selector+=", "+ctx.fancybox.selector),0!==document.querySelectorAll(selector).length);if(!needFancybox){let t=document.getElementsByClassName("ds-memos"),e=(null!=t&&0<t.length&&(needFancybox=!0),document.getElementsByClassName("with-fancybox"));null!=e&&0<e.length&&(needFancybox=!0)}needFancybox&&(utils.css(ctx.fancybox.css),utils.js(ctx.fancybox.js,{defer:!0}).then(function(){Fancybox.bind(selector,{hideScrollbar:!1,Thumbs:{autoStart:!1},caption:(t,e)=>e.triggerEl.alt||e.triggerEl.dataset.caption||null})}))</script><script>window.addEventListener("DOMContentLoaded",e=>{let t=document.getElementById("swiper-api");null!=t&&(utils.css("https://unpkg.com/swiper@10.3/swiper-bundle.min.css"),utils.js("https://unpkg.com/swiper@10.3/swiper-bundle.min.js",{defer:!0}).then(function(){var e=t.getAttribute("effect")||"";new Swiper(".swiper#swiper-api",{slidesPerView:"auto",spaceBetween:8,centeredSlides:!0,effect:e,rewind:!0,pagination:{el:".swiper-pagination",clickable:!0},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}})}))})</script><link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css"><script defer src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script><script>window.addEventListener("DOMContentLoaded",e=>{var a={startOnLoad:!0,theme:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"neutral",logLevel:3,themeVariables:{darkMode:!0},flowchart:{useMaxWidth:!1,htmlLabels:!0,curve:"linear"},gantt:{axisFormat:"%Y/%m/%d"},sequence:{actorMargin:50}};mermaid.initialize(a)})</script><script>document.addEventListener("DOMContentLoaded",function(){window.codeElements=document.querySelectorAll(".code"),0<window.codeElements.length&&(ctx.copycode={default_text:"Copy",success_text:"Copied",toast:"复制成功"},utils.js("/js/plugins/copycode.js"))})</script><script>var _hmt=_hmt||[];(()=>{var e=document.createElement("script"),t=(e.src="https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902",document.getElementsByTagName("script")[0]);t.parentNode.insertBefore(e,t)})()</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-JST56Q8277")</script><script>((e,t,n,r,a,c)=>{e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)},(a=t.createElement(r)).async=1,a.src="https://www.clarity.ms/tag/rp0i6z4yyg",(c=t.getElementsByTagName(r)[0]).parentNode.insertBefore(a,c)})(window,document,"clarity","script")</script></div>
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.md-text img[alt]:not([alt="icon"]):not([alt="cover"])`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
+<script defer type="text/javascript" src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var mermaid_config = {
+      startOnLoad: true,
+      theme:
+        "auto" == "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "neutral",
+      logLevel: 3,
+      themeVariables: {
+        darkMode: true
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: "linear"
+      },
+      gantt: {
+        axisFormat: "%Y/%m/%d"
+      },
+      sequence: {
+        actorMargin: 50
+      }
+    }
+    mermaid.initialize(mermaid_config);
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script><!-- Baidu Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JST56Q8277');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rp0i6z4yyg");
+</script>
+
+
+
+<!-- inject -->
+
+</div>
         <style>
             [bg-lazy] {
                 background-image: none !important;
