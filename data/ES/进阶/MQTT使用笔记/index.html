@@ -1112,6 +1112,10 @@
 </li>
 <li><strong>心跳机制 (Keep Alive)</strong>: 客户端在连接时与 Broker 协商一个时间间隔（秒）。在此期间若无任何消息交互，客户端会发送一个极小的 PINGREQ 包，Broker 则响应 PINGRESP 包，以此确认双方连接仍然有效。如果 Broker 在 1.5 倍的 Keep Alive 时间内未收到客户端的任何消息，则会判定连接断开，并触发 LWT 机制。</li>
 </ul>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
 
 
   <div class="tag-list">

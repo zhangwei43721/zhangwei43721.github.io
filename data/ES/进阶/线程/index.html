@@ -1372,6 +1372,10 @@ d. 解锁 <code>pthread_mutex_unlock()</code></li>
 <li><strong>信号（Signal）</strong> 是一种异步通知机制，通过 <code>kill()</code> 发送，并使用 <code>signal()</code> 注册处理函数，常用于事件通知（如 <code>SIGCHLD</code> 信号可用于异步回收子进程）。</li>
 <li>功能最强大的 <strong>System V IPC</strong> 体系，它们都依赖 <code>ftok()</code> 生成的密钥来标识：<strong>共享内存（Shared Memory）</strong> 是<strong>最快</strong>的 IPC 方式（<code>shmget()</code> / <code>shmat()</code>），因为它避免了内核数据拷贝，但必须配合<strong>信号量</strong>等工具进行同步；<strong>消息队列（Message Queue）</strong>（<code>msgget()</code> / <code>msgsnd()</code> / <code>msgrcv()</code>）则适用于结构化的小数据块交换。所有 System V IPC 对象都需要通过 <code>ipcs</code> 命令查看并通过 <code>ipcrm</code> 命令或 <code>msgctl</code>/<code>shmctl</code> 函数手动销毁</li>
 </ul>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
 
 
   <div class="tag-list">
