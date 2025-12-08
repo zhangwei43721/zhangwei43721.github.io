@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://skyforever.top/posts/41626</loc>
+    
+    <lastmod>2025-12-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://skyforever.top/wiki/UEC/</loc>
     
     <lastmod>2025-12-08</lastmod>
@@ -1113,6 +1122,34 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://skyforever.top/tags/J-Link/</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/tags/RTT/</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/tags/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -1194,6 +1231,13 @@
   
   <url>
     <loc>http://skyforever.top/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2025-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
