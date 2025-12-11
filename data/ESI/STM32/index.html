@@ -545,7 +545,7 @@
 <tr>
 <td style="text-align:left"><strong>STM32 低功耗模式 - 停止模式 (Stop)</strong></td>
 <td style="text-align:left"><strong>必问</strong></td>
-<td style="text-align:left"><strong>特点</strong>：关闭所有时钟（HSI/HSE/PLL），所有外设停止工作。但 <strong>1.2V 区域电源保留</strong>，内核寄存器和 SRAM 内容<strong>保持</strong>（数据不丢失）。<br><strong>进入条件</strong>：<code>SLEEPDEEP=1</code>，<code>PDDS=0</code> (电源控制寄存器)。<br><strong>唤醒方式</strong>：任意 <strong>外部中断 (EXTI)</strong> 线（如按键、串口RX引脚中断）。<br><strong>注意</strong>：唤醒后时钟默认切回 HSI，需重新配置系统时钟。</td>
+<td style="text-align:left"><strong>特点</strong>：关闭所有时钟（HSI/HSE/PLL），所有外设停止工作。但 <strong>1.2V 区域电源保留</strong>，即内核寄存器和 SRAM 内容<strong>保持</strong>（数据不丢失）。<br><strong>进入条件</strong>：<code>SLEEPDEEP=1</code>，<code>PDDS=0</code> (电源控制寄存器)。<br><strong>唤醒方式</strong>：任意 <strong>外部中断 (EXTI)</strong> 线（如按键、串口RX引脚中断）。<br><strong>注意</strong>：唤醒后时钟默认切回 HSI，需重新配置系统时钟。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>STM32 低功耗模式 - 待机模式 (Standby)</strong></td>
