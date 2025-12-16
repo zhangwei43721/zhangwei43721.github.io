@@ -17,25 +17,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>大学生扫盲课：5.1.CMD和PowerShell指令集 - Sky Blog</title>
+  <title>USB - Sky Blog</title>
 
   
-    <meta name="description" content="详细对比CMD与PowerShell的区别，提供常用文件操作、网络管理、系统进程管理及PowerShell对Linux别名支持的命令速查表。">
+    <meta name="description" content="这是Skyforever的个人博客，一名大学生的技术分享空间。 这里记录了我的学习历程、编程实践、项目经验以及对技术的理解。 希望我的分享能为同样热爱技术的你提供一些帮助和启发。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="5.1.CMD和PowerShell指令集">
-<meta property="og:url" content="http://skyforever.top/wiki/UEC/5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86/">
+<meta property="og:title" content="USB">
+<meta property="og:url" content="http://skyforever.top/wiki/tags/USB/">
 <meta property="og:site_name" content="Sky Blog">
-<meta property="og:description" content="详细对比CMD与PowerShell的区别，提供常用文件操作、网络管理、系统进程管理及PowerShell对Linux别名支持的命令速查表。">
+<meta property="og:description" content="这是Skyforever的个人博客，一名大学生的技术分享空间。 这里记录了我的学习历程、编程实践、项目经验以及对技术的理解。 希望我的分享能为同样热爱技术的你提供一些帮助和启发。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-24T16:00:00.000Z">
 <meta property="article:author" content="Skyforever">
-<meta property="article:tag" content="5.win系统脚本&#x2F;两种命令行">
 <meta name="twitter:card" content="summary">
   
   
   
-  <meta name="keywords" content="CMD, PowerShell, 终端, 命令行, Linux命令, 脚本, 系统管理, 网络命令">
+  
 
   <!-- feed -->
   
@@ -49,27 +46,22 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"http://skyforever.top/wiki/UEC/5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86/","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"name":"5.1.CMD和PowerShell指令集","description":"详细对比CMD与PowerShell的区别，提供常用文件操作、网络管理、系统进程管理及PowerShell对Linux别名支持的命令速查表。","url":"http://skyforever.top/wiki/UEC/5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"http://skyforever.top","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"name":"Sky Blog","description":"这是Skyforever的个人博客，一名大学生的技术分享空间。 这里记录了我的学习历程、编程实践、项目经验以及对技术的理解。 希望我的分享能为同样热爱技术的你提供一些帮助和启发。\n","url":"http://skyforever.top"}</script>
   
 </head>
 <body>
 
+<div class="l_body index" id="start" layout="index_wiki" type="undefined" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
 
 
-<div class="l_body content" id="start" layout="page" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
-
-
-<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="https://image.skyforever.top/blog/2025/10/ec23b46ef5849c22890a0ae81f0d0561.webp" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/UEC/"><div class="main">大学生扫盲课</div></a></div></header>
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
 
 <div class="nav-area">
 
 <nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item active" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a></nav>
 </div>
 <div class="widgets">
-<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/UEC/" placeholder="在 大学生扫盲课 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
-
-
-<widget class="widget-wrapper doc-tree post-list"><div class="widget-body fs14"><a class="link" href="/wiki/UEC/#start"><span class="toc-text">首页</span></a><a class="link" href="/wiki/UEC/1%20Git%E3%80%81GitHub%20%E5%92%8C%20Gitee%20%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%EF%BC%9A%E4%BB%8E%E5%9F%BA%E7%A1%80%E5%88%B0%E8%BF%9B%E9%98%B6%E5%8A%9F%E8%83%BD/"><span class="toc-text">1.Git、GitHub 和 Gitee 完整讲解：从基础到进阶功能</span></a><a class="link" href="/wiki/UEC/2%20word%E6%8E%92%E7%89%88%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99/"><span class="toc-text">2.Word排版介绍与论文格式书写</span></a><a class="link" href="/wiki/UEC/3%20%E4%B8%89%E7%BA%BF%E8%A1%A8%E7%BB%98%E5%88%B6%E4%B8%8Eexcel%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"><span class="toc-text">3.三线表绘制与Excel常用技巧</span></a><a class="link" href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"><span class="toc-text">4.2.Markdown基础语法</span></a><a class="link" href="/wiki/UEC/4%20typora%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"><span class="toc-text">4.1.Typora安装与配置</span></a><a class="link active" href="/wiki/UEC/5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86/"><span class="toc-text">5.1.CMD和PowerShell指令集</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="link" href="/wiki/UEC/5%20cmd%E7%9A%84%E8%84%9A%E6%9C%ACbat%E4%B8%8Epowershell%E7%9A%84%E8%84%9A%E6%9C%ACps1/"><span class="toc-text">5.2.CMD脚本(BAT)与PowerShell脚本(PS1)</span></a><a class="link" href="/wiki/UEC/6%20%E6%B8%85%E7%90%86C%E7%9B%98/"><span class="toc-text">6.清理C盘</span></a><a class="link" href="/wiki/UEC/7%20%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E4%B8%8E%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9/"><span class="toc-text">7.磁盘分区与磁盘扩容</span></a><a class="link" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/"><span class="toc-text">8.1.常用搜索技巧</span></a><a class="link" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/"><span class="toc-text">8.2.常用网站推荐</span></a><a class="link" href="/wiki/UEC/9%20%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80/"><span class="toc-text">9.编码与文件后缀</span></a><a class="link" href="/wiki/UEC/10%20%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB%E5%92%8C%E6%B2%B9%E7%8C%B4%E4%BB%8B%E7%BB%8D/"><span class="toc-text">10.浏览器插件分享和油猴介绍</span></a><a class="link" href="/wiki/UEC/11%20uml%E5%92%8Cmermaid%E7%9A%84%E4%BB%8B%E7%BB%8D/"><span class="toc-text">11.UML和Mermaid的介绍</span></a><a class="link" href="/wiki/UEC/12%20%E7%BD%91%E8%AF%BE%E8%87%AA%E5%8A%A8%E8%A7%82%E7%9C%8B%E4%B8%8E%E7%AD%94%E9%A2%98/"><span class="toc-text">12.网课自动观看与答题</span></a></div></widget>
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
 
 
@@ -78,456 +70,21 @@
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
 </div></aside><div class="l_main" id="main">
 
+<header class="header mobile-only"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
 
 
 
 
-<div class="article banner top">
-  <div class="content">
-    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/UEC/">大学生扫盲课</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2024-12-24T16:00:00.000Z">2024-12-25</time></span></div></div></div>
-    
-    <div class="bottom only-title">
-      
-      <div class="text-area">
-        <h1 class="text title"><span>5.1.CMD和PowerShell指令集</span></h1>
-        
-      </div>
-    </div>
-    
-  </div>
-  </div><article class="md-text content"><h2 id="一-cmd-与-powershell-全面对比"><a class="markdownIt-Anchor" href="#一-cmd-与-powershell-全面对比"></a> 一、CMD 与 PowerShell 全⾯对⽐</h2>
-<h3 id="概览"><a class="markdownIt-Anchor" href="#概览"></a> 概览</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">特性</th>
-<th style="text-align:left">CMD（命令提示符）</th>
-<th style="text-align:left">PowerShell（Windows PowerShell）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>历史起源</strong></td>
-<td style="text-align:left">起源于 MS-DOS，功能基础</td>
-<td style="text-align:left">基于 .NET Framework/Core，结合面向对象思想</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>输出类型</strong></td>
-<td style="text-align:left">纯文本输出</td>
-<td style="text-align:left">面向对象，返回 .NET 对象，支持属性和方法操作</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>脚本支持</strong></td>
-<td style="text-align:left">支持批处理脚本 （.bat/.cmd）</td>
-<td style="text-align:left">支持高级脚本（.ps1）和模块化扩展</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>跨平台支持</strong></td>
-<td style="text-align:left">不支持，仅限 Windows 系统</td>
-<td style="text-align:left">支持 Windows、Linux、macOS （PowerShell Core/7.x）</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>命令集扩展性</strong></td>
-<td style="text-align:left">基础命令集</td>
-<td style="text-align:left">支持自定义模块、函数，兼容 Linux 命令</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>适合场景</strong></td>
-<td style="text-align:left">文件管理、简单系统操作</td>
-<td style="text-align:left">高级任务自动化、复杂数据处理、跨平台操作</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="二-cmd-常用命令"><a class="markdownIt-Anchor" href="#二-cmd-常用命令"></a> 二、CMD 常⽤命令</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">命令</th>
-<th style="text-align:left">功能描述</th>
-<th style="text-align:left">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>dir</code></td>
-<td style="text-align:left">显示当前目录下的文件和文件夹</td>
-<td style="text-align:left"><code>dir</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>cd</code></td>
-<td style="text-align:left">切换工作目录</td>
-<td style="text-align:left"><code>cd C:\Users</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>cls</code></td>
-<td style="text-align:left">清屏</td>
-<td style="text-align:left"><code>cls</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>del</code></td>
-<td style="text-align:left">删除文件</td>
-<td style="text-align:left"><code>del file.txt</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>copy</code></td>
-<td style="text-align:left">复制文件</td>
-<td style="text-align:left"><code>copy source.txt dest.txt</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>move</code></td>
-<td style="text-align:left">移动文件</td>
-<td style="text-align:left"><code>move source.txt folder\</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>mkdir</code></td>
-<td style="text-align:left">创建文件夹</td>
-<td style="text-align:left"><code>mkdir NewFolder</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>rmdir</code></td>
-<td style="text-align:left">删除文件夹</td>
-<td style="text-align:left"><code>rmdir /s /q folder</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>type</code></td>
-<td style="text-align:left">显示文件内容</td>
-<td style="text-align:left"><code>type file.txt</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>ping</code></td>
-<td style="text-align:left">测试网络连接</td>
-<td style="text-align:left"><code>ping www.google.com</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>ipconfig</code></td>
-<td style="text-align:left">查看网络配置</td>
-<td style="text-align:left"><code>ipconfig</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>tasklist</code></td>
-<td style="text-align:left">查看运行的进程</td>
-<td style="text-align:left"><code>tasklist</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>taskkill</code></td>
-<td style="text-align:left">终止进程</td>
-<td style="text-align:left"><code>taskkill /PID 1234</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="三-powershell-常用命令"><a class="markdownIt-Anchor" href="#三-powershell-常用命令"></a> 三、PowerShell 常⽤命令</h2>
-<h3 id="1-基本文件和目录操作"><a class="markdownIt-Anchor" href="#1-基本文件和目录操作"></a> 1. 基本⽂件和⽬录操作</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">功能</th>
-<th style="text-align:left">PowerShell 命令</th>
-<th style="text-align:left">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>查看目录内容</strong></td>
-<td style="text-align:left"><code>Get-ChildItem</code></td>
-<td style="text-align:left"><code>Get-ChildItem</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>切换目录</strong></td>
-<td style="text-align:left"><code>Set-Location</code></td>
-<td style="text-align:left"><code>Set-Location C:\Users</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>删除文件/文件夹</strong></td>
-<td style="text-align:left"><code>Remove-Item</code></td>
-<td style="text-align:left"><code>Remove-Item file.txt</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>创建目录</strong></td>
-<td style="text-align:left"><code>New-Item</code></td>
-<td style="text-align:left"><code>New-Item -ItemType Directory -Name NewFolder</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>复制文件/文件夹</strong></td>
-<td style="text-align:left"><code>Copy-Item</code></td>
-<td style="text-align:left"><code>Copy-Item source.txt dest.txt</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>移动文件/文件夹</strong></td>
-<td style="text-align:left"><code>Move-Item</code></td>
-<td style="text-align:left"><code>Move-Item source.txt folder\</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>显示文件内容</strong></td>
-<td style="text-align:left"><code>Get-Content</code></td>
-<td style="text-align:left"><code>Get-Content file.txt</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-系统和网络管理"><a class="markdownIt-Anchor" href="#2-系统和网络管理"></a> 2. 系统和⽹络管理</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">功能</th>
-<th style="text-align:left">PowerShell 命令</th>
-<th style="text-align:left">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>查看进程</strong></td>
-<td style="text-align:left"><code>Get-Process</code></td>
-<td style="text-align:left"><code>Get-Process</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>终止进程</strong></td>
-<td style="text-align:left"><code>Stop-Process</code></td>
-<td style="text-align:left"><code>Stop-Process -Name notepad</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>查看网络配置</strong></td>
-<td style="text-align:left"><code>Get-NetIPAddress</code></td>
-<td style="text-align:left"><code>Get-NetIPAddress</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>测试网络连接</strong></td>
-<td style="text-align:left"><code>Test-Connection</code></td>
-<td style="text-align:left"><code>Test-Connection www.google.com</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-高级任务和脚本"><a class="markdownIt-Anchor" href="#3-高级任务和脚本"></a> 3. ⾼级任务和脚本</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">功能</th>
-<th style="text-align:left">PowerShell 命令</th>
-<th style="text-align:left">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>下载文件</strong></td>
-<td style="text-align:left"><code>Invoke-WebRequest</code></td>
-<td style="text-align:left"><code>Invoke-WebRequest -Uri &quot;url&quot; -OutFile &quot;file&quot;</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>解压缩文件</strong></td>
-<td style="text-align:left"><code>Expand-Archive</code></td>
-<td style="text-align:left"><code>Expand-Archive -Path archive.zip -DestinationPath folder</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>查看系统事件日志</strong></td>
-<td style="text-align:left"><code>Get-EventLog</code></td>
-<td style="text-align:left"><code>Get-EventLog -LogName System</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>获取服务状态</strong></td>
-<td style="text-align:left"><code>Get-Service</code></td>
-<td style="text-align:left"><code>Get-Service</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>启动服务</strong></td>
-<td style="text-align:left"><code>Start-Service</code></td>
-<td style="text-align:left"><code>Start-Service -Name wuauserv</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="四-powershell-对-linux-命令的支持"><a class="markdownIt-Anchor" href="#四-powershell-对-linux-命令的支持"></a> 四、PowerShell 对 Linux 命令的⽀持</h2>
-<p>PowerShell 在跨平台版本中支持许多 Linux 常用命令。这些命令实际上是<strong>别名</strong>，最终调用的是 PowerShell 自己的命令。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Linux 命令</th>
-<th style="text-align:left">PowerShell 等效命令</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>ls</code></td>
-<td style="text-align:left"><code>Get-ChildItem</code></td>
-<td style="text-align:left">列出目录内容</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>cd</code></td>
-<td style="text-align:left"><code>Set-Location</code></td>
-<td style="text-align:left">切换目录</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>pwd</code></td>
-<td style="text-align:left"><code>Get-Location</code></td>
-<td style="text-align:left">显示当前路径</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>cp</code></td>
-<td style="text-align:left"><code>Copy-Item</code></td>
-<td style="text-align:left">复制文件或文件夹</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>mv</code></td>
-<td style="text-align:left"><code>Move-Item</code></td>
-<td style="text-align:left">移动文件或文件夹</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>rm</code></td>
-<td style="text-align:left"><code>Remove-Item</code></td>
-<td style="text-align:left">删除文件或文件夹</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>cat</code></td>
-<td style="text-align:left"><code>Get-Content</code></td>
-<td style="text-align:left">显示文件内容</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>echo</code></td>
-<td style="text-align:left"><code>Write-Output</code></td>
-<td style="text-align:left">输出内容</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>ps</code></td>
-<td style="text-align:left"><code>Get-Process</code></td>
-<td style="text-align:left">显示当前运行的进程</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>kill</code></td>
-<td style="text-align:left"><code>Stop-Process</code></td>
-<td style="text-align:left">终止进程</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>touch</code></td>
-<td style="text-align:left"><code>New-Item</code></td>
-<td style="text-align:left">创建空文件</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>man</code></td>
-<td style="text-align:left"><code>Get-Help</code></td>
-<td style="text-align:left">查看命令帮助文档</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>grep</code></td>
-<td style="text-align:left"><code>Select-String</code></td>
-<td style="text-align:left">查找字符串</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>curl</code></td>
-<td style="text-align:left"><code>Invoke-WebRequest</code></td>
-<td style="text-align:left">发送 HTTP 请求</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="五-cmd-和-powershell-命令对比速查"><a class="markdownIt-Anchor" href="#五-cmd-和-powershell-命令对比速查"></a> 五、CMD 和 PowerShell 命令对⽐速查</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">功能</th>
-<th style="text-align:left">CMD 命令</th>
-<th style="text-align:left">PowerShell 命令</th>
-<th style="text-align:left">Linux 命令等效</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>查看目录内容</strong></td>
-<td style="text-align:left"><code>dir</code></td>
-<td style="text-align:left"><code>Get-ChildItem</code></td>
-<td style="text-align:left"><code>ls</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>切换目录</strong></td>
-<td style="text-align:left"><code>cd</code></td>
-<td style="text-align:left"><code>Set-Location</code></td>
-<td style="text-align:left"><code>cd</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>显示当前路径</strong></td>
-<td style="text-align:left">无</td>
-<td style="text-align:left"><code>Get-Location</code></td>
-<td style="text-align:left"><code>pwd</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>删除文件/文件夹</strong></td>
-<td style="text-align:left"><code>del</code> / <code>rmdir</code></td>
-<td style="text-align:left"><code>Remove-Item</code></td>
-<td style="text-align:left"><code>rm</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>复制文件</strong></td>
-<td style="text-align:left"><code>copy</code></td>
-<td style="text-align:left"><code>Copy-Item</code></td>
-<td style="text-align:left"><code>cp</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>移动文件</strong></td>
-<td style="text-align:left"><code>move</code></td>
-<td style="text-align:left"><code>Move-Item</code></td>
-<td style="text-align:left"><code>mv</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>查看文件内容</strong></td>
-<td style="text-align:left"><code>type</code></td>
-<td style="text-align:left"><code>Get-Content</code></td>
-<td style="text-align:left"><code>cat</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>查找字符串</strong></td>
-<td style="text-align:left">无</td>
-<td style="text-align:left"><code>Select-String</code></td>
-<td style="text-align:left"><code>grep</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>测试网络连接</strong></td>
-<td style="text-align:left"><code>ping</code></td>
-<td style="text-align:left"><code>Test-Connection</code></td>
-<td style="text-align:left"><code>ping</code></td>
-</tr>
-</tbody>
-</table>
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
-
-<script src="/js/markmap.js"></script>
-</article>
-<div class="article-footer">
-
-</div>
-
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/UEC/4%20typora%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">4.1.Typora安装与配置</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/UEC/5%20cmd%E7%9A%84%E8%84%9A%E6%9C%ACbat%E4%B8%8Epowershell%E7%9A%84%E8%84%9A%E6%9C%ACps1/">5.2.CMD脚本(BAT)与PowerShell脚本(PS1)</a></div></section></div>
-
-
-  <div class="related-wrap md-text" id="comments">
-    <section class='header cmt-title cap theme'>
-      <p>快来参与讨论吧~</p>
-
-    </section>
-    <section class='body cmt-body giscus'>
-      
-
-<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
-
-<div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
-
-    </section>
-  </div>
-
-
-
+<div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="wiki"><a href="/wiki/">所有项目</a></a><a href="/wiki/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a></a><a href="/wiki/tags/LVGL/">LVGL</a></a><a href="/wiki/tags/MQTT/">MQTT</a></a><a href="/wiki/tags/C/">C</a></a><a href="/wiki/tags/Vue/">Vue</a></a><a href="/wiki/tags/%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86/">电源管理</a></a><a class="active" href="/wiki/tags/USB/">USB</a></a><a href="/wiki/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a></a></nav></div></div></div>
+<div class="post-list wiki filter"><a class="post-card wiki" href="/wiki/py32-ina219-usb-meter/">
+<article class="md-text"><div class="preview"><img src="https://image.skyforever.top/blog/2025/12/0b6ad3e0211019ad6c841fe1dd6679ee.png"/></div><div class="excerpt"><div class="caps"><span class="cap breadcrumb">嵌入式</span><span class="cap breadcrumb">电源管理</span><span class="cap breadcrumb">USB</span><span class="cap breadcrumb">单片机</span></div><h2 class="post-title">PY32-USB功率计</h2><p>一个开源的 USB 3.0 直通功率计，支持高达 48V 的宽电压输入，能够实时监测电压、电流和功率</p></div></article>
+</a></div>
 <footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br />
 本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br />
 <img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-<div class="widgets">
-
-
-
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-cmd-%E4%B8%8E-powershell-%E5%85%A8%E9%9D%A2%E5%AF%B9%E6%AF%94"><span class="toc-text"> 一、CMD 与 PowerShell 全⾯对⽐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%A7%88"><span class="toc-text"> 概览</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-cmd-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text"> 二、CMD 常⽤命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-powershell-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text"> 三、PowerShell 常⽤命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="toc-text"> 1. 基本⽂件和⽬录操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86"><span class="toc-text"> 2. 系统和⽹络管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%AB%98%E7%BA%A7%E4%BB%BB%E5%8A%A1%E5%92%8C%E8%84%9A%E6%9C%AC"><span class="toc-text"> 3. ⾼级任务和脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-powershell-%E5%AF%B9-linux-%E5%91%BD%E4%BB%A4%E7%9A%84%E6%94%AF%E6%8C%81"><span class="toc-text"> 四、PowerShell 对 Linux 命令的⽀持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-cmd-%E5%92%8C-powershell-%E5%91%BD%E4%BB%A4%E5%AF%B9%E6%AF%94%E9%80%9F%E6%9F%A5"><span class="toc-text"> 五、CMD 和 PowerShell 命令对⽐速查</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
-</div></aside><div class='float-panel'>
+</aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
@@ -1021,30 +578,6 @@
 
 
 <!-- optional -->
-
-  <script type="module">
-  const el = document.querySelector('#comments #giscus');
-  util.viewportLazyload(el, load_discus, false);
-
-  function load_discus() {
-    if (!el) return;
-    try {
-        el.innerHTML = '';
-      } catch (error) {
-        console.error(error);
-      }
-      const script = document.createElement('script');
-      script.async = true;
-      for (const key of Object.keys(el.attributes)) {
-        const attr = el.attributes[key];
-        if (['class', 'id'].includes(attr.name) === false) {
-          script.setAttribute(attr.name, attr.value);
-        }
-      }
-      el.appendChild(script);
-  }
-</script>
-
 
 
 
