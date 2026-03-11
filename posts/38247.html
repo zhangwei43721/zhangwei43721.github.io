@@ -1,0 +1,1095 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.1.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>解析各种AI概念 - Sky Blog</title>
+
+  
+    <meta name="description" content="用通俗直白的语言，深入解析Agent、RAG、MCP、Function Calling、LangChain、Skill等AI领域的热门概念。 揭示这些看似高大上的名词背后的本质，帮助读者建立统一的AI概念认知框架。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解析各种AI概念">
+<meta property="og:url" content="http://skyforever.top/posts/38247">
+<meta property="og:site_name" content="Sky Blog">
+<meta property="og:description" content="用通俗直白的语言，深入解析Agent、RAG、MCP、Function Calling、LangChain、Skill等AI领域的热门概念。 揭示这些看似高大上的名词背后的本质，帮助读者建立统一的AI概念认知框架。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-27T06:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-27T06:00:00.000Z">
+<meta property="article:author" content="Skyforever">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Agent">
+<meta property="article:tag" content="LLM">
+<meta property="article:tag" content="RAG">
+<meta property="article:tag" content="MCP">
+<meta property="article:tag" content="Function Calling">
+<meta property="article:tag" content="概念解析">
+<meta property="article:tag" content="人工智能">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <meta name="keywords" content="AI,Agent,LLM,RAG,MCP,Function Calling,概念解析,人工智能">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Sky Blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/icons/cloud.svg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-02-27T14:00:00+08:00","dateModified":"2026-02-27T14:00:00+08:00","datePublished":"2026-02-27T14:00:00+08:00","description":"","headline":"解析各种AI概念","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/38247/"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/38247/","keywords":"AI, Agent, LLM, RAG, MCP, Function Calling, 概念解析, 人工智能","thumbnailUrl":"https://image.skyforever.top/blog/2026/02/29db2be6e489afe1d62a3f18066b4b44.webp","image":1}</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8">
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a><a class="nav-item" title="社交" href="/friends/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/63520/"><span class="title">如何在不使用操作系统的情况下实现多线程效果</span></a><a class="item title" href="/posts/38247/"><span class="title">解析各种AI概念</span></a><a class="item title" href="/posts/52013/"><span class="title">Claude Code 使用指南</span></a><a class="item title" href="/posts/25562/"><span class="title">3D打印保姆级入坑指南：选机、耗材与避坑完全手册</span></a><a class="item title" href="/posts/41626/"><span class="title">基于 J-Link RTT 的单片机调试打印指南</span></a><a class="item title" href="/posts/11721/"><span class="title">图形化Git使用指南</span></a><a class="item title" href="/posts/43991/"><span class="title">基于 VScode 的 Git 使用指南</span></a><a class="item title" href="/posts/61125/"><span class="title">嘉立创EDA 核心快捷键与实用技巧速查</span></a><a class="item title" href="/posts/30908/"><span class="title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span></a><a class="item title" href="/posts/11491/"><span class="title">有道云笔记导出为markdown</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/AI%E6%8A%80%E6%9C%AF/">AI技术</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/AI%E6%8A%80%E6%9C%AF/%E6%A6%82%E5%BF%B5%E8%A7%A3%E6%9E%90/">概念解析</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-02-27T06:00:00.000Z">2026-02-27</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-02-27T06:00:00.000Z">2026-02-27</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>解析各种AI概念</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><blockquote>
+<p>LLM、Prompt、Agent、RAG、Function Calling、MCP、LangChain、Workflow、Skill……这几个词儿你认识多少？这就是这几个词儿，你又<em>真正</em>认识多少？</p>
+<p>如果你全都不认识，或者被这些漫天飞舞的新概念搞得头晕脑胀，那么恭喜你，来对地方了。今天这篇文章，我就为你<strong>扒开所有这些唬人概念的底裤</strong>。</p>
+<p>你会发现：<strong>所谓智能体（Agent），其实就是所有“不需要智能的部分”构成的躯壳；这一切，不过是新瓶装旧酒的一场“名词诈骗”。</strong></p>
+<p>最后，我还会交给你一套“通杀”现在甚至未来所有AI新概念的<strong>统一方法论</strong>，让你瞬间秒懂。现在，请清空大脑，忘掉你所有知道和不知道的概念，跟我一起进入这场拆解之旅。</p>
+</blockquote>
+<hr>
+<h3 id="01-混乱的起点：一个只会“文字接龙”的智障"><a href="#01-混乱的起点：一个只会“文字接龙”的智障" class="headerlink" title="01 混乱的起点：一个只会“文字接龙”的智障"></a>01 混乱的起点：一个只会“文字接龙”的智障</h3><p>整个混乱的起点，就是古老的语言模型。</p>
+<p>小的语言模型一开始还是个“智障”，但随着模型的参数越来越大，居然在某个临界点“涌现”出了智能。为了和之前那个智障模型做个区分，你在前面加了个“大”字，这就构成了现在常说的<strong>大语言模型（Large Language Model，简称 LLM）</strong>。</p>
+<p>🎉 <em>恭喜你，发明了今天的第一个新词。</em></p>
+<p>大模型本身只能做一件事：<strong>文字接龙</strong>（不断预测并输出下一个字）。如果只是这么用，它看起来仍然像个智障。但如果人为划分出“一问一答”两个角色，就实现了它第一个有点智能的使用方式——对话。</p>
+<p>现在，立刻把自己想象成一个老板。LLM就是你的员工，我们叫他<strong>小L</strong>。</p>
+<p>他服务你的方式有点特别：<u>只能一问一答，然后就结束了。<strong>不能追问</strong></u>，这个非常重要。</p>
+<p>接下来的任务，就是你要想尽办法压榨这个只会一问一答的小L，榨干他的全部剩余价值。你会怎么做呢？</p>
+<ol>
+<li><p>首先，你给自己每次对小L说的内容起了个洋气的名字，叫 <strong>Prompt（提示词）</strong>。<br>🎉 <em>恭喜，第二个新词诞生。</em></p>
+</li>
+<li><p>然后你发现，给小L说的内容可以进一步拆分：一部分是背景信息，一部分是最终指示。<br>于是你把背景信息单独命名为 <strong>Context（上下文）</strong>。<br>🎉 <em>第三个新词达成。</em></p>
+</li>
+<li><p>你需要对小L进行追问，但他只能一问一答怎么办？你灵机一动：每次沟通前，<strong>把你们之前的“对话历史”作为前情提要塞进Context里</strong>，伪装成多轮对话！你迫不及待地给这些特殊的上下文起了个新词叫 <strong>Memory（记忆）</strong>。如果记忆太长，还可以再找大模型总结压缩一下。<br>🎉 <em>一不小心，第四个新词也有了。</em></p>
+</li>
+</ol>
+<p>此时，一个原本只会文字接龙的底层代码，成功被你玩出了“可以对话、可以追问”的优秀牛马员工拟人感。</p>
+<hr>
+<h3 id="02-给“牛马”配电脑：Agent与RAG的诞生"><a href="#02-给“牛马”配电脑：Agent与RAG的诞生" class="headerlink" title="02 给“牛马”配电脑：Agent与RAG的诞生"></a>02 给“牛马”配电脑：Agent与RAG的诞生</h3><p>不久之后，你不满足了。你发现小L没有上网查资料的能力，遇到不懂的要么瞎编（幻觉），要么说些过时的消息。</p>
+<p>给小L配台电脑行吗？不行，小L只会文字接龙，其他任何逻辑都无法独立完成。</p>
+<p>那怎么办？你心生一计：你告诉小L，“如果你需要上网，你就用特定格式告诉我，我帮你查完再把结果喂给你。”</p>
+<p>但很快你发现：这样显得自己有点蠢。<strong>到底谁才是牛马？！</strong></p>
+<p>于是，你写了一段<strong>程序代码</strong>，让这个程序去“代理”你和小L沟通，并且自动去完成搜索、抓取网页的任务。在外人看来，你仍然是一问一答就拿到了结果，只不过中间多了一个神秘的程序。</p>
+<p>太妙了！这个发明可不得了。这个神秘的程序似乎拥有了操作工具的高级智能。你给它取了个极具科幻感的名字：<strong>智能体（Agent）</strong>。</p>
+<blockquote>
+<p><em>💡 别有心理负担，早期很多所谓的Agent，底层逻辑仅仅就是多加了一段Prompt外加一个网络请求脚本而已。从现在的视角回看，简直就是一种诈骗。</em></p>
+</blockquote>
+<p>既然Agent能上网搜索了，那搜索本地文档和数据库行不行？当然行。<br>只是搜索方式变了，需要用“向量数据库”把语义相近的片段找出来，然后塞进上下文里给大模型参考。你给这种“<strong>检索外部信息+增强生成结果</strong>”的办法，起了个贼拉风的名字：<strong>RAG（检索增强生成）</strong>。</p>
+<p>顺便，你把联网搜索叫 Web Search（后来觉得格局小了，直接叫Search）。从广义上讲，RAG和Search都属于一类东西：<strong>获取模型参数以外的信息的能力。</strong></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/9bc3508333f62c7717da110177398841.webp" alt="给Ai打小抄的过程"></p>
+<p>🎉 <em>看看，这么一会儿功夫，已经发明了八个新词了。</em></p>
+<hr>
+<h3 id="03-规矩与协议：Function-Calling-与-MCP"><a href="#03-规矩与协议：Function-Calling-与-MCP" class="headerlink" title="03 规矩与协议：Function Calling 与 MCP"></a>03 规矩与协议：Function Calling 与 MCP</h3><p>好戏还在后头。</p>
+<p>现在的架构是：<strong>你 &lt;–&gt; Agent程序 &lt;–&gt; 大模型（小L）</strong>。Agent是传话筒兼杂活总管。</p>
+<p>这里有个致命问题：大模型怎么告诉Agent它想用工具？如果大模型用人类大白话提需求，Agent这种死板的程序代码根本解析不了。</p>
+<p>所以，必须定个规矩：让大模型按照死板的格式（比如 JSON）来回复。你给这种“约定好的工具调用对话格式”，叫做 <strong>Function Calling（函数调用）</strong>。<br><em>说白了，这就跟前端和后端约定接口格式一模一样。</em></p>
+<p>再看另一边，各种工具（比如计算器、查天气、查日历）如果单独写成独立的服务，Agent主程序怎么发现并调用它们？每个程序员写工具的习惯不一样，又该怎么对接？</p>
+<p>为了解决混乱，必须制定一套规范。比如约定用 <code>tools_list</code> 获取列表，用 <code>task_call</code> 调用具体工具。你给这套“Agent和工具服务之间的万能插座标准”，起了个名字叫 <strong>MCP（模型上下文协议）</strong>。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/2eaf3cf1dda224892bb0a66a2ffc06e3.webp" alt="给ai赋能，加上各种MCP工具"></p>
+<p>至此，终极架构成型了：</p>
+<ul>
+<li><strong>大模型</strong> &#x3D; 只会说话不会干活的智者</li>
+<li><strong>MCP服务</strong> &#x3D; 提供各种干活工具的工具箱</li>
+<li><strong>Agent</strong> &#x3D; 传话筒（把大模型的话转成调用MCP的代码，再把工具的返回结果传回给大模型）</li>
+</ul>
+<p>Agent主打一个：“我不生产信息，我只是信息的搬运工”。</p>
+<hr>
+<h3 id="04-效率至上：从-LangChain-到-Skill-的演进"><a href="#04-效率至上：从-LangChain-到-Skill-的演进" class="headerlink" title="04 效率至上：从 LangChain 到 Skill 的演进"></a>04 效率至上：从 LangChain 到 Skill 的演进</h3><p>不管你的Agent长什么样（命令行、IDE插件、还是最近爆火的各种桌面AI助手），只要给它配上了各种工具，马上就会暴露一个统一的缺点：<strong>太自由，反而不稳定，且浪费Token。</strong></p>
+<p>假设任务是：<code>读取英文PDF -&gt; 提取内容 -&gt; 翻译成中文 -&gt; 保存为Markdown。</code><br>如果你一股脑把所有能力都丢给Agent（纯MCP狂热派），它可能每次想的步骤都不一样，甚至在中间迷失方向。</p>
+<p>为了解决这个问题，技术圈分化出了“给AI提供工具的五大门派”：</p>
+<ol>
+<li><strong>直接编程派（LangChain）</strong>：干脆剥夺AI的自由。在代码里写死什么时候运行程序，什么时候请求大模型。虽然死板，但绝对稳定。</li>
+<li><strong>低代码派（Workflow&#x2F;工作流）</strong>：为了照顾不懂代码的普通人，把复杂的流程做成了页面连线拖拽。像 Coze 一样，本质上依然是固定的流水线。</li>
+<li><strong>全量提供派（Agent+MCP）</strong>：像小智AI等产品，把MCP接好的所有工具全告诉AI，让AI自己看着办。极其自由，但也极容易耗尽上下文（Token）。</li>
+<li><strong>按需加载派（Agent+Skill）</strong>：为了解决上下文爆满，你写一堆脚本放进文件夹并贴上说明书。遇到特定任务时，只把对应的那一类工具告诉AI。完美兼顾了自由度与成本。</li>
+<li><strong>外包分工派（SubAgent&#x2F;子智能体）</strong>：如果任务实在太复杂，即便按需加载工具，主Agent的上下文还是会被各种冗长的中间步骤塞满，Token疯狂燃烧。于是你一拍大腿：搞几个隔离的、甚至是用更便宜模型运行的“小弟”，把细碎的脏活累活外包给它们，主Agent只当包工头负责分派任务和听汇报。这些干脏活的小弟，就叫 <strong>SubAgent（子智能体）</strong>。</li>
+</ol>
+<p>现在我们来回顾一下之前的概念：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LLM 大语言模型</td>
+<td>Function Calling AI输出代码调用程序</td>
+</tr>
+<tr>
+<td>Prompt 提示词</td>
+<td>MCP 模型上下文协议</td>
+</tr>
+<tr>
+<td>Context 上下文</td>
+<td>Langchain 程序中调用AI</td>
+</tr>
+<tr>
+<td>Memory 记忆</td>
+<td>workflow 工作流，拖拽编程</td>
+</tr>
+<tr>
+<td>Agent 智能体</td>
+<td>SKILL 技能，给ai一套代码，按需加载</td>
+</tr>
+<tr>
+<td>RAG 检索增强生成</td>
+<td>SubAgent 子智能体，新开一个上下文干脏活</td>
+</tr>
+<tr>
+<td>Search 搜索</td>
+<td>Claude CodeX Cursor<br>Trae  OpenClaw Manus <br/>都是各种Agent程序</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="05-统一方法论：撕开包装看本质"><a href="#05-统一方法论：撕开包装看本质" class="headerlink" title="05 统一方法论：撕开包装看本质"></a>05 统一方法论：撕开包装看本质</h3><p>新概念出来时，满天都是极其夸张的营销吹捧。但在我看来，它们不仅不神秘，甚至有些“拉垮”，<strong>全都是技术发展过程中的“中间产物”</strong>。</p>
+<p>让我们把下面这些概念再次理清：</p>
+<p><strong>理清概念</strong>：</p>
+<ul>
+<li><strong>Function Calling vs MCP</strong>：前者是“大模型和Agent程序”的沟通约定，后者是“Agent程序和外部工具箱”的调用接口。</li>
+<li><strong>Skill vs MCP</strong>： 两个不是一个层次。Skill是解决Token浪费的应用层方案（向一本字典，每次给ai看目录，ai根据目录按需加载<u>一类</u>工具），而MCP是直接让ai调用的<u>一个</u>程序。常用的工具未来一定都会内化到Agent主程序里，MCP对普通用户来说会变得完全透明。</li>
+<li><strong>Skill vs SubAgent</strong>： 两者都是为了省Token。Skill 是从“工具箱”层面做减法（只给用得上的工具）；SubAgent 是从“脑容量”层面做隔离（另起一个干净的上下文环境去跑繁琐任务，不污染主Agent的记忆）。</li>
+</ul>
+<p><strong>理清约束等级</strong>：<br>回顾上面讲过的门派，为了完成多步骤任务，技术演进其实就是在刚性到柔性上找平衡点：</p>
+<ul>
+<li><strong>LangChain（纯代码）：</strong> 最刚性，最稳定，没弹性。</li>
+<li><strong>Workflow（拖拽连线）：</strong> 稍微灵活点，但本质还是固定流程。</li>
+<li><strong>Skill（半约束技能）：</strong> 给大模型一点自由，但用说明书框住它。</li>
+<li><strong>全量MCP（全自由智能体）：</strong> 最柔性，自己决策自己调工具，但也最容易失控，可能会把简单任务复杂化。</li>
+</ul>
+<p><strong>本质到底是什么？</strong><br>所有这些技术，<strong>最终都离不开大模型和我们之间的“提示词（Prompt）”</strong>。<br>Search、RAG、Skill……无非就是变着法子、自动化地往你的提示词里“塞小抄、塞上下文信息”；或者通过写代码，帮你把不需要大模型动脑子的步骤拦截下来。</p>
+<p>这就是为什么我说：<strong>Agent，就是流程中所有“不需要智能的地方”构成的躯壳。</strong> 把确定的逻辑交给程序，把模糊的分流交给大模型，仅此而已。</p>
+<hr>
+<h3 id="06-最终的结局：便利性将秒杀一切"><a href="#06-最终的结局：便利性将秒杀一切" class="headerlink" title="06 最终的结局：便利性将秒杀一切"></a>06 最终的结局：便利性将秒杀一切</h3><p>现在大家天天研究如何优化流程，其实最大的痛点只有一个：<strong>Token 太贵了！</strong><br>越强大的Agent在背后偷偷尝试、消耗的Token就越多。</p>
+<p>但这在未来根本不是问题。Token一定会越来越便宜，等哪天生产级大模型能跑在普通电脑上，Token就相当于免费了。</p>
+<p>你看Java界的 Spring Boot，Python界的 uv，你会发现一个铁律：<strong>开发和使用的“便利性”永远被放在第一位。</strong> 什么运行速度、内存占用，在便利性面前统统被秒杀。</p>
+<p>程序员尚且如此怕麻烦，更何况面向普通人的 Agent 领域？<br>普通人根本不可能去配置什么 Skill 目录，折腾什么 MCP 服务，填什么大模型 API。这些繁琐的概念，最终都会被一个极其便利的“产品”淘汰掉。</p>
+<p>最近那些爆火的桌面 Agent 如 OpenClaw 为什么火？除开一些营销因素意外，难道他和claudecode，Manus等Agent软件有什么本质区别吗？</p>
+<p>完全没有。<strong>仅仅是因为它们连上了社交软件、能可视化配置定时任务、有好看的UI界面。</strong> </p>
+<p>它第一次让普通人觉得“这是一个有用的助手”，而不是一段躺在命令行里的冰冷代码。</p>
+<p><strong>未来会是什么样？</strong><br>只要是提供便利的方向，就是绝对的趋势。<br>也许在未来，一定会有一个打包好的“<strong>超级Agent</strong>”（或者不管叫什么新名字）。它出厂就内置了所有好用的工具、MCP、Skill和工作流。普通用户不需要懂任何刚才我讲的这些概念，开箱即用，直达目的。</p>
+<p>到那时，这场新瓶装旧酒的“名词诈骗”，才算真正迎来了终局。</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://skyforever.top/posts/38247" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/posts/38247&title=解析各种AI概念 - Sky Blog&pics=https://image.skyforever.top/blog/2026/02/29db2be6e489afe1d62a3f18066b4b44.webp&summary=用通俗直白的语言，深入解析Agent、RAG、MCP、Function Calling、LangChain、Skill等AI领域的热门概念。 揭示这些看似高大上的名词背后的本质，帮助读者建立统一的AI概念认知框架。"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=解析各种AI概念 - Sky Blog&amp;body=http://skyforever.top/posts/38247"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/posts/38247"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/posts/63520/">如何在不使用操作系统的情况下实现多线程效果</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/52013/">Claude Code 使用指南</a></div></section></div>
+
+<div class="related-wrap" id="related-posts"></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#01-%E6%B7%B7%E4%B9%B1%E7%9A%84%E8%B5%B7%E7%82%B9%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%8F%AA%E4%BC%9A%E2%80%9C%E6%96%87%E5%AD%97%E6%8E%A5%E9%BE%99%E2%80%9D%E7%9A%84%E6%99%BA%E9%9A%9C"><span class="toc-text">01 混乱的起点：一个只会“文字接龙”的智障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02-%E7%BB%99%E2%80%9C%E7%89%9B%E9%A9%AC%E2%80%9D%E9%85%8D%E7%94%B5%E8%84%91%EF%BC%9AAgent%E4%B8%8ERAG%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="toc-text">02 给“牛马”配电脑：Agent与RAG的诞生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#03-%E8%A7%84%E7%9F%A9%E4%B8%8E%E5%8D%8F%E8%AE%AE%EF%BC%9AFunction-Calling-%E4%B8%8E-MCP"><span class="toc-text">03 规矩与协议：Function Calling 与 MCP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#04-%E6%95%88%E7%8E%87%E8%87%B3%E4%B8%8A%EF%BC%9A%E4%BB%8E-LangChain-%E5%88%B0-Skill-%E7%9A%84%E6%BC%94%E8%BF%9B"><span class="toc-text">04 效率至上：从 LangChain 到 Skill 的演进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#05-%E7%BB%9F%E4%B8%80%E6%96%B9%E6%B3%95%E8%AE%BA%EF%BC%9A%E6%92%95%E5%BC%80%E5%8C%85%E8%A3%85%E7%9C%8B%E6%9C%AC%E8%B4%A8"><span class="toc-text">05 统一方法论：撕开包装看本质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#06-%E6%9C%80%E7%BB%88%E7%9A%84%E7%BB%93%E5%B1%80%EF%BC%9A%E4%BE%BF%E5%88%A9%E6%80%A7%E5%B0%86%E7%A7%92%E6%9D%80%E4%B8%80%E5%88%87"><span class="toc-text">06 最终的结局：便利性将秒杀一切</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.md-text img[alt]:not([alt="icon"]):not([alt="cover"])`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
+<script defer type="text/javascript" src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var mermaid_config = {
+      startOnLoad: true,
+      theme:
+        "auto" == "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "neutral",
+      logLevel: 3,
+      themeVariables: {
+        darkMode: true
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: "linear"
+      },
+      gantt: {
+        axisFormat: "%Y/%m/%d"
+      },
+      sequence: {
+        actorMargin: 50
+      }
+    }
+    mermaid.initialize(mermaid_config);
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script><!-- Baidu Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JST56Q8277');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rp0i6z4yyg");
+</script>
+
+
+
+<!-- inject -->
+
+</div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 5,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body></html>

@@ -1,0 +1,1376 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.1.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>3D打印保姆级入坑指南：选机、耗材与避坑完全手册 - Sky Blog</title>
+
+  
+    <meta name="description" content="本文汇集了科班UP主的3D打印入坑经验，从FDM与光固化的选择、拓竹与创想机型推荐，到耗材避坑、切片参数设置，手把手带你走进3D打印的世界。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3D打印保姆级入坑指南：选机、耗材与避坑完全手册">
+<meta property="og:url" content="http://skyforever.top/posts/25562">
+<meta property="og:site_name" content="Sky Blog">
+<meta property="og:description" content="本文汇集了科班UP主的3D打印入坑经验，从FDM与光固化的选择、拓竹与创想机型推荐，到耗材避坑、切片参数设置，手把手带你走进3D打印的世界。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-06T08:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-06T08:00:00.000Z">
+<meta property="article:author" content="Skyforever">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="3D打印">
+<meta property="article:tag" content="FDM">
+<meta property="article:tag" content="拓竹">
+<meta property="article:tag" content="创想三维">
+<meta property="article:tag" content="建模">
+<meta property="article:tag" content="切片软件">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <meta name="keywords" content="教程,3D打印,FDM,拓竹,创想三维,建模,切片软件">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Sky Blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/icons/cloud.svg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-02-06T16:00:00+08:00","dateModified":"2026-02-06T16:00:00+08:00","datePublished":"2026-02-06T16:00:00+08:00","description":"","headline":"3D打印保姆级入坑指南：选机、耗材与避坑完全手册","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/25562/"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/25562/","keywords":"教程, 3D打印, FDM, 拓竹, 创想三维, 建模, 切片软件","thumbnailUrl":"https://image.skyforever.top/blog/2026/02/a642ade13cd6e17c156e7ca7ca995df0.jpg","image":1}</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8">
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a><a class="nav-item" title="社交" href="/friends/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/63520/"><span class="title">如何在不使用操作系统的情况下实现多线程效果</span></a><a class="item title" href="/posts/38247/"><span class="title">解析各种AI概念</span></a><a class="item title" href="/posts/52013/"><span class="title">Claude Code 使用指南</span></a><a class="item title" href="/posts/25562/"><span class="title">3D打印保姆级入坑指南：选机、耗材与避坑完全手册</span></a><a class="item title" href="/posts/41626/"><span class="title">基于 J-Link RTT 的单片机调试打印指南</span></a><a class="item title" href="/posts/11721/"><span class="title">图形化Git使用指南</span></a><a class="item title" href="/posts/43991/"><span class="title">基于 VScode 的 Git 使用指南</span></a><a class="item title" href="/posts/61125/"><span class="title">嘉立创EDA 核心快捷键与实用技巧速查</span></a><a class="item title" href="/posts/30908/"><span class="title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span></a><a class="item title" href="/posts/11491/"><span class="title">有道云笔记导出为markdown</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%9E%81%E5%AE%A2DIY/">极客DIY</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%9E%81%E5%AE%A2DIY/%E7%A1%AC%E4%BB%B6%E8%AF%84%E6%B5%8B/">硬件评测</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-02-06T08:00:00.000Z">2026-02-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-02-06T08:00:00.000Z">2026-02-06</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>3D打印保姆级入坑指南：选机、耗材与避坑完全手册</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>这两三年，3D打印技术真正从“极客玩具”走进了大众生活。从孩子的益智玩具、教学用具，到家里的定制收纳盒、花瓶，甚至修复家电的缺损零件，它都能搞定。在定制化需求日益增长的今天，拥有一台3D打印机就像拥有了一座微型工厂。</p>
+<p>很多朋友可能还在犹豫：<strong>由于预算、占地面积、建模门槛、空气污染</strong>等问题不敢下手。别急，这篇保姆级指南将为你从头梳理，带你避开新手村的每一个坑。</p>
+<hr>
+<h3 id="一、起步：打印机类型的选择"><a href="#一、起步：打印机类型的选择" class="headerlink" title="一、起步：打印机类型的选择"></a><strong>一、起步：打印机类型的选择</strong></h3><p>市面上核心的3D打印机分为两大阵营，新手选购前必须明确自己的需求：</p>
+<h4 id="1-FDM（熔融沉积成型）——-新手首选"><a href="#1-FDM（熔融沉积成型）——-新手首选" class="headerlink" title="1. FDM（熔融沉积成型）——  新手首选"></a><strong>1. FDM（熔融沉积成型）——  新手首选</strong></h4><ul>
+<li><strong>原理</strong>：类似热熔胶枪，将塑料丝加热融化后，一层层挤出堆叠成型。</li>
+<li><strong>优势</strong>：<ul>
+<li>机器耐造，维护成本低。</li>
+<li>生态圈极其成熟，耗材便宜且选择多。</li>
+<li><strong>多色打印</strong>技术已非常成熟（如拓竹AMS）。</li>
+<li>使用PLA耗材时基本无毒，适合家庭环境。</li>
+</ul>
+</li>
+<li><strong>注意</strong>：虽然PLA污染轻，但打印ABS&#x2F;ASA等工程塑料时仍有气味，建议配合空气净化器，或置于通风处（尽量不放在卧室）。</li>
+</ul>
+<h4 id="2-光固化（SLA-DLP-LCD）——-新手慎入"><a href="#2-光固化（SLA-DLP-LCD）——-新手慎入" class="headerlink" title="2. 光固化（SLA&#x2F;DLP&#x2F;LCD）—— 新手慎入"></a><strong>2. 光固化（SLA&#x2F;DLP&#x2F;LCD）—— 新手慎入</strong></h4><ul>
+<li><strong>原理</strong>：利用紫外线照射液态光敏树脂，使其逐层固化。</li>
+<li><strong>劝退点</strong>：<ul>
+<li><strong>后处理极繁琐</strong>：打印完需要用酒精清洗、二次固化。</li>
+<li><strong>环境要求高</strong>：树脂有化学毒性和强烈刺激性气味。</li>
+<li><strong>操作风险</strong>：液态树脂难清理，容易弄脏皮肤和家具。</li>
+</ul>
+</li>
+<li><strong>适用人群</strong>：<strong>非重度手办玩家或涂装大神，不建议作为第一台机器。</strong></li>
+</ul>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/1bfd3f3a7b89da32ed586d128286bb95.webp" alt="FDM与光固化对比图"></p>
+<hr>
+<h3 id="二、硬件推荐：新手该买哪一款？"><a href="#二、硬件推荐：新手该买哪一款？" class="headerlink" title="二、硬件推荐：新手该买哪一款？"></a><strong>二、硬件推荐：新手该买哪一款？</strong></h3><p>针对目前主流市场，我们总结了以下几款适合不同需求新手的FDM机型：</p>
+<h4 id="1-闭眼入系列：拓竹-A1-Combo-带AMS多色系统"><a href="#1-闭眼入系列：拓竹-A1-Combo-带AMS多色系统" class="headerlink" title="1. 闭眼入系列：拓竹 A1 Combo (带AMS多色系统)"></a><strong>1. 闭眼入系列：拓竹 A1 Combo (带AMS多色系统)</strong></h4><ul>
+<li><strong>参考价格</strong>：约 2300元 (参考国补价)</li>
+<li><strong>特点</strong>：打印质量极稳，运行噪音小，256×256mm 尺寸满足90%日常需求。</li>
+<li><strong>必选理由</strong>：<strong>AMS lite（多色系统）</strong>。它不仅是为了打彩色模型，更重要的是<strong>自动进退料</strong>。相信我，一旦体验过自动换料的便捷，你绝对不想再手动捅耗材了。</li>
+</ul>
+<h4 id="2-高性价比平替：拓竹-A1-Mini"><a href="#2-高性价比平替：拓竹-A1-Mini" class="headerlink" title="2. 高性价比平替：拓竹 A1 Mini"></a><strong>2. 高性价比平替：拓竹 A1 Mini</strong></h4><ul>
+<li><strong>特点</strong>：180×180mm 尺寸，除了小一点，核心功能与A1一致。不占桌面，极具性价比，适合作为入门体验机或第二台补充机。</li>
+</ul>
+<h4 id="3-进阶-工程系列：拓竹-P1系列"><a href="#3-进阶-工程系列：拓竹-P1系列" class="headerlink" title="3. 进阶&#x2F;工程系列：拓竹 P1系列"></a><strong>3. 进阶&#x2F;工程系列：拓竹 P1系列</strong></h4><ul>
+<li><strong>适合人群</strong>：进阶玩家、需要打印ABS&#x2F;ASA等高温材料的用户（P2S带封闭箱体）。</li>
+<li><strong>选购建议</strong>：如果有预算，<strong>一定要上AMS</strong>。</li>
+</ul>
+<blockquote>
+<p><strong>主流机型参数对比表</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">拓竹 A1 mini Combo</th>
+<th align="left">拓竹 A1 Combo</th>
+<th align="left">拓竹 P2S Combo</th>
+<th align="left">创想 K1C&#x2F;K2C</th>
+<th align="left">起迪 Q1 Pro</th>
+<th align="left">纵维立方 S1 Combo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>图片</strong></td>
+<td align="left"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/5083f823b72ca8f4c619d384a3483f60.webp" alt="微信图片_2026-02-06_201635_415"></td>
+<td align="left"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/f576e82bcad0dd443b40f72c9bc12ed8.webp" alt="Snipaste_2026-02-06_20-19-29"></td>
+<td align="left"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/8549cf32bc120e6e1ad9a74c2b1cc47d.webp" alt="Snipaste_2026-02-06_20-20-07"></td>
+<td align="left"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/4652e5ab837bf40e24cc5f9bcd5af3c9.webp" alt="Snipaste_2026-02-06_20-21-35"></td>
+<td align="left"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/dbb25e4f64ad332df2b9b6548179a1be.webp" alt="Snipaste_2026-02-06_20-22-21"></td>
+<td align="left"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/e18d0968d5ad1d80c2e715a051542997.webp" alt="Snipaste_2026-02-06_20-22-44"></td>
+</tr>
+<tr>
+<td align="left"><strong>参考价</strong></td>
+<td align="left">¥1650+</td>
+<td align="left">¥1880+</td>
+<td align="left">¥3770+</td>
+<td align="left">¥2360+</td>
+<td align="left">¥2290+</td>
+<td align="left">¥2090+</td>
+</tr>
+<tr>
+<td align="left"><strong>尺寸</strong></td>
+<td align="left">180³ mm</td>
+<td align="left">256³ mm</td>
+<td align="left">256³ mm</td>
+<td align="left">260³ mm</td>
+<td align="left"><strong>270×270×256</strong></td>
+<td align="left">250³ mm</td>
+</tr>
+<tr>
+<td align="left"><strong>最高温</strong></td>
+<td align="left">300°C</td>
+<td align="left">300°C</td>
+<td align="left">300°C</td>
+<td align="left">300°C</td>
+<td align="left"><strong>370°C</strong></td>
+<td align="left">320°C</td>
+</tr>
+<tr>
+<td align="left"><strong>热床</strong></td>
+<td align="left">80°C</td>
+<td align="left">100°C</td>
+<td align="left">110°C</td>
+<td align="left">120°C</td>
+<td align="left">120°C</td>
+<td align="left">120°C</td>
+</tr>
+<tr>
+<td align="left"><strong>亮点</strong></td>
+<td align="left">小巧、静音、性价比</td>
+<td align="left">流量补偿、多色、静音</td>
+<td align="left">封闭箱体、高速、稳定</td>
+<td align="left">全金属框架、AI摄像</td>
+<td align="left">主动腔温加热(工程料神器)</td>
+<td align="left">支持边烘干边打印</td>
+</tr>
+<tr>
+<td align="left"><strong>建议</strong></td>
+<td align="left"><strong>入门首选</strong><br>适合儿童&#x2F;纯新手</td>
+<td align="left"><strong>家用主力</strong><br>平台大、体验好</td>
+<td align="left"><strong>进阶全能</strong><br>适合打ABS等</td>
+<td align="left"><strong>性价比</strong><br>适合改机党</td>
+<td align="left"><strong>工程专业</strong><br>适合高温材料</td>
+<td align="left"><strong>功能整合</strong><br>适合需烘干环境</td>
+</tr>
+</tbody></table>
+<p><em><strong>备注</strong>：价格参考自2025年10月22日京东商城，88vip叠加国补优惠后价格；售价可能随营销策略、电商促销和市场变化调整。</em></p>
+</blockquote>
+<hr>
+<h3 id="三、耗材避坑：材料选得好，打印没烦恼"><a href="#三、耗材避坑：材料选得好，打印没烦恼" class="headerlink" title="三、耗材避坑：材料选得好，打印没烦恼"></a><strong>三、耗材避坑：材料选得好，打印没烦恼</strong></h3><p>3D打印的成败一半取决于机器，另一半就在耗材。对于新手来说，<strong>选对材料就是成功的一半</strong>。</p>
+<h4 id="1-新手天花板：PLA系列"><a href="#1-新手天花板：PLA系列" class="headerlink" title="1. 新手天花板：PLA系列"></a><strong>1. 新手天花板：PLA系列</strong></h4><p>PLA（聚乳酸）是目前最环保、最容易打印的材料，<strong>强烈建议新手在前3个月只用PLA</strong>。</p>
+<ul>
+<li>**PLA (标准版)**：首选。好打、收缩率极低、不翘边，刚性和细节表现均衡。</li>
+<li><strong>PLA+ &#x2F; PLA Tough</strong>：配方改良版，比普通PLA更抗摔，韧性更好，适合打有卡扣结构的件。</li>
+<li><strong>PLA-CF &#x2F; Matte</strong>：添加碳纤维或哑光处理。<strong>质感极佳</strong>，能完美隐藏层纹，打印件看起来像注塑成品，高级感拉满。</li>
+<li>**Silk PLA (丝绸)**：自带金属光泽，反光强烈，适合打印花瓶、摆件等观赏品。</li>
+<li><strong>PLA Marble&#x2F;Wood</strong>：仿大理石或木质纹理，质感特殊。</li>
+</ul>
+<h4 id="2-进阶材料（新手慎入）"><a href="#2-进阶材料（新手慎入）" class="headerlink" title="2. 进阶材料（新手慎入）"></a><strong>2. 进阶材料（新手慎入）</strong></h4><ul>
+<li><strong>PETG</strong>：虽然韧性好、耐温稍高，但<strong>非常容易拉丝</strong>，且容易把PEI打印板粘坏（粘接力过强）。</li>
+<li><strong>ABS &#x2F; ASA</strong>：耐高温、强度高，但<strong>打印时有毒气味</strong>，且<strong>极易翘边</strong>。没有封闭箱体的机器（如A1 mini）千万别轻易尝试。</li>
+</ul>
+<h4 id="3-核心避坑-TIPS"><a href="#3-核心避坑-TIPS" class="headerlink" title="3. 核心避坑 TIPS"></a><strong>3. 核心避坑 TIPS</strong></h4><ul>
+<li><strong>品牌推荐</strong>：Polymaker、三绿 (Sunlu)、K+、eSUN (易生)、兰博等主流品牌均可。无需迷信原厂高溢价耗材，第三方往往更具性价比。</li>
+<li><strong>操作禁忌</strong>：<strong>千万不要在有料盘时剪断新耗材的固定扎带！</strong> 耗材线像弹簧一样蓄着力，一旦松开会瞬间“炸”成一团乱麻，你将不得不花费数小时重新绕线。</li>
+<li><strong>硬件损耗</strong>：打印含纤维材料（带 <strong>CF</strong> 或 <strong>GF</strong> 后缀）时，<strong>必须更换硬化钢喷嘴和挤出机齿轮</strong>！普通的黄铜喷嘴打不到半卷就会被磨秃。</li>
+</ul>
+<h4 id="4-全耗材特性详细对比表"><a href="#4-全耗材特性详细对比表" class="headerlink" title="4. 全耗材特性详细对比表"></a><strong>4. 全耗材特性详细对比表</strong></h4><table>
+<thead>
+<tr>
+<th align="left">材料名</th>
+<th align="left">材料特性</th>
+<th align="left">打印和使用须知</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>PLA</strong></td>
+<td align="left">基础耗材</td>
+<td align="left">不太耐摔，韧性较差</td>
+</tr>
+<tr>
+<td align="left"><strong>PLA+</strong></td>
+<td align="left">增韧耗材</td>
+<td align="left">韧性有所提升，日常用材料</td>
+</tr>
+<tr>
+<td align="left"><strong>PLA哑光</strong></td>
+<td align="left">拥有哑光质感</td>
+<td align="left">层粘较差，不建议Z向受大负载</td>
+</tr>
+<tr>
+<td align="left"><strong>PLA丝绸</strong></td>
+<td align="left">拥有丝绸反光质感</td>
+<td align="left">打印速度越慢反光越好，层粘较差；不建议作为受力件使用</td>
+</tr>
+<tr>
+<td align="left"><strong>PLA木质</strong></td>
+<td align="left">添加木粉，木香、木质感</td>
+<td align="left">吸水强，注意干燥，强度较低</td>
+</tr>
+<tr>
+<td align="left"><strong>ABS</strong></td>
+<td align="left">抗冲击性强，耐温较高</td>
+<td align="left">封箱+喷胶防止翘边；打印挥发有毒气体，注意通风和人员避让</td>
+</tr>
+<tr>
+<td align="left"><strong>PETG</strong></td>
+<td align="left">透明度好，韧性好</td>
+<td align="left">充分干燥，容易拉丝，适度加回抽</td>
+</tr>
+<tr>
+<td align="left"><strong>PC</strong></td>
+<td align="left">透明度好，综合性能强，耐高温</td>
+<td align="left">充分干燥，关闭冷却风扇防止影响层粘；综合性能较强</td>
+</tr>
+<tr>
+<td align="left"><strong>ASA</strong></td>
+<td align="left">抗冲击性强，耐紫外线</td>
+<td align="left">封箱+喷胶防止翘边；适合打印户外要承受紫外线的用品</td>
+</tr>
+<tr>
+<td align="left"><strong>TPU</strong></td>
+<td align="left">常见的弹性体材料</td>
+<td align="left">充分干燥，慢速打印，微调流量比</td>
+</tr>
+<tr>
+<td align="left"><strong>PEBA</strong></td>
+<td align="left">高回弹性柔性材料</td>
+<td align="left">充分干燥，慢速打印，微调流量比</td>
+</tr>
+<tr>
+<td align="left"><strong>PLA夜光</strong></td>
+<td align="left">夜光特性</td>
+<td align="left">层粘较差，只建议做摆件</td>
+</tr>
+<tr>
+<td align="left"><strong>PLA大理石</strong></td>
+<td align="left">添加石粉，大理石纹理</td>
+<td align="left">喷嘴不宜过小，防止堵头</td>
+</tr>
+<tr>
+<td align="left"><strong>PLA Lite</strong></td>
+<td align="left">廉价耗材</td>
+<td align="left">添加廉价材料，性能差，不建议</td>
+</tr>
+<tr>
+<td align="left"><strong>PLA-CF</strong></td>
+<td align="left">添加短切碳纤维，磨砂表面，XY方向性能更强</td>
+<td align="left">层粘弱于不加碳纤维的材料；喷嘴不宜过小，防止堵头</td>
+</tr>
+<tr>
+<td align="left"><strong>PA</strong></td>
+<td align="left">韧性好，耐高温，强度高</td>
+<td align="left">充分干燥，封箱+喷胶防止翘边；尽量避免打印大面积平面物体</td>
+</tr>
+<tr>
+<td align="left"><strong>PA6-CF&#x2F;GF</strong></td>
+<td align="left">刚性和强度均很高</td>
+<td align="left">充分干燥，纤维含量较高建议适当给XY加负补偿，防止配合出现问题；建议打印完后打磨去毛刺</td>
+</tr>
+<tr>
+<td align="left"><strong>PA12-CF</strong></td>
+<td align="left">刚性和强度均很高，密度较低，适合无人机机架等</td>
+<td align="left">同上（注：原文“适合打印无人机机架等”）</td>
+</tr>
+<tr>
+<td align="left"><strong>PET-CF&#x2F;GF</strong></td>
+<td align="left">耐高温，抗蠕变，较光滑</td>
+<td align="left">充分干燥，封箱+喷胶防止翘边</td>
+</tr>
+<tr>
+<td align="left"><strong>PETG-CF&#x2F;GF</strong></td>
+<td align="left">成本低，韧性好，磨砂质感，Z强度高于PLA-CF</td>
+<td align="left">充分干燥</td>
+</tr>
+<tr>
+<td align="left"><strong>ABS-GF&#x2F;CF</strong></td>
+<td align="left">抗冲击性强，强度较高</td>
+<td align="left">同ABS，但没那么容易翘边</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="四、必备配件与工具"><a href="#四、必备配件与工具" class="headerlink" title="四、必备配件与工具"></a><strong>四、必备配件与工具</strong></h3><p>除了机器，这三样小东西能极大提升幸福感：</p>
+<ol>
+<li><strong>优质水口钳</strong>：用于剪断耗材、拆除模型支撑（推荐田宫金牌剪的平替款）。</li>
+<li><strong>胶水喷雾 &#x2F; PVP胶棒</strong>：涂在打印板上，防止模型翘边，同时在冷却后更容易取下模型。（<em>注意：取出打印板再喷，勿喷到机器丝杆导轨上</em>）。</li>
+<li>**专用冷打板 (Cool Plate)**：对PLA粘性极佳，可降低热床温度（省电），极大减少翘边概率。</li>
+</ol>
+<hr>
+<h3 id="五、软件与流程：从模型到实物"><a href="#五、软件与流程：从模型到实物" class="headerlink" title="五、软件与流程：从模型到实物"></a><strong>五、软件与流程：从模型到实物</strong></h3><p>打印流程很简单：<strong>找模型&#x2F;建模型 → 切片 → 传输 → 打印</strong>。</p>
+<h4 id="1-第一阶段：模型去哪找？"><a href="#1-第一阶段：模型去哪找？" class="headerlink" title="1. 第一阶段：模型去哪找？"></a><strong>1. 第一阶段：模型去哪找？</strong></h4><p>新手不必急着学建模，先下载现成模型练手，熟悉机器脾气：</p>
+<ul>
+<li><strong>拓竹 MakerWorld</strong>：<a target="_blank" rel="noopener" href="https://makerworld.com.cn/zh">国内站</a> | <a target="_blank" rel="noopener" href="https://makerworld.com/zh">国际站</a> （生态体验最好，支持一键打印）</li>
+<li><strong>创想云</strong>：<a target="_blank" rel="noopener" href="https://www.crealitycloud.com/zh">https://www.crealitycloud.com/zh</a></li>
+<li><strong>Printables</strong>：<a target="_blank" rel="noopener" href="https://www.printables.com/">https://www.printables.com/</a> (全球高质量社区)</li>
+<li><strong>Thingiverse</strong>：<a target="_blank" rel="noopener" href="https://www.thingiverse.com/">https://www.thingiverse.com/</a> (老牌模型库)</li>
+</ul>
+<h4 id="2-第二阶段：为什么要自己建模？"><a href="#2-第二阶段：为什么要自己建模？" class="headerlink" title="2. 第二阶段：为什么要自己建模？"></a><strong>2. 第二阶段：为什么要自己建模？</strong></h4><p>买来打印机，大部分人做的第一件事是下载别人的模型。但<strong>“玩转”3D打印的核心，在于将你脑海中的想法变成实物</strong>。<br>试想一下，亲手设计一个严丝合缝的抽屉隔板、修复家里断裂的卡扣，或者复刻动漫里的道具。这种从0到1的创造力，才是3D打印的灵魂。</p>
+<ul>
+<li><strong>参数化生成器</strong>：MakerWorld等平台自带“参数化模型”，只需输入长宽高等数值，就能生成定制的收纳盒、名牌，<strong>无需建模基础</strong>。</li>
+<li><strong>建模流派选择</strong>：<ul>
+<li>**“搭积木”派 (推荐)**：通过长方体、圆柱体组合。适合尺寸精准的零件。代表软件：Fusion 360, <strong>SketchUp</strong>。</li>
+<li><strong>“捏橡皮泥”派</strong>：随意拉扯变形，适合做手办、生物。代表软件：Blender, ZBrush。</li>
+</ul>
+</li>
+</ul>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/dcca06c15c87e3a9c248e1fb499b96e3.webp" alt="多款建模软件的对比"></p>
+<hr>
+<h3 id="六、建模实战：5分钟上手-SketchUp-草图大师"><a href="#六、建模实战：5分钟上手-SketchUp-草图大师" class="headerlink" title="六、建模实战：5分钟上手 SketchUp (草图大师)"></a><strong>六、建模实战：5分钟上手 SketchUp (草图大师)</strong></h3><p>对于DIY玩家，我强烈推荐 <strong>SketchUp</strong>。它直觉极强，不像工业软件那样需要定义复杂的约束。画个框，一拉就是柱子，非常适合做机箱、支架等结构件。</p>
+<p>资源地址：<a target="_blank" rel="noopener" href="https://www.ghxi.com/sketchup2022.html">SketchUp草图大师 2022 v22.0.354 绿色修改版 - 果核剥壳</a></p>
+<h4 id="1-软件初始化设置"><a href="#1-软件初始化设置" class="headerlink" title="1. 软件初始化设置"></a><strong>1. 软件初始化设置</strong></h4><ul>
+<li><p><strong>版本</strong>：建议安装2018-2022版本。</p>
+</li>
+<li><p><strong>模板</strong>：首次打开选择“建筑-毫米”。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/c42e2822a786741f2ba3a3581a05c555.webp" alt="image-20260208100525489"></p>
+</li>
+<li><p><strong>工具栏</strong>：顶部空白处右键 -&gt; 勾选“大工具集”、“视图”、“样式”。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/c4cfb5f9d00f006c4d35a1fa564a9071.webp" alt="image-20260208100658918"></p>
+</li>
+<li><p><strong>视角修正</strong>：点击“相机”菜单 -&gt; 选择<strong>“平行投影”</strong>（）。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/2d56432877ab2e4cb87fe4eb3a054585.webp" alt="image-20260208100755548"></p>
+</li>
+</ul>
+<blockquote>
+<p>注：选择平行投影是为了取消近大远小的透视形变，方便对齐<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/462fca24ec8572aa01e648f13b2418e7.webp" alt="透视和平行显示对比"></p>
+</blockquote>
+<ul>
+<li><p><strong>精度设置</strong>：窗口 -&gt; 模型信息 </p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/0108fbe6f8e55f85ff40c47bc39a963a.webp" alt="image-20260208101113115"></p>
+<p>单位 -&gt; 精度设为 <code>0.0000</code></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/6892729a1da07a7297bdb96d8858e186.webp" alt="image-20260208101223397"></p>
+</li>
+<li><p><strong>线条优化</strong>：右侧面板 -&gt; 样式 -&gt; 编辑 -&gt; 将“轮廓线”从2改为1（让模型看起来不脏）</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/3f8b025c9c8e058208a6d9800d479642.webp" alt="image-20260208101348354"></p>
+</li>
+</ul>
+<h4 id="2-常用操作速查表"><a href="#2-常用操作速查表" class="headerlink" title="2. 常用操作速查表"></a><strong>2. 常用操作速查表</strong></h4><p>左侧常用工具集：</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/df4472c33e66a6df6d8732bec22458e5.webp" alt="左侧常用工具集"></p>
+<p>对应快捷键：</p>
+<table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">快捷键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>矩形</strong></td>
+<td align="left"><code>R</code></td>
+<td align="left">绘制平面</td>
+</tr>
+<tr>
+<td align="left"><strong>推拉</strong></td>
+<td align="left"><code>P</code></td>
+<td align="left"><strong>核心功能</strong>：将平面拉伸为立体</td>
+</tr>
+<tr>
+<td align="left"><strong>偏移</strong></td>
+<td align="left"><code>F</code></td>
+<td align="left">制作壁厚&#x2F;边框</td>
+</tr>
+<tr>
+<td align="left"><strong>输入尺寸</strong></td>
+<td align="left">键盘直接敲数字</td>
+<td align="left">比如 <code>100,100</code> 回车</td>
+</tr>
+<tr>
+<td align="left"><strong>视图旋转</strong></td>
+<td align="left">按住鼠标中键(滚轮)</td>
+<td align="left">360度观察</td>
+</tr>
+</tbody></table>
+<h4 id="3-案例：做一个精准的收纳盒"><a href="#3-案例：做一个精准的收纳盒" class="headerlink" title="3. 案例：做一个精准的收纳盒"></a><strong>3. 案例：做一个精准的收纳盒</strong></h4><ol>
+<li><p><strong>画底面</strong>：按 <code>R</code> (矩形)，点击起点，松开鼠标，键盘输入 <code>100,100</code> (注意切换英文输入法)，回车。</p>
+</li>
+<li><p><strong>变立体</strong>：按 <code>P</code> (推拉)，点击正方形面，向上移动鼠标，输入 <code>100</code>，回车。-&gt; 得到正方体。</p>
+</li>
+<li><p><strong>做壁厚</strong>：按 <code>F</code> (偏移)，点击顶面，向内移动，输入 <code>5</code>，回车。</p>
+</li>
+<li><p><strong>掏空</strong>：按 <code>P</code> (推拉)，点击中间的小方块，向下推，输入 <code>95</code>，回车。</p>
+<p><em>恭喜！你刚刚设计了一个壁厚5mm、底厚5mm的收纳盒！</em></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/9cb5a675f69fc81331fde4b65d8db60c.webp" alt="image-20260208102152097"></p>
+</li>
+</ol>
+<h4 id="4-导出打印文件"><a href="#4-导出打印文件" class="headerlink" title="4. 导出打印文件"></a><strong>4. 导出打印文件</strong></h4><ul>
+<li><code>文件</code> -&gt; <code>导出</code> -&gt; <code>三维模型</code> -&gt; 选择 <strong>.stl</strong> 格式。</li>
+</ul>
+<hr>
+<h3 id="七、关键步骤：切片"><a href="#七、关键步骤：切片" class="headerlink" title="七、关键步骤：切片"></a><strong>七、关键步骤：切片</strong></h3><p>模型文件(.stl)不能直接打印，需要通过切片软件如<code>Bambu Studio</code>转换成机器能读懂的代码(.gcode)。</p>
+<p>Bambu Studio下载链接：<a target="_blank" rel="noopener" href="https://bambulab.com/zh/download/studio">https://bambulab.com/zh/download/studio</a></p>
+<p>像刚刚的模型比较简单，可以直接打印，不需要做切片处理，但</p>
+<p><strong>核心参数建议 (以 Bambu Studio 为例)：</strong></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/e556bc43cd3c42722335d19c675d5b4f.webp" alt="image-20260212190740149"></p>
+<ol>
+<li><p><strong>摆放方向</strong>：<strong>大平面朝下</strong>贴紧底板，这是成功的基础。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/5af7287de0551a44c68cbb6cc0abf123.webp" alt="调整方向"></p>
+</li>
+<li><p><strong>尺寸缩放</strong>：可以手动调整模型尺寸到合适大小</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/cfdeebd52fe72805d3a38a04f5208951.webp" alt="image-20260212190926578"></p>
+</li>
+<li><p>如果有很多模型需要批量打印，可以使用分盘打印的选项分批打印</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/b6e91db7f05e1cbcb990be2cd9f92d0f.webp" alt="image-20260212191138392"></p>
+</li>
+<li><p><strong>墙层数</strong>：默认2层较薄，<strong>建议改为 3-4 层</strong>，极大增加模型强度。</p>
+</li>
+<li><p><strong>填充</strong>：</p>
+<ul>
+<li>受力件：30%-50%（推荐“自适应立方体”或“以太网”）。</li>
+<li>外观件：10%-15% 即可。</li>
+</ul>
+</li>
+<li><p>**支撑 (Support)**：</p>
+<ul>
+<li><p><strong>树状支撑 (Tree)<strong>：</strong>强烈推荐</strong>。好拆，接触面小，对模型表面损伤小。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/ae91fa7bb218db6c49709bbc93b823a5.webp" alt="image-20260212211917639"></p>
+</li>
+</ul>
+</li>
+<li><p>**Brim (裙边)**：打印接触面小的细高模型时务必开启，增加抓地力防倒塌。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/3890455e237dbfaf1b8e4d638f59dbd4.webp" alt="image-20260212213131402"></p>
+</li>
+</ol>
+<blockquote>
+<p>💡 <strong>更多教程</strong>：<a target="_blank" rel="noopener" href="https://wiki.bambulab.com/zh/software/bambu-studio/studio-quick-start">Bambu Studio 官方快速上手指南</a></p>
+</blockquote>
+<hr>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h3><p>3D打印的细节虽多，但入门真的不难。<strong>你最需要做的就是迈出第一步</strong>。</p>
+<p>不用担心变成“炒面大师”（指打印失败成一团乱丝），这是每个新手的必经之路，也是乐趣的一部分。现在的社区资源极其丰富，遇到问题随时都能搜到答案。</p>
+<p>如果你已经入手了，欢迎在评论区分享你的第一个打印作品！</p>
+<blockquote>
+<p><em>注：本文部分经验整理自B站UP主“<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1QUsGzvEX1">喵星考拉</a>”，“<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xA4tzuE58">万事屋小玩</a>”及开源社区，更多动态可关注原作者。</em></p>
+</blockquote>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://skyforever.top/posts/25562" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/posts/25562&title=3D打印保姆级入坑指南：选机、耗材与避坑完全手册 - Sky Blog&pics=https://image.skyforever.top/blog/2026/02/a642ade13cd6e17c156e7ca7ca995df0.jpg&summary=本文汇集了科班UP主的3D打印入坑经验，从FDM与光固化的选择、拓竹与创想机型推荐，到耗材避坑、切片参数设置，手把手带你走进3D打印的世界。"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=3D打印保姆级入坑指南：选机、耗材与避坑完全手册 - Sky Blog&amp;body=http://skyforever.top/posts/25562"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/posts/25562"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/posts/52013/">Claude Code 使用指南</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/41626/">基于 J-Link RTT 的单片机调试打印指南</a></div></section></div>
+
+<div class="related-wrap" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>您可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="/posts/58575.html" title="IOS小火箭教程"><span class="title">IOS小火箭教程</span></a><a class="item" href="/posts/61125.html" title="嘉立创EDA 核心快捷键与实用技巧速查"><span class="title">嘉立创EDA 核心快捷键与实用技巧速查</span><span class="excerpt">一份精炼的嘉立创EDA（LCEDA）核心操作速查清单，覆盖原理图与PCB设计中最常用的快捷键和技巧，助你显著提升工作效率。</span></a><a class="item" href="/posts/11721.html" title="图形化Git使用指南"><span class="title">图形化Git使用指南</span><span class="excerpt">一份详尽的 TortoiseGit（小海龟）图文教程。整合了环境安装、SSH 密钥配置、图标状态识别、日常代码提交推送流程，以及分支管理、冲突解决和 Beyond Compare 比较工具集成等进阶操作。</span></a><a class="item" href="/posts/43991.html" title="基于 VScode 的 Git 使用指南"><span class="title">基于 VScode 的 Git 使用指南</span><span class="excerpt">一份详尽的基于 VScode 的 Git 使用教程。涵盖 Git 安装、本地仓库初始化与提交、分支管理、远程 GitHub 仓库交互（SSH配置/推送/拉取）及常见问题解决方案，助你高效管理代码版本。</span></a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%B5%B7%E6%AD%A5%EF%BC%9A%E6%89%93%E5%8D%B0%E6%9C%BA%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-text">一、起步：打印机类型的选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-FDM%EF%BC%88%E7%86%94%E8%9E%8D%E6%B2%89%E7%A7%AF%E6%88%90%E5%9E%8B%EF%BC%89%E2%80%94%E2%80%94-%E6%96%B0%E6%89%8B%E9%A6%96%E9%80%89"><span class="toc-text">1. FDM（熔融沉积成型）——  新手首选</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%85%89%E5%9B%BA%E5%8C%96%EF%BC%88SLA-DLP-LCD%EF%BC%89%E2%80%94%E2%80%94-%E6%96%B0%E6%89%8B%E6%85%8E%E5%85%A5"><span class="toc-text">2. 光固化（SLA&#x2F;DLP&#x2F;LCD）—— 新手慎入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%A1%AC%E4%BB%B6%E6%8E%A8%E8%8D%90%EF%BC%9A%E6%96%B0%E6%89%8B%E8%AF%A5%E4%B9%B0%E5%93%AA%E4%B8%80%E6%AC%BE%EF%BC%9F"><span class="toc-text">二、硬件推荐：新手该买哪一款？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%97%AD%E7%9C%BC%E5%85%A5%E7%B3%BB%E5%88%97%EF%BC%9A%E6%8B%93%E7%AB%B9-A1-Combo-%E5%B8%A6AMS%E5%A4%9A%E8%89%B2%E7%B3%BB%E7%BB%9F"><span class="toc-text">1. 闭眼入系列：拓竹 A1 Combo (带AMS多色系统)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%AB%98%E6%80%A7%E4%BB%B7%E6%AF%94%E5%B9%B3%E6%9B%BF%EF%BC%9A%E6%8B%93%E7%AB%B9-A1-Mini"><span class="toc-text">2. 高性价比平替：拓竹 A1 Mini</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%BF%9B%E9%98%B6-%E5%B7%A5%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%9A%E6%8B%93%E7%AB%B9-P1%E7%B3%BB%E5%88%97"><span class="toc-text">3. 进阶&#x2F;工程系列：拓竹 P1系列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%80%97%E6%9D%90%E9%81%BF%E5%9D%91%EF%BC%9A%E6%9D%90%E6%96%99%E9%80%89%E5%BE%97%E5%A5%BD%EF%BC%8C%E6%89%93%E5%8D%B0%E6%B2%A1%E7%83%A6%E6%81%BC"><span class="toc-text">三、耗材避坑：材料选得好，打印没烦恼</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%96%B0%E6%89%8B%E5%A4%A9%E8%8A%B1%E6%9D%BF%EF%BC%9APLA%E7%B3%BB%E5%88%97"><span class="toc-text">1. 新手天花板：PLA系列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BF%9B%E9%98%B6%E6%9D%90%E6%96%99%EF%BC%88%E6%96%B0%E6%89%8B%E6%85%8E%E5%85%A5%EF%BC%89"><span class="toc-text">2. 进阶材料（新手慎入）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%A0%B8%E5%BF%83%E9%81%BF%E5%9D%91-TIPS"><span class="toc-text">3. 核心避坑 TIPS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%85%A8%E8%80%97%E6%9D%90%E7%89%B9%E6%80%A7%E8%AF%A6%E7%BB%86%E5%AF%B9%E6%AF%94%E8%A1%A8"><span class="toc-text">4. 全耗材特性详细对比表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%BF%85%E5%A4%87%E9%85%8D%E4%BB%B6%E4%B8%8E%E5%B7%A5%E5%85%B7"><span class="toc-text">四、必备配件与工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%BD%AF%E4%BB%B6%E4%B8%8E%E6%B5%81%E7%A8%8B%EF%BC%9A%E4%BB%8E%E6%A8%A1%E5%9E%8B%E5%88%B0%E5%AE%9E%E7%89%A9"><span class="toc-text">五、软件与流程：从模型到实物</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%8E%BB%E5%93%AA%E6%89%BE%EF%BC%9F"><span class="toc-text">1. 第一阶段：模型去哪找？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%87%AA%E5%B7%B1%E5%BB%BA%E6%A8%A1%EF%BC%9F"><span class="toc-text">2. 第二阶段：为什么要自己建模？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%BB%BA%E6%A8%A1%E5%AE%9E%E6%88%98%EF%BC%9A5%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B-SketchUp-%E8%8D%89%E5%9B%BE%E5%A4%A7%E5%B8%88"><span class="toc-text">六、建模实战：5分钟上手 SketchUp (草图大师)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BD%AF%E4%BB%B6%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AE%BE%E7%BD%AE"><span class="toc-text">1. 软件初始化设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E9%80%9F%E6%9F%A5%E8%A1%A8"><span class="toc-text">2. 常用操作速查表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%81%9A%E4%B8%80%E4%B8%AA%E7%B2%BE%E5%87%86%E7%9A%84%E6%94%B6%E7%BA%B3%E7%9B%92"><span class="toc-text">3. 案例：做一个精准的收纳盒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%AF%BC%E5%87%BA%E6%89%93%E5%8D%B0%E6%96%87%E4%BB%B6"><span class="toc-text">4. 导出打印文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%85%B3%E9%94%AE%E6%AD%A5%E9%AA%A4%EF%BC%9A%E5%88%87%E7%89%87"><span class="toc-text">七、关键步骤：切片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-text">结语</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.md-text img[alt]:not([alt="icon"]):not([alt="cover"])`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
+<script defer type="text/javascript" src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var mermaid_config = {
+      startOnLoad: true,
+      theme:
+        "auto" == "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "neutral",
+      logLevel: 3,
+      themeVariables: {
+        darkMode: true
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: "linear"
+      },
+      gantt: {
+        axisFormat: "%Y/%m/%d"
+      },
+      sequence: {
+        actorMargin: 50
+      }
+    }
+    mermaid.initialize(mermaid_config);
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script><!-- Baidu Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JST56Q8277');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rp0i6z4yyg");
+</script>
+
+
+
+<!-- inject -->
+
+</div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 5,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body></html>
