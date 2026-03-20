@@ -1,1 +1,9 @@
-{"redirects":[{"source":"/:path*/","destination":"/:path*","statusCode":301}]}
+{
+  "redirects": [
+    {
+      "source": "/:path*/",
+      "destination": "/:path*",
+      "statusCode": 301
+    }
+  ]
+}
