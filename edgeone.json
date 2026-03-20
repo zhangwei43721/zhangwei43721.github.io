@@ -1,8 +1,18 @@
 {
   "redirects": [
     {
-      "source": "/:path*/",
-      "destination": "/:path*",
+      "source": "/posts/:id/",
+      "destination": "/posts/:id",
+      "statusCode": 301
+    },
+    {
+      "source": "/tags/:name/",
+      "destination": "/tags/:name",
+      "statusCode": 301
+    },
+    {
+      "source": "/categories/:name/",
+      "destination": "/categories/:name",
       "statusCode": 301
     }
   ]
