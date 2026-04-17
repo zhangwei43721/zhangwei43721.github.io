@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
   
-  <meta name="robots" content="noindex,follow">
+  
   <meta name="generator" content="Hexo 7.1.0">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
@@ -17,16 +17,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>分类：大学生涯 - Sky Blog</title>
+  <title>15条高频实用的ClaudeCode技巧 - Sky Blog</title>
 
   
-    <meta name="description" content="这是Skyforever的个人博客，一名大学生的技术分享空间。 这里记录了我的学习历程、编程实践、项目经验以及对技术的理解。 希望我的分享能为同样热爱技术的你提供一些帮助和启发。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sky Blog">
-<meta property="og:url" content="http://skyforever.top/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/">
+    <meta name="description" content="15 条高频实用的 Claude Code 技巧我平时重度依赖 Claude Code，踩了不少坑，也摸索出了一些能切实提高效率的习惯。今天整理了 15 个我最常用的技巧，有些是自己折腾出来的，有些是看别人操作学到的。直接上干货。 1. 绕过权限弹窗并设置别名每次跑脚本都要点确认很烦。最省事的做法是直接在 shell 里配个别名： 1alias c-d&#x3D;&quot;claude --dangero">
+<meta property="og:type" content="article">
+<meta property="og:title" content="15条高频实用的ClaudeCode技巧">
+<meta property="og:url" content="http://skyforever.top/posts/51722">
 <meta property="og:site_name" content="Sky Blog">
-<meta property="og:description" content="这是Skyforever的个人博客，一名大学生的技术分享空间。 这里记录了我的学习历程、编程实践、项目经验以及对技术的理解。 希望我的分享能为同样热爱技术的你提供一些帮助和启发。">
+<meta property="og:description" content="15 条高频实用的 Claude Code 技巧我平时重度依赖 Claude Code，踩了不少坑，也摸索出了一些能切实提高效率的习惯。今天整理了 15 个我最常用的技巧，有些是自己折腾出来的，有些是看别人操作学到的。直接上干货。 1. 绕过权限弹窗并设置别名每次跑脚本都要点确认很烦。最省事的做法是直接在 shell 里配个别名： 1alias c-d&#x3D;&quot;claude --dangero">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-15T16:07:28.000Z">
+<meta property="article:modified_time" content="2026-04-15T16:07:28.000Z">
 <meta property="article:author" content="Skyforever">
 <meta name="twitter:card" content="summary">
   
@@ -48,12 +50,12 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"http://skyforever.top","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"name":"Sky Blog","description":"这是Skyforever的个人博客，一名大学生的技术分享空间。 这里记录了我的学习历程、编程实践、项目经验以及对技术的理解。 希望我的分享能为同样热爱技术的你提供一些帮助和启发。\n","url":"http://skyforever.top"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-04-16T00:07:28+08:00","dateModified":"2026-04-16T00:07:28+08:00","datePublished":"2026-04-16T00:07:28+08:00","description":"","headline":"15条高频实用的ClaudeCode技巧","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/51722/"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/51722/","image":[]}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8">
 </head>
 <body>
 
-<div class="l_body index" id="start" layout="undefined" type="undefined" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
 
 
 <header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
@@ -65,31 +67,150 @@
 <div class="widgets">
 <div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
-<widget class="widget-wrapper markdown"><div class="widget-header dis-select"><span class="name">欢迎欢迎</span></div><div class="widget-body fs14"><p>终于上线了友链功能，欢迎大家提交<a target="_blank" rel="noopener" href="https://blog.skyforever.top/friends/">友链申请</a>！<br>目前已经有一些朋友提交了申请，正在审核中，审核通过后会第一时间添加到友链列表中。</p>
-</div></widget>
+
 
 <widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/51722/"><span class="title">15条高频实用的ClaudeCode技巧</span></a><a class="item title" href="/posts/41826/"><span class="title">什么是Agent，怎么用好Agent，怎么写Skill</span></a><a class="item title" href="/posts/63520/"><span class="title">如何在不使用操作系统的情况下实现多线程效果</span></a><a class="item title" href="/posts/38247/"><span class="title">解析各种AI概念</span></a><a class="item title" href="/posts/52013/"><span class="title">Claude Code 使用指南</span></a><a class="item title" href="/posts/25562/"><span class="title">3D打印保姆级入坑指南：选机、耗材与避坑完全手册</span></a><a class="item title" href="/posts/41626/"><span class="title">基于 J-Link RTT 的单片机调试打印指南</span></a><a class="item title" href="/posts/11721/"><span class="title">图形化Git使用指南</span></a><a class="item title" href="/posts/43991/"><span class="title">基于 VScode 的 Git 使用指南</span></a><a class="item title" href="/posts/61125/"><span class="title">嘉立创EDA 核心快捷键与实用技巧速查</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
 </div></aside><div class="l_main" id="main">
 
-<header class="header mobile-only"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
-
- 
 
 
 
 
-<div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a href="/">近期发布</a><a class="active" href="/categories/">分类：大学生涯</a><a href="/tags/">标签</a><a href="/topic/">专栏</a><a href="/archives/">归档</a></nav></div></div></div>
-<div class="post-list post"><a class="post-card post photo" href="/posts/28982/">
-<div class="cover" position="bottom"><img src="https://image.skyforever.top/blog/2025/10/875f63a52f6c4d15320e6c61a138506f.webp"/><div class="cover-info" position="bottom"style="color:white"><div class="text headline">深澜校园网自动登陆脚本</div><div class="text caption">利用ai写油猴脚本实现自动登录</div></div></div>
-</a></div>
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-04-15T16:07:28.000Z">2026-04-16</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-04-15T16:07:28.000Z">2026-04-16</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>15条高频实用的ClaudeCode技巧</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="15-条高频实用的-Claude-Code-技巧"><a href="#15-条高频实用的-Claude-Code-技巧" class="headerlink" title="15 条高频实用的 Claude Code 技巧"></a>15 条高频实用的 Claude Code 技巧</h1><p>我平时重度依赖 Claude Code，踩了不少坑，也摸索出了一些能切实提高效率的习惯。今天整理了 15 个我最常用的技巧，有些是自己折腾出来的，有些是看别人操作学到的。直接上干货。</p>
+<p><strong>1. 绕过权限弹窗并设置别名</strong><br>每次跑脚本都要点确认很烦。最省事的做法是直接在 shell 里配个别名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> c-d=<span class="string">&quot;claude --dangerously-skip-permissions&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>或者去编辑 <code>~/.claude/settings.json</code> 文件（注意加这行 <code>skipDangerousModePermissionPrompt: true</code>）：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;permissions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;defaultMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bypassPermissions&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;skipDangerousModePermissionPrompt&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>搞定后直接拉起最高权限实例，清净很多。</p>
+<p><strong>2. 用 <code>claude init</code> 初始化 CLAUDE.md</strong><br>接手老项目，别指望它自己能瞬间领悟。直接在终端敲 <code>claude init</code>，它会自己摸索代码库并生成初版 <code>CLAUDE.md</code>（这是它的核心记忆）。<br>拿到初版后一定要手动精简。保留项目简述、启动测试命令即可；编码规范用 <code>@</code> 引入外部规则文件。<br>最重要的是核心备忘——那些一旦删了 AI 就会写出报错代码的潜规则，保留到CLAUDE.md里。文档越短，效果越好。</p>
+<p><strong>3. 告别纯命令行，用 UI 客户端</strong><br>终端里敲字费劲可以试试带 UI 的客户端。除了 VS Code 官方插件，最近我发现个非常有意思的 Web 看板项目<a target="_blank" rel="noopener" href="https://github.com/BloopAI/vibe-kanban/tree/main">Vibe Kanban</a>。<br>你可以把任务分成“进行中、已完成、Review”，直接拖拽过去开启对应的 Claude Code 实例，让 Claude Code 多线并行操作非常直观。</p>
+<p><strong>4. 连续按两次 ESC 快速回滚</strong><br>发现代码改乱了，连按两次 ESC 可以直接触发回滚。</p>
+<p>另外，关闭实例后终端会吐出一串恢复命令（类似 <code>claude -r &lt;会话名&gt;</code>）。</p>
+<p>下次直接跑这串命令，就能无缝回到上一次对话的最后状态，上下文都在。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/./assets/image-20260416134538003.png" alt="回到上次对话的命令"></p>
+<p><strong>5. 别只给需求，给“反馈链路”</strong></p>
+<p>没有反馈链路的提问方法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我做一个邮箱密码登录功能</span><br></pre></td></tr></table></figure>
+
+<p> 这么给 Claude Code 说，Claude Code 往往丢几行代码就觉得搞定，实际上根本跑不起来。</p>
+<p>但有反馈链路的提问方法:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">帮我做一个邮箱密码登录功能。</span><br><span class="line">做完后请自己测试这个流程：</span><br><span class="line">- 错误输入要有提示</span><br><span class="line">- 正确登录后要跳转到 dashboard</span><br><span class="line">- 未登录访问 dashboard 要跳回 login</span><br><span class="line">如果测试失败，请继续修复，直到这条链路跑通再告诉我完成。</span><br></pre></td></tr></table></figure>
+
+<p>把单次对话变成一套循环闭环，让Claude Code自己跑闭环测试，他就知道他写的代码是否能达到效果，自己给代码多次迭代，可用性直接大大提高。</p>
+<p><strong>6. 装上针对语言的 LSP 插件</strong><br>一定要装代码智能插件（LSP）。它能让文件一保存就自动诊断语法错误或包遗漏，不用等到最后编译才发现死胡同。</p>
+<p>在 Claude Code 里输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/plugin</span><br></pre></td></tr></table></figure>
+
+<p>在插件的Discover（发现）页面搜索 LSP ,即可给 Claude Code 安装常用编程语言的分析工具，帮助 Claude Code 写出更正确的代码</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/./assets/image-20260416135110439.png" alt="image-20260416135110439"></p>
+<p><strong>7. 尽可能多用技能（Skills）</strong><br>技能就是封装好的标准化工作流。做架构设计或者前端 UI 只要挂上对应的技能，模型就会老老实实按既定规范走，极大减少盲盒概率。</p>
+<p>除了内置的，用命令一键去市场装现成的也很方便。</p>
+<p>可以在这个网站找到合适的Skills：<a target="_blank" rel="noopener" href="https://skillsmp.com/zh">https://skillsmp.com/zh</a></p>
+<p><strong>8. 没思路时，切 Plan 模式</strong><br>遇到复杂需求不知道从哪下手，按下 <code>Shift + Tab</code> 切到 Claude Code 内置的 Plan 模式。</p>
+<p>它会先探索代码库、跟你反复对齐思路，定好计划再动手写代码。前期对齐逻辑，后面基本不会跑偏。</p>
+<p><strong>9. 抛弃“二手翻译”，直接喂报错日志</strong></p>
+<p>用自己的解释漏掉了原始的信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">登录跳转有问题，应该是token 没存上，你帮我修一下,</span><br></pre></td></tr></table></figure>
+
+<p>一旦这么说，大模型很容易顺着你的错觉钻牛角尖。</p>
+<p>最稳妥的做法：把第一手报错日志原封不动砸给它。</p>
+<p>你可以加上你怀疑的方向，但必须有原始信息，让它自己去排查所有可能性。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这是登录相关的控制台报错和接口返回，我怀疑是 token 存储或者路由守卫的问题，你先从这个方向排查，但也请结合日志判断真实原因。</span><br><span class="line">-日志信息</span><br><span class="line">-其他信息</span><br></pre></td></tr></table></figure>
+
+<p><strong>10. 卡死的时候，果断 <code>/clear</code></strong></p>
+<p>如果你现在的任务和上一个任务毫无关联，就用 <code>/clear</code> 清空上下文。或者直接新开个对话，上下文堆积太多必定会导致模型变蠢。</p>
+<p>清空 AI 的脑子重来往往有奇效。</p>
+<p><strong>11. 用子代理（Sub-agent）隔离污染</strong></p>
+<p>子代理是独立的上下文，在整个运行过程中不影响主代理的上下文</p>
+<p>使用 Claude Code 自带的子代理<br>1、explore 搜索代码<br>2、plan 生成计划<br>3、General-purpose 复杂任务<br>自定义子代理<br>什么情况下要去使用自定义子代理?<br>1、你要进行的价务时间比较长且和当前主代理没有多大关系，主代理更关心的是这个子代理的结果<br>比如code-review<br>主代理需要的是 codereview 的结果进行优化，至于过程完全不在意</p>
+<p><strong>12. 用 <code>/btw</code> 随时开小差</strong><br>主任务跑到一半，突然想问个没关联的语法问题？直接敲 <code>/btw 这个函数的重试逻辑是什么？</code>。<br>它会在浮层里给你答案，既不打断后台正在跑的任务，也不会把废话塞进主上下文。看完按 Esc 关掉，干干净净。</p>
+<p><strong>13. 用 <code>--worktree</code> 开启多核并行</strong><br>如果你同时要修几个不相关的 Bug，用 <code>claude --worktree &lt;分支名&gt;</code> 启动。它会直接拉出一个隔离的 Git 工作区副本，几条线并行跑完全互不干扰。只要你脑子转得过来，这就是效率杀器。</p>
+<p><strong>14. 挂载少而精的 MCP 工具</strong><br>有了技能后，MCP 没必要装一堆花里胡哨的，留几个痛点级的就行。比如装一个 MySQL MCP，查数据落库时让它直接走协议查表，比手写脚本再去跑要快得多。</p>
+<p><strong>15. 用 <code>@</code> 精准投喂文件</strong><br>别让大模型自己海搜代码，费时又烧 Token。只要你大概知道逻辑在哪个目录，直接 <code>@</code> 把相关文件拽进去。指哪打哪才是最高效的用法。</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://skyforever.top/posts/51722" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/posts/51722&title=15条高频实用的ClaudeCode技巧 - Sky Blog&summary=15 条高频实用的 Claude Code 技巧我平时重度依赖 Claude Code，踩了不少坑，也摸索出了一些能切实提高效率的习惯。今天整理了 15 个我最常用的技巧，有些是自己折腾出来的，有些是看别人操作学到的。直接上干货。
+1..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=15条高频实用的ClaudeCode技巧 - Sky Blog&amp;body=http://skyforever.top/posts/51722"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/posts/51722"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/41826/">什么是Agent，怎么用好Agent，怎么写Skill</a></div></section></div>
+
+<div class="related-wrap" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>您可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="/posts/15440.html" title="Linux命令速查手册"><span class="title">Linux命令速查手册</span></a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
 
 
 <footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-</aside><div class='float-panel'>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#15-%E6%9D%A1%E9%AB%98%E9%A2%91%E5%AE%9E%E7%94%A8%E7%9A%84-Claude-Code-%E6%8A%80%E5%B7%A7"><span class="toc-text">15 条高频实用的 Claude Code 技巧</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
@@ -583,6 +704,30 @@
 
 
 <!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
 
 
 
