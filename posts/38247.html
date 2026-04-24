@@ -102,37 +102,49 @@
     
   </div>
   </div><article class="md-text content"><blockquote>
-<p>LLM、Prompt、Agent、RAG、Function Calling、MCP、LangChain、Workflow、Skill……这几个词儿你认识多少？这就是这几个词儿，你又<em>真正</em>认识多少？</p>
-<p>如果你全都不认识，或者被这些漫天飞舞的新概念搞得头晕脑胀，那么恭喜你，来对地方了。今天这篇文章，我就为你<strong>扒开所有这些唬人概念的底裤</strong>。</p>
-<p>你会发现：<strong>所谓智能体（Agent），其实就是所有“不需要智能的部分”构成的躯壳；这一切，不过是新瓶装旧酒的一场“名词诈骗”。</strong></p>
-<p>最后，我还会交给你一套“通杀”现在甚至未来所有AI新概念的<strong>统一方法论</strong>，让你瞬间秒懂。现在，请清空大脑，忘掉你所有知道和不知道的概念，跟我一起进入这场拆解之旅。</p>
+<p>LLM、Prompt、Agent、RAG、Function Calling、MCP、LangChain、Workflow、Skill……这几个词儿你认识多少？这就是这几个词儿，你又真正认识多少？</p>
+<p>如果你全都不认识，或者被这些漫天飞舞的新概念搞得头晕脑胀，那么恭喜你，来对地方了。</p>
+<p>很多概念换了名字、换了包装，但底层逻辑其实很简单。</p>
+<p>于是问题来了：</p>
+<p>这些东西到底是“技术进步”，还是“工程重组”？</p>
+<p>如果我们把这些系统一层层拆开，你会看到一个不那么性感，但更接近现实的答案：</p>
+<p>所谓Agent，本质上并不是一个“更聪明的AI”，而是一套把模型能力约束起来的软件。</p>
 </blockquote>
 <hr>
-<h3 id="01-混乱的起点：一个只会“文字接龙”的智障"><a href="#01-混乱的起点：一个只会“文字接龙”的智障" class="headerlink" title="01 混乱的起点：一个只会“文字接龙”的智障"></a>01 混乱的起点：一个只会“文字接龙”的智障</h3><p>整个混乱的起点，就是古老的语言模型。</p>
-<p>小的语言模型一开始还是个“智障”，但随着模型的参数越来越大，居然在某个临界点“涌现”出了智能。为了和之前那个智障模型做个区分，你在前面加了个“大”字，这就构成了现在常说的<strong>大语言模型（Large Language Model，简称 LLM）</strong>。</p>
+<h3 id="01-混乱的起点：一个只会“文字接龙”的智障"><a href="#01-混乱的起点：一个只会“文字接龙”的智障" class="headerlink" title="01 混乱的起点：一个只会“文字接龙”的智障"></a>01 混乱的起点：一个只会“文字接龙”的智障</h3><p>整个混乱的起点，我们要先从一个故事说起。</p>
+<p>想象一下这样一个场景，假如你是一个学生，正在做一套数学试卷，你用学过的公式和概念严谨的推导出了每道题的答案，但是最后只能得60分，不及格。然后你就拼尽全力的学习，发现再怎么努力也就只能考个70分了，这已经是自己的极限了。那这个时候你要放弃吗？不，你开始寻找了其他的解题技巧。</p>
+<p>通过观察大量的试卷，你硬生生从中找出了一些规律。比如说什么选择题三短一长选最长。比如说题目中有π，那么答案中也选择带 π 的。虽然你好像知道这没什么逻辑，但从统计规律来看，确实有极高的概率是这个样子的。于是遇到不会的问题的时候，你就不去费劲巴力的套公式计算了，直接观察题目，找规律，选一个最可能的答案。通过这种方法，你的成绩居然轻松的提高到了80分。</p>
+<p>然后你就上瘾了，找来了好几万套卷子，根本不去分析每道题的原理，就是通过观察各种规律，甚至你找出了题目字数和最终选项的关系。比如说题目字数超过100字时，答案选C的情况居然有99%。</p>
+<p>当然你也知道这些很扯，但是就是有这么个规律。于是你干脆整张卷子都不自己去算了，全按照你发现的各种规律去蒙。通过这种办法，你的成绩居然提高到了90分。</p>
+<p>所有人都惊叹于你的进步，但只有你自己知道，你这个方法虽然有效，但自己都无法解释这是为啥。</p>
+<p>过段时间你把自己这个方法告诉了大家，相当于对外开源了，于是大家纷纷都能轻松考到90分了，再也没有人去学习那些复杂的公式了。</p>
+<p>还有些人针对一些特定的场景做专门的细微观察的规律，再结合着通用的90分规律，把分数小小提升到91分、92分、93分等等。还有人针对同一道选择题用不同的方法蒙，有的答案是A，有的答案是B，然后选择一个偏多的答案作为最终的结果，分数也能稍稍提升一些。总之所有人都不学习根本原理了，天天就在这找规律。其实本来通过刻苦学习还是有可能考到100分的，但是会非常艰辛。但是由于靠蒙就能考到90分，所以谁也没有动力去研究怎么考到100分了。人类的上限因此也停滞不前。</p>
+<p>映射到现实生活中看AI发展的情况也一样，原本人们费尽巴力学公式考到60分，这就是人工智能早期的符号主义。后来呢，有人开始找规律试图蒙答案，但是只能考到50分，而且当时没有这么多试卷可以分析，所以也找不到什么规律。这就是早期深度学习没有发展起来的困局，数据不够，能力不足。</p>
+<p>随着时间推移，试卷（数据）越来越多，算力也越来越强。这些“蒙答案”的人蒙得越来越准，反而把那些苦哈哈背公式的人远远甩在了身后，此时深度学习才开始真正崛起。再发展到现在，“找规律蒙答案”这条路居然内卷成了一门比学习公式还要严谨的前沿学科。</p>
+<p>当喂进去的试卷达到了海量，它找规律的准确率高到了离谱的学霸级别——这就是如今 ChatGPT、DeepSeek 之类大模型的诞生。到了这个临界点，奇迹发生了：这种靠找规律蒙答案的思路，居然看起来像是具备了真正的理解和推理能力一样。智力就这样“涌现”了。</p>
+<p>为了和之前那个连蒙带猜也只能考50分的“智障”模型做个区分，你在前面加了个“大”字，这就构成了现在常说的<strong>大语言模型（Large Language Model，简称 LLM）</strong>。</p>
 <p>🎉 <em>恭喜你，发明了今天的第一个新词。</em></p>
-<p>大模型本身只能做一件事：<strong>文字接龙</strong>（不断预测并输出下一个字）。如果只是这么用，它看起来仍然像个智障。但如果人为划分出“一问一答”两个角色，就实现了它第一个有点智能的使用方式——对话。</p>
-<p>现在，立刻把自己想象成一个老板。LLM就是你的员工，我们叫他<strong>小L</strong>。</p>
+<p>但剥开这层“智能”的外衣，大模型本身其实只能做一件事：文字接龙（<strong>通过统计概率，不断预测并输出最可能出现的下一个字</strong>）。</p>
+<p>既然底层根本不是严谨的逻辑推理，而是“<u>靠概率蒙答案</u>”，这就注定了它是一个天生不靠谱的存在。所以人们发现了很多极具反差的例子。在某些领域，AI已经超越了人类顶尖水平（比如写代码、做翻译），但面对一些对人来说简单到甚至愚蠢的问题，它却经常翻车。比如它数不清一张图里有6根手指，算不对一个单词里有几个字母，面对简单的脑筋急转弯也会极其自信地拍着胸脯给你一个错误答案。</p>
+<p>如果只是让它随便玩文字接龙，它很快就会暴露出满嘴跑火车的不靠谱本性。但如果人为地给它套上一个壳，划分出“一问一答”两个角色，就实现了它第一个有点智能的使用方式——对话。</p>
+<p>现在，立刻把自己想象成一个老板。LLM就是你招来的这个靠蒙答案混进公司、虽然能干活但很不靠谱的员工，我们叫他<strong>小L</strong>。</p>
 <p>他服务你的方式有点特别：<u>只能一问一答，然后就结束了。<strong>不能追问</strong></u>，这个非常重要。</p>
-<p>接下来的任务，就是你要想尽办法压榨这个只会一问一答的小L，榨干他的全部剩余价值。你会怎么做呢？</p>
-<ol>
-<li><p>首先，你给自己每次对小L说的内容起了个洋气的名字，叫 <strong>Prompt（提示词）</strong>。<br>🎉 <em>恭喜，第二个新词诞生。</em></p>
-</li>
-<li><p>然后你发现，给小L说的内容可以进一步拆分：一部分是背景信息，一部分是最终指示。<br>于是你把背景信息单独命名为 <strong>Context（上下文）</strong>。<br>🎉 <em>第三个新词达成。</em></p>
-</li>
-<li><p>你需要对小L进行追问，但他只能一问一答怎么办？你灵机一动：每次沟通前，<strong>把你们之前的“对话历史”作为前情提要塞进Context里</strong>，伪装成多轮对话！你迫不及待地给这些特殊的上下文起了个新词叫 <strong>Memory（记忆）</strong>。如果记忆太长，还可以再找大模型总结压缩一下。<br>🎉 <em>一不小心，第四个新词也有了。</em></p>
-</li>
-</ol>
-<p>此时，一个原本只会文字接龙的底层代码，成功被你玩出了“可以对话、可以追问”的优秀牛马员工拟人感。</p>
+<p>接下来的任务，就是你要想尽办法压榨这个只会一问一答、还经常满嘴跑火车的小L。既然他不靠谱，你就要通过各种方法去约束他，降低他蒙错的概率。</p>
+<ul>
+<li>你发现，同一件事换个说法，小L给的结果完全不一样。于是你开始疯狂研究怎么下达指令，设定角色、给范例、约束语气。你给这种“教牛马怎么听话”的活儿起了个洋气的名字，叫 <strong>Prompt（提示词）</strong>。<br>这就是AI工程的第一阶段：<strong>提示词工程</strong>。它的核心逻辑是：小L不是不会，是你没把话说明白。<br>🎉 <em>恭喜，第二个新词诞生。</em></li>
+<li>然后你发现，给小L说的内容可以进一步拆分：一部分是背景信息，一部分是最终指示。你把背景信息单独命名为 <strong>Context（上下文）</strong>。</li>
+<li>你还需要对小L进行追问，但他只能一问一答怎么办？你灵机一动：每次沟通前，<strong>把你们之前的“对话历史”作为前情提要塞进Context里</strong>，伪装成多轮对话！你迫不及待地给这些特殊的上下文起了个新词叫 <strong>Memory（记忆）</strong>。<br>🎉 <em>一不小心，第三、第四个新词也有了。</em></li>
+</ul>
+<p>此时，一个原本底层只会“靠概率瞎蒙”的底层代码，成功被你通过各种约束手段，玩出了“可以对话、可以追问”的优秀牛马员工拟人感。</p>
 <hr>
 <h3 id="02-给“牛马”配电脑：Agent与RAG的诞生"><a href="#02-给“牛马”配电脑：Agent与RAG的诞生" class="headerlink" title="02 给“牛马”配电脑：Agent与RAG的诞生"></a>02 给“牛马”配电脑：Agent与RAG的诞生</h3><p>不久之后，你不满足了。你发现小L没有上网查资料的能力，遇到不懂的要么瞎编（幻觉），要么说些过时的消息。</p>
 <p>给小L配台电脑行吗？不行，小L只会文字接龙，其他任何逻辑都无法独立完成。</p>
 <p>那怎么办？你心生一计：你告诉小L，“如果你需要上网，你就用特定格式告诉我，我帮你查完再把结果喂给你。”</p>
-<p>但很快你发现：这样显得自己有点蠢。<strong>到底谁才是牛马？！</strong></p>
+<p>但很快你发现：这样显得自己有点蠢。到底谁才是牛马？！</p>
 <p>于是，你写了一段<strong>程序代码</strong>，让这个程序去“代理”你和小L沟通，并且自动去完成搜索、抓取网页的任务。在外人看来，你仍然是一问一答就拿到了结果，只不过中间多了一个神秘的程序。</p>
 <p>太妙了！这个发明可不得了。这个神秘的程序似乎拥有了操作工具的高级智能。你给它取了个极具科幻感的名字：<strong>智能体（Agent）</strong>。</p>
 <blockquote>
-<p><em>💡 别有心理负担，早期很多所谓的Agent，底层逻辑仅仅就是多加了一段Prompt外加一个网络请求脚本而已。从现在的视角回看，简直就是一种诈骗。</em></p>
+<p>💡 别有心理负担，早期很多所谓的Agent，底层逻辑仅仅就是多加了一段Prompt外加一个网络请求脚本而已。从现在的视角回看，简直就是一种诈骗。</p>
 </blockquote>
 <p>既然Agent能上网搜索了，那搜索本地文档和数据库行不行？当然行。<br>只是搜索方式变了，需要用“向量数据库”把语义相近的片段找出来，然后塞进上下文里给大模型参考。你给这种“<strong>检索外部信息+增强生成结果</strong>”的办法，起了个贼拉风的名字：<strong>RAG（检索增强生成）</strong>。</p>
 <p>顺便，你把联网搜索叫 Web Search（后来觉得格局小了，直接叫Search）。从广义上讲，RAG和Search都属于一类东西：<strong>获取模型参数以外的信息的能力。</strong></p>
@@ -148,11 +160,15 @@
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/2eaf3cf1dda224892bb0a66a2ffc06e3.webp" alt="给ai赋能，加上各种MCP工具"></p>
 <p>至此，终极架构成型了：</p>
 <ul>
-<li><strong>大模型</strong> &#x3D; 只会说话不会干活的智者</li>
-<li><strong>MCP服务</strong> &#x3D; 提供各种干活工具的工具箱</li>
-<li><strong>Agent</strong> &#x3D; 传话筒（把大模型的话转成调用MCP的代码，再把工具的返回结果传回给大模型）</li>
+<li>大模型 &#x3D; 只会说话不会干活的智者</li>
+<li>MCP服务 &#x3D; 提供各种干活工具的工具箱</li>
+<li>Agent &#x3D; 传话筒（把大模型的话转成调用MCP的代码，再把工具的返回结果传回给大模型）</li>
 </ul>
 <p>Agent主打一个：“我不生产信息，我只是信息的搬运工”。</p>
+<p>如果你懂一点点代码，你就知道 Agent 不是什么拥有自主意识的高级生命体。有时间去看各个大厂开源的 Agent 源码，你会发现不管包装得多么高大上，它的核心骨架极其简陋——<strong>本质上就是一个粗暴的 <code>while(true)</code> 死循环。</strong></p>
+<p>你就是把大模型（小L）关在了这个死循环里。在这个循环里，小L只能机械地重复一个固定流程：<br><strong>思考下一步干啥 -&gt; 按照规矩（MCP）调用外部工具 -&gt; 拿到工具返回的结果 -&gt; 再次思考……</strong></p>
+<p>只要活儿没干完，这个死循环就会一直转下去。直到最后，大模型自己根据所有的上下文，判断了一句：“我觉得任务完成了。”程序才会执行 <code>break</code> 跳出循环，然后把最终结果吐给你。</p>
+<p>听起来很完美对吧？让 AI 自己在循环里干活，自己判断什么时候结束。但在真实的业务场景里，这个“死循环”恰恰成了噩梦的开始。</p>
 <hr>
 <h3 id="04-效率至上：从-LangChain-到-Skill-的演进"><a href="#04-效率至上：从-LangChain-到-Skill-的演进" class="headerlink" title="04 效率至上：从 LangChain 到 Skill 的演进"></a>04 效率至上：从 LangChain 到 Skill 的演进</h3><p>不管你的Agent长什么样（命令行、IDE插件、还是最近爆火的各种桌面AI助手），只要给它配上了各种工具，马上就会暴露一个统一的缺点：<strong>太自由，反而不稳定，且浪费Token。</strong></p>
 <p>假设任务是：<code>读取英文PDF -&gt; 提取内容 -&gt; 翻译成中文 -&gt; 保存为Markdown。</code><br>如果你一股脑把所有能力都丢给Agent（纯MCP狂热派），它可能每次想的步骤都不一样，甚至在中间迷失方向。</p>
@@ -164,71 +180,67 @@
 <li><strong>按需加载派（Agent+Skill）</strong>：为了解决上下文爆满，你写一堆脚本放进文件夹并贴上说明书。遇到特定任务时，只把对应的那一类工具告诉AI。完美兼顾了自由度与成本。</li>
 <li><strong>外包分工派（SubAgent&#x2F;子智能体）</strong>：如果任务实在太复杂，即便按需加载工具，主Agent的上下文还是会被各种冗长的中间步骤塞满，Token疯狂燃烧。于是你一拍大腿：搞几个隔离的、甚至是用更便宜模型运行的“小弟”，把细碎的脏活累活外包给它们，主Agent只当包工头负责分派任务和听汇报。这些干脏活的小弟，就叫 <strong>SubAgent（子智能体）</strong>。</li>
 </ol>
-<p>现在我们来回顾一下之前的概念：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>LLM 大语言模型</td>
-<td>Function Calling AI输出代码调用程序</td>
-</tr>
-<tr>
-<td>Prompt 提示词</td>
-<td>MCP 模型上下文协议</td>
-</tr>
-<tr>
-<td>Context 上下文</td>
-<td>Langchain 程序中调用AI</td>
-</tr>
-<tr>
-<td>Memory 记忆</td>
-<td>workflow 工作流，拖拽编程</td>
-</tr>
-<tr>
-<td>Agent 智能体</td>
-<td>SKILL 技能，给ai一套代码，按需加载</td>
-</tr>
-<tr>
-<td>RAG 检索增强生成</td>
-<td>SubAgent 子智能体，新开一个上下文干脏活</td>
-</tr>
-<tr>
-<td>Search 搜索</td>
-<td>Claude CodeX Cursor<br>Trae  OpenClaw Manus <br/>都是各种Agent程序</td>
-</tr>
-</tbody></table>
+<p>到这里，你是不是觉得万事大吉了？你给小L安排了工具（MCP），规定了动作（Workflow），教会了技能（Skill），还配了小弟（SubAgent）。</p>
+<p>于是，你把这套豪华系统推向了真实的生产环境。<br>结果你绝望地发现：<strong>这套系统的成功率，死活卡在 70% 上不去。</strong></p>
+<p>它有时候极其聪明，有时候却莫名的跑偏：比如它搜索回来的结果是乱码，它不仅没发现，还顺着乱码往下瞎编；比如在一个超长的任务里，它慢慢忘记了最初的目标，开始敷衍了事；比如调用的外部API超时报错了，它面对错误信息直接死机，非要从头再来。</p>
+<p>因为你把退出死循环的决定权交给了 AI，而 AI 的底层又只是个“靠概率蒙题”的智障，于是这匹在死循环里狂奔的野马，立刻给你表演了什么叫“花式作死”。工程师们总结了它最典型的四种作死模式：</p>
+<ol>
+<li>试图一步登天： 它总想着在这个循环的第一圈，就把所有的代码和功能全写完。结果毫无悬念地把上下文的字数撑爆了，留下一堆没文档的半成品烂尾楼。</li>
+<li>半场开香槟： 只要在循环里把核心功能搞出了点雏形，哪怕你明确要求的另外一半细节它根本没做，它也会非常自信地判定“任务已完成”，直接 <code>break</code> 跳出循环强行下班。</li>
+<li>盲目自信： 只要写完了某段代码，它就默认这玩意儿能跑。它根本不会主动在循环里去调个测试工具验证一下隐性 Bug，结果你得花几倍的时间去给它擦屁股。</li>
+<li>复制烂代码的“人传人”现象： AI 极其“听话”，如果你的旧代码里有极其糟糕的架构规范，它会在循环里忠实地把这些垃圾写法复制并放大到整个项目里，让系统迅速积累巨量的技术债务。</li>
+</ol>
+<p>面对这四个要命的弱点，你还指望仅仅靠几句温柔的提示词就能让它浪子回头吗？绝不可能。</p>
 <hr>
-<h3 id="05-统一方法论：撕开包装看本质"><a href="#05-统一方法论：撕开包装看本质" class="headerlink" title="05 统一方法论：撕开包装看本质"></a>05 统一方法论：撕开包装看本质</h3><p>新概念出来时，满天都是极其夸张的营销吹捧。但在我看来，它们不仅不神秘，甚至有些“拉垮”，<strong>全都是技术发展过程中的“中间产物”</strong>。</p>
-<p>让我们把下面这些概念再次理清：</p>
-<p><strong>理清概念</strong>：</p>
+<h3 id="05-现实的毒打与终极绝招：Harness-的诞生"><a href="#05-现实的毒打与终极绝招：Harness-的诞生" class="headerlink" title="05 现实的毒打与终极绝招：Harness 的诞生"></a>05 现实的毒打与终极绝招：Harness 的诞生</h3><p>看着在死循环里乱撞、成功率死活卡在 70% 上不去的大模型，你终于认清了一个残酷的现实：<strong>模型的能力其实早就够了，它就是不听话而已。</strong></p>
+<p>过去的两年，我们其实只解决了两个问题：</p>
+<ol>
+<li><strong>Prompt Engineering</strong>：解决怎么把话说明白（输出约束）。</li>
+<li><strong>Context&#x2F;RAG Engineering</strong>：解决怎么把资料给对（信息供给）。</li>
+</ol>
+<p><strong>这俩解决的全是“输入侧”的问题！</strong> 但现在，Agent 面临的已经不是“一次回答对不对”的问题，而是进入了真实的环境里去“连续做事”。在这个漫长、充满变数、容错率极低的长链路里——</p>
+<p><strong>谁来监督它？谁来约束它跑偏？出了错谁把它拉回来？</strong></p>
+<p>于是，AI 工程的第三阶段：<strong>Harness Engineering（系统护栏&#x2F;驾驭工程）</strong> 诞生了。</p>
+<p>Harness 这个词的英文原意是“马具、挽具”。顾名思义，如果大模型是一匹拉车的野马，Agent 的死循环是这匹马跑的跑道，那么 <strong>Harness 根本不是某一个具体的代码库，而是一个“给马套上马鞍和绳子”的工程概念。</strong></p>
+<p>我们不能任由大模型自己在死循环里放飞自我，我们必须给它套上“缰绳”（架构约束）、带上“眼罩”（上下文限制）、并用“鞭子”（反馈机制）抽打它，让这匹马在强力的牵引下，一步一步老老实实地干活。</p>
+<p>其实一线大厂早就被真实业务逼出了这套东西：</p>
 <ul>
-<li><strong>Function Calling vs MCP</strong>：前者是“大模型和Agent程序”的沟通约定，后者是“Agent程序和外部工具箱”的调用接口。</li>
-<li><strong>Skill vs MCP</strong>： 两个不是一个层次。Skill是解决Token浪费的应用层方案（向一本字典，每次给ai看目录，ai根据目录按需加载<u>一类</u>工具），而MCP是直接让ai调用的<u>一个</u>程序。常用的工具未来一定都会内化到Agent主程序里，MCP对普通用户来说会变得完全透明。</li>
-<li><strong>Skill vs SubAgent</strong>： 两者都是为了省Token。Skill 是从“工具箱”层面做减法（只给用得上的工具）；SubAgent 是从“脑容量”层面做隔离（另起一个干净的上下文环境去跑繁琐任务，不污染主Agent的记忆）。</li>
+<li><strong>解决“迷之自信”与自评失真：</strong> 因为大模型本质上只是个概率预测器，天生具有随机性和不靠谱。如果你让 AI 自己干活，再让 AI 自己给自己打分，它永远觉得自己干得天衣无缝。所以 OpenAI 把“干活的”和“验收的”彻底剥离。其实就是<strong>把大模型关在一个叫 Agent 的死循环程序里</strong>，干完了、程序去跑测试、报错了、再把错误扔回给 AI 强制它重写。逼着 AI 在一个闭环里不断自我迭代，直到输出稳定。</li>
+<li><strong>让 AI 适应既有框架，而不是颠覆框架：</strong> 很多行业本身早就有了极其稳定、完整的框架体系。指望抛弃这些积累，甩给 AI 一个宏大的需求，让它一口气从头到尾给你生成全套系统？那纯属幻想。真正的做法是：用 Harness（护栏）划定好边界，把复杂任务拆解到极细，让 AI 老老实实地在这个既有框架的约束下去写某一块代码、填某一个数据。代码开发需要一步步迭代升级，AI 干活也必须遵守这个客观规律。</li>
 </ul>
-<p><strong>理清约束等级</strong>：<br>回顾上面讲过的门派，为了完成多步骤任务，技术演进其实就是在刚性到柔性上找平衡点：</p>
+<p>这个时候，你突然醍醐灌顶。</p>
+<p>LangChain 的工程师下过一个极其刁钻且精准的定义：<strong>Agent &#x3D; Model + Harness</strong>。</p>
+<p>制作一个能稳定干活的系统，等于找一匹野马（Model），加上一套完善的马具系统（Harness）。</p>
+<p>如果你觉得这个 Harness（驾驭工程&#x2F;系统护栏）只是个形而上学的纸上谈兵概念，那来看看顶级AI圈子用真金白银砸出来的三个残酷真相：</p>
 <ul>
-<li><strong>LangChain（纯代码）：</strong> 最刚性，最稳定，没弹性。</li>
-<li><strong>Workflow（拖拽连线）：</strong> 稍微灵活点，但本质还是固定流程。</li>
-<li><strong>Skill（半约束技能）：</strong> 给大模型一点自由，但用说明书框住它。</li>
-<li><strong>全量MCP（全自由智能体）：</strong> 最柔性，自己决策自己调工具，但也最容易失控，可能会把简单任务复杂化。</li>
+<li>同一个模型，换套马具就升级： 研究员 Net B Jones 做了个实验，同一个模型、同一套提示词，啥也没动，仅仅是给它加上了严格的 Harness 约束环境，基准测试成功率竟然从 42% 直接飙升到 78%！换了一套好缰绳，相当于模型直接迭代了一代。</li>
+<li>参数不变，排名杀入前五<strong>：</strong> LangChain 团队用同样的玩法，给 GPT-4.2 套上 Harness，在没改任何参数的情况下，成绩硬生生拉高了 13.7 个百分点。</li>
+<li>OpenAI 的百万行代码实验： OpenAI 团队在 5 个月内，让人类一行代码都没写，纯靠被 Harness 严密管控的 Agent 生成了 100 万行代码，合并了 1500 个 PR。他们的核心工程师直接扔出了一句大实话：“Agent 不难，Harness 才难。”（Agent is not hard, harness is.）</li>
 </ul>
-<p><strong>本质到底是什么？</strong><br>所有这些技术，<strong>最终都离不开大模型和我们之间的“提示词（Prompt）”</strong>。<br>Search、RAG、Skill……无非就是变着法子、自动化地往你的提示词里“塞小抄、塞上下文信息”；或者通过写代码，帮你把不需要大模型动脑子的步骤拦截下来。</p>
-<p>这就是为什么我说：<strong>Agent，就是流程中所有“不需要智能的地方”构成的躯壳。</strong> 把确定的逻辑交给程序，把模糊的分流交给大模型，仅此而已。</p>
+<p>现在 AI 发展的瓶颈根本不在模型，用一套规则去约束大模型才是真正决定AI干活的上限。</p>
+<p>在这个系统里，除了模型那个负责“概率预测”的大脑之外，你写的长达数万行的死循环迭代逻辑、状态流转代码、权限隔离框架……几乎所有决定它能不能稳定交付的“外围管教机制”，都被统称为 Harness。</p>
+<p>🎉 <em>恭喜你，终于补齐了最后一块拼图，看清了现阶段最火的新词。</em></p>
+<h3 id="05-统一方法论：撕开包装看本质"><a href="#05-统一方法论：撕开包装看本质" class="headerlink" title="05 统一方法论：撕开包装看本质"></a>05 统一方法论：撕开包装看本质</h3><p>把前面的推演全串起来，为什么这几年会突然涌现出这么多唬人的概念？本质原因只有一个：<strong>底层模型的智力，暂时被卡死了，而概率预测的缺陷无法根除。</strong></p>
+<p>那么这个围栏（Harness）具体长什么样？行业内目前跑通的最佳实践，基本都包含这几道“硬菜”：</p>
+<ol>
+<li><strong>把规矩刻在基因里（上下文工程）：</strong> 别给 AI 几万字的长篇大论，给它一个极简的入口（比如不超过60行的指导文件），让它每次犯错，你就把规矩更新进去，确保它永远不会犯同样的错。</li>
+<li><strong>约束大于指令（架构约束）：</strong> 别用 Prompt 恳求 AI “请你遵守代码规范”。<strong>规则是用来强制执行的，不是用来商量的。</strong> 用强校验工具（Linter&#x2F;CI），AI 一旦违反架构规范，直接报错打回，并在报错信息里教它怎么改。</li>
+<li><strong>左脚踩右脚上天（反馈循环）：</strong> 别让人类去查代码，让 Agent 去查 Agent。强迫 AI 必须走完“规划 -&gt; 发现 -&gt; 构建 -&gt; 验证 -&gt; 修复”的死循环，不跑通绝对不准退出。</li>
+<li><strong>定期倒垃圾：</strong> 定期派专门的清洁工 AI 去扫描系统，发现过时的文档、偏离的架构，立刻自动提交修复。</li>
+</ol>
+<p>发现了吗？它们所有的操作，最终的目的只有一个：把 AI 约束好，然后塞进人类现有的工作流和系统当中。</p>
+<p>这就是为什么我说：<strong>Agent，就是流程中所有“不需要智能的地方”构成的躯壳。</strong> 把确定的逻辑交给程序和护栏，把模糊的分流交给大模型。</p>
+<p>认清了这一点，你也就看透了 AI 时代的企业护城河。<br><strong>Prompt 写得再好，也只是一次性的技巧；大模型再聪明，每隔几个月也会被开源社区平替；Skill 技能目录，每天都在更新。</strong><br>但是，把你业务场景里那些繁杂的校验机制、重试逻辑、API对接、评估闭环沉淀下来，形成的这套<strong>工程体系（Harness 护栏系统），才是真正能持续积累的核心资产</strong>。铁打的工程营盘，流水的 AI 兵。</p>
 <hr>
-<h3 id="06-最终的结局：便利性将秒杀一切"><a href="#06-最终的结局：便利性将秒杀一切" class="headerlink" title="06 最终的结局：便利性将秒杀一切"></a>06 最终的结局：便利性将秒杀一切</h3><p>现在大家天天研究如何优化流程，其实最大的痛点只有一个：<strong>Token 太贵了！</strong><br>越强大的Agent在背后偷偷尝试、消耗的Token就越多。</p>
-<p>但这在未来根本不是问题。Token一定会越来越便宜，等哪天生产级大模型能跑在普通电脑上，Token就相当于免费了。</p>
-<p>你看Java界的 Spring Boot，Python界的 uv，你会发现一个铁律：<strong>开发和使用的“便利性”永远被放在第一位。</strong> 什么运行速度、内存占用，在便利性面前统统被秒杀。</p>
-<p>程序员尚且如此怕麻烦，更何况面向普通人的 Agent 领域？<br>普通人根本不可能去配置什么 Skill 目录，折腾什么 MCP 服务，填什么大模型 API。这些繁琐的概念，最终都会被一个极其便利的“产品”淘汰掉。</p>
-<p>最近那些爆火的桌面 Agent 如 OpenClaw 为什么火？除开一些营销因素意外，难道他和claudecode，Manus等Agent软件有什么本质区别吗？</p>
-<p>完全没有。<strong>仅仅是因为它们连上了社交软件、能可视化配置定时任务、有好看的UI界面。</strong> </p>
-<p>它第一次让普通人觉得“这是一个有用的助手”，而不是一段躺在命令行里的冰冷代码。</p>
-<p><strong>未来会是什么样？</strong><br>只要是提供便利的方向，就是绝对的趋势。<br>也许在未来，一定会有一个打包好的“<strong>超级Agent</strong>”（或者不管叫什么新名字）。它出厂就内置了所有好用的工具、MCP、Skill和工作流。普通用户不需要懂任何刚才我讲的这些概念，开箱即用，直达目的。</p>
-<p>到那时，这场新瓶装旧酒的“名词诈骗”，才算真正迎来了终局。</p>
+<h3 id="07-告别焦虑：AI-只是多了一个更快的工具"><a href="#07-告别焦虑：AI-只是多了一个更快的工具" class="headerlink" title="07 告别焦虑：AI 只是多了一个更快的工具"></a>07 告别焦虑：AI 只是多了一个更快的工具</h3><p>最后，聊聊大家心底最深处的焦虑：搞出这么多自动化系统，人类是不是真的要失业了？</p>
+<p>其实大可不必。历史总是惊人的相似：<br>当年刚开始的时候，大家都靠画画来记录某个场景，后来相机横空出世，一秒钟就能拍出逼真的画面。但相机出现了，人类就不画画了吗？并没有，只是记录事实的工作交给了相机，而画画变成了纯粹的艺术创造。<br>当年珍妮纺纱机、蒸汽机出现的时候，手工业者们觉得世界末日来了，砸机器抗议。但结果呢？工业革命不仅没有消灭人类的工作，反而创造出了从机械工程师到列车长等成千上万个全新的岗位。</p>
+<p><strong>编程、视频剪辑、文案写作，也是一样的道理。AI 并没有改变这些行业的本质，它只是提供了一个更快的实现方式而已。</strong></p>
+<p>如果你觉得这是在灌鸡汤，那我们来看一份真实的数据。<br>根据科技招聘分析机构 TrueUp 刚刚发布的最新数据：到了 2026 年，全球技术人才市场并没有因为 AI 的普及而萎缩，反而呈现强劲反弹。目前，<strong>全球软件工程职位空缺数量已经突破 6.7 万个，较 2023 年年中的低谷翻了一番。仅 2026 年以来，相关职位数量就激增了约 30%。</strong>（<a target="_blank" rel="noopener" href="https://www.businessinsider.com/ai-isnt-killing-software-coding-jobs-booming-trueup-2026-4">原文地址</a>&#x2F;<a target="_blank" rel="noopener" href="https://finance.sina.com.cn/tech/discovery/2026-04-08/doc-inhtuqhe1582051.shtml">国内转载</a>）</p>
+<p>为什么会这样？<br>因为我们要把 AI 关进笼子里，要把 AI 接入现有的业务框架，要给 AI 开发各种各样的 Agent程序和 MCP 接口——<strong>这些研发工作本身，就需要海量的工程师去支持。</strong> AI 正在疯狂地驱动新的用人需求，而非削减岗位总量。</p>
+<p>有人可能会问：等以后 GPT-5、GPT-6 出来了，模型足够聪明了，Harness 这种“脚手架”是不是就没用了？</p>
+<p>错。打个最简单的比方：<strong>模型是引擎，Harness 是方向盘和刹车。</strong><br>骑时速 20 公里的自行车，你可以不要护栏；开时速 120 公里的汽车，护栏是标配；但如果是由 AI 驱动的时速 300 公里的高铁，<strong>它不但需要护栏，整个轨道都必须是全封闭的。</strong> AI 的“车速”越快，为了防止它失控造成的灾难，约束它的工程体系就必须越严密。</p>
+<p>所以，工程师的价值并没有消失，只是发生了转移：<strong>从“自己动手写代码&#x2F;干活的人”，变成了“设计系统、让 AI 乖乖干活的人”。</strong> 给刚入职的天才（大模型），配上严密的规范文档（上下文）、审批流程（反馈循环）和绩效考核（护栏）。</p>
+<p>所以，关掉那些为了流量贩卖焦虑的短视频吧。<br>在这个被新词汇包裹的“名词诈骗”时代里，看透底牌的你不需要恐慌。大模型只是那个只会找规律蒙题的偏科生，而你，才是那个制定试卷、把控流程、并最终拍板的主考官。</p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
@@ -291,7 +303,7 @@
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#01-%E6%B7%B7%E4%B9%B1%E7%9A%84%E8%B5%B7%E7%82%B9%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%8F%AA%E4%BC%9A%E2%80%9C%E6%96%87%E5%AD%97%E6%8E%A5%E9%BE%99%E2%80%9D%E7%9A%84%E6%99%BA%E9%9A%9C"><span class="toc-text">01 混乱的起点：一个只会“文字接龙”的智障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02-%E7%BB%99%E2%80%9C%E7%89%9B%E9%A9%AC%E2%80%9D%E9%85%8D%E7%94%B5%E8%84%91%EF%BC%9AAgent%E4%B8%8ERAG%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="toc-text">02 给“牛马”配电脑：Agent与RAG的诞生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#03-%E8%A7%84%E7%9F%A9%E4%B8%8E%E5%8D%8F%E8%AE%AE%EF%BC%9AFunction-Calling-%E4%B8%8E-MCP"><span class="toc-text">03 规矩与协议：Function Calling 与 MCP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#04-%E6%95%88%E7%8E%87%E8%87%B3%E4%B8%8A%EF%BC%9A%E4%BB%8E-LangChain-%E5%88%B0-Skill-%E7%9A%84%E6%BC%94%E8%BF%9B"><span class="toc-text">04 效率至上：从 LangChain 到 Skill 的演进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#05-%E7%BB%9F%E4%B8%80%E6%96%B9%E6%B3%95%E8%AE%BA%EF%BC%9A%E6%92%95%E5%BC%80%E5%8C%85%E8%A3%85%E7%9C%8B%E6%9C%AC%E8%B4%A8"><span class="toc-text">05 统一方法论：撕开包装看本质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#06-%E6%9C%80%E7%BB%88%E7%9A%84%E7%BB%93%E5%B1%80%EF%BC%9A%E4%BE%BF%E5%88%A9%E6%80%A7%E5%B0%86%E7%A7%92%E6%9D%80%E4%B8%80%E5%88%87"><span class="toc-text">06 最终的结局：便利性将秒杀一切</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#01-%E6%B7%B7%E4%B9%B1%E7%9A%84%E8%B5%B7%E7%82%B9%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%8F%AA%E4%BC%9A%E2%80%9C%E6%96%87%E5%AD%97%E6%8E%A5%E9%BE%99%E2%80%9D%E7%9A%84%E6%99%BA%E9%9A%9C"><span class="toc-text">01 混乱的起点：一个只会“文字接龙”的智障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02-%E7%BB%99%E2%80%9C%E7%89%9B%E9%A9%AC%E2%80%9D%E9%85%8D%E7%94%B5%E8%84%91%EF%BC%9AAgent%E4%B8%8ERAG%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="toc-text">02 给“牛马”配电脑：Agent与RAG的诞生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#03-%E8%A7%84%E7%9F%A9%E4%B8%8E%E5%8D%8F%E8%AE%AE%EF%BC%9AFunction-Calling-%E4%B8%8E-MCP"><span class="toc-text">03 规矩与协议：Function Calling 与 MCP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#04-%E6%95%88%E7%8E%87%E8%87%B3%E4%B8%8A%EF%BC%9A%E4%BB%8E-LangChain-%E5%88%B0-Skill-%E7%9A%84%E6%BC%94%E8%BF%9B"><span class="toc-text">04 效率至上：从 LangChain 到 Skill 的演进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#05-%E7%8E%B0%E5%AE%9E%E7%9A%84%E6%AF%92%E6%89%93%E4%B8%8E%E7%BB%88%E6%9E%81%E7%BB%9D%E6%8B%9B%EF%BC%9AHarness-%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="toc-text">05 现实的毒打与终极绝招：Harness 的诞生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#05-%E7%BB%9F%E4%B8%80%E6%96%B9%E6%B3%95%E8%AE%BA%EF%BC%9A%E6%92%95%E5%BC%80%E5%8C%85%E8%A3%85%E7%9C%8B%E6%9C%AC%E8%B4%A8"><span class="toc-text">05 统一方法论：撕开包装看本质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#07-%E5%91%8A%E5%88%AB%E7%84%A6%E8%99%91%EF%BC%9AAI-%E5%8F%AA%E6%98%AF%E5%A4%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%BF%AB%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-text">07 告别焦虑：AI 只是多了一个更快的工具</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
