@@ -1,0 +1,1113 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 7.1.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>单片机裸机多任务与低功耗方案总结 - Sky Blog</title>
+
+  
+    <meta name="description" content="总结单片机裸机环境下多任务与低功耗的实现方案，涵盖前后台、软件定时器、状态机、OSAL、ltx调度器、QP&#x2F;C、协程等，并与RTOS进行对比">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单片机裸机多任务与低功耗方案总结">
+<meta property="og:url" content="http://skyforever.top/posts/53927">
+<meta property="og:site_name" content="Sky Blog">
+<meta property="og:description" content="总结单片机裸机环境下多任务与低功耗的实现方案，涵盖前后台、软件定时器、状态机、OSAL、ltx调度器、QP&#x2F;C、协程等，并与RTOS进行对比">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-11T16:00:00.000Z">
+<meta property="article:author" content="Skyforever">
+<meta property="article:tag" content="嵌入式">
+<meta property="article:tag" content="单片机">
+<meta property="article:tag" content="多任务">
+<meta property="article:tag" content="状态机">
+<meta property="article:tag" content="裸机">
+<meta property="article:tag" content="调度器">
+<meta property="article:tag" content="低功耗">
+<meta property="article:tag" content="RTOS">
+<meta property="article:tag" content="协程">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="嵌入式,单片机,多任务,状态机,裸机,调度器,低功耗,RTOS,协程">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Sky Blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/images/icons/cloud.svg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-05-12T00:00:00+08:00","dateModified":"2026-05-12T00:00:00+08:00","datePublished":"2026-05-12T00:00:00+08:00","description":"","headline":"单片机裸机多任务与低功耗方案总结","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/53927/"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/53927/","keywords":"嵌入式, 单片机, 多任务, 状态机, 裸机, 调度器, 低功耗, RTOS, 协程","image":[]}</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8">
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a><a class="nav-item" title="社交" href="/friends/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/53927/"><span class="title">单片机裸机多任务与低功耗方案总结</span></a><a class="item title" href="/posts/51722/"><span class="title">15条高频实用的ClaudeCode技巧</span></a><a class="item title" href="/posts/41826/"><span class="title">什么是Agent，怎么用好Agent，怎么写Skill</span></a><a class="item title" href="/posts/38247/"><span class="title">解析各种AI概念</span></a><a class="item title" href="/posts/52013/"><span class="title">Claude Code 使用指南</span></a><a class="item title" href="/posts/25562/"><span class="title">3D打印保姆级入坑指南：选机、耗材与避坑完全手册</span></a><a class="item title" href="/posts/41626/"><span class="title">基于 J-Link RTT 的单片机调试打印指南</span></a><a class="item title" href="/posts/11721/"><span class="title">图形化Git使用指南</span></a><a class="item title" href="/posts/43991/"><span class="title">基于 VScode 的 Git 使用指南</span></a><a class="item title" href="/posts/61125/"><span class="title">嘉立创EDA 核心快捷键与实用技巧速查</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-05-11T16:00:00.000Z">2026-05-12</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-05-11T16:00:00.000Z">2026-05-12</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>单片机裸机多任务与低功耗方案总结</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><blockquote>
+<p>本文内出现的例程基本都是伪代码，不确保能直接运行</p>
+</blockquote>
+<h3 id="一、简易多任务"><a href="#一、简易多任务" class="headerlink" title="一、简易多任务"></a>一、简易多任务</h3><h4 id="1、前后台-if-else-标志位轮询"><a href="#1、前后台-if-else-标志位轮询" class="headerlink" title="1、前后台 if else 标志位轮询"></a>1、前后台 if else 标志位轮询</h4><p>如果你需要实现两个不同频率的 led 闪烁任务，那么就不能使用阻塞 delay 了，此时可以考虑使用前后台。</p>
+<p>例如下面这段代码，前台主循环不断轮询标志位，后台中断触发标志位，从而实现两个互不干扰的不同周期 led 闪烁任务</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 任务标志位</span></span><br><span class="line"><span class="type">uint8_t</span> flag_led1 = <span class="number">0</span>;</span><br><span class="line"><span class="type">uint8_t</span> flag_led2 = <span class="number">0</span>;</span><br><span class="line"><span class="type">uint8_t</span> flag_button = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">// led1 闪烁任务，100ms 翻转一次</span></span><br><span class="line">        <span class="keyword">if</span>(flag_led1)&#123;</span><br><span class="line">            <span class="comment">// 翻转引脚电平</span></span><br><span class="line">            <span class="built_in">gpio_toggle</span>(led1_pin);</span><br><span class="line">            <span class="comment">// 清除标志位</span></span><br><span class="line">            flag_led1 = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// led2 闪烁任务，20ms 翻转一次</span></span><br><span class="line">        <span class="keyword">if</span>(flag_led2)&#123;</span><br><span class="line">            <span class="comment">// 翻转引脚电平</span></span><br><span class="line">            <span class="built_in">gpio_toggle</span>(led2_pin);</span><br><span class="line">            <span class="comment">// 清除标志位</span></span><br><span class="line">            flag_led2 = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 按键检测任务</span></span><br><span class="line">        <span class="keyword">if</span>(flag_button)&#123;</span><br><span class="line">            <span class="comment">// 打印按键状态变化</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Button state change\n&quot;</span>);</span><br><span class="line">            <span class="comment">// 其他操作</span></span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 清除标志位</span></span><br><span class="line">            flag_button = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 其他任务</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">uint64_t</span> systick_counter = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 系统嘀嗒中断，1ms 中断一次</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">systick_handler</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    systick_counter ++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(systick_counter % <span class="number">100</span> == <span class="number">0</span>)&#123; <span class="comment">// led1 100ms 翻转一次</span></span><br><span class="line">        flag_led1 = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(systick_counter % <span class="number">20</span> == <span class="number">0</span>)&#123; <span class="comment">// led2 20ms 翻转一次</span></span><br><span class="line">        flag_led2 = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 其他任务</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按键边沿中断</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">exti_0_handler</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    flag_button = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、多定时器（multi-timer-）"><a href="#二、多定时器（multi-timer-）" class="headerlink" title="二、多定时器（multi timer ）"></a>二、多定时器（multi timer ）</h3><h4 id="1、硬件多定时器"><a href="#1、硬件多定时器" class="headerlink" title="1、硬件多定时器"></a>1、硬件多定时器</h4><p>对于前面这种需要不同周期执行的任务，如果你的硬件资源足够丰富，那么完全可以配置多个硬件定时器，在硬件定时器中断服务函数里执行相应的操作，而且还能配置优先级抢占，处理好资源竞争实时性完全不输 rtos</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">int <span class="selector-tag">main</span>(void)&#123;</span><br><span class="line">    <span class="comment">// 初始化硬件定时器</span></span><br><span class="line">    <span class="built_in">timer_init</span>(&amp;timer1, <span class="number">100</span>, <span class="number">0</span>); <span class="comment">// 100ms 周期，优先级 0</span></span><br><span class="line">    <span class="built_in">timer_init</span>(&amp;timer2, <span class="number">20</span>, <span class="number">1</span>); <span class="comment">// 20ms 周期，优先级 1</span></span><br><span class="line">    <span class="comment">// ...其他任务</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">while</span>(<span class="number">1</span>)&#123; <span class="comment">// 主循环就相当于 rtos 的空闲（idle）任务</span></span><br><span class="line">        <span class="comment">// 这里还可以直接进入低功耗休眠，等中断唤醒</span></span><br><span class="line">        <span class="built_in">system_sleep_until_interrupt</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定时器1 中断服务函数，100ms 进入一次</span></span><br><span class="line">void <span class="built_in">timer1_handler</span>(void)&#123;</span><br><span class="line">    <span class="built_in">gpio_toggle</span>(led1_pin); <span class="comment">// 翻转 led1 引脚</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定时器2 中断服务函数，20ms 进入一次</span></span><br><span class="line">void <span class="built_in">timer2_handler</span>(void)&#123;</span><br><span class="line">    <span class="built_in">gpio_toggle</span>(led2_pin); <span class="comment">// 翻转 led2 引脚</span></span><br><span class="line">    <span class="comment">// 中断内执行耗时操作也没关系，因为会被更高优先级的中断打断</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...其他任务</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、软件多定时器"><a href="#2、软件多定时器" class="headerlink" title="2、软件多定时器"></a>2、软件多定时器</h4><p>现实是，你根本没那么多的硬件资源，以及硬件定时器灵活性和可移植性会差一点，你可能要套好几个 if else 才能实现一些效果。<br>所以接下来介绍这个非常常用的软件多定时器方案</p>
+<p>对周期任务进行抽象，可以提取出下面这几个基本成员：</p>
+<blockquote>
+<p>抽象：主体从客体身上抽取主体能够理解的意象。在互联网用语上，抽象&#x3D;难懂的&#x2F;怪的东西。</p>
+</blockquote>
+<ul>
+<li>周期&#x2F;重载值</li>
+<li>当前值&#x2F;计数值</li>
+<li>任务标志位</li>
+<li>任务回调函数</li>
+</ul>
+<p>其实设置这些成员变量就像是在配置一个硬件定时器一样，我们只要每次在 systick 中断中将当前值减一，直到减到零，就重置为重载值，并且把标志位置一。主循环不断轮询所有任务的标志位，一旦检测到某个标志位为一，那么就调用它的回调函数来执行相应任务</p>
+<p>代码可以写成这样：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">task_stu</span> &#123;</span><br><span class="line">    <span class="type">uint32_t</span> period;    <span class="comment">// 周期/重载值</span></span><br><span class="line">    <span class="type">uint32_t</span> val;       <span class="comment">// 当前值</span></span><br><span class="line">    <span class="type">uint8_t</span> flag;       <span class="comment">// 任务标志位</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">void</span> (*task_callback_function)(<span class="keyword">struct</span> task_stu *self); <span class="comment">// 任务回调函数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">task_stu</span> *next; <span class="comment">// 链表 next 指针</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// void *data; // 私有数据</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>把每个周期任务配置好后就可以通过数组或者链表进行管理和轮询</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">task_stu</span> &#123;</span><br><span class="line">    <span class="type">uint32_t</span> period;    <span class="comment">// 周期/重载值</span></span><br><span class="line">    <span class="type">uint32_t</span> val;       <span class="comment">// 当前值</span></span><br><span class="line">    <span class="type">uint8_t</span> flag;       <span class="comment">// 任务标志位</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">void</span> (*task_callback_function)(<span class="keyword">struct</span> task_stu *self); <span class="comment">// 任务回调函数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">task_stu</span> *next; <span class="comment">// 链表 next 指针</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// void *data; // 私有数据</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 链表头</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">task_stu</span> _task_head = &#123;.next = <span class="literal">NULL</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// led1 闪烁任务</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">task_cb_led1</span><span class="params">(<span class="keyword">struct</span> task_stu *self)</span></span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">task_stu</span> task_led1 = &#123;</span><br><span class="line">    .period = <span class="number">100</span>;</span><br><span class="line">    .val = <span class="number">100</span>;</span><br><span class="line">    .flag = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    .task_callback_function = task_cb_led1;</span><br><span class="line"></span><br><span class="line">    .next = <span class="literal">NULL</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// led2 闪烁任务</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">task_cb_led2</span><span class="params">(<span class="keyword">struct</span> task_stu *self)</span></span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">task_stu</span> task_led1 = &#123;</span><br><span class="line">    .period = <span class="number">20</span>;</span><br><span class="line">    .val = <span class="number">20</span>;</span><br><span class="line">    .flag = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    .task_callback_function = task_cb_led2;</span><br><span class="line"></span><br><span class="line">    .next = <span class="literal">NULL</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">task_add</span>(&amp;task_led1); <span class="comment">// 将任务一添加到链表中</span></span><br><span class="line">    <span class="built_in">task_add</span>(&amp;task_led2); <span class="comment">// 将任务二添加到链表中</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">task_stu</span> *pTask = _task_head.next;</span><br><span class="line">    <span class="keyword">while</span>(pTask != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(pTask-&gt;flag)&#123;</span><br><span class="line">            pTask-&gt;flag = <span class="number">0</span>; <span class="comment">// 运行标志位置零</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(pTask-&gt;task_callback_function != <span class="literal">NULL</span>)&#123;</span><br><span class="line">                <span class="comment">// 调用任务回调函数</span></span><br><span class="line">                pTask-&gt;<span class="built_in">task_callback_function</span>(pTask);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        pTask = pTask-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// led1 闪烁任务</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">task_cb_led1</span><span class="params">(<span class="keyword">struct</span> task_stu *self)</span></span>&#123;</span><br><span class="line">    <span class="built_in">gpio_toggle</span>(led1_pin);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// led2 闪烁任务</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">task_cb_led2</span><span class="params">(<span class="keyword">struct</span> task_stu *self)</span></span>&#123;</span><br><span class="line">    <span class="built_in">gpio_toggle</span>(led2_pin);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// systick 中断</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">systick_handler</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">task_stu</span> *pTask = _task_head.next;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 给链表中的每个节点当前计时值减一，判断是否需要运行</span></span><br><span class="line">    <span class="keyword">while</span>(pTask != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(-- pTask-&gt;val == <span class="number">0</span>)&#123;</span><br><span class="line">            pTask-&gt;val = pTask-&gt;period; <span class="comment">// 将当前值重置为重载值</span></span><br><span class="line">            pTask-&gt;flag = <span class="number">1</span>; <span class="comment">// 运行标志位置一</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        pTask = pTask-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以把每个任务放在各自的回调里进行执行，代码更加分明</p>
+<p>有些教程会用数组去进行管理，会带来一些局限性，比如不好删除和新增任务，当然，在增删链表节点的时候需要开关中断来保证原子操作</p>
+<h3 id="三、-switch-case-状态机"><a href="#三、-switch-case-状态机" class="headerlink" title="三、 switch case 状态机"></a>三、 switch case 状态机</h3><p>软件定时器已经可以解决大部分 项目 ，但是依然不够全面，很多任务并不一定是固定周期执行的，比如下面这个每秒读取温度的任务：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">temp_trans</span>(&amp;my_temp_sensor); <span class="comment">// 让温度传感器开始进行温度转换</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">delay_ms</span>(<span class="number">20</span>); <span class="comment">// 温度转换需要 20ms</span></span><br><span class="line"></span><br><span class="line">        <span class="type">float</span> temp_val = <span class="built_in">temp_read</span>(&amp;my_temp_sensor); <span class="comment">// 读取温度</span></span><br><span class="line">        <span class="built_in">display_temp</span>(temp_val); <span class="comment">// 显示更新后的温度</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;temp update: %f\n&quot;</span>, temp_val); <span class="comment">// 打印更新后的温度</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">delay_ms</span>(<span class="number">980</span>); <span class="comment">// 下一秒再次更新温度</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个时候，就可以通过状态机来实现这个功能，代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">uint32_t</span> <span class="title">get_systick</span><span class="params">(<span class="type">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> temp_val = <span class="number">25.0</span>;</span><br><span class="line"><span class="type">uint8_t</span> flag_temp_read_over = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 温度检测任务</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">task1_get_temp</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">uint32_t</span> last_tick = <span class="number">0</span>;</span><br><span class="line">    <span class="type">static</span> <span class="type">uint8_t</span> step = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span>(step)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: <span class="comment">// 发起温度转换</span></span><br><span class="line">            <span class="built_in">temp_trans</span>(&amp;my_temp_sensor); <span class="comment">// 让温度传感器开始进行温度转换</span></span><br><span class="line">            step = <span class="number">1</span>; <span class="comment">// 进入转换等待状态</span></span><br><span class="line">            last_tick = <span class="built_in">get_systick</span>(); <span class="comment">// 设置计时起始值</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// delay_ms(20);</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>: <span class="comment">// 等待转换完成，相当于非阻塞延迟 20ms</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">get_systick</span>() - last_tick &gt; <span class="number">20</span>)&#123; <span class="comment">// 转换需要 20ms</span></span><br><span class="line">                step = <span class="number">2</span>; <span class="comment">// 进入数据读取状态</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>: <span class="comment">// 转换完成</span></span><br><span class="line">            <span class="comment">// 读取转换好的温度</span></span><br><span class="line">            temp_val = <span class="built_in">temp_read</span>(&amp;my_temp_sensor);</span><br><span class="line">            flag_temp_read_over ++; <span class="comment">// 温度读取完成，发布</span></span><br><span class="line">            last_tick = <span class="built_in">get_systick</span>(); <span class="comment">// 设置计时起始值</span></span><br><span class="line">            step = <span class="number">3</span>; <span class="comment">// 进入数据读取状态</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// delay_ms(980);</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>: <span class="comment">// 1s 后发起下一次转换，这里相当于非阻塞 delay 980ms</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">get_systick</span>() - last_tick &gt; <span class="number">980</span>)&#123; <span class="comment">// 每秒发起一次温度读取</span></span><br><span class="line">                step = <span class="number">0</span>; <span class="comment">// 进入发起温度转换状态</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">task2_display</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">uint8_t</span> last_flag_temp_read_over = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// ...其他显示内容</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(last_flag_temp_read_over != flag_temp_read_over)&#123; <span class="comment">// 温度读取计数变化</span></span><br><span class="line">        <span class="comment">// 更新显示温度</span></span><br><span class="line">        <span class="built_in">display_temp</span>(temp_val);</span><br><span class="line">        last_flag_temp_read_over = flag_temp_read_over;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...其他显示内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">task3_print</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">uint8_t</span> last_flag_temp_read_over = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// ...其他打印内容</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(last_flag_temp_read_over != flag_temp_read_over)&#123; <span class="comment">// 温度读取计数变化</span></span><br><span class="line">        <span class="comment">// 打印新温度值</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;temp update: %f\n&quot;</span>, temp_val);</span><br><span class="line">        last_flag_temp_read_over = flag_temp_read_over;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...其他打印内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">task1_get_temp</span>();   <span class="comment">// 每秒读取温度任务</span></span><br><span class="line">        <span class="built_in">task2_display</span>();    <span class="comment">// 显示数据任务</span></span><br><span class="line">        <span class="built_in">task3_print</span>();      <span class="comment">// 打印数据任务</span></span><br><span class="line">        <span class="comment">// ...其他任务</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">uint32_t</span> systick;</span><br><span class="line"><span class="comment">// systick 中断，1ms 一次</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">systick_handler</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    systick ++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">uint32_t</span> <span class="title">get_systick</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> systick;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里面的 case 1 和 case 3 分别相当于 <code>delay_ms(20)</code> 和 <code>delay_ms(980)</code>，不过并不是阻塞的，它每次进入都会判断时间有没有到，没有到则 break 退出状态机让其他任务执行，到了再切换状态。</p>
+<p>或者也可以与软件定时器结合起来实现这个效果，也就是修改软件定时器的周期和计数值：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> task_stu task_get_temp = &#123;</span><br><span class="line">    .period = <span class="number">1000</span>, <span class="comment">// 每秒发起一次温度检测</span></span><br><span class="line">    .val = <span class="number">1000</span>,</span><br><span class="line">    .flag = <span class="number">0</span>,</span><br><span class="line"></span><br><span class="line">    .task_callback_function = task2_get_temp;</span><br><span class="line"></span><br><span class="line">    .next = <span class="literal">NULL</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 温度检测任务</span></span><br><span class="line"><span class="type">void</span> task2_get_temp(<span class="keyword">struct</span> task_stu *<span class="keyword">self</span>)&#123;</span><br><span class="line">    <span class="keyword">static</span> uint32_t last_tick = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">static</span> uint8_t step = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span>(step)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: <span class="comment">// 每秒发起一次温度读取</span></span><br><span class="line">            temp_trans(&amp;my_temp_sensor); <span class="comment">// 让温度传感器开始进行温度转换</span></span><br><span class="line">            <span class="comment">// 将软件定时器的周期改为 20ms</span></span><br><span class="line">            <span class="keyword">self</span>-&gt;period = <span class="number">20</span>;</span><br><span class="line">            <span class="keyword">self</span>-&gt;val = <span class="number">20</span>;</span><br><span class="line">            step = <span class="number">1</span>; <span class="comment">// 20ms 后会进入转换完成状态</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>: <span class="comment">// 转换完成</span></span><br><span class="line">            <span class="comment">// 读取转换好的温度</span></span><br><span class="line">            temp_val = temp_read(&amp;my_temp_sensor);</span><br><span class="line">            temp_read_over(); <span class="comment">// 温度读取完成，发布</span></span><br><span class="line">            <span class="comment">// 将软件定时器的周期改为 980ms</span></span><br><span class="line">            <span class="keyword">self</span>-&gt;period = <span class="number">980</span>;</span><br><span class="line">            <span class="keyword">self</span>-&gt;val = <span class="number">980</span>;</span><br><span class="line">            step = <span class="number">0</span>; <span class="comment">// 1s 后会进入发起温度转换状态</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main(<span class="type">void</span>)&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    task_add(&amp;task_get_temp);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">//...轮询</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、事件驱动框架"><a href="#四、事件驱动框架" class="headerlink" title="四、事件驱动框架"></a>四、事件驱动框架</h3><p>上面的状态机也能算事件驱动，只有温度更新了才去打印和显示，这样就不会反复打印旧温度，事件驱动的底层就是 if else，所以这里更强调的是事件驱动的“框架”，通过构建框架，可以提供更高的灵活性和更清晰的程序结构。</p>
+<h4 id="1、osal-operating-system-abstraction-layer-，操作系统抽象层"><a href="#1、osal-operating-system-abstraction-layer-，操作系统抽象层" class="headerlink" title="1、osal(operating system abstraction layer ，操作系统抽象层)"></a>1、osal(operating system abstraction layer ，操作系统抽象层)</h4><p>直接看源码，osal 会给每个 task 分配一个 uint16 的事件集变量，每一位可以配置为一个事件，如果某个 task 有事件触发，也就是这个变量某一位不为 0，那么就会执行这个任务，以下是 osal 的部分源码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// task 对象结构体</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">OSALTaskREC</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">struct</span>  <span class="title class_">OSALTaskREC</span>  *next;</span><br><span class="line">    pTaskInitFn          pfnInit;<span class="comment">// 任务初始化函数指针</span></span><br><span class="line">    pTaskEventHandlerFn  pfnEventProcessor;    <span class="comment">// 任务事件处理函数指针</span></span><br><span class="line">    uint8                taskID;<span class="comment">// 任务ID</span></span><br><span class="line">    uint8                taskPriority;    <span class="comment">// 任务优先级</span></span><br><span class="line">    uint16               events;<span class="comment">// 任务事件集</span></span><br><span class="line">&#125; OsalTadkREC_t;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以通过 api 对某个任务设置事件</span></span><br><span class="line"><span class="function">uint8 <span class="title">osal_set_event</span><span class="params">( byte task_id, uint16 event_flag )</span></span>;</span><br><span class="line"><span class="function">uint8 <span class="title">osal_clear_event</span><span class="params">( uint8 task_id, uint16 event_flag )</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">OsalTadkREC_t *<span class="title">osalNextActiveTask</span><span class="params">( <span class="type">void</span> )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  OsalTadkREC_t  *TaskSech;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Start at the beginning</span></span><br><span class="line">  TaskSech = TaskHead;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// When found or not</span></span><br><span class="line">  <span class="keyword">while</span> ( TaskSech ) </span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">if</span> ( TaskSech-&gt;events )</span><br><span class="line">        &#123;</span><br><span class="line">  <span class="comment">// task is highest priority that is ready</span></span><br><span class="line">          <span class="keyword">return</span>  TaskSech;</span><br><span class="line">      &#125;</span><br><span class="line">      TaskSech =  TaskSech-&gt;next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">osal_start_system</span><span class="params">( <span class="type">void</span> )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    uint16 events;</span><br><span class="line">    uint16 retEvents;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这里就是 osal 的主循环</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">// 不断获取活跃任务</span></span><br><span class="line">        TaskActive = <span class="built_in">osalNextActiveTask</span>();</span><br><span class="line">        <span class="keyword">if</span> ( TaskActive )&#123;</span><br><span class="line">            <span class="built_in">HAL_ENTER_CRITICAL_SECTION</span>();</span><br><span class="line">            events = TaskActive-&gt;events;</span><br><span class="line">            <span class="comment">// Clear the Events for this task</span></span><br><span class="line">            TaskActive-&gt;events = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">HAL_EXIT_CRITICAL_SECTION</span>();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果这个任务的事件集不为 0</span></span><br><span class="line">            <span class="keyword">if</span> ( events != <span class="number">0</span> )&#123;</span><br><span class="line">                <span class="comment">// Call the task to process the event(s)</span></span><br><span class="line">                <span class="keyword">if</span> ( TaskActive-&gt;pfnEventProcessor )&#123;</span><br><span class="line">                    <span class="comment">// 调用任务回调函数</span></span><br><span class="line">                    retEvents = (TaskActive-&gt;pfnEventProcessor)(TaskActive-&gt;taskID, events);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Add back unprocessed events to the current task</span></span><br><span class="line">                    <span class="built_in">HAL_ENTER_CRITICAL_SECTION</span>();</span><br><span class="line">                    TaskActive-&gt;events |= retEvents;</span><br><span class="line">                    <span class="built_in">HAL_EXIT_CRITICAL_SECTION</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个 osal 个人认为非常清晰明了，它里面还有一些软件定时器和消息组件等等，比较推荐大家使用</p>
+<p>下面这个是他人 fork 在 github 的带中文注释版本的 osal 源码：</p>
+<ul>
+<li>github: <a target="_blank" rel="noopener" href="https://github.com/mcuwty/osal">mcuwty&#x2F;osal</a></li>
+</ul>
+<p>下面这个视频是 osal 的相关教程：<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/f8ee5f49559da78b7daaba6496bd6867.webp" alt="osal教程"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ajsJecEmq">【Bilibili】@三林渡口 - 【架构分析】嵌入式祼机事件驱动框架_01_任务实现</a></p>
+<h4 id="2、ltx-裸机调度器"><a href="#2、ltx-裸机调度器" class="headerlink" title="2、ltx 裸机调度器"></a>2、ltx 裸机调度器</h4><p>ltx 裸机调度器是由软件多定时器发展过来的，除了软件定时器，还有两个基本组件，分别为闹钟和话题。本人最近几个 开源项目 使用的都是 ltx 裸机调度器，因为这个 ltx 就是我写的。<br>ltx 中的话题就是一个单标志位的事件，只要话题被发布，那么订阅这个话题的所有订阅者都会被调用，例如下面这个中断按键消抖功能：</p>
+<p>每次产生边沿中断，都会将消抖闹钟的倒计时重置，直到不抖动 15ms 之后，调用回调，发布事件</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/9d44789e64aa30f31b19ce0deddb9639.webp" alt="闹钟消抖中断按键"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按键边沿中断</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">exti_0_handler</span>(<span class="params"><span class="keyword">void</span></span>)&#123;</span><br><span class="line">    <span class="comment">// 每次进中断都将闹钟倒计时重置</span></span><br><span class="line">    <span class="title function_">ltx_Alarm_add</span>(&amp;alarm_debounce, <span class="number">15</span>); <span class="comment">// 添加闹钟，如果存在则不会重复添加</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 消抖闹钟回调，按键不抖动 15ms 后会被调用</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">alarm_cb_debounce</span>(<span class="params"><span class="keyword">void</span> *param</span>)&#123;</span><br><span class="line">    <span class="comment">// 按键消抖完成</span></span><br><span class="line">    <span class="comment">// 发布按键变化事件</span></span><br><span class="line">    <span class="title function_">ltx_Topic_publish</span>(&amp;topic_debounce_over);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按键变化打印，订阅按键消抖完成话题</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">subscriber_cb_1</span>(<span class="params"><span class="keyword">void</span> *param</span>)&#123;</span><br><span class="line">    <span class="title function_">printf</span>(<span class="string">&quot;button change to: %d\n&quot;</span>, <span class="title function_">gpio_read</span>(key1));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 按键变化后改变 led 引脚状态为按键状态</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">subscriber_cb_2</span>(<span class="params"><span class="keyword">void</span> *param</span>)&#123;</span><br><span class="line">    <span class="title function_">gpio_write</span>(led1, <span class="title function_">gpio_read</span>(key1));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 其他需要按键变化响应的订阅者回调</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">subscriber_cb_3</span>(<span class="params"><span class="keyword">void</span> *param</span>)&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 脚本也可以订阅话题</span></span><br></pre></td></tr></table></figure>
+
+<p>我之前开源的 1us 低延迟反应力测试器项目就是通过闹钟对中断按键进行消抖的。</p>
+<p>ltx 源码主循环中也是不断在对话题链表和闹钟链表进行轮询，一旦标志位不为零，那么就依次调用所有订阅者回调</p>
+<p>以下是 ltx 源码发布页：</p>
+<ul>
+<li>github: <a target="_blank" rel="noopener" href="https://github.com/TiX233/ltx">TiX233&#x2F;ltx</a></li>
+<li>gitee: <a target="_blank" rel="noopener" href="https://gitee.com/TiX233/ltx">TiX233&#x2F;ltx</a></li>
+</ul>
+<h4 id="3、qp-c-框架"><a href="#3、qp-c-框架" class="headerlink" title="3、qp&#x2F;c 框架"></a>3、qp&#x2F;c 框架</h4><p>这是一个体量稍大一点的事件驱动框架。和一般的状态机不同，它更强调层次状态机，也就是状态机套状态机，这个框架更适合管理那种父状态机套着子状态机的上下文，比如一些 gui 场景或者大型项目，层次状态机对于事件的派发会更直观一点。如果想要详细了解的话，它有配套的书籍和比较多的例程可以参考，站内也有一些教程视频：</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/ba4ae77d7982152a783dde6fcb94c63f.webp" alt="qpc"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV125YQecETw">【Bilibili】QP状态机嵌入式编程</a></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/b48c3d8e95812ee91f3cc6c760bef58b.webp" alt="qpc教程1"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YV3ve3EHf">【Bilibili】@__MF - 事件驱动型编程和 QP&#x2F;C 框架</a></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/7dfdc7aabe88ebb72e5d646f9bd0ba04.webp" alt="qpc教程2"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1RaxvzBEPu">【Bilibili】@心明可现 - 事件驱动编程05——逐行硬核解析QP&#x2F;C源码，让编程水平上升一个level！</a></p>
+<p>qpc 源码发布页：</p>
+<ul>
+<li>github：<a target="_blank" rel="noopener" href="https://github.com/QuantumLeaps/qpc">QuantumLeaps&#x2F;qpc</a></li>
+</ul>
+<h3 id="五、协程"><a href="#五、协程" class="headerlink" title="五、协程"></a>五、协程</h3><h4 id="1、什么是协程"><a href="#1、什么是协程" class="headerlink" title="1、什么是协程"></a>1、什么是协程</h4><p>其实你知道它的全称就能了解个大概了，协作式多线程，任务间是相互协作的，由每个任务自己决定什么时候出让 cpu，而相对的，rtos 里的线程，则能实现抢占式多线程。<br>如果任务设计得当，协程可以比线程快很多，因为它不需要保存任务上下文，切换开销很低。</p>
+<p>推荐观看这个视频，看完便能理解无栈协程的底层逻辑：<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/8b68079ddc198cbfa6e0d49653c0f575.webp" alt="协程"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dv4y127YT">【Bilibili】@等疾风 - 【协程革命】实现篇！无栈协程 有手就行？！ 全程字幕</a></p>
+<p>接下来介绍几种单片机里的协程方案</p>
+<h4 id="2、protothreads-pt-thread-宏-协程"><a href="#2、protothreads-pt-thread-宏-协程" class="headerlink" title="2、protothreads (pt-thread) 宏 协程"></a>2、protothreads (pt-thread) 宏 协程</h4><p>和上面推荐的视频里的无栈协程非常类似，这个宏协程其实就是对 switch case 进行了一层封装，让你能够更优雅地进行出让。他可以将 label 或者行号作为 case，经过宏封装过后的代码看起来会比普通的 switch case 更清晰，甚至看起来都不像是在写裸机程序</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">int</span> protothread2_flag = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">protothread1</span><span class="params">(<span class="keyword">struct</span> pt *pt)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">PT_BEGIN</span>(pt);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Protothread 1 step1\n&quot;</span>);</span><br><span class="line">        <span class="built_in">PT_YIELD</span>(pt); <span class="comment">// 出让 cpu</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Protothread 1 step2\n&quot;</span>);</span><br><span class="line">        <span class="built_in">PT_YIELD</span>(pt); <span class="comment">// 出让 cpu</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Protothread 1 step3\n&quot;</span>);</span><br><span class="line">        protothread2_flag = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">PT_YIELD</span>(pt); <span class="comment">// 出让 cpu</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">PT_END</span>(pt);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">protothread2</span><span class="params">(<span class="keyword">struct</span> pt *pt)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">PT_BEGIN</span>(pt);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        protothread2_flag = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 出让 cpu，直到条件为真再继续执行下面的内容</span></span><br><span class="line">        <span class="built_in">PT_WAIT_UNTIL</span>(pt, protothread1_flag != <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Protothread 2 running\n&quot;</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">PT_END</span>(pt);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="keyword">struct</span> <span class="title class_">pt</span> pt1, pt2;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">PT_INIT</span>(&amp;pt1);</span><br><span class="line">    <span class="built_in">PT_INIT</span>(&amp;pt2);</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">protothread1</span>(&amp;pt1);</span><br><span class="line">        <span class="built_in">protothread2</span>(&amp;pt2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将其中宏进行展开：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">protothread1</span><span class="params">(<span class="keyword">struct</span> pt *pt)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// PT_BEGIN(pt);</span></span><br><span class="line">    <span class="type">char</span> PT_YIELD_FLAG = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">switch</span>(pt-&gt;lc)&#123; </span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Protothread 1 step1\n&quot;</span>);</span><br><span class="line">        <span class="comment">// PT_YIELD(pt);</span></span><br><span class="line">        PT_YIELD_FLAG = <span class="number">0</span>;</span><br><span class="line">        pt-&gt;lc = __LINE__; <span class="keyword">case</span> __LINE__:</span><br><span class="line">        <span class="keyword">if</span>(PT_YIELD_FLAG == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> PT_YIELDED;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Protothread 1 step2\n&quot;</span>);</span><br><span class="line">        <span class="built_in">PT_YIELD</span>(pt);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Protothread 1 step3\n&quot;</span>);</span><br><span class="line">        protothread2_flag = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">PT_YIELD</span>(pt);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// PT_END(pt);</span></span><br><span class="line">    &#125;</span><br><span class="line">    PT_YIELD_FLAG = <span class="number">0</span>;</span><br><span class="line">    pt-&gt;lc = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> PT_ENDED;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">protothread2</span><span class="params">(<span class="keyword">struct</span> pt *pt)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">PT_BEGIN</span>(pt);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        protothread2_flag = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">PT_WAIT_UNTIL</span>(pt, protothread1_flag != <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Protothread 2 running\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">PT_END</span>(pt);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以下是源码发布页：<br><a target="_blank" rel="noopener" href="https://dunkels.com/adam/pt/download.html">pt-thread</a></p>
+<p>他人 fork 在 github 的带中文注释的源码：</p>
+<ul>
+<li>github：<a target="_blank" rel="noopener" href="https://github.com/Akagi201/protothreads">Akagi201&#x2F;protothreads</a></li>
+</ul>
+<p>以下是搜到的两个教程视频：</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/e655dd6d74891e291c249041016f9eb4.webp" alt="pt1"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sd4y1b7Rs">【Bilibili】@峻德的 - 单片机 嵌入式 protothreads (pt-thread) 协程源码分析</a></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/afd6ac8e8ac0b50025965dbbfc78faab.webp" alt="pt2"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CM411H7JJ">【Bilibili】@我和我的妹妹雯雯 - 单片机宏协程，介于状态机和RTOS之间的选择，三行代码零资源实现丝滑的多任务切换</a></p>
+<h4 id="3、ltx-脚本组件"><a href="#3、ltx-脚本组件" class="headerlink" title="3、ltx 脚本组件"></a>3、ltx 脚本组件</h4><p>其实单单对 switch case 进行封装还是不够优雅，因为你还是要在 switch case 里面插入额外的倒计时轮询步骤。</p>
+<p>所以接下来介绍 ltx 的脚本组件。<br>先看效果，打眼一看，其实还是 switch case，但是每个 case 之间可以设置非阻塞的延时时间，并且还可以设置下一个 case 等待某个事件并设置超时时间。<br>这一切都是依赖 ltx 调度器实现的，即便是协程，也是需要一个调度器的，宏协程的调度器其实就是最外层的 while(1)，所以只能靠每个任务内部自己轮询 tick 和 flag，而 ltx 脚本组件是对 ltx 基础组件的封装拓展（话题与闹钟），所以对时间和事件的轮询会交给 ltx 调度器（主循环）。</p>
+<p>下面是一个脚本回调的样例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">script_cb_test</span><span class="params">(<span class="keyword">struct</span> ltx_Script_stu *script)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">ltx_Script_get_triger_type</span>(script) == SC_TRIGER_RESET)&#123;</span><br><span class="line">        <span class="comment">// 外部要求此脚本复位，可在此处做释放资源等操作</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span>(script-&gt;step_now)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            <span class="comment">// 步骤0</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// ...需要执行的内容...</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;This is step0 running...\n&quot;</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 设置下一步骤为延时一段时间后再执行</span></span><br><span class="line">            <span class="built_in">ltx_Script_next_step_delay</span>(script,      <span class="comment">// 脚本指针</span></span><br><span class="line">                                       <span class="number">1</span>,           <span class="comment">// 下一个步骤编号</span></span><br><span class="line">                                       <span class="number">200</span>);        <span class="comment">// 延迟时间为 200ms</span></span><br><span class="line">            <span class="comment">// break 退出 step0，200ms 后会进入 step1</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="comment">// 步骤1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// ...需要执行的内容...</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;This is step1 running...\n&quot;</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 设置下一步骤为延时一段时间后再执行</span></span><br><span class="line">            <span class="built_in">ltx_Script_next_step_delay</span>(script,      <span class="comment">// 脚本指针</span></span><br><span class="line">                                       <span class="number">2</span>,           <span class="comment">// 下一个步骤编号</span></span><br><span class="line">                                       <span class="number">0</span>);          <span class="comment">// 延迟时间为 0ms</span></span><br><span class="line">            <span class="comment">// 因为设置的步骤间延时为 0，所以会在 break 后短暂出让一次 cpu 给其他任务执行机会，然后立即进入 step2</span></span><br><span class="line">            <span class="comment">// 具体来讲就是把当前脚本加入就绪任务队列的末尾</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="comment">// 步骤2</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// ...需要执行的内容...</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;This is step2 running...\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 设置下一步骤为等待某个事件产生或者超时再执行</span></span><br><span class="line">            <span class="built_in">ltx_Script_next_step_topic</span>(script,      <span class="comment">// 脚本指针</span></span><br><span class="line">                                       <span class="number">3</span>,           <span class="comment">// 下一个步骤编号</span></span><br><span class="line">                                       <span class="number">100</span>,         <span class="comment">// 事件等待超时时间为 100ms</span></span><br><span class="line">                                       &amp;topic_button_click); <span class="comment">// 需要等待的事件的指针</span></span><br><span class="line">            <span class="comment">// 按键单击事件触发或者超时 100ms 会进入 step3</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="comment">// 步骤3，会在步骤3订阅的事件发生后调用，或者超时也会调用</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">ltx_Script_get_triger_type</span>(script) == SC_TRIGER_TIMEOUT)&#123; <span class="comment">// 因为超时而调用</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Step3 wait topic timeout!\n&quot;</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123; <span class="comment">// 因为事件触发而调用</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Step3 get topic\n&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// ...设置下一步骤...</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果和 rtos 等待信号量并设置超时时间比较类似，使用起来也比较直观</p>
+<h4 id="4、longjmp-协程"><a href="#4、longjmp-协程" class="headerlink" title="4、longjmp 协程"></a>4、longjmp 协程</h4><p>我想几乎不太会有人在单片机里用这个，你可以通过 setjmp 保存当前位置上下文，在其他地方可以用 longjmp 跳回来，可以理解为一种跨函数的 goto 。</p>
+<p>不太推荐这种做法，所以不做详细展开，想要详细了解可以看一下下面这个视频：<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/08ec9b4b703ed696ab9a419a34e86311.webp" alt="longjmp"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1VC4y1w7BZ">【Bilibili】@阿布编程 - CPU眼里的：setjmp | longjmp</a></p>
+<h3 id="六、裸机多任务与-rtos-多任务的区别总结"><a href="#六、裸机多任务与-rtos-多任务的区别总结" class="headerlink" title="六、裸机多任务与 rtos 多任务的区别总结"></a>六、裸机多任务与 rtos 多任务的区别总结</h3><h4 id="1、非阻塞延时"><a href="#1、非阻塞延时" class="headerlink" title="1、非阻塞延时"></a>1、非阻塞延时</h4><p>裸机的一大痛点就是不能 <strong>直接</strong> 实现非阻塞 delay，一般需要把任务切分再通过轮询来实现</p>
+<p>接下来是几种裸机里面的实现方法总结：</p>
+<p><strong>a、状态机：</strong></p>
+<p>例如前面提及的温度检测任务，我们不希望温度转换的 20ms 阻塞系统，那么就需要专门插入一个等待延时完成步骤给状态机。</p>
+<p><strong>b、直接修改软件定时器倒计时：</strong></p>
+<p>还是前面提及的温度检测任务，对于软件定时器方案，可以把时间轮询交给外部，比如可以直接修改软件定时器的重载值来实现非阻塞延时。</p>
+<p><strong>c、ltx 脚本组件</strong></p>
+<p>ltx 脚本组件可以设置步骤间非阻塞延时时间。</p>
+<h4 id="2、高优先级抢占"><a href="#2、高优先级抢占" class="headerlink" title="2、高优先级抢占"></a>2、高优先级抢占</h4><p>优先级抢占可以给产品带来更高的响应性，即便是耗时任务操作，rtos 也可以将其打断切换到其他任务。<br>单片机作为微控制器其实一般的情况下一个任务不会有太多耗时操作，比如 led 闪烁也就是翻转一下 led 电平，大部分时间都在 delay。cpu 耗时操作一般都体现在计算上面，比如画显存什么的，但是对于这些耗时计算任务，你依然可以手工对其进行切片，把一个 case 切成几个 case，case 之间相当于出让一次 cpu，比如你一个 case 画全屏改为一个 case 画十分之一屏或者更细分。<br>当然，如果你自己写代码倒是可以对任务进行手动切分，但是如果用一些耗时的闭源的库可能就不好切分了，只能上 rtos 让它来帮你切分。</p>
+<p>裸机显然是没办法直接实现高优先级抢占了，但是依然有如下几种能够提高任务响应能力的方案：</p>
+<p><strong>a、任务排序：</strong></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/4badfe0cce3855168be4b6ff72e6f8e6.webp" alt="排序"></p>
+<p>这就是 osal 的实现方法，使用 osal 框架创建任务的时候，需要给任务设置一个唯一 id，这个 id 还承载着优先级的功能，按照这个 id 来将任务插入到链表的特定位置。<br>这样，在遍历的时候，高优先级的任务可以先执行，执行完后再从任务链表头遍历而不是继续遍历。这样可以提供一定的优先级能力，但依然没办法在低优先级任务执行的时候被高优先级任务打断</p>
+<p><strong>b、systick 抢占</strong></p>
+<p>有一些软件多定时器调度教程会额外增加一个优先级变量，一旦这个高优先级任务到时间，那么就直接在 systick 中断里执行，而不是在主循环，这倒是切切实实实现了抢占，不过只能实现两个优先级，以及可能带来资源竞争问题，需要关开中断来实现原子操作</p>
+<p><strong>c、硬件定时器抢占</strong></p>
+<p>也就是第二节提到的硬件多定时器方案。</p>
+<h4 id="3、可移植性"><a href="#3、可移植性" class="headerlink" title="3、可移植性"></a>3、可移植性</h4><p>这里谈的不是业务的可移植性，而是框架的可移植性。<br>大部分裸机调度框架基本只需要你在 systick 中断服务函数里调用一个系统嘀嗒，然后把调度器扔到主循环里就行了，不用太担心硬件平台的差异，而 rtos 就要麻烦一点了，毕竟不同 架构 的 mcu 的寄存器什么的是不一样的，尤其是一些新出的 risc-v 的例程少的 mcu 会让你比较痛苦。</p>
+<h4 id="4、资源竞争"><a href="#4、资源竞争" class="headerlink" title="4、资源竞争"></a>4、资源竞争</h4><p>裸机的一大优势就是几乎不用考虑资源竞争问题，毕竟任务间不能相互打断，数据直接扔到全局变量里就能交换与通信，也不太需要拷贝，而 rtos 就需要队列或者其他组件来传递数据</p>
+<h4 id="5、空闲低功耗"><a href="#5、空闲低功耗" class="headerlink" title="5、空闲低功耗"></a>5、空闲低功耗</h4><p>举个例子，你有两个 led，第一个 100ms 闪一下，第二个 20ms 闪一下，那么你的系统其实大部分时间都在轮询这个时间到没到，你完全可以让系统睡 20ms 再起来翻转一下电平然后接着睡</p>
+<p>在 rtos 里，一般会提供一个空闲（idle）任务，你可以在空闲任务里进入休眠模式，等到下一次 systick 或者其他中断唤醒系统后触发任务调度跳出 idle</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 空闲任务</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">task_idle</span>(<span class="params"><span class="keyword">void</span> *param</span>)&#123;</span><br><span class="line">    <span class="comment">// 进入休眠</span></span><br><span class="line">    <span class="title function_">system_sleep_until_interrupt</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在裸机里面，似乎不是很好办？因为裸机里提供不了空闲任务，空闲的时候系统会一直轮询有没有什么任务的事件触发，当然，硬件多定时器那个除外。<br>以 osal 为例，你可能需要修改他的源码，比如他的获取活跃任务，会通过 if 进行判断是否为空，你可以加一个 else，也就是没有活跃任务，此时便直接进入休眠</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// osal 主循环</span></span><br><span class="line">void <span class="title function_ invoke__">osal_start_system</span>( void )</span><br><span class="line">&#123;</span><br><span class="line">    uint16 events;</span><br><span class="line">    uint16 retEvents;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这里就是 osal 的主循环</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">// 不断获取活跃任务</span></span><br><span class="line">        TaskActive = <span class="title function_ invoke__">osalNextActiveTask</span>();</span><br><span class="line">        <span class="keyword">if</span> ( TaskActive )&#123;</span><br><span class="line">            <span class="title function_ invoke__">HAL_ENTER_CRITICAL_SECTION</span>();</span><br><span class="line">            events = TaskActive<span class="punctuation">-&gt;</span>events;</span><br><span class="line">            <span class="comment">// Clear the Events for this task</span></span><br><span class="line">            TaskActive<span class="punctuation">-&gt;</span>events = <span class="number">0</span>;</span><br><span class="line">            <span class="title function_ invoke__">HAL_EXIT_CRITICAL_SECTION</span>();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果这个任务的事件集不为 0</span></span><br><span class="line">            <span class="keyword">if</span> ( events != <span class="number">0</span> )&#123;</span><br><span class="line">                <span class="comment">// Call the task to process the event(s)</span></span><br><span class="line">                <span class="keyword">if</span> ( TaskActive<span class="punctuation">-&gt;</span>pfnEventProcessor )&#123;</span><br><span class="line">                    <span class="comment">// 调用任务回调函数</span></span><br><span class="line">                    retEvents = (TaskActive<span class="punctuation">-&gt;</span>pfnEventProcessor)(TaskActive<span class="punctuation">-&gt;</span>taskID, events);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Add back unprocessed events to the current task</span></span><br><span class="line">                    <span class="title function_ invoke__">HAL_ENTER_CRITICAL_SECTION</span>();</span><br><span class="line">                    TaskActive<span class="punctuation">-&gt;</span>events |= retEvents;</span><br><span class="line">                    <span class="title function_ invoke__">HAL_EXIT_CRITICAL_SECTION</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123; <span class="comment">// ！自己修改源码添加的 else，当没有活跃 task 会进入这个 else</span></span><br><span class="line">            <span class="comment">// 这里执行空闲任务</span></span><br><span class="line">            <span class="comment">// 风险：TaskActive 判空后和 system_sleep_until_interrupt() 执行前可能产生中断</span></span><br><span class="line">            <span class="comment">// 但是执行完中断后回到主循环接下来系统会进入休眠</span></span><br><span class="line">            <span class="comment">// 所以这个中断产生的事件不会被处理</span></span><br><span class="line">            <span class="comment">// 只有下次其他中断唤醒系统才会一起处理</span></span><br><span class="line">            <span class="title function_ invoke__">system_sleep_until_interrupt</span>(); <span class="comment">// 等待中断唤醒</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是这样会带来风险，比如说在获取 TaskActive 为空后，但是进入 <code>system_sleep_until_interrupt()</code> 前，此时产生了一个中断的话，比如按下了一个按键，系统不会去获取新的 TaskActive，那么这次中断事件就得到下一次其他中断唤醒系统后才能响应了。那加入开关中断呢？</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// osal 主循环</span></span><br><span class="line">void <span class="title function_ invoke__">osal_start_system</span>( void )</span><br><span class="line">&#123;</span><br><span class="line">    uint16 events;</span><br><span class="line">    uint16 retEvents;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这里就是 osal 的主循环</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">// 不断获取活跃任务</span></span><br><span class="line">        __irq_disable(); <span class="comment">// ！！修改源码加入关闭中断</span></span><br><span class="line">        TaskActive = <span class="title function_ invoke__">osalNextActiveTask</span>();</span><br><span class="line">        <span class="keyword">if</span> ( TaskActive )&#123;</span><br><span class="line">            __irq_enable(); <span class="comment">// ！！修改源码加入打开中断</span></span><br><span class="line"></span><br><span class="line">            <span class="title function_ invoke__">HAL_ENTER_CRITICAL_SECTION</span>();</span><br><span class="line">            events = TaskActive<span class="punctuation">-&gt;</span>events;</span><br><span class="line">            <span class="comment">// Clear the Events for this task</span></span><br><span class="line">            TaskActive<span class="punctuation">-&gt;</span>events = <span class="number">0</span>;</span><br><span class="line">            <span class="title function_ invoke__">HAL_EXIT_CRITICAL_SECTION</span>();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果这个任务的事件集不为 0</span></span><br><span class="line">            <span class="keyword">if</span> ( events != <span class="number">0</span> )&#123;</span><br><span class="line">                <span class="comment">// Call the task to process the event(s)</span></span><br><span class="line">                <span class="keyword">if</span> ( TaskActive<span class="punctuation">-&gt;</span>pfnEventProcessor )&#123;</span><br><span class="line">                    <span class="comment">// 调用任务回调函数</span></span><br><span class="line">                    retEvents = (TaskActive<span class="punctuation">-&gt;</span>pfnEventProcessor)(TaskActive<span class="punctuation">-&gt;</span>taskID, events);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Add back unprocessed events to the current task</span></span><br><span class="line">                    <span class="title function_ invoke__">HAL_ENTER_CRITICAL_SECTION</span>();</span><br><span class="line">                    TaskActive<span class="punctuation">-&gt;</span>events |= retEvents;</span><br><span class="line">                    <span class="title function_ invoke__">HAL_EXIT_CRITICAL_SECTION</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123; <span class="comment">// ！！自己修改源码添加的 else，当没有活跃 task 会进入这个 else</span></span><br><span class="line">            <span class="comment">// 这里执行空闲任务</span></span><br><span class="line">            <span class="comment">// 进入休眠，虽然还没有开启中断，但是只是不能进中断服务函数而已，还是能唤醒系统</span></span><br><span class="line">            <span class="title function_ invoke__">system_sleep_until_interrupt</span>(); <span class="comment">// 等待中断唤醒</span></span><br><span class="line">            <span class="comment">// 一定要先调用休眠再调用开中断，否则还是有空窗期</span></span><br><span class="line">            __irq_enable(); <span class="comment">// ！！修改源码加入打开中断</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是这并不完美，关闭中断期间调用的 <code>osalNextActiveTask()</code> 内部其实是在遍历 task 链表，他的时间复杂度是 O(N)，所以会比较耗时，会导致响应性变差以及判空效率低。</p>
+<p>ltx V1 和 osal 一样，都是对任务链表的所有任务进行事件轮询，时间复杂度是 O(N)，所以 V2 对话题进行了修改，不再直接使用链表，而是修改为链表队列，事件产生不再是置位标志位，而是把话题指针加入这个队列，主循环不断弹出话题并执行即可，不用轮询所有话题，所以时间复杂度是 O(1)，提高了调度器的响应能力，以及获得了更快的空闲判定。</p>
+<p>如果你想要一个真正的空闲任务，那么你可以通过抬升调度器优先级来实现，也就是让调度器跑在一个最低优先级的软中断里，比如 <code>PendSV</code>，此时的主循环就是最低优先级的空闲任务，有事件就触发软中断的标志位让调度器执行，没有任务就退出调度器。ltx V2+ 专门提供了这种能力，更便于实现空闲任务与空闲钩子。</p>
+<h4 id="6、tickless"><a href="#6、tickless" class="headerlink" title="6、tickless"></a>6、tickless</h4><p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/29282d700b9f58fec6b05fd20bd0a577.webp" alt="tickless"><br>因为 systick 中断的存在，上面的 idle 休眠会 1ms 被 systick 中断唤醒一次，但是醒来后调度器发现没有要做的事就又进入休眠，我们更期望系统能完整睡完 N 毫秒再醒过来，所以你可以通过获取最近一个阻塞任务的延时时间然后修改 systick 的重载值，让他 N 毫秒后再触发中断，然后在唤醒时将 systick 的倒计时更新为下一个任务的到来时间就可以实现 tickless 的效果。</p>
+<p>不过一般的裸机框架的 systick 都需要每个 tick 遍历所有定时器的计数值减一，那么获取最近一个需要执行的任务的时间也需要对所有定时器进行遍历，效率会比较低，也会拖慢裸机的响应性。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/d128cdde780c8ee1885e50202cc8e243.webp" alt="裸机遍历systick"></p>
+<p>所以可以仿照一些 rtos 的实现方法对你的裸机框架进行爆改，也就是不能按照传统裸机的每毫秒进一次 systick 去递减所有定时器 tick 计数值，而是根据定时器的倒计时进行顺序插入，每个定时器存储自身与前一个定时器的时间差，那么 systick 只需弹出首(几)个闹钟节点即可，且进行 tickless 操作时只需要获取首个节点的倒计时就行，效率更高。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/eab03193933b2d16431cea9aaf315d65.webp" alt="差分定时器链表示意"><br>走到这里，已经接近于手搓一个 rtos 了，如果不想自己手搓，那么可以直接使用 ltx V3，其内建空闲任务与 tickless 支持。</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://skyforever.top/posts/53927" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/posts/53927&title=单片机裸机多任务与低功耗方案总结 - Sky Blog&summary=总结单片机裸机环境下多任务与低功耗的实现方案，涵盖前后台、软件定时器、状态机、OSAL、ltx调度器、QP/C、协程等，并与RTOS进行对比"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=单片机裸机多任务与低功耗方案总结 - Sky Blog&amp;body=http://skyforever.top/posts/53927"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/posts/53927"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/51722/">15条高频实用的ClaudeCode技巧</a></div></section></div>
+
+<div class="related-wrap" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>您可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="/posts/63520.html" title="如何在不使用操作系统的情况下实现多线程效果"><span class="title">如何在不使用操作系统的情况下实现多线程效果</span><span class="excerpt">通过经典的“跑马灯”案例，揭示裸机编程中从阻塞到非阻塞，再到状态机思维的三重境界。并进一步探讨如何运用该思想处理复杂长时任务，帮助您在不使用RTOS的情况下，构建高效、可扩展的嵌入式程序。</span></a><a class="item" href="/posts/30908.html" title="2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程"><span class="title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span><span class="excerpt">本文详细介绍了Keil MDK5社区版的下载与安装流程，解决了AC5编译器缺失报错、CMSIS版本冲突等常见问题，并分享了代码格式化与自动保存的实用配置技巧。</span></a><a class="item" href="/posts/114516.html" title="提升嵌入式开发幸福感的小技巧"><span class="title">提升嵌入式开发幸福感的小技巧</span></a><a class="item" href="/posts/41626.html" title="基于 J-Link RTT 的单片机调试打印指南"><span class="title">基于 J-Link RTT 的单片机调试打印指南</span><span class="excerpt">详细介绍如何在单片机开发中，利用 J-Link 调试器的 RTT (Real Time Transfer) 功能代替传统串口打印。涵盖驱动安装、源码移植、多终端打印及 printf 重定向等实用技巧。</span></a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E6%98%93%E5%A4%9A%E4%BB%BB%E5%8A%A1"><span class="toc-text">一、简易多任务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E5%89%8D%E5%90%8E%E5%8F%B0-if-else-%E6%A0%87%E5%BF%97%E4%BD%8D%E8%BD%AE%E8%AF%A2"><span class="toc-text">1、前后台 if else 标志位轮询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%A4%9A%E5%AE%9A%E6%97%B6%E5%99%A8%EF%BC%88multi-timer-%EF%BC%89"><span class="toc-text">二、多定时器（multi timer ）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E7%A1%AC%E4%BB%B6%E5%A4%9A%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-text">1、硬件多定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E8%BD%AF%E4%BB%B6%E5%A4%9A%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-text">2、软件多定时器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81-switch-case-%E7%8A%B6%E6%80%81%E6%9C%BA"><span class="toc-text">三、 switch case 状态机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%A1%86%E6%9E%B6"><span class="toc-text">四、事件驱动框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81osal-operating-system-abstraction-layer-%EF%BC%8C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8A%BD%E8%B1%A1%E5%B1%82"><span class="toc-text">1、osal(operating system abstraction layer ，操作系统抽象层)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81ltx-%E8%A3%B8%E6%9C%BA%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="toc-text">2、ltx 裸机调度器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81qp-c-%E6%A1%86%E6%9E%B6"><span class="toc-text">3、qp&#x2F;c 框架</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%8D%8F%E7%A8%8B"><span class="toc-text">五、协程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%8F%E7%A8%8B"><span class="toc-text">1、什么是协程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81protothreads-pt-thread-%E5%AE%8F-%E5%8D%8F%E7%A8%8B"><span class="toc-text">2、protothreads (pt-thread) 宏 协程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81ltx-%E8%84%9A%E6%9C%AC%E7%BB%84%E4%BB%B6"><span class="toc-text">3、ltx 脚本组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81longjmp-%E5%8D%8F%E7%A8%8B"><span class="toc-text">4、longjmp 协程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%A3%B8%E6%9C%BA%E5%A4%9A%E4%BB%BB%E5%8A%A1%E4%B8%8E-rtos-%E5%A4%9A%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%8C%BA%E5%88%AB%E6%80%BB%E7%BB%93"><span class="toc-text">六、裸机多任务与 rtos 多任务的区别总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%BB%B6%E6%97%B6"><span class="toc-text">1、非阻塞延时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E9%AB%98%E4%BC%98%E5%85%88%E7%BA%A7%E6%8A%A2%E5%8D%A0"><span class="toc-text">2、高优先级抢占</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%80%A7"><span class="toc-text">3、可移植性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81%E8%B5%84%E6%BA%90%E7%AB%9E%E4%BA%89"><span class="toc-text">4、资源竞争</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81%E7%A9%BA%E9%97%B2%E4%BD%8E%E5%8A%9F%E8%80%97"><span class="toc-text">5、空闲低功耗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6%E3%80%81tickless"><span class="toc-text">6、tickless</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.md-text img[alt]:not([alt="icon"]):not([alt="cover"])`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
+<script defer type="text/javascript" src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var mermaid_config = {
+      startOnLoad: true,
+      theme:
+        "auto" == "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "neutral",
+      logLevel: 3,
+      themeVariables: {
+        darkMode: true
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: "linear"
+      },
+      gantt: {
+        axisFormat: "%Y/%m/%d"
+      },
+      sequence: {
+        actorMargin: 50
+      }
+    }
+    mermaid.initialize(mermaid_config);
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script><!-- Baidu Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JST56Q8277');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rp0i6z4yyg");
+</script>
+
+
+
+<!-- inject -->
+
+</div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 5,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body></html>
