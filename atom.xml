@@ -29,7 +29,7 @@
     <id>http://skyforever.top/posts/37648</id>
     <link href="http://skyforever.top/posts/37648"/>
     <published>2026-05-26T14:45:23.000Z</published>
-    <summary>介绍 GhostTrack，一个开源的 Python OSINT 信息收集脚本。支持 IP 地理位置追踪、 手机号归属地查询、跨平台用户名搜索三大模块，适合安全研究、CTF 侦察与 OSINT 学习。</summary>
+    <summary>介绍 GhostTrack，一个开源的 Python OSINT 信息收集脚本。支持 IP 地理位置追踪、手机号归属地查询、跨平台用户名搜索三大模块。</summary>
     <title>一个信息追踪 Python 脚本</title>
     <updated>2026-05-26T14:45:23.000Z</updated>
   </entry>
