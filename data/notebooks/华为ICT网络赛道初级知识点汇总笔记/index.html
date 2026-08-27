@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
-  <meta name="generator" content="Hexo 7.1.0">
+  <meta name="generator" content="Hexo 8.1.2">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -19,30 +19,37 @@
   <meta name="theme-color" content="#f9fafb">
   <title>华为ICT网络赛道初级知识点汇总笔记 - Sky Blog</title>
 
-  
-    <meta name="description" content="华为 ICT 网络赛道 初级 知识点汇总建议先看这两个视频快速入门：一个视频讲清楚家庭网络通信流程 [如何解决代理中的 DNS 泄漏问题？][https:&#x2F;&#x2F;youtu.be&#x2F;fqREM6b25SY?si&#x3D;oz90i_7ZOWAwBFtw](这个视频只用看 dns 的执行流程) 实践赛真题课程网址：https:&#x2F;&#x2F;talent.shixizhi.huawei.com&#x2F;center&#x2F;privateC">
+  <meta name="description" content="华为 ICT 网络赛道 初级 知识点汇总建议先看这两个视频快速入门：一个视频讲清楚家庭网络通信流程 [如何解决代理中的 DNS 泄漏问题？][https:&#x2F;&#x2F;youtu.be&#x2F;fqREM6b25SY?si&#x3D;oz90i_7ZOWAwBFtw](这个视频只用看 dns 的执行流程) 实践赛真题课程网址：https:&#x2F;&#x2F;talent.shixizhi.huawei.com&#x2F;center&#x2F;privateC">
 <meta property="og:type" content="website">
 <meta property="og:title" content="华为ICT网络赛道初级知识点汇总笔记">
 <meta property="og:url" content="http://skyforever.top/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/">
 <meta property="og:site_name" content="Sky Blog">
 <meta property="og:description" content="华为 ICT 网络赛道 初级 知识点汇总建议先看这两个视频快速入门：一个视频讲清楚家庭网络通信流程 [如何解决代理中的 DNS 泄漏问题？][https:&#x2F;&#x2F;youtu.be&#x2F;fqREM6b25SY?si&#x3D;oz90i_7ZOWAwBFtw](这个视频只用看 dns 的执行流程) 实践赛真题课程网址：https:&#x2F;&#x2F;talent.shixizhi.huawei.com&#x2F;center&#x2F;privateC">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.skyforever.top/blog/2025/10/efa33383e506824b8951cc9d06fd5f4f.webp">
 <meta property="article:published_time" content="2024-09-05T13:08:35.000Z">
 <meta property="article:modified_time" content="2024-09-05T13:08:35.000Z">
 <meta property="article:author" content="Skyforever">
 <meta property="article:tag" content="计算机科学&#x2F;计算机网络">
 <meta name="twitter:card" content="summary">
-  
+<meta name="twitter:image" content="https://image.skyforever.top/blog/2025/10/efa33383e506824b8951cc9d06fd5f4f.webp"><meta name="twitter:title" content="华为ICT网络赛道初级知识点汇总笔记">
   
   
   <meta name="keywords" content="">
 
   <!-- feed -->
   
-    <link rel="alternate" href="/atom.xml" title="Sky Blog" type="application/atom+xml">
+    
+
+    
+      
+        <link rel="alternate" href="/atom.xml" title="Sky Blog" type="application/atom+xml">
+      
+    
   
 
-  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
 
 
   
@@ -53,364 +60,500 @@
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"http://skyforever.top/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"name":"华为ICT网络赛道初级知识点汇总笔记","description":"华为 ICT 网络赛道 初级 知识点汇总建议先看这两个视频快速入门：一个视频讲清楚家庭网络通信流程\n[如何解决代理中的 DNS 泄漏问题？][https://youtu.be/fqREM6b25SY?si=oz90i_7ZOWAwBFtw](这个视频只用看 dns 的执行流程)\n实践赛真题课程网址：https://talent.shixizhi.huawei.com/center/priva...","url":"http://skyforever.top/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/"}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8">
-</head>
-<body>
 
-<div class="l_body content" id="start" layout="page" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+  <!-- icons.yml 驱动的 CSS 装饰图标 -->
+  
+  
+  <style>:root {
+  --icon-h3-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M17.75%2019a.75.75%200%200%201-1.32.488l-6-7a.75.75%200%200%201%200-.976l6-7A.75.75%200%200%201%2017.75%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M13.488%2019.57a.75.75%200%200%200%20.081-1.058L7.988%2012l5.581-6.512a.75.75%200%201%200-1.138-.976l-6%207a.75.75%200%200%200%200%20.976l6%207a.75.75%200%200%200%201.057.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-h3-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M6.25%2019a.75.75%200%200%200%201.32.488l6-7a.75.75%200%200%200%200-.976l-6-7A.75.75%200%200%200%206.25%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M10.512%2019.57a.75.75%200%200%201-.081-1.058L16.012%2012l-5.581-6.512a.75.75%200%201%201%201.139-.976l6%207a.75.75%200%200%201%200%20.976l-6%207a.75.75%200%200%201-1.058.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M3.691%206.292C5.094%204.771%207.217%204%2010%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%206.925%2010H10a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202H3a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789M20%2020h-6a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789C16.094%204.771%2018.217%204%2021%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%2017.925%2010H21a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M20.309%2017.708C22.196%2015.66%2022.006%2013.03%2022%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292m-11.007%200C11.19%2015.66%2010.999%2013.03%2010.993%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292%22%2F%3E%3C%2Fsvg%3E");
+  --icon-loading: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221em%22%20height%3D%221em%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.67%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.33%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%220%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3C%2Fsvg%3E");
+}</style>
+  
+</head>
+<body><div id="l_cover"></div><div class="l_body content" id="start" layout="page" type="tech" ><aside class="l_left leftbar-card" data-ui-surface="card"><div class="sidebg"></div><div class="leftbar-container">
+
 
 
 <header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
 
+
+<div class="search-wrapper" id="search-wrapper"><div class="search-form" role="search"><label class="search-button" for="search-input" aria-hidden="true"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></label><input type="search" class="search-input" id="search-input" aria-label="在 大学 中搜索" data-filter="&#x2F;note&#x2F;college&#x2F;" placeholder="在 大学 中搜索"></div><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+<div class="widgets">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="leftbar-active-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
 <div class="nav-area">
 
-<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a><a class="nav-item" title="社交" href="/friends/"><span>社交</span></a></nav>
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/" title="博客" style="--item-grad:url(#menu-grad-post);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">博客</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-post" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/" title="项目" style="--item-grad:url(#menu-grad-wiki);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">项目</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-wiki" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/notebooks/" title="笔记" style="--item-grad:url(#menu-grad-notebooks);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">笔记</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-notebooks" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/friends/" title="社交" style="--item-grad:url(#menu-grad-social);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">社交</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-social" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
 </div>
-<div class="widgets">
-<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/note/college" placeholder="在 大学 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+</nav>
+</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-  <widget class="widget-wrapper post-list">
+<widget class="widget-wrapper tag-tree-widget" data-notebook="note-college">
+  
     <div class="widget-header dis-select">
       <span class="name">标签</span>
-    </div>
-    <div class="widget-body fs14 tag-tree">
-      
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="">
-    
-  
-  <a class="link" href="/note/college/">
-    <span class="toc-text">
-      
-        所有笔记
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree parent-tag expanded" data-tag="编程语言">
-    
-  
-  <a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        编程语言
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-      
-  
-    
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="编程语言/c++">
-    
-  
-  <a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++/">
-    <span class="toc-text" style="padding-left: 0.875rem;">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        C++
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-  
-    
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="编程语言/c语言">
-    
-  
-  <a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c%E8%AF%AD%E8%A8%80/">
-    <span class="toc-text" style="padding-left: 0.875rem;">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        C语言
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-  
-    
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="编程语言/java">
-    
-  
-  <a class="link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/java/">
-    <span class="toc-text" style="padding-left: 0.875rem;">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        Java
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-  
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree parent-tag expanded" data-tag="计算机科学">
-    
-  
-  <a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        计算机科学
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-      
-  
-    
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/操作系统">
-    
-  
-  <a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-    <span class="toc-text" style="padding-left: 0.875rem;">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        操作系统
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-  
-    
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/数据库">
-    
-  
-  <a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-    <span class="toc-text" style="padding-left: 0.875rem;">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        数据库
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-  
-    
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/计算机网络">
-    
-  
-  <a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-    <span class="toc-text" style="padding-left: 0.875rem;">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        计算机网络
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-  
-    
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="计算机科学/认证考试">
-    
-  
-  <a class="link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A4%E8%AF%81%E8%80%83%E8%AF%95/">
-    <span class="toc-text" style="padding-left: 0.875rem;">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        认证考试
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-  
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree parent-tag expanded" data-tag="软件开发">
-    
-  
-  <a class="link" href="/note/college/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        软件开发
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-      
-  
-    
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="软件开发/项目实训">
-    
-  
-  <a class="link" href="/note/college/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%AD/">
-    <span class="toc-text" style="padding-left: 0.875rem;">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        项目实训
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-  
-
-    
-  </div>
-
       
     </div>
-  </widget>
+  
+  <div class="widget-body"><div class="ui-collection tag-tree" data-layout="list" data-variant="nav" data-density="compact"><div class="tag-subtree is-leaf is-expanded" data-tag="">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/" title="所有笔记">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">所有笔记</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-parent is-expanded" data-tag="编程语言">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" title="编程语言">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">编程语言</span>
+      
+      
+    </span>
+  
+  <span class="tag-switcher-wrapper"><span class="tag-switcher"></span></span>
+  
+  
+</a>
+<div class="tag-subtree is-leaf is-expanded" data-tag="编程语言&#x2F;c++">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++/" title="C++" style="--ui-item-depth:1;">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">C++</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="编程语言&#x2F;c语言">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c%E8%AF%AD%E8%A8%80/" title="C语言" style="--ui-item-depth:1;">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">C语言</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="编程语言&#x2F;java">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/java/" title="Java" style="--ui-item-depth:1;">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Java</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div></div><div class="tag-subtree is-parent is-expanded" data-tag="计算机科学">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="计算机科学">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">计算机科学</span>
+      
+      
+    </span>
+  
+  <span class="tag-switcher-wrapper"><span class="tag-switcher"></span></span>
+  
+  
+</a>
+<div class="tag-subtree is-leaf is-expanded" data-tag="计算机科学&#x2F;操作系统">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统" style="--ui-item-depth:1;">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">操作系统</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="计算机科学&#x2F;数据库">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库" style="--ui-item-depth:1;">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">数据库</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="计算机科学&#x2F;计算机网络">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络" style="--ui-item-depth:1;">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">计算机网络</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="计算机科学&#x2F;认证考试">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A4%E8%AF%81%E8%80%83%E8%AF%95/" title="认证考试" style="--ui-item-depth:1;">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">认证考试</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div></div><div class="tag-subtree is-parent is-expanded" data-tag="软件开发">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" title="软件开发">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">软件开发</span>
+      
+      
+    </span>
+  
+  <span class="tag-switcher-wrapper"><span class="tag-switcher"></span></span>
+  
+  
+</a>
+<div class="tag-subtree is-leaf is-expanded" data-tag="软件开发&#x2F;项目实训">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/college/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%AD/" title="项目实训" style="--ui-item-depth:1;">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">项目实训</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div></div></div></div>
+  
+</widget>
 
 
-<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/"><span class="title">ERP系统开发实训笔记</span></a><a class="item title" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/"><span class="title">计算机二级公共基础知识点考点整理</span></a><a class="item title" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/"><span class="title">计算机二级C语言复习</span></a><a class="item title" href="/data/notebooks/C++%E5%A4%8D%E4%B9%A0/"><span class="title">C++复习</span></a><a class="item title" href="/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/"><span class="title">华为ICT网络赛道初级知识点汇总笔记</span></a><a class="item title" href="/data/notebooks/Java%E5%A4%8D%E4%B9%A0/"><span class="title">Java复习</span></a><a class="item title" href="/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/"><span class="title">数据库复习</span></a><a class="item title" href="/data/notebooks/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/"><span class="title">操作系统入门</span></a></div></widget>
+
+
+<widget class="widget-wrapper recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">最近更新</span>
+      
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/" title="ERP系统开发实训笔记">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">ERP系统开发实训笔记</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/" title="计算机二级公共基础知识点考点整理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">计算机二级公共基础知识点考点整理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/" title="计算机二级C语言复习">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">计算机二级C语言复习</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/notebooks/C++%E5%A4%8D%E4%B9%A0/" title="C++复习">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">C++复习</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/" title="华为ICT网络赛道初级知识点汇总笔记">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">华为ICT网络赛道初级知识点汇总笔记</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/notebooks/Java%E5%A4%8D%E4%B9%A0/" title="Java复习">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Java复习</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/" title="数据库复习">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">数据库复习</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/notebooks/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="操作系统入门">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">操作系统入门</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
+
+
 </div>
-<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
-</div></aside><div class="l_main" id="main">
+<footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+<a class="social" href="https:&#x2F;&#x2F;github.com&#x2F;zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
+</div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
 
 
 
-<div class="article banner top">
+
+<div class="article-banner-wrap"><div class="article banner top">
   <div class="content">
-    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span>
 <a class="cap breadcrumb" href="/notebooks/">笔记本</a>
 
@@ -418,8 +561,9 @@
   <span class="sep"></span>
   <a class="cap breadcrumb" href="/note/college/">大学</a>
 
-</div>
-<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2024-09-05T13:08:35.000Z">2024-09-05</time></span><span class="sep updated"></span><span class="text updated">发布于：<time datetime="2024-09-05T13:08:35.000Z">2024-09-05</time></span></div></div></div>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2024-09-05T13:08:35.000Z">2024-09-05</time></span><span class="sep updated"></span><span class="text updated">发布于：<time datetime="2024-09-05T13:08:35.000Z">2024-09-05</time></span></div>
+</div></div>
     
     <div class="bottom only-title">
       
@@ -430,7 +574,8 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="华为-ICT-网络赛道-初级-知识点汇总"><a href="#华为-ICT-网络赛道-初级-知识点汇总" class="headerlink" title="华为 ICT 网络赛道 初级 知识点汇总"></a>华为 ICT 网络赛道 初级 知识点汇总</h1><p>建议先看这两个视频快速入门：<br><a target="_blank" rel="noopener" href="https://youtu.be/P38FmPAq09E?si=JZBrmj_lSm5afAoX">一个视频讲清楚家庭网络通信流程</a></p>
+  </div></div>
+<article class="md-text content"><h1 id="华为-ICT-网络赛道-初级-知识点汇总"><a href="#华为-ICT-网络赛道-初级-知识点汇总" class="headerlink" title="华为 ICT 网络赛道 初级 知识点汇总"></a>华为 ICT 网络赛道 初级 知识点汇总</h1><p>建议先看这两个视频快速入门：<br><a target="_blank" rel="noopener" href="https://youtu.be/P38FmPAq09E?si=JZBrmj_lSm5afAoX">一个视频讲清楚家庭网络通信流程</a></p>
 <p>[如何解决代理中的 DNS 泄漏问题？][<a target="_blank" rel="noopener" href="https://youtu.be/fqREM6b25SY?si=oz90i_7ZOWAwBFtw%5D">https://youtu.be/fqREM6b25SY?si=oz90i_7ZOWAwBFtw]</a>(这个视频只用看 dns 的执行流程)</p>
 <p>实践赛真题课程网址：<a target="_blank" rel="noopener" href="https://talent.shixizhi.huawei.com/center/privateCenter.htm?schoolId=1365189427395223554&amp;type=studyCenter_LearningTask&amp;sxz-lang=zh_CN&amp;mapDetail=3&amp;mapDetailId=1838152212504219649">https://talent.shixizhi.huawei.com/center/privateCenter.htm?schoolId=1365189427395223554&amp;type=studyCenter_LearningTask&amp;sxz-lang=zh_CN&amp;mapDetail=3&amp;mapDetailId=1838152212504219649</a></p>
 <p><a target="_blank" rel="noopener" href="https://lxblog.com/efficiency/U/NWuHwfGZpaFOJ0Bidngx42ncp42iqvef">考前真题讲解-通义效率</a></p>
@@ -450,10 +595,10 @@
 <li><u><strong>特权用户（3-15 级）</strong>：拥有最高权限，可以执行所有配置、维护和管理命令。</u></li>
 </ul>
 <hr>
-<h2 id="TCP-IP-四层模型概述"><a href="#TCP-IP-四层模型概述" class="headerlink" title="TCP&#x2F;IP 四层模型概述"></a>TCP&#x2F;IP 四层模型概述</h2><ol>
+<h2 id="TCP-IP-四层模型概述"><a href="#TCP-IP-四层模型概述" class="headerlink" title="TCP/IP 四层模型概述"></a>TCP/IP 四层模型概述</h2><ol>
 <li><strong>应用层</strong>：<ul>
 <li><strong>功能</strong>：为应用程序提供通信服务。</li>
-<li><strong>协议</strong>：HTTP&#x2F;HTTPS、FTP、DNS、SSH 等。</li>
+<li><strong>协议</strong>：HTTP/HTTPS、FTP、DNS、SSH 等。</li>
 <li><strong>重点</strong>：用某种**<u>应用协议</u>**，决定数据如何格式化与传送。</li>
 </ul>
 </li>
@@ -477,19 +622,26 @@
 <li><strong>重点</strong>：通过**<u>IP 地址</u>**确定数据传输路径和目标设备。</li>
 </ul>
 </li>
-<li><h2 id="接口层（数据链路层）：-功能：处理局域网内的设备间数据传输，路由器下面有多个设备-协议：Ethernet（有线链接）、Wi-Fi（无线连接）。-VLAN：虚拟局域网-STP：生成树协议"><a href="#接口层（数据链路层）：-功能：处理局域网内的设备间数据传输，路由器下面有多个设备-协议：Ethernet（有线链接）、Wi-Fi（无线连接）。-VLAN：虚拟局域网-STP：生成树协议" class="headerlink" title="接口层（数据链路层）：- 功能：处理局域网内的设备间数据传输，路由器下面有多个设备- 协议：Ethernet（有线链接）、Wi-Fi（无线连接）。  - VLAN：虚拟局域网  - STP：生成树协议"></a><strong>接口层（数据链路层）</strong>：<br>- <strong>功能</strong>：处理局域网内的设备间数据传输，路由器下面有多个设备<br>- <strong>协议</strong>：Ethernet（有线链接）、Wi-Fi（无线连接）。<br>  - <strong>VLAN</strong>：虚拟局域网<br>  - <strong>STP</strong>：生成树协议</h2><ul>
+<li><strong>接口层（数据链路层）</strong>：<ul>
+<li><strong>功能</strong>：处理局域网内的设备间数据传输，路由器下面有多个设备</li>
+<li><strong>协议</strong>：Ethernet（有线链接）、Wi-Fi（无线连接）。<ul>
+<li><strong>VLAN</strong>：虚拟局域网</li>
+<li><strong>STP</strong>：生成树协议</li>
+<li></li>
+</ul>
+</li>
 <li><strong>MAC 地址</strong>：使用源 MAC 和目标 MAC 地址识别设备。</li>
 <li><strong>重点</strong>：通过**<u>MAC</u>地址**确保数据传输到正确的设备。</li>
 </ul>
 </li>
 </ol>
 <p><strong>家庭网络通信图：</strong></p>
-<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/imgimage-20241114102930430.png" alt="image-20241114102930430" style="zoom: 50%;" />
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/imgimage-20241114102930430.png" alt="image-20241114102930430" style="zoom: 50%;">
 
-<p>下面的内容按照 TCP&#x2F;IP 四层模型的顺序编写</p>
+<p>下面的内容按照 TCP/IP 四层模型的顺序编写</p>
 <hr>
 <h2 id="一-接口层"><a href="#一-接口层" class="headerlink" title="一, 接口层"></a>一, 接口层</h2><p>掌握以太网交换的基本流程，学习 MAC 地址的概念及学习机制，包括 MAC 地址表的构建和维护原理。</p>
-<h3 id="CSMA-CD"><a href="#CSMA-CD" class="headerlink" title="CSMA&#x2F;CD"></a><strong>CSMA&#x2F;CD</strong></h3><p>（Carrier Sense Multiple Access with Collision Detection，载波监听多路访问&#x2F;碰撞检测）</p>
+<h3 id="CSMA-CD"><a href="#CSMA-CD" class="headerlink" title="CSMA/CD"></a><strong>CSMA/CD</strong></h3><p>（Carrier Sense Multiple Access with Collision Detection，载波监听多路访问/碰撞检测）</p>
 <p>用于解决多台设备在共享传输介质上发送数据时的冲突问题。</p>
 <ol>
 <li><p><strong>载波监听</strong>：设备在发送数据之前，先监听共享的网络介质（如以太网电缆），检查是否有其他设备在发送数据。</p>
@@ -499,8 +651,8 @@
 <li><p><strong>碰撞检测</strong>：如果两个设备同时开始发送数据，发生碰撞后，设备会停止发送，等待随机的一段时间后再重新尝试发送。</p>
 </li>
 </ol>
-<p>由于现在以太网大多采用交换机，实现了<strong>全双工通信</strong>，CSMA&#x2F;CD 已经在现代交换式网络中逐渐不再使用。但在早期的共享式网络（如<strong>集线器网络</strong>）中，它是确保数据顺利传输的关键机制。</p>
-<h3 id="1-MAC-地址"><a href="#1-MAC-地址" class="headerlink" title="1. MAC 地址"></a>1. <u><strong>MAC 地址</strong></u></h3><p><code>Media Access Control Address</code>，介质访问控制地址，**<u>是一个 12 位（十六进制）的硬件地址</u>**</p>
+<p>由于现在以太网大多采用交换机，实现了<strong>全双工通信</strong>，CSMA/CD 已经在现代交换式网络中逐渐不再使用。但在早期的共享式网络（如<strong>集线器网络</strong>）中，它是确保数据顺利传输的关键机制。</p>
+<h3 id="1-MAC-地址"><a href="#1-MAC-地址" class="headerlink" title="1. MAC 地址"></a>1. <u><strong>MAC 地址</strong></u></h3><p><code>Media Access Control Address</code>，介质访问控制地址，<strong><u>是一个 12 位（十六进制）的硬件地址</u></strong></p>
 <p>主要<strong>用于标识具体设备</strong>。</p>
 <p>MAC 地址的结构可以分为前 3 字和后 3 字节：</p>
 <ul>
@@ -583,9 +735,9 @@
 </ol>
 <p><strong>Trunk 的配置方法</strong></p>
 <p>假设在交换机上配置端口为 Trunk 模式，允许 VLAN 10、20 和 30 通过，Native VLAN 为 99，配置示例如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入接口配置模式</span></span><br><span class="line"><span class="meta prompt_">Switch(config)# </span><span class="language-bash">interface GigabitEthernet0/1</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将端口设置为Trunk模式</span></span><br><span class="line"><span class="meta prompt_">Switch(config-if)# </span><span class="language-bash">switchport mode trunk</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定允许通过的VLAN列表</span></span><br><span class="line"><span class="meta prompt_">Switch(config-if)# </span><span class="language-bash">switchport trunk allowed vlan 10,20,30</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入接口配置模式</span></span><br><span class="line"><span class="meta prompt_">Switch(config)# </span><span class="language-bash">interface GigabitEthernet0/1</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将端口设置为Trunk模式</span></span><br><span class="line"><span class="meta prompt_">Switch(config-if)# </span><span class="language-bash">switchport mode trunk</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定允许通过的VLAN列表</span></span><br><span class="line"><span class="meta prompt_">Switch(config-if)# </span><span class="language-bash">switchport trunk allowed vlan 10,20,30</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>完成配置后，GigabitEthernet0&#x2F;1 端口将作为 Trunk 端口，允许 VLAN 10、20 和 30 的数据帧通过</p>
+<p>完成配置后，GigabitEthernet0/1 端口将作为 Trunk 端口，允许 VLAN 10、20 和 30 的数据帧通过</p>
 <ul>
 <li><del><strong>iStack</strong>（Intelligent Stack，智能堆叠）：将多个交换机虚拟成一个逻辑交换机以便统一管理。</del></li>
 <li><del><strong>CSS</strong>（Cluster Switching System，集群交换系统）：将多台设备集群为一体。</del></li>
@@ -653,7 +805,7 @@
 </li>
 <li><p><strong>简化的端口状态</strong>：</p>
 <ul>
-<li>RSTP 将端口状态从 STP 的五种状态减少为三种：<strong>丢弃（Discarding）</strong>、<strong>学习（Learning）</strong>和<strong>转发（Forwarding）</strong>。丢弃状态相当于 STP 中的阻塞状态。</li>
+<li>RSTP 将端口状态从 STP 的五种状态减少为三种：<strong>丢弃（Discarding）</strong>、<strong>学习（Learning）<strong>和</strong>转发（Forwarding）</strong>。丢弃状态相当于 STP 中的阻塞状态。</li>
 <li>丢弃状态避免了数据包的转发，但仍然允许 BPDU 的处理和交换。</li>
 </ul>
 </li>
@@ -684,12 +836,12 @@
 <h3 id="6-LACP（Link-Aggregation-Control-Protocol，链路聚合控制协议）"><a href="#6-LACP（Link-Aggregation-Control-Protocol，链路聚合控制协议）" class="headerlink" title="6.LACP（Link Aggregation Control Protocol，链路聚合控制协议）"></a>6.LACP（Link Aggregation Control Protocol，链路聚合控制协议）</h3><p>LACP 是 IEEE 802.1AX 标准的一部分，用于在交换机或网络设备之间聚合多个物理链路形成一个逻辑链路，从而提高带宽和冗余性。</p>
 <p>LACP 通过自动协商链路聚合的配置，增强了链路的可靠性和传输效率。</p>
 <hr>
-<h2 id="二-网络层"><a href="#二-网络层" class="headerlink" title="二, 网络层"></a>二, 网络层</h2><h3 id="IP-数据报"><a href="#IP-数据报" class="headerlink" title="IP 数据报"></a>IP 数据报</h3><h3 id=""><a href="#" class="headerlink" title=""></a><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/imgf9349a893216fd707278de6142ea4d29.png" alt="img" style="zoom:50%;" /></h3><h4 id="ip-数据包首部部分详解"><a href="#ip-数据包首部部分详解" class="headerlink" title="ip 数据包首部部分详解"></a>ip 数据包首部部分详解</h4><p>1、版本：从图中可以看到，版本字段占 4 位。<strong>记录着通信双方使用的 IP 协议版本</strong>，比如 IPv4、IPv6，目前广泛使用的是<strong>IPv4</strong>。</p>
-<p>2、<u>首部长度：占 4 位，表示的<strong>单位为 4 字节</strong></u>，比如 1111（十进制的 15）就代表首部长度为 60 字节（15*4&#x3D;60）.以 4 字节的整数倍划分，不足则填充。**<u>最常用的首部长度为 0101（20 字节）</u>**。</p>
-<p>3、区分服务：**<u>占 8 位</u>**：</p>
-<h5 id="DSCP（Differentiated-Services-Code-Point，区分服务代码点）"><a href="#DSCP（Differentiated-Services-Code-Point，区分服务代码点）" class="headerlink" title="DSCP（Differentiated Services Code Point，区分服务代码点）"></a><u>DSCP（Differentiated Services Code Point，区分服务代码点）</u></h5><p><strong>功能</strong>：**<u>为 IP 数据包设置优先级，提供 QoS 管理</u>**</p>
+<h2 id="二-网络层"><a href="#二-网络层" class="headerlink" title="二, 网络层"></a>二, 网络层</h2><h3 id="IP-数据报"><a href="#IP-数据报" class="headerlink" title="IP 数据报"></a>IP 数据报</h3><h3 id=""><a href="#" class="headerlink" title=""></a><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/imgf9349a893216fd707278de6142ea4d29.png" alt="img" style="zoom:50%;"></h3><h4 id="ip-数据包首部部分详解"><a href="#ip-数据包首部部分详解" class="headerlink" title="ip 数据包首部部分详解"></a>ip 数据包首部部分详解</h4><p>1、版本：从图中可以看到，版本字段占 4 位。<strong>记录着通信双方使用的 IP 协议版本</strong>，比如 IPv4、IPv6，目前广泛使用的是<strong>IPv4</strong>。</p>
+<p>2、<u>首部长度：占 4 位，表示的<strong>单位为 4 字节</strong></u>，比如 1111（十进制的 15）就代表首部长度为 60 字节（15*4=60）.以 4 字节的整数倍划分，不足则填充。<strong><u>最常用的首部长度为 0101（20 字节）</u></strong>。</p>
+<p>3、区分服务：<strong><u>占 8 位</u></strong>：</p>
+<h5 id="DSCP（Differentiated-Services-Code-Point，区分服务代码点）"><a href="#DSCP（Differentiated-Services-Code-Point，区分服务代码点）" class="headerlink" title="DSCP（Differentiated Services Code Point，区分服务代码点）"></a><u>DSCP（Differentiated Services Code Point，区分服务代码点）</u></h5><p><strong>功能</strong>：<strong><u>为 IP 数据包设置优先级，提供 QoS 管理</u></strong></p>
 <p>以便网络设备（如路由器、交换机等）可以根据这些优先级来调度和管理流量，从而实现网络资源的合理分配，满足各种应用对带宽、延迟、抖动等的要求。</p>
-<p><strong>DSCP 字段位置</strong>：<br>对于**<u>IPv4 数据包</u><strong>，DSCP 使用<u>8</strong>位的服务字段中的前**6 位</u>；对于 IPv6 数据包，它位于流量分类字段中。</p>
+<p><strong>DSCP 字段位置</strong>：<br>对于**<u>IPv4 数据包</u><strong>，DSCP 使用<u>8</u></strong><u>位的服务字段中的前**6 位</u>；对于 IPv6 数据包，它位于流量分类字段中。</p>
 <p><strong>DSCP 值的定义</strong>：<br>DSCP 的 6 个位可组合成 64 个不同的值（从 0 到 63），每个值可以用来代表不同的流量优先级。通常，网络管理员会将这些值划分为若干类，如“默认流量”、“保障流量”、“最高优先级”等，以区分不同的数据流。比如，语音和视频流量一般会被设置为较高的优先级，以减少延迟和抖动，而普通的网页浏览和邮件流量则优先级较低。</p>
 <p>常用在：</p>
 <p><strong>企业网络</strong>：在企业网络中，可以通过 DSCP 对语音、视频和数据流量进行分类，确保语音和视频等延迟敏感的应用优先通过，提升通话和会议质量。</p>
@@ -697,26 +849,26 @@
 <p><strong>数据中心</strong>：数据中心内部流量种类繁多，通过 DSCP 区分不同流量（如存储数据、虚拟机迁移等）可以有效保证各类业务的服务质量。</p>
 <h5 id="配置-DSCP"><a href="#配置-DSCP" class="headerlink" title="配置 DSCP"></a>配置 DSCP</h5><p>DSCP 配置通常在网络设备的 QoS 配置中完成。管理员可以在数据包进入网络时根据应用类型或用户需求为数据包设定 DSCP 值，也可以通过网络设备（如路由器、交换机）对经过的流量自动设置或重写 DSCP 值。</p>
 <p><strong>示例</strong>：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//复制代码在网络设备上，为所有发往特定应用服务器的数据包标记DSCP为“EF”（即DSCP值为46）：</span></span><br><span class="line">policy-map voice-policy</span><br><span class="line"> <span class="keyword">class</span> <span class="title class_">voice</span></span><br><span class="line">  set dscp ef</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//复制代码在网络设备上，为所有发往特定应用服务器的数据包标记DSCP为“EF”（即DSCP值为46）：</span></span><br><span class="line">policy-map voice-policy</span><br><span class="line"> <span class="keyword">class</span> <span class="title class_">voice</span></span><br><span class="line">  set dscp ef</span><br></pre></td></tr></tbody></table></figure>
 
 <p><u><strong>4、总长度</strong></u></p>
 <p><u>即<strong>首部长度和数据长度之和</strong>。</u>占 16 位。因此，最大长度可知为 16 位都是 1，就是<strong>65535 字节。</strong></p>
-<p>在 IP 层下层数据链路层存在自己的帧格式，**<u>帧格式的数据字段最大传送单元（MTU）是 1500 字节</u>**。尽可能长的数据报能够提高传输效率，实际中数据报长度很少大于 1500 字节。所以，IP 标准规定：所有主机和路由器的 IP 数据报长度不能小于 576 字节。</p>
+<p>在 IP 层下层数据链路层存在自己的帧格式，<strong><u>帧格式的数据字段最大传送单元（MTU）是 1500 字节</u></strong>。尽可能长的数据报能够提高传输效率，实际中数据报长度很少大于 1500 字节。所以，IP 标准规定：所有主机和路由器的 IP 数据报长度不能小于 576 字节。</p>
 <p>如果数据报长度超过 MTU，则将进行分片后再传送，与后面的片偏移相关。然后<strong>总长度就成了分片后每个分片的首部和数据的长度之和</strong>。</p>
 <p>5、标识</p>
 <p>占 16 位。在实际 IP 中，维持了一个计数器，每产生一个数据报，计数其加 1，存放到该字段。IP 是无连接服务，不存在按序接收问题，该标识不是序号，而是<strong>在进行分片之后对相同的数据报进行标识</strong>，<strong>属于同一个数据报的标识相同，以便到达目的后被重新封装为原来的数据报</strong>。</p>
 <p><del>6、标志</del></p>
 <p><del>占 3 位。目前使用 2 两位有意义的。</del></p>
-<p><del>最低位：MF（More Fragment）还有分片，MF&#x3D;0 时说明是最后一个分片。</del></p>
-<p><del>中间位：DF（Don‘t Fragment）不能分片，DF&#x3D;0 时才能分片。</del></p>
+<p><del>最低位：MF（More Fragment）还有分片，MF=0 时说明是最后一个分片。</del></p>
+<p><del>中间位：DF（Don‘t Fragment）不能分片，DF=0 时才能分片。</del></p>
 <p>7、片偏移</p>
 <p>占 13 位。<strong>用于记录较长分组中，一个分片在原数据报中的相对位置</strong>。片偏移以 8 字节为单位，长度是 8 字节的整数倍。</p>
 <blockquote>
 <p><del>假设一个数据报总长度为 3820 字节。首部 20 字节和数据 3800 字节。现在要求长度不超过 1420 字节，那么它的每个分片为多少呢？</del></p>
 <p><del>我们简单分析一下，<strong>数据部分尽可能长的可以分为 1400,1400,1000 三个分片</strong>，这样再加上首部满足小于 1420 字节。</del></p>
-<p><del>分片一：0-1399 字节，因此片偏移&#x3D;0&#x2F;8&#x3D;0</del></p>
-<p><del>分片二：1400-2799 字节,片偏移&#x3D;1400&#x2F;8&#x3D;175</del></p>
-<p><del>分片三：2800-3800 字节,片偏移&#x3D;2800&#x2F;8&#x3D;350</del></p>
+<p><del>分片一：0-1399 字节，因此片偏移=0/8=0</del></p>
+<p><del>分片二：1400-2799 字节,片偏移=1400/8=175</del></p>
+<p><del>分片三：2800-3800 字节,片偏移=2800/8=350</del></p>
 <p><del>很容易就计算出每个分片的片偏移。</del></p>
 </blockquote>
 <p>8、生存时间</p>
@@ -729,7 +881,7 @@
 </ul>
 <p>9、协议</p>
 <p>占 8 位。指明数据报携带的数据是使用什么协议，方便目的主机的 IP 层将数据交给对应的程序处理，这里列举常用的几个。</p>
-<table>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>协议</th>
@@ -748,11 +900,11 @@
 <td>17</td>
 <td>89</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>10、首部检验和</p>
 <p>占 16 位。只校验数据报首部，不包括数据部分。这样可以减少计算量，同时不采用复杂的 CRC 检验码，而是使用简单的**<u>反码算术运算</u>**。</p>
 <p><del>反码算术运算：将数据报首部划分为多个 16 位的序列，16 位序列相加之和取反码，写入检验和。接收方再将首部 16 位序列（包含检验和的 16 位）相加之和取反码，结果为 0 则说明数据报正确，否则丢弃。</del></p>
-<h3 id="ip-地址，子网，广播地址计算题举例"><a href="#ip-地址，子网，广播地址计算题举例" class="headerlink" title="ip 地址，子网，广播地址计算题举例"></a>ip 地址，子网，广播地址计算题举例</h3><h6 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="G:\ICT\华为ICT 网络赛道 初级 知识点.assets\image-20241115233601591-1731684974974-1.png" alt="image-20241115233601591" style="zoom:50%;" /></h6><h3 id="IPSec（Internet-Protocol-Security，IP-包加密）"><a href="#IPSec（Internet-Protocol-Security，IP-包加密）" class="headerlink" title="IPSec（Internet Protocol Security，IP 包加密）"></a><strong>IPSec（Internet Protocol Security，IP 包加密）</strong></h3><p>是一套协议和标准，用于在 IP 网络（如互联网或私有网络）上实现数据包的加密、认证、数据完整性验证和重放保护。</p>
+<h3 id="ip-地址，子网，广播地址计算题举例"><a href="#ip-地址，子网，广播地址计算题举例" class="headerlink" title="ip 地址，子网，广播地址计算题举例"></a>ip 地址，子网，广播地址计算题举例</h3><h6 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="G:\ICT\华为ICT 网络赛道 初级 知识点.assets\image-20241115233601591-1731684974974-1.png" alt="image-20241115233601591" style="zoom:50%;"></h6><h3 id="IPSec（Internet-Protocol-Security，IP-包加密）"><a href="#IPSec（Internet-Protocol-Security，IP-包加密）" class="headerlink" title="IPSec（Internet Protocol Security，IP 包加密）"></a><strong>IPSec（Internet Protocol Security，IP 包加密）</strong></h3><p>是一套协议和标准，用于在 IP 网络（如互联网或私有网络）上实现数据包的加密、认证、数据完整性验证和重放保护。</p>
 <p>主要应用于 VPN（虚拟专用网络）中，确保在公网传输的数据安全可靠。</p>
 <p>IPSec 工作在网络层，能够保护所有基于 IP 的应用，不需要应用层的额外支持。</p>
 <h4 id="IPSec-的两种工作模式"><a href="#IPSec-的两种工作模式" class="headerlink" title="IPSec 的两种工作模式"></a>IPSec 的两种工作模式</h4><ul>
@@ -763,7 +915,7 @@
 <p>这种模式常用于 VPN 应用，因为它可以保护整个数据包在不安全的网络中传输，适合网关到网关的加密通信。</p>
 </li>
 </ul>
-<h4 id="ICMP（Internet-Control-Message-Protocol，互联网控制消息协议）"><a href="#ICMP（Internet-Control-Message-Protocol，互联网控制消息协议）" class="headerlink" title="ICMP（Internet Control Message Protocol，互联网控制消息协议）"></a><u>ICMP</u>（Internet Control Message Protocol，互联网控制消息协议）</h4><h3 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/imge5e43605e57f1edf4aba6479be28821e.png" alt="img" style="zoom:50%;" /></h3><p>是互联网协议族中的一种核心协议，位于 IP 协议的上层。</p>
+<h4 id="ICMP（Internet-Control-Message-Protocol，互联网控制消息协议）"><a href="#ICMP（Internet-Control-Message-Protocol，互联网控制消息协议）" class="headerlink" title="ICMP（Internet Control Message Protocol，互联网控制消息协议）"></a><u>ICMP</u>（Internet Control Message Protocol，互联网控制消息协议）</h4><h3 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/imge5e43605e57f1edf4aba6479be28821e.png" alt="img" style="zoom:50%;"></h3><p>是互联网协议族中的一种核心协议，位于 IP 协议的上层。</p>
 <p>它主要用于传输控制信息和错误报告，以帮助管理和诊别网络中的问题。</p>
 <p>ICMP 是一种特殊的数据，用来报告网络通信中的错误情况或传递控制消息。</p>
 <p>ICMP 协议的功能：</p>
@@ -771,9 +923,9 @@
 <li><p><strong>错误报告</strong>：当 IP 层无法传输数据时，ICMP 协议会通知源主机，以便做出相应的调整。</p>
 </li>
 <li><p><strong>网络诊断</strong>：如**<u>ping</u>**命令测试和目标 ip 的连通性</p>
-<p>.<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/imgac98c0aca570279859ed5e719fa18245.png" alt="img" style="zoom: 50%;" /></p>
+<p>.<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/imgac98c0aca570279859ed5e719fa18245.png" alt="img" style="zoom: 50%;"></p>
 </li>
-<li><p><strong>路由诊断</strong>：通过“路由跟踪”命令（**<u>tracert</u>**）诊断数据包经过了那些路由器</p>
+<li><p><strong>路由诊断</strong>：通过“路由跟踪”命令（<strong><u>tracert</u></strong>）诊断数据包经过了那些路由器</p>
 </li>
 </ul>
 <h3 id="路由技术"><a href="#路由技术" class="headerlink" title="路由技术"></a>路由技术</h3><p>路由负责在不同网段之间转发数据包</p>
@@ -793,7 +945,7 @@
 </ul>
 </li>
 <li><p>IPv4 地址分类：</p>
-<table>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>类别</th>
@@ -838,7 +990,7 @@
 <td>预留地址，通常用于科研实验和未来用途</td>
 <td>1111</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 </li>
 </ul>
 <h4 id="2-OSPF（Open-Shortest-Path-First，开放最短路径优先算法）"><a href="#2-OSPF（Open-Shortest-Path-First，开放最短路径优先算法）" class="headerlink" title="2. OSPF（Open Shortest Path First，开放最短路径优先算法）"></a><u>2. OSPF（Open Shortest Path First，开放最短路径优先算法）</u></h4><p>和 ICMP 一样，存在 IP 数据报最后的数据部分。</p>
@@ -872,13 +1024,13 @@
 <li><u>最后，接收方通过 <strong>LSAck 报文</strong> 确认收到的 LSU，确保数据一致性，进入 <strong>Full</strong> 状态。</u></li>
 </ul>
 <p>在 OSPF（Open Shortest Path First）协议中，<strong>DR</strong>（<strong>Designated Router</strong>，指定路由器）是一种特殊的路由器角色，主要用于多访问（Multi-Access）网络类型，例如互联网。DR 的引入可以减少 OSPF 邻居关系的数量，从而降低网络的开销和收敛时间。下面是 DR 的详细解释：</p>
-<h5 id="2-1-DR（Designated-Router，指定路由器）"><a href="#2-1-DR（Designated-Router，指定路由器）" class="headerlink" title="2.1 DR（Designated Router，指定路由器）"></a>2.1 <u><strong>DR</strong>（<strong>Designated Router</strong>，指定路由器）</u></h5><p>在一个多访问网络上，每台路由器都可以与其它路由器建立邻居关系。如果不使用 DR，N 台路由器会形成 $(N \times (N - 1) &#x2F; 2)$个邻居关系，这样会带来大量的 Hello、LSA（Link State Advertisement，链路状态通告）和 LSU（Link State Update，链路状态更新）信息，影响网络性能。DR 的引入简化了这些情况情况：</p>
+<h5 id="2-1-DR（Designated-Router，指定路由器）"><a href="#2-1-DR（Designated-Router，指定路由器）" class="headerlink" title="2.1 DR（Designated Router，指定路由器）"></a>2.1 <u><strong>DR</strong>（<strong>Designated Router</strong>，指定路由器）</u></h5><p>在一个多访问网络上，每台路由器都可以与其它路由器建立邻居关系。如果不使用 DR，N 台路由器会形成 $(N \times (N - 1) / 2)$个邻居关系，这样会带来大量的 Hello、LSA（Link State Advertisement，链路状态通告）和 LSU（Link State Update，链路状态更新）信息，影响网络性能。DR 的引入简化了这些情况情况：</p>
 <ul>
 <li>DR 在该多访问网络上集中管理和维护所有 OSPF 邻居关系。</li>
 <li>其它路由器只需与 DR（以及备份 DR，BDR）建立邻居关系，而不必直接与网络中的所有其它路由器建立关系。</li>
 <li>DR 负责在网络中生成和分发该网络的 LSA，使所有路由器能够了解该网络的状态信息。</li>
 </ul>
-<p>.<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="C:\Users\One\OneDrive\桌面\ICT\华为ICT 网络赛道 初级 知识点.assets\download.png" alt="选举DR前后对比图" style="zoom:67%;" /></p>
+<p>.<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="C:\Users\One\OneDrive\桌面\ICT\华为ICT 网络赛道 初级 知识点.assets\download.png" alt="选举DR前后对比图" style="zoom:67%;"></p>
 <ul>
 <li><p><strong>DR 选举</strong><br>在 OSPF 网络启动时，每台路由器在网络中通过 Hello 报文参与 DR 和<strong>BDR</strong>（<strong>Backup</strong> Designated Router，<strong>备份</strong>指定路由器）的选举过程。选举基于以下两个条件：</p>
 <ol>
@@ -898,7 +1050,7 @@
 <li><strong>BDR</strong>不主动参与数据转发，但在 DR 故障时会立即接管成为新的 DR。</li>
 </ul>
 <p><strong><u>配置示例！！！！！</u></strong><br>在 OSPF 配置中，可以通过设置接口的优先级来影响 DR 选举。例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">interface GigabitEthernet0/0</span><br><span class="line">ip ospf priority 100</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">interface GigabitEthernet0/0</span><br><span class="line">ip ospf priority 100</span><br></pre></td></tr></tbody></table></figure>
 
 <p>此配置将接口的优先级设置为 100，使其更可能被选举为 DR。</p>
 <h4 id="3-OSPFv3（OSPF-协议的-IPv6-版本）"><a href="#3-OSPFv3（OSPF-协议的-IPv6-版本）" class="headerlink" title="3. OSPFv3（OSPF 协议的 IPv6 版本）"></a>3. OSPFv3（OSPF 协议的 IPv6 版本）</h4><p><strong>OSPFv3</strong>是 OSPF 协议的 IPv6 版本，用于 IPv6 网络中，实现了对 IPv6 地址格式的支持。</p>
@@ -916,7 +1068,7 @@
 <li><p>配置网络：在接口模式下使用<code>ipv6 ospf &lt;进程号&gt; area &lt;区域号&gt;</code>。</p>
 </li>
 <li><p>例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipv6 router ospf 1</span><br><span class="line">interface GigabitEthernet0/0</span><br><span class="line">ipv6 ospf 1 area 0</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipv6 router ospf 1</span><br><span class="line">interface GigabitEthernet0/0</span><br><span class="line">ipv6 ospf 1 area 0</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 </li>
 <li><p>缺省情况下，在以太网链路上发送 OSPFv3 <strong>Hello</strong> 报文的周期为 <strong>10 秒</strong>。这个时间间隔用于 OSPFv3 邻居之间的状态保持和链路检测，确保邻居关系的正常建立和维持。</p>
@@ -937,7 +1089,7 @@
 <li><p>配置网络：进入接口模式，指定接口类型。</p>
 </li>
 <li><p>例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router isis 1</span><br><span class="line">net 49.0001.1921.6800.1001.00</span><br><span class="line">interface GigabitEthernet0/0</span><br><span class="line">isis enable</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router isis 1</span><br><span class="line">net 49.0001.1921.6800.1001.00</span><br><span class="line">interface GigabitEthernet0/0</span><br><span class="line">isis enable</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -954,17 +1106,17 @@
 <li><p><strong>BGP 配置</strong>：</p>
 <ul>
 <li><p>例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启用BGP（Border Gateway Protocol，边界网关协议），并设置本地自治系统（AS）编号为100</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">格式：router bgp &lt;AS号&gt;</span></span><br><span class="line">router bgp 100</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置一个BGP邻居，其IP地址为192.168.1.1，远程自治系统（AS）编号为200</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">格式：neighbor &lt;邻居地址&gt; remote-as &lt;邻居AS号&gt;</span></span><br><span class="line">neighbor 192.168.1.1 remote-as 200</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启用BGP（Border Gateway Protocol，边界网关协议），并设置本地自治系统（AS）编号为100</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">格式：router bgp &lt;AS号&gt;</span></span><br><span class="line">router bgp 100</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置一个BGP邻居，其IP地址为192.168.1.1，远程自治系统（AS）编号为200</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">格式：neighbor &lt;邻居地址&gt; remote-as &lt;邻居AS号&gt;</span></span><br><span class="line">neighbor 192.168.1.1 remote-as 200</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 </li>
 </ul>
-<h4 id="6-ACL（Access-Control-List，访问控制列表）"><a href="#6-ACL（Access-Control-List，访问控制列表）" class="headerlink" title="6. ACL（Access Control List，访问控制列表）"></a><u>6. ACL（Access Control List，访问控制列表）</u></h4><p><strong>ACL 在路由器上用于控制网络流量</strong>，可以基于源&#x2F;目的地址、端口等条件对数据包进行允许或拒绝操作。ACL 广泛用于流量过滤和访问控制。</p>
+<h4 id="6-ACL（Access-Control-List，访问控制列表）"><a href="#6-ACL（Access-Control-List，访问控制列表）" class="headerlink" title="6. ACL（Access Control List，访问控制列表）"></a><u>6. ACL（Access Control List，访问控制列表）</u></h4><p><strong>ACL 在路由器上用于控制网络流量</strong>，可以基于源/目的地址、端口等条件对数据包进行允许或拒绝操作。ACL 广泛用于流量过滤和访问控制。</p>
 <ul>
 <li><p><strong>ACL 的原理</strong>：</p>
 <ul>
 <li><strong>类型分类</strong>：<ul>
 <li>标准 ACL：仅基于源地址进行匹配。</li>
-<li>扩展 ACL：可基于源&#x2F;目的地址、协议类型、端口号等多种条件匹配。</li>
+<li>扩展 ACL：可基于源/目的地址、协议类型、端口号等多种条件匹配。</li>
 </ul>
 </li>
 <li><u><strong>匹配机制</strong>：</u><ol>
@@ -980,7 +1132,7 @@
 <ul>
 <li><u>四层 ACL：</u><ul>
 <li><u>基本 ACL（2000-2999）：基于源 IP 地址。</u></li>
-<li><u>高级 ACL（3000-3999）：基于五元组（源&#x2F;目的地址、端口号、协议等）。</u></li>
+<li><u>高级 ACL（3000-3999）：基于五元组（源/目的地址、端口号、协议等）。</u></li>
 <li><u>二层 ACL（4000-4999）：基于链路层（如 MAC 地址）。</u></li>
 <li><u>用户自定义 ACL（5000-5999）：灵活定义匹配规则。</u></li>
 <li><u>用户 ACL（6000-6999）：特定用途的访问控制规则。</u></li>
@@ -995,7 +1147,7 @@
 </ul>
 </li>
 <li><p><strong>ACL 配置</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建一个标准访问控制列表（ACL），编号为10，允许来自192.168.1.0/24子网的流量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">格式为：access-list &lt;编号&gt; permit/deny &lt;条件&gt;</span></span><br><span class="line">access-list 10 permit 192.168.1.0 0.0.0.255</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入GigabitEthernet0/1接口的配置模式</span></span><br><span class="line">interface GigabitEthernet0/1</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在GigabitEthernet0/1接口上应用编号为10的ACL，方向为入站（<span class="keyword">in</span>），即控制进入该接口的流量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ip access-group &lt;编号&gt; <span class="keyword">in</span>/out</span></span><br><span class="line">ip access-group 10 in</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建一个标准访问控制列表（ACL），编号为10，允许来自192.168.1.0/24子网的流量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">格式为：access-list &lt;编号&gt; permit/deny &lt;条件&gt;</span></span><br><span class="line">access-list 10 permit 192.168.1.0 0.0.0.255</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入GigabitEthernet0/1接口的配置模式</span></span><br><span class="line">interface GigabitEthernet0/1</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在GigabitEthernet0/1接口上应用编号为10的ACL，方向为入站（<span class="keyword">in</span>），即控制进入该接口的流量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ip access-group &lt;编号&gt; <span class="keyword">in</span>/out</span></span><br><span class="line">ip access-group 10 in</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <h4 id="7-IP-Prefix-List-（前缀列表）"><a href="#7-IP-Prefix-List-（前缀列表）" class="headerlink" title="7. IP Prefix List （前缀列表）"></a>7. IP Prefix List （前缀列表）</h4><p><strong>IP Prefix List 是一种更精细的 ACL</strong>，用于定义 IP 前缀和长度范围，以便灵活控制路由选择。</p>
 <ul>
@@ -1011,7 +1163,7 @@
 <li><p>应用到路由协议：在 BGP 配置模式中应用前缀列表。</p>
 </li>
 <li><p>例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建一个名为FILTER的前缀列表，序列号为5，允许192.168.0.0/16网段内前缀长度不超过24的路由</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">格式为：ip prefix-list &lt;名称&gt; <span class="built_in">seq</span> &lt;序号&gt; permit/deny &lt;前缀&gt;</span></span><br><span class="line">ip prefix-list FILTER seq 5 permit 192.168.0.0/16 le 24</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入BGP模式，AS号为100</span></span><br><span class="line">router bgp 100</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">对邻居192.168.1.1应用名为FILTER的前缀列表，方向为入站（<span class="keyword">in</span>），即控制从该邻居接收的路由</span></span><br><span class="line">neighbor 192.168.1.1 prefix-list FILTER in</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建一个名为FILTER的前缀列表，序列号为5，允许192.168.0.0/16网段内前缀长度不超过24的路由</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">格式为：ip prefix-list &lt;名称&gt; <span class="built_in">seq</span> &lt;序号&gt; permit/deny &lt;前缀&gt;</span></span><br><span class="line">ip prefix-list FILTER seq 5 permit 192.168.0.0/16 le 24</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入BGP模式，AS号为100</span></span><br><span class="line">router bgp 100</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">对邻居192.168.1.1应用名为FILTER的前缀列表，方向为入站（<span class="keyword">in</span>），即控制从该邻居接收的路由</span></span><br><span class="line">neighbor 192.168.1.1 prefix-list FILTER in</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -1020,7 +1172,7 @@
 <li><p><strong>路由策略和策略路由配置</strong>：</p>
 <ul>
 <li><p>例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建名为SET_METRIC的路由映射，允许符合条件的流量。</span></span><br><span class="line">route-map SET_METRIC permit 10</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">匹配访问列表10中的IP地址。</span></span><br><span class="line">match ip address 10</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将匹配到的路由度量值设为50。</span></span><br><span class="line">set metric 50</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入GigabitEthernet0/1接口配置。</span></span><br><span class="line">interface GigabitEthernet0/1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在GigabitEthernet0/1接口上应用SET_METRIC路由映射。</span></span><br><span class="line">ip policy route-map SET_METRIC</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建名为SET_METRIC的路由映射，允许符合条件的流量。</span></span><br><span class="line">route-map SET_METRIC permit 10</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">匹配访问列表10中的IP地址。</span></span><br><span class="line">match ip address 10</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将匹配到的路由度量值设为50。</span></span><br><span class="line">set metric 50</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入GigabitEthernet0/1接口配置。</span></span><br><span class="line">interface GigabitEthernet0/1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在GigabitEthernet0/1接口上应用SET_METRIC路由映射。</span></span><br><span class="line">ip policy route-map SET_METRIC</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -1055,8 +1207,8 @@
 <li>IPv6 过渡技术：掌握双栈、6PE、6VPE、NAT64 等过渡技术的原理及配置</li>
 </ul>
 <hr>
-<h3 id="三-传输层"><a href="#三-传输层" class="headerlink" title="三, 传输层"></a>三, 传输层</h3><h3 id="TCP-IP-协议"><a href="#TCP-IP-协议" class="headerlink" title="TCP&#x2F;IP 协议"></a>TCP&#x2F;IP 协议</h3><p>TCP&#x2F;IP 协议架构是网络通信的基础，它是互联网和局域网（LAN）通信的核心协议。TCP&#x2F;IP 架构由多个协议层次组成，每个层次负责不同的网络任务，确保数据从源端传输到目的端的正确性和可靠性。</p>
-<p>TCP&#x2F;IP 协议体系结构通常分为四层：</p>
+<h3 id="三-传输层"><a href="#三-传输层" class="headerlink" title="三, 传输层"></a>三, 传输层</h3><h3 id="TCP-IP-协议"><a href="#TCP-IP-协议" class="headerlink" title="TCP/IP 协议"></a>TCP/IP 协议</h3><p>TCP/IP 协议架构是网络通信的基础，它是互联网和局域网（LAN）通信的核心协议。TCP/IP 架构由多个协议层次组成，每个层次负责不同的网络任务，确保数据从源端传输到目的端的正确性和可靠性。</p>
+<p>TCP/IP 协议体系结构通常分为四层：</p>
 <ul>
 <li><strong>应用层</strong>：包括最接近用户的协议，处理具体应用的数据传输。例如：HTTP、FTP、SMTP 等。</li>
 <li><strong>传输层</strong>：主要负责端到端的数据传输，确保数据包的可靠性。包括 TCP（传输控制协议）和 UDP（用户数据报协议）。</li>
@@ -1078,7 +1230,7 @@
 <li><strong>工作原理</strong>：数据包通过 IP 层发送，但不进行握手或错误恢复。UDP 数据包通过源端口和目标端口识别应用进程。</li>
 <li><strong>配置</strong>：在应用程序中使用<code>socket()</code>创建 UDP 连接，发送和接收数据报文。</li>
 </ul>
-<h5 id="ARP（Address-Resolution-Protocol，地址解析协议）"><a href="#ARP（Address-Resolution-Protocol，地址解析协议）" class="headerlink" title="ARP（Address Resolution Protocol，地址解析协议）"></a><u><strong>ARP（Address Resolution Protocol，地址解析协议）</strong></u></h5><p>**<u>ARP 用于将 IP 地址转换为 MAC 地址</u>**。网络中设备通过 ARP 请求可以得知其他设备的 MAC 地址，从而能够在数据链路层发送数据帧。</p>
+<h5 id="ARP（Address-Resolution-Protocol，地址解析协议）"><a href="#ARP（Address-Resolution-Protocol，地址解析协议）" class="headerlink" title="ARP（Address Resolution Protocol，地址解析协议）"></a><u><strong>ARP（Address Resolution Protocol，地址解析协议）</strong></u></h5><p><strong><u>ARP 用于将 IP 地址转换为 MAC 地址</u></strong>。网络中设备通过 ARP 请求可以得知其他设备的 MAC 地址，从而能够在数据链路层发送数据帧。</p>
 <ul>
 <li><strong>配置</strong>：ARP 通常自动运行，但可使用<code>arp</code>命令查看或手动修改 ARP 表。</li>
 </ul>
@@ -1138,13 +1290,13 @@
 <li><strong>配置</strong>：AAA 通常通过 RADIUS 或 TACACS+等协议配置，管理员设定用户组权限、审计参数等，使 AAA 实现有效的访问控制和操作跟踪。</li>
 </ol>
 <h3 id="信息安全"><a href="#信息安全" class="headerlink" title="信息安全"></a>信息安全</h3><h4 id="信息安全基础"><a href="#信息安全基础" class="headerlink" title="信息安全基础"></a>信息安全基础</h4><ul>
-<li><strong>了解 TCP&#x2F;IP 和 OSI 模型</strong>：掌握网络通信中的分层模型，特别是 TCP&#x2F;IP 协议栈和 OSI 参考模型，为信息安全防护提供技术基础。</li>
+<li><strong>了解 TCP/IP 和 OSI 模型</strong>：掌握网络通信中的分层模型，特别是 TCP/IP 协议栈和 OSI 参考模型，为信息安全防护提供技术基础。</li>
 <li><strong>熟悉网络安全威胁防范</strong>：了解并防御常见安全威胁，如 DDoS 攻击、恶意软件、钓鱼网站，以及使用网络防护工具检测和防范威胁。</li>
 <li><strong>熟悉网络安全设备</strong>：掌握防火墙、入侵检测系统（IDS）、入侵防御系统（IPS）等设备的原理与配置。例如，防火墙可根据安全策略对流量进行过滤、转发或阻止，确保网络的边界安全。</li>
 </ul>
 <h4 id="信息安全管理技术"><a href="#信息安全管理技术" class="headerlink" title="信息安全管理技术"></a><u>信息安全管理技术</u></h4><ul>
 <li><strong>防火墙防护与趋势</strong>：<ul>
-<li>**<u>安全区域优先级</u>**：在华为防火墙中，每个安全区域都有一个唯一的优先级。</li>
+<li><strong><u>安全区域优先级</u></strong>：在华为防火墙中，每个安全区域都有一个唯一的优先级。</li>
 <li>区域之间默认优先级从高到低的排序为：<u><strong>Local &gt; Trust &gt; DMZ &gt; Untrust</strong></u>。</li>
 <li>其中：<ul>
 <li><strong>Local</strong>：设备自身的管理接口，优先级最高（优先级为 100）。</li>
@@ -1200,7 +1352,7 @@
 </ul>
 </li>
 <li>攻击与防御技术<ul>
-<li>信息收集、网络探测、Web 安全、病毒防范、DoS&#x2F;DDoS 攻击防御、主机安全、数据安全</li>
+<li>信息收集、网络探测、Web 安全、病毒防范、DoS/DDoS 攻击防御、主机安全、数据安全</li>
 </ul>
 </li>
 </ul>
@@ -1268,7 +1420,7 @@
 </li>
 <li><p><strong>WEP</strong>：基础加密方式，已不安全，但仍用于兼容性。</p>
 </li>
-<li><p><strong>WPA&#x2F;WPA2</strong>（Wi-Fi Protected Access）</p>
+<li><p><strong>WPA/WPA2</strong>（Wi-Fi Protected Access）</p>
 <p>增强的安全协议，使用动态密钥加密，推荐使用 WPA2。</p>
 <ul>
 <li><strong>WPA</strong>：采用 TKIP（临时密钥完整性协议）加密，相比 WEP 更安全，但仍存在一些漏洞。</li>
@@ -1303,7 +1455,7 @@
 </li>
 </ul>
 <p>原题举例：<br>工程师正在无线控制器上配置无线业务，配置命令行如下，那么以下关于该配置的描述，错误的是哪一项？</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[AC-wlan-view] security-profile name wlan-net</span><br><span class="line"><span class="comment"># 创建一个名为 wlan-net 的安全配置文件。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-sec-prof-wlan-net] security wpa-wpa2 dot1x aes</span><br><span class="line"><span class="comment"># 配置安全模式为 WPA-WPA2，认证方式为 802.1X，数据加密方式为 AES。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-sec-prof-wlan-net] quit</span><br><span class="line"><span class="comment"># 退出安全配置文件视图。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-view] ssid-profile name wlan-net</span><br><span class="line"><span class="comment"># 创建一个名为 wlan-net 的 SSID 配置文件。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-ssid-prof-wlan-net] ssid wlan-net</span><br><span class="line"><span class="comment"># 配置无线网络的 SSID 名称为 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-ssid-prof-wlan-net] quit</span><br><span class="line"><span class="comment"># 退出 SSID 配置文件视图。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-view] vap-profile name wlan-net</span><br><span class="line"><span class="comment"># 创建一个名为 wlan-net 的 VAP（虚拟接入点）配置文件。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] forward-mode direct-forward</span><br><span class="line"><span class="comment"># 配置用户数据的转发模式为直接转发（Direct-Forward），即数据不经过无线控制器。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] service-vlan vlan-id 101</span><br><span class="line"><span class="comment"># 将无线用户的业务流量映射到 VLAN 101。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] security-profile wlan-net</span><br><span class="line"><span class="comment"># 关联安全配置文件 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] authentication-profile wlan-net</span><br><span class="line"><span class="comment"># 关联认证配置文件 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] ssid-profile wlan-net</span><br><span class="line"><span class="comment"># 关联 SSID 配置文件 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] quit</span><br><span class="line"><span class="comment"># 退出 VAP 配置文件视图。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[AC-wlan-view] security-profile name wlan-net</span><br><span class="line"><span class="comment"># 创建一个名为 wlan-net 的安全配置文件。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-sec-prof-wlan-net] security wpa-wpa2 dot1x aes</span><br><span class="line"><span class="comment"># 配置安全模式为 WPA-WPA2，认证方式为 802.1X，数据加密方式为 AES。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-sec-prof-wlan-net] quit</span><br><span class="line"><span class="comment"># 退出安全配置文件视图。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-view] ssid-profile name wlan-net</span><br><span class="line"><span class="comment"># 创建一个名为 wlan-net 的 SSID 配置文件。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-ssid-prof-wlan-net] ssid wlan-net</span><br><span class="line"><span class="comment"># 配置无线网络的 SSID 名称为 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-ssid-prof-wlan-net] quit</span><br><span class="line"><span class="comment"># 退出 SSID 配置文件视图。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-view] vap-profile name wlan-net</span><br><span class="line"><span class="comment"># 创建一个名为 wlan-net 的 VAP（虚拟接入点）配置文件。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] forward-mode direct-forward</span><br><span class="line"><span class="comment"># 配置用户数据的转发模式为直接转发（Direct-Forward），即数据不经过无线控制器。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] service-vlan vlan-id 101</span><br><span class="line"><span class="comment"># 将无线用户的业务流量映射到 VLAN 101。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] security-profile wlan-net</span><br><span class="line"><span class="comment"># 关联安全配置文件 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] authentication-profile wlan-net</span><br><span class="line"><span class="comment"># 关联认证配置文件 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] ssid-profile wlan-net</span><br><span class="line"><span class="comment"># 关联 SSID 配置文件 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] quit</span><br><span class="line"><span class="comment"># 退出 VAP 配置文件视图。</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>A. 当前配置的无线信号的名称为 wlan-net<br>B. 终端接入无线网络需进行 802.1X 认证<br>C.用户数据转发方式为隧道转发（错，写的是直连）<br>D.用户的业务 VLAN 为 101</p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
@@ -1312,10 +1464,10 @@
 <script src="/js/markmap.js"></script>
 
 
-  <div class="tag-list">
+  <div class="article-tags">
     
       
-      <a class="tag" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机科学/计算机网络</a>
+      <a class="tag" href="/note/college/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>计算机科学&#x2F;计算机网络</a>
     
   </div>
 
@@ -1332,12 +1484,11 @@
     <section id="share">
       <div class="header"><span>分享文章</span></div>
       <div class="body">
-        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://skyforever.top/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0" /></div>
-        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0&title=华为ICT网络赛道初级知识点汇总笔记 - Sky Blog&summary=华为 ICT 网络赛道 初级 知识点汇总建议先看这两个视频快速入门：一个视频讲清楚家庭网络通信流程
-[如何解决代理中的 DNS 泄漏问题？][https://youtu.be/fqREM6b25SY?si=oz90i_7ZOWAwBF..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=华为ICT网络赛道初级知识点汇总笔记 - Sky Blog&amp;body=http://skyforever.top/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http:&#x2F;&#x2F;skyforever.top&#x2F;data&#x2F;notebooks&#x2F;%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0&#x2F;" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Fskyforever.top%2Fdata%2Fnotebooks%2F%25E5%258D%258E%25E4%25B8%25BAICT%25E7%25BD%2591%25E7%25BB%259C%25E8%25B5%259B%25E9%2581%2593%25E5%2588%259D%25E7%25BA%25A7%25E7%259F%25A5%25E8%25AF%2586%25E7%2582%25B9%25E6%25B1%2587%25E6%2580%25BB%25E7%25AC%2594%25E8%25AE%25B0%2F&title=%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0%20-%20Sky%20Blog&summary=%E5%8D%8E%E4%B8%BA%20ICT%20%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%20%E5%88%9D%E7%BA%A7%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E5%BB%BA%E8%AE%AE%E5%85%88%E7%9C%8B%E8%BF%99%E4%B8%A4%E4%B8%AA%E8%A7%86%E9%A2%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%A7%86%E9%A2%91%E8%AE%B2%E6%B8%85%E6%A5%9A%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E6%B5%81%E7%A8%8B%0A%5B%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E4%BB%A3%E7%90%86%E4%B8%AD%E7%9A%84%20DNS%20%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98%EF%BC%9F%5D%5Bhttps%3A%2F%2Fyoutu.be%2FfqREM6b25SY%3Fsi%3Doz90i_7ZOWAwBF..."><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0%20-%20Sky%20Blog&amp;body=http%3A%2F%2Fskyforever.top%2Fdata%2Fnotebooks%2F%25E5%258D%258E%25E4%25B8%25BAICT%25E7%25BD%2591%25E7%25BB%259C%25E8%25B5%259B%25E9%2581%2593%25E5%2588%259D%25E7%25BA%25A7%25E7%259F%25A5%25E8%25AF%2586%25E7%2582%25B9%25E6%25B1%2587%25E6%2580%25BB%25E7%25AC%2594%25E8%25AE%25B0%2F"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
         
         <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0"/>
+          <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http%3A%2F%2Fskyforever.top%2Fdata%2Fnotebooks%2F%25E5%258D%258E%25E4%25B8%25BAICT%25E7%25BD%2591%25E7%25BB%259C%25E8%25B5%259B%25E9%2581%2593%25E5%2588%259D%25E7%25BA%25A7%25E7%259F%25A5%25E8%25AF%2586%25E7%2582%25B9%25E6%25B1%2587%25E6%2580%25BB%25E7%25AC%2594%25E8%25AE%25B0%2F"/>
         </div>
         
       </div>
@@ -1353,7 +1504,7 @@
     <section class='body cmt-body giscus'>
       
 
-<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+<div class="lazy-icon"></div>
 
 <div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
 
@@ -1362,12 +1513,23 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0">Stellar 1.44.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
 </div></footer>
-<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-<div class="widgets">
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"><div class="widgets">
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8E%E4%B8%BA-ICT-%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93-%E5%88%9D%E7%BA%A7-%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB"><span class="toc-text">华为 ICT 网络赛道 初级 知识点汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VRP-%E7%B3%BB%E7%BB%9F"><span class="toc-text">VRP 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%AD%89%E7%BA%A7%EF%BC%9A"><span class="toc-text">VRP 用户等级：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-IP-%E5%9B%9B%E5%B1%82%E6%A8%A1%E5%9E%8B%E6%A6%82%E8%BF%B0"><span class="toc-text">TCP&#x2F;IP 四层模型概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E5%B1%82%EF%BC%88%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%EF%BC%89%EF%BC%9A-%E5%8A%9F%E8%83%BD%EF%BC%9A%E5%A4%84%E7%90%86%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E7%9A%84%E8%AE%BE%E5%A4%87%E9%97%B4%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%EF%BC%8C%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B8%8B%E9%9D%A2%E6%9C%89%E5%A4%9A%E4%B8%AA%E8%AE%BE%E5%A4%87-%E5%8D%8F%E8%AE%AE%EF%BC%9AEthernet%EF%BC%88%E6%9C%89%E7%BA%BF%E9%93%BE%E6%8E%A5%EF%BC%89%E3%80%81Wi-Fi%EF%BC%88%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5%EF%BC%89%E3%80%82-VLAN%EF%BC%9A%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91-STP%EF%BC%9A%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">接口层（数据链路层）：- 功能：处理局域网内的设备间数据传输，路由器下面有多个设备- 协议：Ethernet（有线链接）、Wi-Fi（无线连接）。  - VLAN：虚拟局域网  - STP：生成树协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E6%8E%A5%E5%8F%A3%E5%B1%82"><span class="toc-text">一, 接口层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSMA-CD"><span class="toc-text">CSMA&#x2F;CD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-MAC-%E5%9C%B0%E5%9D%80"><span class="toc-text">1. MAC 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">交换机的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-VLAN-%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">2. VLAN-虚拟局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Trunk-%E8%81%9A%E5%90%88%E9%93%BE%E8%B7%AF"><span class="toc-text">Trunk-聚合链路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-STP-%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">3. STP-生成树协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#STP-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">STP 的工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#IEEE-802-1D"><span class="toc-text">IEEE 802.1D</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BPDU-%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-text">BPDU-生成树协议的数据包</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#TCN-BPDU"><span class="toc-text">TCN BPDU</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#STP-%E7%AB%AF%E5%8F%A3%E7%8A%B6%E6%80%81"><span class="toc-text">STP 端口状态</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-RSTP-%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">4. RSTP-快速生成树协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RSTP-%E7%9A%84%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9%E4%B8%8E%E6%94%B9%E8%BF%9B"><span class="toc-text">RSTP 的主要特点与改进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RSTP-%E7%9A%84-BPDU%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%94%B9%E8%BF%9B"><span class="toc-text">RSTP 的 BPDU类型和改进</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-MSTP"><span class="toc-text">5. MSTP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-LACP%EF%BC%88Link-Aggregation-Control-Protocol%EF%BC%8C%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">6.LACP（Link Aggregation Control Protocol，链路聚合控制协议）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-text">二, 网络层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-text">IP 数据报</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ip-%E6%95%B0%E6%8D%AE%E5%8C%85%E9%A6%96%E9%83%A8%E9%83%A8%E5%88%86%E8%AF%A6%E8%A7%A3"><span class="toc-text">ip 数据包首部部分详解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#DSCP%EF%BC%88Differentiated-Services-Code-Point%EF%BC%8C%E5%8C%BA%E5%88%86%E6%9C%8D%E5%8A%A1%E4%BB%A3%E7%A0%81%E7%82%B9%EF%BC%89"><span class="toc-text">DSCP（Differentiated Services Code Point，区分服务代码点）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-DSCP"><span class="toc-text">配置 DSCP</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ip-%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%AD%90%E7%BD%91%EF%BC%8C%E5%B9%BF%E6%92%AD%E5%9C%B0%E5%9D%80%E8%AE%A1%E7%AE%97%E9%A2%98%E4%B8%BE%E4%BE%8B"><span class="toc-text">ip 地址，子网，广播地址计算题举例</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#-1"><span class="toc-text"></span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPSec%EF%BC%88Internet-Protocol-Security%EF%BC%8CIP-%E5%8C%85%E5%8A%A0%E5%AF%86%EF%BC%89"><span class="toc-text">IPSec（Internet Protocol Security，IP 包加密）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IPSec-%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-text">IPSec 的两种工作模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ICMP%EF%BC%88Internet-Control-Message-Protocol%EF%BC%8C%E4%BA%92%E8%81%94%E7%BD%91%E6%8E%A7%E5%88%B6%E6%B6%88%E6%81%AF%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">ICMP（Internet Control Message Protocol，互联网控制消息协议）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-2"><span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%8A%80%E6%9C%AF"><span class="toc-text">路由技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-text">1. 静态路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-OSPF%EF%BC%88Open-Shortest-Path-First%EF%BC%8C%E5%BC%80%E6%94%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">2. OSPF（Open Shortest Path First，开放最短路径优先算法）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B6%E6%9C%89%E4%BA%94%E7%A7%8D%E4%B8%BB%E8%A6%81%E6%8A%A5%E6%96%87%EF%BC%9A"><span class="toc-text">其有五种主要报文：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#OSPF-%E9%82%BB%E5%B1%85%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="toc-text">OSPF 邻居状态：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E9%A1%BA%E5%BA%8F%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-text">发送顺序说明：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-DR%EF%BC%88Designated-Router%EF%BC%8C%E6%8C%87%E5%AE%9A%E8%B7%AF%E7%94%B1%E5%99%A8%EF%BC%89"><span class="toc-text">2.1 DR（Designated Router，指定路由器）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-OSPFv3%EF%BC%88OSPF-%E5%8D%8F%E8%AE%AE%E7%9A%84-IPv6-%E7%89%88%E6%9C%AC%EF%BC%89"><span class="toc-text">3. OSPFv3（OSPF 协议的 IPv6 版本）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-IS-IS%EF%BC%88Intermediate-System-to-Intermediate-System%EF%BC%8C%E4%B8%AD%E9%97%B4%E7%B3%BB%E7%BB%9F%E5%88%B0%E4%B8%AD%E9%97%B4%E7%B3%BB%E7%BB%9F%EF%BC%89"><span class="toc-text">4. IS-IS（Intermediate System to Intermediate System，中间系统到中间系统）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-BGP%EF%BC%88Border-Gateway-Protocol%EF%BC%8C%E8%BE%B9%E7%95%8C%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">5. BGP（Border Gateway Protocol，边界网关协议）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-ACL%EF%BC%88Access-Control-List%EF%BC%8C%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">6. ACL（Access Control List，访问控制列表）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-IP-Prefix-List-%EF%BC%88%E5%89%8D%E7%BC%80%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">7. IP Prefix List （前缀列表）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E8%B7%AF%E7%94%B1%E7%AD%96%E7%95%A5%E5%92%8C%E7%AD%96%E7%95%A5%E8%B7%AF%E7%94%B1"><span class="toc-text">8. 路由策略和策略路由</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF"><span class="toc-text">广域网技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-PPP%EF%BC%88Point-to-Point-Protocol%EF%BC%8C%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">1. PPP（Point-to-Point Protocol，点对点协议）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#LCP%EF%BC%88Link-Control-Protocol%EF%BC%8C%E9%93%BE%E8%B7%AF%E6%8E%A7%E5%88%B6%EF%BC%89"><span class="toc-text">LCP（Link Control Protocol，链路控制）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-PPPoE%EF%BC%88Point-to-Point-Protocol-over-Ethernet%EF%BC%8C%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">2. PPPoE（Point-to-Point Protocol over Ethernet，以太网点对点协议）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-%E6%8A%80%E6%9C%AF"><span class="toc-text">IPv6 技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="toc-text">三, 传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP-%E5%8D%8F%E8%AE%AE"><span class="toc-text">TCP&#x2F;IP 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E5%8D%8F%E8%AE%AE%E6%8A%80%E6%9C%AF"><span class="toc-text">各种协议技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP%EF%BC%88Transmission-Control-Protocol%EF%BC%8C%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">TCP（Transmission Control Protocol，传输控制协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#UDP%EF%BC%88User-Datagram-Protocol%EF%BC%8C%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">UDP（User Datagram Protocol，用户数据报协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ARP%EF%BC%88Address-Resolution-Protocol%EF%BC%8C%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">ARP（Address Resolution Protocol，地址解析协议）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%8D%E8%B4%B9-ARP%EF%BC%88Gratuitous-ARP%EF%BC%89"><span class="toc-text">免费 ARP（Gratuitous ARP）</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#IP%EF%BC%88Internet-Protocol%EF%BC%8C%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">IP（Internet Protocol，互联网协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#NAT%EF%BC%88Network-Address-Translation%EF%BC%8C%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%EF%BC%89"><span class="toc-text">NAT（Network Address Translation，网络地址转换）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Telnet%EF%BC%88%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">Telnet（远程终端协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#FTP%EF%BC%88File-Transfer-Protocol%EF%BC%8C%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">FTP（File Transfer Protocol，文件传输协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DHCP%EF%BC%88Dynamic-Host-Configuration-Protocol%EF%BC%8C%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">DHCP（Dynamic Host Configuration Protocol，动态主机配置协议）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#NAK-%EF%BC%88Negative-Acknowledgement%EF%BC%89-%E5%90%A6%E5%AE%9A-DHCP-%E7%A1%AE%E8%AE%A4%E6%B6%88%E6%81%AF"><span class="toc-text">NAK （Negative Acknowledgement） 否定 DHCP 确认消息</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-text">四, 应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8E%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF"><span class="toc-text">网络管理与网络编程自动化技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8E%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF"><span class="toc-text">网络管理与监控技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-SNMP%EF%BC%88Simple-Network-Management-Protocol%EF%BC%8C%E7%AE%80%E5%8D%95%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%8D%8F%E8%AE%AE%EF%BC%89%EF%BC%9A"><span class="toc-text">1. SNMP（Simple Network Management Protocol，简单网络管理协议）：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-1-NMS%EF%BC%88Network-Management-System%EF%BC%8C%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%89"><span class="toc-text">1.1 NMS（Network Management System，网络管理系统）</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-LLDP%EF%BC%88Link-Layer-Discovery-Protocol%EF%BC%8C%E9%93%BE%E8%B7%AF%E5%B1%82%E5%8F%91%E7%8E%B0%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">2. LLDP（Link Layer Discovery Protocol，链路层发现协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-NQA%EF%BC%88Network-Quality-Analysis%EF%BC%8C%E7%BD%91%E7%BB%9C%E8%B4%A8%E9%87%8F%E5%88%86%E6%9E%90%EF%BC%89"><span class="toc-text">3. NQA（Network Quality Analysis，网络质量分析）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF"><span class="toc-text">网络安全技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AAA%EF%BC%883A-%E5%AE%89%E5%85%A8%E8%AE%A4%E8%AF%81%EF%BC%89"><span class="toc-text">AAA（3A 安全认证）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8"><span class="toc-text">信息安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80"><span class="toc-text">信息安全基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E6%8A%80%E6%9C%AF"><span class="toc-text">信息安全管理技术</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E9%80%9A%E4%BF%A1"><span class="toc-text">安全通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VPN-%E6%8A%80%E6%9C%AF"><span class="toc-text">VPN 技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%BB%E5%87%BB%E4%B8%8E%E9%98%B2%E5%BE%A1"><span class="toc-text">攻击与防御</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WLAN-%E5%9F%BA%E7%A1%80%E4%B8%9A%E5%8A%A1"><span class="toc-text">WLAN 基础业务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WLAN-%E5%AE%89%E5%85%A8"><span class="toc-text">WLAN 安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WLAN-%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7"><span class="toc-text">WLAN 高级特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WLAN-%E7%BD%91%E7%BB%9C%E8%A7%84%E5%88%92"><span class="toc-text">WLAN 网络规划</span></a></li></ol></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">本文目录</span>
+      <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8E%E4%B8%BA-ICT-%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93-%E5%88%9D%E7%BA%A7-%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB"><span class="toc-text">华为 ICT 网络赛道 初级 知识点汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VRP-%E7%B3%BB%E7%BB%9F"><span class="toc-text">VRP 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%AD%89%E7%BA%A7%EF%BC%9A"><span class="toc-text">VRP 用户等级：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-IP-%E5%9B%9B%E5%B1%82%E6%A8%A1%E5%9E%8B%E6%A6%82%E8%BF%B0"><span class="toc-text">TCP&#x2F;IP 四层模型概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E6%8E%A5%E5%8F%A3%E5%B1%82"><span class="toc-text">一, 接口层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSMA-CD"><span class="toc-text">CSMA&#x2F;CD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-MAC-%E5%9C%B0%E5%9D%80"><span class="toc-text">1. MAC 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">交换机的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-VLAN-%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">2. VLAN-虚拟局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Trunk-%E8%81%9A%E5%90%88%E9%93%BE%E8%B7%AF"><span class="toc-text">Trunk-聚合链路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-STP-%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">3. STP-生成树协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#STP-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">STP 的工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#IEEE-802-1D"><span class="toc-text">IEEE 802.1D</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BPDU-%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-text">BPDU-生成树协议的数据包</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#TCN-BPDU"><span class="toc-text">TCN BPDU</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#STP-%E7%AB%AF%E5%8F%A3%E7%8A%B6%E6%80%81"><span class="toc-text">STP 端口状态</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-RSTP-%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">4. RSTP-快速生成树协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RSTP-%E7%9A%84%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9%E4%B8%8E%E6%94%B9%E8%BF%9B"><span class="toc-text">RSTP 的主要特点与改进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RSTP-%E7%9A%84-BPDU%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%94%B9%E8%BF%9B"><span class="toc-text">RSTP 的 BPDU类型和改进</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-MSTP"><span class="toc-text">5. MSTP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-LACP%EF%BC%88Link-Aggregation-Control-Protocol%EF%BC%8C%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">6.LACP（Link Aggregation Control Protocol，链路聚合控制协议）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-text">二, 网络层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-text">IP 数据报</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ip-%E6%95%B0%E6%8D%AE%E5%8C%85%E9%A6%96%E9%83%A8%E9%83%A8%E5%88%86%E8%AF%A6%E8%A7%A3"><span class="toc-text">ip 数据包首部部分详解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#DSCP%EF%BC%88Differentiated-Services-Code-Point%EF%BC%8C%E5%8C%BA%E5%88%86%E6%9C%8D%E5%8A%A1%E4%BB%A3%E7%A0%81%E7%82%B9%EF%BC%89"><span class="toc-text">DSCP（Differentiated Services Code Point，区分服务代码点）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-DSCP"><span class="toc-text">配置 DSCP</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ip-%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%AD%90%E7%BD%91%EF%BC%8C%E5%B9%BF%E6%92%AD%E5%9C%B0%E5%9D%80%E8%AE%A1%E7%AE%97%E9%A2%98%E4%B8%BE%E4%BE%8B"><span class="toc-text">ip 地址，子网，广播地址计算题举例</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#-1"><span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPSec%EF%BC%88Internet-Protocol-Security%EF%BC%8CIP-%E5%8C%85%E5%8A%A0%E5%AF%86%EF%BC%89"><span class="toc-text">IPSec（Internet Protocol Security，IP 包加密）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IPSec-%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-text">IPSec 的两种工作模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ICMP%EF%BC%88Internet-Control-Message-Protocol%EF%BC%8C%E4%BA%92%E8%81%94%E7%BD%91%E6%8E%A7%E5%88%B6%E6%B6%88%E6%81%AF%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">ICMP（Internet Control Message Protocol，互联网控制消息协议）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-2"><span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%8A%80%E6%9C%AF"><span class="toc-text">路由技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-text">1. 静态路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-OSPF%EF%BC%88Open-Shortest-Path-First%EF%BC%8C%E5%BC%80%E6%94%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">2. OSPF（Open Shortest Path First，开放最短路径优先算法）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B6%E6%9C%89%E4%BA%94%E7%A7%8D%E4%B8%BB%E8%A6%81%E6%8A%A5%E6%96%87%EF%BC%9A"><span class="toc-text">其有五种主要报文：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#OSPF-%E9%82%BB%E5%B1%85%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="toc-text">OSPF 邻居状态：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E9%A1%BA%E5%BA%8F%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-text">发送顺序说明：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-DR%EF%BC%88Designated-Router%EF%BC%8C%E6%8C%87%E5%AE%9A%E8%B7%AF%E7%94%B1%E5%99%A8%EF%BC%89"><span class="toc-text">2.1 DR（Designated Router，指定路由器）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-OSPFv3%EF%BC%88OSPF-%E5%8D%8F%E8%AE%AE%E7%9A%84-IPv6-%E7%89%88%E6%9C%AC%EF%BC%89"><span class="toc-text">3. OSPFv3（OSPF 协议的 IPv6 版本）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-IS-IS%EF%BC%88Intermediate-System-to-Intermediate-System%EF%BC%8C%E4%B8%AD%E9%97%B4%E7%B3%BB%E7%BB%9F%E5%88%B0%E4%B8%AD%E9%97%B4%E7%B3%BB%E7%BB%9F%EF%BC%89"><span class="toc-text">4. IS-IS（Intermediate System to Intermediate System，中间系统到中间系统）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-BGP%EF%BC%88Border-Gateway-Protocol%EF%BC%8C%E8%BE%B9%E7%95%8C%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">5. BGP（Border Gateway Protocol，边界网关协议）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-ACL%EF%BC%88Access-Control-List%EF%BC%8C%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">6. ACL（Access Control List，访问控制列表）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-IP-Prefix-List-%EF%BC%88%E5%89%8D%E7%BC%80%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">7. IP Prefix List （前缀列表）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E8%B7%AF%E7%94%B1%E7%AD%96%E7%95%A5%E5%92%8C%E7%AD%96%E7%95%A5%E8%B7%AF%E7%94%B1"><span class="toc-text">8. 路由策略和策略路由</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF"><span class="toc-text">广域网技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-PPP%EF%BC%88Point-to-Point-Protocol%EF%BC%8C%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">1. PPP（Point-to-Point Protocol，点对点协议）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#LCP%EF%BC%88Link-Control-Protocol%EF%BC%8C%E9%93%BE%E8%B7%AF%E6%8E%A7%E5%88%B6%EF%BC%89"><span class="toc-text">LCP（Link Control Protocol，链路控制）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-PPPoE%EF%BC%88Point-to-Point-Protocol-over-Ethernet%EF%BC%8C%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">2. PPPoE（Point-to-Point Protocol over Ethernet，以太网点对点协议）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-%E6%8A%80%E6%9C%AF"><span class="toc-text">IPv6 技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="toc-text">三, 传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP-%E5%8D%8F%E8%AE%AE"><span class="toc-text">TCP&#x2F;IP 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E5%8D%8F%E8%AE%AE%E6%8A%80%E6%9C%AF"><span class="toc-text">各种协议技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP%EF%BC%88Transmission-Control-Protocol%EF%BC%8C%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">TCP（Transmission Control Protocol，传输控制协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#UDP%EF%BC%88User-Datagram-Protocol%EF%BC%8C%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">UDP（User Datagram Protocol，用户数据报协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ARP%EF%BC%88Address-Resolution-Protocol%EF%BC%8C%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">ARP（Address Resolution Protocol，地址解析协议）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%8D%E8%B4%B9-ARP%EF%BC%88Gratuitous-ARP%EF%BC%89"><span class="toc-text">免费 ARP（Gratuitous ARP）</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#IP%EF%BC%88Internet-Protocol%EF%BC%8C%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">IP（Internet Protocol，互联网协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#NAT%EF%BC%88Network-Address-Translation%EF%BC%8C%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%EF%BC%89"><span class="toc-text">NAT（Network Address Translation，网络地址转换）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Telnet%EF%BC%88%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">Telnet（远程终端协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#FTP%EF%BC%88File-Transfer-Protocol%EF%BC%8C%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">FTP（File Transfer Protocol，文件传输协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DHCP%EF%BC%88Dynamic-Host-Configuration-Protocol%EF%BC%8C%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">DHCP（Dynamic Host Configuration Protocol，动态主机配置协议）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#NAK-%EF%BC%88Negative-Acknowledgement%EF%BC%89-%E5%90%A6%E5%AE%9A-DHCP-%E7%A1%AE%E8%AE%A4%E6%B6%88%E6%81%AF"><span class="toc-text">NAK （Negative Acknowledgement） 否定 DHCP 确认消息</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-text">四, 应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8E%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF"><span class="toc-text">网络管理与网络编程自动化技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8E%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF"><span class="toc-text">网络管理与监控技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-SNMP%EF%BC%88Simple-Network-Management-Protocol%EF%BC%8C%E7%AE%80%E5%8D%95%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%8D%8F%E8%AE%AE%EF%BC%89%EF%BC%9A"><span class="toc-text">1. SNMP（Simple Network Management Protocol，简单网络管理协议）：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-1-NMS%EF%BC%88Network-Management-System%EF%BC%8C%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%89"><span class="toc-text">1.1 NMS（Network Management System，网络管理系统）</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-LLDP%EF%BC%88Link-Layer-Discovery-Protocol%EF%BC%8C%E9%93%BE%E8%B7%AF%E5%B1%82%E5%8F%91%E7%8E%B0%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">2. LLDP（Link Layer Discovery Protocol，链路层发现协议）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-NQA%EF%BC%88Network-Quality-Analysis%EF%BC%8C%E7%BD%91%E7%BB%9C%E8%B4%A8%E9%87%8F%E5%88%86%E6%9E%90%EF%BC%89"><span class="toc-text">3. NQA（Network Quality Analysis，网络质量分析）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF"><span class="toc-text">网络安全技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AAA%EF%BC%883A-%E5%AE%89%E5%85%A8%E8%AE%A4%E8%AF%81%EF%BC%89"><span class="toc-text">AAA（3A 安全认证）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8"><span class="toc-text">信息安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80"><span class="toc-text">信息安全基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E6%8A%80%E6%9C%AF"><span class="toc-text">信息安全管理技术</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E9%80%9A%E4%BF%A1"><span class="toc-text">安全通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VPN-%E6%8A%80%E6%9C%AF"><span class="toc-text">VPN 技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%BB%E5%87%BB%E4%B8%8E%E9%98%B2%E5%BE%A1"><span class="toc-text">攻击与防御</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WLAN-%E5%9F%BA%E7%A1%80%E4%B8%9A%E5%8A%A1"><span class="toc-text">WLAN 基础业务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WLAN-%E5%AE%89%E5%85%A8"><span class="toc-text">WLAN 安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WLAN-%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7"><span class="toc-text">WLAN 高级特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WLAN-%E7%BD%91%E7%BB%9C%E8%A7%84%E5%88%92"><span class="toc-text">WLAN 网络规划</span></a></li></ol></li></ol></li></ol></div>
+  <div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.61358 2.92637C5.33517 3.09825 4.56445 3.42514 3.9948 3.9948C3.42514 4.56445 3.09825 5.33517 2.92637 6.61358C2.75159 7.91356 2.75 9.62177 2.75 12C2.75 14.3782 2.75159 16.0864 2.92637 17.3864C3.09825 18.6648 3.42514 19.4355 3.9948 20.0052C4.56445 20.5749 5.33517 20.9018 6.61358 21.0736C7.91356 21.2484 9.62177 21.25 12 21.25C14.3782 21.25 16.0864 21.2484 17.3864 21.0736C18.6648 20.9018 19.4355 20.5749 20.0052 20.0052C20.5749 19.4355 20.9018 18.6648 21.0736 17.3864C21.2484 16.0864 21.25 14.3782 21.25 12C21.25 9.62177 21.2484 7.91356 21.0736 6.61358C20.9018 5.33517 20.5749 4.56445 20.0052 3.9948C19.4355 3.42514 18.6648 3.09825 17.3864 2.92637C16.0864 2.75159 14.3782 2.75 12 2.75C9.62177 2.75 7.91356 2.75159 6.61358 2.92637ZM12 9.56066L9.53033 12.0303C9.23744 12.3232 8.76256 12.3232 8.46967 12.0303C8.17678 11.7374 8.17678 11.2626 8.46967 10.9697L11.4697 7.96967C11.7626 7.67678 12.2374 7.67678 12.5303 7.96967L15.5303 10.9697C15.8232 11.2626 15.8232 11.7374 15.5303 12.0303C15.2374 12.3232 14.7626 12.3232 14.4697 12.0303L12 9.56066ZM12 13.5607L9.53033 16.0303C9.23744 16.3232 8.76256 16.3232 8.46967 16.0303C8.17678 15.7374 8.17678 15.2626 8.46967 14.9697L11.4697 11.9697C11.7626 11.6768 12.2374 11.6768 12.5303 11.9697L15.5303 14.9697C15.8232 15.2626 15.8232 15.7374 15.5303 16.0303C15.2374 16.3232 14.7626 16.3232 14.4697 16.0303L12 13.5607Z" clip-rule="evenodd"/></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M10.4606 1.25H13.5394C15.1427 1.24999 16.3997 1.24999 17.4039 1.34547C18.4274 1.44279 19.2655 1.64457 20.0044 2.09732C20.7781 2.57144 21.4286 3.22194 21.9027 3.99563C22.3554 4.73445 22.5572 5.57256 22.6545 6.59611C22.75 7.60029 22.75 8.85725 22.75 10.4606V11.5278C22.75 12.6691 22.75 13.564 22.7007 14.2868C22.6505 15.0223 22.5468 15.6344 22.3123 16.2004C21.7287 17.6093 20.6093 18.7287 19.2004 19.3123C18.3955 19.6457 17.4786 19.7197 16.2233 19.7413C15.7842 19.7489 15.5061 19.7545 15.2941 19.7779C15.096 19.7999 15.0192 19.832 14.9742 19.8582C14.9268 19.8857 14.8622 19.936 14.7501 20.0898C14.6287 20.2564 14.4916 20.4865 14.2742 20.8539L13.7321 21.7697C12.9585 23.0767 11.0415 23.0767 10.2679 21.7697L9.72579 20.8539C9.50835 20.4865 9.37122 20.2564 9.24985 20.0898C9.13772 19.936 9.07313 19.8857 9.02572 19.8582C8.98078 19.832 8.90399 19.7999 8.70588 19.7779C8.49387 19.7545 8.21575 19.7489 7.77666 19.7413C6.52138 19.7197 5.60454 19.6457 4.79957 19.3123C3.39066 18.7287 2.27128 17.6093 1.68769 16.2004C1.45323 15.6344 1.3495 15.0223 1.29932 14.2868C1.24999 13.564 1.25 12.6691 1.25 11.5278L1.25 10.4606C1.24999 8.85726 1.24999 7.60029 1.34547 6.59611C1.44279 5.57256 1.64457 4.73445 2.09732 3.99563C2.57144 3.22194 3.22194 2.57144 3.99563 2.09732C4.73445 1.64457 5.57256 1.44279 6.59611 1.34547C7.60029 1.24999 8.85726 1.24999 10.4606 1.25ZM6.73809 2.83873C5.82434 2.92561 5.24291 3.09223 4.77938 3.37628C4.20752 3.72672 3.72672 4.20752 3.37628 4.77938C3.09223 5.24291 2.92561 5.82434 2.83873 6.73809C2.75079 7.663 2.75 8.84876 2.75 10.5V11.5C2.75 12.6751 2.75041 13.5189 2.79584 14.1847C2.84081 14.8438 2.92737 15.2736 3.07351 15.6264C3.50486 16.6678 4.33223 17.4951 5.3736 17.9265C5.88923 18.1401 6.54706 18.2199 7.8025 18.2416L7.83432 18.2421C8.23232 18.249 8.58109 18.2549 8.87097 18.287C9.18246 18.3215 9.4871 18.3912 9.77986 18.5615C10.0702 18.7304 10.2795 18.9559 10.4621 19.2063C10.6307 19.4378 10.804 19.7306 11.0004 20.0623L11.5587 21.0057C11.7515 21.3313 12.2485 21.3313 12.4412 21.0057L12.9996 20.0623C13.1959 19.7306 13.3692 19.4378 13.5379 19.2063C13.7204 18.9559 13.9298 18.7304 14.2201 18.5615C14.5129 18.3912 14.8175 18.3215 15.129 18.287C15.4189 18.2549 15.7676 18.249 16.1656 18.2421L16.1975 18.2416C17.4529 18.2199 18.1108 18.1401 18.6264 17.9265C19.6678 17.4951 20.4951 16.6678 20.9265 15.6264C21.0726 15.2736 21.1592 14.8438 21.2042 14.1847C21.2496 13.5189 21.25 12.6751 21.25 11.5V10.5C21.25 8.84876 21.2492 7.663 21.1613 6.73809C21.0744 5.82434 20.9078 5.24291 20.6237 4.77938C20.2733 4.20752 19.7925 3.72672 19.2206 3.37628C18.7571 3.09223 18.1757 2.92561 17.2619 2.83873C16.337 2.75079 15.1512 2.75 13.5 2.75H10.5C8.84876 2.75 7.663 2.75079 6.73809 2.83873ZM7.25 9C7.25 8.58579 7.58579 8.25 8 8.25H16C16.4142 8.25 16.75 8.58579 16.75 9C16.75 9.41421 16.4142 9.75 16 9.75H8C7.58579 9.75 7.25 9.41421 7.25 9ZM7.25 12.5C7.25 12.0858 7.58579 11.75 8 11.75H13.5C13.9142 11.75 14.25 12.0858 14.25 12.5C14.25 12.9142 13.9142 13.25 13.5 13.25H8C7.58579 13.25 7.25 12.9142 7.25 12.5Z" clip-rule="evenodd"/></svg><span>参与讨论</span></a></div>
+</widget>
+
+
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
@@ -1381,6 +1543,137 @@
 
 <script type="text/javascript">
   window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  window.canonical["param"] = {"permalink":"http://skyforever.top/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/","checklink":"/js/plugins/video.js"};
+  // Fix: Ensure page is at the correct top position on data load
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'auto';
+  }
+  (function() {
+    const scrollHandler = () => {
+      // 存在有效锚点时，等待布局稳定后滚动到目标
+      // （浏览器原生锚点滚动发生在布局完成前，长文章的懒加载图片/异步组件会把目标顶偏）
+      const hash = window.location.hash;
+      if (hash.length > 1) {
+        let anchorId = hash.slice(1);
+        try {
+          anchorId = decodeURIComponent(anchorId);
+        } catch (e) {
+          // 片段含非法编码时按原样查找
+        }
+        const anchor = document.getElementById(anchorId);
+        if (anchor) {
+          // #start 锚点贴顶，不预留 offset；其余锚点与 TOC 点击滚动保持一致
+          const offset = anchorId === 'start' ? 0 : 32;
+          const targetY = () => anchor.getBoundingClientRect().top + window.scrollY - offset;
+          let timer = null;
+          let lastY = null;
+          let quiet = 0;
+          let attempts = 0;
+          // 记录最近一次资源加载完成时间，判断异步数据/图片是否仍在改变布局
+          let lastResourceTime = performance.now();
+          let observer = null;
+          try {
+            observer = new PerformanceObserver(function (list) {
+              lastResourceTime = performance.now();
+            });
+            observer.observe({ entryTypes: ['resource'] });
+          } catch (e) {}
+          // 统计进行中的 fetch/XHR 请求，异步组件（timeline 等）未完成前不判定布局稳定
+          let pendingRequests = 0;
+          const trackRequest = (fn) => {
+            pendingRequests++;
+            try {
+              const result = fn();
+              if (result && typeof result.finally === 'function') {
+                result.finally(function () {
+                  pendingRequests = Math.max(0, pendingRequests - 1);
+                });
+              } else {
+                pendingRequests = Math.max(0, pendingRequests - 1);
+              }
+              return result;
+            } catch (e) {
+              pendingRequests = Math.max(0, pendingRequests - 1);
+              throw e;
+            }
+          };
+          if (typeof window.fetch === 'function') {
+            const origFetch = window.fetch.bind(window);
+            window.fetch = function () {
+              const args = arguments;
+              return trackRequest(function () {
+                return origFetch.apply(window, args);
+              });
+            };
+          }
+          if (window.XMLHttpRequest) {
+            const origOpen = window.XMLHttpRequest.prototype.open;
+            const origSend = window.XMLHttpRequest.prototype.send;
+            window.XMLHttpRequest.prototype.open = function () {
+              this.__anchorTracked = true;
+              return origOpen.apply(this, arguments);
+            };
+            window.XMLHttpRequest.prototype.send = function () {
+              if (this.__anchorTracked) {
+                pendingRequests++;
+                const done = () => {
+                  if (this.__anchorTracked) {
+                    this.__anchorTracked = false;
+                    pendingRequests = Math.max(0, pendingRequests - 1);
+                  }
+                };
+                this.addEventListener('loadend', done);
+              }
+              return origSend.apply(this, arguments);
+            };
+          }
+          const cancel = () => {
+            if (timer !== null) {
+              clearInterval(timer);
+              timer = null;
+            }
+            if (observer !== null) {
+              try {
+                observer.disconnect();
+              } catch (e) {}
+            }
+          };
+          const adjust = () => {
+            const y = targetY();
+            const atTarget = Math.abs(window.scrollY - y) <= 2;
+            if (!atTarget || lastY === null || Math.abs(y - lastY) > 2) {
+              window.scrollTo({ top: y, behavior: 'instant' });
+              lastY = y;
+              quiet = 0;
+            } else {
+              quiet++;
+            }
+            attempts++;
+            const resourceQuiet = performance.now() - lastResourceTime > 3000;
+            // 位置连续 1.8 秒无变化、无进行中的请求且最近 3 秒无资源加载才视为稳定；最长等待 30 秒
+            if ((quiet >= 3 && pendingRequests === 0 && resourceQuiet) || attempts >= 50) {
+              cancel();
+            }
+          };
+          requestAnimationFrame(() => {
+            // 锚点链接打开时直接定位，不做动画；用户主动点击（如 TOC）仍走平滑滚动
+            window.scrollTo({ top: targetY(), behavior: 'instant' });
+            timer = setInterval(adjust, 600);
+          });
+          // 用户主动滚动时停止自动校正
+          window.addEventListener('wheel', cancel, { passive: true });
+          window.addEventListener('touchstart', cancel, { passive: true });
+          window.addEventListener('mousedown', cancel, { passive: true });
+          window.addEventListener('keydown', cancel, { passive: true });
+          return;
+        }
+      }
+      // 没有锚点时始终保持页面顶部；Wiki Hero 只在用户显式访问 #start 时定位正文。
+      window.scrollTo(0, 0);
+    };
+    if (document.readyState !== 'loading') scrollHandler();
+    else document.addEventListener('DOMContentLoaded', scrollHandler);
+  })();
   const ctx = {
     date_suffix: {
       just: `刚刚`,
@@ -1391,7 +1684,10 @@
     root : `/`,
     tag_plugins: {
       chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
-    }
+    },
+    // 图标由构建期生成的 /js/stellar-icons.js 填充（defer，早于 DOMContentLoaded 就绪）
+    icons: {},
+    services: {"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"},"rss":{"js":"/js/services/rss.js"}},
   };
 
   // required plugins (only load if needs)
@@ -1399,330 +1695,107 @@
     ctx.search = {};
     ctx.search.service = `local_search`;
     if (ctx.search.service == 'local_search') {
-      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"}`);
       ctx.search[ctx.search.service] = service_obj;
     }
   }
   const def = {
     avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
     cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
-    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+    data_cache: {"enable":true,"default_ttl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"max_entries":200},
   };
   const deps = {
-    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
     marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
-    lazyload: `/%5Bobject%20Object%5D`
+    lazyload: `https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js`
   }
-  
 
+  // 主题切换提示文案（供 /js/theme.js 使用）
+  window.__STELLAR_I18N__ = {
+    light: `切换到浅色模式`,
+    dark: `切换到深色模式`,
+    auto: `切换到跟随系统配色`,
+  };
+
+  // 搜索跳转高亮：URL 带 ?kw= 时按需加载，定位正文中的匹配词
+  (function () {
+    try {
+      if (!window.location.search) return;
+      if (!new URLSearchParams(window.location.search).has('kw')) return;
+      document.addEventListener('DOMContentLoaded', function () {
+        // utils 由 /js/utils.js 定义（同时暴露 window.utils）；
+        // 未就绪时由 bootstrap 队列兜底，此处按就绪状态判断
+        if (typeof utils === 'object' && typeof utils.js === 'function') {
+          utils.js('/js/search/highlight.js', { defer: true }).catch(function () {});
+        }
+      });
+    } catch (e) {}
+  })();
 </script>
 
-<script type="text/javascript">
-  
-  function RunItem() {
-    this.list = []; // 存放回调函数
-    this.start = () => {
-      for (var i = 0; i < this.list.length; i++) {
-        this.list[i].run();
-      }
-    };
-    this.push = (fn, name, setRequestAnimationFrame = true) => {
-      let myfn = fn
-      if (setRequestAnimationFrame) {
-        myfn = () => {
-          utils.requestAnimationFrame(fn)
-        }
-      }
-      var f = new Item(myfn, name);
-      this.list.push(f);
-    };
-    this.remove = (name) => {
-      for (let index = 0; index < this.list.length; index++) {
-        const e = this.list[index];
-        if (e.name == name) {
-          this.list.splice(index, 1);
-        }
+
+<script>
+  // 插件注册队列：utils.js 尚未就绪时先缓存注册请求，就绪后统一补跑，
+  // 保证解析期注册的插件不因加载时序丢失。
+  window.stellar = window.stellar || {};
+  window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+  window.stellar.initPlugin = function (fn, name, options) {
+    if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+      return utils.initPlugin(fn, name, options);
+    }
+    window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+  };
+  window.stellar._flushPlugins = function () {
+    var pending = window.stellar._pluginQueue.splice(0);
+    if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+    for (var i = 0; i < pending.length; i++) {
+      try {
+        utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+      } catch (e) {
+        console.error('[Stellar] 插件补注册失败:', e);
       }
     }
-    // 构造一个可以run的对象
-    function Item(fn, name) {
-      // 函数名称
-      this.name = name || fn.name;
-      // run方法
-      this.run = () => {
-        try {
-          fn()
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    }
-  }
-
-  const utils = {
-    // 懒加载 css https://github.com/filamentgroup/loadCSS
-    css: (href, before, media, attributes) => {
-      var doc = window.document;
-      var ss = doc.createElement("link");
-      var ref;
-      if (before) {
-        ref = before;
-      } else {
-        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-        ref = refs[refs.length - 1];
-      }
-      var sheets = doc.styleSheets;
-      if (attributes) {
-        for (var attributeName in attributes) {
-          if (attributes.hasOwnProperty(attributeName)) {
-            ss.setAttribute(attributeName, attributes[attributeName]);
-          }
-        }
-      }
-      ss.rel = "stylesheet";
-      ss.href = href;
-      ss.media = "only x";
-      function ready(cb) {
-        if (doc.body) {
-          return cb();
-        }
-        setTimeout(function () {
-          ready(cb);
-        });
-      }
-      ready(function () {
-        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
-      });
-      var onloadcssdefined = function (cb) {
-        var resolvedHref = ss.href;
-        var i = sheets.length;
-        while (i--) {
-          if (sheets[i].href === resolvedHref) {
-            return cb();
-          }
-        }
-        setTimeout(function () {
-          onloadcssdefined(cb);
-        });
-      };
-      function loadCB() {
-        if (ss.addEventListener) {
-          ss.removeEventListener("load", loadCB);
-        }
-        ss.media = media || "all";
-      }
-      if (ss.addEventListener) {
-        ss.addEventListener("load", loadCB);
-      }
-      ss.onloadcssdefined = onloadcssdefined;
-      onloadcssdefined(loadCB);
-      return ss;
-    },
-
-    js: (src, opt) => new Promise((resolve, reject) => {
-      var script = document.createElement('script');
-      if (src.startsWith('/')) {
-        src = ctx.root + src.substring(1);
-      }
-      script.src = src;
-      if (opt) {
-        for (let key of Object.keys(opt)) {
-          script[key] = opt[key]
-        }
-      } else {
-        // 默认异步，如果需要同步，第二个参数传入 {} 即可
-        script.async = true
-      }
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function () {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    }),
-
-    jq: (fn) => {
-      if (typeof jQuery === 'undefined') {
-        utils.js(deps.jquery).then(fn)
-      } else {
-        fn()
-      }
-    },
-
-    onLoading: (el) => {
-      if (el) {
-        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
-      }
-    },
-    onLoadSuccess: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap').remove();
-      }
-    },
-    onLoadFailure: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap svg').remove();
-        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
-        $(el).find('.loading-wrap').addClass('error');
-      }
-    },
-    request: (el, url, callback, onFailure) => {
-      const maxRetry = 3;
-      let retryCount = 0;
-
-      return new Promise((resolve, reject) => {
-        const load = () => {
-          utils.onLoading?.(el);
-
-          let timedOut = false;
-          const timeout = setTimeout(() => {
-            timedOut = true;
-            console.warn('[request] 超时:', url);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject('请求超时');
-            } else {
-              setTimeout(load, 1000);
-            }
-          }, 5000);
-
-          fetch(url).then(resp => {
-            if (timedOut) return;
-            clearTimeout(timeout);
-
-            if (!resp.ok) throw new Error('响应失败');
-            return resp;
-          }).then(data => {
-            if (timedOut) return;
-            utils.onLoadSuccess?.(el);
-            callback(data);
-            resolve(data);
-          }).catch(err => {
-            clearTimeout(timeout);
-            console.warn('[request] 错误:', err);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject(err);
-            } else {
-              setTimeout(load, 1000);
-            }
-          });
-        };
-
-        load();
-      });
-    },
-    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
-      return new Promise((resolve, reject) => {
-        let retryCount = 0;
-
-        const tryRequest = () => {
-          let timedOut = false;
-          const timer = setTimeout(() => {
-            timedOut = true;
-            if (++retryCount > maxRetry) reject('timeout');
-            else tryRequest();
-          }, timeout);
-
-          fetch(url, options)
-            .then(resp => {
-              clearTimeout(timer);
-              if (!resp.ok) throw new Error('bad response');
-              resolve(resp);
-            })
-            .catch(err => {
-              clearTimeout(timer);
-              if (++retryCount > maxRetry) reject(err);
-              else setTimeout(tryRequest, 500);
-            });
-        };
-
-        tryRequest();
-      });
-    },
-    /********************** requestAnimationFrame ********************************/
-    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
-    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
-    requestAnimationFrame: (fn) => {
-      if (!window.requestAnimationFrame) {
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
-      }
-      window.requestAnimationFrame(fn)
-    },
-    dark: {},
   };
-
-  // utils.dark.mode 当前模式 dark or light
-  // utils.dark.toggle() 暗黑模式触发器
-  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
-  utils.dark.method = {
-    toggle: new RunItem(),
-  };
-  utils.dark = Object.assign(utils.dark, {
-    push: utils.dark.method.toggle.push,
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof utils === 'object') return;
+    // utils 未就绪时补载；加载成功后由 utils.js 内部补跑插件队列
+    var s = document.createElement('script');
+    // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
+    // （图片懒加载 / 脚本延迟优化器）误改写
+    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.async = false;
+    s.onerror = function () {
+      console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
+      document.documentElement.classList.add('sr-fallback');
+    };
+    document.head.appendChild(s);
   });
 </script>
+
+
+<!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
+<script src="/js/utils.js?v=1.44.0"></script>
 <script>
-  const sidebar = {
-    leftbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    rightbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('rightbar');
-        l_body.removeAttribute('leftbar');
-      }
-    },
-    dismiss: () => {
-      if (l_body) {
-        l_body.removeAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    toggleTOC: () => {
-      document.querySelector('#data-toc').classList.toggle('collapse');
-    }
+  // 解析期检测 utils 是否已就绪；未就绪时同步补载，
+  // 保证「utils 先于页尾插件片段定义」的不变量。
+  if (typeof utils === 'undefined') {
+    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
   }
 </script>
-<script type="text/javascript">
-  (() => {
-    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
-    for (const tagSwitcher of tagSwitchers) {
-      tagSwitcher.addEventListener('click', (e) => {
-        const parent = e.target.closest('.tag-subtree.parent-tag')
-        parent.classList.toggle('expanded')
-        e.preventDefault()
-      })
-    }
+<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
+<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
+<script src="/js/main.js?v=1.44.0" defer></script>
+<script defer src="/js/theme.js?v=1.44.0"></script>
 
-    // Get active tag from query string, then activate it.
-    const urlParams = new URLSearchParams(window.location.search)
-    const activeTag = urlParams.get('tag')
-    if (activeTag) {
-      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
-      if (tag) {
-        tag.querySelector('a').classList.add('active')
-        
-        while (tag) {
-          tag.classList.add('expanded')
-          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
-        }
-      }
-    }
-  })()
-</script>
 
-<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+  <script>window.__STELLAR_TAGTREE__ = { expand_active: true };</script>
+  <script defer src="/js/tagtree.js?v=1.44.0"></script>
+
+
 <script>
+  // 先声明配置与初始化监听，再异步加载库：
+  // 保证库执行时 lazyLoadOptions 已就绪，避免 async 脚本抢先执行导致自初始化失败
   // https://www.npmjs.com/package/vanilla-lazyload
   // Set the options globally
   // to make LazyLoad self-initialize
@@ -1730,13 +1803,13 @@
     elements_selector: ".lazy",
     callback_loaded: (el) => {
       el.classList.add('loaded');
-      const wrapper = el.closest('.lazy-box');
+      // {% image %} 没有 .lazy-box 包裹，回退到父元素查找加载图标
+      const wrapper = el.closest('.lazy-box') || el.parentElement;
       const icon = wrapper?.querySelector('.lazy-icon');
       if (icon) icon.remove();
     }
   };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
+  // 监听初始化事件，获取 LazyLoad 实例
   window.addEventListener(
     "LazyLoad::Initialized",
     function (event) {
@@ -1748,12 +1821,36 @@
     window.lazyLoadInstance?.update();
   });
 
+  // 兜底：动态插入的 .lazy 元素（如站点自定义脚本在 update() 之后追加的图片）
+  // 不会被 vanilla-lazyload 自动扫描，未注册的 img.lazy 会被 CSS opacity:0 永久隐藏。
+  // MutationObserver 检测到新增 .lazy 元素后自动调用 update() 重新注册。
+  if (window.MutationObserver) {
+    window.lazyMutationObserver = new MutationObserver((mutations) => {
+      if (window.lazyMutationObserver._pending) return;
+      const hasLazy = mutations.some((m) =>
+        Array.prototype.some.call(m.addedNodes, (node) =>
+          node.nodeType === 1 &&
+          (node.matches?.('.lazy') || !!node.querySelector?.('.lazy'))
+        )
+      );
+      if (!hasLazy) return;
+      window.lazyMutationObserver._pending = requestAnimationFrame(() => {
+        window.lazyMutationObserver._pending = null;
+        window.lazyLoadInstance?.update();
+      });
+    });
+    window.lazyMutationObserver.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  }
+
   window.wrapLazyloadImages = (container) => {
     if (typeof container === 'string') {
       container = document.querySelector(container);
     }
     if (!container) return;
-    
+
     const images = container.querySelectorAll('img');
     images.forEach((img) => {
       if (img.classList.contains('lazy')) return;
@@ -1771,9 +1868,6 @@
 
       const icon = document.createElement('div');
       icon.className = 'lazy-icon';
-      if (def.loading) {
-        icon.style.backgroundImage = `url("${def.loading}")`;
-      }
 
       wrapper.appendChild(newImg);
       wrapper.appendChild(icon);
@@ -1786,238 +1880,84 @@
       window.lazyLoadInstance.update();
     }
   }
-  
 </script>
-
-<!-- required -->
-<script src="/js/main.js?v=1.33.1" defer></script>
-
-<script type="text/javascript">
-  const applyTheme = (theme) => {
-    if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme')
-    } else {
-      document.documentElement.setAttribute('data-theme', theme)
-    }
-
-    // applyThemeToGiscus(theme)
-  }
-
-  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
-  const applyThemeToGiscus = (theme) => {
-    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
-    const cmt = document.getElementById('giscus')
-    if (cmt) {
-      // This works before giscus load.
-      cmt.setAttribute('data-theme', theme)
-    }
-
-    const iframe = document.querySelector('#comments > section.giscus > iframe')
-    if (iframe) {
-      // This works after giscus loaded.
-      const src = iframe.src
-      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
-      iframe.src = newSrc
-    }
-  }
-
-  const switchTheme = () => {
-    // light -> dark -> auto -> light -> ...
-    const currentTheme = document.documentElement.getAttribute('data-theme')
-    let newTheme;
-    switch (currentTheme) {
-      case 'light':
-        newTheme = 'dark'
-        break
-      case 'dark':
-        newTheme = 'auto'
-        break
-      default:
-        newTheme = 'light'
-    }
-    applyTheme(newTheme)
-    window.localStorage.setItem('Stellar.theme', newTheme)
-    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
-    utils.dark.method.toggle.start();
-
-    const messages = {
-      light: `切换到浅色模式`,
-      dark: `切换到深色模式`,
-      auto: `切换到跟随系统配色`,
-    }
-    hud?.toast?.(messages[newTheme])
-  }
-
-  (() => {
-    // Apply user's preferred theme, if any.
-    const theme = window.localStorage.getItem('Stellar.theme')
-    if (theme !== null) {
-      applyTheme(theme)
-    } else {
-      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    utils.dark.method.toggle.start();
-  })()
-</script>
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
 
 
 <!-- optional -->
 
   <script type="module">
-  const el = document.querySelector('#comments #giscus');
-  util.viewportLazyload(el, load_discus, false);
-
-  function load_discus() {
-    if (!el) return;
-    try {
-        el.innerHTML = '';
-      } catch (error) {
-        console.error(error);
+  (function() {
+    
+    function initGiscus() {
+      const el = document.querySelector('#comments #giscus');
+      if (!el) return;
+      
+      function load_giscus() {
+        try {
+          el.innerHTML = '';
+        } catch (error) {
+          console.error(error);
+        }
+        const script = document.createElement('script');
+        script.async = true;
+        for (const key of Object.keys(el.attributes)) {
+          const attr = el.attributes[key];
+          if (['class', 'id'].includes(attr.name) === false) {
+            script.setAttribute(attr.name, attr.value);
+          }
+        }
+        el.appendChild(script);
       }
-      const script = document.createElement('script');
-      script.async = true;
-      for (const key of Object.keys(el.attributes)) {
-        const attr = el.attributes[key];
-        if (['class', 'id'].includes(attr.name) === false) {
-          script.setAttribute(attr.name, attr.value);
+      
+      util.viewportLazyload(el, load_giscus);
+    }
+    
+    // Initialize on page load
+    initGiscus();
+  })();
+</script>
+
+
+
+
+<script defer src="/js/services.js?v=1.44.0"></script>
+<script>
+  // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
+  // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。
+  if (typeof window.stellar === 'undefined' || typeof window.stellar.initPlugin !== 'function') {
+    window.stellar = window.stellar || {};
+    window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+    window.stellar.initPlugin = function (fn, name, options) {
+      if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+        return utils.initPlugin(fn, name, options);
+      }
+      window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+    };
+    window.stellar._flushPlugins = function () {
+      var pending = window.stellar._pluginQueue.splice(0);
+      if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+      for (var i = 0; i < pending.length; i++) {
+        try {
+          utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+        } catch (e) {
+          console.error('[Stellar] 插件补注册失败:', e);
         }
       }
-      el.appendChild(script);
+    };
   }
 </script>
 
-
-
-
-<script defer>
+<script>window.addEventListener('DOMContentLoaded', function () { utils.js('/js/search/shortcut.js', { defer: true }); });</script><script>
   window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
-    for (let id of Object.keys(ctx.services)) {
-      const js = ctx.services[id].js;
-      if (id == 'siteinfo') {
-        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
-        if (ctx.cardlinks?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            setCardLink(ctx.cardlinks);
-          });
-        }
-      } else if (id == 'voice') {
-        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
-        if (ctx.voiceAudios?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            createVoiceDom(ctx.voiceAudios);
-          });
-        }
-      } else if (id == 'video') {
-        ctx.videos = document.querySelectorAll('.video>video');
-        if (ctx.videos?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            videoEvents(ctx.videos);
-          });
-        }
-      } else if (id == 'download-file') {
-        ctx.files = document.querySelectorAll('.file');
-        if (ctx.files?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            downloadFileEvent(ctx.files);
-          });
-        }
-      } else {
-        const els = document.getElementsByClassName(`ds-${id}`);
-        if (els?.length > 0) {
-          utils.jq(() => {
-            if (id == 'timeline' || 'memos' || 'marked') {
-              utils.js(deps.marked).then(function () {
-                utils.js(js, { defer: true });
-              });
-            } else {
-              utils.js(js, { defer: true });
-            }
-          });
-        }
-      }
-    }
-
-    // chat iphone time
-    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
-
-    if (phoneTimes.length > 0) {
-      NowTime();
-      var date = new Date();
-      var sec = date.getSeconds();
-      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
-    }
-
-    function firstAdjustTime() {
-      NowTime();
-      clearInterval(firstAdjustInterval);
-      setInterval(NowTime, 1000 * 60);
-    }
-
-    function NowTime() {
-      for (let i = 0; i < phoneTimes.length; ++i) {
-        var timeSpan = phoneTimes[i];
-        var date = new Date();
-        var hour = date.getHours();
-        var min = date.getMinutes();
-        timeSpan.innerHTML = check(hour) + ":" + check(min);
-      }
-    };
-
-    function check(val) {
-      if (val < 10) {
-        return ("0" + val);
-      }
-      return (val);
-    }
-
-    // chat quote
-    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
-      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
-          observer.unobserve(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add('quote-blink');
-            setTimeout(() => {
-              entry.target.classList.remove('quote-blink');
-            }, 1000);
-          }, Math.max(100, 16) * (index + 1));
-        });
-    });
-
-    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
-    chatQuotes.forEach((quote) => {
-      quote.addEventListener('click', function () {
-        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
-        if (chatCellDom) {
-          var chatDiv = chatCellDom.parentElement;
-          var mid = chatDiv.clientHeight / 2;
-          var offsetTop = chatCellDom.offsetTop;
-          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
-            chatDiv.scrollTo({
-              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
-              behavior: "smooth"
-            });
-          } else {
-            chatDiv.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
-          }
-          chat_quote_obverser.observe(chatCellDom);
-        }
-      });
-    });
-  });
-</script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.search = {
+    ctx.search = Object.assign({}, ctx.search, {
       path: `/search.json`,
-    }
+      local_search: {"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"},
+    });
     utils.js('/js/search/local-search.js', { defer: true });
   });
-</script><script>
+</script>
+<script>
   window.FPConfig = {
     delay: 0,
     ignoreKeywords: [],
@@ -2027,28 +1967,45 @@
 </script>
 <script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
   ctx.fancybox = {
+    mode: `auto`,
     selector: `.md-text img[alt]:not([alt="icon"]):not([alt="cover"])`,
     css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
     js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
   };
-  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  // auto=按需：页面存在可弹窗图片才加载；global=全局：所有页面加载
+  const isGlobal = ctx.fancybox.mode === 'global';
+  // 评论区图片（artalk/twikoo/waline）显示较小，自动支持放大；
+  // 仅绑定各评论服务的评论内容区，编辑器、表情面板等非内容区图片不弹窗
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .tk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .wl-content img:not([atk-emoticon]):not([class*="emo"])';
   if (ctx.fancybox.selector) {
     selector += `, ${ctx.fancybox.selector}`
   }
-  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  var needFancybox = isGlobal;
   if (!needFancybox) {
-    const memos = document.getElementsByClassName('ds-memos');
-    if (memos != undefined && memos.length > 0) {
-      needFancybox = true;
+    needFancybox = document.querySelectorAll(selector).length !== 0;
+    if (!needFancybox) {
+      // 图片型评论系统容器：评论区图片小图需要 fancybox
+      const withFancybox = document.getElementsByClassName('with-fancybox');
+      if (withFancybox != undefined && withFancybox.length > 0) {
+        needFancybox = true;
+      }
     }
-    const fancybox = document.getElementsByClassName('with-fancybox');
-    if (fancybox != undefined && fancybox.length > 0) {
-      needFancybox = true;
+    if (!needFancybox) {
+      // 动态数据服务：memos 渲染的图片需要 fancybox
+      const memos = document.getElementsByClassName('ds-memos');
+      if (memos != undefined && memos.length > 0) {
+        needFancybox = true;
+      }
     }
   }
   if (needFancybox) {
+    utils.css(`/css/plugins/fancybox.css?v=1.44.0`);
     utils.css(ctx.fancybox.css);
     utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      if (isGlobal) {
+        // 全局模式：正文所有非内联图片均可弹窗
+        selector += ', .md-text img:not(.inline):not([atk-emoticon])';
+      }
       Fancybox.bind(selector, {
         hideScrollbar: false,
         Thumbs: {
@@ -2062,9 +2019,10 @@
   }
 </script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
+  stellar.initPlugin(() => {
     const swiper_api = document.getElementById('swiper-api');
     if (swiper_api != undefined) {
+      utils.css(`/css/plugins/swiper.css?v=1.44.0`);
       utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
       utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
         const effect = swiper_api.getAttribute('effect') || '';
@@ -2085,50 +2043,71 @@
         });
       })
     }
-  });
+  }, 'swiper');
 </script>
 <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
 <script defer type="text/javascript" src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    var mermaid_config = {
-      startOnLoad: true,
-      theme:
-        "auto" == "auto" &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "neutral",
-      logLevel: 3,
-      themeVariables: {
-        darkMode: true
-      },
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true,
-        curve: "linear"
-      },
-      gantt: {
-        axisFormat: "%Y/%m/%d"
-      },
-      sequence: {
-        actorMargin: 50
+  stellar.initPlugin(() => {
+    const els = document.querySelectorAll('.mermaid');
+    if (els.length > 0) {
+      if (false) {
+        utils.css(`/css/plugins/mermaid.css?v=1.44.0`);
       }
+      const mermaid_config = {
+        startOnLoad: false,
+        theme:
+          "auto" == "auto" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "neutral",
+        logLevel: 3,
+        flowchart: {
+          useMaxWidth: false,
+          htmlLabels: true,
+          curve: "linear"
+        },
+        gantt: {
+          axisFormat: "%Y/%m/%d"
+        },
+        sequence: {
+          actorMargin: 50
+        }
+      }
+      mermaid.initialize(mermaid_config);
+      mermaid.run();
     }
-    mermaid.initialize(mermaid_config);
-  });
-</script><script>
-  document.addEventListener('DOMContentLoaded', function () {
-    window.codeElements = document.querySelectorAll('.code');
-    if (window.codeElements.length > 0) {
+  }, 'mermaid');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const codeElements = document.querySelectorAll('.code');
+    if (codeElements.length > 0) {
       ctx.copycode = {
         default_text: `Copy`,
         success_text: `Copied`,
         toast: `复制成功`,
       };
-      utils.js('/js/plugins/copycode.js');
+      utils.js('/js/plugins/copycode.js', { defer: true }).then(() => {
+        if (typeof createCopyButtons === 'function') {
+          createCopyButtons(codeElements);
+        }
+      });
     }
-  });
-</script><!-- Baidu Tongji -->
+  }, 'copycode');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-text-adaptive]'));
+    if (els.length === 0) return;
+    utils.js('/js/color.js').then(() => utils.js('/js/plugins/adaptive-text.js')).then(() => {
+      if (typeof applyAdaptiveText === 'function') {
+        applyAdaptiveText(els);
+      }
+    });
+  }, 'adaptive-text');
+</script>
+<!-- Baidu Tongji -->
 <script>
 var _hmt = _hmt || [];
 (function() {

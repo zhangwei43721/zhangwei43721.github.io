@@ -1,0 +1,40 @@
+<mxfile host="Electron">
+  <diagram id="d3" name="RAG-MCP-Skill本质">
+    <mxGraphModel dx="975" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="300" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="in_frame" parent="1" style="swimlane;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;startSize=24;rounded=1;arcSize=8;fillColor=#f8f9fa;strokeColor=#333333;strokeWidth=1.5;" value="丰富后的输入" vertex="1">
+          <mxGeometry height="230" width="220" x="25" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="in_1" parent="in_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1;fontSize=11;" value="用户原始提问" vertex="1">
+          <mxGeometry height="38" width="190" x="15" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="in_2" parent="in_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1;fontSize=11;" value="+ RAG 检索资料 (知识小抄)" vertex="1">
+          <mxGeometry height="40" width="190" x="15" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="in_3" parent="in_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=11;" value="+ MCP 统一接口 (外部工具数据)" vertex="1">
+          <mxGeometry height="40" width="190" x="15" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="in_4" parent="in_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=11;" value="+ Skill 技能包 (操作说明书)" vertex="1">
+          <mxGeometry height="40" width="190" x="15" y="174" as="geometry" />
+        </mxCell>
+        <mxCell id="blackbox" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a1a;strokeColor=#000000;strokeWidth=2;fontSize=13;fontColor=#ffffff;arcSize=10;" value="&lt;b style=&quot;font-size: 15px;&quot;&gt;大模型（LLM）&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#ffffff&quot;&gt;【 概率黑箱 】&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot; color=&quot;#cccccc&quot;&gt;（基于统计概率猜词）&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="190" x="340" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="out_frame" parent="1" style="swimlane;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;startSize=24;rounded=1;arcSize=8;fillColor=#f8f9fa;strokeColor=#333333;strokeWidth=1.5;" value="输出" vertex="1">
+          <mxGeometry height="230" width="220" x="630" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="out_node" parent="out_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#28a745;strokeColor=#1e7e34;strokeWidth=1;fontSize=12;fontColor=#ffffff;" value="&lt;b&gt;大概率正确的内容&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#ffffff&quot; style=&quot;font-size: 11px;&quot;&gt;• 有事实依据 (幻觉少)&lt;br&gt;• 格式严谨 / 动作标准&lt;/font&gt;" vertex="1">
+          <mxGeometry height="95" width="190" x="15" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="in_frame" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" target="blackbox" value="送入丰富输入">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="blackbox" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" target="out_frame" value="概率推演">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

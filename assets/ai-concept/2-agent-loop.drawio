@@ -1,0 +1,42 @@
+<mxfile host="Electron">
+  <diagram id="d2" name="Agent机制">
+    <mxGraphModel dx="808" dy="475" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="260" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="in_frame" parent="1" style="swimlane;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;startSize=24;rounded=1;arcSize=8;fillColor=#f8f9fa;strokeColor=#333333;strokeWidth=1.5;" value="输入" vertex="1">
+          <mxGeometry height="150" width="200" x="30" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="in_u" parent="in_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1;fontSize=11;" value="用户的输入" vertex="1">
+          <mxGeometry height="45" width="170" x="15" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="in_hist" parent="in_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1;fontSize=11;" value="+ Agent 保存的对话记录&#xa;(代码保存的上下文)" vertex="1">
+          <mxGeometry height="50" width="170" x="15" y="87" as="geometry" />
+        </mxCell>
+        <mxCell id="blackbox" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a1a;strokeColor=#000000;strokeWidth=2;fontSize=13;fontColor=#ffffff;arcSize=10;" value="&lt;b style=&quot;font-size: 15px;&quot;&gt;大模型（LLM）&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#ffffff&quot;&gt;【 概率黑箱 】&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot; color=&quot;#cccccc&quot;&gt;（基于统计概率猜词）&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="190" x="295" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="out_frame" parent="1" style="swimlane;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;startSize=24;rounded=1;arcSize=8;fillColor=#f8f9fa;strokeColor=#333333;strokeWidth=1.5;" value="输出" vertex="1">
+          <mxGeometry height="150" width="210" x="550" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="out_node" parent="out_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#28a745;strokeColor=#1e7e34;strokeWidth=1;fontSize=12;fontColor=#ffffff;" value="&lt;b&gt;大概率正确的内容&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#ffffff&quot; style=&quot;font-size: 11px;&quot;&gt;(执行工具命令 / 回复)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="15" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="in_frame" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" target="blackbox" value="打包输入">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="blackbox" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" target="out_frame" value="概率推演">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_loop" edge="1" parent="1" source="out_frame" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#c62828;fontColor=#c62828;fontSize=11;fontStyle=1;" target="in_frame" value="外围代码代跑腿执行命令 ➔ 将执行结果存入对话记录 (While 循环)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="655" y="220" />
+              <mxPoint x="130" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

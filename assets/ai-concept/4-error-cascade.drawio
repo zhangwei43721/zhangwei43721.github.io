@@ -1,0 +1,46 @@
+<mxfile host="Electron">
+  <diagram id="d4" name="多文件累乘雪崩">
+    <mxGraphModel dx="975" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="320" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="in_frame" parent="1" style="swimlane;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;startSize=24;rounded=1;arcSize=8;fillColor=#f8f9fa;strokeColor=#333333;strokeWidth=1.5;" value="输入" vertex="1">
+          <mxGeometry height="200" width="180" x="25" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="in_cmd" parent="in_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1;fontSize=11;" value="用户输入单个任务指令&#xa;&#xa;(例: &quot;帮我写一个&#xa;完整电商后台系统&quot;)" vertex="1">
+          <mxGeometry height="110" width="150" x="15" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="blackbox" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a1a;strokeColor=#000000;strokeWidth=2;fontSize=12;fontColor=#ffffff;arcSize=10;" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;大模型（LLM）&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#ffffff&quot;&gt;【 概率黑箱 】&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="170" x="270" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="out_frame" parent="1" style="swimlane;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;startSize=24;rounded=1;arcSize=8;fillColor=#f8f9fa;strokeColor=#333333;strokeWidth=1.5;" value="输出" vertex="1">
+          <mxGeometry height="200" width="210" x="530" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" parent="out_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=11;" value="代码文件 1 (正确率 90%)" vertex="1">
+          <mxGeometry height="30" width="180" x="15" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" parent="out_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=11;" value="代码文件 2 (正确率 90%)" vertex="1">
+          <mxGeometry height="30" width="180" x="15" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" parent="out_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=11;" value="代码文件 3 (正确率 90%)" vertex="1">
+          <mxGeometry height="30" width="180" x="15" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="fn" parent="out_frame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=11;" value="... 代码文件 N (正确率 90%)" vertex="1">
+          <mxGeometry height="30" width="180" x="15" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="in_frame" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" target="blackbox" value="输入指令">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="blackbox" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" target="out_frame" value="逐一生成文件">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_sys" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c62828;strokeColor=#b71c1c;fontSize=11;fontColor=#ffffff;strokeWidth=1.5;" value="&lt;b&gt;整体正确率&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#ffffff&quot;&gt;90% × 90% × 90% ...&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font color=&quot;#ffffff&quot;&gt;➔ &lt;b style=&quot;font-size: 13px;&quot;&gt;趋近与 0&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="82" width="120" x="810" y="99" as="geometry" />
+        </mxCell>
+        <mxCell id="e_comb" edge="1" parent="1" source="out_frame" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.2;strokeColor=#c62828;fontColor=#c62828;fontSize=10;" target="f_sys" value="代码组合&lt;div&gt;概率累乘&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

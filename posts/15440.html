@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
-  <meta name="generator" content="Hexo 7.1.0">
+  <meta name="generator" content="Hexo 8.1.2">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -19,30 +19,37 @@
   <meta name="theme-color" content="#f9fafb">
   <title>Linux命令速查手册 - Sky Blog</title>
 
-  
-    <meta name="description" content="按Ctrl + F搜索 shell 的作业控制   命令 作用    jobs 列出作业   &amp; 在后台运行作业   Ctrl+Z 挂起当前（前台）作业   suspend 挂起 shell 的执行   fg [%jobnumber] 撤销作业的挂起操作，让它在前台运行   bg [%jobnumber] 让挂起的作业在后台运行    文件基本操作   命令 作用    ls 列出目录中的">
+  <meta name="description" content="按Ctrl + F搜索 shell 的作业控制   命令 作用    jobs 列出作业   &amp; 在后台运行作业   Ctrl+Z 挂起当前（前台）作业   suspend 挂起 shell 的执行   fg [%jobnumber] 撤销作业的挂起操作，让它在前台运行   bg [%jobnumber] 让挂起的作业在后台运行    文件基本操作   命令 作用    ls 列出目录中的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux命令速查手册">
 <meta property="og:url" content="http://skyforever.top/posts/15440">
 <meta property="og:site_name" content="Sky Blog">
 <meta property="og:description" content="按Ctrl + F搜索 shell 的作业控制   命令 作用    jobs 列出作业   &amp; 在后台运行作业   Ctrl+Z 挂起当前（前台）作业   suspend 挂起 shell 的执行   fg [%jobnumber] 撤销作业的挂起操作，让它在前台运行   bg [%jobnumber] 让挂起的作业在后台运行    文件基本操作   命令 作用    ls 列出目录中的">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.skyforever.top/blog/2025/10/f5768033ddc53871ca8db788200b1b0f.webp">
 <meta property="article:published_time" content="2022-03-07T14:22:40.000Z">
 <meta property="article:modified_time" content="2022-03-07T14:22:40.000Z">
 <meta property="article:author" content="Skyforever">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
-  
+<meta name="twitter:image" content="https://image.skyforever.top/blog/2025/10/f5768033ddc53871ca8db788200b1b0f.webp"><meta name="twitter:title" content="Linux命令速查手册">
   
   
   <meta name="keywords" content="linux">
 
   <!-- feed -->
   
-    <link rel="alternate" href="/atom.xml" title="Sky Blog" type="application/atom+xml">
+    
+
+    
+      
+        <link rel="alternate" href="/atom.xml" title="Sky Blog" type="application/atom+xml">
+      
+    
   
 
-  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
 
 
   
@@ -51,39 +58,337 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2022-03-07T22:22:40+08:00","dateModified":"2022-03-07T22:22:40+08:00","datePublished":"2022-03-07T22:22:40+08:00","description":"","headline":"Linux命令速查手册","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/15440/"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/15440/","keywords":"linux","thumbnailUrl":"https://image.skyforever.top/blog/2025/10/f5768033ddc53871ca8db788200b1b0f.webp","image":1}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2022-03-07T22:22:40+08:00","dateModified":"2022-03-07T22:22:40+08:00","datePublished":"2022-03-07T22:22:40+08:00","description":"按Ctrl + F搜索\nshell 的作业控制\n\n\n命令\n作用\n\n\n\njobs\n列出作业\n\n\n&amp;\n在后台运行作业\n\n\nCtrl+Z\n挂起当前（前台）作业\n\n\nsuspend\n挂起 shell 的执行\n\n\nfg [%jobnumber]\n撤销作业的挂起操作，让它在前台运行\n\n\nbg [%jobnumber]\n让挂起的作业在后台运行\n\n\n\n文件基本操作\n\n\n命令\n作用\n\n\n\nls\n列出目...","headline":"Linux命令速查手册","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/15440"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/15440","keywords":"linux","thumbnailUrl":"https://image.skyforever.top/blog/2025/10/f5768033ddc53871ca8db788200b1b0f.webp","image":["https://image.skyforever.top/blog/2025/10/f5768033ddc53871ca8db788200b1b0f.webp"]}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8">
-</head>
-<body>
 
-<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+  <!-- icons.yml 驱动的 CSS 装饰图标 -->
+  
+  
+  <style>:root {
+  --icon-h3-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M17.75%2019a.75.75%200%200%201-1.32.488l-6-7a.75.75%200%200%201%200-.976l6-7A.75.75%200%200%201%2017.75%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M13.488%2019.57a.75.75%200%200%200%20.081-1.058L7.988%2012l5.581-6.512a.75.75%200%201%200-1.138-.976l-6%207a.75.75%200%200%200%200%20.976l6%207a.75.75%200%200%200%201.057.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-h3-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M6.25%2019a.75.75%200%200%200%201.32.488l6-7a.75.75%200%200%200%200-.976l-6-7A.75.75%200%200%200%206.25%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M10.512%2019.57a.75.75%200%200%201-.081-1.058L16.012%2012l-5.581-6.512a.75.75%200%201%201%201.139-.976l6%207a.75.75%200%200%201%200%20.976l-6%207a.75.75%200%200%201-1.058.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M3.691%206.292C5.094%204.771%207.217%204%2010%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%206.925%2010H10a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202H3a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789M20%2020h-6a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789C16.094%204.771%2018.217%204%2021%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%2017.925%2010H21a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M20.309%2017.708C22.196%2015.66%2022.006%2013.03%2022%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292m-11.007%200C11.19%2015.66%2010.999%2013.03%2010.993%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292%22%2F%3E%3C%2Fsvg%3E");
+  --icon-loading: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221em%22%20height%3D%221em%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.67%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.33%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%220%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3C%2Fsvg%3E");
+}</style>
+  
+</head>
+<body><div id="l_cover"></div><div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left leftbar-card" data-ui-surface="card"><div class="sidebg"></div><div class="leftbar-container">
+
 
 
 <header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
 
+
+<div class="search-wrapper" id="search-wrapper"><div class="search-form" role="search"><label class="search-button" for="search-input" aria-hidden="true"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></label><input type="search" class="search-input" id="search-input" aria-label="站内搜索" placeholder="站内搜索"></div><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+<div class="widgets">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="leftbar-active-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
 <div class="nav-area">
 
-<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a><a class="nav-item" title="社交" href="/friends/"><span>社交</span></a></nav>
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight is-active" href="/" title="博客" aria-current="page" style="--item-grad:url(#menu-grad-post);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">博客</span>
+      
+      
+    </span>
+  
+  
+  <span class="ui-collection__indicator"></span>
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-post" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/" title="项目" style="--item-grad:url(#menu-grad-wiki);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">项目</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-wiki" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/notebooks/" title="笔记" style="--item-grad:url(#menu-grad-notebooks);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">笔记</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-notebooks" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/friends/" title="社交" style="--item-grad:url(#menu-grad-social);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">社交</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-social" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
 </div>
-<div class="widgets">
-<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
-
-
-<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/37648/"><span class="title">一个信息追踪 Python 脚本</span></a><a class="item title" href="/posts/52107/"><span class="title">Hi3863 WiFi AP 配网实现方法</span></a><a class="item title" href="/posts/49583/"><span class="title">Hi3863 LiteOS OTA 如何实现</span></a><a class="item title" href="/posts/53927/"><span class="title">单片机裸机多任务与低功耗方案总结</span></a><a class="item title" href="/posts/51722/"><span class="title">15条高频实用的ClaudeCode技巧</span></a><a class="item title" href="/posts/41826/"><span class="title">什么是Agent，怎么用好Agent，怎么写Skill</span></a><a class="item title" href="/posts/38247/"><span class="title">解析各种AI概念</span></a><a class="item title" href="/posts/52013/"><span class="title">Claude Code 使用指南</span></a><a class="item title" href="/posts/25562/"><span class="title">3D打印保姆级入坑指南：选机、耗材与避坑完全手册</span></a><a class="item title" href="/posts/41626/"><span class="title">基于 J-Link RTT 的单片机调试打印指南</span></a></div></widget>
+</nav>
 </div>
-<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
-</div></aside><div class="l_main" id="main">
+
+
+
+<widget class="widget-wrapper recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">最近更新</span>
+      
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/37648/" title="一个信息追踪 Python 脚本">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">一个信息追踪 Python 脚本</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/46321/" title="2026年如何使用AI辅助做嵌入式开发">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">2026年如何使用AI辅助做嵌入式开发</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/52107/" title="Hi3863 WiFi AP 配网实现方法">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Hi3863 WiFi AP 配网实现方法</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/49583/" title="Hi3863 LiteOS OTA 如何实现">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Hi3863 LiteOS OTA 如何实现</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/53927/" title="单片机裸机多任务与低功耗方案总结">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">单片机裸机多任务与低功耗方案总结</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/51722/" title="15条高频实用的ClaudeCode技巧">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">15条高频实用的ClaudeCode技巧</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/41826/" title="什么是Agent，怎么用好Agent，怎么写Skill">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">什么是Agent，怎么用好Agent，怎么写Skill</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/38247/" title="解析各种AI概念">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">解析各种AI概念</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/52013/" title="Claude Code 使用指南">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Claude Code 使用指南</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/25562/" title="3D打印保姆级入坑指南：选机、耗材与避坑完全手册">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">3D打印保姆级入坑指南：选机、耗材与避坑完全手册</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+<a class="social" href="https:&#x2F;&#x2F;github.com&#x2F;zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
+</div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
 
 
 
-<div class="article banner top">
+
+<div class="article-banner-wrap"><div class="article banner top">
   <div class="content">
-    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%8A%80%E6%9C%AF/">计算机科学与技术</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-03-07T14:22:40.000Z">2022-03-07</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2022-03-07T14:22:40.000Z">2022-03-07</time></span></div></div></div>
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%8A%80%E6%9C%AF/">计算机科学与技术</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-03-07T14:22:40.000Z">2022-03-07</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2022-03-07T14:22:40.000Z">2022-03-07</time></span></div>
+</div></div>
     
     <div class="bottom only-title">
       
@@ -94,8 +399,9 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><p>按<code>Ctrl + F</code>搜索</p>
-<h2 id="shell-的作业控制"><a href="#shell-的作业控制" class="headerlink" title="shell 的作业控制"></a>shell 的作业控制</h2><table>
+  </div></div>
+<article class="md-text content"><p>按<code>Ctrl + F</code>搜索</p>
+<h2 id="shell-的作业控制"><a href="#shell-的作业控制" class="headerlink" title="shell 的作业控制"></a>shell 的作业控制</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -126,9 +432,9 @@
 <td>bg [%jobnumber]</td>
 <td>让挂起的作业在后台运行</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
-<h2 id="文件基本操作"><a href="#文件基本操作" class="headerlink" title="文件基本操作"></a>文件基本操作</h2><table>
+<h2 id="文件基本操作"><a href="#文件基本操作" class="headerlink" title="文件基本操作"></a>文件基本操作</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -155,7 +461,7 @@
 <td>ln</td>
 <td>创建文件链接（替代名称）</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><p>格式：<code>ls [option] [files]</code></p>
 <p>作用：列出文件和目录的属性</p>
@@ -163,7 +469,7 @@
 <p>-a 列出所有的文件，包括文件名以句点开头的文件</p>
 <p>-l 长列表，包括文件属性。添加-h 选项后，输出文件大小时，将以千字节、兆字节和千兆字节为单位，而不是以字节为单位</p>
 <p>-G 在长列表中，不输出文件的组所有权</p>
-<p>-F 用意义明确的符号修饰文件名称，从而指示文件的类型。通常，文件名后面附加“&#x2F;”表示“可执行文件”，附加“@”表示符号链接，附加“|”表示命名管道，附加“&#x3D;”表示套接字。这些只是对人类有提示作用的视觉标识，而不是文件名的一部分。</p>
+<p>-F 用意义明确的符号修饰文件名称，从而指示文件的类型。通常，文件名后面附加“/”表示“可执行文件”，附加“@”表示符号链接，附加“|”表示命名管道，附加“=”表示套接字。这些只是对人类有提示作用的视觉标识，而不是文件名的一部分。</p>
 <p>-S 按大小对文件排序</p>
 <p>-t 按照最近修改时间对文件进行排序</p>
 <p>-r 反序</p>
@@ -201,7 +507,7 @@
 <p>-d 创建指向目录的硬链接（仅限于超级用户）</p>
 <p>注：<code>readlink linkname</code>命令用于查找符号链接指向的位置，而当符号链接指向其他符号链接时，要想找出整个链接最终指向的位置，请使用<code>readlink -f</code>命令</p>
 <hr>
-<h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><table>
+<h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -236,7 +542,7 @@
 <td>rm -r</td>
 <td>删除非空目录及其内容</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><p>格式：<code>cd [directory]</code></p>
 <p>作用：设置当前的工作目录</p>
@@ -265,7 +571,7 @@
 <p>-p 如果提供了目录路径（而非简单的目录名称），那么不但可以自动删除指定的目录，还可以自动删除指定的父目录</p>
 <p>注：要删除非空目录及其内容，请谨慎使用 rm -r 目录。如果使用 rm -ri 命令的话，可以进行交互式删除，如果使用 rm -rf 命令的话，则会直接删除而不提供任何错误信息，同时也不要求进行确认</p>
 <hr>
-<h2 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h2><table>
+<h2 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -300,7 +606,7 @@
 <td>od</td>
 <td>以八进制（或其他格式）格式查看数据</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>格式：<code>cat [options] [files]</code></p>
 <p>作用：将文件输出至标准输出，或将一组文件发送到 shell 管道</p>
@@ -325,12 +631,12 @@
 <h2 id="nl"><a href="#nl" class="headerlink" title="nl"></a>nl</h2><p>格式：<code>nl [options] [files]</code></p>
 <p>作用：将文件复制到标准输出，并添加行号</p>
 <p>常用选项：</p>
-<p>-b [a|t|n|p R] 在所有行（a）、非空白行（t）或包含正则表达式 R 的行前面添加行号。而 n 表示不给任何一行编号（默认值&#x3D;a）</p>
-<p>-v N 从整数 N 开始编号（默认值&#x3D;1）</p>
-<p>-i N 每一行递增 N，例如，你可以仅使用奇数（-i 2）或偶数（-v 2 -i 2）（默认值&#x3D;1）</p>
-<p>-n [ln|rn|rz] 将编号格式化为左对齐（ln）、右对齐（rn）或带前导零（rz）的右对齐（默认值&#x3D;ln）</p>
-<p>-w N 将数字的宽度强制为 N 列（缺省值&#x3D;6）</p>
-<p>-s S 在行号和文本之间插入字符串 S（默认值&#x3D;Tab）</p>
+<p>-b [a|t|n|p R] 在所有行（a）、非空白行（t）或包含正则表达式 R 的行前面添加行号。而 n 表示不给任何一行编号（默认值=a）</p>
+<p>-v N 从整数 N 开始编号（默认值=1）</p>
+<p>-i N 每一行递增 N，例如，你可以仅使用奇数（-i 2）或偶数（-v 2 -i 2）（默认值=1）</p>
+<p>-n [ln|rn|rz] 将编号格式化为左对齐（ln）、右对齐（rn）或带前导零（rz）的右对齐（默认值=ln）</p>
+<p>-w N 将数字的宽度强制为 N 列（缺省值=6）</p>
+<p>-s S 在行号和文本之间插入字符串 S（默认值=Tab）</p>
 <hr>
 <h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>格式：<code>head [options] [files]</code></p>
 <p>作用：输出文件前 10 行，或预览命令管道输出的前几行内容</p>
@@ -359,15 +665,15 @@
 <p>作用：查看二进制文件</p>
 <p>常用选项：</p>
 <p>-N B 仅显示每个文件的前 B 字节，可以用十进制、十六进制（通过前缀 0x 或 0X）、512 字节块（通过附加 b）、千字节（通过附加 k）或兆字节（通过附加 m）来指定（默认情况下会显示整个文件）</p>
-<p>-j B 从每个文件的第 B+1 字节处开始输出，可接受的格式与-N 选项相同（缺省值&#x3D;0）</p>
-<p>-w [B] 每行显示 B 字节，可接受的格式与-N 选项相同。如果只是使用-w 本身的话，就等同于-w 32（默认值&#x3D;16）</p>
-<p>-s [B] 将每行字节分为 B 字节为单位的序列，由空格分隔；可接受的格式与-N 选项相同。如果只是使用-s 本身的话，就等同于-s 3（默认值&#x3D;2）</p>
-<p>-A(d|o|x|n) 显示最左列，可以以十进制（d）、八进制（o）、十六进制（x）或全部（n）为单位（默认值&#x3D;o）</p>
+<p>-j B 从每个文件的第 B+1 字节处开始输出，可接受的格式与-N 选项相同（缺省值=0）</p>
+<p>-w [B] 每行显示 B 字节，可接受的格式与-N 选项相同。如果只是使用-w 本身的话，就等同于-w 32（默认值=16）</p>
+<p>-s [B] 将每行字节分为 B 字节为单位的序列，由空格分隔；可接受的格式与-N 选项相同。如果只是使用-s 本身的话，就等同于-s 3（默认值=2）</p>
+<p>-A(d|o|x|n) 显示最左列，可以以十进制（d）、八进制（o）、十六进制（x）或全部（n）为单位（默认值=o）</p>
 <p>-t<a href="z">a|c</a> 以字符格式显示输出，非字母数字字符输出为转义序列（c）或名称（a）</p>
 <p>-t<a href="z">d|o|u|x</a> 以整数格式显示输出，可以使用八进制（o）、有符号十进制（d）、无符号十进制（u）、十六进制（x）</p>
 <p>注：将 z 附加到-t 选项的话，会在输出的右侧输出一个新列，用来显示每行中的可打印字符</p>
 <hr>
-<h2 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h2><table>
+<h2 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -418,7 +724,7 @@
 <td>lsattr</td>
 <td>列出文件或目录的扩展属性</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h2><p>格式：<code>stat [options] files</code></p>
 <p>作用：显示文件（默认情况下）或文件系统（-f 选项）的重要属性</p>
@@ -441,7 +747,7 @@
 <p>-b 输出以字节为单位的大小</p>
 <p>-k 输出以千字节为单位的大小</p>
 <p>-m 输出以兆字节为单位的大小</p>
-<p>-B N 根据所定义块为单位来显示大小，其中 1 个块&#x3D;N 字节（默认值&#x3D;1024）</p>
+<p>-B N 根据所定义块为单位来显示大小，其中 1 个块=N 字节（默认值=1024）</p>
 <p>-h -H 以人类可读的单位进行输出。-h 选项使用 1024 的幂，而-H 则使用 1000 的幂</p>
 <p>-c 在最后一行输出总数。这是输出目录大小时的默认设置，但是用于特定文件的时候，如果需要统计总大小的话，请使用-c 选项</p>
 <p>-L 跟踪符号链接并显示它指向的文件的大小</p>
@@ -474,7 +780,7 @@
 <li>现有用户名（或任何数字形式的用户 ID），作为可选项可以跟冒号和现有用户组名（或任何数字形式的用户组 ID），以便设置属主和用户组</li>
 <li>现有的用户名（或任何数字形式的用户 ID）后面跟冒号，来设置属主，并将用户组设置为调用用户的登录组</li>
 <li>位于冒号之后的现有用户组名（或任何数字形式的组 ID），仅设置用户组</li>
-<li>–reference&#x3D;file，将属主和用户组设置为给定的另一个文件的属主和用户组</li>
+<li>–reference=file，将属主和用户组设置为给定的另一个文件的属主和用户组</li>
 </ul>
 <p>常用选项：</p>
 <p>–dereference 跟踪符号链接并对其指向的文件进行操作</p>
@@ -485,7 +791,7 @@
 <p><strong>group_spec</strong>参数可以是以下任何一种：</p>
 <ul>
 <li>用户组名或数字形式的用户组 ID</li>
-<li>–reference&#x3D;file，将属组设置为另一给定文件的属组</li>
+<li>–reference=file，将属组设置为另一给定文件的属组</li>
 </ul>
 <p>常用选项：</p>
 <p>–dereference 跟踪符号链接，并对其指向的文件进行操作</p>
@@ -495,7 +801,7 @@
 <p>作用：设置文件和目录的访问权限</p>
 <p><strong>permissions</strong>参数可以采用三种不同的形式：</p>
 <ul>
-<li>–reference&#x3D;file，设置与其他给定文件相同的权限</li>
+<li>–reference=file，设置与其他给定文件相同的权限</li>
 <li>最多四位数字的八进制数，用于指定文件的绝对权限</li>
 <li>一个或多个字符串，指定绝对权限或相对权限（即相对于该文件的现有权限）</li>
 </ul>
@@ -503,13 +809,13 @@
 <p>-R 递归更改目录层次结构中的所有权</p>
 <hr>
 <h2 id="umask"><a href="#umask" class="headerlink" title="umask"></a>umask</h2><p>格式：<code>umask [options] [mask]</code></p>
-<p>作用：设置或显示创建文件和目录时的默认模式，赋予自己、用户组和所有人相应的读、写和&#x2F;或执行权限</p>
+<p>作用：设置或显示创建文件和目录时的默认模式，赋予自己、用户组和所有人相应的读、写和/或执行权限</p>
 <p>常用选项：</p>
 <p>-S 以更直观的形式显示默认模式</p>
 <hr>
 <h2 id="chattr"><a href="#chattr" class="headerlink" title="chattr"></a>chattr</h2><p>格式：<code>chattr [options] [+ - =] attributes [files]</code></p>
 <p>作用：设置或更改扩展属性（仅限 ext 文件系统）</p>
-<table>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>属性</th>
@@ -552,7 +858,7 @@
 <td>u</td>
 <td>不可删除：该文件不允许执行删除操作</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>常用选项：</p>
 <p>-R 递归处理目录</p>
 <hr>
@@ -564,7 +870,7 @@
 <p>-a 列出所有的文件，包括以点号开头的文件</p>
 <p>-d 如果显示目录的话，不显示其内容，仅显示目录本身</p>
 <hr>
-<h2 id="文件的定位"><a href="#文件的定位" class="headerlink" title="文件的定位"></a>文件的定位</h2><table>
+<h2 id="文件的定位"><a href="#文件的定位" class="headerlink" title="文件的定位"></a>文件的定位</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -595,7 +901,7 @@
 <td>whereis</td>
 <td>查找可执行文件、文档和源文件</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><p>格式：<code>find [directories] [expression]</code></p>
 <p>作用：在一个或多个目录（及其递归子目录）中搜索符合特定条件的文件</p>
@@ -627,7 +933,7 @@
 <p>-print 只需输出相对于搜索目录的相对路径</p>
 <p>-printf string 输出给定的字符串，可以用 C 库函数 printf()的方式对其进行替换</p>
 <p>-printO 类似于-print，区别在于不是使用换行符分隔每行输出，而使用 null（ASCII 0）字符。通常在将搜索结果以管道方式传递给另一个程序，并且文件名列表可能含有空格时使用。当然，这要求接收程序必须能够读取并解析这些以 null 字符分隔的行</p>
-<p>-exec cmd; 调用给定的 shell 命令 cmd。需要注意的是，一定要对 shell 元字符转义处理，包括最后面的分号，因此它们不会在命令行中立即进行计算。此外，符号“{}”（务必加上引号或进行转义处理）代表所找的文件的路径，如：<code>find . -exec ls &#39;&#123;&#125;&#39; \;</code></p>
+<p>-exec cmd; 调用给定的 shell 命令 cmd。需要注意的是，一定要对 shell 元字符转义处理，包括最后面的分号，因此它们不会在命令行中立即进行计算。此外，符号“{}”（务必加上引号或进行转义处理）代表所找的文件的路径，如：<code>find . -exec ls '{}' \;</code></p>
 <p>-ok cmd 与-exec 选项的作用类似，区别是将在调用每个命令之前提示用户</p>
 <p>-ls 对文件执行 ls -dils 命令</p>
 <hr>
@@ -665,7 +971,7 @@
 <p>-b|-m|-s 仅列出可执行文件（-b）、联机帮助页（-m）或源代码文件（-s）</p>
 <p>-B|-M|-S dirs… -f 仅在给定的目录中搜索可执行文件（-B）、联机帮助页（-M）或源代码文件（-S）。在列出所查找的文件之前，你必须使用-f 选项来跟踪目录列表</p>
 <hr>
-<h2 id="文件的正文处理"><a href="#文件的正文处理" class="headerlink" title="文件的正文处理"></a>文件的正文处理</h2><table>
+<h2 id="文件的正文处理"><a href="#文件的正文处理" class="headerlink" title="文件的正文处理"></a>文件的正文处理</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -689,7 +995,7 @@
 <td>将字符转换为其他字符</td>
 </tr>
 <tr>
-<td>expand&#x2F;unexpand</td>
+<td>expand/unexpand</td>
 <td>在制表符和空格符之间进行转换</td>
 </tr>
 <tr>
@@ -704,7 +1010,7 @@
 <td>tee</td>
 <td>复制文件，同时将其输出到标准输出上</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p>格式：<code>grep [options] pattern [files]</code></p>
 <p>作用：给定一个或多个文件，输出其中与特定正则表达式模式匹配的所有行</p>
@@ -722,7 +1028,7 @@
 <p>-A N 输出匹配行，以及位于匹配行之后的 N 行</p>
 <p>-B N 输出匹配行，以及位于匹配行之前的 N 行</p>
 <p>-C N 输出匹配行，以及原文件中位于匹配行前后的 N 行内容</p>
-<p>–color&#x3D;always 突出显示匹配文本的颜色，以提高可读性</p>
+<p>–color=always 突出显示匹配文本的颜色，以提高可读性</p>
 <p>-r 递归搜索目录及其子目录中的所有文件</p>
 <p>-E 使用扩展正则表达式。见 egrep 命令</p>
 <p>-F 使用固定的字符串列表，而不是正则表达式。见 fgrep 命令</p>
@@ -730,7 +1036,7 @@
 <h2 id="egrep"><a href="#egrep" class="headerlink" title="egrep"></a>egrep</h2><p>格式：<code>egrep [options] pattern [files]</code></p>
 <p>作用：类似与 grep，只不过在正则表达式方面，它使用了一种不同的（“扩展性”）语言。它等价于 grep -E</p>
 <hr>
-<table>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>基本类型</th>
@@ -854,17 +1160,17 @@
 <td>正则表达式出现零次或一次</td>
 </tr>
 <tr>
-<td><code>\&#123;n \&#125;</code></td>
+<td><code>\{n \}</code></td>
 <td>{n}</td>
 <td>正则表达式恰好出现 n 次</td>
 </tr>
 <tr>
-<td><code>\&#123;n,\&#125;</code></td>
+<td><code>\{n,\}</code></td>
 <td>{n,}</td>
 <td>正则表达式恰好出现 n 次或 n 次以上</td>
 </tr>
 <tr>
-<td><code>\&#123;n,m\&#125;</code></td>
+<td><code>\{n,m\}</code></td>
 <td>{n,m}</td>
 <td>正则表达式出现次数介于 n 和 m（含 m）之间，n&lt;m</td>
 </tr>
@@ -873,7 +1179,7 @@
 <td></td>
 <td>取文字 c 的字面意义，即使 c 是一个特殊的正则表达式字符</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="fgrep"><a href="#fgrep" class="headerlink" title="fgrep"></a>fgrep</h2><p>格式：<code>fgrep [options] [fixed_strings] [files]</code></p>
 <p>作用：类似于 grep，但是它无法接收正则表达式，只能支持用换行符分隔的固定字符串的列表。该命令等价于 grep -F。通常，可以使用小写形式的-f 选项让 fgrep 命令从一个文件中读取固定的字符串。此外，还可以使用引号从命令行中读取固定的字符串。搜索非数字字符如*和{时，fgrep 命令用起来会非常方便，因为它们是按照字母的字面意义来对待的，而不是作为正则表达式字符来对待</p>
@@ -882,7 +1188,7 @@
 <p>作用：从文件中提取文本列，这里的“列”是由字符偏移（c）或字节偏移（b）或分隔字段（f）来定义的</p>
 <p>常用选项：</p>
 <p>-d C 使用字符 C 作为-f 选项的字段之间的输入分隔符。默认使用制表符</p>
-<p>–output-delimiter&#x3D;C 使用字符 C 作为-f 选项的字段之间的输出分隔符。默认使用制表符</p>
+<p>–output-delimiter=C 使用字符 C 作为-f 选项的字段之间的输出分隔符。默认使用制表符</p>
 <p>-s 排除（不输出）不包含分隔符的行</p>
 <hr>
 <h2 id="paste"><a href="#paste" class="headerlink" title="paste"></a>paste</h2><p>格式：<code>paste [options] [files]</code></p>
@@ -894,7 +1200,7 @@
 <h2 id="tr"><a href="#tr" class="headerlink" title="tr"></a>tr</h2><p>格式：<code>tr [options] charset1 [charset2]</code></p>
 <p>作用：将一组字符转换为另一组字符</p>
 <p>字符集 charset 可以采用以下格式：</p>
-<table>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>格式</th>
@@ -917,14 +1223,14 @@
 <td>[ :class: ]</td>
 <td>见 grep 命令支持的字符类</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>常用选项：</p>
 <p>-d 从输入中删除包含在 charset1 中的字符</p>
 <p>-s 从输入中删除（位于 charset1 中的）那些连续重复字符</p>
 <p>-c 只对 charset1 之外的字符进行操作</p>
 <p>-t 如果 charset1 长于 charset2，则通过截断 charset1 使其长度相同。如果没有提供-t 的话，则不断复制 charset2 的最后一个字符，直到 charset2 与 charset1 的长度相同为止</p>
 <hr>
-<h2 id="expand-unexpand"><a href="#expand-unexpand" class="headerlink" title="expand &#x2F; unexpand"></a>expand &#x2F; unexpand</h2><p>格式：<code>expand [options] [files]</code>，<code>unexpand [options] [files]</code></p>
+<h2 id="expand-unexpand"><a href="#expand-unexpand" class="headerlink" title="expand / unexpand"></a>expand / unexpand</h2><p>格式：<code>expand [options] [files]</code>，<code>unexpand [options] [files]</code></p>
 <p>作用：expand 命令用来将制表符转换为特定数量的空白字符，使其看起来长度不变，而 unexpand 命令的作用则刚好相反。默认情况下，每八个空格“兑换”一个制表符。</p>
 <p>常用选项：</p>
 <p>-t N 规定用 N 个空格替换一个制表符</p>
@@ -960,7 +1266,7 @@
 <p>-a 附加至文件末尾，而非覆盖文件</p>
 <p>-i 忽略中断信号</p>
 <hr>
-<h2 id="文件的压缩与打包"><a href="#文件的压缩与打包" class="headerlink" title="文件的压缩与打包"></a>文件的压缩与打包</h2><table>
+<h2 id="文件的压缩与打包"><a href="#文件的压缩与打包" class="headerlink" title="文件的压缩与打包"></a>文件的压缩与打包</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -989,7 +1295,7 @@
 </tr>
 <tr>
 <td>bzcat</td>
-<td>通过标准输入&#x2F;输出压缩&#x2F;解压 BZip 文件</td>
+<td>通过标准输入/输出压缩/解压 BZip 文件</td>
 </tr>
 <tr>
 <td>compress</td>
@@ -1001,7 +1307,7 @@
 </tr>
 <tr>
 <td>zcat</td>
-<td>通过标准输入&#x2F;输出来压缩&#x2F;解压缩文件（gzip 或 compress）</td>
+<td>通过标准输入/输出来压缩/解压缩文件（gzip 或 compress）</td>
 </tr>
 <tr>
 <td>zip</td>
@@ -1019,14 +1325,14 @@
 <td>mpack</td>
 <td>将一个文件转换成 MIME 格式</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><p>格式：<code>tar [options] [files]</code></p>
 <p>作用：将多个文件和目录打包为单个文件，以便于传输，同时还可以进行压缩处理，该压缩功能是可选的</p>
 <p>常用选项：</p>
 <p>-c 创建归档。必须在命令行中列出输入文件和目录</p>
 <p>-r 将文件附加到现有归档</p>
-<p>-u 将新建的&#x2F;修改的文件附加至现有归档</p>
+<p>-u 将新建的/修改的文件附加至现有归档</p>
 <p>-A 将一个归档附加到另一个归档，该选项不适用于压缩归档</p>
 <p>-t 列出（测试）归档</p>
 <p>-x 从归档中提取文件</p>
@@ -1086,7 +1392,7 @@
 <h2 id="munpack"><a href="#munpack" class="headerlink" title="munpack"></a>munpack</h2><p>格式：<code>munpack [options] mail_file</code>，<code>mpack [options] files</code></p>
 <p>作用：munpack 可以将邮件的附件解压为文件，mpack 则是将一个或多个文件作为附件插入到 MIME 格式的文件中</p>
 <hr>
-<h2 id="文件的比较"><a href="#文件的比较" class="headerlink" title="文件的比较"></a>文件的比较</h2><table>
+<h2 id="文件的比较"><a href="#文件的比较" class="headerlink" title="文件的比较"></a>文件的比较</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1109,7 +1415,7 @@
 <td>md5sum</td>
 <td>计算给定文件的校验和（MD5）</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h2><p>格式：<code>diff [options] file1 file2</code></p>
 <p>作用：diff 命令可用来对两个文件（或两个目录）进行逐行比较。在比较文本文件时，diff 可以提供详细的差异报告。对于二进制文件，diff 仅能指出是否存在差异。对于所有文件来说，如果没有差异的话，diff 都不会生成任何输出</p>
@@ -1149,7 +1455,7 @@
 <p>作用：md5sum 命令与校验和一起使用的时候，可以用来验证文件是否未经改动。该命令的第一种使用方式是通过 MD5 算法为指定文件生成 32 字节校验和；第二种使用方式则是测试校验和是否与相应的文件相匹配，这时需要使用–check 选项</p>
 <p>注：shasum 是一个更为强大程序，但是（到目前为止）还不太流行，它可以使用不同的算法来生成更长的哈希值。因此，它要比 md5sum 更加可靠一些</p>
 <hr>
-<h2 id="处理-PDF-文件和-PostScript-文件"><a href="#处理-PDF-文件和-PostScript-文件" class="headerlink" title="处理 PDF 文件和 PostScript 文件"></a>处理 PDF 文件和 PostScript 文件</h2><table>
+<h2 id="处理-PDF-文件和-PostScript-文件"><a href="#处理-PDF-文件和-PostScript-文件" class="headerlink" title="处理 PDF 文件和 PostScript 文件"></a>处理 PDF 文件和 PostScript 文件</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1176,7 +1482,7 @@
 <td>pdf2ps，ps2pdf</td>
 <td>实现 PDF 和 PostScript 之间的格式转换</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="pdftotext"><a href="#pdftotext" class="headerlink" title="pdftotext"></a>pdftotext</h2><p>格式：<code>pdftotext [options] [file.pdf [outfile.txt]]</code></p>
 <p>作用：从 PDF 文件中提取文本数据，并将其写入指定的文件中。只有当 PDF 包含实际文本，而非文本的图像时，该命令才能生效</p>
@@ -1201,7 +1507,7 @@
 <h2 id="pdf2ps"><a href="#pdf2ps" class="headerlink" title="pdf2ps"></a>pdf2ps</h2><p>格式：<code>pdf2ps [options] file.pdf [file.ps]</code>，<code>ps2pdf [options] file.ps [file.pdf]</code></p>
 <p>作用：pdf2ps 命令可以将 Adobe PDF 文件转换为 PostScript 文件（如果不提供输出文件名，则默认使用输入文件名，只是将.pdf 替换为.ps 而已，其他部分不变）；相反，ps2pdf 命令则可以将 PostScript 文件转换为 PDF 格式</p>
 <hr>
-<h2 id="打印"><a href="#打印" class="headerlink" title="打印"></a>打印</h2><table>
+<h2 id="打印"><a href="#打印" class="headerlink" title="打印"></a>打印</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1220,7 +1526,7 @@
 <td>lprm</td>
 <td>从队列中删除打印作业</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="lpr"><a href="#lpr" class="headerlink" title="lpr"></a>lpr</h2><p>格式：<code>lpr [options] [files]</code></p>
 <p>作用：向打印机发送文件</p>
@@ -1239,7 +1545,7 @@
 <h2 id="lprm"><a href="#lprm" class="headerlink" title="lprm"></a>lprm</h2><p>格式：<code>lprm [options] [job_IDs]</code></p>
 <p>作用：取消一个或多个打印作业。如果不提供任何作业 ID 的话，当前的打印作业将被取消（注意，只有超级用户才能够取消其他用户的作业）。-P 选项用来指出作业所在的打印队列</p>
 <hr>
-<h2 id="拼写检查"><a href="#拼写检查" class="headerlink" title="拼写检查"></a>拼写检查</h2><table>
+<h2 id="拼写检查"><a href="#拼写检查" class="headerlink" title="拼写检查"></a>拼写检查</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1258,10 +1564,10 @@
 <td>spell</td>
 <td>批处理式的拼写检查程序</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="look"><a href="#look" class="headerlink" title="look"></a>look</h2><p>格式：<code>look [options] prefix [dictionary_file]</code></p>
-<p>作用：打印以给定字符串 prefix 开头的单词，这些单词通常位于一个字典文件中（默认为&#x2F;usr&#x2F;share&#x2F;dict&#x2F;words）。当你提供自己的字典文件（可以是任何文本文件，只要各行按字母顺序排序即可）时，look 命令将打印以给定字符串 prefix 开头的所有行</p>
+<p>作用：打印以给定字符串 prefix 开头的单词，这些单词通常位于一个字典文件中（默认为/usr/share/dict/words）。当你提供自己的字典文件（可以是任何文本文件，只要各行按字母顺序排序即可）时，look 命令将打印以给定字符串 prefix 开头的所有行</p>
 <p>常用选项：</p>
 <p>-f 忽略大小写</p>
 <p>-t X 设置终止字符 X，即将该字符之前（包括该字符）的内容作为匹配字</p>
@@ -1276,7 +1582,7 @@
 <h2 id="spell"><a href="#spell" class="headerlink" title="spell"></a>spell</h2><p>格式：<code>spell [files]</code></p>
 <p>作用：输出给定文件中与其字典相比存在拼写错误的所有单词</p>
 <hr>
-<h2 id="磁盘和文件系统"><a href="#磁盘和文件系统" class="headerlink" title="磁盘和文件系统"></a>磁盘和文件系统</h2><table>
+<h2 id="磁盘和文件系统"><a href="#磁盘和文件系统" class="headerlink" title="磁盘和文件系统"></a>磁盘和文件系统</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1303,15 +1609,15 @@
 <td>eject</td>
 <td>弹出 CD、DVD 或其他可移动磁盘</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><p>格式：<code>df [options] [disk devices | files | directories]</code></p>
 <p>作用：显示给定磁盘分区的大小，以及其中已用空间和可用空间的大小。如果指定了文件或目录的话，df 将提供该文件或目录所在的磁盘设备的相关数据。如果不提供参数的话，df 将会显示已挂载的所有文件系统的使用情况</p>
 <p>常用选项：</p>
 <p>-k 以千字节为单位显示大小（默认值）</p>
 <p>-m 以兆字节为单位显示大小</p>
-<p>-B N 显示区块数目，并将区块大小指定为 N 个字节（默认值&#x3D;1024）</p>
-<p>-h|-H 为了以可读性较高的方式来显示信息，为每个空间大小选择最合适的单位。使用-h 选项时，1K&#x3D;1000；使用-H 选项时，1K&#x3D;1024</p>
+<p>-B N 显示区块数目，并将区块大小指定为 N 个字节（默认值=1024）</p>
+<p>-h|-H 为了以可读性较高的方式来显示信息，为每个空间大小选择最合适的单位。使用-h 选项时，1K=1000；使用-H 选项时，1K=1024</p>
 <p>-l 仅显示本地文件系统，而不显示网络文件系统</p>
 <p>-T 在输出中提供文件系统类型</p>
 <p>-t type 仅显示给定类型的文件系统</p>
@@ -1323,7 +1629,7 @@
 <p>常用选项：</p>
 <p>-t type 指定文件系统的类型</p>
 <p>-l 显示所有已挂载的文件系统，也可以与-t 组合使用</p>
-<p>-a 挂载&#x2F;etc&#x2F;fstab 中列出的所有文件系统。忽略包含 noauto 选项的条目，也可以与-t 组合使用</p>
+<p>-a 挂载/etc/fstab 中列出的所有文件系统。忽略包含 noauto 选项的条目，也可以与-t 组合使用</p>
 <p>-r 挂载只读文件系统</p>
 <hr>
 <h2 id="umount"><a href="#umount" class="headerlink" title="umount"></a>umount</h2><p>格式：<code>umount [options] [device | directory]</code></p>
@@ -1332,9 +1638,9 @@
 <hr>
 <h2 id="fsck"><a href="#fsck" class="headerlink" title="fsck"></a>fsck</h2><p>格式：<code>fsck [options] [devices]</code></p>
 <p>作用：验证 Linux 磁盘分区并按需修复发现的错误</p>
-<p>注：一般来说，在检查设备之前需要先将其卸载，以便保证没有其他程序同时对其进行操作。fsck 命令实际上是位于&#x2F;sbin 目录中的一组文件系统检查程序的前端程序，这些程序的名称都是以“fsck”开头。该命令只支持某些类型的文件系统，可以使用以下命令将其列出：<code>ls /sbin/fsck.* | cut -d. -f2</code></p>
+<p>注：一般来说，在检查设备之前需要先将其卸载，以便保证没有其他程序同时对其进行操作。fsck 命令实际上是位于/sbin 目录中的一组文件系统检查程序的前端程序，这些程序的名称都是以“fsck”开头。该命令只支持某些类型的文件系统，可以使用以下命令将其列出：<code>ls /sbin/fsck.* | cut -d. -f2</code></p>
 <p>常用选项：</p>
-<p>-A 按顺序检查&#x2F;etc&#x2F;fstab 中列出的所有磁盘</p>
+<p>-A 按顺序检查/etc/fstab 中列出的所有磁盘</p>
 <p>-N 输出检测报告，但是不进行修复</p>
 <p>-r 通过交互方式修复错误，执行每项修复任务之前都会进行提示</p>
 <p>-a 自动修复错误（只有当你真正了解所执行的这些任务时，才可以使用这个选项；否则，将会带来严重的后果）</p>
@@ -1349,7 +1655,7 @@
 <p>-d 显示要弹出的默认设备的名称，然后退出</p>
 <p>-c N 从光驱柜中选择光驱 N</p>
 <hr>
-<table>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1368,7 +1674,7 @@
 <td>growisofs</td>
 <td>刻录 DVD 或蓝光光盘</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="rsync"><a href="#rsync" class="headerlink" title="rsync"></a>rsync</h2><p>格式：<code>rsync [options] source destination</code></p>
 <p>作用：复制一组文件，既可以进行精确复制，包括文件权限和其他属性（这种方式称为镜像），也可以只复制数据。此外，它不仅可以通过网络运行，也可以在单机上运行</p>
@@ -1388,12 +1694,12 @@
 <h2 id="dd"><a href="#dd" class="headerlink" title="dd"></a>dd</h2><p>格式：<code>dd [options]</code></p>
 <p>作用：完成二进制位和字节低层操作的复制，它可以将数据从一个文件复制到另一个文件，也可以在复制时进行数据转换，设置可以通过设备复制的方式来克隆磁盘（警告：该操作会彻底摧毁目标设备上的所有数据）</p>
 <p>常用选项：</p>
-<p>if&#x3D;file 指定输入文件或设备</p>
-<p>of&#x3D;file 指定输出文件或设备</p>
-<p>bs&#x3D;N 一次复制 N 个字节，称为“块大小”（要设置输入和输出的块大小，请分别使用 ibs 和 obs）</p>
-<p>skip&#x3D;N 在开始复制之前跳过 N 个输入块</p>
-<p>seek&#x3D;N 在开始复制之前丢弃 N 个输出块</p>
-<p>conv&#x3D;spec 对复制的数据进行转换。spec 可以是 ucase（转换为大写字母）、lcase（转换为小写）、ascii（从 EBCDIC 转换为 ASCII）</p>
+<p>if=file 指定输入文件或设备</p>
+<p>of=file 指定输出文件或设备</p>
+<p>bs=N 一次复制 N 个字节，称为“块大小”（要设置输入和输出的块大小，请分别使用 ibs 和 obs）</p>
+<p>skip=N 在开始复制之前跳过 N 个输入块</p>
+<p>seek=N 在开始复制之前丢弃 N 个输出块</p>
+<p>conv=spec 对复制的数据进行转换。spec 可以是 ucase（转换为大写字母）、lcase（转换为小写）、ascii（从 EBCDIC 转换为 ASCII）</p>
 <hr>
 <h2 id="growisofs"><a href="#growisofs" class="headerlink" title="growisofs"></a>growisofs</h2><p>格式：<code>growisofs [options] tracks</code></p>
 <p>作用：刻录可写的 CD、DVD 或 Blu-ray 光盘</p>
@@ -1403,12 +1709,12 @@
 </li>
 <li><p>将要刻录的文件放到相应的目录中，比如 dir。根据需要，进行相应的组织安排。需要注意的是，目录 dir 本身不会被复制到光盘，仅复制其内容</p>
 </li>
-<li><p>使用 mkisofs 命令创建 ISO（光盘）映像文件，并使用 growisofs 将其刻录到光盘上，假设你的设备是&#x2F;dev&#x2F;sr1，具体命令如下所示：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mkisofs -R -l -o <span class="variable">$HOME</span>/mydisk.iso <span class="built_in">dir</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">growisofs -dvd-compat -Z /dev/sr1=<span class="variable">$HOME</span>/mydisk.iso</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">rm</span> <span class="variable">$HOME</span>/mydisk.iso</span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用 mkisofs 命令创建 ISO（光盘）映像文件，并使用 growisofs 将其刻录到光盘上，假设你的设备是/dev/sr1，具体命令如下所示：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mkisofs -R -l -o <span class="variable">$HOME</span>/mydisk.iso <span class="built_in">dir</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">growisofs -dvd-compat -Z /dev/sr1=<span class="variable">$HOME</span>/mydisk.iso</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">rm</span> <span class="variable">$HOME</span>/mydisk.iso</span></span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <p>注：如果要刻录音频 CD，请使用更加友好的图形工具，例如 k3b</p>
 <hr>
-<h2 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h2><table>
+<h2 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1435,7 +1741,7 @@
 <td>free</td>
 <td>显示可用内存</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><p>格式：<code>ps [options]</code></p>
 <p>作用：显示用户正在运行的进程的相关信息，也可以显示其他用户的进程信息，为可选项</p>
@@ -1461,7 +1767,7 @@
 <p>-s 不显示 JCPU 和 PCPU 列</p>
 <hr>
 <h2 id="top"><a href="#top" class="headerlink" title="top"></a>top</h2><p>格式：<code>top [options]</code></p>
-<p>作用：监视最活跃的进程，并能够定期更新信息。它是一个基于屏幕的程序，以交互方式更新显示内容。top 运行过程中，可以通过按键来改变其行为，例如设置更新速度（s）、隐藏空闲进程（i）或杀死进程（k）。输入 h 则可以查看完整的列表，输入 q 退出。此外，还有一些类似的程序可以用来监控系统的 I&#x2F;O 和网络带宽，如 iotop 和 iftop</p>
+<p>作用：监视最活跃的进程，并能够定期更新信息。它是一个基于屏幕的程序，以交互方式更新显示内容。top 运行过程中，可以通过按键来改变其行为，例如设置更新速度（s）、隐藏空闲进程（i）或杀死进程（k）。输入 h 则可以查看完整的列表，输入 q 退出。此外，还有一些类似的程序可以用来监控系统的 I/O 和网络带宽，如 iotop 和 iftop</p>
 <p>常用选项：</p>
 <p>-nN 执行 N 次更新，然后退出</p>
 <p>-dN 每 N 秒更新一次显示内容</p>
@@ -1476,9 +1782,9 @@
 <p>-b 显示字节数</p>
 <p>-m 显示数量（兆字节）</p>
 <p>-t 在底部添加总行数</p>
-<p>-o 不显示“buffers&#x2F;cache”行</p>
+<p>-o 不显示“buffers/cache”行</p>
 <hr>
-<h2 id="控制进程"><a href="#控制进程" class="headerlink" title="控制进程"></a>控制进程</h2><table>
+<h2 id="控制进程"><a href="#控制进程" class="headerlink" title="控制进程"></a>控制进程</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1505,7 +1811,7 @@
 <td>flock</td>
 <td>确保同一时刻只有一个进程副本在运行，这要用到锁</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><p>格式：<code>kill [options] [process_ids]</code></p>
 <p>作用：向进程发送信号，从而达到终止进程（默认动作）、中断进程、挂起进程、使其崩溃等目的，但是前提条件是，你必须是这个进程的属主，或者是超级用户，这样才有权限执行这些操作</p>
@@ -1520,12 +1826,12 @@
 <p>当然，最好还是使用 pidof 命令，利用它可以通过进程名称来查找进程，并输出其 PID：</p>
 <p><code>pidof emacs</code></p>
 <p>现在，可以通过使用 shell 的反引号来执行 pidof，终止已知其程序名称的进程了：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill `pidof emacs`</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill `pidof emacs`</span><br></pre></td></tr></tbody></table></figure>
 
 <p>或者使用 killall 命令终止给定程序的所有进程：</p>
 <p><code>killall emacs</code></p>
-<p>除了位于文件系统中的 kill 程序（通常位于&#x2F;bin&#x2F;kill）之外，大多数 shell 都提供了内置的 kill 命令，不过两者在语法和行为方面有所差异。但是，它们都支持以下用法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -N PID</span><br><span class="line">kill -NAME PID</span><br></pre></td></tr></table></figure>
+<p>除了位于文件系统中的 kill 程序（通常位于/bin/kill）之外，大多数 shell 都提供了内置的 kill 命令，不过两者在语法和行为方面有所差异。但是，它们都支持以下用法：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -N PID</span><br><span class="line">kill -NAME PID</span><br></pre></td></tr></tbody></table></figure>
 
 <p>其中 N 是信号编号，NAME 是信号字符串“SIG”开头的信号名称（例如，使用-HUP 发送 SIGHUP 信号）。使用<code>kill -l</code>命令查看 kill 传输的所有信号</p>
 <hr>
@@ -1541,7 +1847,7 @@
 <p>将一个大型任务的优先级数值设置为 7：</p>
 <p><code>nice -n 7 sort hugefile &gt; outfile</code></p>
 <p>在运行 nice 的时候，如果不指定优先级的话，则使用 10。正常进程（运行时没有指定优先级）运行在零级，为了查看进程的优先级，可以直接运行 nice，不要加任何参数，具体如下所示：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">nice</span></span></span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">nice</span></span></span><br><span class="line">0</span><br></pre></td></tr></tbody></table></figure>
 
 <p>超级用户也可以降低进程的优先程度，为此，只需指定更大的优先级数值即可：</p>
 <p><code>sudo nice -n -10 myprogram</code></p>
@@ -1562,7 +1868,7 @@
 <p>-w N 如果另一个命令已经在运行，则等待 N 秒后失败</p>
 <p>-s 使用<strong>共享锁</strong>而不是<strong>排他锁</strong>。你可以使用该选项同时运行多个命令，但如果省略该选项，则 flock 将失败。这个选项对于允许有限数量的命令同时运行是非常有用的</p>
 <hr>
-<h2 id="作业调度"><a href="#作业调度" class="headerlink" title="作业调度"></a>作业调度</h2><table>
+<h2 id="作业调度"><a href="#作业调度" class="headerlink" title="作业调度"></a>作业调度</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1585,7 +1891,7 @@
 <td>crontab</td>
 <td>为将来某些时间点安排任务</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><p>格式：<code>sleep time_specification</code></p>
 <p>作用：等待一定的时间。在指定时间的时候，可以使用一个整数（单位是秒），或一个整数，后跟字母 s（也就是秒），m（分钟），h（小时）或 d（天）</p>
@@ -1599,13 +1905,13 @@
 <hr>
 <h2 id="at"><a href="#at" class="headerlink" title="at"></a>at</h2><p>格式：<code>at [options] time_specification</code></p>
 <p>作用：在规定的时间运行一次 shell 命令</p>
-<p>注：可以通过&#x2F;usr&#x2F;share&#x2F;doc&#x2F;at&#x2F;time-spec 了解其详细语法</p>
+<p>注：可以通过/usr/share/doc/at/time-spec 了解其详细语法</p>
 <p>常用选项：</p>
 <p>-f filename 从给定文件读取命令，而不是标准输入</p>
 <p>-c job_number 将作业命令显示到标准输出</p>
 <hr>
 <h2 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h2><p>格式：<code>crontab [options] [file]</code></p>
-<p>作用：在特定的时间调度作业，适用于重复性的工作。为了使此类工作顺利进行，可以编辑并保存一个名为 crontab 的文件，通常该文件自动安装在系统目录（&#x2F;var&#x2F;spool&#x2F;cron）中的。每过一分钟，一个名为 cron 的 Linux 进程就会被唤醒，并检查你的 crontab 文件，执行所有到期的作业</p>
+<p>作用：在特定的时间调度作业，适用于重复性的工作。为了使此类工作顺利进行，可以编辑并保存一个名为 crontab 的文件，通常该文件自动安装在系统目录（/var/spool/cron）中的。每过一分钟，一个名为 cron 的 Linux 进程就会被唤醒，并检查你的 crontab 文件，执行所有到期的作业</p>
 <p>常用命令：</p>
 <p><code>crontab -e</code> 使用默认编辑器（$VISUAL）编辑 crontab 文件</p>
 <p><code>crontab -l</code> 在标准输出上显示 crontab 文件</p>
@@ -1632,7 +1938,7 @@
 <p><code>sudo systemctl reboot</code> 重启系统</p>
 <p><code>sudo systemctl suspend</code> 挂起系统</p>
 <hr>
-<h2 id="用户及环境变量"><a href="#用户及环境变量" class="headerlink" title="用户及环境变量"></a>用户及环境变量</h2><table>
+<h2 id="用户及环境变量"><a href="#用户及环境变量" class="headerlink" title="用户及环境变量"></a>用户及环境变量</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1671,7 +1977,7 @@
 <td>printenv</td>
 <td>显示环境变量的值</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="logname"><a href="#logname" class="headerlink" title="logname"></a>logname</h2><p>格式：<code>logname</code></p>
 <p>作用：显示用户的登录名</p>
@@ -1691,7 +1997,7 @@
 <hr>
 <h2 id="who"><a href="#who" class="headerlink" title="who"></a>who</h2><p>格式：<code>who [options] [filename]</code></p>
 <p>作用：列出所有登录用户，每行一个用户 shell</p>
-<p>注：通常，who 将从&#x2F;var&#x2F;run&#x2F;utmp 文件获取相应的数据，filename 参数可以用于指定不同的数据文件，例如用&#x2F;var&#x2F;log&#x2F;wtmp 记录过去的登录情况，或用&#x2F;var&#x2F;log&#x2F;btmp 记录失败的登录</p>
+<p>注：通常，who 将从/var/run/utmp 文件获取相应的数据，filename 参数可以用于指定不同的数据文件，例如用/var/log/wtmp 记录过去的登录情况，或用/var/log/btmp 记录失败的登录</p>
 <p>常用选项：</p>
 <p>-H 将第一行作为标题显示</p>
 <p>–lookup 对于远程登录的用户，显示原始主机名</p>
@@ -1702,7 +2008,7 @@
 <hr>
 <h2 id="users"><a href="#users" class="headerlink" title="users"></a>users</h2><p>格式：<code>users [filename]</code></p>
 <p>作用：显示已经登陆的用户的快速列表（如果用户正在运行多个 shell，则会在表中出现多次）</p>
-<p>注：像 who 命令一样，默认情况下 users 命令将读取&#x2F;var&#x2F;log&#x2F;utmp 文件，但是也可以通过设置让它从另一个文件读取相关信息</p>
+<p>注：像 who 命令一样，默认情况下 users 命令将读取/var/log/utmp 文件，但是也可以通过设置让它从另一个文件读取相关信息</p>
 <hr>
 <h2 id="finger"><a href="#finger" class="headerlink" title="finger"></a>finger</h2><p>格式：<code>finger [options] [user[@host]]</code></p>
 <p>作用：显示已经登录的用户的简要或详细信息</p>
@@ -1710,7 +2016,7 @@
 <p>常用选项：</p>
 <p>-l 显示详细信息</p>
 <p>-s 显示简要信息</p>
-<p>-p 不显示 Project 和 Plan 部分，这两部分通常分别从用户的<del>&#x2F;.project 和</del>&#x2F;.plan 文件中读取</p>
+<p>-p 不显示 Project 和 Plan 部分，这两部分通常分别从用户的<del>/.project 和</del>/.plan 文件中读取</p>
 <hr>
 <h2 id="last"><a href="#last" class="headerlink" title="last"></a>last</h2><p>格式：<code>last [options] [users] [ttys]</code></p>
 <p>作用：显示历史登录信息，按时间逆序排列；可以提供用户名或 tty 名称来限定输出的内容</p>
@@ -1719,12 +2025,12 @@
 <p>-i 显示 IP 地址而不是主机名</p>
 <p>-R 不显示主机名</p>
 <p>-x 显示系统关闭和系统运行级别的变化情况（例如，从单用户模式到多用户模式）</p>
-<p>-f filename 从&#x2F;var&#x2F;run&#x2F;wtmp 之外的其他文件中读取数据</p>
+<p>-f filename 从/var/run/wtmp 之外的其他文件中读取数据</p>
 <hr>
 <h2 id="printenv"><a href="#printenv" class="headerlink" title="printenv"></a>printenv</h2><p>格式：<code>printenv [environment_variables]</code></p>
 <p>作用：输出 shell 所知的所有环境变量及其值，或只显示指定的变量</p>
 <hr>
-<h2 id="用户帐户管理"><a href="#用户帐户管理" class="headerlink" title="用户帐户管理"></a>用户帐户管理</h2><table>
+<h2 id="用户帐户管理"><a href="#用户帐户管理" class="headerlink" title="用户帐户管理"></a>用户帐户管理</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1755,7 +2061,7 @@
 <td>chsh</td>
 <td>修改用户的 shell</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h2><p>格式：<code>useradd [options] username</code></p>
 <p>作用：超级用户可以通过此命令来创建用户帐户</p>
@@ -1767,7 +2073,7 @@
 <p>-c string 设置用户的 comment 字段（历史上称为 GECOS 字段）。通常情况下，该字段被设为用户的全名，但实际上可以是任何字符串。chfn 命令还可以用来设置该信息</p>
 <p>-g group 将用户的初始（默认）组设置为 group，它可以是数字形式的组 ID 或组名称，但是，这些组必须是已经存在的</p>
 <p>-G group1,group2,… 让用户加入现有的其他组，即 group1，group2 等</p>
-<p>-m 将系统基干目录&#x2F;etc&#x2F;skel 中的所有文件复制到新创建的主目录中。基干目录通常用来存放初始化文件的最小（基干）版本，如~&#x2F;.bash_profile，以供新用户使用。如果你希望从不同的目录复制这些文件，请添加-k 选项（-k dirname）</p>
+<p>-m 将系统基干目录/etc/skel 中的所有文件复制到新创建的主目录中。基干目录通常用来存放初始化文件的最小（基干）版本，如~/.bash_profile，以供新用户使用。如果你希望从不同的目录复制这些文件，请添加-k 选项（-k dirname）</p>
 <hr>
 <h2 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h2><p>格式：<code>userdel [-r] username</code></p>
 <p>作用：删除现有帐户</p>
@@ -1796,12 +2102,12 @@
 <p>-o office 将办公室地址改为 office</p>
 <hr>
 <h2 id="chsh"><a href="#chsh" class="headerlink" title="chsh"></a>chsh</h2><p>格式：<code>chsh [options] [username]</code></p>
-<p>作用：设置登录 shell 程序。如果调用时没有指定用户名的话，chsh 默认会修改用户自己的登录 shell；如果（以 root 身份）调用该命令时指定了用户名的话，它会修改指定用户的登录 shell。如果没有给出任何选项的话，chsh 将提示你输入所需信息。当然，新的 shell 必须是存在于文件&#x2F;etc&#x2F;shells 中的</p>
+<p>作用：设置登录 shell 程序。如果调用时没有指定用户名的话，chsh 默认会修改用户自己的登录 shell；如果（以 root 身份）调用该命令时指定了用户名的话，它会修改指定用户的登录 shell。如果没有给出任何选项的话，chsh 将提示你输入所需信息。当然，新的 shell 必须是存在于文件/etc/shells 中的</p>
 <p>常用选项：</p>
 <p>-s shell 指定新的 shell</p>
 <p>-l 列出所有可用的 shell</p>
 <hr>
-<h2 id="用户组的管理"><a href="#用户组的管理" class="headerlink" title="用户组的管理"></a>用户组的管理</h2><table>
+<h2 id="用户组的管理"><a href="#用户组的管理" class="headerlink" title="用户组的管理"></a>用户组的管理</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1824,7 +2130,7 @@
 <td>groupmod</td>
 <td>修改用户组</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="groups"><a href="#groups" class="headerlink" title="groups"></a>groups</h2><p>格式：<code>groups [usernames]</code></p>
 <p>作用：显示你所属的或其他用户所属的 LInux 组</p>
@@ -1838,7 +2144,7 @@
 <h2 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h2><p>格式：<code>groupdel group</code></p>
 <p>作用：删除现有的组</p>
 <p>注：在进行该项操作之前，最好找出所有组 ID 被设置为给定组的文件，以便稍后处理</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo find / -group &lt;group&gt; -print</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo find / -group &lt;group&gt; -print</span><br></pre></td></tr></tbody></table></figure>
 
 <p>因为 groupdel 不会改变文件所属的组。它只是从系统中删除相应的组的名称。如果你显示这些文件的话，你会看到数字组 ID，而不是组名</p>
 <hr>
@@ -1849,7 +2155,7 @@
 <p>-n name 将组的名称更改为 name（安全）</p>
 <p>-g gid 将组 ID 更改为 gid（危险）</p>
 <hr>
-<h2 id="主机信息"><a href="#主机信息" class="headerlink" title="主机信息"></a>主机信息</h2><table>
+<h2 id="主机信息"><a href="#主机信息" class="headerlink" title="主机信息"></a>主机信息</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1876,7 +2182,7 @@
 <td>ifconfig</td>
 <td>设置和显示网络接口信息</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="uname"><a href="#uname" class="headerlink" title="uname"></a>uname</h2><p>格式：<code>uname [options]</code></p>
 <p>作用：显示计算机的基本信息</p>
@@ -1929,7 +2235,7 @@
 <p><code>ifconfig eth0</code> 显示默认网络接口（通常为 eth0）的信息</p>
 <p><code>ifconfig -a</code> 查看所有已经加载的网络接口</p>
 <hr>
-<h2 id="主机位置"><a href="#主机位置" class="headerlink" title="主机位置"></a>主机位置</h2><table>
+<h2 id="主机位置"><a href="#主机位置" class="headerlink" title="主机位置"></a>主机位置</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -1952,7 +2258,7 @@
 <td>traceroute</td>
 <td>查看到远程主机的网络路径</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="host"><a href="#host" class="headerlink" title="host"></a>host</h2><p>格式：<code>host [options] name [server]</code></p>
 <p>作用：通过查询 DNS 来查找远程机器的主机名或 IP 地址</p>
@@ -1976,7 +2282,7 @@
 <h2 id="traceroute"><a href="#traceroute" class="headerlink" title="traceroute"></a>traceroute</h2><p>格式：<code>traceroute [options] host [packet_length]</code></p>
 <p>作用：输出从本地主机到远程主机的网络路径，以及数据包通过该路径所需的时间</p>
 <p>注：该命令会向路径中的每个主机发送三个探测数据包，并报告返回时间。如果五秒内没有收到对方的响应，traceroute 会显示一个星号。此外，traceroute 可能被防火墙阻止或由于其他原因而无法进行，在这种情况下，它会显示相应的符号：</p>
-<table>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>符号</th>
@@ -2011,13 +2317,13 @@
 <td>!N</td>
 <td>ICMP 不可达代码 N</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>默认数据包大小为 40 字节，但你可以通过可选参数 packet_length 来进行修改</p>
 <p>常用选项：</p>
 <p>-n 数字模式：显示 IP 地址而不是主机名</p>
 <p>-w N 将超时从 5 秒改为 N 秒</p>
 <hr>
-<h2 id="网络连接"><a href="#网络连接" class="headerlink" title="网络连接"></a>网络连接</h2><table>
+<h2 id="网络连接"><a href="#网络连接" class="headerlink" title="网络连接"></a>网络连接</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2044,7 +2350,7 @@
 <td>netcat</td>
 <td>创建任意网络连接</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><p>格式：<code>ssh [options] host [command]</code></p>
 <p>作用：如果你在某远程机器上面拥有相应的帐户的话，可以通过 ssh 程序来进行安全的远程登录，或是调用远程机器上的程序而无需登录。ssh 会加密通过其连接进行传输的所有数据，包括你的用户名和密码（这是你需要访问远程计算机所需的）。SSH 协议还支持其他方式进行身份验证，例如公钥和主机 ID</p>
@@ -2075,7 +2381,7 @@
 <h2 id="sftp"><a href="#sftp" class="headerlink" title="sftp"></a>sftp</h2><p>格式：<code>sftp (host username@host)</code></p>
 <p>作用：在两台计算机之间以交互方式安全地通过批量方式复制文件</p>
 <p>注：如果你在远程系统上的用户名与本地用户名不同的话，则需要使用 username@host 参数</p>
-<table>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2130,7 +2436,7 @@
 <td>quit</td>
 <td>退出 sftp</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h2><p>格式：<code>ftp [options] host</code></p>
 <p>作用：在计算机之间复制文件，无法以安全的方式复制文件，用户名和密码是以纯文本形式在网络中传播的</p>
@@ -2144,7 +2450,7 @@
 <p>-w N N 秒后超时</p>
 <p>-h 获取帮助信息</p>
 <hr>
-<h2 id="Email"><a href="#Email" class="headerlink" title="Email"></a>Email</h2><table>
+<h2 id="Email"><a href="#Email" class="headerlink" title="Email"></a>Email</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2163,7 +2469,7 @@
 <td>mailq</td>
 <td>查看系统上的外发邮件队列</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="mutt"><a href="#mutt" class="headerlink" title="mutt"></a>mutt</h2><p>格式：<code>mutt [options]</code></p>
 <p>作用：mutt 是一个基于文本的邮件程序，能够在普通终端（或终端窗口）中运行，因此可以在本地（例如，X 终端窗口）中使用或通过 SSH 连接远程使用</p>
@@ -2179,7 +2485,7 @@
 <h2 id="mailq"><a href="#mailq" class="headerlink" title="mailq"></a>mailq</h2><p>格式：<code>mailq</code></p>
 <p>作用：列出所有等待发送的外发电子邮件，发送的邮件将记录在日志文件中</p>
 <hr>
-<h2 id="网页浏览"><a href="#网页浏览" class="headerlink" title="网页浏览"></a>网页浏览</h2><table>
+<h2 id="网页浏览"><a href="#网页浏览" class="headerlink" title="网页浏览"></a>网页浏览</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2194,7 +2500,7 @@
 <td>wget</td>
 <td>下载网页和文件</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="lynx"><a href="#lynx" class="headerlink" title="lynx"></a>lynx</h2><p>格式：<code>lynx [options] [URL]</code></p>
 <p>作用：lynx 是一个精简的纯文本网页浏览器，由于太过精简，因此无法显示图片、播放音频或视频，甚至无法响应鼠标。但是，当你只需要快速浏览页面，或网络速度慢或下载网站的 HTML 时，这种精简特性却是非常有用的。此外，它特别适合检测可疑网址，因为 lynx 不运行 JavaScript，甚至在未经允许的情况下都不会接受 cookie。所有浏览活动都是通过键盘完成的。有时候，浏览的效果不太完美，特别是浏览大量使用表格或框架的页面的时候，不过，浏览网站的概貌还是没问题的</p>
@@ -2203,7 +2509,7 @@
 <p>-source 将 HTML 源代码打印到标准输出并退出（类似于 wget 命令）</p>
 <p>-emacskeys 让 lynx 使用 emacs 编辑器的按键指令</p>
 <p>-vikeys 让 lynx 使用 vim（或 vi）编辑器的按键指令</p>
-<p>-homepage&#x3D;URL 将你的主页网址设置为 URL</p>
+<p>-homepage=URL 将你的主页网址设置为 URL</p>
 <p>-color 打开彩色文字模式</p>
 <p>-nocolor 关闭彩色文字模式</p>
 <hr>
@@ -2214,9 +2520,9 @@
 <p>-i filename 从指定的文件读取 URL 并依次检索它们</p>
 <p>-O filename 将所有捕捉到的 HTML 写入给定的文件夹，逐页追加</p>
 <p>-c 续传模式：如果之前的下载被中断，只剩下部分内容，那么 wget 将从上次中断的地方开始下载。也就是说，如果内容 150K，上次已经下载了 100K，那么使用-c 选项后，就只下载剩下的 50K，然后把它添加到已经下载的内容后面即可。不过，有时候 wget 可能会“被耍”，例如从上次进行了（部分）下载之后，文件已经发生变化，所以，只有确保远程文件没有发生变化时，才能使用这个选项</p>
-<p>-t N 尝试 N 次，然后放弃。N&#x3D;0 表示不停尝试下去</p>
-<p>–progress&#x3D;dot 通过点号来显示下载进度</p>
-<p>–progress&#x3D;bar 通过条型来显示下载进度</p>
+<p>-t N 尝试 N 次，然后放弃。N=0 表示不停尝试下去</p>
+<p>–progress=dot 通过点号来显示下载进度</p>
+<p>–progress=bar 通过条型来显示下载进度</p>
 <p>–spider 不下载，只是检查远程页面是否存在</p>
 <p>-nd 将所有的文件下载到当前目录中，即使它们原先位于一个非常复杂的目录树中（默认情况下，wget 会按照原样来复制远程目录的层次结构）</p>
 <p>-r 递归下载页面层次结构，包括子目录</p>
@@ -2229,7 +2535,7 @@
 <p>-I pattern 目录包含：仅从匹配给定模式的目录中下载文件</p>
 <p>-X pattern 目录排除：仅从不符合给定模式的目录中下载文件</p>
 <hr>
-<h2 id="即时通信"><a href="#即时通信" class="headerlink" title="即时通信"></a>即时通信</h2><table>
+<h2 id="即时通信"><a href="#即时通信" class="headerlink" title="即时通信"></a>即时通信</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2260,12 +2566,12 @@
 <td>irssi</td>
 <td>基于文本的 IRC 客户端</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="write"><a href="#write" class="headerlink" title="write"></a>write</h2><p>格式：<code>write user [tty]</code></p>
 <p>作用：向同一台机器上的其他用户发送多行文本，Ctrl+D 组合键用于结束连接。也可以在管道中发送一次性消息</p>
 <p>注：与 write 命令功能比较接近的一个命令是 wall，它能同时向所有登录用户发送消息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wall The system will reboot in 1 hour</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wall The system will reboot in 1 hour</span><br></pre></td></tr></tbody></table></figure>
 
 <hr>
 <h2 id="mesg"><a href="#mesg" class="headerlink" title="mesg"></a>mesg</h2><p>格式：<code>mesg [y|n]</code></p>
@@ -2288,7 +2594,7 @@
 <h2 id="irssi"><a href="#irssi" class="headerlink" title="irssi"></a>irssi</h2><p>格式：<code>irssi [options]</code></p>
 <p>作用：功能齐全的基于文本的 IRC 客户端</p>
 <hr>
-<h2 id="屏幕输出"><a href="#屏幕输出" class="headerlink" title="屏幕输出"></a>屏幕输出</h2><table>
+<h2 id="屏幕输出"><a href="#屏幕输出" class="headerlink" title="屏幕输出"></a>屏幕输出</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2315,7 +2621,7 @@
 <td>clear</td>
 <td>清除屏幕或窗口</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2><p>格式：<code>echo [options] strings</code></p>
 <p>作用：显示其参数</p>
@@ -2333,8 +2639,8 @@
 <p>\t 水平制表符</p>
 <p>\v 垂直制表符</p>
 <p><code>\\</code> 反斜杠</p>
-<p><code>\&#39;</code> 单引号</p>
-<p><code>\&quot;</code> 双引号</p>
+<p><code>\'</code> 单引号</p>
+<p><code>\"</code> 双引号</p>
 <p>\nnn 插入 nnn（八进制）所代表的 ASCII 字符</p>
 <hr>
 <h2 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h2><p>格式：<code>printf format_string [arguments]</code></p>
@@ -2353,7 +2659,7 @@
 <h2 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h2><p>格式：<code>clear</code></p>
 <p>作用：清除显示器或 shell 窗口中的内容</p>
 <hr>
-<h2 id="复制和粘贴"><a href="#复制和粘贴" class="headerlink" title="复制和粘贴"></a>复制和粘贴</h2><table>
+<h2 id="复制和粘贴"><a href="#复制和粘贴" class="headerlink" title="复制和粘贴"></a>复制和粘贴</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2368,7 +2674,7 @@
 <td>xsel</td>
 <td>通过 shell 来操作剪切板</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="xclip"><a href="#xclip" class="headerlink" title="xclip"></a>xclip</h2><p>格式：<code>xclip [options]</code></p>
 <p>作用：可以对三个 Linux 选择（剪切板）命令进行读取和写入操作，从而实现在 shell 和图形应用程序之间复制和粘贴文本</p>
@@ -2389,7 +2695,7 @@
 <p>-c 清除选择命令中的内容</p>
 <p>-x 交换 primary 和 secondary 命令中的内容</p>
 <hr>
-<h2 id="数学和计算"><a href="#数学和计算" class="headerlink" title="数学和计算"></a>数学和计算</h2><table>
+<h2 id="数学和计算"><a href="#数学和计算" class="headerlink" title="数学和计算"></a>数学和计算</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2408,7 +2714,7 @@
 <td>dc</td>
 <td>基于文本的 RPN 计算器</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="expr"><a href="#expr" class="headerlink" title="expr"></a>expr</h2><p>格式：<code>expr expression</code></p>
 <p>作用：在命令行中执行简单的数学（和其他表达式求值）运算</p>
@@ -2419,7 +2725,7 @@
 <h2 id="dc"><a href="#dc" class="headerlink" title="dc"></a>dc</h2><p>格式：<code>dc [options] [files]</code></p>
 <p>作用：从标准输入读取表达式，并将结果写入标准输出，它是一个使用逆波兰表示法（RPN）、基于堆栈的计算器</p>
 <hr>
-<h2 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h2><table>
+<h2 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2438,7 +2744,7 @@
 <td>ntpdate</td>
 <td>使用远程时间服务器设置系统时间</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="cal"><a href="#cal" class="headerlink" title="cal"></a>cal</h2><p>格式：<code>cal [options][month [year]]</code></p>
 <p>作用：显示日历。默认情况下，它会显示当前月份的日历；要想显示当前月份之外的日历的话，请提供相应的月份和年份（用四位数字表示）。如果省略具体的月份，那么该命令就会显示整年的日历</p>
@@ -2452,12 +2758,12 @@
 <p>常用选项：</p>
 <p>-d string 显示给定的日期或时间 string，并按照你的要求进行格式化</p>
 <p>-r filename 显示给定图像的最后修改时间戳，并按照你的要求进行格式化</p>
-<p>-s string 将系统日期和&#x2F;或时间设置为 string，只有超级用户才能执行该操作</p>
+<p>-s string 将系统日期和/或时间设置为 string，只有超级用户才能执行该操作</p>
 <hr>
 <h2 id="ntpdate"><a href="#ntpdate" class="headerlink" title="ntpdate"></a>ntpdate</h2><p>格式：<code>ntpdate timeserver</code></p>
 <p>作用：通过访问网络上的时间服务器来设置当前系统时间，需要 root 权限</p>
 <hr>
-<h2 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h2><table>
+<h2 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2480,7 +2786,7 @@
 <td>montage</td>
 <td>将多个图形文件组合成一个文件</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="display"><a href="#display" class="headerlink" title="display"></a>display</h2><p>格式：<code>display [options] files</code></p>
 <p>作用：显示多种格式的图像文件</p>
@@ -2508,7 +2814,7 @@
 <p>-frame N 在每个图像周围绘制宽度为 N 个像素的框</p>
 <p>-label string 使用字符串来标注各个图像，其中可以包括以百分号开头的特殊转义字符：%f 表示原始文件名，%h 和%w 表示高度和宽度，%m 表示文件格式等</p>
 <hr>
-<h2 id="音频和视频"><a href="#音频和视频" class="headerlink" title="音频和视频"></a>音频和视频</h2><table>
+<h2 id="音频和视频"><a href="#音频和视频" class="headerlink" title="音频和视频"></a>音频和视频</h2><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2547,7 +2853,7 @@
 <td>mplayer</td>
 <td>播放视频或音频</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="cdparanoia"><a href="#cdparanoia" class="headerlink" title="cdparanoia"></a>cdparanoia</h2><p>格式：<code>cdparanoia [options] span [outfile]</code></p>
 <p>作用：从 CD 读取（提取）音频数据，并将其存储到 WAV 文件（或其他格式）</p>
@@ -2600,6 +2906,9 @@
 
 <script src="/js/markmap.js"></script>
 </article>
+
+<div class="article-tags"><a class="tag" href="/tags/linux/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>linux</a></div>
+
 <div class="article-footer">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
@@ -2612,36 +2921,11 @@
     <section id="share">
       <div class="header"><span>分享文章</span></div>
       <div class="body">
-        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://skyforever.top/posts/15440" /></div>
-        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/posts/15440&title=Linux命令速查手册 - Sky Blog&pics=https://image.skyforever.top/blog/2025/10/f5768033ddc53871ca8db788200b1b0f.webp&summary=按Ctrl + F搜索
-shell 的作业控制
-
-
-命令
-作用
-
-
-
-jobs
-列出作业
-
-
-&amp;
-在后台运行作业
-
-
-Ctrl+Z
-挂起当前（前台）作业
-
-
-suspend
-挂起 shell 的执行
-
-
-fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=Linux命令速查手册 - Sky Blog&amp;body=http://skyforever.top/posts/15440"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http:&#x2F;&#x2F;skyforever.top&#x2F;posts&#x2F;15440" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Fskyforever.top%2Fposts%2F15440&title=Linux%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C%20-%20Sky%20Blog&pics=https%3A%2F%2Fimage.skyforever.top%2Fblog%2F2025%2F10%2Ff5768033ddc53871ca8db788200b1b0f.webp&summary=%E6%8C%89Ctrl%20%2B%20F%E6%90%9C%E7%B4%A2%0Ashell%20%E7%9A%84%E4%BD%9C%E4%B8%9A%E6%8E%A7%E5%88%B6%0A%0A%0A%E5%91%BD%E4%BB%A4%0A%E4%BD%9C%E7%94%A8%0A%0A%0A%0Ajobs%0A%E5%88%97%E5%87%BA%E4%BD%9C%E4%B8%9A%0A%0A%0A%26amp%3B%0A%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%E4%BD%9C%E4%B8%9A%0A%0A%0ACtrl%2BZ%0A%E6%8C%82%E8%B5%B7%E5%BD%93%E5%89%8D%EF%BC%88%E5%89%8D%E5%8F%B0%EF%BC%89%E4%BD%9C%E4%B8%9A%0A%0A%0Asuspend%0A%E6%8C%82%E8%B5%B7%20shell%20%E7%9A%84%E6%89%A7%E8%A1%8C%0A%0A%0Afg%20%5B%25jobnum..."><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=Linux%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C%20-%20Sky%20Blog&amp;body=http%3A%2F%2Fskyforever.top%2Fposts%2F15440"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
         
         <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/posts/15440"/>
+          <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http%3A%2F%2Fskyforever.top%2Fposts%2F15440"/>
         </div>
         
       </div>
@@ -2655,7 +2939,7 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="/posts/3106.html" title="Vim技巧整理"><span class="title">Vim技巧整理</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;3106.html" title="Vim技巧整理"><span class="title">Vim技巧整理</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
@@ -2666,7 +2950,7 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
     <section class='body cmt-body giscus'>
       
 
-<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+<div class="lazy-icon"></div>
 
 <div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
 
@@ -2675,14 +2959,25 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0">Stellar 1.44.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
 </div></footer>
-<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-<div class="widgets">
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"><div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#shell-%E7%9A%84%E4%BD%9C%E4%B8%9A%E6%8E%A7%E5%88%B6"><span class="toc-text">shell 的作业控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-text">文件基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cp"><span class="toc-text">cp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mv"><span class="toc-text">mv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rm"><span class="toc-text">rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ln"><span class="toc-text">ln</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="toc-text">目录操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cd"><span class="toc-text">cd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwd"><span class="toc-text">pwd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#basename"><span class="toc-text">basename</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dirname"><span class="toc-text">dirname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mkdir"><span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rmdir"><span class="toc-text">rmdir</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6"><span class="toc-text">查看文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cat"><span class="toc-text">cat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#less"><span class="toc-text">less</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nl"><span class="toc-text">nl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-text">head</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tail"><span class="toc-text">tail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strings"><span class="toc-text">strings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#od"><span class="toc-text">od</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7"><span class="toc-text">文件属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stat"><span class="toc-text">stat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wc"><span class="toc-text">wc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#du"><span class="toc-text">du</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#file"><span class="toc-text">file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#touch"><span class="toc-text">touch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chown"><span class="toc-text">chown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chgrp"><span class="toc-text">chgrp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chmod"><span class="toc-text">chmod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#umask"><span class="toc-text">umask</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chattr"><span class="toc-text">chattr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lsattr"><span class="toc-text">lsattr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%9A%E4%BD%8D"><span class="toc-text">文件的定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#find"><span class="toc-text">find</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xargs"><span class="toc-text">xargs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#locate"><span class="toc-text">locate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#which"><span class="toc-text">which</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#type"><span class="toc-text">type</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#whereis"><span class="toc-text">whereis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E6%AD%A3%E6%96%87%E5%A4%84%E7%90%86"><span class="toc-text">文件的正文处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grep"><span class="toc-text">grep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#egrep"><span class="toc-text">egrep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fgrep"><span class="toc-text">fgrep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cut"><span class="toc-text">cut</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paste"><span class="toc-text">paste</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tr"><span class="toc-text">tr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#expand-unexpand"><span class="toc-text">expand &#x2F; unexpand</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort"><span class="toc-text">sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uniq"><span class="toc-text">uniq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tee"><span class="toc-text">tee</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E6%89%93%E5%8C%85"><span class="toc-text">文件的压缩与打包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tar"><span class="toc-text">tar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gzip"><span class="toc-text">gzip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bzip2"><span class="toc-text">bzip2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#compress"><span class="toc-text">compress</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zip"><span class="toc-text">zip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#munpack"><span class="toc-text">munpack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-text">文件的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#diff"><span class="toc-text">diff</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#comm"><span class="toc-text">comm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cmp"><span class="toc-text">cmp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#md5sum"><span class="toc-text">md5sum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86-PDF-%E6%96%87%E4%BB%B6%E5%92%8C-PostScript-%E6%96%87%E4%BB%B6"><span class="toc-text">处理 PDF 文件和 PostScript 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pdftotext"><span class="toc-text">pdftotext</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps2ascii"><span class="toc-text">ps2ascii</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pdfseparate"><span class="toc-text">pdfseparate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pdftk"><span class="toc-text">pdftk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pdf2ps"><span class="toc-text">pdf2ps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8D%B0"><span class="toc-text">打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lpr"><span class="toc-text">lpr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lpq"><span class="toc-text">lpq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lprm"><span class="toc-text">lprm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%BC%E5%86%99%E6%A3%80%E6%9F%A5"><span class="toc-text">拼写检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#look"><span class="toc-text">look</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aspell"><span class="toc-text">aspell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spell"><span class="toc-text">spell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E5%92%8C%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">磁盘和文件系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#df"><span class="toc-text">df</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mount"><span class="toc-text">mount</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#umount"><span class="toc-text">umount</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fsck"><span class="toc-text">fsck</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eject"><span class="toc-text">eject</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rsync"><span class="toc-text">rsync</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dd"><span class="toc-text">dd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#growisofs"><span class="toc-text">growisofs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B"><span class="toc-text">查看进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps"><span class="toc-text">ps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uptime"><span class="toc-text">uptime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#w"><span class="toc-text">w</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#top"><span class="toc-text">top</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#free"><span class="toc-text">free</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E8%BF%9B%E7%A8%8B"><span class="toc-text">控制进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kill"><span class="toc-text">kill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#timeout"><span class="toc-text">timeout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nice"><span class="toc-text">nice</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#renice"><span class="toc-text">renice</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flock"><span class="toc-text">flock</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6"><span class="toc-text">作业调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sleep"><span class="toc-text">sleep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#watch"><span class="toc-text">watch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#at"><span class="toc-text">at</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crontab"><span class="toc-text">crontab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E3%80%81%E6%B3%A8%E9%94%80%E4%B8%8E%E5%85%B3%E6%9C%BA"><span class="toc-text">登录、注销与关机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shutdown"><span class="toc-text">shutdown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemctl"><span class="toc-text">systemctl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">用户及环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#logname"><span class="toc-text">logname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#whoami"><span class="toc-text">whoami</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#id"><span class="toc-text">id</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#who"><span class="toc-text">who</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#users"><span class="toc-text">users</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#finger"><span class="toc-text">finger</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#last"><span class="toc-text">last</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printenv"><span class="toc-text">printenv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%B8%90%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-text">用户帐户管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#useradd"><span class="toc-text">useradd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#userdel"><span class="toc-text">userdel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usermod"><span class="toc-text">usermod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#passwd"><span class="toc-text">passwd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chfn"><span class="toc-text">chfn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chsh"><span class="toc-text">chsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BB%84%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-text">用户组的管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groups"><span class="toc-text">groups</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupadd"><span class="toc-text">groupadd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupdel"><span class="toc-text">groupdel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupmod"><span class="toc-text">groupmod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E4%BF%A1%E6%81%AF"><span class="toc-text">主机信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uname"><span class="toc-text">uname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hostname"><span class="toc-text">hostname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ip"><span class="toc-text">ip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ifconfig"><span class="toc-text">ifconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E4%BD%8D%E7%BD%AE"><span class="toc-text">主机位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#host"><span class="toc-text">host</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#whois"><span class="toc-text">whois</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ping"><span class="toc-text">ping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#traceroute"><span class="toc-text">traceroute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5"><span class="toc-text">网络连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh"><span class="toc-text">ssh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scp"><span class="toc-text">scp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sftp"><span class="toc-text">sftp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ftp"><span class="toc-text">ftp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#netcat"><span class="toc-text">netcat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Email"><span class="toc-text">Email</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mutt"><span class="toc-text">mutt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mail"><span class="toc-text">mail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mailq"><span class="toc-text">mailq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88"><span class="toc-text">网页浏览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lynx"><span class="toc-text">lynx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wget"><span class="toc-text">wget</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B3%E6%97%B6%E9%80%9A%E4%BF%A1"><span class="toc-text">即时通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#write"><span class="toc-text">write</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mesg"><span class="toc-text">mesg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tty"><span class="toc-text">tty</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sendxmpp"><span class="toc-text">sendxmpp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#profanity"><span class="toc-text">profanity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#irssi"><span class="toc-text">irssi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BA"><span class="toc-text">屏幕输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#echo"><span class="toc-text">echo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf"><span class="toc-text">printf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yes"><span class="toc-text">yes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#seq"><span class="toc-text">seq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clear"><span class="toc-text">clear</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4"><span class="toc-text">复制和粘贴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xclip"><span class="toc-text">xclip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xsel"><span class="toc-text">xsel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%92%8C%E8%AE%A1%E7%AE%97"><span class="toc-text">数学和计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#expr"><span class="toc-text">expr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bc"><span class="toc-text">bc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dc"><span class="toc-text">dc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4"><span class="toc-text">日期和时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cal"><span class="toc-text">cal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#date"><span class="toc-text">date</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ntpdate"><span class="toc-text">ntpdate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F"><span class="toc-text">图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#display"><span class="toc-text">display</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#convert"><span class="toc-text">convert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mogrify"><span class="toc-text">mogrify</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#montage"><span class="toc-text">montage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E5%92%8C%E8%A7%86%E9%A2%91"><span class="toc-text">音频和视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cdparanoia"><span class="toc-text">cdparanoia</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lame"><span class="toc-text">lame</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#id3info"><span class="toc-text">id3info</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#id3tag"><span class="toc-text">id3tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ogginfo"><span class="toc-text">ogginfo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#metaflac"><span class="toc-text">metaflac</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sox"><span class="toc-text">sox</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mplayer"><span class="toc-text">mplayer</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">本文目录</span>
+      <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link" href="#shell-%E7%9A%84%E4%BD%9C%E4%B8%9A%E6%8E%A7%E5%88%B6"><span class="toc-text">shell 的作业控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-text">文件基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cp"><span class="toc-text">cp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mv"><span class="toc-text">mv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rm"><span class="toc-text">rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ln"><span class="toc-text">ln</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="toc-text">目录操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cd"><span class="toc-text">cd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwd"><span class="toc-text">pwd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#basename"><span class="toc-text">basename</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dirname"><span class="toc-text">dirname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mkdir"><span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rmdir"><span class="toc-text">rmdir</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6"><span class="toc-text">查看文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cat"><span class="toc-text">cat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#less"><span class="toc-text">less</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nl"><span class="toc-text">nl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-text">head</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tail"><span class="toc-text">tail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strings"><span class="toc-text">strings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#od"><span class="toc-text">od</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7"><span class="toc-text">文件属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stat"><span class="toc-text">stat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wc"><span class="toc-text">wc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#du"><span class="toc-text">du</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#file"><span class="toc-text">file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#touch"><span class="toc-text">touch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chown"><span class="toc-text">chown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chgrp"><span class="toc-text">chgrp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chmod"><span class="toc-text">chmod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#umask"><span class="toc-text">umask</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chattr"><span class="toc-text">chattr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lsattr"><span class="toc-text">lsattr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%9A%E4%BD%8D"><span class="toc-text">文件的定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#find"><span class="toc-text">find</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xargs"><span class="toc-text">xargs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#locate"><span class="toc-text">locate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#which"><span class="toc-text">which</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#type"><span class="toc-text">type</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#whereis"><span class="toc-text">whereis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E6%AD%A3%E6%96%87%E5%A4%84%E7%90%86"><span class="toc-text">文件的正文处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grep"><span class="toc-text">grep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#egrep"><span class="toc-text">egrep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fgrep"><span class="toc-text">fgrep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cut"><span class="toc-text">cut</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paste"><span class="toc-text">paste</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tr"><span class="toc-text">tr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#expand-unexpand"><span class="toc-text">expand &#x2F; unexpand</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort"><span class="toc-text">sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uniq"><span class="toc-text">uniq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tee"><span class="toc-text">tee</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E6%89%93%E5%8C%85"><span class="toc-text">文件的压缩与打包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tar"><span class="toc-text">tar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gzip"><span class="toc-text">gzip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bzip2"><span class="toc-text">bzip2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#compress"><span class="toc-text">compress</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zip"><span class="toc-text">zip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#munpack"><span class="toc-text">munpack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-text">文件的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#diff"><span class="toc-text">diff</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#comm"><span class="toc-text">comm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cmp"><span class="toc-text">cmp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#md5sum"><span class="toc-text">md5sum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86-PDF-%E6%96%87%E4%BB%B6%E5%92%8C-PostScript-%E6%96%87%E4%BB%B6"><span class="toc-text">处理 PDF 文件和 PostScript 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pdftotext"><span class="toc-text">pdftotext</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps2ascii"><span class="toc-text">ps2ascii</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pdfseparate"><span class="toc-text">pdfseparate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pdftk"><span class="toc-text">pdftk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pdf2ps"><span class="toc-text">pdf2ps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8D%B0"><span class="toc-text">打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lpr"><span class="toc-text">lpr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lpq"><span class="toc-text">lpq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lprm"><span class="toc-text">lprm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%BC%E5%86%99%E6%A3%80%E6%9F%A5"><span class="toc-text">拼写检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#look"><span class="toc-text">look</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aspell"><span class="toc-text">aspell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spell"><span class="toc-text">spell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E5%92%8C%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">磁盘和文件系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#df"><span class="toc-text">df</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mount"><span class="toc-text">mount</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#umount"><span class="toc-text">umount</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fsck"><span class="toc-text">fsck</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eject"><span class="toc-text">eject</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rsync"><span class="toc-text">rsync</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dd"><span class="toc-text">dd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#growisofs"><span class="toc-text">growisofs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B"><span class="toc-text">查看进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps"><span class="toc-text">ps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uptime"><span class="toc-text">uptime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#w"><span class="toc-text">w</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#top"><span class="toc-text">top</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#free"><span class="toc-text">free</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E8%BF%9B%E7%A8%8B"><span class="toc-text">控制进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kill"><span class="toc-text">kill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#timeout"><span class="toc-text">timeout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nice"><span class="toc-text">nice</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#renice"><span class="toc-text">renice</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flock"><span class="toc-text">flock</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6"><span class="toc-text">作业调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sleep"><span class="toc-text">sleep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#watch"><span class="toc-text">watch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#at"><span class="toc-text">at</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crontab"><span class="toc-text">crontab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E3%80%81%E6%B3%A8%E9%94%80%E4%B8%8E%E5%85%B3%E6%9C%BA"><span class="toc-text">登录、注销与关机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shutdown"><span class="toc-text">shutdown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemctl"><span class="toc-text">systemctl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">用户及环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#logname"><span class="toc-text">logname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#whoami"><span class="toc-text">whoami</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#id"><span class="toc-text">id</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#who"><span class="toc-text">who</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#users"><span class="toc-text">users</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#finger"><span class="toc-text">finger</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#last"><span class="toc-text">last</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printenv"><span class="toc-text">printenv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%B8%90%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-text">用户帐户管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#useradd"><span class="toc-text">useradd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#userdel"><span class="toc-text">userdel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usermod"><span class="toc-text">usermod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#passwd"><span class="toc-text">passwd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chfn"><span class="toc-text">chfn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chsh"><span class="toc-text">chsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BB%84%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-text">用户组的管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groups"><span class="toc-text">groups</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupadd"><span class="toc-text">groupadd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupdel"><span class="toc-text">groupdel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupmod"><span class="toc-text">groupmod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E4%BF%A1%E6%81%AF"><span class="toc-text">主机信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uname"><span class="toc-text">uname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hostname"><span class="toc-text">hostname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ip"><span class="toc-text">ip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ifconfig"><span class="toc-text">ifconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E4%BD%8D%E7%BD%AE"><span class="toc-text">主机位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#host"><span class="toc-text">host</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#whois"><span class="toc-text">whois</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ping"><span class="toc-text">ping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#traceroute"><span class="toc-text">traceroute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5"><span class="toc-text">网络连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh"><span class="toc-text">ssh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scp"><span class="toc-text">scp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sftp"><span class="toc-text">sftp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ftp"><span class="toc-text">ftp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#netcat"><span class="toc-text">netcat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Email"><span class="toc-text">Email</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mutt"><span class="toc-text">mutt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mail"><span class="toc-text">mail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mailq"><span class="toc-text">mailq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88"><span class="toc-text">网页浏览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lynx"><span class="toc-text">lynx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wget"><span class="toc-text">wget</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B3%E6%97%B6%E9%80%9A%E4%BF%A1"><span class="toc-text">即时通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#write"><span class="toc-text">write</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mesg"><span class="toc-text">mesg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tty"><span class="toc-text">tty</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sendxmpp"><span class="toc-text">sendxmpp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#profanity"><span class="toc-text">profanity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#irssi"><span class="toc-text">irssi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BA"><span class="toc-text">屏幕输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#echo"><span class="toc-text">echo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf"><span class="toc-text">printf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yes"><span class="toc-text">yes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#seq"><span class="toc-text">seq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clear"><span class="toc-text">clear</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4"><span class="toc-text">复制和粘贴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xclip"><span class="toc-text">xclip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xsel"><span class="toc-text">xsel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%92%8C%E8%AE%A1%E7%AE%97"><span class="toc-text">数学和计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#expr"><span class="toc-text">expr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bc"><span class="toc-text">bc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dc"><span class="toc-text">dc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4"><span class="toc-text">日期和时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cal"><span class="toc-text">cal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#date"><span class="toc-text">date</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ntpdate"><span class="toc-text">ntpdate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F"><span class="toc-text">图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#display"><span class="toc-text">display</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#convert"><span class="toc-text">convert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mogrify"><span class="toc-text">mogrify</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#montage"><span class="toc-text">montage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E5%92%8C%E8%A7%86%E9%A2%91"><span class="toc-text">音频和视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cdparanoia"><span class="toc-text">cdparanoia</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lame"><span class="toc-text">lame</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#id3info"><span class="toc-text">id3info</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#id3tag"><span class="toc-text">id3tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ogginfo"><span class="toc-text">ogginfo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#metaflac"><span class="toc-text">metaflac</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sox"><span class="toc-text">sox</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mplayer"><span class="toc-text">mplayer</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.61358 2.92637C5.33517 3.09825 4.56445 3.42514 3.9948 3.9948C3.42514 4.56445 3.09825 5.33517 2.92637 6.61358C2.75159 7.91356 2.75 9.62177 2.75 12C2.75 14.3782 2.75159 16.0864 2.92637 17.3864C3.09825 18.6648 3.42514 19.4355 3.9948 20.0052C4.56445 20.5749 5.33517 20.9018 6.61358 21.0736C7.91356 21.2484 9.62177 21.25 12 21.25C14.3782 21.25 16.0864 21.2484 17.3864 21.0736C18.6648 20.9018 19.4355 20.5749 20.0052 20.0052C20.5749 19.4355 20.9018 18.6648 21.0736 17.3864C21.2484 16.0864 21.25 14.3782 21.25 12C21.25 9.62177 21.2484 7.91356 21.0736 6.61358C20.9018 5.33517 20.5749 4.56445 20.0052 3.9948C19.4355 3.42514 18.6648 3.09825 17.3864 2.92637C16.0864 2.75159 14.3782 2.75 12 2.75C9.62177 2.75 7.91356 2.75159 6.61358 2.92637ZM12 9.56066L9.53033 12.0303C9.23744 12.3232 8.76256 12.3232 8.46967 12.0303C8.17678 11.7374 8.17678 11.2626 8.46967 10.9697L11.4697 7.96967C11.7626 7.67678 12.2374 7.67678 12.5303 7.96967L15.5303 10.9697C15.8232 11.2626 15.8232 11.7374 15.5303 12.0303C15.2374 12.3232 14.7626 12.3232 14.4697 12.0303L12 9.56066ZM12 13.5607L9.53033 16.0303C9.23744 16.3232 8.76256 16.3232 8.46967 16.0303C8.17678 15.7374 8.17678 15.2626 8.46967 14.9697L11.4697 11.9697C11.7626 11.6768 12.2374 11.6768 12.5303 11.9697L15.5303 14.9697C15.8232 15.2626 15.8232 15.7374 15.5303 16.0303C15.2374 16.3232 14.7626 16.3232 14.4697 16.0303L12 13.5607Z" clip-rule="evenodd"/></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M10.4606 1.25H13.5394C15.1427 1.24999 16.3997 1.24999 17.4039 1.34547C18.4274 1.44279 19.2655 1.64457 20.0044 2.09732C20.7781 2.57144 21.4286 3.22194 21.9027 3.99563C22.3554 4.73445 22.5572 5.57256 22.6545 6.59611C22.75 7.60029 22.75 8.85725 22.75 10.4606V11.5278C22.75 12.6691 22.75 13.564 22.7007 14.2868C22.6505 15.0223 22.5468 15.6344 22.3123 16.2004C21.7287 17.6093 20.6093 18.7287 19.2004 19.3123C18.3955 19.6457 17.4786 19.7197 16.2233 19.7413C15.7842 19.7489 15.5061 19.7545 15.2941 19.7779C15.096 19.7999 15.0192 19.832 14.9742 19.8582C14.9268 19.8857 14.8622 19.936 14.7501 20.0898C14.6287 20.2564 14.4916 20.4865 14.2742 20.8539L13.7321 21.7697C12.9585 23.0767 11.0415 23.0767 10.2679 21.7697L9.72579 20.8539C9.50835 20.4865 9.37122 20.2564 9.24985 20.0898C9.13772 19.936 9.07313 19.8857 9.02572 19.8582C8.98078 19.832 8.90399 19.7999 8.70588 19.7779C8.49387 19.7545 8.21575 19.7489 7.77666 19.7413C6.52138 19.7197 5.60454 19.6457 4.79957 19.3123C3.39066 18.7287 2.27128 17.6093 1.68769 16.2004C1.45323 15.6344 1.3495 15.0223 1.29932 14.2868C1.24999 13.564 1.25 12.6691 1.25 11.5278L1.25 10.4606C1.24999 8.85726 1.24999 7.60029 1.34547 6.59611C1.44279 5.57256 1.64457 4.73445 2.09732 3.99563C2.57144 3.22194 3.22194 2.57144 3.99563 2.09732C4.73445 1.64457 5.57256 1.44279 6.59611 1.34547C7.60029 1.24999 8.85726 1.24999 10.4606 1.25ZM6.73809 2.83873C5.82434 2.92561 5.24291 3.09223 4.77938 3.37628C4.20752 3.72672 3.72672 4.20752 3.37628 4.77938C3.09223 5.24291 2.92561 5.82434 2.83873 6.73809C2.75079 7.663 2.75 8.84876 2.75 10.5V11.5C2.75 12.6751 2.75041 13.5189 2.79584 14.1847C2.84081 14.8438 2.92737 15.2736 3.07351 15.6264C3.50486 16.6678 4.33223 17.4951 5.3736 17.9265C5.88923 18.1401 6.54706 18.2199 7.8025 18.2416L7.83432 18.2421C8.23232 18.249 8.58109 18.2549 8.87097 18.287C9.18246 18.3215 9.4871 18.3912 9.77986 18.5615C10.0702 18.7304 10.2795 18.9559 10.4621 19.2063C10.6307 19.4378 10.804 19.7306 11.0004 20.0623L11.5587 21.0057C11.7515 21.3313 12.2485 21.3313 12.4412 21.0057L12.9996 20.0623C13.1959 19.7306 13.3692 19.4378 13.5379 19.2063C13.7204 18.9559 13.9298 18.7304 14.2201 18.5615C14.5129 18.3912 14.8175 18.3215 15.129 18.287C15.4189 18.2549 15.7676 18.249 16.1656 18.2421L16.1975 18.2416C17.4529 18.2199 18.1108 18.1401 18.6264 17.9265C19.6678 17.4951 20.4951 16.6678 20.9265 15.6264C21.0726 15.2736 21.1592 14.8438 21.2042 14.1847C21.2496 13.5189 21.25 12.6751 21.25 11.5V10.5C21.25 8.84876 21.2492 7.663 21.1613 6.73809C21.0744 5.82434 20.9078 5.24291 20.6237 4.77938C20.2733 4.20752 19.7925 3.72672 19.2206 3.37628C18.7571 3.09223 18.1757 2.92561 17.2619 2.83873C16.337 2.75079 15.1512 2.75 13.5 2.75H10.5C8.84876 2.75 7.663 2.75079 6.73809 2.83873ZM7.25 9C7.25 8.58579 7.58579 8.25 8 8.25H16C16.4142 8.25 16.75 8.58579 16.75 9C16.75 9.41421 16.4142 9.75 16 9.75H8C7.58579 9.75 7.25 9.41421 7.25 9ZM7.25 12.5C7.25 12.0858 7.58579 11.75 8 11.75H13.5C13.9142 11.75 14.25 12.0858 14.25 12.5C14.25 12.9142 13.9142 13.25 13.5 13.25H8C7.58579 13.25 7.25 12.9142 7.25 12.5Z" clip-rule="evenodd"/></svg><span>参与讨论</span></a></div>
+</widget>
+
+
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
@@ -2696,6 +2991,137 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
 
 <script type="text/javascript">
   window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  window.canonical["param"] = {"permalink":"http://skyforever.top/posts/15440","checklink":"/js/plugins/video.js"};
+  // Fix: Ensure page is at the correct top position on data load
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'auto';
+  }
+  (function() {
+    const scrollHandler = () => {
+      // 存在有效锚点时，等待布局稳定后滚动到目标
+      // （浏览器原生锚点滚动发生在布局完成前，长文章的懒加载图片/异步组件会把目标顶偏）
+      const hash = window.location.hash;
+      if (hash.length > 1) {
+        let anchorId = hash.slice(1);
+        try {
+          anchorId = decodeURIComponent(anchorId);
+        } catch (e) {
+          // 片段含非法编码时按原样查找
+        }
+        const anchor = document.getElementById(anchorId);
+        if (anchor) {
+          // #start 锚点贴顶，不预留 offset；其余锚点与 TOC 点击滚动保持一致
+          const offset = anchorId === 'start' ? 0 : 32;
+          const targetY = () => anchor.getBoundingClientRect().top + window.scrollY - offset;
+          let timer = null;
+          let lastY = null;
+          let quiet = 0;
+          let attempts = 0;
+          // 记录最近一次资源加载完成时间，判断异步数据/图片是否仍在改变布局
+          let lastResourceTime = performance.now();
+          let observer = null;
+          try {
+            observer = new PerformanceObserver(function (list) {
+              lastResourceTime = performance.now();
+            });
+            observer.observe({ entryTypes: ['resource'] });
+          } catch (e) {}
+          // 统计进行中的 fetch/XHR 请求，异步组件（timeline 等）未完成前不判定布局稳定
+          let pendingRequests = 0;
+          const trackRequest = (fn) => {
+            pendingRequests++;
+            try {
+              const result = fn();
+              if (result && typeof result.finally === 'function') {
+                result.finally(function () {
+                  pendingRequests = Math.max(0, pendingRequests - 1);
+                });
+              } else {
+                pendingRequests = Math.max(0, pendingRequests - 1);
+              }
+              return result;
+            } catch (e) {
+              pendingRequests = Math.max(0, pendingRequests - 1);
+              throw e;
+            }
+          };
+          if (typeof window.fetch === 'function') {
+            const origFetch = window.fetch.bind(window);
+            window.fetch = function () {
+              const args = arguments;
+              return trackRequest(function () {
+                return origFetch.apply(window, args);
+              });
+            };
+          }
+          if (window.XMLHttpRequest) {
+            const origOpen = window.XMLHttpRequest.prototype.open;
+            const origSend = window.XMLHttpRequest.prototype.send;
+            window.XMLHttpRequest.prototype.open = function () {
+              this.__anchorTracked = true;
+              return origOpen.apply(this, arguments);
+            };
+            window.XMLHttpRequest.prototype.send = function () {
+              if (this.__anchorTracked) {
+                pendingRequests++;
+                const done = () => {
+                  if (this.__anchorTracked) {
+                    this.__anchorTracked = false;
+                    pendingRequests = Math.max(0, pendingRequests - 1);
+                  }
+                };
+                this.addEventListener('loadend', done);
+              }
+              return origSend.apply(this, arguments);
+            };
+          }
+          const cancel = () => {
+            if (timer !== null) {
+              clearInterval(timer);
+              timer = null;
+            }
+            if (observer !== null) {
+              try {
+                observer.disconnect();
+              } catch (e) {}
+            }
+          };
+          const adjust = () => {
+            const y = targetY();
+            const atTarget = Math.abs(window.scrollY - y) <= 2;
+            if (!atTarget || lastY === null || Math.abs(y - lastY) > 2) {
+              window.scrollTo({ top: y, behavior: 'instant' });
+              lastY = y;
+              quiet = 0;
+            } else {
+              quiet++;
+            }
+            attempts++;
+            const resourceQuiet = performance.now() - lastResourceTime > 3000;
+            // 位置连续 1.8 秒无变化、无进行中的请求且最近 3 秒无资源加载才视为稳定；最长等待 30 秒
+            if ((quiet >= 3 && pendingRequests === 0 && resourceQuiet) || attempts >= 50) {
+              cancel();
+            }
+          };
+          requestAnimationFrame(() => {
+            // 锚点链接打开时直接定位，不做动画；用户主动点击（如 TOC）仍走平滑滚动
+            window.scrollTo({ top: targetY(), behavior: 'instant' });
+            timer = setInterval(adjust, 600);
+          });
+          // 用户主动滚动时停止自动校正
+          window.addEventListener('wheel', cancel, { passive: true });
+          window.addEventListener('touchstart', cancel, { passive: true });
+          window.addEventListener('mousedown', cancel, { passive: true });
+          window.addEventListener('keydown', cancel, { passive: true });
+          return;
+        }
+      }
+      // 没有锚点时始终保持页面顶部；Wiki Hero 只在用户显式访问 #start 时定位正文。
+      window.scrollTo(0, 0);
+    };
+    if (document.readyState !== 'loading') scrollHandler();
+    else document.addEventListener('DOMContentLoaded', scrollHandler);
+  })();
   const ctx = {
     date_suffix: {
       just: `刚刚`,
@@ -2706,7 +3132,10 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
     root : `/`,
     tag_plugins: {
       chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
-    }
+    },
+    // 图标由构建期生成的 /js/stellar-icons.js 填充（defer，早于 DOMContentLoaded 就绪）
+    icons: {},
+    services: {"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"},"rss":{"js":"/js/services/rss.js"}},
   };
 
   // required plugins (only load if needs)
@@ -2714,330 +3143,104 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
     ctx.search = {};
     ctx.search.service = `local_search`;
     if (ctx.search.service == 'local_search') {
-      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"}`);
       ctx.search[ctx.search.service] = service_obj;
     }
   }
   const def = {
     avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
     cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
-    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+    data_cache: {"enable":true,"default_ttl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"max_entries":200},
   };
   const deps = {
-    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
     marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
-    lazyload: `/%5Bobject%20Object%5D`
+    lazyload: `https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js`
   }
-  
 
+  // 主题切换提示文案（供 /js/theme.js 使用）
+  window.__STELLAR_I18N__ = {
+    light: `切换到浅色模式`,
+    dark: `切换到深色模式`,
+    auto: `切换到跟随系统配色`,
+  };
+
+  // 搜索跳转高亮：URL 带 ?kw= 时按需加载，定位正文中的匹配词
+  (function () {
+    try {
+      if (!window.location.search) return;
+      if (!new URLSearchParams(window.location.search).has('kw')) return;
+      document.addEventListener('DOMContentLoaded', function () {
+        // utils 由 /js/utils.js 定义（同时暴露 window.utils）；
+        // 未就绪时由 bootstrap 队列兜底，此处按就绪状态判断
+        if (typeof utils === 'object' && typeof utils.js === 'function') {
+          utils.js('/js/search/highlight.js', { defer: true }).catch(function () {});
+        }
+      });
+    } catch (e) {}
+  })();
 </script>
 
-<script type="text/javascript">
-  
-  function RunItem() {
-    this.list = []; // 存放回调函数
-    this.start = () => {
-      for (var i = 0; i < this.list.length; i++) {
-        this.list[i].run();
-      }
-    };
-    this.push = (fn, name, setRequestAnimationFrame = true) => {
-      let myfn = fn
-      if (setRequestAnimationFrame) {
-        myfn = () => {
-          utils.requestAnimationFrame(fn)
-        }
-      }
-      var f = new Item(myfn, name);
-      this.list.push(f);
-    };
-    this.remove = (name) => {
-      for (let index = 0; index < this.list.length; index++) {
-        const e = this.list[index];
-        if (e.name == name) {
-          this.list.splice(index, 1);
-        }
+
+<script>
+  // 插件注册队列：utils.js 尚未就绪时先缓存注册请求，就绪后统一补跑，
+  // 保证解析期注册的插件不因加载时序丢失。
+  window.stellar = window.stellar || {};
+  window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+  window.stellar.initPlugin = function (fn, name, options) {
+    if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+      return utils.initPlugin(fn, name, options);
+    }
+    window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+  };
+  window.stellar._flushPlugins = function () {
+    var pending = window.stellar._pluginQueue.splice(0);
+    if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+    for (var i = 0; i < pending.length; i++) {
+      try {
+        utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+      } catch (e) {
+        console.error('[Stellar] 插件补注册失败:', e);
       }
     }
-    // 构造一个可以run的对象
-    function Item(fn, name) {
-      // 函数名称
-      this.name = name || fn.name;
-      // run方法
-      this.run = () => {
-        try {
-          fn()
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    }
-  }
-
-  const utils = {
-    // 懒加载 css https://github.com/filamentgroup/loadCSS
-    css: (href, before, media, attributes) => {
-      var doc = window.document;
-      var ss = doc.createElement("link");
-      var ref;
-      if (before) {
-        ref = before;
-      } else {
-        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-        ref = refs[refs.length - 1];
-      }
-      var sheets = doc.styleSheets;
-      if (attributes) {
-        for (var attributeName in attributes) {
-          if (attributes.hasOwnProperty(attributeName)) {
-            ss.setAttribute(attributeName, attributes[attributeName]);
-          }
-        }
-      }
-      ss.rel = "stylesheet";
-      ss.href = href;
-      ss.media = "only x";
-      function ready(cb) {
-        if (doc.body) {
-          return cb();
-        }
-        setTimeout(function () {
-          ready(cb);
-        });
-      }
-      ready(function () {
-        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
-      });
-      var onloadcssdefined = function (cb) {
-        var resolvedHref = ss.href;
-        var i = sheets.length;
-        while (i--) {
-          if (sheets[i].href === resolvedHref) {
-            return cb();
-          }
-        }
-        setTimeout(function () {
-          onloadcssdefined(cb);
-        });
-      };
-      function loadCB() {
-        if (ss.addEventListener) {
-          ss.removeEventListener("load", loadCB);
-        }
-        ss.media = media || "all";
-      }
-      if (ss.addEventListener) {
-        ss.addEventListener("load", loadCB);
-      }
-      ss.onloadcssdefined = onloadcssdefined;
-      onloadcssdefined(loadCB);
-      return ss;
-    },
-
-    js: (src, opt) => new Promise((resolve, reject) => {
-      var script = document.createElement('script');
-      if (src.startsWith('/')) {
-        src = ctx.root + src.substring(1);
-      }
-      script.src = src;
-      if (opt) {
-        for (let key of Object.keys(opt)) {
-          script[key] = opt[key]
-        }
-      } else {
-        // 默认异步，如果需要同步，第二个参数传入 {} 即可
-        script.async = true
-      }
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function () {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    }),
-
-    jq: (fn) => {
-      if (typeof jQuery === 'undefined') {
-        utils.js(deps.jquery).then(fn)
-      } else {
-        fn()
-      }
-    },
-
-    onLoading: (el) => {
-      if (el) {
-        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
-      }
-    },
-    onLoadSuccess: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap').remove();
-      }
-    },
-    onLoadFailure: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap svg').remove();
-        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
-        $(el).find('.loading-wrap').addClass('error');
-      }
-    },
-    request: (el, url, callback, onFailure) => {
-      const maxRetry = 3;
-      let retryCount = 0;
-
-      return new Promise((resolve, reject) => {
-        const load = () => {
-          utils.onLoading?.(el);
-
-          let timedOut = false;
-          const timeout = setTimeout(() => {
-            timedOut = true;
-            console.warn('[request] 超时:', url);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject('请求超时');
-            } else {
-              setTimeout(load, 1000);
-            }
-          }, 5000);
-
-          fetch(url).then(resp => {
-            if (timedOut) return;
-            clearTimeout(timeout);
-
-            if (!resp.ok) throw new Error('响应失败');
-            return resp;
-          }).then(data => {
-            if (timedOut) return;
-            utils.onLoadSuccess?.(el);
-            callback(data);
-            resolve(data);
-          }).catch(err => {
-            clearTimeout(timeout);
-            console.warn('[request] 错误:', err);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject(err);
-            } else {
-              setTimeout(load, 1000);
-            }
-          });
-        };
-
-        load();
-      });
-    },
-    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
-      return new Promise((resolve, reject) => {
-        let retryCount = 0;
-
-        const tryRequest = () => {
-          let timedOut = false;
-          const timer = setTimeout(() => {
-            timedOut = true;
-            if (++retryCount > maxRetry) reject('timeout');
-            else tryRequest();
-          }, timeout);
-
-          fetch(url, options)
-            .then(resp => {
-              clearTimeout(timer);
-              if (!resp.ok) throw new Error('bad response');
-              resolve(resp);
-            })
-            .catch(err => {
-              clearTimeout(timer);
-              if (++retryCount > maxRetry) reject(err);
-              else setTimeout(tryRequest, 500);
-            });
-        };
-
-        tryRequest();
-      });
-    },
-    /********************** requestAnimationFrame ********************************/
-    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
-    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
-    requestAnimationFrame: (fn) => {
-      if (!window.requestAnimationFrame) {
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
-      }
-      window.requestAnimationFrame(fn)
-    },
-    dark: {},
   };
-
-  // utils.dark.mode 当前模式 dark or light
-  // utils.dark.toggle() 暗黑模式触发器
-  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
-  utils.dark.method = {
-    toggle: new RunItem(),
-  };
-  utils.dark = Object.assign(utils.dark, {
-    push: utils.dark.method.toggle.push,
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof utils === 'object') return;
+    // utils 未就绪时补载；加载成功后由 utils.js 内部补跑插件队列
+    var s = document.createElement('script');
+    // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
+    // （图片懒加载 / 脚本延迟优化器）误改写
+    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.async = false;
+    s.onerror = function () {
+      console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
+      document.documentElement.classList.add('sr-fallback');
+    };
+    document.head.appendChild(s);
   });
 </script>
+
+
+<!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
+<script src="/js/utils.js?v=1.44.0"></script>
 <script>
-  const sidebar = {
-    leftbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    rightbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('rightbar');
-        l_body.removeAttribute('leftbar');
-      }
-    },
-    dismiss: () => {
-      if (l_body) {
-        l_body.removeAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    toggleTOC: () => {
-      document.querySelector('#data-toc').classList.toggle('collapse');
-    }
+  // 解析期检测 utils 是否已就绪；未就绪时同步补载，
+  // 保证「utils 先于页尾插件片段定义」的不变量。
+  if (typeof utils === 'undefined') {
+    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
   }
 </script>
-<script type="text/javascript">
-  (() => {
-    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
-    for (const tagSwitcher of tagSwitchers) {
-      tagSwitcher.addEventListener('click', (e) => {
-        const parent = e.target.closest('.tag-subtree.parent-tag')
-        parent.classList.toggle('expanded')
-        e.preventDefault()
-      })
-    }
+<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
+<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
+<script src="/js/main.js?v=1.44.0" defer></script>
+<script defer src="/js/theme.js?v=1.44.0"></script>
 
-    // Get active tag from query string, then activate it.
-    const urlParams = new URLSearchParams(window.location.search)
-    const activeTag = urlParams.get('tag')
-    if (activeTag) {
-      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
-      if (tag) {
-        tag.querySelector('a').classList.add('active')
-        
-        while (tag) {
-          tag.classList.add('expanded')
-          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
-        }
-      }
-    }
-  })()
-</script>
 
-<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+
 <script>
+  // 先声明配置与初始化监听，再异步加载库：
+  // 保证库执行时 lazyLoadOptions 已就绪，避免 async 脚本抢先执行导致自初始化失败
   // https://www.npmjs.com/package/vanilla-lazyload
   // Set the options globally
   // to make LazyLoad self-initialize
@@ -3045,13 +3248,13 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
     elements_selector: ".lazy",
     callback_loaded: (el) => {
       el.classList.add('loaded');
-      const wrapper = el.closest('.lazy-box');
+      // {% image %} 没有 .lazy-box 包裹，回退到父元素查找加载图标
+      const wrapper = el.closest('.lazy-box') || el.parentElement;
       const icon = wrapper?.querySelector('.lazy-icon');
       if (icon) icon.remove();
     }
   };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
+  // 监听初始化事件，获取 LazyLoad 实例
   window.addEventListener(
     "LazyLoad::Initialized",
     function (event) {
@@ -3063,12 +3266,36 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
     window.lazyLoadInstance?.update();
   });
 
+  // 兜底：动态插入的 .lazy 元素（如站点自定义脚本在 update() 之后追加的图片）
+  // 不会被 vanilla-lazyload 自动扫描，未注册的 img.lazy 会被 CSS opacity:0 永久隐藏。
+  // MutationObserver 检测到新增 .lazy 元素后自动调用 update() 重新注册。
+  if (window.MutationObserver) {
+    window.lazyMutationObserver = new MutationObserver((mutations) => {
+      if (window.lazyMutationObserver._pending) return;
+      const hasLazy = mutations.some((m) =>
+        Array.prototype.some.call(m.addedNodes, (node) =>
+          node.nodeType === 1 &&
+          (node.matches?.('.lazy') || !!node.querySelector?.('.lazy'))
+        )
+      );
+      if (!hasLazy) return;
+      window.lazyMutationObserver._pending = requestAnimationFrame(() => {
+        window.lazyMutationObserver._pending = null;
+        window.lazyLoadInstance?.update();
+      });
+    });
+    window.lazyMutationObserver.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  }
+
   window.wrapLazyloadImages = (container) => {
     if (typeof container === 'string') {
       container = document.querySelector(container);
     }
     if (!container) return;
-    
+
     const images = container.querySelectorAll('img');
     images.forEach((img) => {
       if (img.classList.contains('lazy')) return;
@@ -3086,9 +3313,6 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
 
       const icon = document.createElement('div');
       icon.className = 'lazy-icon';
-      if (def.loading) {
-        icon.style.backgroundImage = `url("${def.loading}")`;
-      }
 
       wrapper.appendChild(newImg);
       wrapper.appendChild(icon);
@@ -3101,238 +3325,84 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
       window.lazyLoadInstance.update();
     }
   }
-  
 </script>
-
-<!-- required -->
-<script src="/js/main.js?v=1.33.1" defer></script>
-
-<script type="text/javascript">
-  const applyTheme = (theme) => {
-    if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme')
-    } else {
-      document.documentElement.setAttribute('data-theme', theme)
-    }
-
-    // applyThemeToGiscus(theme)
-  }
-
-  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
-  const applyThemeToGiscus = (theme) => {
-    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
-    const cmt = document.getElementById('giscus')
-    if (cmt) {
-      // This works before giscus load.
-      cmt.setAttribute('data-theme', theme)
-    }
-
-    const iframe = document.querySelector('#comments > section.giscus > iframe')
-    if (iframe) {
-      // This works after giscus loaded.
-      const src = iframe.src
-      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
-      iframe.src = newSrc
-    }
-  }
-
-  const switchTheme = () => {
-    // light -> dark -> auto -> light -> ...
-    const currentTheme = document.documentElement.getAttribute('data-theme')
-    let newTheme;
-    switch (currentTheme) {
-      case 'light':
-        newTheme = 'dark'
-        break
-      case 'dark':
-        newTheme = 'auto'
-        break
-      default:
-        newTheme = 'light'
-    }
-    applyTheme(newTheme)
-    window.localStorage.setItem('Stellar.theme', newTheme)
-    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
-    utils.dark.method.toggle.start();
-
-    const messages = {
-      light: `切换到浅色模式`,
-      dark: `切换到深色模式`,
-      auto: `切换到跟随系统配色`,
-    }
-    hud?.toast?.(messages[newTheme])
-  }
-
-  (() => {
-    // Apply user's preferred theme, if any.
-    const theme = window.localStorage.getItem('Stellar.theme')
-    if (theme !== null) {
-      applyTheme(theme)
-    } else {
-      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    utils.dark.method.toggle.start();
-  })()
-</script>
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
 
 
 <!-- optional -->
 
   <script type="module">
-  const el = document.querySelector('#comments #giscus');
-  util.viewportLazyload(el, load_discus, false);
-
-  function load_discus() {
-    if (!el) return;
-    try {
-        el.innerHTML = '';
-      } catch (error) {
-        console.error(error);
+  (function() {
+    
+    function initGiscus() {
+      const el = document.querySelector('#comments #giscus');
+      if (!el) return;
+      
+      function load_giscus() {
+        try {
+          el.innerHTML = '';
+        } catch (error) {
+          console.error(error);
+        }
+        const script = document.createElement('script');
+        script.async = true;
+        for (const key of Object.keys(el.attributes)) {
+          const attr = el.attributes[key];
+          if (['class', 'id'].includes(attr.name) === false) {
+            script.setAttribute(attr.name, attr.value);
+          }
+        }
+        el.appendChild(script);
       }
-      const script = document.createElement('script');
-      script.async = true;
-      for (const key of Object.keys(el.attributes)) {
-        const attr = el.attributes[key];
-        if (['class', 'id'].includes(attr.name) === false) {
-          script.setAttribute(attr.name, attr.value);
+      
+      util.viewportLazyload(el, load_giscus);
+    }
+    
+    // Initialize on page load
+    initGiscus();
+  })();
+</script>
+
+
+
+
+<script defer src="/js/services.js?v=1.44.0"></script>
+<script>
+  // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
+  // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。
+  if (typeof window.stellar === 'undefined' || typeof window.stellar.initPlugin !== 'function') {
+    window.stellar = window.stellar || {};
+    window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+    window.stellar.initPlugin = function (fn, name, options) {
+      if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+        return utils.initPlugin(fn, name, options);
+      }
+      window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+    };
+    window.stellar._flushPlugins = function () {
+      var pending = window.stellar._pluginQueue.splice(0);
+      if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+      for (var i = 0; i < pending.length; i++) {
+        try {
+          utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+        } catch (e) {
+          console.error('[Stellar] 插件补注册失败:', e);
         }
       }
-      el.appendChild(script);
+    };
   }
 </script>
 
-
-
-
-<script defer>
+<script>window.addEventListener('DOMContentLoaded', function () { utils.js('/js/search/shortcut.js', { defer: true }); });</script><script>
   window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
-    for (let id of Object.keys(ctx.services)) {
-      const js = ctx.services[id].js;
-      if (id == 'siteinfo') {
-        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
-        if (ctx.cardlinks?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            setCardLink(ctx.cardlinks);
-          });
-        }
-      } else if (id == 'voice') {
-        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
-        if (ctx.voiceAudios?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            createVoiceDom(ctx.voiceAudios);
-          });
-        }
-      } else if (id == 'video') {
-        ctx.videos = document.querySelectorAll('.video>video');
-        if (ctx.videos?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            videoEvents(ctx.videos);
-          });
-        }
-      } else if (id == 'download-file') {
-        ctx.files = document.querySelectorAll('.file');
-        if (ctx.files?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            downloadFileEvent(ctx.files);
-          });
-        }
-      } else {
-        const els = document.getElementsByClassName(`ds-${id}`);
-        if (els?.length > 0) {
-          utils.jq(() => {
-            if (id == 'timeline' || 'memos' || 'marked') {
-              utils.js(deps.marked).then(function () {
-                utils.js(js, { defer: true });
-              });
-            } else {
-              utils.js(js, { defer: true });
-            }
-          });
-        }
-      }
-    }
-
-    // chat iphone time
-    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
-
-    if (phoneTimes.length > 0) {
-      NowTime();
-      var date = new Date();
-      var sec = date.getSeconds();
-      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
-    }
-
-    function firstAdjustTime() {
-      NowTime();
-      clearInterval(firstAdjustInterval);
-      setInterval(NowTime, 1000 * 60);
-    }
-
-    function NowTime() {
-      for (let i = 0; i < phoneTimes.length; ++i) {
-        var timeSpan = phoneTimes[i];
-        var date = new Date();
-        var hour = date.getHours();
-        var min = date.getMinutes();
-        timeSpan.innerHTML = check(hour) + ":" + check(min);
-      }
-    };
-
-    function check(val) {
-      if (val < 10) {
-        return ("0" + val);
-      }
-      return (val);
-    }
-
-    // chat quote
-    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
-      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
-          observer.unobserve(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add('quote-blink');
-            setTimeout(() => {
-              entry.target.classList.remove('quote-blink');
-            }, 1000);
-          }, Math.max(100, 16) * (index + 1));
-        });
-    });
-
-    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
-    chatQuotes.forEach((quote) => {
-      quote.addEventListener('click', function () {
-        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
-        if (chatCellDom) {
-          var chatDiv = chatCellDom.parentElement;
-          var mid = chatDiv.clientHeight / 2;
-          var offsetTop = chatCellDom.offsetTop;
-          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
-            chatDiv.scrollTo({
-              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
-              behavior: "smooth"
-            });
-          } else {
-            chatDiv.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
-          }
-          chat_quote_obverser.observe(chatCellDom);
-        }
-      });
-    });
-  });
-</script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.search = {
+    ctx.search = Object.assign({}, ctx.search, {
       path: `/search.json`,
-    }
+      local_search: {"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"},
+    });
     utils.js('/js/search/local-search.js', { defer: true });
   });
-</script><script>
+</script>
+<script>
   window.FPConfig = {
     delay: 0,
     ignoreKeywords: [],
@@ -3342,28 +3412,45 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
 </script>
 <script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
   ctx.fancybox = {
+    mode: `auto`,
     selector: `.md-text img[alt]:not([alt="icon"]):not([alt="cover"])`,
     css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
     js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
   };
-  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  // auto=按需：页面存在可弹窗图片才加载；global=全局：所有页面加载
+  const isGlobal = ctx.fancybox.mode === 'global';
+  // 评论区图片（artalk/twikoo/waline）显示较小，自动支持放大；
+  // 仅绑定各评论服务的评论内容区，编辑器、表情面板等非内容区图片不弹窗
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .tk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .wl-content img:not([atk-emoticon]):not([class*="emo"])';
   if (ctx.fancybox.selector) {
     selector += `, ${ctx.fancybox.selector}`
   }
-  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  var needFancybox = isGlobal;
   if (!needFancybox) {
-    const memos = document.getElementsByClassName('ds-memos');
-    if (memos != undefined && memos.length > 0) {
-      needFancybox = true;
+    needFancybox = document.querySelectorAll(selector).length !== 0;
+    if (!needFancybox) {
+      // 图片型评论系统容器：评论区图片小图需要 fancybox
+      const withFancybox = document.getElementsByClassName('with-fancybox');
+      if (withFancybox != undefined && withFancybox.length > 0) {
+        needFancybox = true;
+      }
     }
-    const fancybox = document.getElementsByClassName('with-fancybox');
-    if (fancybox != undefined && fancybox.length > 0) {
-      needFancybox = true;
+    if (!needFancybox) {
+      // 动态数据服务：memos 渲染的图片需要 fancybox
+      const memos = document.getElementsByClassName('ds-memos');
+      if (memos != undefined && memos.length > 0) {
+        needFancybox = true;
+      }
     }
   }
   if (needFancybox) {
+    utils.css(`/css/plugins/fancybox.css?v=1.44.0`);
     utils.css(ctx.fancybox.css);
     utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      if (isGlobal) {
+        // 全局模式：正文所有非内联图片均可弹窗
+        selector += ', .md-text img:not(.inline):not([atk-emoticon])';
+      }
       Fancybox.bind(selector, {
         hideScrollbar: false,
         Thumbs: {
@@ -3377,9 +3464,10 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
   }
 </script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
+  stellar.initPlugin(() => {
     const swiper_api = document.getElementById('swiper-api');
     if (swiper_api != undefined) {
+      utils.css(`/css/plugins/swiper.css?v=1.44.0`);
       utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
       utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
         const effect = swiper_api.getAttribute('effect') || '';
@@ -3400,50 +3488,71 @@ fg [%jobnum..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.1
         });
       })
     }
-  });
+  }, 'swiper');
 </script>
 <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
 <script defer type="text/javascript" src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    var mermaid_config = {
-      startOnLoad: true,
-      theme:
-        "auto" == "auto" &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "neutral",
-      logLevel: 3,
-      themeVariables: {
-        darkMode: true
-      },
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true,
-        curve: "linear"
-      },
-      gantt: {
-        axisFormat: "%Y/%m/%d"
-      },
-      sequence: {
-        actorMargin: 50
+  stellar.initPlugin(() => {
+    const els = document.querySelectorAll('.mermaid');
+    if (els.length > 0) {
+      if (false) {
+        utils.css(`/css/plugins/mermaid.css?v=1.44.0`);
       }
+      const mermaid_config = {
+        startOnLoad: false,
+        theme:
+          "auto" == "auto" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "neutral",
+        logLevel: 3,
+        flowchart: {
+          useMaxWidth: false,
+          htmlLabels: true,
+          curve: "linear"
+        },
+        gantt: {
+          axisFormat: "%Y/%m/%d"
+        },
+        sequence: {
+          actorMargin: 50
+        }
+      }
+      mermaid.initialize(mermaid_config);
+      mermaid.run();
     }
-    mermaid.initialize(mermaid_config);
-  });
-</script><script>
-  document.addEventListener('DOMContentLoaded', function () {
-    window.codeElements = document.querySelectorAll('.code');
-    if (window.codeElements.length > 0) {
+  }, 'mermaid');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const codeElements = document.querySelectorAll('.code');
+    if (codeElements.length > 0) {
       ctx.copycode = {
         default_text: `Copy`,
         success_text: `Copied`,
         toast: `复制成功`,
       };
-      utils.js('/js/plugins/copycode.js');
+      utils.js('/js/plugins/copycode.js', { defer: true }).then(() => {
+        if (typeof createCopyButtons === 'function') {
+          createCopyButtons(codeElements);
+        }
+      });
     }
-  });
-</script><!-- Baidu Tongji -->
+  }, 'copycode');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-text-adaptive]'));
+    if (els.length === 0) return;
+    utils.js('/js/color.js').then(() => utils.js('/js/plugins/adaptive-text.js')).then(() => {
+      if (typeof applyAdaptiveText === 'function') {
+        applyAdaptiveText(els);
+      }
+    });
+  }, 'adaptive-text');
+</script>
+<!-- Baidu Tongji -->
 <script>
 var _hmt = _hmt || [];
 (function() {

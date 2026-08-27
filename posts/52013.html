@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
-  <meta name="generator" content="Hexo 7.1.0">
+  <meta name="generator" content="Hexo 8.1.2">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -19,34 +19,41 @@
   <meta name="theme-color" content="#f9fafb">
   <title>Claude Code 使用指南 - Sky Blog</title>
 
-  
-    <meta name="description" content="详细介绍如何在国内使用 Claude Code 这一顶级AI编程工具。涵盖API平台选择、cc-switch一键配置、子代理机制详解， 以及基于子代理的高效开发方法论与避坑指南。">
+  <meta name="description" content="详细介绍如何在国内使用 Claude Code 这一顶级AI编程工具。涵盖API平台选择、cc-switch一键配置、子代理机制详解， 以及基于子代理的高效开发方法论与避坑指南。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Claude Code 使用指南">
 <meta property="og:url" content="http://skyforever.top/posts/52013">
 <meta property="og:site_name" content="Sky Blog">
 <meta property="og:description" content="详细介绍如何在国内使用 Claude Code 这一顶级AI编程工具。涵盖API平台选择、cc-switch一键配置、子代理机制详解， 以及基于子代理的高效开发方法论与避坑指南。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.skyforever.top/blog/2026/02/1bc4ccd83bf1945ecffa93c2fbc068cf.webp">
 <meta property="article:published_time" content="2026-02-27T04:00:00.000Z">
 <meta property="article:modified_time" content="2026-02-27T04:00:00.000Z">
 <meta property="article:author" content="Skyforever">
-<meta property="article:tag" content="教程">
 <meta property="article:tag" content="AI编程">
+<meta property="article:tag" content="Anthropic">
 <meta property="article:tag" content="Claude Code">
 <meta property="article:tag" content="开发工具">
-<meta property="article:tag" content="Anthropic">
+<meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
-  
+<meta name="twitter:image" content="https://image.skyforever.top/blog/2026/02/1bc4ccd83bf1945ecffa93c2fbc068cf.webp"><meta name="twitter:title" content="Claude Code 使用指南">
   
   
   <meta name="keywords" content="教程,AI编程,Claude Code,开发工具,Anthropic">
 
   <!-- feed -->
   
-    <link rel="alternate" href="/atom.xml" title="Sky Blog" type="application/atom+xml">
+    
+
+    
+      
+        <link rel="alternate" href="/atom.xml" title="Sky Blog" type="application/atom+xml">
+      
+    
   
 
-  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
 
 
   
@@ -55,39 +62,337 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-02-27T12:00:00+08:00","dateModified":"2026-02-27T12:00:00+08:00","datePublished":"2026-02-27T12:00:00+08:00","description":"","headline":"Claude Code 使用指南","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/52013/"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/52013/","keywords":"教程, AI编程, Claude Code, 开发工具, Anthropic","thumbnailUrl":"https://image.skyforever.top/blog/2026/02/1bc4ccd83bf1945ecffa93c2fbc068cf.webp","image":1}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-02-27T12:00:00+08:00","dateModified":"2026-02-27T12:00:00+08:00","datePublished":"2026-02-27T12:00:00+08:00","description":"最近 AI 编程工具界最火的莫过于 Anthropic 官方推出的 Claude Code。但国内因为网络和高昂的 API 费用，很多开发者望而却步。\n今天这篇文章，我将带你用一杯奶茶钱（7.9 元）搞定原本遥不可及的顶级 AI 编程体验，并扒一扒 Claude Code 内部隐藏的子代理机制——很多人因为不懂这个机制，白白浪费了大量 Token 和上下文！\n\n一、什么是 Claude Co...","headline":"Claude Code 使用指南","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/52013"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/52013","keywords":"教程, AI编程, Claude Code, 开发工具, Anthropic","thumbnailUrl":"https://image.skyforever.top/blog/2026/02/1bc4ccd83bf1945ecffa93c2fbc068cf.webp","image":["https://image.skyforever.top/blog/2026/02/1bc4ccd83bf1945ecffa93c2fbc068cf.webp"]}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8">
-</head>
-<body>
 
-<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+  <!-- icons.yml 驱动的 CSS 装饰图标 -->
+  
+  
+  <style>:root {
+  --icon-h3-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M17.75%2019a.75.75%200%200%201-1.32.488l-6-7a.75.75%200%200%201%200-.976l6-7A.75.75%200%200%201%2017.75%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M13.488%2019.57a.75.75%200%200%200%20.081-1.058L7.988%2012l5.581-6.512a.75.75%200%201%200-1.138-.976l-6%207a.75.75%200%200%200%200%20.976l6%207a.75.75%200%200%200%201.057.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-h3-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M6.25%2019a.75.75%200%200%200%201.32.488l6-7a.75.75%200%200%200%200-.976l-6-7A.75.75%200%200%200%206.25%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M10.512%2019.57a.75.75%200%200%201-.081-1.058L16.012%2012l-5.581-6.512a.75.75%200%201%201%201.139-.976l6%207a.75.75%200%200%201%200%20.976l-6%207a.75.75%200%200%201-1.058.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M3.691%206.292C5.094%204.771%207.217%204%2010%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%206.925%2010H10a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202H3a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789M20%2020h-6a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789C16.094%204.771%2018.217%204%2021%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%2017.925%2010H21a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M20.309%2017.708C22.196%2015.66%2022.006%2013.03%2022%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292m-11.007%200C11.19%2015.66%2010.999%2013.03%2010.993%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292%22%2F%3E%3C%2Fsvg%3E");
+  --icon-loading: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221em%22%20height%3D%221em%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.67%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.33%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%220%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3C%2Fsvg%3E");
+}</style>
+  
+</head>
+<body><div id="l_cover"></div><div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left leftbar-card" data-ui-surface="card"><div class="sidebg"></div><div class="leftbar-container">
+
 
 
 <header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
 
+
+<div class="search-wrapper" id="search-wrapper"><div class="search-form" role="search"><label class="search-button" for="search-input" aria-hidden="true"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></label><input type="search" class="search-input" id="search-input" aria-label="站内搜索" placeholder="站内搜索"></div><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+<div class="widgets">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="leftbar-active-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
 <div class="nav-area">
 
-<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a><a class="nav-item" title="社交" href="/friends/"><span>社交</span></a></nav>
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight is-active" href="/" title="博客" aria-current="page" style="--item-grad:url(#menu-grad-post);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">博客</span>
+      
+      
+    </span>
+  
+  
+  <span class="ui-collection__indicator"></span>
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-post" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/" title="项目" style="--item-grad:url(#menu-grad-wiki);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">项目</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-wiki" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/notebooks/" title="笔记" style="--item-grad:url(#menu-grad-notebooks);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">笔记</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-notebooks" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/friends/" title="社交" style="--item-grad:url(#menu-grad-social);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">社交</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-social" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
 </div>
-<div class="widgets">
-<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
-
-
-<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/37648/"><span class="title">一个信息追踪 Python 脚本</span></a><a class="item title" href="/posts/52107/"><span class="title">Hi3863 WiFi AP 配网实现方法</span></a><a class="item title" href="/posts/49583/"><span class="title">Hi3863 LiteOS OTA 如何实现</span></a><a class="item title" href="/posts/53927/"><span class="title">单片机裸机多任务与低功耗方案总结</span></a><a class="item title" href="/posts/51722/"><span class="title">15条高频实用的ClaudeCode技巧</span></a><a class="item title" href="/posts/41826/"><span class="title">什么是Agent，怎么用好Agent，怎么写Skill</span></a><a class="item title" href="/posts/38247/"><span class="title">解析各种AI概念</span></a><a class="item title" href="/posts/52013/"><span class="title">Claude Code 使用指南</span></a><a class="item title" href="/posts/25562/"><span class="title">3D打印保姆级入坑指南：选机、耗材与避坑完全手册</span></a><a class="item title" href="/posts/41626/"><span class="title">基于 J-Link RTT 的单片机调试打印指南</span></a></div></widget>
+</nav>
 </div>
-<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
-</div></aside><div class="l_main" id="main">
+
+
+
+<widget class="widget-wrapper recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">最近更新</span>
+      
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/37648/" title="一个信息追踪 Python 脚本">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">一个信息追踪 Python 脚本</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/46321/" title="2026年如何使用AI辅助做嵌入式开发">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">2026年如何使用AI辅助做嵌入式开发</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/52107/" title="Hi3863 WiFi AP 配网实现方法">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Hi3863 WiFi AP 配网实现方法</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/49583/" title="Hi3863 LiteOS OTA 如何实现">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Hi3863 LiteOS OTA 如何实现</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/53927/" title="单片机裸机多任务与低功耗方案总结">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">单片机裸机多任务与低功耗方案总结</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/51722/" title="15条高频实用的ClaudeCode技巧">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">15条高频实用的ClaudeCode技巧</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/41826/" title="什么是Agent，怎么用好Agent，怎么写Skill">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">什么是Agent，怎么用好Agent，怎么写Skill</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/38247/" title="解析各种AI概念">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">解析各种AI概念</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/52013/" title="Claude Code 使用指南">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Claude Code 使用指南</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/25562/" title="3D打印保姆级入坑指南：选机、耗材与避坑完全手册">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">3D打印保姆级入坑指南：选机、耗材与避坑完全手册</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+<a class="social" href="https:&#x2F;&#x2F;github.com&#x2F;zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
+</div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
 
 
 
-<div class="article banner top">
+
+<div class="article-banner-wrap"><div class="article banner top">
   <div class="content">
-    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AI%E7%BC%96%E7%A8%8B/">AI编程</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-02-27T04:00:00.000Z">2026-02-27</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-02-27T04:00:00.000Z">2026-02-27</time></span></div></div></div>
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AI%E7%BC%96%E7%A8%8B/">AI编程</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-02-27T04:00:00.000Z">2026-02-27</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-02-27T04:00:00.000Z">2026-02-27</time></span></div>
+</div></div>
     
     <div class="bottom only-title">
       
@@ -98,8 +403,9 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><p>最近 AI 编程工具界最火的莫过于 Anthropic 官方推出的 Claude Code。但国内因为网络和高昂的 API 费用，很多开发者望而却步。</p>
-<p>今天这篇文章，我将带你用<strong>一杯奶茶钱（7.9 元）</strong>搞定原本遥不可及的顶级 AI 编程体验，并扒一扒 Claude Code 内部隐藏的<strong>子代理机制</strong>——很多人因为不懂这个机制，白白浪费了大量 Token 和上下文！</p>
+  </div></div>
+<article class="md-text content"><p>最近 AI 编程工具界最火的莫过于 Anthropic 官方推出的 Claude Code。但国内因为网络和高昂的 API 费用，很多开发者望而却步。</p>
+<p>今天这篇文章，我将带你用<strong>一杯奶茶钱（7.9 元）<strong>搞定原本遥不可及的顶级 AI 编程体验，并扒一扒 Claude Code 内部隐藏的</strong>子代理机制</strong>——很多人因为不懂这个机制，白白浪费了大量 Token 和上下文！</p>
 <hr>
 <h2 id="一、什么是-Claude-Code？"><a href="#一、什么是-Claude-Code？" class="headerlink" title="一、什么是 Claude Code？"></a>一、什么是 Claude Code？</h2><p>与网页版的聊天对话框不同，Claude Code 是一个运行在终端（CLI）的<strong>具备工程上下文、权限控制和执行能力的开发协作系统</strong>。</p>
 <p>它的核心特点是：</p>
@@ -116,7 +422,7 @@
 <h2 id="二、算力平台选择：先搞定-API-密钥"><a href="#二、算力平台选择：先搞定-API-密钥" class="headerlink" title="二、算力平台选择：先搞定 API 密钥"></a>二、算力平台选择：先搞定 API 密钥</h2><p>官方的 Claude 4.7 接口价格非常昂贵（百万 Token 动辄几十美元），且国内无法直连。我们的核心原则是：<strong>API 提供商本质只是一个算力中转，既然功能一样，哪家便宜稳定就买哪家！</strong></p>
 <p>在下载任何工具之前，我们需要先去云厂商那里注册并获取 API Key。</p>
 <p>下面提供三种方案，可以根据自己的需求点击切换查看：</p>
-<div class="tag-plugin tabs" align="center"id="tab_1"><div class="nav-tabs"><div class="tab active"><a href="#tab_1-1">付费推荐（首选）</a></div><div class="tab"><a href="#tab_1-2">英伟达（免费）</a></div><div class="tab"><a href="#tab_1-3">OpenRouter（免费）</a></div></div><div class="tab-content"><div class="tab-pane active" id="tab_1-1"><p>如果你追求稳定、快速的 Claude Code 体验，可以考虑付费方案。在付费方案中随便选择一个购买就行，关键看自己的预算和需求。</p>
+<div class="tag-plugin tabs" align="center" id="tab_6"><div class="nav-tabs"><div class="tab active"><a href="#tab_6-1">付费推荐（首选）</a></div><div class="tab"><a href="#tab_6-2">英伟达（免费）</a></div><div class="tab"><a href="#tab_6-3">OpenRouter（免费）</a></div></div><div class="tab-content"><div class="tab-pane active" id="tab_6-1"><p>如果你追求稳定、快速的 Claude Code 体验，可以考虑付费方案。在付费方案中随便选择一个购买就行，关键看自己的预算和需求。</p>
 <ul>
 <li><strong>国外付费</strong>：模型能力通常更强（如 Claude 官方 API），但需要配置上网环境，国内访问不便。</li>
 <li><strong>国内付费</strong>：便宜、稳定、量大、好用，且无需翻墙，<strong>推荐优先选择国内付费方案</strong>。目前各家价格相差不大，找个最便宜的用就行。</li>
@@ -131,11 +437,11 @@
 <p>找到下面的购买入口进行购买：</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/ed1eacf9b7bf9fc2adc8858d8a2f8793.webp" alt="阿里云AI编程套餐购买入口"></p>
 <p><strong>2. 获取密钥</strong></p>
-<p>购买后进入 <a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/cn-beijing/?tab=model#/api-key">百炼 API Key 控制台</a>，在左侧找到订阅套餐的选项，将 API Key **<code>&lt;u&gt;</code>复制保存好 <code>&lt;/u&gt;</code>**。</p>
+<p>购买后进入 <a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/cn-beijing/?tab=model#/api-key">百炼 API Key 控制台</a>，在左侧找到订阅套餐的选项，将 API Key <strong><code>&lt;u&gt;</code>复制保存好 <code>&lt;/u&gt;</code></strong>。</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/445b99037a697f16bd9c378d847c5c76.webp" alt="百炼API Key控制台"></p>
 <p><strong>3. 记录接口地址</strong></p>
-<p>根据 <a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/cn-beijing/?spm=a2c6h.12873639.article-detail.8.632438beNFVBFl&source_channel=zhihedoc&tab=doc#/doc/?type=model&url=3005961">官方文档</a>，阿里的专属后端调用地址为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://coding.dashscope.aliyuncs.com/apps/anthropic</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tab_1-2"><p><strong>英伟达免费 API 一年（12 个月）使用权</strong>，可以直接调用 GLM 5.1、Gemma 4、MiniMax 等 193 款主流大模型，这羊毛必须薅！</p>
+<p>根据 <a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/cn-beijing/?spm=a2c6h.12873639.article-detail.8.632438beNFVBFl&amp;source_channel=zhihedoc&amp;tab=doc#/doc/?type=model&amp;url=3005961">官方文档</a>，阿里的专属后端调用地址为：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://coding.dashscope.aliyuncs.com/apps/anthropic</span><br></pre></td></tr></tbody></table></figure></div><div class="tab-pane" id="tab_6-2"><p><strong>英伟达免费 API 一年（12 个月）使用权</strong>，可以直接调用 GLM 5.1、Gemma 4、MiniMax 等 193 款主流大模型，这羊毛必须薅！</p>
 <p><strong>1. 访问官方网站</strong></p>
 <p>打开浏览器，访问 <a target="_blank" rel="noopener" href="https://build.nvidia.com/">https://build.nvidia.com/</a>，点击注册账号。</p>
 <p><strong>2. 账号登录与验证</strong></p>
@@ -146,28 +452,28 @@
 <p><strong>注意</strong>：Expiration（有效期）请选择 <strong>Never Expire</strong>（永不过期），避免后续麻烦。</p>
 </blockquote>
 <p><strong>4. 接口配置</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># API Base URL</span></span><br><span class="line">https://integrate.api.nvidia.com/v1/chat/completions</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可用模型示例</span></span><br><span class="line">z-ai/glm-4.7</span><br><span class="line">z-ai/glm-5.1</span><br><span class="line">minimaxai/minimax-m2.7</span><br><span class="line">google/gemma-4-27b-it</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># API Base URL</span></span><br><span class="line">https://integrate.api.nvidia.com/v1/chat/completions</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可用模型示例</span></span><br><span class="line">z-ai/glm-4.7</span><br><span class="line">z-ai/glm-5.1</span><br><span class="line">minimaxai/minimax-m2.7</span><br><span class="line">google/gemma-4-27b-it</span><br></pre></td></tr></tbody></table></figure>
 
 <blockquote>
 <p><strong>热门模型高峰时期使用可能会有卡顿</strong><br><strong>建议</strong></p>
 <ol>
-<li><strong>当成备用 &#x2F; 开发测试用</strong>：写代码、生成长文本、Agent 实验都很香。</li>
+<li><strong>当成备用 / 开发测试用</strong>：写代码、生成长文本、Agent 实验都很香。</li>
 <li><strong>错峰使用</strong>：国内凌晨或上午通常会快很多。</li>
 <li><strong>多备几个模型</strong>：在客户端里把 GLM + MiniMax + Nemotron 都加进去，哪个快用哪个。</li>
 <li><strong>客户端优化</strong>：cc-switch、Cherry Studio 等支持自动 fallback 的工具能自动跳过卡住的模型。</li>
 </ol>
-</blockquote></div><div class="tab-pane" id="tab_1-3"><p>通过 OpenRouter 上的免费模型，配合 cc-switch 这款可视化管理工具，一键切换 API 提供商，可以实现 <strong>完全免费的 AI 编程体验</strong>。</p>
+</blockquote></div><div class="tab-pane" id="tab_6-3"><p>通过 OpenRouter 上的免费模型，配合 cc-switch 这款可视化管理工具，一键切换 API 提供商，可以实现 <strong>完全免费的 AI 编程体验</strong>。</p>
 <p><strong>Base URL</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://openrouter.ai/api/v1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://openrouter.ai/api/v1</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>推荐模型</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inclusionai/ling-2.6-1t:free</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inclusionai/ling-2.6-1t:free</span><br></pre></td></tr></tbody></table></figure>
 
 <p>最近很火的模型，出自蚂蚁百灵大模型，知识储备充足，思考维度更深，输出的回答质量更高、精准度更强，但响应速度相对缓慢，更适配复杂且重要的工作任务。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ling-2.6-flash</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ling-2.6-flash</span><br></pre></td></tr></tbody></table></figure>
 
 <p>类似快枪手，核心优势是反应速度快，作答内容满足基础使用需求即可，不会过度追求完美，整体工作效率出色，能够快速批量处理事务，适合应用于简单、需要即时响应的各类任务。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Nemotron 3 Super (free)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Nemotron 3 Super (free)</span><br></pre></td></tr></tbody></table></figure>
 
 <p>超长上下文、多智能体推理、高吞吐量，适合长文档分析、跨文档推理、科学计算等场景。</p>
 <blockquote>
@@ -184,17 +490,17 @@
 <h3 id="1-安装环境和程序本体"><a href="#1-安装环境和程序本体" class="headerlink" title="1. 安装环境和程序本体"></a>1. 安装环境和程序本体</h3><h4 id="1-1-安装运行环境-Node-js"><a href="#1-1-安装运行环境-Node-js" class="headerlink" title="1.1 安装运行环境(Node.js):"></a>1.1 安装运行环境(Node.js):</h4><p>因为 Claude Code 是由 JavaScript 编写的程序，所以需要先安装 Node.js。</p>
 <p>Node.js 是一个开源、跨平台的 JavaScript 运行环境，它让电脑能够运行像 Claude Code 这样的命令行工具。</p>
 <p>下载地址：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download">https://nodejs.org/zh-cn/download</a></p>
-<p>下载 Node.js的**Windows 安装程序 (.msi)**。下载后就像安装微信一样，双击运行并一路点击 ‘Next’（下一步）直到 ‘Finish’（完成）即可。</p>
+<p>下载 Node.js的<strong>Windows 安装程序 (.msi)</strong>。下载后就像安装微信一样，双击运行并一路点击 ‘Next’（下一步）直到 ‘Finish’（完成）即可。</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/59c3c9fb491621cb49e3327454902458.webp" alt="Node.js下载指示"></p>
 <h4 id="1-2-安装-运行依赖-（Git）"><a href="#1-2-安装-运行依赖-（Git）" class="headerlink" title="1.2 安装 运行依赖 （Git）"></a>1.2 安装 运行依赖 （Git）</h4><p>Claude Code 的底层运行依赖 Bash 环境，这是 Windows不支持的。</p>
 <p>因此必须安装 Git，利用其附带的 <strong>Git Bash</strong> 工具来模拟类 Linux 环境，Claude Code 才能正常工作。</p>
 <p>下载地址：<a target="_blank" rel="noopener" href="https://git-scm.com/install/windows">https://git-scm.com/install/windows</a></p>
-<p>下载<strong>Git for Windows&#x2F;x64 Setup</strong>。下载后就像安装微信一样，双击运行，保持默认安装选项一路点击 ‘Next’（下一步）直到 ‘Finish’（完成）即可。</p>
+<p>下载<strong>Git for Windows/x64 Setup</strong>。下载后就像安装微信一样，双击运行，保持默认安装选项一路点击 ‘Next’（下一步）直到 ‘Finish’（完成）即可。</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/e355cc0b8730840d27428cae8bbaf3ac.webp" alt="Git for Windows下载页面"></p>
 <h4 id="1-3-安装-Claude-Code"><a href="#1-3-安装-Claude-Code" class="headerlink" title="1.3 安装 Claude Code"></a>1.3 安装 Claude Code</h4><p>安装好前面的两个环境后，按下键盘上的win+r，在里面输入cmd，点击确定以打开cmd命令行窗口</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/03/11682306e70bef01e47d366ddfa7bc3f.png" alt="image-20260302200623527"></p>
 <p>在你的cmd终端执行以下命令即可实现安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @anthropic-ai/claude-code</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @anthropic-ai/claude-code</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/5b2c6a966baaaefb3bb93461d35ba823.webp" alt="通过npm安装Claude Code"></p>
 <h3 id="2-下载并安装-cc-switch"><a href="#2-下载并安装-cc-switch" class="headerlink" title="2. 下载并安装 cc-switch"></a>2. 下载并安装 cc-switch</h3><p>这是一个专为 Claude Code 等工具设计的可视化配置切换器。</p>
@@ -203,12 +509,12 @@
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/84f5ead1fa24b9869e51857f00ce55ff.webp" alt="cc-switch GitHub Releases下载页面"></p>
 <h3 id="3-配置-API"><a href="#3-配置-API" class="headerlink" title="3. 配置 API"></a>3. 配置 API</h3><p><strong>第一步：复制你的 KEY</strong></p>
 <p>不同平台获取 API Key 的入口略有不同，找到对应平台的控制台复制保存好：</p>
-<div class="tag-plugin tabs" align="center"id="tab_2"><div class="nav-tabs"><div class="tab active"><a href="#tab_2-1">阿里云</a></div><div class="tab"><a href="#tab_2-2">英伟达</a></div><div class="tab"><a href="#tab_2-3">OpenRouter</a></div></div><div class="tab-content"><div class="tab-pane active" id="tab_2-1"><p>进入 <a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/cn-beijing/?tab=model#/api-key">百炼 API Key 控制台</a>，在左侧找到订阅套餐的选项，将 API Key <code>&lt;u&gt;</code>复制保存好 <code>&lt;/u&gt;</code>。</p>
-<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/445b99037a697f16bd9c378d847c5c76.webp" alt="百炼API Key控制台"></p></div><div class="tab-pane" id="tab_2-2"><p>访问 <a target="_blank" rel="noopener" href="https://build.nvidia.com/settings/api-keys">NVIDIA API Keys 管理页面</a>，创建新的密钥，并将 API Key <code>&lt;u&gt;</code>复制保存好 <code>&lt;/u&gt;</code>。</p>
+<div class="tag-plugin tabs" align="center" id="tab_7"><div class="nav-tabs"><div class="tab active"><a href="#tab_7-1">阿里云</a></div><div class="tab"><a href="#tab_7-2">英伟达</a></div><div class="tab"><a href="#tab_7-3">OpenRouter</a></div></div><div class="tab-content"><div class="tab-pane active" id="tab_7-1"><p>进入 <a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/cn-beijing/?tab=model#/api-key">百炼 API Key 控制台</a>，在左侧找到订阅套餐的选项，将 API Key <code>&lt;u&gt;</code>复制保存好 <code>&lt;/u&gt;</code>。</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/445b99037a697f16bd9c378d847c5c76.webp" alt="百炼API Key控制台"></p></div><div class="tab-pane" id="tab_7-2"><p>访问 <a target="_blank" rel="noopener" href="https://build.nvidia.com/settings/api-keys">NVIDIA API Keys 管理页面</a>，创建新的密钥，并将 API Key <code>&lt;u&gt;</code>复制保存好 <code>&lt;/u&gt;</code>。</p>
 <blockquote>
 <p><strong>注意</strong>：Expiration（有效期）请选择 <strong>Never Expire</strong>（永不过期），避免后续麻烦。</p>
 </blockquote>
-<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/c54af5c5e7163cc919442579e9f6b97a.webp" alt="点击复制key"></p></div><div class="tab-pane" id="tab_2-3"><p>访问 <a target="_blank" rel="noopener" href="https://openrouter.ai/">OpenRouter</a> 注册账号，然后在 Keys 页面创建 API Key，并将 API Key <code>&lt;u&gt;</code>复制保存好 <code>&lt;/u&gt;</code>。</p></div></div></div>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/c54af5c5e7163cc919442579e9f6b97a.webp" alt="点击复制key"></p></div><div class="tab-pane" id="tab_7-3"><p>访问 <a target="_blank" rel="noopener" href="https://openrouter.ai/">OpenRouter</a> 注册账号，然后在 Keys 页面创建 API Key，并将 API Key <code>&lt;u&gt;</code>复制保存好 <code>&lt;/u&gt;</code>。</p></div></div></div>
 
 <p><strong>第二步：在 cc-switch 中填写 API Key 和后端地址</strong></p>
 <p>打开 cc-switch 桌面端，点击右上角的加号添加配置：</p>
@@ -218,15 +524,15 @@
 </ul>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/04a7ffd9742354a0cb1d7845c9431cd3.webp" alt="cc-switch添加新配置"></p>
 <p>然后根据不同平台填写对应的信息：</p>
-<div class="tag-plugin tabs" align="center"id="tab_3"><div class="nav-tabs"><div class="tab active"><a href="#tab_3-1">付费配置（阿里云示例）</a></div><div class="tab"><a href="#tab_3-2">英伟达</a></div><div class="tab"><a href="#tab_3-3">OpenRouter</a></div></div><div class="tab-content"><div class="tab-pane active" id="tab_3-1"><p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/edaa226dc7779af9123704eb7a150da1.webp" alt="选择阿里云厂商配置"><br>往下翻，将 API Key 和后端地址粘贴进去：</p>
+<div class="tag-plugin tabs" align="center" id="tab_8"><div class="nav-tabs"><div class="tab active"><a href="#tab_8-1">付费配置（阿里云示例）</a></div><div class="tab"><a href="#tab_8-2">英伟达</a></div><div class="tab"><a href="#tab_8-3">OpenRouter</a></div></div><div class="tab-content"><div class="tab-pane active" id="tab_8-1"><p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/edaa226dc7779af9123704eb7a150da1.webp" alt="选择阿里云厂商配置"><br>往下翻，将 API Key 和后端地址粘贴进去：</p>
 <p>阿里云的后端地址为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://coding.dashscope.aliyuncs.com/apps/anthropic</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://coding.dashscope.aliyuncs.com/apps/anthropic</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/aa25538a9e933707dfda4d208600a64b.webp" alt="配置阿里云API Key和接口地址"></p>
 <blockquote>
 <p>其他付费平台的后端地址请参考各自官方文档，通常在 API Key 管理页面或开发文档中可以找到。</p>
 </blockquote>
-<p>点击”保存”（或添加）即可。</p></div><div class="tab-pane" id="tab_3-2"><p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/80c498e31c7693ef19637f9ba1c704c1.webp" alt="选择英伟达配置"></p>
+<p>点击”保存”（或添加）即可。</p></div><div class="tab-pane" id="tab_8-2"><p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/80c498e31c7693ef19637f9ba1c704c1.webp" alt="选择英伟达配置"></p>
 <p>往下翻，将 API Key 和后端地址粘贴进去：</p>
 <ul>
 <li><p><strong>后端地址</strong>：<code>https://integrate.api.nvidia.com/v1/chat/completions</code></p>
@@ -234,16 +540,16 @@
 <li><p><strong>API Key</strong>：粘贴刚才创建的 NVIDIA API Key</p>
 </li>
 <li><p><strong>模型名称</strong>：填入你想使用的模型 ID，例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">z-ai/glm-4.7</span><br><span class="line">z-ai/glm-5.1</span><br><span class="line">minimaxai/minimax-m2.7</span><br><span class="line">google/gemma-4-27b-it</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">z-ai/glm-4.7</span><br><span class="line">z-ai/glm-5.1</span><br><span class="line">minimaxai/minimax-m2.7</span><br><span class="line">google/gemma-4-27b-it</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <p>具体选择什么模型，可以查看英伟达的<a target="_blank" rel="noopener" href="https://build.nvidia.com/models?filters=nimType:nim_type_preview">模型列表</a>页面查看有哪些免费模型</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/28345afb80cae25d954b8d4fb740e984.webp" alt="选择查看免费模型"></p>
 <p>配置好后，点击”添加”即可。</p>
-<p>注意<strong>热门模型高峰时期可能会有卡顿</strong>，建议多配置几个模型作为备用。</p></div><div class="tab-pane" id="tab_3-3"><p>填写以下信息：</p>
+<p>注意<strong>热门模型高峰时期可能会有卡顿</strong>，建议多配置几个模型作为备用。</p></div><div class="tab-pane" id="tab_8-3"><p>填写以下信息：</p>
 <ul>
 <li><strong>Base URL</strong>：<code>https://openrouter.ai/api/v1</code></li>
 <li><strong>API Key</strong>：粘贴你的 OpenRouter API Key</li>
-<li><strong>模型名称</strong>：填入免费模型 ID，例如：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">inclusionai/ling-2.6-1t:free</span><br><span class="line">ling-2.6-flash</span><br><span class="line">Nemotron 3 Super (free)</span><br></pre></td></tr></table></figure></li>
+<li><strong>模型名称</strong>：填入免费模型 ID，例如：<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">inclusionai/ling-2.6-1t:free</span><br><span class="line">ling-2.6-flash</span><br><span class="line">Nemotron 3 Super (free)</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <p>点击”保存”即可。</p>
 <blockquote>
@@ -258,7 +564,7 @@
 <p>可以在对话框里随便输入一些文字来测试是否配置成功</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/19af532d600edd488f26118ddb38ca6c.webp" alt="Claude Code启动成功界面"></p>
 <p>在使用之前，建议做一些基础配置<br>在claudecode对话框里输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/config</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/config</span><br></pre></td></tr></tbody></table></figure>
 
 <p>进入配置界面，往下翻，找到 <code>Language</code>的选项，按下空格</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/5cd5be0f09dcc9b6f2145a3c393f34a0.webp" alt="选择语言配置选项"></p>
@@ -291,7 +597,7 @@
 <li><p><strong>触发关键词</strong>：“探索”、“帮我看看”、“分析一下”</p>
 </li>
 <li><p>实战：<br>在终端中输入：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我探索一下当前文件夹，告诉我里面都有哪些类型的文件？</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我探索一下当前文件夹，告诉我里面都有哪些类型的文件？</span><br></pre></td></tr></tbody></table></figure>
 
 <p>此时它会派出几个小兵快速翻阅目录，并向你汇报他的分析结果：</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/03/297fe7be89179f01b797f90b38237504.png" alt="image-20260302203131829"></p>
@@ -303,7 +609,7 @@
 <li><p><strong>触发关键词</strong>：“帮我做个规划”、“出个整理方案”</p>
 </li>
 <li><p>实战：<br>继续在终端输入：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">进入 计划 模式。基于刚才看到的文件，帮我制定一个文件夹分类整理方案，按文件类型和日期列出具体的新建文件夹名称，并给出你的移动规则。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">进入 计划 模式。基于刚才看到的文件，帮我制定一个文件夹分类整理方案，按文件类型和日期列出具体的新建文件夹名称，并给出你的移动规则。</span><br></pre></td></tr></tbody></table></figure>
 
 <p>此时，AI 会给你输出一份 Markdown 列表。</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/03/3929b7c1ed518c2ccbbc2db93ebfdb02.png" alt="image-20260302204158240"></p>
@@ -313,7 +619,7 @@
 <p>翻译后的内容：</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/03/c827c75549d13db5059419e180a7a28e.png" alt="c827c75549d13db5059419e180a7a28e"></p>
 <p>例如我这里说：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我觉得不太合理</span><br><span class="line">			<span class="number">1</span>.你不能动我的git，应该由我自己判断是否提交记录</span><br><span class="line">      <span class="number">2</span>.我这里image文件夹下压根就没有多少图片，不需要整理</span><br><span class="line">      <span class="number">3</span>.你只能修改_posts文件夹，按照你说的用年份分类，还有各种脚本放到同一个文件夹内</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我觉得不太合理</span><br><span class="line">			<span class="number">1</span>.你不能动我的git，应该由我自己判断是否提交记录</span><br><span class="line">      <span class="number">2</span>.我这里image文件夹下压根就没有多少图片，不需要整理</span><br><span class="line">      <span class="number">3</span>.你只能修改_posts文件夹，按照你说的用年份分类，还有各种脚本放到同一个文件夹内</span><br></pre></td></tr></tbody></table></figure>
 
 <p>输入后，ai就会按照你的指导重新给出方案，直到你满意为止</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/03/de9891bfe8aeb339602768982489e201.png" alt="image-20260302205109851"></p>
@@ -333,24 +639,24 @@
 <h2 id="五、对非编程人员推荐的基础用法"><a href="#五、对非编程人员推荐的基础用法" class="headerlink" title="五、对非编程人员推荐的基础用法"></a>五、对非编程人员推荐的基础用法</h2><p>很多人认为 Claude Code 只能写代码，这其实极大地低估了它的潜力。由于它具备 <strong>文件读写权限、终端执行能力以及多模态视觉</strong>，它本质上是一个<strong>接管了你操作系统的 AI Agent</strong>。</p>
 <h3 id="查找和生成本地文档"><a href="#查找和生成本地文档" class="headerlink" title="查找和生成本地文档"></a>查找和生成本地文档</h3><p>首先是 Claude Code 本身支持搜索，你可以让他搜索指定内容给你写成 MarkDown 文档，也可以对你本身的 MarkDown 文档进行编辑。</p>
 <p>注意因为我们用的是阿里的ClaudeCode套餐，无法调用Claude官方搜索工具，所以我们需要配置阿里的搜索MCP</p>
-<p>根据<a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/model-studio/web-search-for-coding-plan">阿里云官方文档</a>的教程，我们需要进入阿里的<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/cn-beijing/?spm=a2c4g.11186623.0.0.35b1771960A1gf&tab=app#/mcp-market">MCP广场</a>，找到联网搜索MCP服务并开通</p>
+<p>根据<a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/model-studio/web-search-for-coding-plan">阿里云官方文档</a>的教程，我们需要进入阿里的<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/cn-beijing/?spm=a2c4g.11186623.0.0.35b1771960A1gf&amp;tab=app#/mcp-market">MCP广场</a>，找到联网搜索MCP服务并开通</p>
 <p>我下面画框的这两个开通</p>
 <blockquote>
 <p>除开推荐的MCP服务外，也可以自行安装其他服务来尝试其他功能，例如接入支付MCP让AI在淘宝帮你下单，接入高德地图MCP让AI帮你规划行程</p>
 </blockquote>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/61bcefd191c6317bddcde86d636220aa.webp" alt="阿里云MCP广场界面"></p>
-<p>然后，此服务需要单独创建APIKEY<br>进入此网址：<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/cn-beijing/?spm=a2c4g.11186623.0.0.5de85ec6kTTcXJ&tab=model#/api-key">https://bailian.console.aliyun.com/cn-beijing/?spm=a2c4g.11186623.0.0.5de85ec6kTTcXJ&amp;tab=model#/api-key</a></p>
+<p>然后，此服务需要单独创建APIKEY<br>进入此网址：<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/cn-beijing/?spm=a2c4g.11186623.0.0.5de85ec6kTTcXJ&amp;tab=model#/api-key">https://bailian.console.aliyun.com/cn-beijing/?spm=a2c4g.11186623.0.0.5de85ec6kTTcXJ&amp;tab=model#/api-key</a></p>
 <p>点击创建APIKEY</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/43912fe3102bf015983d73e0b914d8a3.webp" alt="创建MCP服务APIKEY界面"></p>
 <p>创建成功后，将下列命令中的 YOUR_API_KEY 替换为开通联网搜索MCP时使用的阿里云百炼 API Key，并放在终端里执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">claude mcp add WebSearch https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch/mcp -t http -H <span class="string">&quot;Authorization: Bearer YOUR_API_KEY&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">claude mcp add WebSearch https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch/mcp -t http -H <span class="string">"Authorization: Bearer YOUR_API_KEY"</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>终端返回 <code>Added HTTP MCP server xx</code> 即表示添加成功。</p>
 <p>可以再添加下面这个MCP服务方便claudecode解析网页：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">claude mcp add WebParser https://dashscope.aliyuncs.com/api/v1/mcps/WebParser/sse -t sse -H <span class="string">&quot;Authorization: Bearer YOUR_API_KEY&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">claude mcp add WebParser https://dashscope.aliyuncs.com/api/v1/mcps/WebParser/sse -t sse -H <span class="string">"Authorization: Bearer YOUR_API_KEY"</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>接着，执行以下命令进入 Claude Code。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">claude</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">claude</span><br></pre></td></tr></tbody></table></figure>
 
 <p>在对话框执行 <code>/mcp</code>命令，确认 <code>websearch</code>的状态为 connected。首次添加可能需要等待状态从 connecting 变成 connected。</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/e81b44ddea1ce9c0acf3cefbe7e2591d.webp" alt="Claude Code MCP服务状态界面"></p>
@@ -360,25 +666,25 @@
 </blockquote>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/7b75f2f11d8766ca2b0800dd7839579a.webp" alt="使用websearch MCP搜索结果示例"></p>
 <p>返回搜索结果即大功告成，接下来就可以让他搜索归藏的信息并且整理一个介绍文档。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请使用搜索功能，查找关于‘Openharmony <span class="number">3863</span>’的资料，阅读我本地 D:\OpenHarmony 目录下的相关文档，然后为我生成一份 Markdown 格式的综合报告，并存为 星闪概念介绍及<span class="number">3863</span>开发板星闪使用方法.md。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请使用搜索功能，查找关于‘Openharmony <span class="number">3863</span>’的资料，阅读我本地 D:\OpenHarmony 目录下的相关文档，然后为我生成一份 Markdown 格式的综合报告，并存为 星闪概念介绍及<span class="number">3863</span>开发板星闪使用方法.md。</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/eb8130f18c7a9ff23a0490e99e3f3492.webp" alt="Claude Code生成技术文档示例"></p>
 <p>你也可以让他分析你保存在本地的文章之后进行改写，生成新的文章。</p>
 <p>比如我这里就让他把 星闪 的软件相关 文章改写成适合发布的博客文章，同时生成对应的微信发布版本，也可以对于会议总结之类的文档进行分析和处理。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">读取我刚才录音转写的会议纪要 meeting_notes.txt，总结出关键决策点，并识别出分配给我的所有待办事项，将它们以任务列表的形式添加到我的 todo.md 文件中。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">读取我刚才录音转写的会议纪要 meeting_notes.txt，总结出关键决策点，并识别出分配给我的所有待办事项，将它们以任务列表的形式添加到我的 todo.md 文件中。</span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据你刚刚生成的 hi3863芯片星闪使用方法，将其改写成一篇约 <span class="number">800</span>字的博客文章，风格要轻松有趣。然后，为这篇文章生成 <span class="number">3</span> 个适合在 小红书 上发布的内容版本，并附上 <span class="comment">#AI #Tech 标签</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据你刚刚生成的 hi3863芯片星闪使用方法，将其改写成一篇约 <span class="number">800</span>字的博客文章，风格要轻松有趣。然后，为这篇文章生成 <span class="number">3</span> 个适合在 小红书 上发布的内容版本，并附上 <span class="comment">#AI #Tech 标签</span></span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="图片分析和处理"><a href="#图片分析和处理" class="headerlink" title="图片分析和处理"></a>图片分析和处理</h3><p>由于我们给 Claude Code 接入的是多模态的大模型，所以你的图片也可以让他帮忙处理。</p>
 <p>比如我打开了一个全是图片的文件夹，里面的图片名字乱七八糟的，这时候就可以让他分析图片内容之后根据图片内容给图片重新命名。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分析我当前文件夹下的所有图片内容，基于图片内容批量对图片进行重新命名。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分析我当前文件夹下的所有图片内容，基于图片内容批量对图片进行重新命名。</span><br></pre></td></tr></tbody></table></figure>
 
 <p>这个东西的应用场景很多，例如财务人员可以用ClaudeCode整理发票</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/59ea2e02cd2d0a02b1fb53a5fd5532a1.webp" alt="Claude Code批量重命名图片功能演示"></p>
 <h3 id="辅助做数据标注"><a href="#辅助做数据标注" class="headerlink" title="辅助做数据标注"></a>辅助做数据标注</h3><p>在重新命名之后我们也不能浪费他分析的图片内容。</p>
 <p>我们都知道在训练图像模型或者 Lora 的时候需要对图像进行标注，大部分训练工具都是把标注放在一个跟图片命名一样的文本文件里，现在我们就可以让 Claude Code来做这件事了。</p>
 <p>可以看到他执行的非常完美，以往这些你还得找对应的工具，而且不好自定义要求，现在直接提问就行。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分析图像内容，生成对图像的详细描述，除了内容还有风格，然后将这些描述放在跟图像名称一样的文本文件中。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分析图像内容，生成对图像的详细描述，除了内容还有风格，然后将这些描述放在跟图像名称一样的文本文件中。</span><br></pre></td></tr></tbody></table></figure>
 
 <p>我们最近在做一些AI训练，可以用这个方法让ai做数据标注，方便我们训练一些针对性的小模型用于嵌入式设备</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/70608f52415cdc0d041dcdff5dbb6a6d.webp" alt="Claude Code图像内容分析和标注功能"></p>
@@ -386,7 +692,7 @@
 <p>比如我们就可以写好自己日常对于软件和系统设置在不同工作时间的喜好，需要的时候一键完成所有操作的更改。</p>
 <p>这里我就让他给我关掉浏览器，然后打开 VScode，开启 Windows 的专注助手（勿扰模式），直接进入工作模式。</p>
 <p>更进一步让他把操作写成 PowerShell 脚本，之后你就可以直接右键运行脚本完成系统设置了。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Claude，帮我创建一个名为 deep_work.ps1 的 PowerShell 脚本。这个脚本需要：</span><br><span class="line"><span class="number">1</span>. 启动 VScode。</span><br><span class="line"><span class="number">2</span>. 强制关闭 Edge/Chrome 浏览器和微信等通讯软件。</span><br><span class="line"><span class="number">3</span>. 开启 Windows 的‘专注助手（勿扰模式）’。</span><br><span class="line"><span class="number">4</span>. 播放我本地 D:\music\ 文件夹里的音乐。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Claude，帮我创建一个名为 deep_work.ps1 的 PowerShell 脚本。这个脚本需要：</span><br><span class="line"><span class="number">1</span>. 启动 VScode。</span><br><span class="line"><span class="number">2</span>. 强制关闭 Edge/Chrome 浏览器和微信等通讯软件。</span><br><span class="line"><span class="number">3</span>. 开启 Windows 的‘专注助手（勿扰模式）’。</span><br><span class="line"><span class="number">4</span>. 播放我本地 D:\music\ 文件夹里的音乐。</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="Claude-Code-的高级使用方法"><a href="#Claude-Code-的高级使用方法" class="headerlink" title="Claude Code 的高级使用方法"></a>Claude Code 的高级使用方法</h2><p>上面都是些基本用法，你最近可能也看到了一些。</p>
 <p>但是我发现结合一些本地软件，Claude Code能实现对各种文件更加高级的处理，比如视频转 gif、youtube 视频下载、加水印、文档格式转换等。</p>
@@ -395,7 +701,7 @@
 <p>可以的，朋友，必须可以，比如我这里就把前面我那个 MCP 索引文档的内容直接转换为 PPT 了。</p>
 <p>这个依赖一个叫 Slidev 的项目，它可以用类似 Markdown 文档的格式将内容变成带有丰富样式的 PPT。</p>
 <p>你不需要知道这个项目的细节，直接用我下面的提示词生成文件之后，复制文件到这个页面（<a target="_blank" rel="noopener" href="https://stackblitz.com/github/slidevjs/new?file=slides.md%EF%BC%89%E9%A2%84%E8%A7%88%E5%B0%B1%E8%A1%8C%E3%80%82">https://stackblitz.com/github/slidevjs/new?file=slides.md）预览就行。</a></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我基于刚才总结的那个 hi3863芯片星闪使用方法 文章用 Slidev 这个专门用来用 Markdown 格式生成幻灯片的工具语法写一个对应的 PPT，用 Slidev 的语法美化一下</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我基于刚才总结的那个 hi3863芯片星闪使用方法 文章用 Slidev 这个专门用来用 Markdown 格式生成幻灯片的工具语法写一个对应的 PPT，用 Slidev 的语法美化一下</span><br></pre></td></tr></tbody></table></figure>
 
 <p>上面的 Slidev 不需要本地安装直接预览就行，接下来我们介绍一些需要本地安装的项目。这些本地的软件非常强大，但是由于本身他们是没有界面的（纯命令行），阻碍了大量 Windows 用户使用。</p>
 <p>但是有了 Claude Code 之后一切都解决了，提示词可以直接转换为驱动他们的命令行，也可以用提示词直接安装他们，你直接用就行。</p>
@@ -405,59 +711,59 @@
 <p>你可以对本地的视频进行拼接、剪辑、增加文字、转换格式、转换分辨率、增加音乐，基本上你能想到的视频编辑能力他都能做到。</p>
 <p>首先我们需要打开你需要处理视频的的文件夹，然后启动 Claude Code。</p>
 <p>我们直接让ClaudeCode来帮我们安装和配置软件</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我在电脑上安装 ffmpeg，并确认已配置好环境变量</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我在电脑上安装 ffmpeg，并确认已配置好环境变量</span><br></pre></td></tr></tbody></table></figure>
 
 <p>看到没，跟其它教程里那些乱七八糟的下载和配置路径要求都没关系，你只需要说两句话，就全部安装了。</p>
 <p>然后我们就可以爽用了，先给我们指定的视频加个水印试试。</p>
 <p>可以看到新的视频右上角果然有了一个水印，这种言出法随的感觉谁不喜欢，你不需要了解原理，你就只需要知道所有的视频编辑他都能帮你搞定。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我将此目录下视频用 ffmpeg 打上一个 <span class="number">10</span>% 透明度的水印在右上角，水印内容为此目录下的png图片，然后存储为新视频。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我将此目录下视频用 ffmpeg 打上一个 <span class="number">10</span>% 透明度的水印在右上角，水印内容为此目录下的png图片，然后存储为新视频。</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/03/ea67f480b690625530b6be466f47b58a.png" alt="用ffmpeg添加视频水印效果"></p>
 <p>然后我想要给视频配乐也可以，你只需要告诉他视频文件和音乐文件的名字就行，我甚至让他给音乐加上了淡入和淡出。</p>
 <p>他先是获取了一下视频的时长，然后就开始操作了，然后搞定了，非常完美，严丝合缝，淡入淡出也加上了，可以看剪映界面预览的频谱。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我将 XXX 这个视频用 ffmpeg 将它和 XXX 音频合并为一个新的视频，音频的长度需要跟视频一样长并且加上淡入淡出。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我将 XXX 这个视频用 ffmpeg 将它和 XXX 音频合并为一个新的视频，音频的长度需要跟视频一样长并且加上淡入淡出。</span><br></pre></td></tr></tbody></table></figure>
 
 <p>我们很多时候需要把视频转换为序列帧，然后拿其中一帧进行处理，或者处理所有的帧，以前你是不是还得到处找这种工具，而且转换效果不一定好。</p>
 <p>Claude Code一句话就能搞定，处理的又快又好，而且节省了用网页工具上传下载的时间。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我将 XXXX 这个视频用 ffmpeg 转换为 png 序列帧放在一个新的文件夹里面。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我将 XXXX 这个视频用 ffmpeg 转换为 png 序列帧放在一个新的文件夹里面。</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/03/c5bdb490b1c56b11f2d0a678989e08a9.png" alt="用ffmpeg转换视频为序列帧"></p>
 <p>另一个常见的任务就是视频转 gif，尤其公众号有视频大小限制，很多时候迫不得已得转成 gif 发布。</p>
 <p>Claude Code 捕捉到了高品质这个关键词还制作了调色板保证颜色还原度，最后处理的非常完美。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我将当前文件夹中的第一个视频用 ffmpeg 转换为一个高品质 gif</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我将当前文件夹中的第一个视频用 ffmpeg 转换为一个高品质 gif</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/03/9a268f65af6dbd99ec51ab696e0b909d.png" alt="用ffmpeg转换视频为高品质GIF"></p>
 <h3 id="利用-yt-dlp-下载视频"><a href="#利用-yt-dlp-下载视频" class="headerlink" title="利用 yt-dlp 下载视频"></a>利用 yt-dlp 下载视频</h3><p>像 ffmpeg 这种宝藏项目还有很多，比如 yt-dlp 这个项目跟 ffmpeg 配合几乎可以下载你能想到的所有视频平台的视频。</p>
 <p>我们还是可以让 Claude Code帮我们安装 yt-dlp。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我在电脑上安装 yt<span class="literal">-dlp</span> 并配置环境变量</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我在电脑上安装 yt<span class="literal">-dlp</span> 并配置环境变量</span><br></pre></td></tr></tbody></table></figure>
 
 <p>然后直接提供视频链接他就会帮你下载，甚至可以批量下载多个视频或者一起连封面和视频一起下载，再也不需要忍受那些满是广告的下载工具了。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我用 yt<span class="literal">-dlp</span> 和 ffmpeg 下载这个平台的视频和它的封面：XXX 链接</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我用 yt<span class="literal">-dlp</span> 和 ffmpeg 下载这个平台的视频和它的封面：XXX 链接</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/03/a559a1bb140e9976e5cf998c21c2b325.png" alt="用yt-dlp下载视频和封面"></p>
 <h3 id="利用-ImageMagick-处理图片"><a href="#利用-ImageMagick-处理图片" class="headerlink" title="利用 ImageMagick 处理图片"></a>利用 ImageMagick 处理图片</h3><p>处理视频我们有 ffmpeg 这种项目，当然图片也有。</p>
 <p>ImageMagick 是一个极其强大的工具集，你可以用它来转换格式、缩放、裁剪、旋转、添加滤镜、组合图片等等。</p>
 <p>依然是老一套，先让 Claude Code 帮我们安装：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我在我电脑上安装 ImageMagick，并确保配置好环境变量，命令行可用</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我在我电脑上安装 ImageMagick，并确保配置好环境变量，命令行可用</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/3823c1e1c56c9633f2c72af6e6d52ef1.webp" alt="用winget安装ImageMagick"></p>
 <p>先来一个常见任务，我们设计师做外包经常用，在没结款之前给甲方低分辨率和带水印的图片，现在就可以直接批量完成。</p>
 <p>这里我让他把所有图片宽边调整为 800 PX，然后统一加上带“内部资料”文字的水印。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我用ImageMagick把文件夹下的所有图片的宽边尺寸统一调整为宽度 <span class="number">800</span> 像素，并给它们加上一个<span class="number">10</span>%透明度的灰色水印，水印文字是‘内部资料’，放在新的文件夹里面</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我用ImageMagick把文件夹下的所有图片的宽边尺寸统一调整为宽度 <span class="number">800</span> 像素，并给它们加上一个<span class="number">10</span>%透明度的灰色水印，水印文字是‘内部资料’，放在新的文件夹里面</span><br></pre></td></tr></tbody></table></figure>
 
 <p>由于 Windows 字体编码原因，中文的水印有时会显示方块，可以让他改成英文（或者让 Claude 自己去调取系统里的中文字体如微软雅黑），而且出错之后他自己开始用多模态能力检查修改后的图像了，发现 10% 不透明度的文字不明显，又自己重新改了一下，太聪明了。</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/6e4c15dc95f6015724270abf67847b8b.webp" alt="用ImageMagick批量处理图片"></p>
 <p>然后再来一个常见的图像拼接需求，这种在媒体上发消息的时候经常需要，尤其是发推文或者小红书。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将加过水印的图片用ImageMagick拼合成一张四宫格图片，中间有白色分隔</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将加过水印的图片用ImageMagick拼合成一张四宫格图片，中间有白色分隔</span><br></pre></td></tr></tbody></table></figure>
 
 <p>搞得不错，这几张图比例不同，所以没有对齐，可以在命令上加上统一比例这种要求就行。</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/a95e0ea67d80cb9f4eed2000a36e0bb9.webp" alt="用ImageMagick拼接图片为四宫格"></p>
 <h3 id="利用-Pandoc-进行文档转换"><a href="#利用-Pandoc-进行文档转换" class="headerlink" title="利用 Pandoc 进行文档转换"></a>利用 Pandoc 进行文档转换</h3><p>文档格式转换也是常见的需求，相当多的公司工作文档还是 Word (.docx)，很多时候我发过去 .md 文件那边都不知道怎么办。</p>
 <p>首先还是让 Claude Code 帮我们在 Windows 上安装。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我在我电脑上安装 Pandoc</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我在我电脑上安装 Pandoc</span><br></pre></td></tr></tbody></table></figure>
 
 <p>这个时候我们就可以利用 Pandoc 这个项目进行各种文档格式之间的互相转换，当然批量转换也是可以的。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将 hi3863芯片星闪使用方法 这个 Markdown 文档用Pandoc转换为 word (.docx) 文档</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将 hi3863芯片星闪使用方法 这个 Markdown 文档用Pandoc转换为 word (.docx) 文档</span><br></pre></td></tr></tbody></table></figure>
 
 <p>可以看到转的很好，Markdown 几乎所有格式也都迁移了，不管是加粗还是无序列表有序列表。</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/02/3f71e25b5177eec6f30ceb764c184000.webp" alt="用Pandoc转换文档格式"></p>
@@ -489,8 +795,8 @@
 </ol>
 <h2 id="七、实战演练：让-Claude-Code-融入工程化"><a href="#七、实战演练：让-Claude-Code-融入工程化" class="headerlink" title="七、实战演练：让 Claude Code 融入工程化"></a>七、实战演练：让 Claude Code 融入工程化</h2><p>理论与方法论讲完了，接下来我们进入真刀真枪的代码实战阶段。</p>
 <h3 id="1-对鸿蒙北向开发赋能"><a href="#1-对鸿蒙北向开发赋能" class="headerlink" title="1.对鸿蒙北向开发赋能"></a>1.对鸿蒙北向开发赋能</h3><p>对于前后端项目（北向项目）开发，我建议可以开两到三个ClaudeCode窗口，一个开发前端，一个开发后端，让后让后端输出api文档给前端，让前端做api适配。具体的前后端AI使用教程可以查看 <a target="_blank" rel="noopener" href="https://ai.codefather.cn/library/1936010874183520257">鱼皮的AI知识库</a>，他的VibeCoding教程相对来说比较完整，且文档在Github上开源（<a target="_blank" rel="noopener" href="https://github.com/liyupi/ai-guide">开源地址</a>）。</p>
-<h3 id="2-对鸿蒙南向开发赋能"><a href="#2-对鸿蒙南向开发赋能" class="headerlink" title="2.对鸿蒙南向开发赋能"></a>2.对鸿蒙南向开发赋能</h3><p>很多开发者觉得 AI 写前端还行，遇到嵌入式（C&#x2F;C++、硬件时序、RTOS）就歇菜了。核心原因在于：<strong>嵌入式开发需要极强的架构思维，并且硬件环境 AI 是“看”不到的。</strong></p>
-<p>在我的日常开发中，面对复杂的嵌入式需求，我总结了一套<strong>“Ask 摸底 -&gt; Plan 架构 -&gt; 软硬分离执行”</strong>的闭环开发范式。</p>
+<h3 id="2-对鸿蒙南向开发赋能"><a href="#2-对鸿蒙南向开发赋能" class="headerlink" title="2.对鸿蒙南向开发赋能"></a>2.对鸿蒙南向开发赋能</h3><p>很多开发者觉得 AI 写前端还行，遇到嵌入式（C/C++、硬件时序、RTOS）就歇菜了。核心原因在于：<strong>嵌入式开发需要极强的架构思维，并且硬件环境 AI 是“看”不到的。</strong></p>
+<p>在我的日常开发中，面对复杂的嵌入式需求，我总结了一套**“Ask 摸底 -&gt; Plan 架构 -&gt; 软硬分离执行”**的闭环开发范式。</p>
 <p>我们以一个典型且前沿的实战需求为例：<strong>为 Hi3863 平台（LiteOS 环境）编写 W25Q128FV 外部 Flash 驱动</strong>。看看顶级开发者是如何驱使 Claude Code 把复杂的芯片底层变得井井有条的。</p>
 <h4 id="阶段一：用-Ask-模式“摸清底细”（Explore）"><a href="#阶段一：用-Ask-模式“摸清底细”（Explore）" class="headerlink" title="阶段一：用 Ask 模式“摸清底细”（Explore）"></a>阶段一：用 Ask 模式“摸清底细”（Explore）</h4><p>在引入新驱动前，面对 Hi3863 庞大的 SDK 目录，我绝不会直接让 AI 写代码，而是先派 <code>Explore</code> 子代理去摸清当前工程的底牌。</p>
 <p>在终端中启动 Claude Code，明确要求它只探索，不修改：</p>
@@ -500,11 +806,11 @@
 <p>这一步是为了让 AI 建立起<strong>本地工程上下文</strong>，确保它后面生成的代码风格能完美融入 Hi3863 的原生框架，而不是瞎编一套不通用的底层 API。</p>
 <h4 id="阶段二：用-Plan-模式“运筹帷幄”（架构设计）"><a href="#阶段二：用-Plan-模式“运筹帷幄”（架构设计）" class="headerlink" title="阶段二：用 Plan 模式“运筹帷幄”（架构设计）"></a>阶段二：用 Plan 模式“运筹帷幄”（架构设计）</h4><p>探索完毕后，进入最核心的规划环节。<strong>在这个环节，我们要把 AI 当作资深架构师，和它反复磨合，直到 <code>Plan</code> 子代理输出的设计文档与你的构想完全一致。</strong></p>
 <p>我会下达一段非常详细的架构设计需求。你可以参考我日常使用的这段<strong>高阶 Prompt</strong>：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">进入规划模式（Plan）。我想为 Hi3863 平台编写一个 W25Q128FV 的驱动程序。请帮我输出一份详细的架构设计和分步实施计划，不要直接写代码。</span><br><span class="line"></span><br><span class="line">【架构设计要点】：</span><br><span class="line">1. 抽象分层：需要设计一个 Flash 抽象层，在 Per 接口层对接 W25Q128 的驱动。</span><br><span class="line">2. 多设备管理：考虑到系统未来可能挂载多个外部 Flash 芯片，需要使用 Builder（生成器）模式实现多个设备的统一管理，通过 Handler 层进行统一调度。</span><br><span class="line">3. 接口适配（配置模式）：不同 Flash 芯片可能使用不同通信接口（SPI/QSPI），采用配置模式对不同接口进行选配，实现灵活性。</span><br><span class="line">4. 依赖注入与可移植：驱动需具备良好的跨芯片移植能力（哪怕以后换成其他星闪芯片）。必须通过依赖注入方式，注入 Handler 所需的依赖（如 Hi3863 的 SPI 通信接口函数指针、中断处理、OS 临界区保护等）。</span><br><span class="line">5. 工厂模式封装：为了简化应用层的调用，采用工厂模式实现 Flash 对象的自动构建，向用户屏蔽 W25Q 系列的详细构建过程。</span><br><span class="line">6. 存储管理切换（策略模式）：Flash 管理策略未来会变化（如接入 LittleFS 文件系统或特定 Flash 均衡算法），采用策略模式设计内存管理层的动态切换机制。</span><br><span class="line">7. 测试闭环：需要在 Hi3863 平台上设计单元测试和电仿真测试用例，确保 Driver、Handler、依赖注入等模块对上提供的 API 能够快速验证。</span><br><span class="line"></span><br><span class="line">请根据以上要求，给我一份模块划分图（用文本表示）和 TODO 列表。</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">进入规划模式（Plan）。我想为 Hi3863 平台编写一个 W25Q128FV 的驱动程序。请帮我输出一份详细的架构设计和分步实施计划，不要直接写代码。</span><br><span class="line"></span><br><span class="line">【架构设计要点】：</span><br><span class="line">1. 抽象分层：需要设计一个 Flash 抽象层，在 Per 接口层对接 W25Q128 的驱动。</span><br><span class="line">2. 多设备管理：考虑到系统未来可能挂载多个外部 Flash 芯片，需要使用 Builder（生成器）模式实现多个设备的统一管理，通过 Handler 层进行统一调度。</span><br><span class="line">3. 接口适配（配置模式）：不同 Flash 芯片可能使用不同通信接口（SPI/QSPI），采用配置模式对不同接口进行选配，实现灵活性。</span><br><span class="line">4. 依赖注入与可移植：驱动需具备良好的跨芯片移植能力（哪怕以后换成其他星闪芯片）。必须通过依赖注入方式，注入 Handler 所需的依赖（如 Hi3863 的 SPI 通信接口函数指针、中断处理、OS 临界区保护等）。</span><br><span class="line">5. 工厂模式封装：为了简化应用层的调用，采用工厂模式实现 Flash 对象的自动构建，向用户屏蔽 W25Q 系列的详细构建过程。</span><br><span class="line">6. 存储管理切换（策略模式）：Flash 管理策略未来会变化（如接入 LittleFS 文件系统或特定 Flash 均衡算法），采用策略模式设计内存管理层的动态切换机制。</span><br><span class="line">7. 测试闭环：需要在 Hi3863 平台上设计单元测试和电仿真测试用例，确保 Driver、Handler、依赖注入等模块对上提供的 API 能够快速验证。</span><br><span class="line"></span><br><span class="line">请根据以上要求，给我一份模块划分图（用文本表示）和 TODO 列表。</span><br></pre></td></tr></tbody></table></figure>
 
 <blockquote>
 <p>注意！</p>
-<p>AI 给出的第一版 Plan 可能在某些细节（比如依赖注入的函数指针定义方式）上不符合你的要求。<strong>不要将就！</strong> 继续在 Plan 模式下指出它的问题（例如：_“工厂模式那一块的设计太重了，在 IoT 芯片上浪费内存，改成轻量级的静态预分配”_），直到它的 TODO List 完美契合你的心意。</p>
+<p>AI 给出的第一版 Plan 可能在某些细节（比如依赖注入的函数指针定义方式）上不符合你的要求。<strong>不要将就！</strong> 继续在 Plan 模式下指出它的问题（例如：<em>“工厂模式那一块的设计太重了，在 IoT 芯片上浪费内存，改成轻量级的静态预分配”</em>），直到它的 TODO List 完美契合你的心意。</p>
 </blockquote>
 <h4 id="阶段三：步步为营，软硬分离（Edit-执行）"><a href="#阶段三：步步为营，软硬分离（Edit-执行）" class="headerlink" title="阶段三：步步为营，软硬分离（Edit 执行）"></a>阶段三：步步为营，软硬分离（Edit 执行）</h4><p>Plan 敲定后，终于到了让 <code>Edit</code> 子代理（通用模型）写代码的阶段。</p>
 <p>在嵌入式开发中，我坚守一个原则：<strong>先写硬件逻辑，再写软件逻辑；软件逻辑分控制线和存储线。</strong> 千万不要让 AI 一次性把从底层 SPI 到上层文件系统全写完，那样一旦出错，在 Hi3863 这种高频复杂芯片上连去哪抓 Bug 都不知道。</p>
@@ -530,7 +836,7 @@
 <blockquote>
 <p>“基于我们刚刚完成的驱动，在 <code>test</code> 目录下生成对应的单元测试。通过 Mock 调用 Hi3863 的底层 SPI 接口，在纯软环境下验证工厂模式构建的对象是否正确，以及多设备管理 Handler 在越界读写时的保护逻辑。”</p>
 </blockquote>
-<p>你看，通过上面这四个阶段，我们并没有亲手敲击几行 C 代码，但整个工程的<strong>灵魂（架构模式、软硬分离、依赖注入）</strong>依然是我们赋予的。</p>
+<p>你看，通过上面这四个阶段，我们并没有亲手敲击几行 C 代码，但整个工程的**灵魂（架构模式、软硬分离、依赖注入）**依然是我们赋予的。</p>
 <p>Claude Code 充当了不知疲倦的高级打字员、UML 转换器和测试工程师。<strong>我们把主要精力从“查阅 W25Q128 手册的指令集对应关系”转移到了“把控系统复杂度与接口设计”上。</strong></p>
 <p>在这个时代，AI 写出的代码或许能跑，但只有融合了人类工程思维、设计模式和物理世界硬件认知的系统，才是真正健壮的工业级产品。而 Claude Code，正是连接这两种力量的最强桥梁。</p>
 <h2 id="八、从哪里获取最新的AI信息"><a href="#八、从哪里获取最新的AI信息" class="headerlink" title="八、从哪里获取最新的AI信息"></a>八、从哪里获取最新的AI信息</h2><p>正在爆肝编写中</p>
@@ -548,6 +854,9 @@
 
 <script src="/js/markmap.js"></script>
 </article>
+
+<div class="article-tags"><a class="tag" href="/tags/%E6%95%99%E7%A8%8B/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>教程</a><a class="tag" href="/tags/AI%E7%BC%96%E7%A8%8B/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>AI编程</a><a class="tag" href="/tags/Claude-Code/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Claude Code</a><a class="tag" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>开发工具</a><a class="tag" href="/tags/Anthropic/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Anthropic</a></div>
+
 <div class="article-footer">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
@@ -560,11 +869,11 @@
     <section id="share">
       <div class="header"><span>分享文章</span></div>
       <div class="body">
-        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://skyforever.top/posts/52013" /></div>
-        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/posts/52013&title=Claude Code 使用指南 - Sky Blog&pics=https://image.skyforever.top/blog/2026/02/1bc4ccd83bf1945ecffa93c2fbc068cf.webp&summary=详细介绍如何在国内使用 Claude Code 这一顶级AI编程工具。涵盖API平台选择、cc-switch一键配置、子代理机制详解， 以及基于子代理的高效开发方法论与避坑指南。"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=Claude Code 使用指南 - Sky Blog&amp;body=http://skyforever.top/posts/52013"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http:&#x2F;&#x2F;skyforever.top&#x2F;posts&#x2F;52013" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Fskyforever.top%2Fposts%2F52013&title=Claude%20Code%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%20-%20Sky%20Blog&pics=https%3A%2F%2Fimage.skyforever.top%2Fblog%2F2026%2F02%2F1bc4ccd83bf1945ecffa93c2fbc068cf.webp&summary=%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%E5%A6%82%E4%BD%95%E5%9C%A8%E5%9B%BD%E5%86%85%E4%BD%BF%E7%94%A8%20Claude%20Code%20%E8%BF%99%E4%B8%80%E9%A1%B6%E7%BA%A7AI%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7%E3%80%82%E6%B6%B5%E7%9B%96API%E5%B9%B3%E5%8F%B0%E9%80%89%E6%8B%A9%E3%80%81cc-switch%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AE%E3%80%81%E5%AD%90%E4%BB%A3%E7%90%86%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3%EF%BC%8C%20%E4%BB%A5%E5%8F%8A%E5%9F%BA%E4%BA%8E%E5%AD%90%E4%BB%A3%E7%90%86%E7%9A%84%E9%AB%98%E6%95%88%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E8%AE%BA%E4%B8%8E%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97%E3%80%82"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=Claude%20Code%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%20-%20Sky%20Blog&amp;body=http%3A%2F%2Fskyforever.top%2Fposts%2F52013"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
         
         <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/posts/52013"/>
+          <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http%3A%2F%2Fskyforever.top%2Fposts%2F52013"/>
         </div>
         
       </div>
@@ -578,7 +887,7 @@
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="/posts/41826.html" title="什么是Agent，怎么用好Agent，怎么写Skill"><span class="title">什么是Agent，怎么用好Agent，怎么写Skill</span><span class="excerpt">从底层循环机制出发，讲清楚什么是 Agent、为什么 Agent 能执行任务、如何真正用好 Agent， 以及如何编写高质量的 Skill.md 来提升 AI 协作效率。</span></a><a class="item" href="/posts/58575.html" title="IOS小火箭教程"><span class="title">IOS小火箭教程</span></a><a class="item" href="/posts/61125.html" title="嘉立创EDA 核心快捷键与实用技巧速查"><span class="title">嘉立创EDA 核心快捷键与实用技巧速查</span><span class="excerpt">一份精炼的嘉立创EDA（LCEDA）核心操作速查清单，覆盖原理图与PCB设计中最常用的快捷键和技巧，助你显著提升工作效率。</span></a><a class="item" href="/posts/11721.html" title="图形化Git使用指南"><span class="title">图形化Git使用指南</span><span class="excerpt">一份详尽的 TortoiseGit（小海龟）图文教程。整合了环境安装、SSH 密钥配置、图标状态识别、日常代码提交推送流程，以及分支管理、冲突解决和 Beyond Compare 比较工具集成等进阶操作。</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;46321.html" title="2026年如何使用AI辅助做嵌入式开发"><span class="title">2026年如何使用AI辅助做嵌入式开发</span><span class="excerpt">2026年，AI辅助嵌入式开发已经不只是&quot;帮你写代码&quot;了。从硬件方案选型、PCB设计、 固件编译烧录调试，到直接操控板子跑命令，再到自动调PID参数——本文串联一套完整的AI工具链， 展示嵌入式开发全流程如何被AI重塑。</span></a><a class="item" href="&#x2F;posts&#x2F;41826.html" title="什么是Agent，怎么用好Agent，怎么写Skill"><span class="title">什么是Agent，怎么用好Agent，怎么写Skill</span><span class="excerpt">从底层循环机制出发，讲清楚什么是 Agent、为什么 Agent 能执行任务、如何真正用好 Agent， 以及如何编写高质量的 Skill.md 来提升 AI 协作效率。</span></a><a class="item" href="&#x2F;posts&#x2F;58575.html" title="IOS小火箭教程"><span class="title">IOS小火箭教程</span></a><a class="item" href="&#x2F;posts&#x2F;61125.html" title="嘉立创EDA 核心快捷键与实用技巧速查"><span class="title">嘉立创EDA 核心快捷键与实用技巧速查</span><span class="excerpt">一份精炼的嘉立创EDA（LCEDA）核心操作速查清单，覆盖原理图与PCB设计中最常用的快捷键和技巧，助你显著提升工作效率。</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
@@ -589,7 +898,7 @@
     <section class='body cmt-body giscus'>
       
 
-<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+<div class="lazy-icon"></div>
 
 <div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
 
@@ -598,14 +907,25 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0">Stellar 1.44.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
 </div></footer>
-<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-<div class="widgets">
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"><div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-Claude-Code%EF%BC%9F"><span class="toc-text">一、什么是 Claude Code？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%AE%97%E5%8A%9B%E5%B9%B3%E5%8F%B0%E9%80%89%E6%8B%A9%EF%BC%9A%E5%85%88%E6%90%9E%E5%AE%9A-API-%E5%AF%86%E9%92%A5"><span class="toc-text">二、算力平台选择：先搞定 API 密钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85-Claude-Code"><span class="toc-text">三、安装 Claude Code</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83%E5%92%8C%E7%A8%8B%E5%BA%8F%E6%9C%AC%E4%BD%93"><span class="toc-text">1. 安装环境和程序本体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83-Node-js"><span class="toc-text">1.1 安装运行环境(Node.js):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E5%AE%89%E8%A3%85-%E8%BF%90%E8%A1%8C%E4%BE%9D%E8%B5%96-%EF%BC%88Git%EF%BC%89"><span class="toc-text">1.2 安装 运行依赖 （Git）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E5%AE%89%E8%A3%85-Claude-Code"><span class="toc-text">1.3 安装 Claude Code</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85-cc-switch"><span class="toc-text">2. 下载并安装 cc-switch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AE-API"><span class="toc-text">3. 配置 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="toc-text">4.开始使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%94%A8%E2%80%9C%E6%96%87%E4%BB%B6%E6%95%B4%E7%90%86%E2%80%9D%E6%90%9E%E6%87%82%E4%B8%89%E5%A4%A7%E5%AD%90%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F"><span class="toc-text">四、用“文件整理”搞懂三大子代理模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-%E5%85%88%E8%BF%9B%E5%85%A5%E9%9C%80%E8%A6%81%E6%95%B4%E7%90%86%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-text">0. 先进入需要整理的文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Ask-%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%85%88%E7%9C%8B%E4%B8%8D%E5%8A%A8%E6%89%8B"><span class="toc-text">1. Ask 模式，先看不动手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Plan-%E6%A8%A1%E5%BC%8F%EF%BC%8C%E8%A7%84%E5%88%92%E5%90%8E%E5%86%8D%E8%A1%8C%E5%8A%A8"><span class="toc-text">2. Plan 模式，规划后再行动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Edit-%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%BC%80%E5%A7%8B%E5%B9%B2%E6%B4%BB"><span class="toc-text">3. Edit 模式，开始干活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%AF%B9%E9%9D%9E%E7%BC%96%E7%A8%8B%E4%BA%BA%E5%91%98%E6%8E%A8%E8%8D%90%E7%9A%84%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95"><span class="toc-text">五、对非编程人员推荐的基础用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%92%8C%E7%94%9F%E6%88%90%E6%9C%AC%E5%9C%B0%E6%96%87%E6%A1%A3"><span class="toc-text">查找和生成本地文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%88%86%E6%9E%90%E5%92%8C%E5%A4%84%E7%90%86"><span class="toc-text">图片分析和处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E5%81%9A%E6%95%B0%E6%8D%AE%E6%A0%87%E6%B3%A8"><span class="toc-text">辅助做数据标注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE"><span class="toc-text">修改系统设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Claude-Code-%E7%9A%84%E9%AB%98%E7%BA%A7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">Claude Code 的高级使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E6%A1%A3%E7%94%9F%E6%88%90PPT"><span class="toc-text">为本地文档生成PPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8-ffmpeg-%E5%B8%AE%E5%8A%A9%E5%A4%84%E7%90%86%E8%A7%86%E9%A2%91"><span class="toc-text">用 ffmpeg 帮助处理视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-yt-dlp-%E4%B8%8B%E8%BD%BD%E8%A7%86%E9%A2%91"><span class="toc-text">利用 yt-dlp 下载视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-ImageMagick-%E5%A4%84%E7%90%86%E5%9B%BE%E7%89%87"><span class="toc-text">利用 ImageMagick 处理图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-Pandoc-%E8%BF%9B%E8%A1%8C%E6%96%87%E6%A1%A3%E8%BD%AC%E6%8D%A2"><span class="toc-text">利用 Pandoc 进行文档转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%88%91%E7%9A%84%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E8%AE%BA%E4%B8%8E-AI-%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97"><span class="toc-text">六、我的日常开发方法论与 AI 避坑指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%B7%B1%E5%BA%A6%E5%8D%8F%E4%BD%9C%E6%96%B9%E6%B3%95%E8%AE%BA%EF%BC%88%E7%BB%93%E5%90%88%E5%AD%90%E4%BB%A3%E7%90%86%EF%BC%89"><span class="toc-text">6.1 深度协作方法论（结合子代理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E8%AD%A6%E6%83%95%E8%BF%87%E5%BA%A6%E4%BE%9D%E8%B5%96%E5%B8%A6%E6%9D%A5%E7%9A%84%E4%B8%89%E5%A4%A7%E9%A3%8E%E9%99%A9"><span class="toc-text">6.2 警惕过度依赖带来的三大风险</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E6%9C%AA%E6%9D%A5-3-%E5%B9%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%A0%B8%E5%BF%83%E7%AB%9E%E4%BA%89%E5%8A%9B"><span class="toc-text">6.3 未来 3 年工程师的核心竞争力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%AE%9E%E6%88%98%E6%BC%94%E7%BB%83%EF%BC%9A%E8%AE%A9-Claude-Code-%E8%9E%8D%E5%85%A5%E5%B7%A5%E7%A8%8B%E5%8C%96"><span class="toc-text">七、实战演练：让 Claude Code 融入工程化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%B9%E9%B8%BF%E8%92%99%E5%8C%97%E5%90%91%E5%BC%80%E5%8F%91%E8%B5%8B%E8%83%BD"><span class="toc-text">1.对鸿蒙北向开发赋能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AF%B9%E9%B8%BF%E8%92%99%E5%8D%97%E5%90%91%E5%BC%80%E5%8F%91%E8%B5%8B%E8%83%BD"><span class="toc-text">2.对鸿蒙南向开发赋能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%80%EF%BC%9A%E7%94%A8-Ask-%E6%A8%A1%E5%BC%8F%E2%80%9C%E6%91%B8%E6%B8%85%E5%BA%95%E7%BB%86%E2%80%9D%EF%BC%88Explore%EF%BC%89"><span class="toc-text">阶段一：用 Ask 模式“摸清底细”（Explore）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5%E4%BA%8C%EF%BC%9A%E7%94%A8-Plan-%E6%A8%A1%E5%BC%8F%E2%80%9C%E8%BF%90%E7%AD%B9%E5%B8%B7%E5%B9%84%E2%80%9D%EF%BC%88%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%EF%BC%89"><span class="toc-text">阶段二：用 Plan 模式“运筹帷幄”（架构设计）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%89%EF%BC%9A%E6%AD%A5%E6%AD%A5%E4%B8%BA%E8%90%A5%EF%BC%8C%E8%BD%AF%E7%A1%AC%E5%88%86%E7%A6%BB%EF%BC%88Edit-%E6%89%A7%E8%A1%8C%EF%BC%89"><span class="toc-text">阶段三：步步为营，软硬分离（Edit 执行）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5%E5%9B%9B%EF%BC%9A%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%A6%86%E7%9B%96%EF%BC%88%E9%97%AD%E7%8E%AF%E9%AA%8C%E8%AF%81%EF%BC%89"><span class="toc-text">阶段四：测试用例覆盖（闭环验证）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E6%9C%80%E6%96%B0%E7%9A%84AI%E4%BF%A1%E6%81%AF"><span class="toc-text">八、从哪里获取最新的AI信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-text">九、总结</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">本文目录</span>
+      <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-Claude-Code%EF%BC%9F"><span class="toc-text">一、什么是 Claude Code？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%AE%97%E5%8A%9B%E5%B9%B3%E5%8F%B0%E9%80%89%E6%8B%A9%EF%BC%9A%E5%85%88%E6%90%9E%E5%AE%9A-API-%E5%AF%86%E9%92%A5"><span class="toc-text">二、算力平台选择：先搞定 API 密钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85-Claude-Code"><span class="toc-text">三、安装 Claude Code</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83%E5%92%8C%E7%A8%8B%E5%BA%8F%E6%9C%AC%E4%BD%93"><span class="toc-text">1. 安装环境和程序本体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83-Node-js"><span class="toc-text">1.1 安装运行环境(Node.js):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E5%AE%89%E8%A3%85-%E8%BF%90%E8%A1%8C%E4%BE%9D%E8%B5%96-%EF%BC%88Git%EF%BC%89"><span class="toc-text">1.2 安装 运行依赖 （Git）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E5%AE%89%E8%A3%85-Claude-Code"><span class="toc-text">1.3 安装 Claude Code</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85-cc-switch"><span class="toc-text">2. 下载并安装 cc-switch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AE-API"><span class="toc-text">3. 配置 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="toc-text">4.开始使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%94%A8%E2%80%9C%E6%96%87%E4%BB%B6%E6%95%B4%E7%90%86%E2%80%9D%E6%90%9E%E6%87%82%E4%B8%89%E5%A4%A7%E5%AD%90%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F"><span class="toc-text">四、用“文件整理”搞懂三大子代理模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-%E5%85%88%E8%BF%9B%E5%85%A5%E9%9C%80%E8%A6%81%E6%95%B4%E7%90%86%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-text">0. 先进入需要整理的文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Ask-%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%85%88%E7%9C%8B%E4%B8%8D%E5%8A%A8%E6%89%8B"><span class="toc-text">1. Ask 模式，先看不动手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Plan-%E6%A8%A1%E5%BC%8F%EF%BC%8C%E8%A7%84%E5%88%92%E5%90%8E%E5%86%8D%E8%A1%8C%E5%8A%A8"><span class="toc-text">2. Plan 模式，规划后再行动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Edit-%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%BC%80%E5%A7%8B%E5%B9%B2%E6%B4%BB"><span class="toc-text">3. Edit 模式，开始干活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%AF%B9%E9%9D%9E%E7%BC%96%E7%A8%8B%E4%BA%BA%E5%91%98%E6%8E%A8%E8%8D%90%E7%9A%84%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95"><span class="toc-text">五、对非编程人员推荐的基础用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%92%8C%E7%94%9F%E6%88%90%E6%9C%AC%E5%9C%B0%E6%96%87%E6%A1%A3"><span class="toc-text">查找和生成本地文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%88%86%E6%9E%90%E5%92%8C%E5%A4%84%E7%90%86"><span class="toc-text">图片分析和处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E5%81%9A%E6%95%B0%E6%8D%AE%E6%A0%87%E6%B3%A8"><span class="toc-text">辅助做数据标注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE"><span class="toc-text">修改系统设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Claude-Code-%E7%9A%84%E9%AB%98%E7%BA%A7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">Claude Code 的高级使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E6%A1%A3%E7%94%9F%E6%88%90PPT"><span class="toc-text">为本地文档生成PPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8-ffmpeg-%E5%B8%AE%E5%8A%A9%E5%A4%84%E7%90%86%E8%A7%86%E9%A2%91"><span class="toc-text">用 ffmpeg 帮助处理视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-yt-dlp-%E4%B8%8B%E8%BD%BD%E8%A7%86%E9%A2%91"><span class="toc-text">利用 yt-dlp 下载视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-ImageMagick-%E5%A4%84%E7%90%86%E5%9B%BE%E7%89%87"><span class="toc-text">利用 ImageMagick 处理图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-Pandoc-%E8%BF%9B%E8%A1%8C%E6%96%87%E6%A1%A3%E8%BD%AC%E6%8D%A2"><span class="toc-text">利用 Pandoc 进行文档转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%88%91%E7%9A%84%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E8%AE%BA%E4%B8%8E-AI-%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97"><span class="toc-text">六、我的日常开发方法论与 AI 避坑指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%B7%B1%E5%BA%A6%E5%8D%8F%E4%BD%9C%E6%96%B9%E6%B3%95%E8%AE%BA%EF%BC%88%E7%BB%93%E5%90%88%E5%AD%90%E4%BB%A3%E7%90%86%EF%BC%89"><span class="toc-text">6.1 深度协作方法论（结合子代理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E8%AD%A6%E6%83%95%E8%BF%87%E5%BA%A6%E4%BE%9D%E8%B5%96%E5%B8%A6%E6%9D%A5%E7%9A%84%E4%B8%89%E5%A4%A7%E9%A3%8E%E9%99%A9"><span class="toc-text">6.2 警惕过度依赖带来的三大风险</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E6%9C%AA%E6%9D%A5-3-%E5%B9%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%A0%B8%E5%BF%83%E7%AB%9E%E4%BA%89%E5%8A%9B"><span class="toc-text">6.3 未来 3 年工程师的核心竞争力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%AE%9E%E6%88%98%E6%BC%94%E7%BB%83%EF%BC%9A%E8%AE%A9-Claude-Code-%E8%9E%8D%E5%85%A5%E5%B7%A5%E7%A8%8B%E5%8C%96"><span class="toc-text">七、实战演练：让 Claude Code 融入工程化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%B9%E9%B8%BF%E8%92%99%E5%8C%97%E5%90%91%E5%BC%80%E5%8F%91%E8%B5%8B%E8%83%BD"><span class="toc-text">1.对鸿蒙北向开发赋能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AF%B9%E9%B8%BF%E8%92%99%E5%8D%97%E5%90%91%E5%BC%80%E5%8F%91%E8%B5%8B%E8%83%BD"><span class="toc-text">2.对鸿蒙南向开发赋能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%80%EF%BC%9A%E7%94%A8-Ask-%E6%A8%A1%E5%BC%8F%E2%80%9C%E6%91%B8%E6%B8%85%E5%BA%95%E7%BB%86%E2%80%9D%EF%BC%88Explore%EF%BC%89"><span class="toc-text">阶段一：用 Ask 模式“摸清底细”（Explore）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5%E4%BA%8C%EF%BC%9A%E7%94%A8-Plan-%E6%A8%A1%E5%BC%8F%E2%80%9C%E8%BF%90%E7%AD%B9%E5%B8%B7%E5%B9%84%E2%80%9D%EF%BC%88%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%EF%BC%89"><span class="toc-text">阶段二：用 Plan 模式“运筹帷幄”（架构设计）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%89%EF%BC%9A%E6%AD%A5%E6%AD%A5%E4%B8%BA%E8%90%A5%EF%BC%8C%E8%BD%AF%E7%A1%AC%E5%88%86%E7%A6%BB%EF%BC%88Edit-%E6%89%A7%E8%A1%8C%EF%BC%89"><span class="toc-text">阶段三：步步为营，软硬分离（Edit 执行）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5%E5%9B%9B%EF%BC%9A%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%A6%86%E7%9B%96%EF%BC%88%E9%97%AD%E7%8E%AF%E9%AA%8C%E8%AF%81%EF%BC%89"><span class="toc-text">阶段四：测试用例覆盖（闭环验证）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E6%9C%80%E6%96%B0%E7%9A%84AI%E4%BF%A1%E6%81%AF"><span class="toc-text">八、从哪里获取最新的AI信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-text">九、总结</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.61358 2.92637C5.33517 3.09825 4.56445 3.42514 3.9948 3.9948C3.42514 4.56445 3.09825 5.33517 2.92637 6.61358C2.75159 7.91356 2.75 9.62177 2.75 12C2.75 14.3782 2.75159 16.0864 2.92637 17.3864C3.09825 18.6648 3.42514 19.4355 3.9948 20.0052C4.56445 20.5749 5.33517 20.9018 6.61358 21.0736C7.91356 21.2484 9.62177 21.25 12 21.25C14.3782 21.25 16.0864 21.2484 17.3864 21.0736C18.6648 20.9018 19.4355 20.5749 20.0052 20.0052C20.5749 19.4355 20.9018 18.6648 21.0736 17.3864C21.2484 16.0864 21.25 14.3782 21.25 12C21.25 9.62177 21.2484 7.91356 21.0736 6.61358C20.9018 5.33517 20.5749 4.56445 20.0052 3.9948C19.4355 3.42514 18.6648 3.09825 17.3864 2.92637C16.0864 2.75159 14.3782 2.75 12 2.75C9.62177 2.75 7.91356 2.75159 6.61358 2.92637ZM12 9.56066L9.53033 12.0303C9.23744 12.3232 8.76256 12.3232 8.46967 12.0303C8.17678 11.7374 8.17678 11.2626 8.46967 10.9697L11.4697 7.96967C11.7626 7.67678 12.2374 7.67678 12.5303 7.96967L15.5303 10.9697C15.8232 11.2626 15.8232 11.7374 15.5303 12.0303C15.2374 12.3232 14.7626 12.3232 14.4697 12.0303L12 9.56066ZM12 13.5607L9.53033 16.0303C9.23744 16.3232 8.76256 16.3232 8.46967 16.0303C8.17678 15.7374 8.17678 15.2626 8.46967 14.9697L11.4697 11.9697C11.7626 11.6768 12.2374 11.6768 12.5303 11.9697L15.5303 14.9697C15.8232 15.2626 15.8232 15.7374 15.5303 16.0303C15.2374 16.3232 14.7626 16.3232 14.4697 16.0303L12 13.5607Z" clip-rule="evenodd"/></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M10.4606 1.25H13.5394C15.1427 1.24999 16.3997 1.24999 17.4039 1.34547C18.4274 1.44279 19.2655 1.64457 20.0044 2.09732C20.7781 2.57144 21.4286 3.22194 21.9027 3.99563C22.3554 4.73445 22.5572 5.57256 22.6545 6.59611C22.75 7.60029 22.75 8.85725 22.75 10.4606V11.5278C22.75 12.6691 22.75 13.564 22.7007 14.2868C22.6505 15.0223 22.5468 15.6344 22.3123 16.2004C21.7287 17.6093 20.6093 18.7287 19.2004 19.3123C18.3955 19.6457 17.4786 19.7197 16.2233 19.7413C15.7842 19.7489 15.5061 19.7545 15.2941 19.7779C15.096 19.7999 15.0192 19.832 14.9742 19.8582C14.9268 19.8857 14.8622 19.936 14.7501 20.0898C14.6287 20.2564 14.4916 20.4865 14.2742 20.8539L13.7321 21.7697C12.9585 23.0767 11.0415 23.0767 10.2679 21.7697L9.72579 20.8539C9.50835 20.4865 9.37122 20.2564 9.24985 20.0898C9.13772 19.936 9.07313 19.8857 9.02572 19.8582C8.98078 19.832 8.90399 19.7999 8.70588 19.7779C8.49387 19.7545 8.21575 19.7489 7.77666 19.7413C6.52138 19.7197 5.60454 19.6457 4.79957 19.3123C3.39066 18.7287 2.27128 17.6093 1.68769 16.2004C1.45323 15.6344 1.3495 15.0223 1.29932 14.2868C1.24999 13.564 1.25 12.6691 1.25 11.5278L1.25 10.4606C1.24999 8.85726 1.24999 7.60029 1.34547 6.59611C1.44279 5.57256 1.64457 4.73445 2.09732 3.99563C2.57144 3.22194 3.22194 2.57144 3.99563 2.09732C4.73445 1.64457 5.57256 1.44279 6.59611 1.34547C7.60029 1.24999 8.85726 1.24999 10.4606 1.25ZM6.73809 2.83873C5.82434 2.92561 5.24291 3.09223 4.77938 3.37628C4.20752 3.72672 3.72672 4.20752 3.37628 4.77938C3.09223 5.24291 2.92561 5.82434 2.83873 6.73809C2.75079 7.663 2.75 8.84876 2.75 10.5V11.5C2.75 12.6751 2.75041 13.5189 2.79584 14.1847C2.84081 14.8438 2.92737 15.2736 3.07351 15.6264C3.50486 16.6678 4.33223 17.4951 5.3736 17.9265C5.88923 18.1401 6.54706 18.2199 7.8025 18.2416L7.83432 18.2421C8.23232 18.249 8.58109 18.2549 8.87097 18.287C9.18246 18.3215 9.4871 18.3912 9.77986 18.5615C10.0702 18.7304 10.2795 18.9559 10.4621 19.2063C10.6307 19.4378 10.804 19.7306 11.0004 20.0623L11.5587 21.0057C11.7515 21.3313 12.2485 21.3313 12.4412 21.0057L12.9996 20.0623C13.1959 19.7306 13.3692 19.4378 13.5379 19.2063C13.7204 18.9559 13.9298 18.7304 14.2201 18.5615C14.5129 18.3912 14.8175 18.3215 15.129 18.287C15.4189 18.2549 15.7676 18.249 16.1656 18.2421L16.1975 18.2416C17.4529 18.2199 18.1108 18.1401 18.6264 17.9265C19.6678 17.4951 20.4951 16.6678 20.9265 15.6264C21.0726 15.2736 21.1592 14.8438 21.2042 14.1847C21.2496 13.5189 21.25 12.6751 21.25 11.5V10.5C21.25 8.84876 21.2492 7.663 21.1613 6.73809C21.0744 5.82434 20.9078 5.24291 20.6237 4.77938C20.2733 4.20752 19.7925 3.72672 19.2206 3.37628C18.7571 3.09223 18.1757 2.92561 17.2619 2.83873C16.337 2.75079 15.1512 2.75 13.5 2.75H10.5C8.84876 2.75 7.663 2.75079 6.73809 2.83873ZM7.25 9C7.25 8.58579 7.58579 8.25 8 8.25H16C16.4142 8.25 16.75 8.58579 16.75 9C16.75 9.41421 16.4142 9.75 16 9.75H8C7.58579 9.75 7.25 9.41421 7.25 9ZM7.25 12.5C7.25 12.0858 7.58579 11.75 8 11.75H13.5C13.9142 11.75 14.25 12.0858 14.25 12.5C14.25 12.9142 13.9142 13.25 13.5 13.25H8C7.58579 13.25 7.25 12.9142 7.25 12.5Z" clip-rule="evenodd"/></svg><span>参与讨论</span></a></div>
+</widget>
+
+
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
@@ -619,6 +939,137 @@
 
 <script type="text/javascript">
   window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  window.canonical["param"] = {"permalink":"http://skyforever.top/posts/52013","checklink":"/js/plugins/video.js"};
+  // Fix: Ensure page is at the correct top position on data load
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'auto';
+  }
+  (function() {
+    const scrollHandler = () => {
+      // 存在有效锚点时，等待布局稳定后滚动到目标
+      // （浏览器原生锚点滚动发生在布局完成前，长文章的懒加载图片/异步组件会把目标顶偏）
+      const hash = window.location.hash;
+      if (hash.length > 1) {
+        let anchorId = hash.slice(1);
+        try {
+          anchorId = decodeURIComponent(anchorId);
+        } catch (e) {
+          // 片段含非法编码时按原样查找
+        }
+        const anchor = document.getElementById(anchorId);
+        if (anchor) {
+          // #start 锚点贴顶，不预留 offset；其余锚点与 TOC 点击滚动保持一致
+          const offset = anchorId === 'start' ? 0 : 32;
+          const targetY = () => anchor.getBoundingClientRect().top + window.scrollY - offset;
+          let timer = null;
+          let lastY = null;
+          let quiet = 0;
+          let attempts = 0;
+          // 记录最近一次资源加载完成时间，判断异步数据/图片是否仍在改变布局
+          let lastResourceTime = performance.now();
+          let observer = null;
+          try {
+            observer = new PerformanceObserver(function (list) {
+              lastResourceTime = performance.now();
+            });
+            observer.observe({ entryTypes: ['resource'] });
+          } catch (e) {}
+          // 统计进行中的 fetch/XHR 请求，异步组件（timeline 等）未完成前不判定布局稳定
+          let pendingRequests = 0;
+          const trackRequest = (fn) => {
+            pendingRequests++;
+            try {
+              const result = fn();
+              if (result && typeof result.finally === 'function') {
+                result.finally(function () {
+                  pendingRequests = Math.max(0, pendingRequests - 1);
+                });
+              } else {
+                pendingRequests = Math.max(0, pendingRequests - 1);
+              }
+              return result;
+            } catch (e) {
+              pendingRequests = Math.max(0, pendingRequests - 1);
+              throw e;
+            }
+          };
+          if (typeof window.fetch === 'function') {
+            const origFetch = window.fetch.bind(window);
+            window.fetch = function () {
+              const args = arguments;
+              return trackRequest(function () {
+                return origFetch.apply(window, args);
+              });
+            };
+          }
+          if (window.XMLHttpRequest) {
+            const origOpen = window.XMLHttpRequest.prototype.open;
+            const origSend = window.XMLHttpRequest.prototype.send;
+            window.XMLHttpRequest.prototype.open = function () {
+              this.__anchorTracked = true;
+              return origOpen.apply(this, arguments);
+            };
+            window.XMLHttpRequest.prototype.send = function () {
+              if (this.__anchorTracked) {
+                pendingRequests++;
+                const done = () => {
+                  if (this.__anchorTracked) {
+                    this.__anchorTracked = false;
+                    pendingRequests = Math.max(0, pendingRequests - 1);
+                  }
+                };
+                this.addEventListener('loadend', done);
+              }
+              return origSend.apply(this, arguments);
+            };
+          }
+          const cancel = () => {
+            if (timer !== null) {
+              clearInterval(timer);
+              timer = null;
+            }
+            if (observer !== null) {
+              try {
+                observer.disconnect();
+              } catch (e) {}
+            }
+          };
+          const adjust = () => {
+            const y = targetY();
+            const atTarget = Math.abs(window.scrollY - y) <= 2;
+            if (!atTarget || lastY === null || Math.abs(y - lastY) > 2) {
+              window.scrollTo({ top: y, behavior: 'instant' });
+              lastY = y;
+              quiet = 0;
+            } else {
+              quiet++;
+            }
+            attempts++;
+            const resourceQuiet = performance.now() - lastResourceTime > 3000;
+            // 位置连续 1.8 秒无变化、无进行中的请求且最近 3 秒无资源加载才视为稳定；最长等待 30 秒
+            if ((quiet >= 3 && pendingRequests === 0 && resourceQuiet) || attempts >= 50) {
+              cancel();
+            }
+          };
+          requestAnimationFrame(() => {
+            // 锚点链接打开时直接定位，不做动画；用户主动点击（如 TOC）仍走平滑滚动
+            window.scrollTo({ top: targetY(), behavior: 'instant' });
+            timer = setInterval(adjust, 600);
+          });
+          // 用户主动滚动时停止自动校正
+          window.addEventListener('wheel', cancel, { passive: true });
+          window.addEventListener('touchstart', cancel, { passive: true });
+          window.addEventListener('mousedown', cancel, { passive: true });
+          window.addEventListener('keydown', cancel, { passive: true });
+          return;
+        }
+      }
+      // 没有锚点时始终保持页面顶部；Wiki Hero 只在用户显式访问 #start 时定位正文。
+      window.scrollTo(0, 0);
+    };
+    if (document.readyState !== 'loading') scrollHandler();
+    else document.addEventListener('DOMContentLoaded', scrollHandler);
+  })();
   const ctx = {
     date_suffix: {
       just: `刚刚`,
@@ -629,7 +1080,10 @@
     root : `/`,
     tag_plugins: {
       chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
-    }
+    },
+    // 图标由构建期生成的 /js/stellar-icons.js 填充（defer，早于 DOMContentLoaded 就绪）
+    icons: {},
+    services: {"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"},"rss":{"js":"/js/services/rss.js"}},
   };
 
   // required plugins (only load if needs)
@@ -637,330 +1091,104 @@
     ctx.search = {};
     ctx.search.service = `local_search`;
     if (ctx.search.service == 'local_search') {
-      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"}`);
       ctx.search[ctx.search.service] = service_obj;
     }
   }
   const def = {
     avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
     cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
-    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+    data_cache: {"enable":true,"default_ttl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"max_entries":200},
   };
   const deps = {
-    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
     marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
-    lazyload: `/%5Bobject%20Object%5D`
+    lazyload: `https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js`
   }
-  
 
+  // 主题切换提示文案（供 /js/theme.js 使用）
+  window.__STELLAR_I18N__ = {
+    light: `切换到浅色模式`,
+    dark: `切换到深色模式`,
+    auto: `切换到跟随系统配色`,
+  };
+
+  // 搜索跳转高亮：URL 带 ?kw= 时按需加载，定位正文中的匹配词
+  (function () {
+    try {
+      if (!window.location.search) return;
+      if (!new URLSearchParams(window.location.search).has('kw')) return;
+      document.addEventListener('DOMContentLoaded', function () {
+        // utils 由 /js/utils.js 定义（同时暴露 window.utils）；
+        // 未就绪时由 bootstrap 队列兜底，此处按就绪状态判断
+        if (typeof utils === 'object' && typeof utils.js === 'function') {
+          utils.js('/js/search/highlight.js', { defer: true }).catch(function () {});
+        }
+      });
+    } catch (e) {}
+  })();
 </script>
 
-<script type="text/javascript">
-  
-  function RunItem() {
-    this.list = []; // 存放回调函数
-    this.start = () => {
-      for (var i = 0; i < this.list.length; i++) {
-        this.list[i].run();
-      }
-    };
-    this.push = (fn, name, setRequestAnimationFrame = true) => {
-      let myfn = fn
-      if (setRequestAnimationFrame) {
-        myfn = () => {
-          utils.requestAnimationFrame(fn)
-        }
-      }
-      var f = new Item(myfn, name);
-      this.list.push(f);
-    };
-    this.remove = (name) => {
-      for (let index = 0; index < this.list.length; index++) {
-        const e = this.list[index];
-        if (e.name == name) {
-          this.list.splice(index, 1);
-        }
+
+<script>
+  // 插件注册队列：utils.js 尚未就绪时先缓存注册请求，就绪后统一补跑，
+  // 保证解析期注册的插件不因加载时序丢失。
+  window.stellar = window.stellar || {};
+  window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+  window.stellar.initPlugin = function (fn, name, options) {
+    if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+      return utils.initPlugin(fn, name, options);
+    }
+    window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+  };
+  window.stellar._flushPlugins = function () {
+    var pending = window.stellar._pluginQueue.splice(0);
+    if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+    for (var i = 0; i < pending.length; i++) {
+      try {
+        utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+      } catch (e) {
+        console.error('[Stellar] 插件补注册失败:', e);
       }
     }
-    // 构造一个可以run的对象
-    function Item(fn, name) {
-      // 函数名称
-      this.name = name || fn.name;
-      // run方法
-      this.run = () => {
-        try {
-          fn()
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    }
-  }
-
-  const utils = {
-    // 懒加载 css https://github.com/filamentgroup/loadCSS
-    css: (href, before, media, attributes) => {
-      var doc = window.document;
-      var ss = doc.createElement("link");
-      var ref;
-      if (before) {
-        ref = before;
-      } else {
-        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-        ref = refs[refs.length - 1];
-      }
-      var sheets = doc.styleSheets;
-      if (attributes) {
-        for (var attributeName in attributes) {
-          if (attributes.hasOwnProperty(attributeName)) {
-            ss.setAttribute(attributeName, attributes[attributeName]);
-          }
-        }
-      }
-      ss.rel = "stylesheet";
-      ss.href = href;
-      ss.media = "only x";
-      function ready(cb) {
-        if (doc.body) {
-          return cb();
-        }
-        setTimeout(function () {
-          ready(cb);
-        });
-      }
-      ready(function () {
-        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
-      });
-      var onloadcssdefined = function (cb) {
-        var resolvedHref = ss.href;
-        var i = sheets.length;
-        while (i--) {
-          if (sheets[i].href === resolvedHref) {
-            return cb();
-          }
-        }
-        setTimeout(function () {
-          onloadcssdefined(cb);
-        });
-      };
-      function loadCB() {
-        if (ss.addEventListener) {
-          ss.removeEventListener("load", loadCB);
-        }
-        ss.media = media || "all";
-      }
-      if (ss.addEventListener) {
-        ss.addEventListener("load", loadCB);
-      }
-      ss.onloadcssdefined = onloadcssdefined;
-      onloadcssdefined(loadCB);
-      return ss;
-    },
-
-    js: (src, opt) => new Promise((resolve, reject) => {
-      var script = document.createElement('script');
-      if (src.startsWith('/')) {
-        src = ctx.root + src.substring(1);
-      }
-      script.src = src;
-      if (opt) {
-        for (let key of Object.keys(opt)) {
-          script[key] = opt[key]
-        }
-      } else {
-        // 默认异步，如果需要同步，第二个参数传入 {} 即可
-        script.async = true
-      }
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function () {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    }),
-
-    jq: (fn) => {
-      if (typeof jQuery === 'undefined') {
-        utils.js(deps.jquery).then(fn)
-      } else {
-        fn()
-      }
-    },
-
-    onLoading: (el) => {
-      if (el) {
-        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
-      }
-    },
-    onLoadSuccess: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap').remove();
-      }
-    },
-    onLoadFailure: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap svg').remove();
-        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
-        $(el).find('.loading-wrap').addClass('error');
-      }
-    },
-    request: (el, url, callback, onFailure) => {
-      const maxRetry = 3;
-      let retryCount = 0;
-
-      return new Promise((resolve, reject) => {
-        const load = () => {
-          utils.onLoading?.(el);
-
-          let timedOut = false;
-          const timeout = setTimeout(() => {
-            timedOut = true;
-            console.warn('[request] 超时:', url);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject('请求超时');
-            } else {
-              setTimeout(load, 1000);
-            }
-          }, 5000);
-
-          fetch(url).then(resp => {
-            if (timedOut) return;
-            clearTimeout(timeout);
-
-            if (!resp.ok) throw new Error('响应失败');
-            return resp;
-          }).then(data => {
-            if (timedOut) return;
-            utils.onLoadSuccess?.(el);
-            callback(data);
-            resolve(data);
-          }).catch(err => {
-            clearTimeout(timeout);
-            console.warn('[request] 错误:', err);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject(err);
-            } else {
-              setTimeout(load, 1000);
-            }
-          });
-        };
-
-        load();
-      });
-    },
-    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
-      return new Promise((resolve, reject) => {
-        let retryCount = 0;
-
-        const tryRequest = () => {
-          let timedOut = false;
-          const timer = setTimeout(() => {
-            timedOut = true;
-            if (++retryCount > maxRetry) reject('timeout');
-            else tryRequest();
-          }, timeout);
-
-          fetch(url, options)
-            .then(resp => {
-              clearTimeout(timer);
-              if (!resp.ok) throw new Error('bad response');
-              resolve(resp);
-            })
-            .catch(err => {
-              clearTimeout(timer);
-              if (++retryCount > maxRetry) reject(err);
-              else setTimeout(tryRequest, 500);
-            });
-        };
-
-        tryRequest();
-      });
-    },
-    /********************** requestAnimationFrame ********************************/
-    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
-    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
-    requestAnimationFrame: (fn) => {
-      if (!window.requestAnimationFrame) {
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
-      }
-      window.requestAnimationFrame(fn)
-    },
-    dark: {},
   };
-
-  // utils.dark.mode 当前模式 dark or light
-  // utils.dark.toggle() 暗黑模式触发器
-  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
-  utils.dark.method = {
-    toggle: new RunItem(),
-  };
-  utils.dark = Object.assign(utils.dark, {
-    push: utils.dark.method.toggle.push,
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof utils === 'object') return;
+    // utils 未就绪时补载；加载成功后由 utils.js 内部补跑插件队列
+    var s = document.createElement('script');
+    // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
+    // （图片懒加载 / 脚本延迟优化器）误改写
+    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.async = false;
+    s.onerror = function () {
+      console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
+      document.documentElement.classList.add('sr-fallback');
+    };
+    document.head.appendChild(s);
   });
 </script>
+
+
+<!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
+<script src="/js/utils.js?v=1.44.0"></script>
 <script>
-  const sidebar = {
-    leftbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    rightbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('rightbar');
-        l_body.removeAttribute('leftbar');
-      }
-    },
-    dismiss: () => {
-      if (l_body) {
-        l_body.removeAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    toggleTOC: () => {
-      document.querySelector('#data-toc').classList.toggle('collapse');
-    }
+  // 解析期检测 utils 是否已就绪；未就绪时同步补载，
+  // 保证「utils 先于页尾插件片段定义」的不变量。
+  if (typeof utils === 'undefined') {
+    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
   }
 </script>
-<script type="text/javascript">
-  (() => {
-    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
-    for (const tagSwitcher of tagSwitchers) {
-      tagSwitcher.addEventListener('click', (e) => {
-        const parent = e.target.closest('.tag-subtree.parent-tag')
-        parent.classList.toggle('expanded')
-        e.preventDefault()
-      })
-    }
+<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
+<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
+<script src="/js/main.js?v=1.44.0" defer></script>
+<script defer src="/js/theme.js?v=1.44.0"></script>
 
-    // Get active tag from query string, then activate it.
-    const urlParams = new URLSearchParams(window.location.search)
-    const activeTag = urlParams.get('tag')
-    if (activeTag) {
-      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
-      if (tag) {
-        tag.querySelector('a').classList.add('active')
-        
-        while (tag) {
-          tag.classList.add('expanded')
-          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
-        }
-      }
-    }
-  })()
-</script>
 
-<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+
 <script>
+  // 先声明配置与初始化监听，再异步加载库：
+  // 保证库执行时 lazyLoadOptions 已就绪，避免 async 脚本抢先执行导致自初始化失败
   // https://www.npmjs.com/package/vanilla-lazyload
   // Set the options globally
   // to make LazyLoad self-initialize
@@ -968,13 +1196,13 @@
     elements_selector: ".lazy",
     callback_loaded: (el) => {
       el.classList.add('loaded');
-      const wrapper = el.closest('.lazy-box');
+      // {% image %} 没有 .lazy-box 包裹，回退到父元素查找加载图标
+      const wrapper = el.closest('.lazy-box') || el.parentElement;
       const icon = wrapper?.querySelector('.lazy-icon');
       if (icon) icon.remove();
     }
   };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
+  // 监听初始化事件，获取 LazyLoad 实例
   window.addEventListener(
     "LazyLoad::Initialized",
     function (event) {
@@ -986,12 +1214,36 @@
     window.lazyLoadInstance?.update();
   });
 
+  // 兜底：动态插入的 .lazy 元素（如站点自定义脚本在 update() 之后追加的图片）
+  // 不会被 vanilla-lazyload 自动扫描，未注册的 img.lazy 会被 CSS opacity:0 永久隐藏。
+  // MutationObserver 检测到新增 .lazy 元素后自动调用 update() 重新注册。
+  if (window.MutationObserver) {
+    window.lazyMutationObserver = new MutationObserver((mutations) => {
+      if (window.lazyMutationObserver._pending) return;
+      const hasLazy = mutations.some((m) =>
+        Array.prototype.some.call(m.addedNodes, (node) =>
+          node.nodeType === 1 &&
+          (node.matches?.('.lazy') || !!node.querySelector?.('.lazy'))
+        )
+      );
+      if (!hasLazy) return;
+      window.lazyMutationObserver._pending = requestAnimationFrame(() => {
+        window.lazyMutationObserver._pending = null;
+        window.lazyLoadInstance?.update();
+      });
+    });
+    window.lazyMutationObserver.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  }
+
   window.wrapLazyloadImages = (container) => {
     if (typeof container === 'string') {
       container = document.querySelector(container);
     }
     if (!container) return;
-    
+
     const images = container.querySelectorAll('img');
     images.forEach((img) => {
       if (img.classList.contains('lazy')) return;
@@ -1009,9 +1261,6 @@
 
       const icon = document.createElement('div');
       icon.className = 'lazy-icon';
-      if (def.loading) {
-        icon.style.backgroundImage = `url("${def.loading}")`;
-      }
 
       wrapper.appendChild(newImg);
       wrapper.appendChild(icon);
@@ -1024,238 +1273,84 @@
       window.lazyLoadInstance.update();
     }
   }
-  
 </script>
-
-<!-- required -->
-<script src="/js/main.js?v=1.33.1" defer></script>
-
-<script type="text/javascript">
-  const applyTheme = (theme) => {
-    if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme')
-    } else {
-      document.documentElement.setAttribute('data-theme', theme)
-    }
-
-    // applyThemeToGiscus(theme)
-  }
-
-  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
-  const applyThemeToGiscus = (theme) => {
-    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
-    const cmt = document.getElementById('giscus')
-    if (cmt) {
-      // This works before giscus load.
-      cmt.setAttribute('data-theme', theme)
-    }
-
-    const iframe = document.querySelector('#comments > section.giscus > iframe')
-    if (iframe) {
-      // This works after giscus loaded.
-      const src = iframe.src
-      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
-      iframe.src = newSrc
-    }
-  }
-
-  const switchTheme = () => {
-    // light -> dark -> auto -> light -> ...
-    const currentTheme = document.documentElement.getAttribute('data-theme')
-    let newTheme;
-    switch (currentTheme) {
-      case 'light':
-        newTheme = 'dark'
-        break
-      case 'dark':
-        newTheme = 'auto'
-        break
-      default:
-        newTheme = 'light'
-    }
-    applyTheme(newTheme)
-    window.localStorage.setItem('Stellar.theme', newTheme)
-    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
-    utils.dark.method.toggle.start();
-
-    const messages = {
-      light: `切换到浅色模式`,
-      dark: `切换到深色模式`,
-      auto: `切换到跟随系统配色`,
-    }
-    hud?.toast?.(messages[newTheme])
-  }
-
-  (() => {
-    // Apply user's preferred theme, if any.
-    const theme = window.localStorage.getItem('Stellar.theme')
-    if (theme !== null) {
-      applyTheme(theme)
-    } else {
-      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    utils.dark.method.toggle.start();
-  })()
-</script>
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
 
 
 <!-- optional -->
 
   <script type="module">
-  const el = document.querySelector('#comments #giscus');
-  util.viewportLazyload(el, load_discus, false);
-
-  function load_discus() {
-    if (!el) return;
-    try {
-        el.innerHTML = '';
-      } catch (error) {
-        console.error(error);
+  (function() {
+    
+    function initGiscus() {
+      const el = document.querySelector('#comments #giscus');
+      if (!el) return;
+      
+      function load_giscus() {
+        try {
+          el.innerHTML = '';
+        } catch (error) {
+          console.error(error);
+        }
+        const script = document.createElement('script');
+        script.async = true;
+        for (const key of Object.keys(el.attributes)) {
+          const attr = el.attributes[key];
+          if (['class', 'id'].includes(attr.name) === false) {
+            script.setAttribute(attr.name, attr.value);
+          }
+        }
+        el.appendChild(script);
       }
-      const script = document.createElement('script');
-      script.async = true;
-      for (const key of Object.keys(el.attributes)) {
-        const attr = el.attributes[key];
-        if (['class', 'id'].includes(attr.name) === false) {
-          script.setAttribute(attr.name, attr.value);
+      
+      util.viewportLazyload(el, load_giscus);
+    }
+    
+    // Initialize on page load
+    initGiscus();
+  })();
+</script>
+
+
+
+
+<script defer src="/js/services.js?v=1.44.0"></script>
+<script>
+  // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
+  // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。
+  if (typeof window.stellar === 'undefined' || typeof window.stellar.initPlugin !== 'function') {
+    window.stellar = window.stellar || {};
+    window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+    window.stellar.initPlugin = function (fn, name, options) {
+      if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+        return utils.initPlugin(fn, name, options);
+      }
+      window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+    };
+    window.stellar._flushPlugins = function () {
+      var pending = window.stellar._pluginQueue.splice(0);
+      if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+      for (var i = 0; i < pending.length; i++) {
+        try {
+          utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+        } catch (e) {
+          console.error('[Stellar] 插件补注册失败:', e);
         }
       }
-      el.appendChild(script);
+    };
   }
 </script>
 
-
-
-
-<script defer>
+<script>window.addEventListener('DOMContentLoaded', function () { utils.js('/js/search/shortcut.js', { defer: true }); });</script><script>
   window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
-    for (let id of Object.keys(ctx.services)) {
-      const js = ctx.services[id].js;
-      if (id == 'siteinfo') {
-        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
-        if (ctx.cardlinks?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            setCardLink(ctx.cardlinks);
-          });
-        }
-      } else if (id == 'voice') {
-        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
-        if (ctx.voiceAudios?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            createVoiceDom(ctx.voiceAudios);
-          });
-        }
-      } else if (id == 'video') {
-        ctx.videos = document.querySelectorAll('.video>video');
-        if (ctx.videos?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            videoEvents(ctx.videos);
-          });
-        }
-      } else if (id == 'download-file') {
-        ctx.files = document.querySelectorAll('.file');
-        if (ctx.files?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            downloadFileEvent(ctx.files);
-          });
-        }
-      } else {
-        const els = document.getElementsByClassName(`ds-${id}`);
-        if (els?.length > 0) {
-          utils.jq(() => {
-            if (id == 'timeline' || 'memos' || 'marked') {
-              utils.js(deps.marked).then(function () {
-                utils.js(js, { defer: true });
-              });
-            } else {
-              utils.js(js, { defer: true });
-            }
-          });
-        }
-      }
-    }
-
-    // chat iphone time
-    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
-
-    if (phoneTimes.length > 0) {
-      NowTime();
-      var date = new Date();
-      var sec = date.getSeconds();
-      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
-    }
-
-    function firstAdjustTime() {
-      NowTime();
-      clearInterval(firstAdjustInterval);
-      setInterval(NowTime, 1000 * 60);
-    }
-
-    function NowTime() {
-      for (let i = 0; i < phoneTimes.length; ++i) {
-        var timeSpan = phoneTimes[i];
-        var date = new Date();
-        var hour = date.getHours();
-        var min = date.getMinutes();
-        timeSpan.innerHTML = check(hour) + ":" + check(min);
-      }
-    };
-
-    function check(val) {
-      if (val < 10) {
-        return ("0" + val);
-      }
-      return (val);
-    }
-
-    // chat quote
-    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
-      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
-          observer.unobserve(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add('quote-blink');
-            setTimeout(() => {
-              entry.target.classList.remove('quote-blink');
-            }, 1000);
-          }, Math.max(100, 16) * (index + 1));
-        });
-    });
-
-    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
-    chatQuotes.forEach((quote) => {
-      quote.addEventListener('click', function () {
-        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
-        if (chatCellDom) {
-          var chatDiv = chatCellDom.parentElement;
-          var mid = chatDiv.clientHeight / 2;
-          var offsetTop = chatCellDom.offsetTop;
-          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
-            chatDiv.scrollTo({
-              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
-              behavior: "smooth"
-            });
-          } else {
-            chatDiv.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
-          }
-          chat_quote_obverser.observe(chatCellDom);
-        }
-      });
-    });
-  });
-</script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.search = {
+    ctx.search = Object.assign({}, ctx.search, {
       path: `/search.json`,
-    }
+      local_search: {"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"},
+    });
     utils.js('/js/search/local-search.js', { defer: true });
   });
-</script><script>
+</script>
+<script>
   window.FPConfig = {
     delay: 0,
     ignoreKeywords: [],
@@ -1265,28 +1360,45 @@
 </script>
 <script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
   ctx.fancybox = {
+    mode: `auto`,
     selector: `.md-text img[alt]:not([alt="icon"]):not([alt="cover"])`,
     css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
     js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
   };
-  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  // auto=按需：页面存在可弹窗图片才加载；global=全局：所有页面加载
+  const isGlobal = ctx.fancybox.mode === 'global';
+  // 评论区图片（artalk/twikoo/waline）显示较小，自动支持放大；
+  // 仅绑定各评论服务的评论内容区，编辑器、表情面板等非内容区图片不弹窗
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .tk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .wl-content img:not([atk-emoticon]):not([class*="emo"])';
   if (ctx.fancybox.selector) {
     selector += `, ${ctx.fancybox.selector}`
   }
-  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  var needFancybox = isGlobal;
   if (!needFancybox) {
-    const memos = document.getElementsByClassName('ds-memos');
-    if (memos != undefined && memos.length > 0) {
-      needFancybox = true;
+    needFancybox = document.querySelectorAll(selector).length !== 0;
+    if (!needFancybox) {
+      // 图片型评论系统容器：评论区图片小图需要 fancybox
+      const withFancybox = document.getElementsByClassName('with-fancybox');
+      if (withFancybox != undefined && withFancybox.length > 0) {
+        needFancybox = true;
+      }
     }
-    const fancybox = document.getElementsByClassName('with-fancybox');
-    if (fancybox != undefined && fancybox.length > 0) {
-      needFancybox = true;
+    if (!needFancybox) {
+      // 动态数据服务：memos 渲染的图片需要 fancybox
+      const memos = document.getElementsByClassName('ds-memos');
+      if (memos != undefined && memos.length > 0) {
+        needFancybox = true;
+      }
     }
   }
   if (needFancybox) {
+    utils.css(`/css/plugins/fancybox.css?v=1.44.0`);
     utils.css(ctx.fancybox.css);
     utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      if (isGlobal) {
+        // 全局模式：正文所有非内联图片均可弹窗
+        selector += ', .md-text img:not(.inline):not([atk-emoticon])';
+      }
       Fancybox.bind(selector, {
         hideScrollbar: false,
         Thumbs: {
@@ -1300,9 +1412,10 @@
   }
 </script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
+  stellar.initPlugin(() => {
     const swiper_api = document.getElementById('swiper-api');
     if (swiper_api != undefined) {
+      utils.css(`/css/plugins/swiper.css?v=1.44.0`);
       utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
       utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
         const effect = swiper_api.getAttribute('effect') || '';
@@ -1323,50 +1436,71 @@
         });
       })
     }
-  });
+  }, 'swiper');
 </script>
 <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
 <script defer type="text/javascript" src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    var mermaid_config = {
-      startOnLoad: true,
-      theme:
-        "auto" == "auto" &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "neutral",
-      logLevel: 3,
-      themeVariables: {
-        darkMode: true
-      },
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true,
-        curve: "linear"
-      },
-      gantt: {
-        axisFormat: "%Y/%m/%d"
-      },
-      sequence: {
-        actorMargin: 50
+  stellar.initPlugin(() => {
+    const els = document.querySelectorAll('.mermaid');
+    if (els.length > 0) {
+      if (false) {
+        utils.css(`/css/plugins/mermaid.css?v=1.44.0`);
       }
+      const mermaid_config = {
+        startOnLoad: false,
+        theme:
+          "auto" == "auto" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "neutral",
+        logLevel: 3,
+        flowchart: {
+          useMaxWidth: false,
+          htmlLabels: true,
+          curve: "linear"
+        },
+        gantt: {
+          axisFormat: "%Y/%m/%d"
+        },
+        sequence: {
+          actorMargin: 50
+        }
+      }
+      mermaid.initialize(mermaid_config);
+      mermaid.run();
     }
-    mermaid.initialize(mermaid_config);
-  });
-</script><script>
-  document.addEventListener('DOMContentLoaded', function () {
-    window.codeElements = document.querySelectorAll('.code');
-    if (window.codeElements.length > 0) {
+  }, 'mermaid');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const codeElements = document.querySelectorAll('.code');
+    if (codeElements.length > 0) {
       ctx.copycode = {
         default_text: `Copy`,
         success_text: `Copied`,
         toast: `复制成功`,
       };
-      utils.js('/js/plugins/copycode.js');
+      utils.js('/js/plugins/copycode.js', { defer: true }).then(() => {
+        if (typeof createCopyButtons === 'function') {
+          createCopyButtons(codeElements);
+        }
+      });
     }
-  });
-</script><!-- Baidu Tongji -->
+  }, 'copycode');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-text-adaptive]'));
+    if (els.length === 0) return;
+    utils.js('/js/color.js').then(() => utils.js('/js/plugins/adaptive-text.js')).then(() => {
+      if (typeof applyAdaptiveText === 'function') {
+        applyAdaptiveText(els);
+      }
+    });
+  }, 'adaptive-text');
+</script>
+<!-- Baidu Tongji -->
 <script>
 var _hmt = _hmt || [];
 (function() {

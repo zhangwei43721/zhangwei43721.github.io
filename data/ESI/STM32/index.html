@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
-  <meta name="generator" content="Hexo 7.1.0">
+  <meta name="generator" content="Hexo 8.1.2">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -19,8 +19,7 @@
   <meta name="theme-color" content="#f9fafb">
   <title>STM32面试题整理 - Sky Blog</title>
 
-  
-    <meta name="description" content="全面整理STM32相关面试题，涵盖STM32基础、外设接口(UART&#x2F;IIC&#x2F;SPI)、通信协议(USB&#x2F;CAN&#x2F;网络)、RTOS、硬件设计(PCB&#x2F;电路)等嵌入式开发核心领域，帮助准备嵌入式开发相关面试。">
+  <meta name="description" content="全面整理STM32相关面试题，涵盖STM32基础、外设接口(UART&#x2F;IIC&#x2F;SPI)、通信协议(USB&#x2F;CAN&#x2F;网络)、RTOS、硬件设计(PCB&#x2F;电路)等嵌入式开发核心领域，帮助准备嵌入式开发相关面试。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="STM32面试题整理">
 <meta property="og:url" content="http://skyforever.top/data/ESI/STM32/">
@@ -31,18 +30,24 @@
 <meta property="article:modified_time" content="2025-11-22T11:06:47.000Z">
 <meta property="article:author" content="Skyforever">
 <meta property="article:tag" content="STM32">
-<meta name="twitter:card" content="summary">
-  
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="STM32面试题整理">
   
   
   <meta name="keywords" content="STM32, 面试题, 嵌入式, 单片机, GPIO, 中断, 定时器, UART, IIC, SPI, USB, CAN, RTOS, 硬件设计">
 
   <!-- feed -->
   
-    <link rel="alternate" href="/atom.xml" title="Sky Blog" type="application/atom+xml">
+    
+
+    
+      
+        <link rel="alternate" href="/atom.xml" title="Sky Blog" type="application/atom+xml">
+      
+    
   
 
-  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+  <link rel="preload" href="/css/main.css?v=1.44.0" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=1.44.0">
 
 
   
@@ -53,302 +58,486 @@
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"http://skyforever.top/data/ESI/STM32/","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"name":"STM32面试题整理","description":"全面整理STM32相关面试题，涵盖STM32基础、外设接口(UART/IIC/SPI)、通信协议(USB/CAN/网络)、RTOS、硬件设计(PCB/电路)等嵌入式开发核心领域，帮助准备嵌入式开发相关面试。","url":"http://skyforever.top/data/ESI/STM32/"}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8">
-</head>
-<body>
 
-<div class="l_body content" id="start" layout="page" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+  <!-- icons.yml 驱动的 CSS 装饰图标 -->
+  
+  
+  <style>:root {
+  --icon-h3-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M17.75%2019a.75.75%200%200%201-1.32.488l-6-7a.75.75%200%200%201%200-.976l6-7A.75.75%200%200%201%2017.75%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M13.488%2019.57a.75.75%200%200%200%20.081-1.058L7.988%2012l5.581-6.512a.75.75%200%201%200-1.138-.976l-6%207a.75.75%200%200%200%200%20.976l6%207a.75.75%200%200%200%201.057.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-h3-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20Solar%20by%20480%20Design%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M6.25%2019a.75.75%200%200%200%201.32.488l6-7a.75.75%200%200%200%200-.976l-6-7A.75.75%200%200%200%206.25%205z%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%20d%3D%22M10.512%2019.57a.75.75%200%200%201-.081-1.058L16.012%2012l-5.581-6.512a.75.75%200%201%201%201.139-.976l6%207a.75.75%200%200%201%200%20.976l-6%207a.75.75%200%200%201-1.058.082%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M3.691%206.292C5.094%204.771%207.217%204%2010%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%206.925%2010H10a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202H3a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789M20%2020h-6a1%201%200%200%201-1-1v-5l.003-2.919c-.009-.111-.199-2.741%201.688-4.789C16.094%204.771%2018.217%204%2021%204h1v2.819l-.804.161c-1.37.274-2.323.813-2.833%201.604A2.9%202.9%200%200%200%2017.925%2010H21a1%201%200%200%201%201%201v7c0%201.103-.897%202-2%202%22%2F%3E%3C%2Fsvg%3E");
+  --icon-quote-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2024%2024%22%3E%3C!--%20Icon%20from%20BoxIcons%20Solid%20by%20Atisa%20-%20https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F%20--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M20.309%2017.708C22.196%2015.66%2022.006%2013.03%2022%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292m-11.007%200C11.19%2015.66%2010.999%2013.03%2010.993%2013V5a1%201%200%200%200-1-1h-6c-1.103%200-2%20.897-2%202v7a1%201%200%200%200%201%201h3.078a2.9%202.9%200%200%201-.429%201.396c-.508.801-1.465%201.348-2.846%201.624l-.803.16V20h1c2.783%200%204.906-.771%206.309-2.292%22%2F%3E%3C%2Fsvg%3E");
+  --icon-loading: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221em%22%20height%3D%221em%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.67%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.33%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%220%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3C%2Fsvg%3E");
+}</style>
+  
+</head>
+<body><div id="l_cover"></div><div class="l_body content" id="start" layout="page" type="tech" ><aside class="l_left leftbar-card" data-ui-surface="card"><div class="sidebg"></div><div class="leftbar-container">
+
 
 
 <header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/images/icons/cloud.svg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/"><div class="main">Sky Blog</div><div class="sub normal cap">记录走下的每一步</div><div class="sub hover cap" style="opacity:0"> Write by Skyforever</div></a></div></header>
 
+
+<div class="search-wrapper" id="search-wrapper"><div class="search-form" role="search"><label class="search-button" for="search-input" aria-hidden="true"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></label><input type="search" class="search-input" id="search-input" aria-label="在 面试题 中搜索" data-filter="&#x2F;note&#x2F;ESI&#x2F;" placeholder="在 面试题 中搜索"></div><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+<div class="widgets">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="leftbar-active-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
 <div class="nav-area">
 
-<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="项目" href="/wiki/"><span>项目</span></a><a class="nav-item" title="笔记" href="/notebooks/"><span>笔记</span></a><a class="nav-item" title="社交" href="/friends/"><span>社交</span></a></nav>
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/" title="博客" style="--item-grad:url(#menu-grad-post);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">博客</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-post" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/" title="项目" style="--item-grad:url(#menu-grad-wiki);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">项目</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-wiki" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/notebooks/" title="笔记" style="--item-grad:url(#menu-grad-notebooks);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">笔记</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-notebooks" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/friends/" title="社交" style="--item-grad:url(#menu-grad-social);">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">社交</span>
+      
+      
+    </span>
+  
+  
+  
+  
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="menu-grad-social" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+
+</a>
+
+  
 </div>
-<div class="widgets">
-<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/note/ESI" placeholder="在 面试题 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+</nav>
+</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-  <widget class="widget-wrapper post-list">
+<widget class="widget-wrapper tag-tree-widget" data-notebook="note-ESI">
+  
     <div class="widget-header dis-select">
       <span class="name">标签</span>
-    </div>
-    <div class="widget-body fs14 tag-tree">
-      
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="">
-    
-  
-  <a class="link" href="/note/ESI/">
-    <span class="toc-text">
-      
-        所有笔记
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="c语言">
-    
-  
-  <a class="link" href="/note/ESI/tags/c%E8%AF%AD%E8%A8%80/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        C语言
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="linux基础">
-    
-  
-  <a class="link" href="/note/ESI/tags/linux%E5%9F%BA%E7%A1%80/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        Linux基础
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="linux系统编程">
-    
-  
-  <a class="link" href="/note/ESI/tags/linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        Linux系统编程
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="linux网络编程">
-    
-  
-  <a class="link" href="/note/ESI/tags/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        Linux网络编程
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="stm32">
-    
-  
-  <a class="link" href="/note/ESI/tags/stm32/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        STM32
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="数据结构">
-    
-  
-  <a class="link" href="/note/ESI/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        数据结构
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="整理方法">
-    
-  
-  <a class="link" href="/note/ESI/tags/%E6%95%B4%E7%90%86%E6%96%B9%E6%B3%95/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        整理方法
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="文件io">
-    
-  
-  <a class="link" href="/note/ESI/tags/%E6%96%87%E4%BB%B6io/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        文件IO
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
-      
-        
-  
-  
-  
-  
-  <div class="tag-subtree leaf-tag expanded" data-tag="模电数电与硬件">
-    
-  
-  <a class="link" href="/note/ESI/tags/%E6%A8%A1%E7%94%B5%E6%95%B0%E7%94%B5%E4%B8%8E%E7%A1%AC%E4%BB%B6/">
-    <span class="toc-text">
-      
-        
-        <span class="tagcon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m14.092 10.75l-.75 2.5H9.908l.75-2.5z"/><path fill="currentColor" fill-rule="evenodd" d="M3.464 3.464C2 4.93 2 7.286 2 12s0 7.071 1.464 8.535C4.93 22 7.286 22 12 22s7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464m7.752 2.818a.75.75 0 0 1 .502.934l-.61 2.034h3.434l.74-2.465a.75.75 0 0 1 1.436.43l-.61 2.035H18a.75.75 0 0 1 0 1.5h-2.342l-.75 2.5H17a.75.75 0 0 1 0 1.5h-2.542l-.74 2.465a.75.75 0 0 1-1.436-.43l.61-2.035H9.458l-.74 2.465a.75.75 0 1 1-1.436-.43l.61-2.035H6a.75.75 0 0 1 0-1.5h2.342l.75-2.5H7a.75.75 0 0 1 0-1.5h2.542l.74-2.465a.75.75 0 0 1 .934-.503" clip-rule="evenodd"/></svg></span>
-        模电数电与硬件
-      
-    </span>
-    <span class="toc-text tag-switcher-wrapper">
-      <span class="tag-switcher" />
-    </span>
-  </a>
-
-    
-  </div>
-
       
     </div>
-  </widget>
+  
+  <div class="widget-body"><div class="ui-collection tag-tree" data-layout="list" data-variant="nav" data-density="compact"><div class="tag-subtree is-leaf is-expanded" data-tag="">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ESI/" title="所有笔记">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">所有笔记</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="c语言">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ESI/tags/c%E8%AF%AD%E8%A8%80/" title="C语言">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">C语言</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="linux基础">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ESI/tags/linux%E5%9F%BA%E7%A1%80/" title="Linux基础">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Linux基础</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="linux系统编程">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ESI/tags/linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" title="Linux系统编程">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Linux系统编程</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="linux网络编程">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ESI/tags/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" title="Linux网络编程">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Linux网络编程</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="stm32">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ESI/tags/stm32/" title="STM32">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">STM32</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="数据结构">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ESI/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">数据结构</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="整理方法">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ESI/tags/%E6%95%B4%E7%90%86%E6%96%B9%E6%B3%95/" title="整理方法">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">整理方法</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="文件io">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ESI/tags/%E6%96%87%E4%BB%B6io/" title="文件IO">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">文件IO</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div><div class="tag-subtree is-leaf is-expanded" data-tag="模电数电与硬件">
+<a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ESI/tags/%E6%A8%A1%E7%94%B5%E6%95%B0%E7%94%B5%E4%B8%8E%E7%A1%AC%E4%BB%B6/" title="模电数电与硬件">
+  
+  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">模电数电与硬件</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+</div></div></div>
+  
+</widget>
 
 
-<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/data/ESI/STM32/"><span class="title">STM32面试题整理</span></a><a class="item title" href="/data/ESI/C%E8%AF%AD%E8%A8%80%E6%95%B4%E7%90%86/"><span class="title">C语言面试题整理</span></a><a class="item title" href="/data/ESI/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/"><span class="title">Linux系统编程面试题整理</span></a><a class="item title" href="/data/ESI/Linux%20%E5%9F%BA%E7%A1%80/"><span class="title">Linux基础面试题整理</span></a><a class="item title" href="/data/ESI/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="title">数据结构面试题整理</span></a><a class="item title" href="/data/ESI/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"><span class="title">Linux网络编程面试题整理</span></a><a class="item title" href="/data/ESI/%E6%96%87%E4%BB%B6IO/"><span class="title">文件IO面试题整理</span></a><a class="item title" href="/data/ESI/%E6%A8%A1%E7%94%B5%E6%95%B0%E7%94%B5%E4%B8%8E%E7%A1%AC%E4%BB%B6/"><span class="title">模电数电与硬件面试题整理</span></a><a class="item title" href="/data/ESI/%E6%95%B4%E7%90%86%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%94%E8%AE%B0%E6%8F%90%E7%A4%BA%E8%AF%8D/"><span class="title">整理面试题用的提示词</span></a></div></widget>
+
+
+<widget class="widget-wrapper recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">最近更新</span>
+      
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/ESI/STM32/" title="STM32面试题整理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">STM32面试题整理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/ESI/Linux%20%E5%9F%BA%E7%A1%80/" title="Linux基础面试题整理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Linux基础面试题整理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/ESI/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" title="Linux系统编程面试题整理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Linux系统编程面试题整理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/ESI/C%E8%AF%AD%E8%A8%80%E6%95%B4%E7%90%86/" title="C语言面试题整理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">C语言面试题整理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/ESI/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" title="Linux网络编程面试题整理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Linux网络编程面试题整理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/ESI/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构面试题整理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">数据结构面试题整理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/ESI/%E6%95%B4%E7%90%86%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%94%E8%AE%B0%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="整理面试题用的提示词">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">整理面试题用的提示词</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/ESI/%E6%A8%A1%E7%94%B5%E6%95%B0%E7%94%B5%E4%B8%8E%E7%A1%AC%E4%BB%B6/" title="模电数电与硬件面试题整理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">模电数电与硬件面试题整理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/data/ESI/%E6%96%87%E4%BB%B6IO/" title="文件IO面试题整理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">文件IO面试题整理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
+
+
 </div>
-<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
-</div></aside><div class="l_main" id="main">
+<footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+<a class="social" href="https:&#x2F;&#x2F;github.com&#x2F;zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
+</div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
 
 
 
-<div class="article banner top">
+
+<div class="article-banner-wrap"><div class="article banner top">
   <div class="content">
-    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span>
 <a class="cap breadcrumb" href="/notebooks/">笔记本</a>
 
@@ -356,8 +545,9 @@
   <span class="sep"></span>
   <a class="cap breadcrumb" href="/note/ESI/">面试题</a>
 
-</div>
-<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2025-11-22T11:06:47.000Z">2025-11-22</time></span><span class="sep updated"></span><span class="text updated">发布于：<time datetime="2025-11-22T11:06:47.000Z">2025-11-22</time></span></div></div></div>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2025-11-22T11:06:47.000Z">2025-11-22</time></span><span class="sep updated"></span><span class="text updated">发布于：<time datetime="2025-11-22T11:06:47.000Z">2025-11-22</time></span></div>
+</div></div>
     
     <div class="bottom only-title">
       
@@ -368,7 +558,8 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><p>这份资料整理涵盖了 <strong>STM32基础、外设接口 (UART&#x2F;IIC&#x2F;SPI)、通信协议 (USB&#x2F;CAN&#x2F;网络)、RTOS 、硬件设计 (PCB&#x2F;电路)</strong> 等嵌入式开发的核心领域。</p>
+  </div></div>
+<article class="md-text content"><p>这份资料整理涵盖了 <strong>STM32基础、外设接口 (UART/IIC/SPI)、通信协议 (USB/CAN/网络)、RTOS 、硬件设计 (PCB/电路)</strong> 等嵌入式开发的核心领域。</p>
 <p><strong>💡 建议：</strong><br>你可以按照这个<strong>二级目录结构</strong>来制作您的面试笔记或思维导图。</p>
 <ol>
 <li><strong>先背一级目录</strong>（6大块），建立宏观框架。</li>
@@ -378,7 +569,7 @@
 <p><strong>对第一板块和第二板块的播客：</strong></p>
 
   <div class="tag-plugin audio">
-  <audio controls preload>
+  <audio controls="" preload="">
   <source src="https://image.skyforever.top/music/STM32第一二章节.webm" type="audio/mp3">Your browser does not support the audio tag.
   </audio>
   </div>
@@ -386,7 +577,7 @@
 
 
 <h3 id="📂-第一板块：单片机基础与架构-MCU）"><a href="#📂-第一板块：单片机基础与架构-MCU）" class="headerlink" title="📂 第一板块：单片机基础与架构 (MCU）"></a>📂 第一板块：单片机基础与架构 (MCU）</h3><p><em>这部分考察对 STM32 架构、时钟系统及启动流程的理解。</em></p>
-<h4 id="1-1-概念与选型"><a href="#1-1-概念与选型" class="headerlink" title="1.1 概念与选型"></a>1.1 概念与选型</h4><table>
+<h4 id="1-1-概念与选型"><a href="#1-1-概念与选型" class="headerlink" title="1.1 概念与选型"></a>1.1 概念与选型</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -397,35 +588,35 @@
 <tbody><tr>
 <td align="left"><strong>什么是单片机</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left">单片机（Microcontroller Unit, MCU）是一种集成电路芯片，它将微处理器（CPU）、存储器（包括 RAM 和 ROM）、输入&#x2F;输出接口（I&#x2F;O）以及其他功能模块集成在一个小型的芯片上。单片机设计用于执行特定的控制任务，广泛应用于嵌入式系统。</td>
+<td align="left">单片机（Microcontroller Unit, MCU）是一种集成电路芯片，它将微处理器（CPU）、存储器（包括 RAM 和 ROM）、输入/输出接口（I/O）以及其他功能模块集成在一个小型的芯片上。单片机设计用于执行特定的控制任务，广泛应用于嵌入式系统。</td>
 </tr>
 <tr>
 <td align="left"><strong>单片机有什么特点</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left">1. <strong>集成度高</strong>：集成 CPU、RAM、ROM、外设于一体。<br>2. <strong>低功耗</strong>：适合电池供电。<br>3. <strong>专用性</strong>：针对特定应用优化。<br>4. <strong>实时性</strong>：快速响应外部事件。<br>5. <strong>可编程性</strong>：内部存储器可编程。<br>6. <strong>丰富的 I&#x2F;O</strong>：GPIO, ADC, PWM 等。<br>7. <strong>成本效益高</strong>。<br>8. <strong>易于使用</strong>：有丰富库和工具。<br>9. <strong>可扩展性</strong>。<br>10. <strong>广泛应用</strong>：家电到工控。</td>
+<td align="left">1. <strong>集成度高</strong>：集成 CPU、RAM、ROM、外设于一体。<br>2. <strong>低功耗</strong>：适合电池供电。<br>3. <strong>专用性</strong>：针对特定应用优化。<br>4. <strong>实时性</strong>：快速响应外部事件。<br>5. <strong>可编程性</strong>：内部存储器可编程。<br>6. <strong>丰富的 I/O</strong>：GPIO, ADC, PWM 等。<br>7. <strong>成本效益高</strong>。<br>8. <strong>易于使用</strong>：有丰富库和工具。<br>9. <strong>可扩展性</strong>。<br>10. <strong>广泛应用</strong>：家电到工控。</td>
 </tr>
 <tr>
 <td align="left"><strong>51单片机和32单片机的区别</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>1. 架构</strong>：51 是 8 位 CISC (8051内核)，冯·诺依曼架构；STM32 是 32 位 RISC (Cortex-M内核)，哈佛架构。<br>（哈佛架构的数据和指令分开存，冯诺依曼架构一起存）<br /><strong>2. 性能</strong>：51 几十 MHz；STM32 可达几百 MHz。<br><strong>3. 资源</strong>：51 RAM&#x2F;ROM 仅几 KB；STM32 可达几 MB。<br><strong>4. 外设</strong>：51 简单；STM32 丰富 (USB, CAN, Ethernet)。<br><strong>5. 开发</strong>：51 用 Keil C51；STM32 用 Keil MDK&#x2F;CubeMX，有 HAL 库。<br><strong>6. 价格</strong>：51 极低；STM32 适中。</td>
+<td align="left"><strong>1. 架构</strong>：51 是 8 位 CISC (8051内核)，冯·诺依曼架构；STM32 是 32 位 RISC (Cortex-M内核)，哈佛架构。<br>（哈佛架构的数据和指令分开存，冯诺依曼架构一起存）<br><strong>2. 性能</strong>：51 几十 MHz；STM32 可达几百 MHz。<br><strong>3. 资源</strong>：51 RAM/ROM 仅几 KB；STM32 可达几 MB。<br><strong>4. 外设</strong>：51 简单；STM32 丰富 (USB, CAN, Ethernet)。<br><strong>5. 开发</strong>：51 用 Keil C51；STM32 用 Keil MDK/CubeMX，有 HAL 库。<br><strong>6. 价格</strong>：51 极低；STM32 适中。</td>
 </tr>
 <tr>
 <td align="left"><strong>单片机开发中，芯片如何选型</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left">1. <strong>明确需求</strong>：功能、性能、成本预算。<br>2. <strong>对比参数</strong>：Flash&#x2F;RAM 大小、外设资源。<br>3. <strong>参考应用</strong>：如 C8051 适合实时性，STM32 适合通用。<br>4. <strong>评估成本</strong>：开发工具成本、学习成本。<br>5. <strong>功能匹配</strong>：外设兼容性。<br>6. <strong>未来扩展</strong>：避免性能过剩或不足。</td>
+<td align="left">1. <strong>明确需求</strong>：功能、性能、成本预算。<br>2. <strong>对比参数</strong>：Flash/RAM 大小、外设资源。<br>3. <strong>参考应用</strong>：如 C8051 适合实时性，STM32 适合通用。<br>4. <strong>评估成本</strong>：开发工具成本、学习成本。<br>5. <strong>功能匹配</strong>：外设兼容性。<br>6. <strong>未来扩展</strong>：避免性能过剩或不足。</td>
 </tr>
 <tr>
-<td align="left"><strong>你了解过哪些MCU型号 &#x2F; 国产MCU</strong></td>
+<td align="left"><strong>你了解过哪些MCU型号 / 国产MCU</strong></td>
 <td align="left"><strong>重点</strong></td>
-<td align="left"><strong>国际</strong>：STM32 (ST), PIC (Microchip), AVR (Atmel&#x2F;Microchip), MSP430 (TI), ESP8266&#x2F;32 (乐鑫)。<br><strong>国产</strong>：<br>1. **GD32 (兆易创新)**：兼容 STM32，主频更高。<br>2. **MM32 (灵动微)**：引脚&#x2F;软件高度兼容。<br>3. **AT32 (雅特力)**：兼容且性价比高。<br>4. **STC (宏晶)**：经典的增强型 51。<br>5. **ESP系列 (乐鑫)**：IoT Wi-Fi&#x2F;蓝牙首选。</td>
+<td align="left"><strong>国际</strong>：STM32 (ST), PIC (Microchip), AVR (Atmel/Microchip), MSP430 (TI), ESP8266/32 (乐鑫)。<br><strong>国产</strong>：<br>1. <strong>GD32 (兆易创新)</strong>：兼容 STM32，主频更高。<br>2. <strong>MM32 (灵动微)</strong>：引脚/软件高度兼容。<br>3. <strong>AT32 (雅特力)</strong>：兼容且性价比高。<br>4. <strong>STC (宏晶)</strong>：经典的增强型 51。<br>5. <strong>ESP系列 (乐鑫)</strong>：IoT Wi-Fi/蓝牙首选。</td>
 </tr>
 <tr>
 <td align="left"><strong>有没有用过MM32？</strong></td>
 <td align="left">了解</td>
 <td align="left">基于 ARM Cortex-M，与 STM32 相似，库函数命名略有不同，可快速迁移。</td>
 </tr>
-</tbody></table>
-<h4 id="1-2-内核与启动"><a href="#1-2-内核与启动" class="headerlink" title="1.2 内核与启动"></a>1.2 内核与启动</h4><table>
+</tbody></table></div>
+<h4 id="1-2-内核与启动"><a href="#1-2-内核与启动" class="headerlink" title="1.2 内核与启动"></a>1.2 内核与启动</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -436,7 +627,7 @@
 <tbody><tr>
 <td align="left"><strong>STM32F1和STM32F4有什么区别？</strong></td>
 <td align="left">了解</td>
-<td align="left"><strong>1. 内核</strong>：F1 是 Cortex-M3；F4 是 Cortex-M4 (带 FPU 浮点单元&#x2F;DSP 指令)。<br><strong>2. 主频</strong>：F1 72MHz；F4 168MHz。<br><strong>3. 内存</strong>：F4 更大 (192KB SRAM)。<br><strong>4. 外设</strong>：F4 功能更强 (如 GPIO 翻转速度、ADC 精度)。</td>
+<td align="left"><strong>1. 内核</strong>：F1 是 Cortex-M3；F4 是 Cortex-M4 (带 FPU 浮点单元/DSP 指令)。<br><strong>2. 主频</strong>：F1 72MHz；F4 168MHz。<br><strong>3. 内存</strong>：F4 更大 (192KB SRAM)。<br><strong>4. 外设</strong>：F4 功能更强 (如 GPIO 翻转速度、ADC 精度)。</td>
 </tr>
 <tr>
 <td align="left"><strong>STM32F407的最高时钟主频</strong></td>
@@ -446,17 +637,17 @@
 <tr>
 <td align="left"><strong>STM32的启动过程是怎么样的？</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left">1. <strong>上电复位</strong>，读取 BOOT 引脚决定从哪里启动 (通常是 0x08000000 Main Flash)。<br>2. 从起始地址读取 **栈顶指针 (MSP)**。<br>3. 读取 <strong>复位中断向量 (Reset_Handler)</strong> 地址，跳转执行。<br>4. 执行复位中断服务程序：初始化系统时钟 (SystemInit)、设置中断向量表偏移 (VTOR)、初始化 C 库 (__main)。<br>5. 跳转到用户 <strong>main()</strong> 函数。</td>
+<td align="left">1. <strong>上电复位</strong>，读取 BOOT 引脚决定从哪里启动 (通常是 0x08000000 Main Flash)。<br>2. 从起始地址读取 <strong>栈顶指针 (MSP)</strong>。<br>3. 读取 <strong>复位中断向量 (Reset_Handler)</strong> 地址，跳转执行。<br>4. 执行复位中断服务程序：初始化系统时钟 (SystemInit)、设置中断向量表偏移 (VTOR)、初始化 C 库 (__main)。<br>5. 跳转到用户 <strong>main()</strong> 函数。</td>
 </tr>
 <tr>
 <td align="left"><strong>单片机最小系统组成</strong></td>
 <td align="left">了解</td>
-<td align="left">1. <strong>电源电路</strong> (3.3V&#x2F;5V)。<br>2. <strong>复位电路</strong> (RC 复位&#x2F;芯片复位)。<br>3. <strong>晶振电路</strong> (时钟源)。<br>4. <strong>下载调试接口</strong> (SWD&#x2F;JTAG&#x2F;UART)。<br>5. <strong>启动配置</strong> (BOOT 引脚)。</td>
+<td align="left">1. <strong>电源电路</strong> (3.3V/5V)。<br>2. <strong>复位电路</strong> (RC 复位/芯片复位)。<br>3. <strong>晶振电路</strong> (时钟源)。<br>4. <strong>下载调试接口</strong> (SWD/JTAG/UART)。<br>5. <strong>启动配置</strong> (BOOT 引脚)。</td>
 </tr>
 <tr>
-<td align="left"><strong>单片机的PC &#x2F; 堆栈</strong></td>
+<td align="left"><strong>单片机的PC / 堆栈</strong></td>
 <td align="left">了解</td>
-<td align="left"><strong>PC (程序计数器)<strong>：16&#x2F;32 位寄存器，存放</strong>下一条</strong>要执行的指令地址。取指后自动加 1。<br>**堆栈 (Stack)**：RAM 中的后进先出 (LIFO) 区域。用于保存断点 (PC)、保护现场 (寄存器) 和传递参数。</td>
+<td align="left"><strong>PC (程序计数器)</strong>：16/32 位寄存器，存放<strong>下一条</strong>要执行的指令地址。取指后自动加 1。<br><strong>堆栈 (Stack)</strong>：RAM 中的后进先出 (LIFO) 区域。用于保存断点 (PC)、保护现场 (寄存器) 和传递参数。</td>
 </tr>
 <tr>
 <td align="left"><strong>单片机寻址方式</strong></td>
@@ -473,8 +664,8 @@
 <td align="left">了解</td>
 <td align="left">寄存器的地址能够被 <strong>8 整除</strong> 的，通常就是可以位寻址的。</td>
 </tr>
-</tbody></table>
-<h4 id="1-3-时钟与调试"><a href="#1-3-时钟与调试" class="headerlink" title="1.3 时钟与调试"></a>1.3 时钟与调试</h4><table>
+</tbody></table></div>
+<h4 id="1-3-时钟与调试"><a href="#1-3-时钟与调试" class="headerlink" title="1.3 时钟与调试"></a>1.3 时钟与调试</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -483,22 +674,22 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>为什么芯片需要时钟信号 &#x2F; 时钟使能</strong></td>
+<td align="left"><strong>为什么芯片需要时钟信号 / 时钟使能</strong></td>
 <td align="left"><strong>必问</strong></td>
 <td align="left"><strong>需要时钟</strong>：<br>1. <strong>同步数据传输</strong>：提供统一时间基准，确保逻辑单元在同一时刻动作（如触发器翻转）。<br>2. <strong>控制时序</strong>：取指、译码、执行都需要时钟节拍。<br><strong>需要使能</strong>：<br>STM32 为了<strong>低功耗</strong>设计，默认关闭所有外设时钟。用户需手动开启（使能）特定外设的时钟，该外设才能工作。</td>
 </tr>
 <tr>
 <td align="left"><strong>32位芯片的调试主要包括哪些工具？</strong></td>
 <td align="left">了解</td>
-<td align="left">J-Link、ST-Link、DAPLink、ULINK、Tracealyzer、SystemView、ITM&#x2F;SWO、ETM&#x2F;ETB、GDB+QEMU、串口 printf、逻辑分析仪、示波器。</td>
+<td align="left">J-Link、ST-Link、DAPLink、ULINK、Tracealyzer、SystemView、ITM/SWO、ETM/ETB、GDB+QEMU、串口 printf、逻辑分析仪、示波器。</td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
-</tbody></table>
-<h4 id="1-4-总线主控"><a href="#1-4-总线主控" class="headerlink" title="1.4 总线主控"></a>1.4 总线主控</h4><table>
+</tbody></table></div>
+<h4 id="1-4-总线主控"><a href="#1-4-总线主控" class="headerlink" title="1.4 总线主控"></a>1.4 总线主控</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -511,8 +702,8 @@
 <td align="left"><strong>必问</strong></td>
 <td align="left"><strong>搬运工</strong>。不经过 CPU，直接在 <strong>外设 &lt;-&gt; 内存</strong> 或 <strong>内存 &lt;-&gt; 内存</strong> 之间传输数据。节省 CPU 资源，提高效率 (如 ADC 连续采集、串口大量发送)。</td>
 </tr>
-</tbody></table>
-<h4 id="1-5-电源管理与调试"><a href="#1-5-电源管理与调试" class="headerlink" title="1.5 电源管理与调试"></a>1.5 电源管理与调试</h4><table>
+</tbody></table></div>
+<h4 id="1-5-电源管理与调试"><a href="#1-5-电源管理与调试" class="headerlink" title="1.5 电源管理与调试"></a>1.5 电源管理与调试</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -533,7 +724,7 @@
 <tr>
 <td align="left"><strong>STM32 低功耗模式 - 停止模式 (Stop)</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>特点</strong>：关闭所有时钟（HSI&#x2F;HSE&#x2F;PLL），所有外设停止工作。但 <strong>1.2V 区域电源保留</strong>，即内核寄存器和 SRAM 内容<strong>保持</strong>（数据不丢失）。<br><strong>进入条件</strong>：<code>SLEEPDEEP=1</code>，<code>PDDS=0</code> (电源控制寄存器)。<br><strong>唤醒方式</strong>：任意 <strong>外部中断 (EXTI)</strong> 线（如按键、串口RX引脚中断）。<br><strong>注意</strong>：唤醒后时钟默认切回 HSI，需重新配置系统时钟。</td>
+<td align="left"><strong>特点</strong>：关闭所有时钟（HSI/HSE/PLL），所有外设停止工作。但 <strong>1.2V 区域电源保留</strong>，即内核寄存器和 SRAM 内容<strong>保持</strong>（数据不丢失）。<br><strong>进入条件</strong>：<code>SLEEPDEEP=1</code>，<code>PDDS=0</code> (电源控制寄存器)。<br><strong>唤醒方式</strong>：任意 <strong>外部中断 (EXTI)</strong> 线（如按键、串口RX引脚中断）。<br><strong>注意</strong>：唤醒后时钟默认切回 HSI，需重新配置系统时钟。</td>
 </tr>
 <tr>
 <td align="left"><strong>STM32 低功耗模式 - 待机模式 (Standby)</strong></td>
@@ -541,13 +732,13 @@
 <td align="left"><strong>特点</strong>：<strong>功耗最低</strong>。关闭所有时钟，<strong>关闭 1.2V 区域电源</strong>。<strong>SRAM 和寄存器内容丢失</strong>（除备份域外）。<br><strong>进入条件</strong>：<code>SLEEPDEEP=1</code>，<code>PDDS=1</code>，<code>WUF=0</code> (唤醒标志清零)。<br><strong>唤醒方式</strong>：<strong>WKUP (PA0) 引脚上升沿</strong>、RTC 闹钟、NRST 引脚复位、IWDG 复位。<br><strong>唤醒后</strong>：程序<strong>从头开始执行</strong>（相当于复位），之前的数据丢失。</td>
 </tr>
 <tr>
-<td align="left"><strong>keil5如何进行软件仿真&#x2F;debug模式</strong></td>
+<td align="left"><strong>keil5如何进行软件仿真/debug模式</strong></td>
 <td align="left">了解</td>
-<td align="left">**软件仿真 (Simulator)**：<br>1. 点击魔术棒 (Options for Target) -&gt; Debug 选项卡。<br>2. 勾选 **”Use Simulator”**。<br>3. 修改 Dialog DLL 和 Parameter (如 DARMSTM.DLL &#x2F; -pSTM32F103C8) 以匹配芯片型号。<br>4. 点击 Start&#x2F;Stop Debug Session 进入仿真。<br>**硬件调试 (Hardware Debug)**：<br>1. 连接仿真器 (ST-Link&#x2F;J-Link)。<br>2. Debug 选项卡勾选自己的调试器型号<br>3. 点击 Settings 确认识别到芯片 SWD&#x2F;JTAG ID。<br>4. 进入 Debug 模式支持单步运行、打断点、查看寄存器&#x2F;变量。<br />一般情况下，程序跑飞了会触发hardfault（硬错误中断），最快的方法是右键栈窗口里的hardfault，选择<code>显示调用代码</code>的选项，<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xubaixiang/p/16159782.html">参考博客</a><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/12/1a588836e8a86becd65ad596a23777b6.png" alt="image-20251209090121592"></td>
+<td align="left"><strong>软件仿真 (Simulator)</strong>：<br>1. 点击魔术棒 (Options for Target) -&gt; Debug 选项卡。<br>2. 勾选 <strong>“Use Simulator”</strong>。<br>3. 修改 Dialog DLL 和 Parameter (如 DARMSTM.DLL / -pSTM32F103C8) 以匹配芯片型号。<br>4. 点击 Start/Stop Debug Session 进入仿真。<br><strong>硬件调试 (Hardware Debug)</strong>：<br>1. 连接仿真器 (ST-Link/J-Link)。<br>2. Debug 选项卡勾选自己的调试器型号<br>3. 点击 Settings 确认识别到芯片 SWD/JTAG ID。<br>4. 进入 Debug 模式支持单步运行、打断点、查看寄存器/变量。<br>一般情况下，程序跑飞了会触发hardfault（硬错误中断），最快的方法是右键栈窗口里的hardfault，选择<code>显示调用代码</code>的选项，<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xubaixiang/p/16159782.html">参考博客</a><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/12/1a588836e8a86becd65ad596a23777b6.png" alt="image-20251209090121592"></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
-<h3 id="📂-第二板块：存储器与-Flash"><a href="#📂-第二板块：存储器与-Flash" class="headerlink" title="📂 第二板块：存储器与 Flash"></a>📂 第二板块：存储器与 Flash</h3><h4 id="2-1-存储理论"><a href="#2-1-存储理论" class="headerlink" title="2.1 存储理论"></a>2.1 存储理论</h4><table>
+<h3 id="📂-第二板块：存储器与-Flash"><a href="#📂-第二板块：存储器与-Flash" class="headerlink" title="📂 第二板块：存储器与 Flash"></a>📂 第二板块：存储器与 Flash</h3><h4 id="2-1-存储理论"><a href="#2-1-存储理论" class="headerlink" title="2.1 存储理论"></a>2.1 存储理论</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -558,20 +749,20 @@
 <tbody><tr>
 <td align="left"><strong>RAM与ROM的区别</strong></td>
 <td align="left"><strong>重点</strong></td>
-<td align="left">1. <strong>核心功能</strong>：RAM 是临时工作台；ROM 是基础说明书 (固件)。<br/>2. <strong>读写权限</strong>：RAM 随机读写；ROM 默认只读 (或按块擦写)。<br/>3. <strong>持久性</strong>：RAM 易失 (断电丢)；ROM 非易失。<br/>4. <strong>速度</strong>：RAM 极快 (GB&#x2F;s)；ROM 较慢 (MB&#x2F;s)。<br/>5. <strong>容量</strong>：RAM 大 (GB级)；ROM 小 (MB级，嵌入式中)。</td>
+<td align="left">1. <strong>核心功能</strong>：RAM 是临时工作台；ROM 是基础说明书 (固件)。<br>2. <strong>读写权限</strong>：RAM 随机读写；ROM 默认只读 (或按块擦写)。<br>3. <strong>持久性</strong>：RAM 易失 (断电丢)；ROM 非易失。<br>4. <strong>速度</strong>：RAM 极快 (GB/s)；ROM 较慢 (MB/s)。<br>5. <strong>容量</strong>：RAM 大 (GB级)；ROM 小 (MB级，嵌入式中)。</td>
 </tr>
 <tr>
 <td align="left"><strong>存储器分类 (SRAM, DRAM, NOR, NAND)</strong></td>
 <td align="left">了解</td>
-<td align="left"><strong>RAM</strong>：SRAM (快, 贵, 不需要刷新, MCU内部) vs DRAM (慢, 便宜, 需刷新, 内存条)。<br><strong>Flash</strong>：<br>1. <strong>NOR Flash</strong>：地址线数据线分开，支持<strong>按字节随机读取</strong> (代码可直接运行)，擦除按扇区。STM32 内部 Flash 就是 NOR 类型。<br>2. <strong>NAND Flash</strong>：地址数据线复用，按块读写，容量大便宜，主要存数据 (SSD&#x2F;U盘)。</td>
+<td align="left"><strong>RAM</strong>：SRAM (快, 贵, 不需要刷新, MCU内部) vs DRAM (慢, 便宜, 需刷新, 内存条)。<br><strong>Flash</strong>：<br>1. <strong>NOR Flash</strong>：地址线数据线分开，支持<strong>按字节随机读取</strong> (代码可直接运行)，擦除按扇区。STM32 内部 Flash 就是 NOR 类型。<br>2. <strong>NAND Flash</strong>：地址数据线复用，按块读写，容量大便宜，主要存数据 (SSD/U盘)。</td>
 </tr>
 <tr>
 <td align="left"><strong>STM32F4 内存大小细节</strong></td>
 <td align="left">了解</td>
-<td align="left">STM32F4 内部 SRAM 最大 192K，其组成细节为：**112KB (系统SRAM) + 64KB (CCM数据RAM) + 16KB (备份SRAM)**。</td>
+<td align="left">STM32F4 内部 SRAM 最大 192K，其组成细节为：<strong>112KB (系统SRAM) + 64KB (CCM数据RAM) + 16KB (备份SRAM)</strong>。</td>
 </tr>
-</tbody></table>
-<h4 id="2-2-Flash-机制与操作"><a href="#2-2-Flash-机制与操作" class="headerlink" title="2.2 Flash 机制与操作"></a>2.2 Flash 机制与操作</h4><table>
+</tbody></table></div>
+<h4 id="2-2-Flash-机制与操作"><a href="#2-2-Flash-机制与操作" class="headerlink" title="2.2 Flash 机制与操作"></a>2.2 Flash 机制与操作</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -582,15 +773,15 @@
 <tbody><tr>
 <td align="left"><strong>STM32F4的FLASH是什么类型</strong></td>
 <td align="left"><strong>重点</strong></td>
-<td align="left"><strong>NOR FLASH</strong>。支持片内执行 (XIP)，擦除按扇区，读写按字节&#x2F;字。</td>
+<td align="left"><strong>NOR FLASH</strong>。支持片内执行 (XIP)，擦除按扇区，读写按字节/字。</td>
 </tr>
 <tr>
 <td align="left"><strong>FLASH是怎么规划的，分了那些数据</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>按功能</strong>：引导区 (Bootloader)、系统区 (OS&#x2F;APP)、用户数据区 (配置&#x2F;文件)。<br><strong>按类型</strong>：代码类 (Bin文件)、文件类 (图片&#x2F;字库)、配置类 (参数)。<br><strong>按频率</strong>：频繁擦写区 (日志)、非频繁区 (固件)。</td>
+<td align="left"><strong>按功能</strong>：引导区 (Bootloader)、系统区 (OS/APP)、用户数据区 (配置/文件)。<br><strong>按类型</strong>：代码类 (Bin文件)、文件类 (图片/字库)、配置类 (参数)。<br><strong>按频率</strong>：频繁擦写区 (日志)、非频繁区 (固件)。</td>
 </tr>
-</tbody></table>
-<h4 id="2-3-外部存储与应用"><a href="#2-3-外部存储与应用" class="headerlink" title="2.3 外部存储与应用"></a>2.3 外部存储与应用</h4><table>
+</tbody></table></div>
+<h4 id="2-3-外部存储与应用"><a href="#2-3-外部存储与应用" class="headerlink" title="2.3 外部存储与应用"></a>2.3 外部存储与应用</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -599,7 +790,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>写入FLASH的流程 &#x2F; SPI通信原理</strong></td>
+<td align="left"><strong>写入FLASH的流程 / SPI通信原理</strong></td>
 <td align="left"><strong>重点</strong></td>
 <td align="left"><strong>流程</strong>：解锁 -&gt; <strong>擦除</strong> (将位全置1) -&gt; <strong>编程</strong> (写入数据, 只能1变0) -&gt; 校验 -&gt; 上锁。<br><strong>SPI原理</strong>：全双工同步通信。CS 片选，CLK 时钟，MOSI 主出从入，MISO 主入从出。</td>
 </tr>
@@ -616,21 +807,21 @@
 <tr>
 <td align="left"><strong>Json在stm32的处理效率问题</strong></td>
 <td align="left">了解</td>
-<td align="left">效率取决于主频、内存和 JSON 复杂度。<br><strong>优化方法</strong>：<br>1. 选择轻量库 (cJSON, Jsmn)。<br>2. 避免嵌套结构。<br>3. 压缩数据大小。<br>4. 使用硬件加速 (FPU&#x2F;DMA)。<br>5. 优化代码 (寄存器变量)。</td>
+<td align="left">效率取决于主频、内存和 JSON 复杂度。<br><strong>优化方法</strong>：<br>1. 选择轻量库 (cJSON, Jsmn)。<br>2. 避免嵌套结构。<br>3. 压缩数据大小。<br>4. 使用硬件加速 (FPU/DMA)。<br>5. 优化代码 (寄存器变量)。</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <p><strong>对第三板块和第四板块的播客：</strong></p>
 
   <div class="tag-plugin audio">
-  <audio controls preload>
+  <audio controls="" preload="">
   <source src="https://image.skyforever.top/music/STM32第三四章节.webm" type="audio/mp3">Your browser does not support the audio tag.
   </audio>
   </div>
   
 
 
-<h3 id="📂-第三板块：GPIO、中断与定时器"><a href="#📂-第三板块：GPIO、中断与定时器" class="headerlink" title="📂 第三板块：GPIO、中断与定时器"></a>📂 第三板块：GPIO、中断与定时器</h3><h4 id="3-1-GPIO-系统"><a href="#3-1-GPIO-系统" class="headerlink" title="3.1 GPIO 系统"></a>3.1 GPIO 系统</h4><table>
+<h3 id="📂-第三板块：GPIO、中断与定时器"><a href="#📂-第三板块：GPIO、中断与定时器" class="headerlink" title="📂 第三板块：GPIO、中断与定时器"></a>📂 第三板块：GPIO、中断与定时器</h3><h4 id="3-1-GPIO-系统"><a href="#3-1-GPIO-系统" class="headerlink" title="3.1 GPIO 系统"></a>3.1 GPIO 系统</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -651,7 +842,7 @@
 <tr>
 <td align="left"><strong>推挽输出和开漏输出的区别</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>推挽 (Push-Pull)<strong>：由 PMOS+NMOS 构成。能输出强高&#x2F;低电平，驱动能力强，适合通用输出。<br><strong>开漏 (Open-Drain)<strong>：只有 NMOS (类似 NPN 集电极开路)。输出低电平时接地，输出高电平时</strong>高阻态</strong>。</strong>必须外接上拉电阻</strong>才能输出高电平。适合 <strong>I2C 总线</strong> (线与逻辑) 和 <strong>电平转换</strong> (5V 兼容)。</td>
+<td align="left"><strong>推挽 (Push-Pull)</strong>：由 PMOS+NMOS 构成。能输出强高/低电平，驱动能力强，适合通用输出。<br><strong>开漏 (Open-Drain)</strong>：只有 NMOS (类似 NPN 集电极开路)。输出低电平时接地，输出高电平时<strong>高阻态</strong>。<strong>必须外接上拉电阻</strong>才能输出高电平。适合 <strong>I2C 总线</strong> (线与逻辑) 和 <strong>电平转换</strong> (5V 兼容)。</td>
 </tr>
 <tr>
 <td align="left"><strong>引脚的输出速度（翻转速率）选择要注意什么？</strong></td>
@@ -659,17 +850,17 @@
 <td align="left">需综合考虑噪声控制、功耗和信号失真。速度越快噪声越大、功耗越高。应根据实际需求选择，不必盲目追求最高速。</td>
 </tr>
 <tr>
-<td align="left"><strong>什么是上拉&#x2F;下拉</strong></td>
+<td align="left"><strong>什么是上拉/下拉</strong></td>
 <td align="left"><strong>重点</strong></td>
 <td align="left"><strong>上拉</strong>：通过电阻接 VCC，确保悬空时为高电平。<br><strong>下拉</strong>：通过电阻接 GND，确保悬空时为低电平。<br>作用：固定电平，防止引脚悬空浮动导致误触发。</td>
 </tr>
 <tr>
 <td align="left"><strong>按键怎么做的？流程什么？</strong></td>
 <td align="left">了解</td>
-<td align="left">GPIO 输入 -&gt; 定时 10ms 扫描 -&gt; <strong>消抖</strong> (计数 $\ge 3$ 次稳态) -&gt; 触发事件 -&gt; 回调&#x2F;发消息。</td>
+<td align="left">GPIO 输入 -&gt; 定时 10ms 扫描 -&gt; <strong>消抖</strong> (计数 $\ge 3$ 次稳态) -&gt; 触发事件 -&gt; 回调/发消息。</td>
 </tr>
-</tbody></table>
-<h4 id="3-2-中断系统"><a href="#3-2-中断系统" class="headerlink" title="3.2 中断系统"></a>3.2 中断系统</h4><table>
+</tbody></table></div>
+<h4 id="3-2-中断系统"><a href="#3-2-中断系统" class="headerlink" title="3.2 中断系统"></a>3.2 中断系统</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -678,7 +869,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>什么是中断 &#x2F; 中断源</strong></td>
+<td align="left"><strong>什么是中断 / 中断源</strong></td>
 <td align="left"><strong>必问</strong></td>
 <td align="left"><strong>中断</strong>：CPU 暂停当前程序，转去处理突发事件，处理完返回。<br><strong>中断源</strong>：触发中断的事件源 (如 GPIO 外部中断、定时器溢出、串口接收)。</td>
 </tr>
@@ -690,12 +881,12 @@
 <tr>
 <td align="left"><strong>中断配置过程 (以外部中断为例)</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left">以外部中断为例子。<br/>1、先设置GPIO口为输入模式，并且时钟使能，GPIO初始化<br/>2、查看中文参考手册，获取GPIO口到底是挂载在哪个EXTI线，初始化该外部中断事件线，设置下降沿触发<br/>3、通过系统配置控制器SYSFLG将GPIO口与该外部中断事件线EXTIx映射连接起来<br/>4、初始化嵌套向量中断控制器NVIC，设置中断源以及该中断的优先级<br/>5、在启动文件中，查看该中断的服务函数名字，编写实现中断服务函数<br/>6、当中断触发之后，执行你要操作的业务，处理完要清除中断标志位</td>
+<td align="left">以外部中断为例子。<br>1、先设置GPIO口为输入模式，并且时钟使能，GPIO初始化<br>2、查看中文参考手册，获取GPIO口到底是挂载在哪个EXTI线，初始化该外部中断事件线，设置下降沿触发<br>3、通过系统配置控制器SYSFLG将GPIO口与该外部中断事件线EXTIx映射连接起来<br>4、初始化嵌套向量中断控制器NVIC，设置中断源以及该中断的优先级<br>5、在启动文件中，查看该中断的服务函数名字，编写实现中断服务函数<br>6、当中断触发之后，执行你要操作的业务，处理完要清除中断标志位</td>
 </tr>
 <tr>
 <td align="left"><strong>中断类型</strong></td>
 <td align="left">了解</td>
-<td align="left">1. <strong>内核中断</strong><br/>   - 复位、NMI、硬错误、内存管理、总线错误、使用错误、SVCall、调试监视、PendSV、SysTick。<br/><br/>2. <strong>外部中断</strong><br/>   - <strong>EXTI</strong>：所有GPIO均可映射到16个外部中断线，支持边沿触发。<br/><br/>3. <strong>外设中断</strong><br/>   - <strong>定时器</strong>：更新、捕获&#x2F;比较、触发、刹车。<br/>   - <strong>串口</strong>：发送完成、接收就绪、帧错误。<br/>   - <strong>ADC&#x2F;DAC</strong>：转换完成、溢出。<br/>   - <strong>DMA</strong>：传输完成、半传输、错误。<br/>   - <strong>I2C&#x2F;SPI</strong>：事件、错误。<br/>   - 其他：CAN、USB、RTC等。<br/><br/><strong>关键点</strong>：<br/>- 通过 <strong>NVIC</strong> 统一管理优先级和使能<br/>- 优先级分<strong>抢占优先级</strong>和<strong>子优先级</strong><br/>- 需在启动文件或CubeMX中配置中断向量表</td>
+<td align="left">1. <strong>内核中断</strong><br>   - 复位、NMI、硬错误、内存管理、总线错误、使用错误、SVCall、调试监视、PendSV、SysTick。<br><br>2. <strong>外部中断</strong><br>   - <strong>EXTI</strong>：所有GPIO均可映射到16个外部中断线，支持边沿触发。<br><br>3. <strong>外设中断</strong><br>   - <strong>定时器</strong>：更新、捕获/比较、触发、刹车。<br>   - <strong>串口</strong>：发送完成、接收就绪、帧错误。<br>   - <strong>ADC/DAC</strong>：转换完成、溢出。<br>   - <strong>DMA</strong>：传输完成、半传输、错误。<br>   - <strong>I2C/SPI</strong>：事件、错误。<br>   - 其他：CAN、USB、RTC等。<br><br><strong>关键点</strong>：<br>- 通过 <strong>NVIC</strong> 统一管理优先级和使能<br>- 优先级分<strong>抢占优先级</strong>和<strong>子优先级</strong><br>- 需在启动文件或CubeMX中配置中断向量表</td>
 </tr>
 <tr>
 <td align="left"><strong>外部中断的触发条件</strong></td>
@@ -707,8 +898,8 @@
 <td align="left">了解</td>
 <td align="left"><strong>边沿触发</strong>：检测电平变化，锁存信号 (D触发器记忆)。信号消失后中断仍有效。<br><strong>电平触发</strong>：<br>1. <strong>即时触发</strong>：信号消失中断也消失，易漏掉。<br>2. <strong>信号锁存</strong>：类似边沿，需手动清除。<br><strong>区别</strong>：边沿适合检测变化；电平适合检测状态保持。</td>
 </tr>
-</tbody></table>
-<h4 id="3-3-定时器与-PWM"><a href="#3-3-定时器与-PWM" class="headerlink" title="3.3 定时器与 PWM"></a>3.3 定时器与 PWM</h4><table>
+</tbody></table></div>
+<h4 id="3-3-定时器与-PWM"><a href="#3-3-定时器与-PWM" class="headerlink" title="3.3 定时器与 PWM"></a>3.3 定时器与 PWM</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -717,24 +908,24 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>定时器工作原理 &#x2F; PWM</strong></td>
+<td align="left"><strong>定时器工作原理 / PWM</strong></td>
 <td align="left"><strong>重点</strong></td>
 <td align="left"><strong>原理</strong>：计数器 (CNT) 在时钟驱动下计数，与重装载值 (ARR) 比较，相等时溢出产生中断。<br><strong>PWM</strong>：脉冲宽度调制。利用比较寄存器 (CCR) 与 CNT 比较。CNT &lt; CCR 输出有效电平，否则无效。通过改变 CCR 调节<strong>占空比</strong>，改变 ARR 调节<strong>频率</strong>。</td>
 </tr>
 <tr>
 <td align="left"><strong>在1kHZ下，如何设置50%占空比</strong></td>
 <td align="left">了解</td>
-<td align="left">设 ARR &#x3D; 1000 - 1 (周期)，则 CCR &#x3D; 499 (500)。占空比 &#x3D; (CCR+1) &#x2F; (ARR+1)。</td>
+<td align="left">设 ARR = 1000 - 1 (周期)，则 CCR = 499 (500)。占空比 = (CCR+1) / (ARR+1)。</td>
 </tr>
 <tr>
 <td align="left"><strong>用定时器的方式，写一个输出比例1:1,频率为1kHz的程序</strong></td>
 <td align="left">了解</td>
-<td align="left">假设时钟 $72MHz$。<br>1. 设置预分频器 (PSC) &#x3D; $72-1$ (得 $1MHz$ 计数频率)。<br>2. 设置重装载值 (ARR) &#x3D; $1000-1$ (得 $1kHz$ 频率)。<br>3. 设置比较值 (CCR) &#x3D; $499$ (即 $500$ 个计数)。<br>4. 配置为 PWM 模式 1，极性高。<br>此时占空比 &#x3D; $(499+1)&#x2F;(999+1) &#x3D; 50%$，即 1:1。</td>
+<td align="left">假设时钟 $72MHz$。<br>1. 设置预分频器 (PSC) = $72-1$ (得 $1MHz$ 计数频率)。<br>2. 设置重装载值 (ARR) = $1000-1$ (得 $1kHz$ 频率)。<br>3. 设置比较值 (CCR) = $499$ (即 $500$ 个计数)。<br>4. 配置为 PWM 模式 1，极性高。<br>此时占空比 = $(499+1)/(999+1) = 50%$，即 1:1。</td>
 </tr>
 <tr>
 <td align="left"><strong>电机的分类</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left">一、<strong>直流电机</strong><br/>直流侧再按“换相方式”细分<br/>有刷 DC：机械换向器 + 电刷 → 简单、便宜、需维护<br/>无刷 BLDC：电子换向（霍尔&#x2F;反电动势）→ 高效率、长寿命<br/>步进电机：定子脉冲磁场 → 开环定位，失步风险<br/>伺服电机（DC&#x2F;AC）：&#x3D; 电机 + 编码器 + 闭环驱动 → 高精度位置&#x2F;速度&#x2F;扭矩控制<br/><br/>二、<strong>交流电机</strong><br/>交流侧按“转子速度”细分<br/>同步电机：转子 &#x3D; 永磁或直流励磁，严格同步电网频率 → 功率因数可调，用于发电机、大型压缩机<br/>异步（感应）电机：转子靠滑差感应电流，转速 &lt; 同步速 → 结构最简单，工业电机 90% 占比</td>
+<td align="left">一、<strong>直流电机</strong><br>直流侧再按“换相方式”细分<br>有刷 DC：机械换向器 + 电刷 → 简单、便宜、需维护<br>无刷 BLDC：电子换向（霍尔/反电动势）→ 高效率、长寿命<br>步进电机：定子脉冲磁场 → 开环定位，失步风险<br>伺服电机（DC/AC）：= 电机 + 编码器 + 闭环驱动 → 高精度位置/速度/扭矩控制<br><br>二、<strong>交流电机</strong><br>交流侧按“转子速度”细分<br>同步电机：转子 = 永磁或直流励磁，严格同步电网频率 → 功率因数可调，用于发电机、大型压缩机<br>异步（感应）电机：转子靠滑差感应电流，转速 &lt; 同步速 → 结构最简单，工业电机 90% 占比</td>
 </tr>
 <tr>
 <td align="left"><strong>电机如何测试转速</strong></td>
@@ -744,15 +935,15 @@
 <tr>
 <td align="left">如何使用STM32输出PWM控制12V的电机正反转</td>
 <td align="left"></td>
-<td align="left">STM32通过两路PWM信号控制L298N：<br />IN1_PWM + IN2_0 正转，IN1_0 + IN2_PWM 反转，IN1_1 + IN2_1 刹车，IN1_0 + IN2_0 停止。</td>
+<td align="left">STM32通过两路PWM信号控制L298N：<br>IN1_PWM + IN2_0 正转，IN1_0 + IN2_PWM 反转，IN1_1 + IN2_1 刹车，IN1_0 + IN2_0 停止。</td>
 </tr>
 <tr>
 <td align="left"><strong>舵机的作用和原理</strong></td>
 <td align="left"><strong>重点</strong></td>
 <td align="left"><strong>作用</strong>：角度控制 (0-180°)。<br><strong>原理</strong>：输入 50Hz PWM (周期 20ms)。高电平脉宽 <strong>0.5ms ~ 2.5ms</strong> 对应 <strong>0° ~ 180°</strong>。内部闭环电路控制电机停在指定角度。</td>
 </tr>
-</tbody></table>
-<h4 id="3-4-系统可靠性"><a href="#3-4-系统可靠性" class="headerlink" title="3.4 系统可靠性"></a>3.4 系统可靠性</h4><table>
+</tbody></table></div>
+<h4 id="3-4-系统可靠性"><a href="#3-4-系统可靠性" class="headerlink" title="3.4 系统可靠性"></a>3.4 系统可靠性</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -763,7 +954,7 @@
 <tbody><tr>
 <td align="left"><strong>RTC时钟芯片相关的 (配置流程)</strong></td>
 <td align="left">了解</td>
-<td align="left">1. <strong>使能时钟</strong> (RCC)。<br>2. <strong>解锁 RTC</strong> (写 <code>RTC_CR</code> 的 DBP 位)。<br>3. <strong>配置时钟源</strong> (LSE&#x2F;LSI)。<br>4. <strong>初始化</strong> (设置预分频 <code>RTC_PRER</code> 产生 1Hz)。<br>5. <strong>设置时间</strong> (操作 <code>RTC_TR</code>, <code>RTC_DR</code>)。<br>6. <strong>配置闹钟&#x2F;中断</strong>。<br>7. <strong>上锁</strong> (保护配置)。</td>
+<td align="left">1. <strong>使能时钟</strong> (RCC)。<br>2. <strong>解锁 RTC</strong> (写 <code>RTC_CR</code> 的 DBP 位)。<br>3. <strong>配置时钟源</strong> (LSE/LSI)。<br>4. <strong>初始化</strong> (设置预分频 <code>RTC_PRER</code> 产生 1Hz)。<br>5. <strong>设置时间</strong> (操作 <code>RTC_TR</code>, <code>RTC_DR</code>)。<br>6. <strong>配置闹钟/中断</strong>。<br>7. <strong>上锁</strong> (保护配置)。</td>
 </tr>
 <tr>
 <td align="left"><strong>看门狗 (Watchdog)</strong></td>
@@ -783,17 +974,17 @@
 <tr>
 <td align="left"><strong>按键怎么做的？流程什么？</strong></td>
 <td align="left">了解</td>
-<td align="left">GPIO 输入 -&gt; 定时 10ms 扫描 -&gt; <strong>消抖</strong> (计数 $\ge 3$ 次稳态) -&gt; 触发事件 -&gt; 回调&#x2F;发消息。</td>
+<td align="left">GPIO 输入 -&gt; 定时 10ms 扫描 -&gt; <strong>消抖</strong> (计数 $\ge 3$ 次稳态) -&gt; 触发事件 -&gt; 回调/发消息。</td>
 </tr>
 <tr>
 <td align="left"><strong>字符设备、块设备 (特点)</strong></td>
 <td align="left">了解</td>
 <td align="left"><strong>字符设备</strong>：按字节读写，顺序访问 (键盘、串口)。<br><strong>块设备</strong>：固定长度块传输 (512K)，支持随机访问 (硬盘、U盘)，可挂载文件系统。</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
-<h3 id="📂-第四板块：通信接口-UART-IIC-SPI-USB-CAN"><a href="#📂-第四板块：通信接口-UART-IIC-SPI-USB-CAN" class="headerlink" title="📂 第四板块：通信接口 (UART&#x2F;IIC&#x2F;SPI&#x2F;USB&#x2F;CAN)"></a>📂 第四板块：通信接口 (UART&#x2F;IIC&#x2F;SPI&#x2F;USB&#x2F;CAN)</h3><p><em>这部分是重中之重，必须分清各协议的时序、线制和应用场景。</em></p>
-<h4 id="4-1-通信基础"><a href="#4-1-通信基础" class="headerlink" title="4.1 通信基础"></a>4.1 通信基础</h4><table>
+<h3 id="📂-第四板块：通信接口-UART-IIC-SPI-USB-CAN"><a href="#📂-第四板块：通信接口-UART-IIC-SPI-USB-CAN" class="headerlink" title="📂 第四板块：通信接口 (UART/IIC/SPI/USB/CAN)"></a>📂 第四板块：通信接口 (UART/IIC/SPI/USB/CAN)</h3><p><em>这部分是重中之重，必须分清各协议的时序、线制和应用场景。</em></p>
+<h4 id="4-1-通信基础"><a href="#4-1-通信基础" class="headerlink" title="4.1 通信基础"></a>4.1 通信基础</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -814,17 +1005,17 @@
 <tr>
 <td align="left"><strong>同步与异步的区别</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>同步</strong>：有共用时钟线 (CLK)，收发双方按时钟节拍同步 (SPI, I2C)。<br><strong>异步</strong>：无时钟线，靠约定的波特率和起始&#x2F;停止位同步 (UART)。</td>
+<td align="left"><strong>同步</strong>：有共用时钟线 (CLK)，收发双方按时钟节拍同步 (SPI, I2C)。<br><strong>异步</strong>：无时钟线，靠约定的波特率和起始/停止位同步 (UART)。</td>
 </tr>
 <tr>
 <td align="left"><strong>比特率定义</strong></td>
 <td align="left">了解</td>
-<td align="left">一秒钟内在通信网络上传输的 **比特数 (bit)**。</td>
+<td align="left">一秒钟内在通信网络上传输的 <strong>比特数 (bit)</strong>。</td>
 </tr>
 <tr>
 <td align="left"><strong>常用校验算法 (CRC)</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left">**CRC (循环冗余校验)**：基于多项式模 2 除法，计算余数。检错能力强，适合数据块校验。<br><strong>其他</strong>：<br />  奇偶校验 (单bit)：使发送内容中1的个数为奇数或者偶数<br />  累加和 :所有数据字节的算术和，模256后取补码</td>
+<td align="left"><strong>CRC (循环冗余校验)</strong>：基于多项式模 2 除法，计算余数。检错能力强，适合数据块校验。<br><strong>其他</strong>：<br>  奇偶校验 (单bit)：使发送内容中1的个数为奇数或者偶数<br>  累加和 :所有数据字节的算术和，模256后取补码</td>
 </tr>
 <tr>
 <td align="left"><strong>CRC校验 (算法实现)</strong></td>
@@ -836,10 +1027,10 @@
 <td align="left"><strong>必问</strong></td>
 <td align="left">详见下方代码块。</td>
 </tr>
-</tbody></table>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> POLYNOMIAL 0x07 <span class="comment">// CRC-8多项式</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> INIT_CRC 0xFF   <span class="comment">// 初始CRC值</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> FINAL_XOR 0x00  <span class="comment">// 最终异或值</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">uint8_t</span> <span class="title function_">crc8</span><span class="params">(<span class="type">const</span> <span class="type">uint8_t</span> *data, <span class="type">size_t</span> length)</span> &#123;</span><br><span class="line">  <span class="type">uint8_t</span> crc = INIT_CRC;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">    crc ^= data[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">uint8_t</span> j = <span class="number">0</span>; j &lt; <span class="number">8</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (crc &amp; <span class="number">0x80</span>) &#123;</span><br><span class="line">        crc = (crc &lt;&lt; <span class="number">1</span>) ^ POLYNOMIAL;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        crc &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  crc ^= FINAL_XOR;</span><br><span class="line">  <span class="keyword">return</span> crc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</tbody></table></div>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> POLYNOMIAL 0x07 <span class="comment">// CRC-8多项式</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> INIT_CRC 0xFF   <span class="comment">// 初始CRC值</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> FINAL_XOR 0x00  <span class="comment">// 最终异或值</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">uint8_t</span> <span class="title function_">crc8</span><span class="params">(<span class="type">const</span> <span class="type">uint8_t</span> *data, <span class="type">size_t</span> length)</span> {</span><br><span class="line">  <span class="type">uint8_t</span> crc = INIT_CRC;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; length; i++) {</span><br><span class="line">    crc ^= data[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">uint8_t</span> j = <span class="number">0</span>; j &lt; <span class="number">8</span>; j++) {</span><br><span class="line">      <span class="keyword">if</span> (crc &amp; <span class="number">0x80</span>) {</span><br><span class="line">        crc = (crc &lt;&lt; <span class="number">1</span>) ^ POLYNOMIAL;</span><br><span class="line">      } <span class="keyword">else</span> {</span><br><span class="line">        crc &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">  crc ^= FINAL_XOR;</span><br><span class="line">  <span class="keyword">return</span> crc;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<h4 id="4-2-串口通信-UART-Serial"><a href="#4-2-串口通信-UART-Serial" class="headerlink" title="4.2 串口通信  (UART&#x2F;Serial)"></a>4.2 串口通信  (UART&#x2F;Serial)</h4><table>
+<h4 id="4-2-串口通信-UART-Serial"><a href="#4-2-串口通信-UART-Serial" class="headerlink" title="4.2 串口通信  (UART/Serial)"></a>4.2 串口通信  (UART/Serial)</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -848,9 +1039,9 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>UART 帧格式 &#x2F; 数据包结构</strong></td>
+<td align="left"><strong>UART 帧格式 / 数据包结构</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>帧格式</strong>：<strong>起始位</strong> (0) + <strong>数据位</strong> (8位) + <strong>校验位</strong> (可选) + <strong>停止位</strong> (1)。<br>**数据包 (自定义)**：帧头 + 命令字 + 长度 + 数据 + <strong>校验和 (CheckSum&#x2F;CRC)</strong> + 帧尾。</td>
+<td align="left"><strong>帧格式</strong>：<strong>起始位</strong> (0) + <strong>数据位</strong> (8位) + <strong>校验位</strong> (可选) + <strong>停止位</strong> (1)。<br><strong>数据包 (自定义)</strong>：帧头 + 命令字 + 长度 + 数据 + <strong>校验和 (CheckSum/CRC)</strong> + 帧尾。</td>
 </tr>
 <tr>
 <td align="left"><strong>如何自定义通信数据包</strong></td>
@@ -865,7 +1056,7 @@
 <tr>
 <td align="left"><strong>TTL vs RS232 vs RS485</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>TTL</strong>：逻辑 0&#x3D;0V，1&#x3D;3.3V&#x2F;5V (板内通信)。<br><strong>RS232</strong>：负逻辑，0&#x3D;+3~15V，1&#x3D;-3~-15V (全双工，点对点，15米，易受干扰)。<br><strong>RS485</strong>：差分信号 (A-B)，正差&#x3D;1，负差&#x3D;0 (半双工，多点组网，1200米，抗干扰强)。</td>
+<td align="left"><strong>TTL</strong>：逻辑 0=0V，1=3.3V/5V (板内通信)。<br><strong>RS232</strong>：负逻辑，0=+3~15V，1=-3~-15V (全双工，点对点，15米，易受干扰)。<br><strong>RS485</strong>：差分信号 (A-B)，正差=1，负差=0 (半双工，多点组网，1200米，抗干扰强)。</td>
 </tr>
 <tr>
 <td align="left"></td>
@@ -873,7 +1064,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left"><strong>TTL电平&#x2F;CMOS电平</strong></td>
+<td align="left"><strong>TTL电平/CMOS电平</strong></td>
 <td align="left"><strong>必问</strong></td>
 <td align="left"><strong>TTL</strong>：高电平 $\ge 2.4V$，低电平 $\le 0.4V$ (5V供电)。<br><strong>CMOS</strong>：范围更宽，接近电源轨。</td>
 </tr>
@@ -890,10 +1081,10 @@
 <tr>
 <td align="left"><strong>RS485的通信距离跟哪些参数有关系</strong></td>
 <td align="left">重点</td>
-<td align="left">1. <strong>波特率</strong>：成反比。100kbps 时约 1200m；10Mbps 时仅几米。<br>2. <strong>线缆质量</strong>：双绞线的绞距、线径、屏蔽性能。<br>3. <strong>节点数量</strong>：挂载设备越多，负载越重，距离缩短（标准 32 个，特制芯片可达 128&#x2F;256）。<br>4. <strong>环境干扰</strong>：电磁环境恶劣会缩短有效距离。<br>5. <strong>驱动能力</strong>：485 芯片本身的驱动负载能力。</td>
+<td align="left">1. <strong>波特率</strong>：成反比。100kbps 时约 1200m；10Mbps 时仅几米。<br>2. <strong>线缆质量</strong>：双绞线的绞距、线径、屏蔽性能。<br>3. <strong>节点数量</strong>：挂载设备越多，负载越重，距离缩短（标准 32 个，特制芯片可达 128/256）。<br>4. <strong>环境干扰</strong>：电磁环境恶劣会缩短有效距离。<br>5. <strong>驱动能力</strong>：485 芯片本身的驱动负载能力。</td>
 </tr>
-</tbody></table>
-<h4 id="4-3-板级总线-IIC-SPI"><a href="#4-3-板级总线-IIC-SPI" class="headerlink" title="4.3 板级总线 (IIC&#x2F;SPI)"></a>4.3 板级总线 (IIC&#x2F;SPI)</h4><table>
+</tbody></table></div>
+<h4 id="4-3-板级总线-IIC-SPI"><a href="#4-3-板级总线-IIC-SPI" class="headerlink" title="4.3 板级总线 (IIC/SPI)"></a>4.3 板级总线 (IIC/SPI)</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -904,27 +1095,27 @@
 <tbody><tr>
 <td align="left"><strong>IIC 协议详解</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>线制</strong>：SCL (时钟), SDA (数据)。<strong>开漏输出+上拉</strong>。<br><strong>时序</strong>：<br>1. <strong>起始</strong>：SCL 高时，SDA 下降沿。<br>2. <strong>停止</strong>：SCL 高时，SDA 上升沿。<br>3. <strong>数据</strong>：SCL 低电平改变数据，SCL 高电平保持数据稳定。<br>4. **应答 (ACK)**：第 9 个时钟，接收方拉低 SDA。<br><strong>特点</strong>：半双工、同步、多主从、有地址 (7bit&#x2F;10bit)、有应答。</td>
+<td align="left"><strong>线制</strong>：SCL (时钟), SDA (数据)。<strong>开漏输出+上拉</strong>。<br><strong>时序</strong>：<br>1. <strong>起始</strong>：SCL 高时，SDA 下降沿。<br>2. <strong>停止</strong>：SCL 高时，SDA 上升沿。<br>3. <strong>数据</strong>：SCL 低电平改变数据，SCL 高电平保持数据稳定。<br>4. <strong>应答 (ACK)</strong>：第 9 个时钟，接收方拉低 SDA。<br><strong>特点</strong>：半双工、同步、多主从、有地址 (7bit/10bit)、有应答。</td>
 </tr>
 <tr>
 <td align="left"><strong>IIC 应答信号的电平定义</strong></td>
 <td align="left">重点</td>
-<td align="left">**0 (低电平)**：有效应答 (ACK)。<br>**1 (高电平)**：无效应答 (NACK)。<br>CPU 发出信号后等待应答，若未收到 (保持高电平)，则判断受控单元故障。</td>
+<td align="left"><strong>0 (低电平)</strong>：有效应答 (ACK)。<br><strong>1 (高电平)</strong>：无效应答 (NACK)。<br>CPU 发出信号后等待应答，若未收到 (保持高电平)，则判断受控单元故障。</td>
 </tr>
 <tr>
-<td align="left"><strong>IIC如何识别从机设备 &#x2F; 寻址模式</strong></td>
+<td align="left"><strong>IIC如何识别从机设备 / 寻址模式</strong></td>
 <td align="left"><strong>必问</strong></td>
 <td align="left">通过 <strong>设备地址</strong>。每个从机有唯一的 7bit 或 10bit 地址。主机发送地址帧，从机匹配后发送 ACK。</td>
 </tr>
 <tr>
-<td align="left"><strong>IIC 的模式 (单主&#x2F;多主)</strong></td>
+<td align="left"><strong>IIC 的模式 (单主/多主)</strong></td>
 <td align="left">必问</td>
 <td align="left"><strong>一主多从</strong>：最常用，代码量小，无仲裁。<br><strong>多主多从</strong>：总线有 $\ge 2$ 个主机。协议支持，但需打开 MCU 的 <strong>Multi-Master</strong> 功能位，并处理 <strong>“仲裁丢失”</strong> 中断。</td>
 </tr>
 <tr>
 <td align="left"><strong>IIC的数据传输的最高的传输速度</strong></td>
 <td align="left">了解</td>
-<td align="left"><strong>标准模式</strong>：100 Kbps。<br><strong>快速模式</strong>：400 Kbps。<br><strong>高速模式</strong>：3.4 Mbps。<br><strong>超高速模式</strong>：5 Mbps &#x2F; 10 Mbps。</td>
+<td align="left"><strong>标准模式</strong>：100 Kbps。<br><strong>快速模式</strong>：400 Kbps。<br><strong>高速模式</strong>：3.4 Mbps。<br><strong>超高速模式</strong>：5 Mbps / 10 Mbps。</td>
 </tr>
 <tr>
 <td align="left"><strong>软件IIC vs 硬件IIC</strong></td>
@@ -944,15 +1135,15 @@
 <tr>
 <td align="left"><strong>有没有了解过软件SPI</strong></td>
 <td align="left">了解</td>
-<td align="left">主循环里手动控制 GPIO 拉高拉低 SCK，按位读写 MOSI&#x2F;MISO。适合对速度要求不高且引脚受限的场景。</td>
+<td align="left">主循环里手动控制 GPIO 拉高拉低 SCK，按位读写 MOSI/MISO。适合对速度要求不高且引脚受限的场景。</td>
 </tr>
 <tr>
 <td align="left"><strong>IIC 与 SPI 的区别</strong></td>
 <td align="left"><strong>必问</strong></td>
 <td align="left">1. <strong>线</strong>：IIC 两根；SPI 四根。<br>2. <strong>速</strong>：SPI 快；IIC 慢。<br>3. <strong>选</strong>：IIC 用地址；SPI 用片选线。<br>4. <strong>答</strong>：IIC 有 ACK；SPI 无。<br>5. <strong>工</strong>：IIC 半双工；SPI 全双工。</td>
 </tr>
-</tbody></table>
-<h4 id="4-4-工业与高速总线-CAN-USB"><a href="#4-4-工业与高速总线-CAN-USB" class="headerlink" title="4.4 工业与高速总线 (CAN&#x2F;USB)"></a>4.4 工业与高速总线 (CAN&#x2F;USB)</h4><table>
+</tbody></table></div>
+<h4 id="4-4-工业与高速总线-CAN-USB"><a href="#4-4-工业与高速总线-CAN-USB" class="headerlink" title="4.4 工业与高速总线 (CAN/USB)"></a>4.4 工业与高速总线 (CAN/USB)</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -968,20 +1159,20 @@
 <tr>
 <td align="left"><strong>CAN (CVTE一面延伸 - 网络类型与距离)</strong></td>
 <td align="left">了解</td>
-<td align="left"><strong>1. 闭环总线网络</strong>：<br>&emsp;● 特点：高速、短距离。<br>&emsp;● 参数：最高速度 <strong>1Mbps</strong>，最长距离 <strong>40m</strong>。<br><strong>2. 开环总线网络</strong>：<br>&emsp;● 特点：低速、远距离。<br>&emsp;● 参数：最高速度 <strong>125Kbps</strong>，最远距离 <strong>1km</strong>。<br><strong>通讯节点构成</strong>：CAN控制器 + CAN收发器 (将信号转换为差分信号)。</td>
+<td align="left"><strong>1. 闭环总线网络</strong>：<br> ● 特点：高速、短距离。<br> ● 参数：最高速度 <strong>1Mbps</strong>，最长距离 <strong>40m</strong>。<br><strong>2. 开环总线网络</strong>：<br> ● 特点：低速、远距离。<br> ● 参数：最高速度 <strong>125Kbps</strong>，最远距离 <strong>1km</strong>。<br><strong>通讯节点构成</strong>：CAN控制器 + CAN收发器 (将信号转换为差分信号)。</td>
 </tr>
 <tr>
 <td align="left"><strong>USB 协议</strong></td>
 <td align="left">了解</td>
-<td align="left"><strong>线</strong>：VCC, GND, D+, D- (差分)。<br><strong>三层结构</strong>：接口层(数据包) -&gt; 中间层(端点) -&gt; 功能层。<br/><strong>传输</strong>：控制 (枚举)、批量 (U盘)、中断 (鼠标)、同步 (摄像头)。<br><strong>枚举</strong>：主机读取设备描述符，分配地址，加载驱动。<br/><strong>端点</strong>：数据缓冲区。</td>
+<td align="left"><strong>线</strong>：VCC, GND, D+, D- (差分)。<br><strong>三层结构</strong>：接口层(数据包) -&gt; 中间层(端点) -&gt; 功能层。<br><strong>传输</strong>：控制 (枚举)、批量 (U盘)、中断 (鼠标)、同步 (摄像头)。<br><strong>枚举</strong>：主机读取设备描述符，分配地址，加载驱动。<br><strong>端点</strong>：数据缓冲区。</td>
 </tr>
 <tr>
 <td align="left"><strong>USB协议 (端点与管道的详细定义)</strong></td>
 <td align="left">了解</td>
-<td align="left">**端点 (Endpoint)**：<br>&emsp;● <strong>定义</strong>：设备端的一个数据缓冲区。<br>&emsp;● <strong>特点</strong>：每个端点有固定的传输方式、带宽、最大包长。端点 0 用于初始化。<br>**管道 (Pipe)**：<br>&emsp;● <strong>定义</strong>：主机缓冲区与外设端点之间的逻辑连接。<br>&emsp;● <strong>分类</strong>：数据流管道 (无结构)、消息管道 (有结构)。<br><strong>总结</strong>：主机通过“管道”与设备的“端点”通信。</td>
+<td align="left"><strong>端点 (Endpoint)</strong>：<br> ● <strong>定义</strong>：设备端的一个数据缓冲区。<br> ● <strong>特点</strong>：每个端点有固定的传输方式、带宽、最大包长。端点 0 用于初始化。<br><strong>管道 (Pipe)</strong>：<br> ● <strong>定义</strong>：主机缓冲区与外设端点之间的逻辑连接。<br> ● <strong>分类</strong>：数据流管道 (无结构)、消息管道 (有结构)。<br><strong>总结</strong>：主机通过“管道”与设备的“端点”通信。</td>
 </tr>
-</tbody></table>
-<h4 id="4-5-无线通信与物联网-Wireless-IoT"><a href="#4-5-无线通信与物联网-Wireless-IoT" class="headerlink" title="4.5 无线通信与物联网 (Wireless &amp; IoT)"></a>4.5 无线通信与物联网 (Wireless &amp; IoT)</h4><table>
+</tbody></table></div>
+<h4 id="4-5-无线通信与物联网-Wireless-IoT"><a href="#4-5-无线通信与物联网-Wireless-IoT" class="headerlink" title="4.5 无线通信与物联网 (Wireless &amp; IoT)"></a>4.5 无线通信与物联网 (Wireless &amp; IoT)</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -992,12 +1183,12 @@
 <tbody><tr>
 <td align="left"><strong>无线模块选型</strong></td>
 <td align="left"><strong>重点</strong></td>
-<td align="left">1. <strong>Wi-Fi</strong>: ESP8266&#x2F;ESP32 (UART&#x2F;SDIO)。<br>2. <strong>蓝牙</strong>: nRF52, CC2640 (BLE)。<br>3. <strong>LoRa</strong>: SX1278 (远距离, 低功耗)。<br>4. <strong>ZigBee</strong>: CC2530 (组网, 智能家居)。<br>5. <strong>4G&#x2F;NB-IoT</strong>: SIM7600, BC26 (广域网)。</td>
+<td align="left">1. <strong>Wi-Fi</strong>: ESP8266/ESP32 (UART/SDIO)。<br>2. <strong>蓝牙</strong>: nRF52, CC2640 (BLE)。<br>3. <strong>LoRa</strong>: SX1278 (远距离, 低功耗)。<br>4. <strong>ZigBee</strong>: CC2530 (组网, 智能家居)。<br>5. <strong>4G/NB-IoT</strong>: SIM7600, BC26 (广域网)。</td>
 </tr>
 <tr>
 <td align="left"><strong>有没有了解过哪些无线通信模块 (选型表)</strong></td>
 <td align="left"><strong>重点</strong></td>
-<td align="left">1. <strong>UART上网</strong>：ESP8266 (WiFi), SIM800C (2G), BC26 (NB-IoT)。<br>2. **低功耗+速传 (SPI)**：NRF24L01 (2.4G), SI4463 (433M)。<br>3. <strong>远距组网</strong>：LoRa SX1278 (5km), ZigBee CC2530 (自组网)。<br>4. <strong>超简对讲</strong>：433M ASK (遥控器)。</td>
+<td align="left">1. <strong>UART上网</strong>：ESP8266 (WiFi), SIM800C (2G), BC26 (NB-IoT)。<br>2. <strong>低功耗+速传 (SPI)</strong>：NRF24L01 (2.4G), SI4463 (433M)。<br>3. <strong>远距组网</strong>：LoRa SX1278 (5km), ZigBee CC2530 (自组网)。<br>4. <strong>超简对讲</strong>：433M ASK (遥控器)。</td>
 </tr>
 <tr>
 <td align="left"><strong>Lora，NB-IoT的使用</strong></td>
@@ -1010,14 +1201,14 @@
 <td align="left"><strong>LoRa</strong>：用于远距离、低功耗、自组网场景 (如农田、山区)，需配合 LoRa 网关。<br><strong>NB-IoT</strong>：基于运营商网络，用于广覆盖、低频次数据上传 (如智能水表)，需插 SIM 卡。</td>
 </tr>
 <tr>
-<td align="left"><strong>有没有了解过蓝牙芯片 &#x2F; 协议栈</strong></td>
+<td align="left"><strong>有没有了解过蓝牙芯片 / 协议栈</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>主流芯片</strong>：TI CC2640, Nordic nRF52, 乐鑫 ESP32, 杰理&#x2F;恒玄 (音频)。<br><strong>协议栈</strong>：基带 -&gt; LMP (链路管理) -&gt; L2CAP (适配) -&gt; SDP (服务发现) -&gt; 应用层 (GATT&#x2F;GAP)。</td>
+<td align="left"><strong>主流芯片</strong>：TI CC2640, Nordic nRF52, 乐鑫 ESP32, 杰理/恒玄 (音频)。<br><strong>协议栈</strong>：基带 -&gt; LMP (链路管理) -&gt; L2CAP (适配) -&gt; SDP (服务发现) -&gt; 应用层 (GATT/GAP)。</td>
 </tr>
 <tr>
 <td align="left"><strong>ESP8266模块 (概述)</strong></td>
 <td align="left">重点</td>
-<td align="left">乐鑫推出的低成本 Wi-Fi SOC。集成 TCP&#x2F;IP 协议栈，支持 AT 指令控制或作为 MCU 独立开发 (SDK&#x2F;Arduino)。广泛用于 IoT 联网。</td>
+<td align="left">乐鑫推出的低成本 Wi-Fi SOC。集成 TCP/IP 协议栈，支持 AT 指令控制或作为 MCU 独立开发 (SDK/Arduino)。广泛用于 IoT 联网。</td>
 </tr>
 <tr>
 <td align="left"><strong>ESP8266 模式与配网</strong></td>
@@ -1027,29 +1218,29 @@
 <tr>
 <td align="left"><strong>ESP8266 用的协议</strong></td>
 <td align="left">了解</td>
-<td align="left">主要是 <strong>TCP&#x2F;IP 协议栈</strong> (包含 TCP, UDP, HTTP, DNS, FTP)。</td>
+<td align="left">主要是 <strong>TCP/IP 协议栈</strong> (包含 TCP, UDP, HTTP, DNS, FTP)。</td>
 </tr>
 <tr>
 <td align="left"><strong>简述LWIP协议</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>LwIP</strong> (Light-weight IP) 是开源轻量级 TCP&#x2F;IP 栈。<br><strong>特点</strong>：减少 RAM 占用，支持无操作系统运行 (RAW API) 或带系统 (Netconn&#x2F;Socket API)。<br><strong>包含</strong>：应用层、传输层、网络层 (物理层需硬件配合)。</td>
+<td align="left"><strong>LwIP</strong> (Light-weight IP) 是开源轻量级 TCP/IP 栈。<br><strong>特点</strong>：减少 RAM 占用，支持无操作系统运行 (RAW API) 或带系统 (Netconn/Socket API)。<br><strong>包含</strong>：应用层、传输层、网络层 (物理层需硬件配合)。</td>
 </tr>
 <tr>
 <td align="left"><strong>MQTT 协议</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>机制</strong>：发布&#x2F;订阅模式 (Pub&#x2F;Sub)。<br><strong>角色</strong>：Client (发布&#x2F;订阅者), Broker (代理服务器)。<br><strong>特点</strong>：轻量、低带宽、长连接、QoS (0&#x2F;1&#x2F;2) 消息质量保证。</td>
+<td align="left"><strong>机制</strong>：发布/订阅模式 (Pub/Sub)。<br><strong>角色</strong>：Client (发布/订阅者), Broker (代理服务器)。<br><strong>特点</strong>：轻量、低带宽、长连接、QoS (0/1/2) 消息质量保证。</td>
 </tr>
 <tr>
 <td align="left"><strong>Mqtt的底层</strong></td>
 <td align="left"><strong>重点</strong></td>
-<td align="left">基于 <strong>TCP&#x2F;IP</strong> 协议，使用 <strong>Socket</strong> 编程实现报文的构建和发送。位于 OSI 的应用层。</td>
+<td align="left">基于 <strong>TCP/IP</strong> 协议，使用 <strong>Socket</strong> 编程实现报文的构建和发送。位于 OSI 的应用层。</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <p><strong>对第五板块和第六板块的播客：</strong></p>
 
   <div class="tag-plugin audio">
-  <audio controls preload>
+  <audio controls="" preload="">
   <source src="https://image.skyforever.top/music/STM32第五六章节.webm" type="audio/mp3">Your browser does not support the audio tag.
   </audio>
   </div>
@@ -1057,7 +1248,7 @@
 
 
 <h3 id="📂-第五板块：RTOS"><a href="#📂-第五板块：RTOS" class="headerlink" title="📂 第五板块：RTOS"></a>📂 第五板块：RTOS</h3><p><em>嵌入式 OS 核心，考察任务调度、通信与同步。</em></p>
-<h4 id="5-1-RTOS-基础概念"><a href="#5-1-RTOS-基础概念" class="headerlink" title="5.1 RTOS 基础概念"></a>5.1 RTOS 基础概念</h4><table>
+<h4 id="5-1-RTOS-基础概念"><a href="#5-1-RTOS-基础概念" class="headerlink" title="5.1 RTOS 基础概念"></a>5.1 RTOS 基础概念</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -1078,7 +1269,7 @@
 <tr>
 <td align="left"><strong>RTOS任务怎么划分的？</strong></td>
 <td align="left">了解</td>
-<td align="left">1. <strong>高优</strong>：中断外设驱动 (串口&#x2F;ADC)。<br>2. <strong>周期</strong>：1ms 控制环 &gt; 10ms 检测 &gt; 100ms 人机。<br>3. <strong>低优</strong>：阻塞型慢操作 (网络&#x2F;SD卡)。<br>4. <strong>合并</strong>：共享资源的功能合并，减少切换。</td>
+<td align="left">1. <strong>高优</strong>：中断外设驱动 (串口/ADC)。<br>2. <strong>周期</strong>：1ms 控制环 &gt; 10ms 检测 &gt; 100ms 人机。<br>3. <strong>低优</strong>：阻塞型慢操作 (网络/SD卡)。<br>4. <strong>合并</strong>：共享资源的功能合并，减少切换。</td>
 </tr>
 <tr>
 <td align="left"><strong>RTOS 调度策略</strong></td>
@@ -1093,20 +1284,20 @@
 <tr>
 <td align="left"><strong>任务通信机制 (Queue, Sem, Mutex)</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left">1. <strong>队列 (Queue)<strong>：传递</strong>数据</strong> (值拷贝)。FIFO。<br>2. <strong>信号量 (Semaphore)<strong>：传递</strong>状态</strong> (计数)。二值 (同步) &#x2F; 计数 (资源管理)。<br>3. <strong>互斥量 (Mutex)<strong>：保护</strong>临界资源</strong>。具有<strong>优先级继承</strong>机制 (防优先级翻转)。<br>4. **事件组 (EventGroup)**：多事件同步 (与&#x2F;或逻辑)。<br>5. <strong>任务通知</strong>：轻量级，点对点。</td>
+<td align="left">1. <strong>队列 (Queue)</strong>：传递<strong>数据</strong> (值拷贝)。FIFO。<br>2. <strong>信号量 (Semaphore)</strong>：传递<strong>状态</strong> (计数)。二值 (同步) / 计数 (资源管理)。<br>3. <strong>互斥量 (Mutex)</strong>：保护<strong>临界资源</strong>。具有<strong>优先级继承</strong>机制 (防优先级翻转)。<br>4. <strong>事件组 (EventGroup)</strong>：多事件同步 (与/或逻辑)。<br>5. <strong>任务通知</strong>：轻量级，点对点。</td>
 </tr>
 <tr>
 <td align="left"><strong>FreeRTOS中，消息队列与信号量区别 (本质)</strong></td>
 <td align="left">了解</td>
-<td align="left"><strong>队列</strong>：传递<strong>数据</strong> (值拷贝)，有缓冲区。<br><strong>信号量</strong>：传递<strong>状态</strong>，是特殊的队列 (长度0&#x2F;数据大小0)，只计数值。</td>
+<td align="left"><strong>队列</strong>：传递<strong>数据</strong> (值拷贝)，有缓冲区。<br><strong>信号量</strong>：传递<strong>状态</strong>，是特殊的队列 (长度0/数据大小0)，只计数值。</td>
 </tr>
 <tr>
 <td align="left"><strong>优先级翻转及解决</strong></td>
 <td align="left">了解</td>
 <td align="left"><strong>现象</strong>：高优先级任务等待低优先级持有的锁，中优先级任务打断低优先级，导致高优先级任务长时间阻塞。<br><strong>解决</strong>：<strong>互斥量</strong> (Mutex) 支持<strong>优先级继承</strong>——当高优先级等待锁时，暂时提升持有锁的低优先级任务的优先级，使其尽快释放锁。</td>
 </tr>
-</tbody></table>
-<h4 id="5-2-通信与同步-IPC-Sync"><a href="#5-2-通信与同步-IPC-Sync" class="headerlink" title="5.2 通信与同步 (IPC &amp; Sync)"></a>5.2 通信与同步 (IPC &amp; Sync)</h4><table>
+</tbody></table></div>
+<h4 id="5-2-通信与同步-IPC-Sync"><a href="#5-2-通信与同步-IPC-Sync" class="headerlink" title="5.2 通信与同步 (IPC &amp; Sync)"></a>5.2 通信与同步 (IPC &amp; Sync)</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -1117,20 +1308,20 @@
 <tbody><tr>
 <td align="left"><strong>任务通信机制 (Queue, Sem, Mutex)</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left">1. <strong>队列 (Queue)<strong>：传递</strong>数据</strong> (值拷贝)。FIFO。<br>2. <strong>信号量 (Semaphore)<strong>：传递</strong>状态</strong> (计数)。二值 (同步) &#x2F; 计数 (资源管理)。<br>3. <strong>互斥量 (Mutex)<strong>：保护</strong>临界资源</strong>。具有<strong>优先级继承</strong>机制 (防优先级翻转)。<br>4. **事件组 (EventGroup)**：多事件同步 (与&#x2F;或逻辑)。<br>5. <strong>任务通知</strong>：轻量级，点对点。</td>
+<td align="left">1. <strong>队列 (Queue)</strong>：传递<strong>数据</strong> (值拷贝)。FIFO。<br>2. <strong>信号量 (Semaphore)</strong>：传递<strong>状态</strong> (计数)。二值 (同步) / 计数 (资源管理)。<br>3. <strong>互斥量 (Mutex)</strong>：保护<strong>临界资源</strong>。具有<strong>优先级继承</strong>机制 (防优先级翻转)。<br>4. <strong>事件组 (EventGroup)</strong>：多事件同步 (与/或逻辑)。<br>5. <strong>任务通知</strong>：轻量级，点对点。</td>
 </tr>
 <tr>
 <td align="left"><strong>FreeRTOS中，消息队列与信号量区别 (本质)</strong></td>
 <td align="left">了解</td>
-<td align="left"><strong>队列</strong>：传递<strong>数据</strong> (值拷贝)，有缓冲区。<br><strong>信号量</strong>：传递<strong>状态</strong>，是特殊的队列 (长度0&#x2F;数据大小0)，只计数值。</td>
+<td align="left"><strong>队列</strong>：传递<strong>数据</strong> (值拷贝)，有缓冲区。<br><strong>信号量</strong>：传递<strong>状态</strong>，是特殊的队列 (长度0/数据大小0)，只计数值。</td>
 </tr>
 <tr>
 <td align="left"><strong>优先级翻转及解决</strong></td>
 <td align="left">了解</td>
 <td align="left"><strong>现象</strong>：高优先级任务等待低优先级持有的锁，中优先级任务打断低优先级，导致高优先级任务长时间阻塞。<br><strong>解决</strong>：<strong>互斥量</strong> (Mutex) 支持<strong>优先级继承</strong>——当高优先级等待锁时，暂时提升持有锁的低优先级任务的优先级，使其尽快释放锁。</td>
 </tr>
-</tbody></table>
-<h4 id="5-3-内存与移植"><a href="#5-3-内存与移植" class="headerlink" title="5.3 内存与移植"></a>5.3 内存与移植</h4><table>
+</tbody></table></div>
+<h4 id="5-3-内存与移植"><a href="#5-3-内存与移植" class="headerlink" title="5.3 内存与移植"></a>5.3 内存与移植</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -1156,7 +1347,7 @@
 <tr>
 <td align="left"><strong>FreeRTOS 内存配置宏 (源码细节)</strong></td>
 <td align="left">了解</td>
-<td align="left"><code>configTOTAL_HEAP_SIZE</code>：堆大小 (仅 heap_1&#x2F;2&#x2F;4&#x2F;5 需要)。<br><code>configUSE_MALLOC_FAILED_HOOK</code>：分配失败回调 (1开启)。<br><code>configSUPPORT_STATIC_ALLOCATION</code>：允许静态 API (1开启)。<br><code>configSUPPORT_DYNAMIC_ALLOCATION</code>：允许动态 API (1开启)。<br><code>configAPPLICATION_ALLOCATED_HEAP</code>：由用户声明堆数组 (1开启)。</td>
+<td align="left"><code>configTOTAL_HEAP_SIZE</code>：堆大小 (仅 heap_1/2/4/5 需要)。<br><code>configUSE_MALLOC_FAILED_HOOK</code>：分配失败回调 (1开启)。<br><code>configSUPPORT_STATIC_ALLOCATION</code>：允许静态 API (1开启)。<br><code>configSUPPORT_DYNAMIC_ALLOCATION</code>：允许动态 API (1开启)。<br><code>configAPPLICATION_ALLOCATED_HEAP</code>：由用户声明堆数组 (1开启)。</td>
 </tr>
 <tr>
 <td align="left"><strong>内存管理 (heap_4)</strong></td>
@@ -1168,8 +1359,8 @@
 <td align="left">了解</td>
 <td align="left">1. <strong>方法1</strong>：检查栈顶是否被覆盖 (特殊值)。<br>2. <strong>方法2</strong>：使用 MPU 保护栈区。<br>3. <strong>Hook</strong>：定义 <code>vApplicationStackOverflowHook</code> 回调。</td>
 </tr>
-</tbody></table>
-<h4 id="5-4-内核原理-Kernel-Internals"><a href="#5-4-内核原理-Kernel-Internals" class="headerlink" title="5.4 内核原理 (Kernel Internals)"></a>5.4 内核原理 (Kernel Internals)</h4><table>
+</tbody></table></div>
+<h4 id="5-4-内核原理-Kernel-Internals"><a href="#5-4-内核原理-Kernel-Internals" class="headerlink" title="5.4 内核原理 (Kernel Internals)"></a>5.4 内核原理 (Kernel Internals)</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -1187,10 +1378,10 @@
 <td align="left">了解</td>
 <td align="left">(见上表 FreeRTOS 调度原理，提到 TCB、PendSV、List_t 结构、heap_4 算法、临界区开关中断实现)。</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
-<h3 id="📂-第六板块：硬件设计-PCB-ADC-无线"><a href="#📂-第六板块：硬件设计-PCB-ADC-无线" class="headerlink" title="📂 第六板块：硬件设计 (PCB&#x2F;ADC&#x2F;无线)"></a>📂 第六板块：硬件设计 (PCB&#x2F;ADC&#x2F;无线)</h3><p><em>涉及 PCB 流程、ADC 原理及常用模块选型。</em></p>
-<h4 id="6-1-PCB-设计与工艺"><a href="#6-1-PCB-设计与工艺" class="headerlink" title="6.1 PCB 设计与工艺"></a>6.1 PCB 设计与工艺</h4><table>
+<h3 id="📂-第六板块：硬件设计-PCB-ADC-无线"><a href="#📂-第六板块：硬件设计-PCB-ADC-无线" class="headerlink" title="📂 第六板块：硬件设计 (PCB/ADC/无线)"></a>📂 第六板块：硬件设计 (PCB/ADC/无线)</h3><p><em>涉及 PCB 流程、ADC 原理及常用模块选型。</em></p>
+<h4 id="6-1-PCB-设计与工艺"><a href="#6-1-PCB-设计与工艺" class="headerlink" title="6.1 PCB 设计与工艺"></a>6.1 PCB 设计与工艺</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -1201,20 +1392,20 @@
 <tbody><tr>
 <td align="left"><strong>PCB 设计流程</strong></td>
 <td align="left"><strong>重点</strong></td>
-<td align="left">原理图设计 (SCH) -&gt; 网表导入 -&gt; PCB 结构定义 (板框) -&gt; 布局 (Layout) -&gt; 布线 (Routing) -&gt; DRC 检查 -&gt; 丝印&#x2F;铺铜 -&gt; 输出 Gerber 文件。</td>
+<td align="left">原理图设计 (SCH) -&gt; 网表导入 -&gt; PCB 结构定义 (板框) -&gt; 布局 (Layout) -&gt; 布线 (Routing) -&gt; DRC 检查 -&gt; 丝印/铺铜 -&gt; 输出 Gerber 文件。</td>
 </tr>
 <tr>
 <td align="left"><strong>PCB 加工工艺</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left">开料 -&gt; 钻孔 -&gt; 沉铜 -&gt; 线路曝光 (光刻) -&gt; 蚀刻 (去除非线路铜) -&gt; 阻焊 (绿油) -&gt; 丝印 -&gt; 表面处理 (沉金&#x2F;喷锡) -&gt; 成型。</td>
+<td align="left">开料 -&gt; 钻孔 -&gt; 沉铜 -&gt; 线路曝光 (光刻) -&gt; 蚀刻 (去除非线路铜) -&gt; 阻焊 (绿油) -&gt; 丝印 -&gt; 表面处理 (沉金/喷锡) -&gt; 成型。</td>
 </tr>
 <tr>
 <td align="left"><strong>EMC认证 (流程)</strong></td>
 <td align="left"><strong>重点</strong></td>
-<td align="left">需求设计 -&gt; 规格定义 -&gt; 系统设计 -&gt; 阶段评审 -&gt; <strong>测试验证</strong> (EMI干扰&#x2F;EMS抗扰) -&gt; 问题整改 -&gt; 获得认证 (如 CE)。</td>
+<td align="left">需求设计 -&gt; 规格定义 -&gt; 系统设计 -&gt; 阶段评审 -&gt; <strong>测试验证</strong> (EMI干扰/EMS抗扰) -&gt; 问题整改 -&gt; 获得认证 (如 CE)。</td>
 </tr>
-</tbody></table>
-<h4 id="6-2-模拟电路-Analog-Circuits"><a href="#6-2-模拟电路-Analog-Circuits" class="headerlink" title="6.2 模拟电路 (Analog Circuits)"></a>6.2 模拟电路 (Analog Circuits)</h4><table>
+</tbody></table></div>
+<h4 id="6-2-模拟电路-Analog-Circuits"><a href="#6-2-模拟电路-Analog-Circuits" class="headerlink" title="6.2 模拟电路 (Analog Circuits)"></a>6.2 模拟电路 (Analog Circuits)</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -1225,25 +1416,25 @@
 <tbody><tr>
 <td align="left"><strong>请说说三极管和MOS管的区别？</strong></td>
 <td align="left">了解</td>
-<td align="left">**三极管 (BJT)**：电流控制 (Ib 控 Ic)，输入阻抗低，功耗大。<br><strong>MOS管</strong>：电压控制 (Vgs 控 Id)，输入阻抗极高，功耗低，适合高速开关。</td>
+<td align="left"><strong>三极管 (BJT)</strong>：电流控制 (Ib 控 Ic)，输入阻抗低，功耗大。<br><strong>MOS管</strong>：电压控制 (Vgs 控 Id)，输入阻抗极高，功耗低，适合高速开关。</td>
 </tr>
 <tr>
-<td align="left"><strong>什么是adc&#x2F;dac&#x2F;pwm? (定义)</strong></td>
+<td align="left"><strong>什么是adc/dac/pwm? (定义)</strong></td>
 <td align="left"><strong>重点</strong></td>
 <td align="left"><strong>ADC</strong>：模拟转数字 (传感器采集)。<br><strong>DAC</strong>：数字转模拟 (音频播放)。<br><strong>PWM</strong>：脉冲宽度调制 (电机控制)。</td>
 </tr>
 <tr>
 <td align="left"><strong>ADC 工作原理</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>模数转换</strong>。过程：<strong>采样 -&gt; 保持 -&gt; 量化 -&gt; 编码</strong>。<br>STM32 ADC 是 **SAR (逐次逼近型)**。精度由位数 (12bit) 决定，参考电压 (Vref) 决定量程。</td>
+<td align="left"><strong>模数转换</strong>。过程：<strong>采样 -&gt; 保持 -&gt; 量化 -&gt; 编码</strong>。<br>STM32 ADC 是 <strong>SAR (逐次逼近型)</strong>。精度由位数 (12bit) 决定，参考电压 (Vref) 决定量程。</td>
 </tr>
 <tr>
 <td align="left"><strong>ADC的转换精度或者分辨率</strong></td>
 <td align="left"><strong>必问</strong></td>
-<td align="left"><strong>分辨率</strong>：位数 (如 12位，$2^{12}&#x3D;4096$)，决定能区分的最小电压变化。<br><strong>精度</strong>：转换结果与真实值的接近程度。分辨率是精度的前提。</td>
+<td align="left"><strong>分辨率</strong>：位数 (如 12位，$2^{12}=4096$)，决定能区分的最小电压变化。<br><strong>精度</strong>：转换结果与真实值的接近程度。分辨率是精度的前提。</td>
 </tr>
-</tbody></table>
-<h4 id="6-3-传感器与显示-Peripherals"><a href="#6-3-传感器与显示-Peripherals" class="headerlink" title="6.3 传感器与显示 (Peripherals)"></a>6.3 传感器与显示 (Peripherals)</h4><table>
+</tbody></table></div>
+<h4 id="6-3-传感器与显示-Peripherals"><a href="#6-3-传感器与显示-Peripherals" class="headerlink" title="6.3 传感器与显示 (Peripherals)"></a>6.3 传感器与显示 (Peripherals)</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">问题</th>
@@ -1254,24 +1445,24 @@
 <tbody><tr>
 <td align="left"><strong>MPU6050底层实现原理</strong></td>
 <td align="left">了解</td>
-<td align="left">内部集成 3 轴陀螺仪 + 3 轴加速度计 + 磁力计。内置 <strong>DMP</strong> (数字运动处理器) 计算四元数&#x2F;欧拉角。通过 I2C 读取寄存器数据。</td>
+<td align="left">内部集成 3 轴陀螺仪 + 3 轴加速度计 + 磁力计。内置 <strong>DMP</strong> (数字运动处理器) 计算四元数/欧拉角。通过 I2C 读取寄存器数据。</td>
 </tr>
 <tr>
 <td align="left"><strong>按下的数字怎么在oled屏显示 (编码过程)</strong></td>
 <td align="left">了解</td>
 <td align="left">按键值 -&gt; ASCII 码 -&gt; 查 <strong>字模数组</strong> (点阵) -&gt; I2C 发送页地址+列地址 -&gt; 写入数据点亮像素。</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
 <script src="/js/markmap.js"></script>
 
 
-  <div class="tag-list">
+  <div class="article-tags">
     
       
-      <a class="tag" href="/note/ESI/tags/stm32/">STM32</a>
+      <a class="tag" href="/note/ESI/tags/stm32/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>STM32</a>
     
   </div>
 
@@ -1288,11 +1479,11 @@
     <section id="share">
       <div class="header"><span>分享文章</span></div>
       <div class="body">
-        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://skyforever.top/data/ESI/STM32" /></div>
-        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://skyforever.top/data/ESI/STM32&title=STM32面试题整理 - Sky Blog&summary=全面整理STM32相关面试题，涵盖STM32基础、外设接口(UART/IIC/SPI)、通信协议(USB/CAN/网络)、RTOS、硬件设计(PCB/电路)等嵌入式开发核心领域，帮助准备嵌入式开发相关面试。"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=STM32面试题整理 - Sky Blog&amp;body=http://skyforever.top/data/ESI/STM32"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http:&#x2F;&#x2F;skyforever.top&#x2F;data&#x2F;ESI&#x2F;STM32&#x2F;" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Fskyforever.top%2Fdata%2FESI%2FSTM32%2F&title=STM32%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20Sky%20Blog&summary=%E5%85%A8%E9%9D%A2%E6%95%B4%E7%90%86STM32%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%8C%E6%B6%B5%E7%9B%96STM32%E5%9F%BA%E7%A1%80%E3%80%81%E5%A4%96%E8%AE%BE%E6%8E%A5%E5%8F%A3(UART%2FIIC%2FSPI)%E3%80%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE(USB%2FCAN%2F%E7%BD%91%E7%BB%9C)%E3%80%81RTOS%E3%80%81%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1(PCB%2F%E7%94%B5%E8%B7%AF)%E7%AD%89%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91%E6%A0%B8%E5%BF%83%E9%A2%86%E5%9F%9F%EF%BC%8C%E5%B8%AE%E5%8A%A9%E5%87%86%E5%A4%87%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E3%80%82"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=STM32%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20Sky%20Blog&amp;body=http%3A%2F%2Fskyforever.top%2Fdata%2FESI%2FSTM32%2F"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
         
         <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://skyforever.top/data/ESI/STM32"/>
+          <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http%3A%2F%2Fskyforever.top%2Fdata%2FESI%2FSTM32%2F"/>
         </div>
         
       </div>
@@ -1308,7 +1499,7 @@
     <section class='body cmt-body giscus'>
       
 
-<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+<div class="lazy-icon"></div>
 
 <div id="giscus" src="https://giscus.app/client.js" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
 
@@ -1317,12 +1508,23 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0">Stellar 1.44.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
 </div></footer>
-<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-<div class="widgets">
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"><div class="widgets">
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E4%B8%80%E6%9D%BF%E5%9D%97%EF%BC%9A%E5%8D%95%E7%89%87%E6%9C%BA%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%9E%B6%E6%9E%84-MCU%EF%BC%89"><span class="toc-text">📂 第一板块：单片机基础与架构 (MCU）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E6%A6%82%E5%BF%B5%E4%B8%8E%E9%80%89%E5%9E%8B"><span class="toc-text">1.1 概念与选型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E5%86%85%E6%A0%B8%E4%B8%8E%E5%90%AF%E5%8A%A8"><span class="toc-text">1.2 内核与启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E6%97%B6%E9%92%9F%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="toc-text">1.3 时钟与调试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E6%80%BB%E7%BA%BF%E4%B8%BB%E6%8E%A7"><span class="toc-text">1.4 总线主控</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="toc-text">1.5 电源管理与调试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E4%BA%8C%E6%9D%BF%E5%9D%97%EF%BC%9A%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8E-Flash"><span class="toc-text">📂 第二板块：存储器与 Flash</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%AD%98%E5%82%A8%E7%90%86%E8%AE%BA"><span class="toc-text">2.1 存储理论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-Flash-%E6%9C%BA%E5%88%B6%E4%B8%8E%E6%93%8D%E4%BD%9C"><span class="toc-text">2.2 Flash 机制与操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-text">2.3 外部存储与应用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E4%B8%89%E6%9D%BF%E5%9D%97%EF%BC%9AGPIO%E3%80%81%E4%B8%AD%E6%96%AD%E4%B8%8E%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-text">📂 第三板块：GPIO、中断与定时器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-GPIO-%E7%B3%BB%E7%BB%9F"><span class="toc-text">3.1 GPIO 系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-text">3.2 中断系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%8E-PWM"><span class="toc-text">3.3 定时器与 PWM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-%E7%B3%BB%E7%BB%9F%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="toc-text">3.4 系统可靠性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E5%9B%9B%E6%9D%BF%E5%9D%97%EF%BC%9A%E9%80%9A%E4%BF%A1%E6%8E%A5%E5%8F%A3-UART-IIC-SPI-USB-CAN"><span class="toc-text">📂 第四板块：通信接口 (UART&#x2F;IIC&#x2F;SPI&#x2F;USB&#x2F;CAN)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80"><span class="toc-text">4.1 通信基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1-UART-Serial"><span class="toc-text">4.2 串口通信  (UART&#x2F;Serial)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-%E6%9D%BF%E7%BA%A7%E6%80%BB%E7%BA%BF-IIC-SPI"><span class="toc-text">4.3 板级总线 (IIC&#x2F;SPI)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-%E5%B7%A5%E4%B8%9A%E4%B8%8E%E9%AB%98%E9%80%9F%E6%80%BB%E7%BA%BF-CAN-USB"><span class="toc-text">4.4 工业与高速总线 (CAN&#x2F;USB)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1%E4%B8%8E%E7%89%A9%E8%81%94%E7%BD%91-Wireless-IoT"><span class="toc-text">4.5 无线通信与物联网 (Wireless &amp; IoT)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E4%BA%94%E6%9D%BF%E5%9D%97%EF%BC%9ARTOS"><span class="toc-text">📂 第五板块：RTOS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-RTOS-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-text">5.1 RTOS 基础概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%E9%80%9A%E4%BF%A1%E4%B8%8E%E5%90%8C%E6%AD%A5-IPC-Sync"><span class="toc-text">5.2 通信与同步 (IPC &amp; Sync)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%E5%86%85%E5%AD%98%E4%B8%8E%E7%A7%BB%E6%A4%8D"><span class="toc-text">5.3 内存与移植</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-%E5%86%85%E6%A0%B8%E5%8E%9F%E7%90%86-Kernel-Internals"><span class="toc-text">5.4 内核原理 (Kernel Internals)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E5%85%AD%E6%9D%BF%E5%9D%97%EF%BC%9A%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1-PCB-ADC-%E6%97%A0%E7%BA%BF"><span class="toc-text">📂 第六板块：硬件设计 (PCB&#x2F;ADC&#x2F;无线)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-PCB-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%B7%A5%E8%89%BA"><span class="toc-text">6.1 PCB 设计与工艺</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF-Analog-Circuits"><span class="toc-text">6.2 模拟电路 (Analog Circuits)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-%E4%BC%A0%E6%84%9F%E5%99%A8%E4%B8%8E%E6%98%BE%E7%A4%BA-Peripherals"><span class="toc-text">6.3 传感器与显示 (Peripherals)</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">本文目录</span>
+      <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E4%B8%80%E6%9D%BF%E5%9D%97%EF%BC%9A%E5%8D%95%E7%89%87%E6%9C%BA%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%9E%B6%E6%9E%84-MCU%EF%BC%89"><span class="toc-text">📂 第一板块：单片机基础与架构 (MCU）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E6%A6%82%E5%BF%B5%E4%B8%8E%E9%80%89%E5%9E%8B"><span class="toc-text">1.1 概念与选型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E5%86%85%E6%A0%B8%E4%B8%8E%E5%90%AF%E5%8A%A8"><span class="toc-text">1.2 内核与启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E6%97%B6%E9%92%9F%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="toc-text">1.3 时钟与调试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E6%80%BB%E7%BA%BF%E4%B8%BB%E6%8E%A7"><span class="toc-text">1.4 总线主控</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="toc-text">1.5 电源管理与调试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E4%BA%8C%E6%9D%BF%E5%9D%97%EF%BC%9A%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8E-Flash"><span class="toc-text">📂 第二板块：存储器与 Flash</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%AD%98%E5%82%A8%E7%90%86%E8%AE%BA"><span class="toc-text">2.1 存储理论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-Flash-%E6%9C%BA%E5%88%B6%E4%B8%8E%E6%93%8D%E4%BD%9C"><span class="toc-text">2.2 Flash 机制与操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-text">2.3 外部存储与应用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E4%B8%89%E6%9D%BF%E5%9D%97%EF%BC%9AGPIO%E3%80%81%E4%B8%AD%E6%96%AD%E4%B8%8E%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-text">📂 第三板块：GPIO、中断与定时器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-GPIO-%E7%B3%BB%E7%BB%9F"><span class="toc-text">3.1 GPIO 系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-text">3.2 中断系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%8E-PWM"><span class="toc-text">3.3 定时器与 PWM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-%E7%B3%BB%E7%BB%9F%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="toc-text">3.4 系统可靠性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E5%9B%9B%E6%9D%BF%E5%9D%97%EF%BC%9A%E9%80%9A%E4%BF%A1%E6%8E%A5%E5%8F%A3-UART-IIC-SPI-USB-CAN"><span class="toc-text">📂 第四板块：通信接口 (UART&#x2F;IIC&#x2F;SPI&#x2F;USB&#x2F;CAN)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80"><span class="toc-text">4.1 通信基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1-UART-Serial"><span class="toc-text">4.2 串口通信  (UART&#x2F;Serial)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-%E6%9D%BF%E7%BA%A7%E6%80%BB%E7%BA%BF-IIC-SPI"><span class="toc-text">4.3 板级总线 (IIC&#x2F;SPI)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-%E5%B7%A5%E4%B8%9A%E4%B8%8E%E9%AB%98%E9%80%9F%E6%80%BB%E7%BA%BF-CAN-USB"><span class="toc-text">4.4 工业与高速总线 (CAN&#x2F;USB)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1%E4%B8%8E%E7%89%A9%E8%81%94%E7%BD%91-Wireless-IoT"><span class="toc-text">4.5 无线通信与物联网 (Wireless &amp; IoT)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E4%BA%94%E6%9D%BF%E5%9D%97%EF%BC%9ARTOS"><span class="toc-text">📂 第五板块：RTOS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-RTOS-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-text">5.1 RTOS 基础概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%E9%80%9A%E4%BF%A1%E4%B8%8E%E5%90%8C%E6%AD%A5-IPC-Sync"><span class="toc-text">5.2 通信与同步 (IPC &amp; Sync)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%E5%86%85%E5%AD%98%E4%B8%8E%E7%A7%BB%E6%A4%8D"><span class="toc-text">5.3 内存与移植</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-%E5%86%85%E6%A0%B8%E5%8E%9F%E7%90%86-Kernel-Internals"><span class="toc-text">5.4 内核原理 (Kernel Internals)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E5%85%AD%E6%9D%BF%E5%9D%97%EF%BC%9A%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1-PCB-ADC-%E6%97%A0%E7%BA%BF"><span class="toc-text">📂 第六板块：硬件设计 (PCB&#x2F;ADC&#x2F;无线)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-PCB-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%B7%A5%E8%89%BA"><span class="toc-text">6.1 PCB 设计与工艺</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF-Analog-Circuits"><span class="toc-text">6.2 模拟电路 (Analog Circuits)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-%E4%BC%A0%E6%84%9F%E5%99%A8%E4%B8%8E%E6%98%BE%E7%A4%BA-Peripherals"><span class="toc-text">6.3 传感器与显示 (Peripherals)</span></a></li></ol></li></ol></div>
+  <div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.61358 2.92637C5.33517 3.09825 4.56445 3.42514 3.9948 3.9948C3.42514 4.56445 3.09825 5.33517 2.92637 6.61358C2.75159 7.91356 2.75 9.62177 2.75 12C2.75 14.3782 2.75159 16.0864 2.92637 17.3864C3.09825 18.6648 3.42514 19.4355 3.9948 20.0052C4.56445 20.5749 5.33517 20.9018 6.61358 21.0736C7.91356 21.2484 9.62177 21.25 12 21.25C14.3782 21.25 16.0864 21.2484 17.3864 21.0736C18.6648 20.9018 19.4355 20.5749 20.0052 20.0052C20.5749 19.4355 20.9018 18.6648 21.0736 17.3864C21.2484 16.0864 21.25 14.3782 21.25 12C21.25 9.62177 21.2484 7.91356 21.0736 6.61358C20.9018 5.33517 20.5749 4.56445 20.0052 3.9948C19.4355 3.42514 18.6648 3.09825 17.3864 2.92637C16.0864 2.75159 14.3782 2.75 12 2.75C9.62177 2.75 7.91356 2.75159 6.61358 2.92637ZM12 9.56066L9.53033 12.0303C9.23744 12.3232 8.76256 12.3232 8.46967 12.0303C8.17678 11.7374 8.17678 11.2626 8.46967 10.9697L11.4697 7.96967C11.7626 7.67678 12.2374 7.67678 12.5303 7.96967L15.5303 10.9697C15.8232 11.2626 15.8232 11.7374 15.5303 12.0303C15.2374 12.3232 14.7626 12.3232 14.4697 12.0303L12 9.56066ZM12 13.5607L9.53033 16.0303C9.23744 16.3232 8.76256 16.3232 8.46967 16.0303C8.17678 15.7374 8.17678 15.2626 8.46967 14.9697L11.4697 11.9697C11.7626 11.6768 12.2374 11.6768 12.5303 11.9697L15.5303 14.9697C15.8232 15.2626 15.8232 15.7374 15.5303 16.0303C15.2374 16.3232 14.7626 16.3232 14.4697 16.0303L12 13.5607Z" clip-rule="evenodd"/></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M10.4606 1.25H13.5394C15.1427 1.24999 16.3997 1.24999 17.4039 1.34547C18.4274 1.44279 19.2655 1.64457 20.0044 2.09732C20.7781 2.57144 21.4286 3.22194 21.9027 3.99563C22.3554 4.73445 22.5572 5.57256 22.6545 6.59611C22.75 7.60029 22.75 8.85725 22.75 10.4606V11.5278C22.75 12.6691 22.75 13.564 22.7007 14.2868C22.6505 15.0223 22.5468 15.6344 22.3123 16.2004C21.7287 17.6093 20.6093 18.7287 19.2004 19.3123C18.3955 19.6457 17.4786 19.7197 16.2233 19.7413C15.7842 19.7489 15.5061 19.7545 15.2941 19.7779C15.096 19.7999 15.0192 19.832 14.9742 19.8582C14.9268 19.8857 14.8622 19.936 14.7501 20.0898C14.6287 20.2564 14.4916 20.4865 14.2742 20.8539L13.7321 21.7697C12.9585 23.0767 11.0415 23.0767 10.2679 21.7697L9.72579 20.8539C9.50835 20.4865 9.37122 20.2564 9.24985 20.0898C9.13772 19.936 9.07313 19.8857 9.02572 19.8582C8.98078 19.832 8.90399 19.7999 8.70588 19.7779C8.49387 19.7545 8.21575 19.7489 7.77666 19.7413C6.52138 19.7197 5.60454 19.6457 4.79957 19.3123C3.39066 18.7287 2.27128 17.6093 1.68769 16.2004C1.45323 15.6344 1.3495 15.0223 1.29932 14.2868C1.24999 13.564 1.25 12.6691 1.25 11.5278L1.25 10.4606C1.24999 8.85726 1.24999 7.60029 1.34547 6.59611C1.44279 5.57256 1.64457 4.73445 2.09732 3.99563C2.57144 3.22194 3.22194 2.57144 3.99563 2.09732C4.73445 1.64457 5.57256 1.44279 6.59611 1.34547C7.60029 1.24999 8.85726 1.24999 10.4606 1.25ZM6.73809 2.83873C5.82434 2.92561 5.24291 3.09223 4.77938 3.37628C4.20752 3.72672 3.72672 4.20752 3.37628 4.77938C3.09223 5.24291 2.92561 5.82434 2.83873 6.73809C2.75079 7.663 2.75 8.84876 2.75 10.5V11.5C2.75 12.6751 2.75041 13.5189 2.79584 14.1847C2.84081 14.8438 2.92737 15.2736 3.07351 15.6264C3.50486 16.6678 4.33223 17.4951 5.3736 17.9265C5.88923 18.1401 6.54706 18.2199 7.8025 18.2416L7.83432 18.2421C8.23232 18.249 8.58109 18.2549 8.87097 18.287C9.18246 18.3215 9.4871 18.3912 9.77986 18.5615C10.0702 18.7304 10.2795 18.9559 10.4621 19.2063C10.6307 19.4378 10.804 19.7306 11.0004 20.0623L11.5587 21.0057C11.7515 21.3313 12.2485 21.3313 12.4412 21.0057L12.9996 20.0623C13.1959 19.7306 13.3692 19.4378 13.5379 19.2063C13.7204 18.9559 13.9298 18.7304 14.2201 18.5615C14.5129 18.3912 14.8175 18.3215 15.129 18.287C15.4189 18.2549 15.7676 18.249 16.1656 18.2421L16.1975 18.2416C17.4529 18.2199 18.1108 18.1401 18.6264 17.9265C19.6678 17.4951 20.4951 16.6678 20.9265 15.6264C21.0726 15.2736 21.1592 14.8438 21.2042 14.1847C21.2496 13.5189 21.25 12.6751 21.25 11.5V10.5C21.25 8.84876 21.2492 7.663 21.1613 6.73809C21.0744 5.82434 20.9078 5.24291 20.6237 4.77938C20.2733 4.20752 19.7925 3.72672 19.2206 3.37628C18.7571 3.09223 18.1757 2.92561 17.2619 2.83873C16.337 2.75079 15.1512 2.75 13.5 2.75H10.5C8.84876 2.75 7.663 2.75079 6.73809 2.83873ZM7.25 9C7.25 8.58579 7.58579 8.25 8 8.25H16C16.4142 8.25 16.75 8.58579 16.75 9C16.75 9.41421 16.4142 9.75 16 9.75H8C7.58579 9.75 7.25 9.41421 7.25 9ZM7.25 12.5C7.25 12.0858 7.58579 11.75 8 11.75H13.5C13.9142 11.75 14.25 12.0858 14.25 12.5C14.25 12.9142 13.9142 13.25 13.5 13.25H8C7.58579 13.25 7.25 12.9142 7.25 12.5Z" clip-rule="evenodd"/></svg><span>参与讨论</span></a></div>
+</widget>
+
+
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
@@ -1336,6 +1538,137 @@
 
 <script type="text/javascript">
   window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  window.canonical["param"] = {"permalink":"http://skyforever.top/data/ESI/STM32/","checklink":"/js/plugins/video.js"};
+  // Fix: Ensure page is at the correct top position on data load
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'auto';
+  }
+  (function() {
+    const scrollHandler = () => {
+      // 存在有效锚点时，等待布局稳定后滚动到目标
+      // （浏览器原生锚点滚动发生在布局完成前，长文章的懒加载图片/异步组件会把目标顶偏）
+      const hash = window.location.hash;
+      if (hash.length > 1) {
+        let anchorId = hash.slice(1);
+        try {
+          anchorId = decodeURIComponent(anchorId);
+        } catch (e) {
+          // 片段含非法编码时按原样查找
+        }
+        const anchor = document.getElementById(anchorId);
+        if (anchor) {
+          // #start 锚点贴顶，不预留 offset；其余锚点与 TOC 点击滚动保持一致
+          const offset = anchorId === 'start' ? 0 : 32;
+          const targetY = () => anchor.getBoundingClientRect().top + window.scrollY - offset;
+          let timer = null;
+          let lastY = null;
+          let quiet = 0;
+          let attempts = 0;
+          // 记录最近一次资源加载完成时间，判断异步数据/图片是否仍在改变布局
+          let lastResourceTime = performance.now();
+          let observer = null;
+          try {
+            observer = new PerformanceObserver(function (list) {
+              lastResourceTime = performance.now();
+            });
+            observer.observe({ entryTypes: ['resource'] });
+          } catch (e) {}
+          // 统计进行中的 fetch/XHR 请求，异步组件（timeline 等）未完成前不判定布局稳定
+          let pendingRequests = 0;
+          const trackRequest = (fn) => {
+            pendingRequests++;
+            try {
+              const result = fn();
+              if (result && typeof result.finally === 'function') {
+                result.finally(function () {
+                  pendingRequests = Math.max(0, pendingRequests - 1);
+                });
+              } else {
+                pendingRequests = Math.max(0, pendingRequests - 1);
+              }
+              return result;
+            } catch (e) {
+              pendingRequests = Math.max(0, pendingRequests - 1);
+              throw e;
+            }
+          };
+          if (typeof window.fetch === 'function') {
+            const origFetch = window.fetch.bind(window);
+            window.fetch = function () {
+              const args = arguments;
+              return trackRequest(function () {
+                return origFetch.apply(window, args);
+              });
+            };
+          }
+          if (window.XMLHttpRequest) {
+            const origOpen = window.XMLHttpRequest.prototype.open;
+            const origSend = window.XMLHttpRequest.prototype.send;
+            window.XMLHttpRequest.prototype.open = function () {
+              this.__anchorTracked = true;
+              return origOpen.apply(this, arguments);
+            };
+            window.XMLHttpRequest.prototype.send = function () {
+              if (this.__anchorTracked) {
+                pendingRequests++;
+                const done = () => {
+                  if (this.__anchorTracked) {
+                    this.__anchorTracked = false;
+                    pendingRequests = Math.max(0, pendingRequests - 1);
+                  }
+                };
+                this.addEventListener('loadend', done);
+              }
+              return origSend.apply(this, arguments);
+            };
+          }
+          const cancel = () => {
+            if (timer !== null) {
+              clearInterval(timer);
+              timer = null;
+            }
+            if (observer !== null) {
+              try {
+                observer.disconnect();
+              } catch (e) {}
+            }
+          };
+          const adjust = () => {
+            const y = targetY();
+            const atTarget = Math.abs(window.scrollY - y) <= 2;
+            if (!atTarget || lastY === null || Math.abs(y - lastY) > 2) {
+              window.scrollTo({ top: y, behavior: 'instant' });
+              lastY = y;
+              quiet = 0;
+            } else {
+              quiet++;
+            }
+            attempts++;
+            const resourceQuiet = performance.now() - lastResourceTime > 3000;
+            // 位置连续 1.8 秒无变化、无进行中的请求且最近 3 秒无资源加载才视为稳定；最长等待 30 秒
+            if ((quiet >= 3 && pendingRequests === 0 && resourceQuiet) || attempts >= 50) {
+              cancel();
+            }
+          };
+          requestAnimationFrame(() => {
+            // 锚点链接打开时直接定位，不做动画；用户主动点击（如 TOC）仍走平滑滚动
+            window.scrollTo({ top: targetY(), behavior: 'instant' });
+            timer = setInterval(adjust, 600);
+          });
+          // 用户主动滚动时停止自动校正
+          window.addEventListener('wheel', cancel, { passive: true });
+          window.addEventListener('touchstart', cancel, { passive: true });
+          window.addEventListener('mousedown', cancel, { passive: true });
+          window.addEventListener('keydown', cancel, { passive: true });
+          return;
+        }
+      }
+      // 没有锚点时始终保持页面顶部；Wiki Hero 只在用户显式访问 #start 时定位正文。
+      window.scrollTo(0, 0);
+    };
+    if (document.readyState !== 'loading') scrollHandler();
+    else document.addEventListener('DOMContentLoaded', scrollHandler);
+  })();
   const ctx = {
     date_suffix: {
       just: `刚刚`,
@@ -1346,7 +1679,10 @@
     root : `/`,
     tag_plugins: {
       chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
-    }
+    },
+    // 图标由构建期生成的 /js/stellar-icons.js 填充（defer，早于 DOMContentLoaded 就绪）
+    icons: {},
+    services: {"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"},"rss":{"js":"/js/services/rss.js"}},
   };
 
   // required plugins (only load if needs)
@@ -1354,330 +1690,107 @@
     ctx.search = {};
     ctx.search.service = `local_search`;
     if (ctx.search.service == 'local_search') {
-      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"}`);
       ctx.search[ctx.search.service] = service_obj;
     }
   }
   const def = {
     avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
     cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
-    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+    data_cache: {"enable":true,"default_ttl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"max_entries":200},
   };
   const deps = {
-    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
     marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
-    lazyload: `/%5Bobject%20Object%5D`
+    lazyload: `https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js`
   }
-  
 
+  // 主题切换提示文案（供 /js/theme.js 使用）
+  window.__STELLAR_I18N__ = {
+    light: `切换到浅色模式`,
+    dark: `切换到深色模式`,
+    auto: `切换到跟随系统配色`,
+  };
+
+  // 搜索跳转高亮：URL 带 ?kw= 时按需加载，定位正文中的匹配词
+  (function () {
+    try {
+      if (!window.location.search) return;
+      if (!new URLSearchParams(window.location.search).has('kw')) return;
+      document.addEventListener('DOMContentLoaded', function () {
+        // utils 由 /js/utils.js 定义（同时暴露 window.utils）；
+        // 未就绪时由 bootstrap 队列兜底，此处按就绪状态判断
+        if (typeof utils === 'object' && typeof utils.js === 'function') {
+          utils.js('/js/search/highlight.js', { defer: true }).catch(function () {});
+        }
+      });
+    } catch (e) {}
+  })();
 </script>
 
-<script type="text/javascript">
-  
-  function RunItem() {
-    this.list = []; // 存放回调函数
-    this.start = () => {
-      for (var i = 0; i < this.list.length; i++) {
-        this.list[i].run();
-      }
-    };
-    this.push = (fn, name, setRequestAnimationFrame = true) => {
-      let myfn = fn
-      if (setRequestAnimationFrame) {
-        myfn = () => {
-          utils.requestAnimationFrame(fn)
-        }
-      }
-      var f = new Item(myfn, name);
-      this.list.push(f);
-    };
-    this.remove = (name) => {
-      for (let index = 0; index < this.list.length; index++) {
-        const e = this.list[index];
-        if (e.name == name) {
-          this.list.splice(index, 1);
-        }
+
+<script>
+  // 插件注册队列：utils.js 尚未就绪时先缓存注册请求，就绪后统一补跑，
+  // 保证解析期注册的插件不因加载时序丢失。
+  window.stellar = window.stellar || {};
+  window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+  window.stellar.initPlugin = function (fn, name, options) {
+    if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+      return utils.initPlugin(fn, name, options);
+    }
+    window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+  };
+  window.stellar._flushPlugins = function () {
+    var pending = window.stellar._pluginQueue.splice(0);
+    if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+    for (var i = 0; i < pending.length; i++) {
+      try {
+        utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+      } catch (e) {
+        console.error('[Stellar] 插件补注册失败:', e);
       }
     }
-    // 构造一个可以run的对象
-    function Item(fn, name) {
-      // 函数名称
-      this.name = name || fn.name;
-      // run方法
-      this.run = () => {
-        try {
-          fn()
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    }
-  }
-
-  const utils = {
-    // 懒加载 css https://github.com/filamentgroup/loadCSS
-    css: (href, before, media, attributes) => {
-      var doc = window.document;
-      var ss = doc.createElement("link");
-      var ref;
-      if (before) {
-        ref = before;
-      } else {
-        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-        ref = refs[refs.length - 1];
-      }
-      var sheets = doc.styleSheets;
-      if (attributes) {
-        for (var attributeName in attributes) {
-          if (attributes.hasOwnProperty(attributeName)) {
-            ss.setAttribute(attributeName, attributes[attributeName]);
-          }
-        }
-      }
-      ss.rel = "stylesheet";
-      ss.href = href;
-      ss.media = "only x";
-      function ready(cb) {
-        if (doc.body) {
-          return cb();
-        }
-        setTimeout(function () {
-          ready(cb);
-        });
-      }
-      ready(function () {
-        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
-      });
-      var onloadcssdefined = function (cb) {
-        var resolvedHref = ss.href;
-        var i = sheets.length;
-        while (i--) {
-          if (sheets[i].href === resolvedHref) {
-            return cb();
-          }
-        }
-        setTimeout(function () {
-          onloadcssdefined(cb);
-        });
-      };
-      function loadCB() {
-        if (ss.addEventListener) {
-          ss.removeEventListener("load", loadCB);
-        }
-        ss.media = media || "all";
-      }
-      if (ss.addEventListener) {
-        ss.addEventListener("load", loadCB);
-      }
-      ss.onloadcssdefined = onloadcssdefined;
-      onloadcssdefined(loadCB);
-      return ss;
-    },
-
-    js: (src, opt) => new Promise((resolve, reject) => {
-      var script = document.createElement('script');
-      if (src.startsWith('/')) {
-        src = ctx.root + src.substring(1);
-      }
-      script.src = src;
-      if (opt) {
-        for (let key of Object.keys(opt)) {
-          script[key] = opt[key]
-        }
-      } else {
-        // 默认异步，如果需要同步，第二个参数传入 {} 即可
-        script.async = true
-      }
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function () {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    }),
-
-    jq: (fn) => {
-      if (typeof jQuery === 'undefined') {
-        utils.js(deps.jquery).then(fn)
-      } else {
-        fn()
-      }
-    },
-
-    onLoading: (el) => {
-      if (el) {
-        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
-      }
-    },
-    onLoadSuccess: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap').remove();
-      }
-    },
-    onLoadFailure: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap svg').remove();
-        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
-        $(el).find('.loading-wrap').addClass('error');
-      }
-    },
-    request: (el, url, callback, onFailure) => {
-      const maxRetry = 3;
-      let retryCount = 0;
-
-      return new Promise((resolve, reject) => {
-        const load = () => {
-          utils.onLoading?.(el);
-
-          let timedOut = false;
-          const timeout = setTimeout(() => {
-            timedOut = true;
-            console.warn('[request] 超时:', url);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject('请求超时');
-            } else {
-              setTimeout(load, 1000);
-            }
-          }, 5000);
-
-          fetch(url).then(resp => {
-            if (timedOut) return;
-            clearTimeout(timeout);
-
-            if (!resp.ok) throw new Error('响应失败');
-            return resp;
-          }).then(data => {
-            if (timedOut) return;
-            utils.onLoadSuccess?.(el);
-            callback(data);
-            resolve(data);
-          }).catch(err => {
-            clearTimeout(timeout);
-            console.warn('[request] 错误:', err);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject(err);
-            } else {
-              setTimeout(load, 1000);
-            }
-          });
-        };
-
-        load();
-      });
-    },
-    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
-      return new Promise((resolve, reject) => {
-        let retryCount = 0;
-
-        const tryRequest = () => {
-          let timedOut = false;
-          const timer = setTimeout(() => {
-            timedOut = true;
-            if (++retryCount > maxRetry) reject('timeout');
-            else tryRequest();
-          }, timeout);
-
-          fetch(url, options)
-            .then(resp => {
-              clearTimeout(timer);
-              if (!resp.ok) throw new Error('bad response');
-              resolve(resp);
-            })
-            .catch(err => {
-              clearTimeout(timer);
-              if (++retryCount > maxRetry) reject(err);
-              else setTimeout(tryRequest, 500);
-            });
-        };
-
-        tryRequest();
-      });
-    },
-    /********************** requestAnimationFrame ********************************/
-    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
-    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
-    requestAnimationFrame: (fn) => {
-      if (!window.requestAnimationFrame) {
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
-      }
-      window.requestAnimationFrame(fn)
-    },
-    dark: {},
   };
-
-  // utils.dark.mode 当前模式 dark or light
-  // utils.dark.toggle() 暗黑模式触发器
-  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
-  utils.dark.method = {
-    toggle: new RunItem(),
-  };
-  utils.dark = Object.assign(utils.dark, {
-    push: utils.dark.method.toggle.push,
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof utils === 'object') return;
+    // utils 未就绪时补载；加载成功后由 utils.js 内部补跑插件队列
+    var s = document.createElement('script');
+    // 用 setAttribute 赋值 src，避免被基于 `s.src = "..."` 的正则
+    // （图片懒加载 / 脚本延迟优化器）误改写
+    s.setAttribute('src', '/js/utils.js?v=1.44.0');
+    s.async = false;
+    s.onerror = function () {
+      console.error('[Stellar] 无法加载 /js/utils.js，已启用内容兜底显示（sr-fallback）');
+      document.documentElement.classList.add('sr-fallback');
+    };
+    document.head.appendChild(s);
   });
 </script>
+
+
+<!-- core: utils 必须同步加载（页尾内联插件片段在解析期即调用 utils.initPlugin） -->
+<script src="/js/utils.js?v=1.44.0"></script>
 <script>
-  const sidebar = {
-    leftbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    rightbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('rightbar');
-        l_body.removeAttribute('leftbar');
-      }
-    },
-    dismiss: () => {
-      if (l_body) {
-        l_body.removeAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    toggleTOC: () => {
-      document.querySelector('#data-toc').classList.toggle('collapse');
-    }
+  // 解析期检测 utils 是否已就绪；未就绪时同步补载，
+  // 保证「utils 先于页尾插件片段定义」的不变量。
+  if (typeof utils === 'undefined') {
+    document.write('<script src="/js/utils.js?v=1.44.0"><\/script>');
   }
 </script>
-<script type="text/javascript">
-  (() => {
-    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
-    for (const tagSwitcher of tagSwitchers) {
-      tagSwitcher.addEventListener('click', (e) => {
-        const parent = e.target.closest('.tag-subtree.parent-tag')
-        parent.classList.toggle('expanded')
-        e.preventDefault()
-      })
-    }
+<script defer src="/js/stellar-icons.js?v=1.44.0"></script>
+<!-- 非首屏图标异步加载：占位符替换依赖构建期生成的 js/icons/{ns}.json -->
+<script defer src="/js/icons.js?v=1.44.0" data-version="1.44.0"></script>
+<script defer src="/js/plugins/dropdown.js?v=1.44.0"></script>
+<script src="/js/main.js?v=1.44.0" defer></script>
+<script defer src="/js/theme.js?v=1.44.0"></script>
 
-    // Get active tag from query string, then activate it.
-    const urlParams = new URLSearchParams(window.location.search)
-    const activeTag = urlParams.get('tag')
-    if (activeTag) {
-      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
-      if (tag) {
-        tag.querySelector('a').classList.add('active')
-        
-        while (tag) {
-          tag.classList.add('expanded')
-          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
-        }
-      }
-    }
-  })()
-</script>
 
-<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+  <script>window.__STELLAR_TAGTREE__ = { expand_active: true };</script>
+  <script defer src="/js/tagtree.js?v=1.44.0"></script>
+
+
 <script>
+  // 先声明配置与初始化监听，再异步加载库：
+  // 保证库执行时 lazyLoadOptions 已就绪，避免 async 脚本抢先执行导致自初始化失败
   // https://www.npmjs.com/package/vanilla-lazyload
   // Set the options globally
   // to make LazyLoad self-initialize
@@ -1685,13 +1798,13 @@
     elements_selector: ".lazy",
     callback_loaded: (el) => {
       el.classList.add('loaded');
-      const wrapper = el.closest('.lazy-box');
+      // {% image %} 没有 .lazy-box 包裹，回退到父元素查找加载图标
+      const wrapper = el.closest('.lazy-box') || el.parentElement;
       const icon = wrapper?.querySelector('.lazy-icon');
       if (icon) icon.remove();
     }
   };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
+  // 监听初始化事件，获取 LazyLoad 实例
   window.addEventListener(
     "LazyLoad::Initialized",
     function (event) {
@@ -1703,12 +1816,36 @@
     window.lazyLoadInstance?.update();
   });
 
+  // 兜底：动态插入的 .lazy 元素（如站点自定义脚本在 update() 之后追加的图片）
+  // 不会被 vanilla-lazyload 自动扫描，未注册的 img.lazy 会被 CSS opacity:0 永久隐藏。
+  // MutationObserver 检测到新增 .lazy 元素后自动调用 update() 重新注册。
+  if (window.MutationObserver) {
+    window.lazyMutationObserver = new MutationObserver((mutations) => {
+      if (window.lazyMutationObserver._pending) return;
+      const hasLazy = mutations.some((m) =>
+        Array.prototype.some.call(m.addedNodes, (node) =>
+          node.nodeType === 1 &&
+          (node.matches?.('.lazy') || !!node.querySelector?.('.lazy'))
+        )
+      );
+      if (!hasLazy) return;
+      window.lazyMutationObserver._pending = requestAnimationFrame(() => {
+        window.lazyMutationObserver._pending = null;
+        window.lazyLoadInstance?.update();
+      });
+    });
+    window.lazyMutationObserver.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  }
+
   window.wrapLazyloadImages = (container) => {
     if (typeof container === 'string') {
       container = document.querySelector(container);
     }
     if (!container) return;
-    
+
     const images = container.querySelectorAll('img');
     images.forEach((img) => {
       if (img.classList.contains('lazy')) return;
@@ -1726,9 +1863,6 @@
 
       const icon = document.createElement('div');
       icon.className = 'lazy-icon';
-      if (def.loading) {
-        icon.style.backgroundImage = `url("${def.loading}")`;
-      }
 
       wrapper.appendChild(newImg);
       wrapper.appendChild(icon);
@@ -1741,238 +1875,84 @@
       window.lazyLoadInstance.update();
     }
   }
-  
 </script>
-
-<!-- required -->
-<script src="/js/main.js?v=1.33.1" defer></script>
-
-<script type="text/javascript">
-  const applyTheme = (theme) => {
-    if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme')
-    } else {
-      document.documentElement.setAttribute('data-theme', theme)
-    }
-
-    // applyThemeToGiscus(theme)
-  }
-
-  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
-  const applyThemeToGiscus = (theme) => {
-    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
-    const cmt = document.getElementById('giscus')
-    if (cmt) {
-      // This works before giscus load.
-      cmt.setAttribute('data-theme', theme)
-    }
-
-    const iframe = document.querySelector('#comments > section.giscus > iframe')
-    if (iframe) {
-      // This works after giscus loaded.
-      const src = iframe.src
-      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
-      iframe.src = newSrc
-    }
-  }
-
-  const switchTheme = () => {
-    // light -> dark -> auto -> light -> ...
-    const currentTheme = document.documentElement.getAttribute('data-theme')
-    let newTheme;
-    switch (currentTheme) {
-      case 'light':
-        newTheme = 'dark'
-        break
-      case 'dark':
-        newTheme = 'auto'
-        break
-      default:
-        newTheme = 'light'
-    }
-    applyTheme(newTheme)
-    window.localStorage.setItem('Stellar.theme', newTheme)
-    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
-    utils.dark.method.toggle.start();
-
-    const messages = {
-      light: `切换到浅色模式`,
-      dark: `切换到深色模式`,
-      auto: `切换到跟随系统配色`,
-    }
-    hud?.toast?.(messages[newTheme])
-  }
-
-  (() => {
-    // Apply user's preferred theme, if any.
-    const theme = window.localStorage.getItem('Stellar.theme')
-    if (theme !== null) {
-      applyTheme(theme)
-    } else {
-      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    utils.dark.method.toggle.start();
-  })()
-</script>
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
 
 
 <!-- optional -->
 
   <script type="module">
-  const el = document.querySelector('#comments #giscus');
-  util.viewportLazyload(el, load_discus, false);
-
-  function load_discus() {
-    if (!el) return;
-    try {
-        el.innerHTML = '';
-      } catch (error) {
-        console.error(error);
+  (function() {
+    
+    function initGiscus() {
+      const el = document.querySelector('#comments #giscus');
+      if (!el) return;
+      
+      function load_giscus() {
+        try {
+          el.innerHTML = '';
+        } catch (error) {
+          console.error(error);
+        }
+        const script = document.createElement('script');
+        script.async = true;
+        for (const key of Object.keys(el.attributes)) {
+          const attr = el.attributes[key];
+          if (['class', 'id'].includes(attr.name) === false) {
+            script.setAttribute(attr.name, attr.value);
+          }
+        }
+        el.appendChild(script);
       }
-      const script = document.createElement('script');
-      script.async = true;
-      for (const key of Object.keys(el.attributes)) {
-        const attr = el.attributes[key];
-        if (['class', 'id'].includes(attr.name) === false) {
-          script.setAttribute(attr.name, attr.value);
+      
+      util.viewportLazyload(el, load_giscus);
+    }
+    
+    // Initialize on page load
+    initGiscus();
+  })();
+</script>
+
+
+
+
+<script defer src="/js/services.js?v=1.44.0"></script>
+<script>
+  // 防御：bootstrap 被第三方优化器改写/移除导致 window.stellar.initPlugin 缺失时，
+  // 在此补一个等价注册点：utils 就绪时直接委托，未就绪时入队，utils 加载后自动补跑。
+  if (typeof window.stellar === 'undefined' || typeof window.stellar.initPlugin !== 'function') {
+    window.stellar = window.stellar || {};
+    window.stellar._pluginQueue = window.stellar._pluginQueue || [];
+    window.stellar.initPlugin = function (fn, name, options) {
+      if (typeof utils === 'object' && typeof utils.initPlugin === 'function') {
+        return utils.initPlugin(fn, name, options);
+      }
+      window.stellar._pluginQueue.push({ fn: fn, name: name, options: options || {} });
+    };
+    window.stellar._flushPlugins = function () {
+      var pending = window.stellar._pluginQueue.splice(0);
+      if (typeof utils !== 'object' || typeof utils.initPlugin !== 'function') return;
+      for (var i = 0; i < pending.length; i++) {
+        try {
+          utils.initPlugin(pending[i].fn, pending[i].name, pending[i].options);
+        } catch (e) {
+          console.error('[Stellar] 插件补注册失败:', e);
         }
       }
-      el.appendChild(script);
+    };
   }
 </script>
 
-
-
-
-<script defer>
+<script>window.addEventListener('DOMContentLoaded', function () { utils.js('/js/search/shortcut.js', { defer: true }); });</script><script>
   window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
-    for (let id of Object.keys(ctx.services)) {
-      const js = ctx.services[id].js;
-      if (id == 'siteinfo') {
-        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
-        if (ctx.cardlinks?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            setCardLink(ctx.cardlinks);
-          });
-        }
-      } else if (id == 'voice') {
-        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
-        if (ctx.voiceAudios?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            createVoiceDom(ctx.voiceAudios);
-          });
-        }
-      } else if (id == 'video') {
-        ctx.videos = document.querySelectorAll('.video>video');
-        if (ctx.videos?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            videoEvents(ctx.videos);
-          });
-        }
-      } else if (id == 'download-file') {
-        ctx.files = document.querySelectorAll('.file');
-        if (ctx.files?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            downloadFileEvent(ctx.files);
-          });
-        }
-      } else {
-        const els = document.getElementsByClassName(`ds-${id}`);
-        if (els?.length > 0) {
-          utils.jq(() => {
-            if (id == 'timeline' || 'memos' || 'marked') {
-              utils.js(deps.marked).then(function () {
-                utils.js(js, { defer: true });
-              });
-            } else {
-              utils.js(js, { defer: true });
-            }
-          });
-        }
-      }
-    }
-
-    // chat iphone time
-    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
-
-    if (phoneTimes.length > 0) {
-      NowTime();
-      var date = new Date();
-      var sec = date.getSeconds();
-      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
-    }
-
-    function firstAdjustTime() {
-      NowTime();
-      clearInterval(firstAdjustInterval);
-      setInterval(NowTime, 1000 * 60);
-    }
-
-    function NowTime() {
-      for (let i = 0; i < phoneTimes.length; ++i) {
-        var timeSpan = phoneTimes[i];
-        var date = new Date();
-        var hour = date.getHours();
-        var min = date.getMinutes();
-        timeSpan.innerHTML = check(hour) + ":" + check(min);
-      }
-    };
-
-    function check(val) {
-      if (val < 10) {
-        return ("0" + val);
-      }
-      return (val);
-    }
-
-    // chat quote
-    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
-      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
-          observer.unobserve(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add('quote-blink');
-            setTimeout(() => {
-              entry.target.classList.remove('quote-blink');
-            }, 1000);
-          }, Math.max(100, 16) * (index + 1));
-        });
-    });
-
-    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
-    chatQuotes.forEach((quote) => {
-      quote.addEventListener('click', function () {
-        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
-        if (chatCellDom) {
-          var chatDiv = chatCellDom.parentElement;
-          var mid = chatDiv.clientHeight / 2;
-          var offsetTop = chatCellDom.offsetTop;
-          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
-            chatDiv.scrollTo({
-              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
-              behavior: "smooth"
-            });
-          } else {
-            chatDiv.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
-          }
-          chat_quote_obverser.observe(chatCellDom);
-        }
-      });
-    });
-  });
-</script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.search = {
+    ctx.search = Object.assign({}, ctx.search, {
       path: `/search.json`,
-    }
+      local_search: {"field":"all","path":"/search.json","content":true,"lazy_load":true,"cache_ttl":86400,"skip_search":null,"sort":"-date"},
+    });
     utils.js('/js/search/local-search.js', { defer: true });
   });
-</script><script>
+</script>
+<script>
   window.FPConfig = {
     delay: 0,
     ignoreKeywords: [],
@@ -1982,28 +1962,45 @@
 </script>
 <script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
   ctx.fancybox = {
+    mode: `auto`,
     selector: `.md-text img[alt]:not([alt="icon"]):not([alt="cover"])`,
     css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
     js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
   };
-  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  // auto=按需：页面存在可弹窗图片才加载；global=全局：所有页面加载
+  const isGlobal = ctx.fancybox.mode === 'global';
+  // 评论区图片（artalk/twikoo/waline）显示较小，自动支持放大；
+  // 仅绑定各评论服务的评论内容区，编辑器、表情面板等非内容区图片不弹窗
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .tk-content img:not([atk-emoticon]):not([class*="emo"]), .with-fancybox .wl-content img:not([atk-emoticon]):not([class*="emo"])';
   if (ctx.fancybox.selector) {
     selector += `, ${ctx.fancybox.selector}`
   }
-  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  var needFancybox = isGlobal;
   if (!needFancybox) {
-    const memos = document.getElementsByClassName('ds-memos');
-    if (memos != undefined && memos.length > 0) {
-      needFancybox = true;
+    needFancybox = document.querySelectorAll(selector).length !== 0;
+    if (!needFancybox) {
+      // 图片型评论系统容器：评论区图片小图需要 fancybox
+      const withFancybox = document.getElementsByClassName('with-fancybox');
+      if (withFancybox != undefined && withFancybox.length > 0) {
+        needFancybox = true;
+      }
     }
-    const fancybox = document.getElementsByClassName('with-fancybox');
-    if (fancybox != undefined && fancybox.length > 0) {
-      needFancybox = true;
+    if (!needFancybox) {
+      // 动态数据服务：memos 渲染的图片需要 fancybox
+      const memos = document.getElementsByClassName('ds-memos');
+      if (memos != undefined && memos.length > 0) {
+        needFancybox = true;
+      }
     }
   }
   if (needFancybox) {
+    utils.css(`/css/plugins/fancybox.css?v=1.44.0`);
     utils.css(ctx.fancybox.css);
     utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      if (isGlobal) {
+        // 全局模式：正文所有非内联图片均可弹窗
+        selector += ', .md-text img:not(.inline):not([atk-emoticon])';
+      }
       Fancybox.bind(selector, {
         hideScrollbar: false,
         Thumbs: {
@@ -2017,9 +2014,10 @@
   }
 </script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
+  stellar.initPlugin(() => {
     const swiper_api = document.getElementById('swiper-api');
     if (swiper_api != undefined) {
+      utils.css(`/css/plugins/swiper.css?v=1.44.0`);
       utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
       utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
         const effect = swiper_api.getAttribute('effect') || '';
@@ -2040,50 +2038,71 @@
         });
       })
     }
-  });
+  }, 'swiper');
 </script>
 <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
 <script defer type="text/javascript" src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    var mermaid_config = {
-      startOnLoad: true,
-      theme:
-        "auto" == "auto" &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "neutral",
-      logLevel: 3,
-      themeVariables: {
-        darkMode: true
-      },
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true,
-        curve: "linear"
-      },
-      gantt: {
-        axisFormat: "%Y/%m/%d"
-      },
-      sequence: {
-        actorMargin: 50
+  stellar.initPlugin(() => {
+    const els = document.querySelectorAll('.mermaid');
+    if (els.length > 0) {
+      if (false) {
+        utils.css(`/css/plugins/mermaid.css?v=1.44.0`);
       }
+      const mermaid_config = {
+        startOnLoad: false,
+        theme:
+          "auto" == "auto" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "neutral",
+        logLevel: 3,
+        flowchart: {
+          useMaxWidth: false,
+          htmlLabels: true,
+          curve: "linear"
+        },
+        gantt: {
+          axisFormat: "%Y/%m/%d"
+        },
+        sequence: {
+          actorMargin: 50
+        }
+      }
+      mermaid.initialize(mermaid_config);
+      mermaid.run();
     }
-    mermaid.initialize(mermaid_config);
-  });
-</script><script>
-  document.addEventListener('DOMContentLoaded', function () {
-    window.codeElements = document.querySelectorAll('.code');
-    if (window.codeElements.length > 0) {
+  }, 'mermaid');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const codeElements = document.querySelectorAll('.code');
+    if (codeElements.length > 0) {
       ctx.copycode = {
         default_text: `Copy`,
         success_text: `Copied`,
         toast: `复制成功`,
       };
-      utils.js('/js/plugins/copycode.js');
+      utils.js('/js/plugins/copycode.js', { defer: true }).then(() => {
+        if (typeof createCopyButtons === 'function') {
+          createCopyButtons(codeElements);
+        }
+      });
     }
-  });
-</script><!-- Baidu Tongji -->
+  }, 'copycode');
+</script>
+<script>
+  stellar.initPlugin(() => {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-text-adaptive]'));
+    if (els.length === 0) return;
+    utils.js('/js/color.js').then(() => utils.js('/js/plugins/adaptive-text.js')).then(() => {
+      if (typeof applyAdaptiveText === 'function') {
+        applyAdaptiveText(els);
+      }
+    });
+  }, 'adaptive-text');
+</script>
+<!-- Baidu Tongji -->
 <script>
 var _hmt = _hmt || [];
 (function() {
