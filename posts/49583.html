@@ -40,7 +40,7 @@
 <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Hi3863 LiteOS OTA 如何实现">
   
   
-  <meta name="keywords" content="嵌入式,LiteOS,OpenHarmony,OTA,WS63,物联网,固件升级,UPG">
+  <meta name="keywords" content="嵌入式,物联网,LiteOS,OpenHarmony,OTA,WS63,固件升级,UPG">
 
   <!-- feed -->
   
@@ -63,7 +63,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-05-19T00:00:00+08:00","dateModified":"2026-05-19T00:00:00+08:00","datePublished":"2026-05-19T00:00:00+08:00","description":"0. LiteOS OTA 实现方式概述在 LiteOS 生态中，常见的 OTA 实现方式主要有以下三种：\n\n\n\n方式\n适用场景\n核心机制\n\n\n\n① UPG 模块模式\n轻量级 MCU/SoC（如 WS63）\n芯片厂商封装 UPG 接口，应用层直接调用 API 写入 Flash，由 Bootloader 完成分区切换\n\n\n② IoT Link SDK 模式\n物联网设备（NB-IoT 等）\n基于...","headline":"Hi3863 LiteOS OTA 如何实现","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/49583"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/49583","keywords":"嵌入式, LiteOS, OpenHarmony, OTA, WS63, 物联网, 固件升级, UPG","thumbnailUrl":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==","image":["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg=="]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-05-19T00:00:00+08:00","dateModified":"2026-05-19T00:00:00+08:00","datePublished":"2026-05-19T00:00:00+08:00","description":"0. LiteOS OTA 实现方式概述在 LiteOS 生态中，常见的 OTA 实现方式主要有以下三种：\n\n\n\n方式\n适用场景\n核心机制\n\n\n\n① UPG 模块模式\n轻量级 MCU/SoC（如 WS63）\n芯片厂商封装 UPG 接口，应用层直接调用 API 写入 Flash，由 Bootloader 完成分区切换\n\n\n② IoT Link SDK 模式\n物联网设备（NB-IoT 等）\n基于...","headline":"Hi3863 LiteOS OTA 如何实现","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/49583"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/49583","keywords":"嵌入式, 物联网, LiteOS, OpenHarmony, OTA, WS63, 固件升级, UPG","thumbnailUrl":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==","image":["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg=="]}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8">
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
@@ -353,13 +353,13 @@
 
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/25562/" title="3D打印保姆级入坑指南：选机、耗材与避坑完全手册">
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/25562/" title="3D打印入门指南">
   
   
   
     <span class="ui-collection__content">
       
-      <span class="ui-collection__title">3D打印保姆级入坑指南：选机、耗材与避坑完全手册</span>
+      <span class="ui-collection__title">3D打印入门指南</span>
       
       
     </span>
@@ -816,7 +816,7 @@
 <script src="/js/markmap.js"></script>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>嵌入式</a><a class="tag" href="/tags/LiteOS/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>LiteOS</a><a class="tag" href="/tags/OpenHarmony/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>OpenHarmony</a><a class="tag" href="/tags/OTA/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>OTA</a><a class="tag" href="/tags/WS63/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>WS63</a><a class="tag" href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>物联网</a><a class="tag" href="/tags/%E5%9B%BA%E4%BB%B6%E5%8D%87%E7%BA%A7/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>固件升级</a><a class="tag" href="/tags/UPG/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>UPG</a></div>
+<div class="article-tags"><a class="tag" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>嵌入式</a><a class="tag" href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>物联网</a><a class="tag" href="/tags/LiteOS/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>LiteOS</a><a class="tag" href="/tags/OpenHarmony/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>OpenHarmony</a><a class="tag" href="/tags/OTA/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>OTA</a><a class="tag" href="/tags/WS63/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>WS63</a><a class="tag" href="/tags/%E5%9B%BA%E4%BB%B6%E5%8D%87%E7%BA%A7/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>固件升级</a><a class="tag" href="/tags/UPG/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>UPG</a></div>
 
 <div class="article-footer">
     <section id="license">
