@@ -64,7 +64,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-05-19T00:00:00+08:00","dateModified":"2026-05-19T00:00:00+08:00","datePublished":"2026-05-19T00:00:00+08:00","description":"0. LiteOS OTA 实现方式概述在 LiteOS 生态中，常见的 OTA 实现方式主要有以下三种：\n\n\n\n方式\n适用场景\n核心机制\n\n\n\n① UPG 模块模式\n轻量级 MCU/SoC（如 WS63）\n芯片厂商封装 UPG 接口，应用层直接调用 API 写入 Flash，由 Bootloader 完成分区切换\n\n\n② IoT Link SDK 模式\n物联网设备（NB-IoT 等）\n基于...","headline":"Hi3863 LiteOS OTA 如何实现","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/49583"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/49583","keywords":"嵌入式, 物联网, LiteOS, OpenHarmony, OTA, WS63, 固件升级, UPG","thumbnailUrl":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==","image":["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg=="]}</script>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8"><link rel="stylesheet" href="/css/custom.css">
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
   
@@ -189,6 +189,24 @@
     </div>
   
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/43921/" title="解决 VS Code 开发 OpenHarmony 代码跳转慢的问题">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">解决 VS Code 开发 OpenHarmony 代码跳转慢的问题</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
   
     
 <a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/37648/" title="一个信息追踪 Python 脚本">
@@ -352,24 +370,6 @@
 </a>
 
   
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/25562/" title="3D打印入门指南">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">3D打印入门指南</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
 </div></div>
   
 </widget>
@@ -447,7 +447,7 @@
 <h3 id="UPG-内部工作流程"><a href="#UPG-内部工作流程" class="headerlink" title="UPG 内部工作流程"></a>UPG 内部工作流程</h3><p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/a7d99933a2b91c869de4f5d1cbe99a99.webp" alt="UPG 内部工作流程"></p>
 <h3 id="UPG-内部-Flash-分区与数据流向"><a href="#UPG-内部-Flash-分区与数据流向" class="headerlink" title="UPG 内部 Flash 分区与数据流向"></a>UPG 内部 Flash 分区与数据流向</h3><p>WS63 采用 <strong>AB 双分区</strong> 方案，Flash 整体布局如下图所示（总大小4MB）：</p>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/69a3505f36c1e652917121355f496d3f.webp" alt="WS63 整体 Flash 物理分区表"></p>
-<p>上图中与 UPG 相关的区域划分定义在 <a href="build/config/target_config/ws63/param_sector/param_sector.json"><code>build/config/target_config/ws63/param_sector/param_sector.json</code></a> 中，分区 ID 枚举见 <a href="middleware/chips/ws63/partition/include/partition_resource_id.h"><code>middleware/chips/ws63/partition/include/partition_resource_id.h</code></a>：</p>
+<p>上图中与 UPG 相关的区域划分定义在<br><a href="build/config/target_config/ws63/param_sector/param_sector.json"><code>build/config/target_config/ws63/param_sector/param_sector.json</code></a><br>中，分区 ID 枚举见<br><a href="middleware/chips/ws63/partition/include/partition_resource_id.h"><code>middleware/chips/ws63/partition/include/partition_resource_id.h</code></a>：</p>
 <div class="md-table-scroll"><table>
 <thead>
 <tr>
@@ -471,7 +471,7 @@
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/05/b14e26d1274abc50bc03806b1c4fcccd.webp" alt="物理分区与 A_B 逻辑分区映射关系"></p>
 <p>物理上的 imageA (2.25M)+ fota data (1.5M)被从中问强行切分，变成了等大的两个1.93MB 区域，这也解释了为什么 fota_data 不仅仅是暂存区，它的前半部分其实是 B 区代码的运行空间。</p>
 <p><strong>下载阶段（App 中）的数据流向：</strong></p>
-<p>应用层调用 UPG 存储层接口（实现在 <a href="middleware/utils/update/storage/upg_storage.c"><code>middleware/utils/update/storage/upg_storage.c</code></a>），将网络接收到的固件写入 Flash：</p>
+<p>应用层调用 UPG 存储层接口（实现在<br> <a href="middleware/utils/update/storage/upg_storage.c"><code>middleware/utils/update/storage/upg_storage.c</code></a><br> ），将网络接收到的固件写入 Flash：</p>
 <ol>
 <li><code>uapi_upg_prepare()</code> —— 擦除 <code>PARTITION_FOTA_DATA</code> 分区，并在升级标记区写入 <code>head_magic</code> 和 <code>package_length</code></li>
 <li><code>uapi_upg_write_package_sync()</code> —— 将网络接收到的固件数据按 offset 顺序写入 <strong>FOTA 区起始地址 + offset</strong>。实际的 Flash 读写由 <a href="middleware/chips/ws63/update/common/upg_common_porting.c"><code>middleware/chips/ws63/update/common/upg_common_porting.c</code></a> 中的 <code>upg_flash_write()</code> 完成</li>
@@ -479,7 +479,7 @@
 <li><code>uapi_upg_request_upgrade(true)</code> —— 在升级标记区写入 <code>head_end_magic</code> 和 <code>firmware_num</code>，标记”升级包已就绪”，然后<strong>重启</strong></li>
 </ol>
 <p><strong>升级阶段（Bootloader 中）的数据流向：</strong></p>
-<p>Bootloader 启动后（入口在 <a href="bootloader/flashboot_ws63/startup/main.c"><code>bootloader/flashboot_ws63/startup/main.c</code></a> 的 <code>start_fastboot()</code>），调用 <code>ws63_upg_check()</code> 检测升级标记。若标记完整，自动调用 <code>uapi_upg_start()</code>（实现在 <a href="middleware/utils/update/local_update/upg_process.c"><code>middleware/utils/update/local_update/upg_process.c</code></a>）：</p>
+<p>Bootloader 启动后（入口在<br><a href="bootloader/flashboot_ws63/startup/main.c"><code>bootloader/flashboot_ws63/startup/main.c</code></a><br>的 <code>start_fastboot()</code>），调用 <code>ws63_upg_check()</code> 检测升级标记。若标记完整，自动调用 <code>uapi_upg_start()</code>（实现在 <a href="middleware/utils/update/local_update/upg_process.c"><code>middleware/utils/update/local_update/upg_process.c</code></a>）：</p>
 <ol>
 <li>从 <strong>FOTA 暂存区</strong> 读取升级包，逐个镜像处理（<code>upg_process_update()</code> → <code>upg_perform_image_task()</code>）</li>
 <li>对于全镜像升级，调用 <a href="middleware/utils/update/local_update/upg_upgrade.c"><code>middleware/utils/update/local_update/upg_upgrade.c</code></a> 中的 <code>uapi_upg_full_image_update()</code>，将 FOTA 区的数据读出，写入<strong>目标镜像分区</strong>（B 区或对应分区）</li>
@@ -567,10 +567,10 @@
 <li><strong>实现文件</strong>：<code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.c</code></li>
 <li><strong>主程序初始化</strong>：<code>application/samples/peripheral/smart_car/apps/robot_demo/core/robot_mgr.c</code></li>
 </ul>
-<h3 id="3-1-OTA-服务接口定义"><a href="#3-1-OTA-服务接口定义" class="headerlink" title="3.1 OTA 服务接口定义"></a>3.1 OTA 服务接口定义</h3><p><strong>文件位置</strong>：<a href="application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.h"> <code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.h</code> </a></p>
+<h3 id="3-1-OTA-服务接口定义"><a href="#3-1-OTA-服务接口定义" class="headerlink" title="3.1 OTA 服务接口定义"></a>3.1 OTA 服务接口定义</h3><p><strong>文件位置</strong>：<br><a href="application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.h"> <code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.h</code> </a></p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> OTA_SERVICE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_SERVICE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_TCP_PORT        8890</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_RECV_CHUNK_SIZE 4096</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_TCP_STACK_SIZE  16384</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_TCP_TASK_PRIORITY 23</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_MAGIC_LEN       4</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_MAGIC_STR       <span class="string">"OTAx"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">enum</span> {</span></span><br><span class="line">    OTA_STATE_IDLE,       <span class="comment">// 空闲</span></span><br><span class="line">    OTA_STATE_WAITING,    <span class="comment">// TCP 监听中</span></span><br><span class="line">    OTA_STATE_RECEIVING,  <span class="comment">// 接收数据中</span></span><br><span class="line">    OTA_STATE_VERIFYING,  <span class="comment">// UPG 校验中</span></span><br><span class="line">    OTA_STATE_UPGRADING,  <span class="comment">// 已请求升级，即将重启</span></span><br><span class="line">    OTA_STATE_FAILED      <span class="comment">// 失败</span></span><br><span class="line">} <span class="type">ota_state_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">    <span class="type">ota_state_t</span> state;</span><br><span class="line">    <span class="type">uint8_t</span>     progress_percent;</span><br><span class="line">    <span class="type">uint32_t</span>    received_size;</span><br><span class="line">    <span class="type">uint32_t</span>    total_size;</span><br><span class="line">} <span class="type">ota_status_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ota_service_init</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">bool</span> <span class="title function_">ota_service_start</span><span class="params">(<span class="type">uint32_t</span> expected_size)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">ota_service_cancel</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">bool</span> <span class="title function_">ota_service_is_active</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">ota_service_get_status</span><span class="params">(<span class="type">ota_status_t</span> *out)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">/* OTA_SERVICE_H */</span></span></span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="3-2-OTA-服务核心实现"><a href="#3-2-OTA-服务核心实现" class="headerlink" title="3.2 OTA 服务核心实现"></a>3.2 OTA 服务核心实现</h3><p><strong>文件位置</strong>：<a href="application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.c"> <code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.c</code> </a></p>
+<h3 id="3-2-OTA-服务核心实现"><a href="#3-2-OTA-服务核心实现" class="headerlink" title="3.2 OTA 服务核心实现"></a>3.2 OTA 服务核心实现</h3><p><strong>文件位置</strong>：<br><a href="application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.c"> <code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.c</code> </a></p>
 <p>核心逻辑分为 7 个阶段：</p>
 <h4 id="阶段-A：UPG-初始化"><a href="#阶段-A：UPG-初始化" class="headerlink" title="阶段 A：UPG 初始化"></a>阶段 A：UPG 初始化</h4><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">ota_service_init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">upg_func_t</span> s_upg_funcs = {</span><br><span class="line">        .<span class="built_in">malloc</span> = fota_upg_malloc,      <span class="comment">// osal_kmalloc</span></span><br><span class="line">        .<span class="built_in">free</span>   = fota_upg_free,        <span class="comment">// osal_kfree</span></span><br><span class="line">        .serial_putc = fota_upg_serial_putc  <span class="comment">// uapi_uart_write</span></span><br><span class="line">    };</span><br><span class="line">    uapi_upg_init(&amp;s_upg_funcs);</span><br><span class="line">    uapi_upg_reset_upgrade_flag();  <span class="comment">// 清除残留升级标志</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
@@ -587,7 +587,7 @@
 
 <h4 id="阶段-G：请求升级并重启"><a href="#阶段-G：请求升级并重启" class="headerlink" title="阶段 G：请求升级并重启"></a>阶段 G：请求升级并重启</h4><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ret = uapi_upg_request_upgrade(<span class="literal">true</span>);  <span class="comment">// true = 立即重启</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="3-3-主程序初始化"><a href="#3-3-主程序初始化" class="headerlink" title="3.3 主程序初始化"></a>3.3 主程序初始化</h3><p><strong>文件位置</strong>：<a href="application/samples/peripheral/smart_car/apps/robot_demo/core/robot_mgr.c"> <code>application/samples/peripheral/smart_car/apps/robot_demo/core/robot_mgr.c</code> </a></p>
+<h3 id="3-3-主程序初始化"><a href="#3-3-主程序初始化" class="headerlink" title="3.3 主程序初始化"></a>3.3 主程序初始化</h3><p><strong>文件位置</strong>：<br><a href="application/samples/peripheral/smart_car/apps/robot_demo/core/robot_mgr.c"> <code>application/samples/peripheral/smart_car/apps/robot_demo/core/robot_mgr.c</code> </a></p>
 <p>在 <code>robot_mgr_init()</code> 中 <code>udp_service_init()</code> 之后添加：</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"../services/ota_service.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">robot_mgr_init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="comment">/* ... 其他初始化 ... */</span></span><br><span class="line">    udp_service_init();</span><br><span class="line">    ota_service_init();  <span class="comment">// &lt;-- OTA 服务初始化</span></span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
