@@ -8,7 +8,7 @@
   
   <meta name="generator" content="Hexo 8.1.2">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://npm.elemecdn.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -26,11 +26,13 @@
 <meta property="og:site_name" content="Sky Blog">
 <meta property="og:description" content="详细介绍在LVGL中显示图像和使用自定义字体的两种主流方法：针对有限资源的C数组转换方式，以及利用文件系统和FreeType库实现动态加载的灵活方案。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.skyforever.top/blog/2025/10/c2b6fbd214cd437e4b0f642614f2b7f4.webp">
 <meta property="article:published_time" content="2025-09-17T04:00:00.000Z">
 <meta property="article:modified_time" content="2025-09-17T04:00:00.000Z">
 <meta property="article:author" content="Skyforever">
 <meta property="article:tag" content="图形界面开发&#x2F;LVGL&#x2F;多媒体">
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="LVGL 图像与字体使用笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.skyforever.top/blog/2025/10/c2b6fbd214cd437e4b0f642614f2b7f4.webp"><meta name="twitter:title" content="LVGL 图像与字体使用笔记">
   
   
   <meta name="keywords" content="LVGL, 图像, 字体, FreeType, 中文显示, 图片转换, SJPG, TTF, 嵌入式GUI, 交叉编译">
@@ -88,9 +90,10 @@
 <div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/" title="博客" style="--item-grad:url(#menu-grad-post);">
+<a class="ui-collection__item card-hover card-hover--spotlight is-themed" href="/" title="博客" style="--item-theme:#1BCDFC;--item-grad:url(#menu-grad-post);">
   
-  
+  <span class="ui-collection__leading"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146-.707-2.121-.803z" opacity=".5"/></svg>
+</span>
   
     <span class="ui-collection__content">
       
@@ -108,9 +111,10 @@
 
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/" title="项目" style="--item-grad:url(#menu-grad-wiki);">
+<a class="ui-collection__item card-hover card-hover--spotlight is-themed" href="/wiki/" title="项目" style="--item-theme:#3DC550;--item-grad:url(#menu-grad-wiki);">
   
-  
+  <span class="ui-collection__leading"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" d="M8.422 20.618C10.178 21.54 11.056 22 12 22V12L2.638 7.073l-.04.067C2 8.154 2 9.417 2 11.942v.117c0 2.524 0 3.787.597 4.801c.598 1.015 1.674 1.58 3.825 2.709z"/><path fill="currentColor" d="m17.577 4.432l-2-1.05C13.822 2.461 12.944 2 12 2c-.945 0-1.822.46-3.578 1.382l-2 1.05C4.318 5.536 3.242 6.1 2.638 7.072L12 12l9.362-4.927c-.606-.973-1.68-1.537-3.785-2.641" opacity=".7"/><path fill="currentColor" d="m21.403 7.14l-.041-.067L12 12v10c.944 0 1.822-.46 3.578-1.382l2-1.05c2.151-1.129 3.227-1.693 3.825-2.708c.597-1.014.597-2.277.597-4.8v-.117c0-2.525 0-3.788-.597-4.802" opacity=".5"/></svg>
+</span>
   
     <span class="ui-collection__content">
       
@@ -128,9 +132,10 @@
 
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/notebooks/" title="笔记" style="--item-grad:url(#menu-grad-notebooks);">
+<a class="ui-collection__item card-hover card-hover--spotlight is-themed" href="/notebooks/" title="笔记" style="--item-theme:#FA6400;--item-grad:url(#menu-grad-notebooks);">
   
-  
+  <span class="ui-collection__leading"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 6a3.5 3.5 0 0 1 3.5-3.5h10A3.5 3.5 0 0 1 20.5 6v12a3.5 3.5 0 0 1-3.5 3.5H7A3.5 3.5 0 0 1 3.5 18z" opacity=".5"/><path fill="currentColor" d="M8 8.25a.75.75 0 0 1 .75-.75h6.5a.75.75 0 0 1 0 1.5h-6.5A.75.75 0 0 1 8 8.25m0 4a.75.75 0 0 1 .75-.75h6.5a.75.75 0 0 1 0 1.5h-6.5A.75.75 0 0 1 8 12.25m0 4a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75M3.5 6c0-.828.672-1.5 1.5-1.5h1v15H5c-.828 0-1.5-.672-1.5-1.5z"/></svg>
+</span>
   
     <span class="ui-collection__content">
       
@@ -148,9 +153,10 @@
 
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/friends/" title="社交" style="--item-grad:url(#menu-grad-social);">
+<a class="ui-collection__item card-hover card-hover--spotlight is-themed" href="/friends/" title="社交" style="--item-theme:#F44336;--item-grad:url(#menu-grad-social);">
   
-  
+  <span class="ui-collection__leading"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 7.5a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0"/><path fill="currentColor" d="M19.5 7.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0m-15 0a2.5 2.5 0 1 0 5 0a2.5 2.5 0 0 0-5 0" opacity=".4"/><path fill="currentColor" d="M18 16.5c0 1.933-2.686 3.5-6 3.5s-6-1.567-6-3.5S8.686 13 12 13s6 1.567 6 3.5"/><path fill="currentColor" d="M22 16.5c0 1.38-1.79 2.5-4 2.5s-4-1.12-4-2.5s1.79-2.5 4-2.5s4 1.12 4 2.5m-20 0C2 17.88 3.79 19 6 19s4-1.12 4-2.5S8.21 14 6 14s-4 1.12-4 2.5" opacity=".4"/></svg>
+</span>
   
     <span class="ui-collection__content">
       
@@ -199,7 +205,7 @@
 </div><div class="tag-subtree is-parent is-expanded" data-tag="图形界面开发">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/" title="图形界面开发">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -215,7 +221,7 @@
 <div class="tag-subtree is-parent is-expanded" data-tag="图形界面开发&#x2F;lvgl">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/lvgl/" title="LVGL" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -231,7 +237,7 @@
 <div class="tag-subtree is-leaf is-expanded" data-tag="图形界面开发&#x2F;lvgl&#x2F;多媒体">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/lvgl/%E5%A4%9A%E5%AA%92%E4%BD%93/" title="多媒体" style="--ui-item-depth:2;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -247,7 +253,7 @@
 </div><div class="tag-subtree is-leaf is-expanded" data-tag="图形界面开发&#x2F;lvgl&#x2F;核心概念">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/lvgl/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" title="核心概念" style="--ui-item-depth:2;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -263,7 +269,7 @@
 </div></div></div><div class="tag-subtree is-parent is-expanded" data-tag="基础">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/" title="基础">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -279,7 +285,7 @@
 <div class="tag-subtree is-leaf is-expanded" data-tag="基础&#x2F;c语言">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/c%E8%AF%AD%E8%A8%80/" title="C语言" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -295,7 +301,7 @@
 </div><div class="tag-subtree is-leaf is-expanded" data-tag="基础&#x2F;linux基础">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/linux%E5%9F%BA%E7%A1%80/" title="Linux基础" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -311,7 +317,7 @@
 </div><div class="tag-subtree is-leaf is-expanded" data-tag="基础&#x2F;库与框架">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E5%BA%93%E4%B8%8E%E6%A1%86%E6%9E%B6/" title="库与框架" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -327,7 +333,7 @@
 </div><div class="tag-subtree is-parent is-expanded" data-tag="基础&#x2F;数据结构与算法">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构与算法" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -343,7 +349,7 @@
 <div class="tag-subtree is-leaf is-expanded" data-tag="基础&#x2F;数据结构与算法&#x2F;内核链表">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%86%85%E6%A0%B8%E9%93%BE%E8%A1%A8/" title="内核链表" style="--ui-item-depth:2;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -359,7 +365,7 @@
 </div></div><div class="tag-subtree is-leaf is-expanded" data-tag="基础&#x2F;文件io">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E5%9F%BA%E7%A1%80/%E6%96%87%E4%BB%B6io/" title="文件IO" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -375,7 +381,7 @@
 </div></div><div class="tag-subtree is-parent is-expanded" data-tag="硬件">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/" title="硬件">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -391,7 +397,7 @@
 <div class="tag-subtree is-leaf is-expanded" data-tag="硬件&#x2F;stm32">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/stm32/" title="STM32" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -407,7 +413,7 @@
 </div><div class="tag-subtree is-leaf is-expanded" data-tag="硬件&#x2F;单片机">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/%E5%8D%95%E7%89%87%E6%9C%BA/" title="单片机" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -423,7 +429,7 @@
 </div><div class="tag-subtree is-leaf is-expanded" data-tag="硬件&#x2F;电子基础">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E7%A1%AC%E4%BB%B6/%E7%94%B5%E5%AD%90%E5%9F%BA%E7%A1%80/" title="电子基础" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -439,7 +445,7 @@
 </div></div><div class="tag-subtree is-leaf is-expanded" data-tag="程序框架">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/" title="程序框架">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -455,7 +461,7 @@
 </div><div class="tag-subtree is-parent is-expanded" data-tag="进阶">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/" title="进阶">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -471,7 +477,7 @@
 <div class="tag-subtree is-parent is-expanded" data-tag="进阶&#x2F;linux并发编程">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="Linux并发编程" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -487,7 +493,7 @@
 <div class="tag-subtree is-leaf is-expanded" data-tag="进阶&#x2F;linux并发编程&#x2F;线程">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B/" title="线程" style="--ui-item-depth:2;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -503,7 +509,7 @@
 </div><div class="tag-subtree is-leaf is-expanded" data-tag="进阶&#x2F;linux并发编程&#x2F;进程">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E8%BF%9B%E7%A8%8B/" title="进程" style="--ui-item-depth:2;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -519,7 +525,7 @@
 </div></div><div class="tag-subtree is-leaf is-expanded" data-tag="进阶&#x2F;linux网络">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/linux%E7%BD%91%E7%BB%9C/" title="Linux网络" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -535,7 +541,7 @@
 </div><div class="tag-subtree is-leaf is-expanded" data-tag="进阶&#x2F;mqtt物联网">
 <a class="ui-collection__item card-hover card-hover--spotlight tag-tree__link" href="/note/ES/tags/%E8%BF%9B%E9%98%B6/mqtt%E7%89%A9%E8%81%94%E7%BD%91/" title="MQTT物联网" style="--ui-item-depth:1;">
   
-  <span class="ui-collection__leading">solar:hashtag-square-bold</span>
+  
   
     <span class="ui-collection__content">
       
@@ -752,7 +758,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" href="https:&#x2F;&#x2F;github.com&#x2F;zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
+<a class="social" href="https:&#x2F;&#x2F;github.com&#x2F;zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><g fill-rule="evenodd" clip-rule="evenodd"><path d="M24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4ZM0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z"/><path d="M19.1833 45.4716C18.9898 45.2219 18.9898 42.9973 19.1833 38.798C17.1114 38.8696 15.8024 38.7258 15.2563 38.3667C14.437 37.828 13.6169 36.1667 12.8891 34.9959C12.1614 33.8251 10.5463 33.64 9.89405 33.3783C9.24182 33.1165 9.07809 32.0496 11.6913 32.8565C14.3044 33.6634 14.4319 35.8607 15.2563 36.3745C16.0806 36.8883 18.0515 36.6635 18.9448 36.2519C19.8382 35.8403 19.7724 34.3078 19.9317 33.7007C20.1331 33.134 19.4233 33.0083 19.4077 33.0037C18.5355 33.0037 13.9539 32.0073 12.6955 27.5706C11.437 23.134 13.0581 20.2341 13.9229 18.9875C14.4995 18.1564 14.4485 16.3852 13.7699 13.6737C16.2335 13.3589 18.1347 14.1343 19.4734 16.0001C19.4747 16.0108 21.2285 14.9572 24.0003 14.9572C26.772 14.9572 27.7553 15.8154 28.5142 16.0001C29.2731 16.1848 29.88 12.7341 34.5668 13.6737C33.5883 15.5969 32.7689 18.0001 33.3943 18.9875C34.0198 19.9749 36.4745 23.1147 34.9666 27.5706C33.9614 30.5413 31.9853 32.3523 29.0384 33.0037C28.7005 33.1115 28.5315 33.2855 28.5315 33.5255C28.5315 33.8856 28.9884 33.9249 29.6465 35.6117C30.0853 36.7362 30.117 39.948 29.7416 45.247C28.7906 45.4891 28.0508 45.6516 27.5221 45.7347C26.5847 45.882 25.5669 45.9646 24.5669 45.9965C23.5669 46.0284 23.2196 46.0248 21.837 45.8961C20.9154 45.8103 20.0308 45.6688 19.1833 45.4716Z"/></g></svg></span></a><a class="social" href="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1654800754" target="_blank" rel="external nofollow noopener noreferrer"><span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M10.422 11.375c-.294 1.028.012 2.065.784 2.653c1.061.81 2.565.3 2.874-.995c.08-.337.103-.722.027-1.056c-.23-1.001-.521-1.988-.792-2.996c-1.33.154-2.543 1.172-2.893 2.394m5.548-.287c.273 1.012.285 2.017-.127 3c-1.128 2.69-4.722 3.14-6.573.826c-1.302-1.627-1.28-3.961.06-5.734c.78-1.032 1.804-1.707 3.048-2.054l.379-.104c-.084-.415-.188-.816-.243-1.224c-.176-1.317.512-2.503 1.744-3.04c1.226-.535 2.708-.216 3.53.76c.406.479.395 1.08-.025 1.464c-.412.377-.997.346-1.435-.09c-.247-.246-.51-.44-.877-.436c-.525.006-.987.418-.945.937c.037.468.172.93.3 1.386c.022.078.216.135.338.153c1.333.197 2.504.731 3.472 1.676c2.558 2.493 2.861 6.531.672 9.44c-1.529 2.032-3.61 3.169-6.127 3.409c-4.621.44-8.664-2.53-9.7-7.058C2.516 10.255 4.84 5.831 8.796 4.25c.586-.234 1.143-.031 1.371.498c.232.537-.019 1.086-.61 1.35c-2.368 1.06-3.817 2.855-4.215 5.424c-.533 3.433 1.656 6.776 5 7.72c2.723.77 5.658-.166 7.308-2.33c1.586-2.08 1.4-5.099-.427-6.873A4 4 0 0 0 15.4 9.026c.198.716.389 1.388.57 2.062"/></svg></span></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 36 36"><path fill="currentColor" d="M32 13.08v13.63l-7.36-7.36l-1.41 1.41L30.46 28H5.66l7-7.24l-1.44-1.39L4 26.84V9.52l12.43 12.37a2 2 0 0 0 2.82 0l8.83-8.78a7.4 7.4 0 0 1-2-.85l-8.26 8.21L5.31 8h17.5a7.5 7.5 0 0 1-.31-2H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2V12.2a7.5 7.5 0 0 1-2 .88" class="clr-i-outline--badged clr-i-outline-path-1--badged"/><circle cx="30" cy="5.86" r="5" fill="currentColor" class="clr-i-outline--badged clr-i-outline-path-2--badged clr-i-badge"/><path fill="none" d="M0 0h36v36H0z"/></svg></span></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -797,42 +803,42 @@
 <blockquote>
 <p>注意：如果图片里带有透明图层，颜色格式需要选择<code>CF_TRUE_COLOR_ALPHA</code>而不是<code>CF_TRUE_COLOR</code>，只有保存了ALPHA通道信息才能正常显示透明部分</p>
 </blockquote>
-<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/c2b6fbd214cd437e4b0f642614f2b7f4.webp" alt="img"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/c2b6fbd214cd437e4b0f642614f2b7f4.webp" alt="img"></p>
 </li>
 <li><p><strong>编译</strong>：</p>
 <p>将生成的 <code>.c</code> 文件添加到你的项目 CMake 中，并确保它能被编译链接</p>
-<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/541f739682026a679e9fb2e58b695262.webp" alt="image-20250917095314642"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/541f739682026a679e9fb2e58b695262.webp" alt="image-20250917095314642"></p>
 </li>
 <li><p><strong>使用</strong>：</p>
 <p>在代码中通过 <code>LV_IMG_DECLARE</code> 声明该图像资源，然后使用 <code>lv_img_set_src</code> 将其设置给一个图像对象</p>
 </li>
 </ol>
 <p><strong>代码示例</strong><br>以下代码演示了如何显示一个已经通过工具转换好的，名为 <code>abc</code> 的图像。</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// obj/myexample.c</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">demo_sjpg_from_array</span><span class="params">( )</span> {</span><br><span class="line">  <span class="comment">// 声明图片数据所在的数组名称</span></span><br><span class="line">  <span class="comment">//   这个宏会引用在 abc.c 文件中定义的图像数组变量</span></span><br><span class="line">  LV_IMG_DECLARE(abc);</span><br><span class="line">  <span class="type">lv_obj_t</span>* img = lv_img_create(lv_scr_act());  <span class="comment">// 创建一个图像对象</span></span><br><span class="line">  lv_img_set_src(img, &amp;abc);                    <span class="comment">// 将图像资源设置给对象</span></span><br><span class="line">  lv_obj_center(img);                           <span class="comment">// 图片居中显示</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// obj/myexample.c</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">demo_sjpg_from_array</span><span class="params">( )</span> &#123;</span><br><span class="line">  <span class="comment">// 声明图片数据所在的数组名称</span></span><br><span class="line">  <span class="comment">//   这个宏会引用在 abc.c 文件中定义的图像数组变量</span></span><br><span class="line">  LV_IMG_DECLARE(abc);</span><br><span class="line">  <span class="type">lv_obj_t</span>* img = lv_img_create(lv_scr_act());  <span class="comment">// 创建一个图像对象</span></span><br><span class="line">  lv_img_set_src(img, &amp;abc);                    <span class="comment">// 将图像资源设置给对象</span></span><br><span class="line">  lv_obj_center(img);                           <span class="comment">// 图片居中显示</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/62ec14eba556c5717357b34fb147d660.webp" alt="image-20250917094907524"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/62ec14eba556c5717357b34fb147d660.webp" alt="image-20250917094907524"></p>
 <hr>
 <h3 id="从文件系统加载-不限图像场景"><a href="#从文件系统加载-不限图像场景" class="headerlink" title="从文件系统加载 (不限图像场景)"></a><strong>从文件系统加载 (不限图像场景)</strong></h3><p>当需要显示不固定的图片（如照片、网络下载的图片）时，就需要使用此方法。它要求 LVGL 能够访问设备的文件系统。</p>
 <p><strong>核心步骤：</strong></p>
 <ol>
 <li><strong>配置 <code>lv_conf.h</code></strong>：<ul>
 <li>开启文件系统支持：将 <code>LV_USE_FS_STDIO</code> 或其他文件系统接口设置为 <code>1</code>。</li>
-<li>定义 “盘符”：设置 <code>LV_FS_STDIO_LETTER</code> 为一个大写字母，例如 <code>'A'</code>。此后，所有文件路径都必须以 <code>A:/</code> 开头。</li>
+<li>定义 “盘符”：设置 <code>LV_FS_STDIO_LETTER</code> 为一个大写字母，例如 <code>&#39;A&#39;</code>。此后，所有文件路径都必须以 <code>A:/</code> 开头。</li>
 </ul>
 </li>
 <li><strong>放置文件</strong>：将图片文件（如 <code>small_image.sjpg</code>）放置到你的设备文件系统的某个路径下（如 <code>/mnt/nfs/</code>）。</li>
 <li><strong>使用</strong>：在代码中，使用 <code>lv_img_set_src</code> 并传入 <code>盘符 + 绝对路径</code> 格式的字符串。</li>
 </ol>
 <p><strong>代码示例</strong><br>以下代码演示了如何从设备的 <code>/mnt/nfs/</code> 目录下加载并显示 <code>small_image.sjpg</code> 图片。</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">demo_sjpg_from_file</span><span class="params">( )</span> {</span><br><span class="line">  <span class="type">lv_obj_t</span>* img = lv_img_create(lv_scr_act());  <span class="comment">// 创建一个图像对象</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设置图像源为文件路径</span></span><br><span class="line">  <span class="comment">//    "A:" 是在 lv_conf.h 中定义的盘符</span></span><br><span class="line">  <span class="comment">//    "/mnt/nfs/small_image.sjpg" 是图片在设备上的实际路径</span></span><br><span class="line">  lv_img_set_src(img, <span class="string">"A:/mnt/nfs/small_image.sjpg"</span>);</span><br><span class="line">  lv_obj_center(img);  <span class="comment">// 将图片居中显示</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">demo_sjpg_from_file</span><span class="params">( )</span> &#123;</span><br><span class="line">  <span class="type">lv_obj_t</span>* img = lv_img_create(lv_scr_act());  <span class="comment">// 创建一个图像对象</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设置图像源为文件路径</span></span><br><span class="line">  <span class="comment">//    &quot;A:&quot; 是在 lv_conf.h 中定义的盘符</span></span><br><span class="line">  <span class="comment">//    &quot;/mnt/nfs/small_image.sjpg&quot; 是图片在设备上的实际路径</span></span><br><span class="line">  lv_img_set_src(img, <span class="string">&quot;A:/mnt/nfs/small_image.sjpg&quot;</span>);</span><br><span class="line">  lv_obj_center(img);  <span class="comment">// 将图片居中显示</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="安装-PNG-解码库-依赖-zlib"><a href="#安装-PNG-解码库-依赖-zlib" class="headerlink" title="安装 PNG 解码库 (依赖 zlib)"></a><strong>安装 PNG 解码库 (依赖 zlib)</strong></h4><p>PNG 库依赖 zlib 库，因此需要先编译安装 zlib，再编译安装 libpng。以下教程针对交叉编译环境，提供了避免常见陷阱的详细步骤。</p>
 <h4 id="1-安装-zlib-压缩库"><a href="#1-安装-zlib-压缩库" class="headerlink" title="1. 安装 zlib 压缩库"></a>1. 安装 zlib 压缩库</h4><ul>
-<li><p><strong>Ubuntu/Linux</strong></p>
+<li><p><strong>Ubuntu&#x2F;Linux</strong></p>
 <p>用一句命令即可直接安装</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zlib1g-dev</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zlib1g-dev</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>开发板 / 其他平台</strong><br>需手动下载、交叉编译并链接：</p>
+<li><p><strong>开发板 &#x2F; 其他平台</strong><br>需手动下载、交叉编译并链接：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.zlib.net/">官网</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.zlib.net/zlib-1.3.1.tar.gz">源码下载地址</a></li>
@@ -840,17 +846,17 @@
 <p>进入 zlib 源码目录进行配置和编译。</p>
 <p><strong>关键提示：</strong> 为了避免后续在链接动态库时出现 <code>recompile with -fPIC</code> 的错误，我们必须在编译静态库时就生成“位置无关代码”(Position-Independent Code)。</p>
 <p><strong>推荐的编译命令 (生成静态库 <code>.a</code>):</strong></p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定交叉编译器</span></span><br><span class="line"><span class="built_in">export</span> CC=arm-linux-gcc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 CMAKE_POSITION_INDEPENDENT_CODE=ON 来添加 -fPIC 标志</span></span><br><span class="line">cmake -B build -D CMAKE_BUILD_TYPE=Release -D CMAKE_POSITION_INDEPENDENT_CODE=ON</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">cmake --build build -j12</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定交叉编译器</span></span><br><span class="line"><span class="built_in">export</span> CC=arm-linux-gcc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 CMAKE_POSITION_INDEPENDENT_CODE=ON 来添加 -fPIC 标志</span></span><br><span class="line">cmake -B build -D CMAKE_BUILD_TYPE=Release -D CMAKE_POSITION_INDEPENDENT_CODE=ON</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">cmake --build build -j12</span><br></pre></td></tr></table></figure>
 
 <p>编译完成后，会在 <code>build</code> 目录下生成 <code>libz.a</code> 文件。</p>
 </li>
 </ul>
 <h4 id="2-安装-libpng-库"><a href="#2-安装-libpng-库" class="headerlink" title="2. 安装 libpng 库"></a>2. 安装 libpng 库</h4><ul>
-<li><p><strong>Ubuntu/Linux</strong></p>
+<li><p><strong>Ubuntu&#x2F;Linux</strong></p>
 <p>用一句命令即可直接安装</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libpng-dev</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libpng-dev</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>开发板 / 其他平台</strong><br>需手动下载、交叉编译并链接：</p>
+<li><p><strong>开发板 &#x2F; 其他平台</strong><br>需手动下载、交叉编译并链接：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="http://www.libpng.org/pub/png/libpng.html">官网</a></li>
 <li><a target="_blank" rel="noopener" href="https://prdownloads.sourceforge.net/libpng/libpng-1.6.43.tar.gz">源码下载地址</a></li>
@@ -858,26 +864,26 @@
 <p>进入 libpng 源码目录进行配置和编译。</p>
 <p><strong>关键提示：</strong> 在交叉编译时，libpng 的构建系统无法自动找到我们刚刚编译好的 zlib。我们必须通过 CMake 参数明确地告诉它 zlib 的头文件和库文件在哪里。</p>
 <p><strong>推荐的编译命令 (生成静态库 <code>.a</code>):</strong></p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定交叉编译器</span></span><br><span class="line"><span class="built_in">export</span> CC=arm-linux-gcc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 cmake，并用 -D 参数明确指定 zlib 的路径</span></span><br><span class="line"><span class="comment"># 注意：请将 &lt;path/to&gt; 替换为你的实际路径，不要使用 '~'</span></span><br><span class="line">cmake -B build \</span><br><span class="line">  -D CMAKE_BUILD_TYPE=Release \</span><br><span class="line">  -D BUILD_SHARED_LIBS=OFF \</span><br><span class="line">  -D ZLIB_INCLUDE_DIR=&lt;path/to&gt;/zlib-1.3.1 \</span><br><span class="line">  -D ZLIB_LIBRARY=&lt;path/to&gt;/zlib-1.3.1/build/libz.a \</span><br><span class="line">  -D CMAKE_C_FLAGS=<span class="string">"-I&lt;path/to&gt;/zlib-1.3.1/build"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">cmake --build build -j12</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定交叉编译器</span></span><br><span class="line"><span class="built_in">export</span> CC=arm-linux-gcc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 cmake，并用 -D 参数明确指定 zlib 的路径</span></span><br><span class="line"><span class="comment"># 注意：请将 &lt;path/to&gt; 替换为你的实际路径，不要使用 &#x27;~&#x27;</span></span><br><span class="line">cmake -B build \</span><br><span class="line">  -D CMAKE_BUILD_TYPE=Release \</span><br><span class="line">  -D BUILD_SHARED_LIBS=OFF \</span><br><span class="line">  -D ZLIB_INCLUDE_DIR=&lt;path/to&gt;/zlib-1.3.1 \</span><br><span class="line">  -D ZLIB_LIBRARY=&lt;path/to&gt;/zlib-1.3.1/build/libz.a \</span><br><span class="line">  -D CMAKE_C_FLAGS=<span class="string">&quot;-I&lt;path/to&gt;/zlib-1.3.1/build&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">cmake --build build -j12</span><br></pre></td></tr></table></figure>
 
 <p><strong>参数详解:</strong></p>
 <ul>
 <li><code>-D ZLIB_INCLUDE_DIR</code>: 指向 zlib 的源码根目录，用于找到 <code>zlib.h</code>。</li>
 <li><code>-D ZLIB_LIBRARY</code>: 明确指向编译生成的 <code>libz.a</code> 静态库文件。</li>
-<li><code>-D CMAKE_C_FLAGS="-I..."</code>: 额外添加一个头文件搜索路径，指向 zlib 的构建目录，用于找到编译时生成的 <code>zconf.h</code>。</li>
+<li><code>-D CMAKE_C_FLAGS=&quot;-I...&quot;</code>: 额外添加一个头文件搜索路径，指向 zlib 的构建目录，用于找到编译时生成的 <code>zconf.h</code>。</li>
 </ul>
 <p>编译完成后，会在 <code>build</code> 目录下生成 <code>libpng16.a</code> 文件。</p>
 </li>
 <li><p><strong>CMake 工程链接 PNG 与 ZLIB</strong></p>
 <p>在链接时，必须同时链接 libpng 和 zlib。由于我们编译的是静态库，CMake 中也应配置为链接静态库。</p>
-<figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(CMAKE_CROSSCOMPILING)</span><br><span class="line">    <span class="comment"># ARM 平台</span></span><br><span class="line">    <span class="keyword">set</span>(TARGET_PLATFORM <span class="string">"arm"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 为 FreeType 添加 (静态库示例) ---</span></span><br><span class="line">    <span class="keyword">add_library</span>(freetype_local STATIC IMPORTED GLOBAL)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(freetype_local PROPERTIES</span><br><span class="line">        IMPORTED_LOCATION <span class="string">"${CMAKE_CURRENT_SOURCE_DIR}/libs/freetype/lib/arm/libfreetype.a"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 为 PNG 添加 (静态库) ---</span></span><br><span class="line">    <span class="keyword">add_library</span>(png_local STATIC IMPORTED GLOBAL)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(png_local PROPERTIES</span><br><span class="line">        <span class="comment"># 假设你已将编译好的 libpng16.a 复制到此路径</span></span><br><span class="line">        IMPORTED_LOCATION <span class="string">"${CMAKE_CURRENT_SOURCE_DIR}/libs/png/lib/arm/libpng16.a"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 为 ZLIB 添加 (静态库) ---</span></span><br><span class="line">    <span class="keyword">add_library</span>(zlib_local STATIC IMPORTED GLOBAL)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(zlib_local PROPERTIES</span><br><span class="line">        <span class="comment"># 假设你已将编译好的 libz.a 复制到此路径</span></span><br><span class="line">        IMPORTED_LOCATION <span class="string">"${CMAKE_CURRENT_SOURCE_DIR}/libs/zlib/lib/arm/libz.a"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 将所有库加入列表 (注意链接顺序) ---</span></span><br><span class="line">    <span class="keyword">set</span>(PLATFORM_LIBS pthread freetype_local png_local zlib_local m)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elseif</span>(UNIX <span class="keyword">AND</span> <span class="keyword">NOT</span> APPLE)</span><br><span class="line">    <span class="comment"># Linux PC 平台</span></span><br><span class="line">    <span class="keyword">set</span>(TARGET_PLATFORM <span class="string">"pc"</span>)</span><br><span class="line">    <span class="keyword">find_package</span>(SDL2 REQUIRED)</span><br><span class="line">    <span class="keyword">find_package</span>(Threads REQUIRED)</span><br><span class="line">    <span class="keyword">find_package</span>(Freetype REQUIRED)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 查找 PNG 和 ZLIB ---</span></span><br><span class="line">    <span class="keyword">find_package</span>(PNG REQUIRED)</span><br><span class="line">    <span class="keyword">find_package</span>(ZLIB REQUIRED)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 将所有库加入列表 (使用现代CMake目标) ---</span></span><br><span class="line">    <span class="keyword">set</span>(PLATFORM_LIBS SDL2::SDL2 Threads::Threads Freetype::Freetype PNG::PNG ZLIB::ZLIB m)</span><br><span class="line"></span><br><span class="line"><span class="keyword">endif</span>()</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(CMAKE_CROSSCOMPILING)</span><br><span class="line">    <span class="comment"># ARM 平台</span></span><br><span class="line">    <span class="keyword">set</span>(TARGET_PLATFORM <span class="string">&quot;arm&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 为 FreeType 添加 (静态库示例) ---</span></span><br><span class="line">    <span class="keyword">add_library</span>(freetype_local STATIC IMPORTED GLOBAL)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(freetype_local PROPERTIES</span><br><span class="line">        IMPORTED_LOCATION <span class="string">&quot;$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/libs/freetype/lib/arm/libfreetype.a&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 为 PNG 添加 (静态库) ---</span></span><br><span class="line">    <span class="keyword">add_library</span>(png_local STATIC IMPORTED GLOBAL)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(png_local PROPERTIES</span><br><span class="line">        <span class="comment"># 假设你已将编译好的 libpng16.a 复制到此路径</span></span><br><span class="line">        IMPORTED_LOCATION <span class="string">&quot;$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/libs/png/lib/arm/libpng16.a&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 为 ZLIB 添加 (静态库) ---</span></span><br><span class="line">    <span class="keyword">add_library</span>(zlib_local STATIC IMPORTED GLOBAL)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(zlib_local PROPERTIES</span><br><span class="line">        <span class="comment"># 假设你已将编译好的 libz.a 复制到此路径</span></span><br><span class="line">        IMPORTED_LOCATION <span class="string">&quot;$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/libs/zlib/lib/arm/libz.a&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 将所有库加入列表 (注意链接顺序) ---</span></span><br><span class="line">    <span class="keyword">set</span>(PLATFORM_LIBS pthread freetype_local png_local zlib_local m)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elseif</span>(UNIX <span class="keyword">AND</span> <span class="keyword">NOT</span> APPLE)</span><br><span class="line">    <span class="comment"># Linux PC 平台</span></span><br><span class="line">    <span class="keyword">set</span>(TARGET_PLATFORM <span class="string">&quot;pc&quot;</span>)</span><br><span class="line">    <span class="keyword">find_package</span>(SDL2 REQUIRED)</span><br><span class="line">    <span class="keyword">find_package</span>(Threads REQUIRED)</span><br><span class="line">    <span class="keyword">find_package</span>(Freetype REQUIRED)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 查找 PNG 和 ZLIB ---</span></span><br><span class="line">    <span class="keyword">find_package</span>(PNG REQUIRED)</span><br><span class="line">    <span class="keyword">find_package</span>(ZLIB REQUIRED)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 将所有库加入列表 (使用现代CMake目标) ---</span></span><br><span class="line">    <span class="keyword">set</span>(PLATFORM_LIBS SDL2::SDL2 Threads::Threads Freetype::Freetype PNG::PNG ZLIB::ZLIB m)</span><br><span class="line"></span><br><span class="line"><span class="keyword">endif</span>()</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>使用方法和之前一样，如果还是不行，用下面的函数调试：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">void</span> <span class="title function_">debug_load_image</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* path_to_test)</span></span><br><span class="line">{</span><br><span class="line">    LV_LOG_USER(<span class="string">"--- 开始终极调试: %s ---"</span>, path_to_test);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 步骤 1: 检查 LVGL 文件系统驱动是否就绪</span></span><br><span class="line">    <span class="keyword">if</span> (!lv_fs_is_ready(<span class="string">'A'</span>)) {</span><br><span class="line">        LV_LOG_ERROR(<span class="string">"错误: LVGL 文件系统驱动 'A' 未就绪!"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    LV_LOG_USER(<span class="string">"调试信息: LVGL 文件系统驱动 'A' 已就绪。"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 步骤 2: 尝试用 LVGL 的 API 打开文件</span></span><br><span class="line">    <span class="type">lv_fs_file_t</span> f;</span><br><span class="line">    <span class="type">lv_fs_res_t</span> res = lv_fs_open(&amp;f, path_to_test, LV_FS_MODE_RD);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (res != LV_FS_RES_OK) {</span><br><span class="line">        LV_LOG_ERROR(<span class="string">"错误: LVGL lv_fs_open 失败! 错误码: %d"</span>, res);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        LV_LOG_USER(<span class="string">"调试成功: LVGL lv_fs_open 成功!"</span>);</span><br><span class="line">        lv_fs_close(&amp;f);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 步骤 3: 作为对比，尝试用标准 C 的 API 打开同一个文件</span></span><br><span class="line">    FILE* std_f = fopen(path_to_test, <span class="string">"rb"</span>);</span><br><span class="line">    <span class="keyword">if</span> (std_f == <span class="literal">NULL</span>) {</span><br><span class="line">        LV_LOG_ERROR(<span class="string">"错误: 标准 C fopen 失败!"</span>);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        LV_LOG_USER(<span class="string">"调试成功: 标准 C fopen 成功!"</span>);</span><br><span class="line">        fclose(std_f);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    LV_LOG_USER(<span class="string">"--- 终极调试结束 ---"</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">void</span> <span class="title function_">debug_load_image</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* path_to_test)</span></span><br><span class="line">&#123;</span><br><span class="line">    LV_LOG_USER(<span class="string">&quot;--- 开始终极调试: %s ---&quot;</span>, path_to_test);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 步骤 1: 检查 LVGL 文件系统驱动是否就绪</span></span><br><span class="line">    <span class="keyword">if</span> (!lv_fs_is_ready(<span class="string">&#x27;A&#x27;</span>)) &#123;</span><br><span class="line">        LV_LOG_ERROR(<span class="string">&quot;错误: LVGL 文件系统驱动 &#x27;A&#x27; 未就绪!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    LV_LOG_USER(<span class="string">&quot;调试信息: LVGL 文件系统驱动 &#x27;A&#x27; 已就绪。&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 步骤 2: 尝试用 LVGL 的 API 打开文件</span></span><br><span class="line">    <span class="type">lv_fs_file_t</span> f;</span><br><span class="line">    <span class="type">lv_fs_res_t</span> res = lv_fs_open(&amp;f, path_to_test, LV_FS_MODE_RD);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (res != LV_FS_RES_OK) &#123;</span><br><span class="line">        LV_LOG_ERROR(<span class="string">&quot;错误: LVGL lv_fs_open 失败! 错误码: %d&quot;</span>, res);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        LV_LOG_USER(<span class="string">&quot;调试成功: LVGL lv_fs_open 成功!&quot;</span>);</span><br><span class="line">        lv_fs_close(&amp;f);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 步骤 3: 作为对比，尝试用标准 C 的 API 打开同一个文件</span></span><br><span class="line">    FILE* std_f = fopen(path_to_test, <span class="string">&quot;rb&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (std_f == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        LV_LOG_ERROR(<span class="string">&quot;错误: 标准 C fopen 失败!&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        LV_LOG_USER(<span class="string">&quot;调试成功: 标准 C fopen 成功!&quot;</span>);</span><br><span class="line">        fclose(std_f);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    LV_LOG_USER(<span class="string">&quot;--- 终极调试结束 ---&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>可以开启 lv_conf.h 里面的这个选项来缓存图片，使 cpu 占用降低：</p>
-<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> LV_IMG_CACHE_DEF_SIZE   2</span></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> LV_IMG_CACHE_DEF_SIZE   2</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -885,17 +891,17 @@
 <h3 id="使用-FreeType-加载外部字体（不限汉字场景）"><a href="#使用-FreeType-加载外部字体（不限汉字场景）" class="headerlink" title="使用 FreeType 加载外部字体（不限汉字场景）"></a><strong>使用 FreeType 加载外部字体（不限汉字场景）</strong></h3><p>此方法支持动态加载标准字体文件（如 <code>.ttf</code>），可直接显示任意汉字，无需预先转换</p>
 <h4 id="1-配置与编译"><a href="#1-配置与编译" class="headerlink" title="1. 配置与编译"></a><strong>1. 配置与编译</strong></h4><ul>
 <li><p><strong>开启 LVGL FreeType 支持</strong><br>在 <code>lv_conf.h</code> 中设置：</p>
-<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> LV_USE_FREETYPE 1</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> LV_USE_FREETYPE 1</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/d0077ece0e31616dd551af5295aa5150.webp" alt="image-20250917102811310"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/d0077ece0e31616dd551af5295aa5150.webp" alt="image-20250917102811310"></p>
 </li>
 <li><p><strong>安装 FreeType 库</strong></p>
 <ul>
-<li><p><strong>Ubuntu/Linux</strong></p>
+<li><p><strong>Ubuntu&#x2F;Linux</strong></p>
 <p>用一句命令即可直接安装</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libfreetype6-dev</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libfreetype6-dev</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>开发板 / 其他平台</strong><br>需手动下载、交叉编译并链接：</p>
+<li><p><strong>开发板 &#x2F; 其他平台</strong><br>需手动下载、交叉编译并链接：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://freetype.org/">官网</a></li>
 <li><a target="_blank" rel="noopener" href="https://ftp.cc.uoc.gr/mirrors/nongnu.org/freetype/freetype-2.14.0.tar.gz">源码下载地址</a></li>
@@ -903,20 +909,20 @@
 <p>将源码下载下来放到项目根目录</p>
 <p>进入 freetype 源码目录命令行，进行以下配置和编译操作</p>
 <p>编译为动态库：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定交叉编译器</span></span><br><span class="line"><span class="built_in">export</span> CC=arm-linux-gcc</span><br><span class="line">cmake -B build -D BUILD_SHARED_LIBS=<span class="literal">true</span> -D CMAKE_BUILD_TYPE=Release</span><br><span class="line">  </span><br><span class="line"><span class="comment">#编译</span></span><br><span class="line">cmake --build build -j12</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定交叉编译器</span></span><br><span class="line"><span class="built_in">export</span> CC=arm-linux-gcc</span><br><span class="line">cmake -B build -D BUILD_SHARED_LIBS=<span class="literal">true</span> -D CMAKE_BUILD_TYPE=Release</span><br><span class="line">  </span><br><span class="line"><span class="comment">#编译</span></span><br><span class="line">cmake --build build -j12</span><br></pre></td></tr></table></figure>
 
 <p>或者编译为静态库：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定交叉编译器</span></span><br><span class="line"><span class="built_in">export</span> CC=arm-linux-gcc</span><br><span class="line">cmake -B build -D BUILD_SHARED_LIBS=OFF -D CMAKE_BUILD_TYPE=Release</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">cmake --build build -j12</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定交叉编译器</span></span><br><span class="line"><span class="built_in">export</span> CC=arm-linux-gcc</span><br><span class="line">cmake -B build -D BUILD_SHARED_LIBS=OFF -D CMAKE_BUILD_TYPE=Release</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">cmake --build build -j12</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p><strong>CMake 工程链接 FreeType</strong></p>
-<figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(CMAKE_CROSSCOMPILING)</span><br><span class="line">    <span class="comment"># ARM 平台</span></span><br><span class="line">    <span class="keyword">set</span>(TARGET_PLATFORM <span class="string">"arm"</span>)</span><br><span class="line">    <span class="keyword">add_library</span>(freetype_local SHARED IMPORTED GLOBAL)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(freetype_local PROPERTIES</span><br><span class="line">    	<span class="comment"># ARM 平台需要指定库程序路径</span></span><br><span class="line">        IMPORTED_LOCATION <span class="string">"${CMAKE_CURRENT_SOURCE_DIR}/libs/freetype/lib/arm/libfreetype.so"</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">set</span>(PLATFORM_LIBS pthread freetype_local m)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elseif</span>(UNIX <span class="keyword">AND</span> <span class="keyword">NOT</span> APPLE)</span><br><span class="line">    <span class="comment"># Linux PC 平台</span></span><br><span class="line">    <span class="keyword">set</span>(TARGET_PLATFORM <span class="string">"pc"</span>)</span><br><span class="line">    <span class="keyword">find_package</span>(SDL2 REQUIRED)</span><br><span class="line">    <span class="keyword">find_package</span>(Threads REQUIRED)</span><br><span class="line">    <span class="comment"># 直接去系统库里面找</span></span><br><span class="line">    <span class="keyword">set</span>(PLATFORM_LIBS SDL2::SDL2 Threads::Threads freetype m)</span><br><span class="line"></span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(CMAKE_CROSSCOMPILING)</span><br><span class="line">    <span class="comment"># ARM 平台</span></span><br><span class="line">    <span class="keyword">set</span>(TARGET_PLATFORM <span class="string">&quot;arm&quot;</span>)</span><br><span class="line">    <span class="keyword">add_library</span>(freetype_local SHARED IMPORTED GLOBAL)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(freetype_local PROPERTIES</span><br><span class="line">    	<span class="comment"># ARM 平台需要指定库程序路径</span></span><br><span class="line">        IMPORTED_LOCATION <span class="string">&quot;$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/libs/freetype/lib/arm/libfreetype.so&quot;</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">set</span>(PLATFORM_LIBS pthread freetype_local m)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elseif</span>(UNIX <span class="keyword">AND</span> <span class="keyword">NOT</span> APPLE)</span><br><span class="line">    <span class="comment"># Linux PC 平台</span></span><br><span class="line">    <span class="keyword">set</span>(TARGET_PLATFORM <span class="string">&quot;pc&quot;</span>)</span><br><span class="line">    <span class="keyword">find_package</span>(SDL2 REQUIRED)</span><br><span class="line">    <span class="keyword">find_package</span>(Threads REQUIRED)</span><br><span class="line">    <span class="comment"># 直接去系统库里面找</span></span><br><span class="line">    <span class="keyword">set</span>(PLATFORM_LIBS SDL2::SDL2 Threads::Threads freetype m)</span><br><span class="line"></span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="2-准备字体文件"><a href="#2-准备字体文件" class="headerlink" title="2. 准备字体文件"></a><strong>2. 准备字体文件</strong></h4><p>将所需 <code>.ttf</code> 文件（如 <code>MiSans.ttf</code>）放到设备文件系统中，保证程序运行时可访问。</p>
 <h4 id="3-使用方法"><a href="#3-使用方法" class="headerlink" title="3. 使用方法"></a><strong>3. 使用方法</strong></h4><p>代码初始化 FreeType 字体 → 创建样式 → 应用到控件。</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">demo_freetype_text</span><span class="params">(<span class="type">void</span>)</span> {</span><br><span class="line">  <span class="comment">// 1. 初始化字体信息</span></span><br><span class="line">  <span class="type">static</span> <span class="type">lv_ft_info_t</span> info;</span><br><span class="line">  <span class="comment">// 确保字体文件在相对编译出的程序路径下</span></span><br><span class="line">  info.name = <span class="string">"./MiSans.ttf"</span>;</span><br><span class="line">  info.weight = <span class="number">24</span>;</span><br><span class="line">  info.style = FT_FONT_STYLE_NORMAL;</span><br><span class="line">  info.mem = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!lv_ft_font_init(&amp;info)) {  <span class="comment">// 初始化字体</span></span><br><span class="line">    LV_LOG_ERROR(<span class="string">"FreeType 初始化失败."</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 创建一个样式来使用这个字体</span></span><br><span class="line">  <span class="type">static</span> <span class="type">lv_style_t</span> style;</span><br><span class="line">  lv_style_init(&amp;style);</span><br><span class="line">  <span class="comment">// 将刚刚初始化好的字体设置到样式中</span></span><br><span class="line">  lv_style_set_text_font(&amp;style, info.font);</span><br><span class="line">  lv_style_set_text_align(&amp;style, LV_TEXT_ALIGN_CENTER);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 创建标签并应用样式</span></span><br><span class="line">  <span class="type">lv_obj_t</span>* label = lv_label_create(lv_scr_act());</span><br><span class="line">  lv_obj_add_style(label, &amp;style, <span class="number">0</span>);  <span class="comment">// 应用前面设置的style样式</span></span><br><span class="line">  <span class="comment">// 以后显示中文时像上面一样引用这个样式即可</span></span><br><span class="line">  lv_label_set_text(label, <span class="string">"你好, LVGL\nI'm a font created with FreeType"</span>);</span><br><span class="line">  lv_obj_center(label);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">demo_freetype_text</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">  <span class="comment">// 1. 初始化字体信息</span></span><br><span class="line">  <span class="type">static</span> <span class="type">lv_ft_info_t</span> info;</span><br><span class="line">  <span class="comment">// 确保字体文件在相对编译出的程序路径下</span></span><br><span class="line">  info.name = <span class="string">&quot;./MiSans.ttf&quot;</span>;</span><br><span class="line">  info.weight = <span class="number">24</span>;</span><br><span class="line">  info.style = FT_FONT_STYLE_NORMAL;</span><br><span class="line">  info.mem = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!lv_ft_font_init(&amp;info)) &#123;  <span class="comment">// 初始化字体</span></span><br><span class="line">    LV_LOG_ERROR(<span class="string">&quot;FreeType 初始化失败.&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 创建一个样式来使用这个字体</span></span><br><span class="line">  <span class="type">static</span> <span class="type">lv_style_t</span> style;</span><br><span class="line">  lv_style_init(&amp;style);</span><br><span class="line">  <span class="comment">// 将刚刚初始化好的字体设置到样式中</span></span><br><span class="line">  lv_style_set_text_font(&amp;style, info.font);</span><br><span class="line">  lv_style_set_text_align(&amp;style, LV_TEXT_ALIGN_CENTER);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 创建标签并应用样式</span></span><br><span class="line">  <span class="type">lv_obj_t</span>* label = lv_label_create(lv_scr_act());</span><br><span class="line">  lv_obj_add_style(label, &amp;style, <span class="number">0</span>);  <span class="comment">// 应用前面设置的style样式</span></span><br><span class="line">  <span class="comment">// 以后显示中文时像上面一样引用这个样式即可</span></span><br><span class="line">  lv_label_set_text(label, <span class="string">&quot;你好, LVGL\nI&#x27;m a font created with FreeType&quot;</span>);</span><br><span class="line">  lv_obj_center(label);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2025/10/7fdf1b6b8a626a2a0942fd001c0d67ae.webp" alt="加载的 TTF 字体可正常显示中文和英文"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7fdf1b6b8a626a2a0942fd001c0d67ae.webp" alt="加载的 TTF 字体可正常显示中文和英文"></p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
@@ -1482,8 +1488,8 @@
     const swiper_api = document.getElementById('swiper-api');
     if (swiper_api != undefined) {
       utils.css(`/css/plugins/swiper.css?v=1.44.0`);
-      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
-      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+      utils.css(`https://npm.elemecdn.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://npm.elemecdn.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
         const effect = swiper_api.getAttribute('effect') || '';
         var swiper = new Swiper('.swiper#swiper-api', {
           slidesPerView: 'auto',
@@ -1505,39 +1511,6 @@
   }, 'swiper');
 </script>
 <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
-<script defer type="text/javascript" src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
-<script>
-  stellar.initPlugin(() => {
-    const els = document.querySelectorAll('.mermaid');
-    if (els.length > 0) {
-      if (false) {
-        utils.css(`/css/plugins/mermaid.css?v=1.44.0`);
-      }
-      const mermaid_config = {
-        startOnLoad: false,
-        theme:
-          "auto" == "auto" &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "neutral",
-        logLevel: 3,
-        flowchart: {
-          useMaxWidth: false,
-          htmlLabels: true,
-          curve: "linear"
-        },
-        gantt: {
-          axisFormat: "%Y/%m/%d"
-        },
-        sequence: {
-          actorMargin: 50
-        }
-      }
-      mermaid.initialize(mermaid_config);
-      mermaid.run();
-    }
-  }, 'mermaid');
-</script>
 <script>
   stellar.initPlugin(() => {
     const codeElements = document.querySelectorAll('.code');
@@ -1576,39 +1549,46 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277"></script>
+<!-- Google Analytics & Microsoft Clarity 页面完全加载后延迟载入，避免阻塞首屏与关键网络 -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+(function() {
+  var runDeferredAnalytics = function() {
+    // Google tag (gtag.js)
+    var gScript = document.createElement('script');
+    gScript.async = true;
+    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
+    document.head.appendChild(gScript);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JST56Q8277');
 
-  gtag('config', 'G-JST56Q8277');
-</script>
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
+    // Microsoft Clarity
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "rp0i6z4yyg");
+  };
+
+  var schedule = function() {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(runDeferredAnalytics, { timeout: 3000 });
+    } else {
+      setTimeout(runDeferredAnalytics, 1500);
+    }
+  };
+
+  if (document.readyState === 'complete') {
+    schedule();
+  } else {
+    window.addEventListener('load', schedule);
+  }
+})();
 </script>
 
 
 
 <!-- inject -->
 
-</div>
-        <style>
-            [bg-lazy] {
-                background-image: none !important;
-                background-color: #eee !important;
-            }
-        </style>
-        <script>
-            window.imageLazyLoadSetting = {
-                isSPA: false,
-                preloadRatio: 5,
-                processImages: null,
-            };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body></html>
+</div></body></html>

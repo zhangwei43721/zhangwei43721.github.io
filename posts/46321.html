@@ -8,7 +8,7 @@
   
   <meta name="generator" content="Hexo 8.1.2">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://npm.elemecdn.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -26,6 +26,7 @@
 <meta property="og:site_name" content="Sky Blog">
 <meta property="og:description" content="2026年，AI辅助嵌入式开发已经不只是&quot;帮你写代码&quot;了。从硬件方案选型、PCB设计、 固件编译烧录调试，到直接操控板子跑命令，再到自动调PID参数——本文串联一套完整的AI工具链， 展示嵌入式开发全流程如何被AI重塑。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.skyforever.top/blog/2026/08/5d138155f054ff8700ad065b7dd31410.svg">
 <meta property="article:published_time" content="2026-05-25T16:00:00.000Z">
 <meta property="article:modified_time" content="2026-05-25T16:00:00.000Z">
 <meta property="article:author" content="Skyforever">
@@ -36,10 +37,11 @@
 <meta property="article:tag" content="嵌入式">
 <meta property="article:tag" content="开发工具">
 <meta property="article:tag" content="物联网">
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="2026年如何使用AI辅助做嵌入式开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.skyforever.top/blog/2026/08/5d138155f054ff8700ad065b7dd31410.svg"><meta name="twitter:title" content="2026年如何使用AI辅助做嵌入式开发">
   
   
-  <meta name="keywords" content="嵌入式,AI编程,Claude Code,开发工具,PCB设计,物联网,MCU">
+  <meta name="keywords" content="AI编程,嵌入式,Claude Code,开发工具,PCB设计,物联网,MCU">
 
   <!-- feed -->
   
@@ -62,7 +64,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-05-26T00:00:00+08:00","dateModified":"2026-05-26T00:00:00+08:00","datePublished":"2026-05-26T00:00:00+08:00","description":"\n如果你对大语言模型（LLM）、智能体（Agent）、上下文（Context）、RAG、MCP、Skill 等 AI 基础概念还不太清楚，建议先阅读前置概念解析文章：解析各种AI概念。理清这些技术名词背后的底层逻辑与工程本质，会让你更容易看懂本文的工具链架构。\n\n1. AI 能给嵌入式开发带来什么做嵌入式开发的人，日常里有一大块时间花的不是”设计”，而是”操作”。\n翻数据手册比对芯片参数、手...","headline":"2026年如何使用AI辅助做嵌入式开发","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/46321"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/46321","keywords":"嵌入式, AI编程, Claude Code, 开发工具, PCB设计, 物联网, MCU","thumbnailUrl":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==","image":["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg=="]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-05-26T00:00:00+08:00","dateModified":"2026-05-26T00:00:00+08:00","datePublished":"2026-05-26T00:00:00+08:00","description":"\n如果你对大语言模型（LLM）、智能体（Agent）、上下文（Context）、RAG、MCP、Skill 等 AI 基础概念还不太清楚，建议先阅读前置概念解析文章：解析各种AI概念。理清这些技术名词背后的底层逻辑与工程本质，会让你更容易看懂本文的工具链架构。\n\n1. AI 能给嵌入式开发带来什么做嵌入式开发的人，日常里有一大块时间花的不是”设计”，而是”操作”。\n翻数据手册比对芯片参数、手...","headline":"2026年如何使用AI辅助做嵌入式开发","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/46321"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/46321","keywords":"AI编程, 嵌入式, Claude Code, 开发工具, PCB设计, 物联网, MCU","thumbnailUrl":"https://image.skyforever.top/blog/2026/08/5d138155f054ff8700ad065b7dd31410.svg","image":["https://image.skyforever.top/blog/2026/08/5d138155f054ff8700ad065b7dd31410.svg"]}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8"><link rel="stylesheet" href="/css/custom.css">
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
@@ -94,9 +96,10 @@
 <div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight is-active" href="/" title="博客" aria-current="page" style="--item-grad:url(#menu-grad-post);">
+<a class="ui-collection__item card-hover card-hover--spotlight is-active is-themed" href="/" title="博客" aria-current="page" style="--item-theme:#1BCDFC;--item-grad:url(#menu-grad-post);">
   
-  
+  <span class="ui-collection__leading"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146-.707-2.121-.803z" opacity=".5"/></svg>
+</span>
   
     <span class="ui-collection__content">
       
@@ -114,9 +117,10 @@
 
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/" title="项目" style="--item-grad:url(#menu-grad-wiki);">
+<a class="ui-collection__item card-hover card-hover--spotlight is-themed" href="/wiki/" title="项目" style="--item-theme:#3DC550;--item-grad:url(#menu-grad-wiki);">
   
-  
+  <span class="ui-collection__leading"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" d="M8.422 20.618C10.178 21.54 11.056 22 12 22V12L2.638 7.073l-.04.067C2 8.154 2 9.417 2 11.942v.117c0 2.524 0 3.787.597 4.801c.598 1.015 1.674 1.58 3.825 2.709z"/><path fill="currentColor" d="m17.577 4.432l-2-1.05C13.822 2.461 12.944 2 12 2c-.945 0-1.822.46-3.578 1.382l-2 1.05C4.318 5.536 3.242 6.1 2.638 7.072L12 12l9.362-4.927c-.606-.973-1.68-1.537-3.785-2.641" opacity=".7"/><path fill="currentColor" d="m21.403 7.14l-.041-.067L12 12v10c.944 0 1.822-.46 3.578-1.382l2-1.05c2.151-1.129 3.227-1.693 3.825-2.708c.597-1.014.597-2.277.597-4.8v-.117c0-2.525 0-3.788-.597-4.802" opacity=".5"/></svg>
+</span>
   
     <span class="ui-collection__content">
       
@@ -134,9 +138,10 @@
 
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/notebooks/" title="笔记" style="--item-grad:url(#menu-grad-notebooks);">
+<a class="ui-collection__item card-hover card-hover--spotlight is-themed" href="/notebooks/" title="笔记" style="--item-theme:#FA6400;--item-grad:url(#menu-grad-notebooks);">
   
-  
+  <span class="ui-collection__leading"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 6a3.5 3.5 0 0 1 3.5-3.5h10A3.5 3.5 0 0 1 20.5 6v12a3.5 3.5 0 0 1-3.5 3.5H7A3.5 3.5 0 0 1 3.5 18z" opacity=".5"/><path fill="currentColor" d="M8 8.25a.75.75 0 0 1 .75-.75h6.5a.75.75 0 0 1 0 1.5h-6.5A.75.75 0 0 1 8 8.25m0 4a.75.75 0 0 1 .75-.75h6.5a.75.75 0 0 1 0 1.5h-6.5A.75.75 0 0 1 8 12.25m0 4a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75M3.5 6c0-.828.672-1.5 1.5-1.5h1v15H5c-.828 0-1.5-.672-1.5-1.5z"/></svg>
+</span>
   
     <span class="ui-collection__content">
       
@@ -154,9 +159,10 @@
 
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/friends/" title="社交" style="--item-grad:url(#menu-grad-social);">
+<a class="ui-collection__item card-hover card-hover--spotlight is-themed" href="/friends/" title="社交" style="--item-theme:#F44336;--item-grad:url(#menu-grad-social);">
   
-  
+  <span class="ui-collection__leading"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 7.5a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0"/><path fill="currentColor" d="M19.5 7.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0m-15 0a2.5 2.5 0 1 0 5 0a2.5 2.5 0 0 0-5 0" opacity=".4"/><path fill="currentColor" d="M18 16.5c0 1.933-2.686 3.5-6 3.5s-6-1.567-6-3.5S8.686 13 12 13s6 1.567 6 3.5"/><path fill="currentColor" d="M22 16.5c0 1.38-1.79 2.5-4 2.5s-4-1.12-4-2.5s1.79-2.5 4-2.5s4 1.12 4 2.5m-20 0C2 17.88 3.79 19 6 19s4-1.12 4-2.5S8.21 14 6 14s-4 1.12-4 2.5" opacity=".4"/></svg>
+</span>
   
     <span class="ui-collection__content">
       
@@ -377,7 +383,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" href="https:&#x2F;&#x2F;github.com&#x2F;zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/icon-park/github.svg"/></a><a class="social" href="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1654800754" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/ri:netease-cloud-music-line.svg"/></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.iconify.design/clarity/email-outline-badged.svg"/></a></div></footer>
+<a class="social" href="https:&#x2F;&#x2F;github.com&#x2F;zhangwei43721" target="_blank" rel="external nofollow noopener noreferrer"><span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><g fill-rule="evenodd" clip-rule="evenodd"><path d="M24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4ZM0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z"/><path d="M19.1833 45.4716C18.9898 45.2219 18.9898 42.9973 19.1833 38.798C17.1114 38.8696 15.8024 38.7258 15.2563 38.3667C14.437 37.828 13.6169 36.1667 12.8891 34.9959C12.1614 33.8251 10.5463 33.64 9.89405 33.3783C9.24182 33.1165 9.07809 32.0496 11.6913 32.8565C14.3044 33.6634 14.4319 35.8607 15.2563 36.3745C16.0806 36.8883 18.0515 36.6635 18.9448 36.2519C19.8382 35.8403 19.7724 34.3078 19.9317 33.7007C20.1331 33.134 19.4233 33.0083 19.4077 33.0037C18.5355 33.0037 13.9539 32.0073 12.6955 27.5706C11.437 23.134 13.0581 20.2341 13.9229 18.9875C14.4995 18.1564 14.4485 16.3852 13.7699 13.6737C16.2335 13.3589 18.1347 14.1343 19.4734 16.0001C19.4747 16.0108 21.2285 14.9572 24.0003 14.9572C26.772 14.9572 27.7553 15.8154 28.5142 16.0001C29.2731 16.1848 29.88 12.7341 34.5668 13.6737C33.5883 15.5969 32.7689 18.0001 33.3943 18.9875C34.0198 19.9749 36.4745 23.1147 34.9666 27.5706C33.9614 30.5413 31.9853 32.3523 29.0384 33.0037C28.7005 33.1115 28.5315 33.2855 28.5315 33.5255C28.5315 33.8856 28.9884 33.9249 29.6465 35.6117C30.0853 36.7362 30.117 39.948 29.7416 45.247C28.7906 45.4891 28.0508 45.6516 27.5221 45.7347C26.5847 45.882 25.5669 45.9646 24.5669 45.9965C23.5669 46.0284 23.2196 46.0248 21.837 45.8961C20.9154 45.8103 20.0308 45.6688 19.1833 45.4716Z"/></g></svg></span></a><a class="social" href="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1654800754" target="_blank" rel="external nofollow noopener noreferrer"><span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M10.422 11.375c-.294 1.028.012 2.065.784 2.653c1.061.81 2.565.3 2.874-.995c.08-.337.103-.722.027-1.056c-.23-1.001-.521-1.988-.792-2.996c-1.33.154-2.543 1.172-2.893 2.394m5.548-.287c.273 1.012.285 2.017-.127 3c-1.128 2.69-4.722 3.14-6.573.826c-1.302-1.627-1.28-3.961.06-5.734c.78-1.032 1.804-1.707 3.048-2.054l.379-.104c-.084-.415-.188-.816-.243-1.224c-.176-1.317.512-2.503 1.744-3.04c1.226-.535 2.708-.216 3.53.76c.406.479.395 1.08-.025 1.464c-.412.377-.997.346-1.435-.09c-.247-.246-.51-.44-.877-.436c-.525.006-.987.418-.945.937c.037.468.172.93.3 1.386c.022.078.216.135.338.153c1.333.197 2.504.731 3.472 1.676c2.558 2.493 2.861 6.531.672 9.44c-1.529 2.032-3.61 3.169-6.127 3.409c-4.621.44-8.664-2.53-9.7-7.058C2.516 10.255 4.84 5.831 8.796 4.25c.586-.234 1.143-.031 1.371.498c.232.537-.019 1.086-.61 1.35c-2.368 1.06-3.817 2.855-4.215 5.424c-.533 3.433 1.656 6.776 5 7.72c2.723.77 5.658-.166 7.308-2.33c1.586-2.08 1.4-5.099-.427-6.873A4 4 0 0 0 15.4 9.026c.198.716.389 1.388.57 2.062"/></svg></span></a><a class="social" href="mailto:zhangwei4372@outlook.com" rel="noopener noreferrer"><span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 36 36"><path fill="currentColor" d="M32 13.08v13.63l-7.36-7.36l-1.41 1.41L30.46 28H5.66l7-7.24l-1.44-1.39L4 26.84V9.52l12.43 12.37a2 2 0 0 0 2.82 0l8.83-8.78a7.4 7.4 0 0 1-2-.85l-8.26 8.21L5.31 8h17.5a7.5 7.5 0 0 1-.31-2H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2V12.2a7.5 7.5 0 0 1-2 .88" class="clr-i-outline--badged clr-i-outline-path-1--badged"/><circle cx="30" cy="5.86" r="5" fill="currentColor" class="clr-i-outline--badged clr-i-outline-path-2--badged clr-i-badge"/><path fill="none" d="M0 0h36v36H0z"/></svg></span></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -411,12 +417,12 @@
 <p>翻数据手册比对芯片参数、手动配编译链、等烧录、盯串口 log、反复试 PID 参数。这些事情不算难，但碎、耗时间、容易出错。一个变量溢出或者中断优先级搞反了，你可能要对bug找一下午。</p>
 <p>AI 现在能把这些活接过去一部分。AI 不只是能写代码——而是你告诉它一个方向，它自己去编译、烧录、看 log、调参数，做完回来告诉你结果。你可以把精力放到系统架构和关键决策上，而不是被绑在”调一下、等三分钟、看一眼日志、再调一下”这种循环里。</p>
 <p>2026 年的情况是：Agent 帮助 AI 调用 MCP 和读取 Skills，让 AI 直接操作硬件工具链。调 EDA 画板、ssh 上板子跑命令、GDB 分析崩溃现场。直接闭环完成一个目标，编译，运行，调试的步骤都可以交给 AI 来做。</p>
-<p>只需要安装 Agent 工具并配置下面的这些工具，就可以让 AI 拥有闭环调试的能力。下面所有工具都是挂在 Agent 上用的，安装配置参考 <a href="/posts/52013">/posts/52013</a>。</p>
+<p>只需要安装 Agent 工具并配置下面的这些工具，就可以让 AI 拥有闭环调试的能力。下面所有工具都是挂在 Agent 上用的，安装配置参考 <a href="/posts/52013">&#x2F;posts&#x2F;52013</a>。</p>
 <h2 id="2-做方案和画板子"><a href="#2-做方案和画板子" class="headerlink" title="2. 做方案和画板子"></a>2. 做方案和画板子</h2><p><strong>NextBoard</strong></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/LeoKemp223/NextBoard">LeoKemp223/NextBoard</a> 把硬件选型做成了一套 AI Agent 流水线。</p>
-<p>你输入一个需求，例如”带 Wi-Fi 的温湿度采集器”，它自动做需求确认、芯片选型（给国产优先/混合折中/海外主流三套对比）、下载数据手册、算成本、出模块框图，最后还有独立评审 Agent 从成本和供应链风险角度打分。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/LeoKemp223/NextBoard">LeoKemp223&#x2F;NextBoard</a> 把硬件选型做成了一套 AI Agent 流水线。</p>
+<p>你输入一个需求，例如”带 Wi-Fi 的温湿度采集器”，它自动做需求确认、芯片选型（给国产优先&#x2F;混合折中&#x2F;海外主流三套对比）、下载数据手册、算成本、出模块框图，最后还有独立评审 Agent 从成本和供应链风险角度打分。</p>
 <p>安装：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局安装</span></span><br><span class="line">./scripts/install.sh --global --platform claude</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或通过 marketplace</span></span><br><span class="line">claude plugin marketplace add LeoKemp223/NextBoard</span><br><span class="line">claude plugin install nextboard-hardware-solution</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局安装</span></span><br><span class="line">./scripts/install.sh --global --platform claude</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或通过 marketplace</span></span><br><span class="line">claude plugin marketplace add LeoKemp223/NextBoard</span><br><span class="line">claude plugin install nextboard-hardware-solution</span><br></pre></td></tr></table></figure>
 
 <p>装好后输入 <code>/hardware-solution</code> 即可启动该工作流。</p>
 <p>但我得泼盆冷水。AI 做器件选型目前还不太靠谱。</p>
@@ -429,7 +435,7 @@
 <li><p>EDA 侧安装扩展：<br>打开 <a target="_blank" rel="noopener" href="https://pro.lceda.cn/editor">嘉立创EDA 专业版</a> → 顶部菜单【高级】→【扩展管理器】→ 搜索并安装 <a target="_blank" rel="noopener" href="https://ext.lceda.cn/item/oshwhub/run-api-gateway">Run API Gateway</a>。安装后勾选「允许外部交互」与「显示在顶部菜单」，顶部出现 <code>API Gateway</code> 菜单。</p>
 </li>
 <li><p>安装 easyeda-api Skill：<br>在终端执行全局安装命令：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx clawhub@latest install easyeda-api --workdir <span class="string">"<span class="variable">$HOME</span>"</span> --<span class="built_in">dir</span> skills</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx clawhub@latest install easyeda-api --workdir <span class="string">&quot;<span class="variable">$HOME</span>&quot;</span> --<span class="built_in">dir</span> skills</span><br></pre></td></tr></table></figure>
 <p>若网络受限或命令安装失败，可手动下载 <a target="_blank" rel="noopener" href="https://image.lceda.cn/files/easyeda-api.zip">easyeda-api.zip</a>，解压到 <code>~/skills/easyeda-api/</code> 目录（确保 <code>SKILL.md</code> 位于该目录下，不要多层嵌套）。</p>
 </li>
 <li><p>AI 客户端准备：</p>
@@ -439,26 +445,26 @@
 </ul>
 </li>
 <li><p>一键启动连接：<br>在 AI 客户端（Claude Code 或 OpenCode）中直接输入：</p>
-<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">嘉立创EDA，启动！</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">嘉立创EDA，启动！</span><br></pre></td></tr></table></figure>
 <p>Skill 会自动启动本地 Bridge Server 并与 EDA 侧扩展完成握手验证。</p>
 </li>
 <li><p>验证与实战调用：<br>连接成功后，先发送只读验证指令：<code>请检查当前嘉立创EDA窗口是否连接成功，返回当前窗口状态</code>。链路通畅后，即可用自然语言下发具体硬件设计任务，例如：“生成 ESP32-C3 最小系统电路”、“给电源输入部分加上 ESD 保护电路”等。</p>
 </li>
 </ol>
 <h2 id="3-编译、烧录、调试"><a href="#3-编译、烧录、调试" class="headerlink" title="3. 编译、烧录、调试"></a>3. 编译、烧录、调试</h2><p>嵌入式开发最烦人的不是写代码，是写完代码之后的事。编译调工具链，烧录配 OpenOCD 或 J-Link，调试开 GDB、接串口。每个操作单独看都不难，但换一个芯片平台就要重新学一遍。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/LeoKemp223/embed-ai-tool">LeoKemp223/embed-ai-tool</a> 干的事很简单：给 AI 装上操作这些工具链的能力。通过 23 个 Claude Code Skill，把原本割裂的开发环节串成一个自主闭环：</p>
-<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://image.skyforever.top/blog/2026/08/5d138155f054ff8700ad065b7dd31410.svg" alt="嵌入式开发 Agent 自主闭环"></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/LeoKemp223/embed-ai-tool">LeoKemp223&#x2F;embed-ai-tool</a> 干的事很简单：给 AI 装上操作这些工具链的能力。通过 23 个 Claude Code Skill，把原本割裂的开发环节串成一个自主闭环：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/08/5d138155f054ff8700ad065b7dd31410.svg" alt="嵌入式开发 Agent 自主闭环"></p>
 <p>整个工具链覆盖 5 大核心阶段：</p>
 <ol>
 <li>静态分析：代码规范检查与语法漏洞排查（cppcheck、clang-tidy、MISRA-C 规则集）</li>
 <li>编译构建：自动识别工程类型并调用对应编译器（CMake、Keil、IAR、PlatformIO、ESP-IDF）</li>
 <li>固件烧录：自动探测烧录器并写入固件（OpenOCD、J-Link、串口、Keil、PlatformIO、ESP-IDF）</li>
-<li>在板调试：硬件在环断点排查与系统分析（GDB+OpenOCD、J-Link、FreeRTOS/RT-Thread/Zephyr 任务栈分析、ELF/map 内存解析）</li>
-<li>外设与协议：实时交互与通信日志抓取（串口监控过滤、Modbus RTU/TCP、CAN 报文调试、SCPI 仪器联动）</li>
+<li>在板调试：硬件在环断点排查与系统分析（GDB+OpenOCD、J-Link、FreeRTOS&#x2F;RT-Thread&#x2F;Zephyr 任务栈分析、ELF&#x2F;map 内存解析）</li>
+<li>外设与协议：实时交互与通信日志抓取（串口监控过滤、Modbus RTU&#x2F;TCP、CAN 报文调试、SCPI 仪器联动）</li>
 </ol>
 <p><strong>这套能力最核心的价值在于“闭环”</strong>：AI 作为调度中枢，烧录完固件后会自动通过串口或 GDB 监控运行状态；一旦捕获到断点命中、内存越界、任务栈溢出或串口报错日志，会立即将信息回传给 AI 大脑，自动定位源码并重新修改，再次触发编译与验证，直到跑通。</p>
 <p>安装：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一键装全部</span></span><br><span class="line">npx skills add LeoKemp223/embed-ai-tool -g -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或按需</span></span><br><span class="line">npx skills add LeoKemp223/embed-ai-tool --skill build-cmake --skill flash-openocd -g -y</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一键装全部</span></span><br><span class="line">npx skills add LeoKemp223/embed-ai-tool -g -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或按需</span></span><br><span class="line">npx skills add LeoKemp223/embed-ai-tool --skill build-cmake --skill flash-openocd -g -y</span><br></pre></td></tr></table></figure>
 
 <p>装完以后，日常开发只需下达宏观指令：</p>
 <ul>
@@ -468,33 +474,33 @@
 <li>“分析一下 FreeRTOS 任务栈，看看哪个任务溢出”：快速排查系统级死锁或越界。</li>
 </ul>
 <p>注意：它不帮你安装 Keil、IAR、gcc-arm-none-eabi 这些底层的物理编译器和驱动环境，这些环境依赖仍然需本地具备。它做的是充当你的自动化操作手，帮你省去频繁在各个软件间切换敲命令与手动排错的时间。</p>
-<h2 id="4-针对-Linux-板子：让-AI-直接上板操作"><a href="#4-针对-Linux-板子：让-AI-直接上板操作" class="headerlink" title="4. 针对 Linux 板子：让 AI 直接上板操作"></a>4. 针对 Linux 板子：让 AI 直接上板操作</h2><p>embed-ai-tool 的调试能力侧重 MCU 侧（GDB + 串口 + RTOS），如果你的板子跑的是嵌入式 Linux，<a target="_blank" rel="noopener" href="https://github.com/yolejee/bsp_board_mcp">yolejee/bsp_board_mcp</a> 更适合。</p>
+<h2 id="4-针对-Linux-板子：让-AI-直接上板操作"><a href="#4-针对-Linux-板子：让-AI-直接上板操作" class="headerlink" title="4. 针对 Linux 板子：让 AI 直接上板操作"></a>4. 针对 Linux 板子：让 AI 直接上板操作</h2><p>embed-ai-tool 的调试能力侧重 MCU 侧（GDB + 串口 + RTOS），如果你的板子跑的是嵌入式 Linux，<a target="_blank" rel="noopener" href="https://github.com/yolejee/bsp_board_mcp">yolejee&#x2F;bsp_board_mcp</a> 更适合。</p>
 <p>它是一个 MCP Server，让 Claude Code 通过 SSH、串口、ADB-USB、ADB-WiFi 直连 Linux 开发板。不需要你手动 ssh 上去复制粘贴。</p>
 <p>安装：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/yolejee/bsp_board_mcp.git</span><br><span class="line"><span class="built_in">cd</span> bsp_board_mcp</span><br><span class="line">uv <span class="built_in">sync</span>    <span class="comment"># Windows 双击 setup.bat</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/yolejee/bsp_board_mcp.git</span><br><span class="line"><span class="built_in">cd</span> bsp_board_mcp</span><br><span class="line">uv <span class="built_in">sync</span>    <span class="comment"># Windows 双击 setup.bat</span></span><br></pre></td></tr></table></figure>
 
 <p>在项目根目录的 <code>.mcp.json</code> 中配置（SSH 为例）：</p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"mcpServers"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"linux-board-ssh"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"command"</span><span class="punctuation">:</span> <span class="string">"uv"</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"args"</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">"--directory"</span><span class="punctuation">,</span> <span class="string">"/path/to/bsp_board_mcp"</span><span class="punctuation">,</span> <span class="string">"run"</span><span class="punctuation">,</span> <span class="string">"python"</span><span class="punctuation">,</span> <span class="string">"-m"</span><span class="punctuation">,</span> <span class="string">"linux_board_mcp"</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"env"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"BOARD_TRANSPORT"</span><span class="punctuation">:</span> <span class="string">"ssh"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"BOARD_HOST"</span><span class="punctuation">:</span> <span class="string">"192.168.7.2"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"BOARD_USER"</span><span class="punctuation">:</span> <span class="string">"root"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"BOARD_KEY"</span><span class="punctuation">:</span> <span class="string">"/home/you/.ssh/board_rsa"</span></span><br><span class="line">      <span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;mcpServers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;linux-board-ssh&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;uv&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;--directory&quot;</span><span class="punctuation">,</span> <span class="string">&quot;/path/to/bsp_board_mcp&quot;</span><span class="punctuation">,</span> <span class="string">&quot;run&quot;</span><span class="punctuation">,</span> <span class="string">&quot;python&quot;</span><span class="punctuation">,</span> <span class="string">&quot;-m&quot;</span><span class="punctuation">,</span> <span class="string">&quot;linux_board_mcp&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;env&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;BOARD_TRANSPORT&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ssh&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;BOARD_HOST&quot;</span><span class="punctuation">:</span> <span class="string">&quot;192.168.7.2&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;BOARD_USER&quot;</span><span class="punctuation">:</span> <span class="string">&quot;root&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;BOARD_KEY&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/home/you/.ssh/board_rsa&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>串口模式把 <code>BOARD_TRANSPORT</code> 改成 <code>serial</code>，填 <code>BOARD_SERIAL_PORT</code> 和波特率。ADB 模式改 <code>adb-usb</code>（填 <code>ADB_SERIAL</code>）或 <code>adb-wifi</code>（填 <code>ADB_WIFI_HOST</code>）。</p>
 <p>配好之后直接对 Claude 说：”看看板子内存情况”、”查这个 GPIO 中断触发次数”、”加载 ko 驱动，看 dmesg 有没有报错”。只读操作（read_dmesg、read_sysfs、read_proc、run_shell 等）不需要每次确认，破坏性操作（install_module、write_sysfs、reboot_board）需要批准。</p>
-<p>embed-ai-tool 的调试面向 MCU/RTOS/裸机场景，bsp_board_mcp 面向 Linux 板子。两者不互斥，你的项目该用哪个取决于板子上跑的是什么。</p>
+<p>embed-ai-tool 的调试面向 MCU&#x2F;RTOS&#x2F;裸机场景，bsp_board_mcp 面向 Linux 板子。两者不互斥，你的项目该用哪个取决于板子上跑的是什么。</p>
 <h2 id="5-闭环调参：让-AI-自己试，试对为止"><a href="#5-闭环调参：让-AI-自己试，试对为止" class="headerlink" title="5. 闭环调参：让 AI 自己试，试对为止"></a>5. 闭环调参：让 AI 自己试，试对为止</h2><p>有些任务不是”查个 log”就能解决的。PID 调参是典型——参数对不对，要跑起来看才知道。会调的人十几分钟搞定，不熟的可能耗一天。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/KINGSTON-115/llm-pid-tuner">KINGSTON-115/llm-pid-tuner</a> 让 LLM 自己闭环迭代。你告诉它”响应要快，但别超调”，它自己跑、自己看效果、自己调参数。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/KINGSTON-115/llm-pid-tuner">KINGSTON-115&#x2F;llm-pid-tuner</a> 让 LLM 自己闭环迭代。你告诉它”响应要快，但别超调”，它自己跑、自己看效果、自己调参数。</p>
 <p>安装：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows：从 https://github.com/KINGSTON-115/llm-pid-tuner/releases/latest 下载 exe</span></span><br><span class="line"><span class="comment"># 源码：</span></span><br><span class="line">git <span class="built_in">clone</span> -b dev https://github.com/KINGSTON-115/llm-pid-tuner.git</span><br><span class="line"><span class="built_in">cd</span> llm-pid-tuner &amp;&amp; pip install -r requirements.txt</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows：从 https://github.com/KINGSTON-115/llm-pid-tuner/releases/latest 下载 exe</span></span><br><span class="line"><span class="comment"># 源码：</span></span><br><span class="line">git <span class="built_in">clone</span> -b dev https://github.com/KINGSTON-115/llm-pid-tuner.git</span><br><span class="line"><span class="built_in">cd</span> llm-pid-tuner &amp;&amp; pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
 
-<p>连接方式：单片机通过串口跑 <code>firmware.cpp</code>，持续上报 CSV 格式的控制数据（时间戳、设定值、输入、PWM、误差、P/I/D 分量）。上位机读串口，调 LLM API 分析响应质量，生成新参数写回单片机。</p>
+<p>连接方式：单片机通过串口跑 <code>firmware.cpp</code>，持续上报 CSV 格式的控制数据（时间戳、设定值、输入、PWM、误差、P&#x2F;I&#x2F;D 分量）。上位机读串口，调 LLM API 分析响应质量，生成新参数写回单片机。</p>
 <p>LLM 配置（<code>config.json</code>），国内中转站用 <code>openai_claude</code> 协议：</p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"LLM_PROVIDER"</span><span class="punctuation">:</span> <span class="string">"openai_claude"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"LLM_API_BASE_URL"</span><span class="punctuation">:</span> <span class="string">"https://你的中转站/v1"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"LLM_MODEL_NAME"</span><span class="punctuation">:</span> <span class="string">"claude-sonnet-4-6"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"LLM_API_KEY"</span><span class="punctuation">:</span> <span class="string">"sk-xxx"</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;LLM_PROVIDER&quot;</span><span class="punctuation">:</span> <span class="string">&quot;openai_claude&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;LLM_API_BASE_URL&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://你的中转站/v1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;LLM_MODEL_NAME&quot;</span><span class="punctuation">:</span> <span class="string">&quot;claude-sonnet-4-6&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;LLM_API_KEY&quot;</span><span class="punctuation">:</span> <span class="string">&quot;sk-xxx&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p>工作流：采数据 → LLM 分析（超调、稳态误差）→ 给新 P/I/D → 写入执行 → 观察。<br>变差了自动回退到历史最佳，连续几轮满足阈值自动停。</p>
+<p>工作流：采数据 → LLM 分析（超调、稳态误差）→ 给新 P&#x2F;I&#x2F;D → 写入执行 → 观察。<br>变差了自动回退到历史最佳，连续几轮满足阈值自动停。</p>
 <p>这和以前手动调参的区别在于：你只需要告诉它方向，AI 自己去闭环到收敛。</p>
-<h2 id="6-板子没有现成工具怎么办"><a href="#6-板子没有现成工具怎么办" class="headerlink" title="6. 板子没有现成工具怎么办"></a>6. 板子没有现成工具怎么办</h2><p>上面这些工具覆盖的场景——STM32/ESP32、Linux 板子、PID 控制器——都有比较成熟的开发生态。<br>但做嵌入式的都知道，大量国产 MCU 开发生态不完善。</p>
+<h2 id="6-板子没有现成工具怎么办"><a href="#6-板子没有现成工具怎么办" class="headerlink" title="6. 板子没有现成工具怎么办"></a>6. 板子没有现成工具怎么办</h2><p>上面这些工具覆盖的场景——STM32&#x2F;ESP32、Linux 板子、PID 控制器——都有比较成熟的开发生态。<br>但做嵌入式的都知道，大量国产 MCU 开发生态不完善。</p>
 <p>海思 Hi3863 就是这种情况。LiteOS 的编译和烧录是用脚本控制的。</p>
 <p>我的做法是自己给 AI 写工具。</p>
 <p>用 <a href="/posts/49583">Hi3863 LiteOS OTA 如何实现</a> 这个博客里的方法，在设备端搭建 TCP 服务端<br>电脑上编译好 OTA 升级固件、固件里实现自动写 Flash、校验、重启。然后写了个 Python 发送脚本（<code>tools/ota_sender.py</code>），Claude Code 改完代码后可以调用这个脚本把固件推到板子上：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">改代码 → 编译 → ota_sender.py 推固件 → 串口看结果 → 再改</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">改代码 → 编译 → ota_sender.py 推固件 → 串口看结果 → 再改</span><br></pre></td></tr></table></figure>
 
 <p>以前手动烧录，改一行代码要三五分钟才能看到效果；走 OTA 之后几十秒一个循环。</p>
 <p>这不是说每个项目都要写 OTA 工具。核心思路是：在应用层开一扇门让 AI 能够到你的设备。串口协议、TCP 服务、简单的 CLI 都可以。哪怕只是一个能收发指令的串口小程序，也比每次手动复制粘贴强。</p>
@@ -524,14 +530,14 @@
 <p>过去市面上有两条路——靠铆时间拼 996，或者靠经验走到管理层。接下来不是了。普通工程师也可以做管理，只不过你管的不是人，是 Agent。把架构和 Agent 工程学好，开发出来的产品能快速上线、可维护、能裂变到不同产品线，你就已经走到了那个位置。</p>
 <p>最后，推荐一本我认为至今最好的嵌入式软件架构入门书：<a target="_blank" rel="noopener" href="https://zhaochengbo.github.io/zhaoming-embedded/">兆明嵌入式——C 语言面向对象编程·嵌入式实战</a>。它把”怎么用 C 写出可复用、可维护的嵌入式架构”这件事讲透了，跟 AI 时代要攒的工程经验正好对口。</p>
 <p>如果你已经有了c语言基础和嵌入式开发基础（例如STM32开发），想学架构设计，这本书是最好的起点。它的核心思想是”用 C 语言写面向对象的代码”，通过封装、抽象、模块化来提升代码的复用性和可维护性。无论是现在还是未来，这些都是嵌入式开发的核心能力。</p>
-<p>另外推荐一个非常优质且实用的嵌入式设计模式开源项目：<a target="_blank" rel="noopener" href="https://github.com/xuanlinzhu/DesignMode/tree/master">xuanlinzhu/DesignMode——设计模式-面向嵌入式软件开发</a>。它详细总结了单例、工厂、观察者、状态机等经典设计模式在 C 语言嵌入式系统中的工程实现，配合面向对象的架构思想阅读，能帮助你进一步打牢模块化、低耦合的系统设计内功。</p>
+<p>另外推荐一个非常优质且实用的嵌入式设计模式开源项目：<a target="_blank" rel="noopener" href="https://github.com/xuanlinzhu/DesignMode/tree/master">xuanlinzhu&#x2F;DesignMode——设计模式-面向嵌入式软件开发</a>。它详细总结了单例、工厂、观察者、状态机等经典设计模式在 C 语言嵌入式系统中的工程实现，配合面向对象的架构思想阅读，能帮助你进一步打牢模块化、低耦合的系统设计内功。</p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
 <script src="/js/markmap.js"></script>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>嵌入式</a><a class="tag" href="/tags/AI%E7%BC%96%E7%A8%8B/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>AI编程</a><a class="tag" href="/tags/Claude-Code/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Claude Code</a><a class="tag" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>开发工具</a><a class="tag" href="/tags/PCB%E8%AE%BE%E8%AE%A1/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>PCB设计</a><a class="tag" href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>物联网</a><a class="tag" href="/tags/MCU/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>MCU</a></div>
+<div class="article-tags"><a class="tag" href="/tags/AI%E7%BC%96%E7%A8%8B/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>AI编程</a><a class="tag" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>嵌入式</a><a class="tag" href="/tags/Claude-Code/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Claude Code</a><a class="tag" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>开发工具</a><a class="tag" href="/tags/PCB%E8%AE%BE%E8%AE%A1/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>PCB设计</a><a class="tag" href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>物联网</a><a class="tag" href="/tags/MCU/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>MCU</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -563,7 +569,7 @@
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;52013.html" title="Claude Code 使用指南"><span class="title">Claude Code 使用指南</span><span class="excerpt">详细介绍如何在国内使用 Claude Code 这一顶级AI编程工具。涵盖API平台选择、cc-switch一键配置、子代理机制详解， 以及基于子代理的高效开发方法论与避坑指南。</span></a><a class="item" href="&#x2F;posts&#x2F;49583.html" title="Hi3863 LiteOS OTA 如何实现"><span class="title">Hi3863 LiteOS OTA 如何实现</span><span class="excerpt">基于 WS63 芯片的 LiteOS OTA 升级完整实现指南，详解 UPG 模块接口原理、环境准备、 TCP 服务端代码实现、升级包推送及常见问题排查。</span></a><a class="item" href="&#x2F;posts&#x2F;52107.html" title="Hi3863 WiFi AP 配网实现方法"><span class="title">Hi3863 WiFi AP 配网实现方法</span><span class="excerpt">总结在 HiSpark WS63（LiteOS + lwIP）平台上实现 WiFi AP 配网（Captive Portal &#x2F; 强制门户）的完整流程， 涵盖强制门户检测原理、整体架构、代码实现及开发过程中的关键问题与解决方案。</span></a><a class="item" href="&#x2F;posts&#x2F;30908.html" title="2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程"><span class="title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span><span class="excerpt">本文详细介绍了Keil MDK5社区版的下载与安装流程，解决了AC5编译器缺失报错、CMSIS版本冲突等常见问题，并分享了代码格式化与自动保存的实用配置技巧。</span></a><a class="item" href="&#x2F;posts&#x2F;41826.html" title="什么是Agent，怎么用好Agent，怎么写Skill"><span class="title">什么是Agent，怎么用好Agent，怎么写Skill</span><span class="excerpt">从底层循环机制出发，讲清楚什么是 Agent、为什么 Agent 能执行任务、如何真正用好 Agent， 以及如何编写高质量的 Skill.md 来提升 AI 协作效率。</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;52013.html" title="Claude Code 使用指南"><span class="title">Claude Code 使用指南</span><span class="excerpt">详细介绍如何在国内使用 Claude Code 这一顶级AI编程工具。涵盖API平台选择、cc-switch一键配置、子代理机制详解， 以及基于子代理的高效开发方法论与避坑指南。</span></a><a class="item" href="&#x2F;posts&#x2F;49583.html" title="Hi3863 LiteOS OTA 如何实现"><span class="title">Hi3863 LiteOS OTA 如何实现</span><span class="excerpt">基于 WS63 芯片的 LiteOS OTA 升级完整实现指南，详解 UPG 模块接口原理、环境准备、 TCP 服务端代码实现、升级包推送及常见问题排查。</span></a><a class="item" href="&#x2F;posts&#x2F;52107.html" title="Hi3863 WiFi AP 配网实现方法"><span class="title">Hi3863 WiFi AP 配网实现方法</span><span class="excerpt">总结在 HiSpark WS63（LiteOS + lwIP）平台上实现 WiFi AP 配网（Captive Portal &#x2F; 强制门户）的完整流程， 涵盖强制门户检测原理、整体架构、代码实现及开发过程中的关键问题与解决方案。</span></a><a class="item" href="&#x2F;posts&#x2F;41826.html" title="什么是Agent，怎么用好Agent，怎么写Skill"><span class="title">什么是Agent，怎么用好Agent，怎么写Skill</span><span class="excerpt">从底层循环机制出发，讲清楚什么是 Agent、为什么 Agent 能执行任务、如何真正用好 Agent， 以及如何编写高质量的 Skill.md 来提升 AI 协作效率。</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
@@ -1092,8 +1098,8 @@
     const swiper_api = document.getElementById('swiper-api');
     if (swiper_api != undefined) {
       utils.css(`/css/plugins/swiper.css?v=1.44.0`);
-      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
-      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+      utils.css(`https://npm.elemecdn.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://npm.elemecdn.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
         const effect = swiper_api.getAttribute('effect') || '';
         var swiper = new Swiper('.swiper#swiper-api', {
           slidesPerView: 'auto',
@@ -1115,39 +1121,6 @@
   }, 'swiper');
 </script>
 <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
-<script defer type="text/javascript" src="https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
-<script>
-  stellar.initPlugin(() => {
-    const els = document.querySelectorAll('.mermaid');
-    if (els.length > 0) {
-      if (false) {
-        utils.css(`/css/plugins/mermaid.css?v=1.44.0`);
-      }
-      const mermaid_config = {
-        startOnLoad: false,
-        theme:
-          "auto" == "auto" &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "neutral",
-        logLevel: 3,
-        flowchart: {
-          useMaxWidth: false,
-          htmlLabels: true,
-          curve: "linear"
-        },
-        gantt: {
-          axisFormat: "%Y/%m/%d"
-        },
-        sequence: {
-          actorMargin: 50
-        }
-      }
-      mermaid.initialize(mermaid_config);
-      mermaid.run();
-    }
-  }, 'mermaid');
-</script>
 <script>
   stellar.initPlugin(() => {
     const codeElements = document.querySelectorAll('.code');
@@ -1186,39 +1159,46 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277"></script>
+<!-- Google Analytics & Microsoft Clarity 页面完全加载后延迟载入，避免阻塞首屏与关键网络 -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+(function() {
+  var runDeferredAnalytics = function() {
+    // Google tag (gtag.js)
+    var gScript = document.createElement('script');
+    gScript.async = true;
+    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
+    document.head.appendChild(gScript);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JST56Q8277');
 
-  gtag('config', 'G-JST56Q8277');
-</script>
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
+    // Microsoft Clarity
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "rp0i6z4yyg");
+  };
+
+  var schedule = function() {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(runDeferredAnalytics, { timeout: 3000 });
+    } else {
+      setTimeout(runDeferredAnalytics, 1500);
+    }
+  };
+
+  if (document.readyState === 'complete') {
+    schedule();
+  } else {
+    window.addEventListener('load', schedule);
+  }
+})();
 </script>
 
 
 
 <!-- inject -->
 
-</div>
-        <style>
-            [bg-lazy] {
-                background-image: none !important;
-                background-color: #eee !important;
-            }
-        </style>
-        <script>
-            window.imageLazyLoadSetting = {
-                isSPA: false,
-                preloadRatio: 5,
-                processImages: null,
-            };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body></html>
+</div></body></html>
