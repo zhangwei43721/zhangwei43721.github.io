@@ -799,7 +799,8 @@
     hoverDelay: 25
   };
 </script>
-<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js" onload="typeof flyingPages==='function'&&flyingPages(window.FPConfig)"></script>
+<script type="module" src="https://npm.elemecdn.com/instant.page@5.2.0/instantpage.js"></script><script>
   ctx.fancybox = {
     mode: `auto`,
     selector: `.md-text img[alt]:not([alt="icon"]):not([alt="cover"])`,
