@@ -713,8 +713,8 @@
 </ol>
 <hr>
 <h2 id="📸-界面展示"><a href="#📸-界面展示" class="headerlink" title="📸 界面展示"></a>📸 界面展示</h2><p>系统拥有基于 LVGL 精心设计的嵌入式 UI 和现代化的 Web 控制面板，两者界面清晰、操作直观、状态实时同步。</p>
-<table>
-  <tr>
+<div class="md-table-scroll"><table>
+  <tbody><tr>
     <td align="center"><strong>主仪表盘 (Dashboard)</strong><br><em>实时天气、时间与快捷入口</em></td>
     <td align="center"><strong>安防系统 (Security)</strong><br><em>三种布防模式，一键报警</em></td>
   </tr>
@@ -738,7 +738,7 @@
     <td><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="img/AI%E5%AF%B9%E8%AF%9D.png" alt="AI对话" width="100%"></td>
     <td><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="img/web.png" alt="Web 控制端界面" width="100%"></td>
   </tr>
-</table>
+</tbody></table></div>
 
 
 <hr>
@@ -751,7 +751,7 @@
 </ul>
 <hr>
 <h2 id="🏗️-系统架构"><a href="#🏗️-系统架构" class="headerlink" title="🏗️ 系统架构"></a>🏗️ 系统架构</h2><p>本系统采用经典的“端-云-端”物联网架构，各部分职责清晰，分层解耦。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+------------------------+      +------------------+      +--------------------------+</span><br><span class="line">|                        |      |                  |      |                          |</span><br><span class="line">|  Web 控制端 (Vue+TS)   |&lt;----&gt;|   MQTT Broker    |&lt;----&gt;|   嵌入式主控终端 (C+LVGL)  |</span><br><span class="line">| (Smt-Home-MQTT-Control)|      |  (Mosquitto/EMQX)|      |     (Smt_Home_System)    |</span><br><span class="line">|                        |      |                  |      |                          |</span><br><span class="line">+------------------------+      +------------------+      +--------------------------+</span><br><span class="line">         (WebSocket/MQTT)            (TCP/MQTT)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+------------------------+      +------------------+      +--------------------------+</span><br><span class="line">|                        |      |                  |      |                          |</span><br><span class="line">|  Web 控制端 (Vue+TS)   |&lt;----&gt;|   MQTT Broker    |&lt;----&gt;|   嵌入式主控终端 (C+LVGL)  |</span><br><span class="line">| (Smt-Home-MQTT-Control)|      |  (Mosquitto/EMQX)|      |     (Smt_Home_System)    |</span><br><span class="line">|                        |      |                  |      |                          |</span><br><span class="line">+------------------------+      +------------------+      +--------------------------+</span><br><span class="line">         (WebSocket/MQTT)            (TCP/MQTT)</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="嵌入式主控终端技术栈"><a href="#嵌入式主控终端技术栈" class="headerlink" title="嵌入式主控终端技术栈"></a>嵌入式主控终端技术栈</h3><ul>
 <li><strong>核心语言</strong>: C</li>
@@ -782,14 +782,14 @@
 <li><strong>Windows</strong>: 安装 MinGW 或 MSVC。</li>
 </ul>
 </li>
-<li><strong>Web 端</strong>: 安装 Node.js 和 npm &#x2F; pnpm &#x2F; yarn。</li>
+<li><strong>Web 端</strong>: 安装 Node.js 和 npm / pnpm / yarn。</li>
 <li><strong>云端</strong>: 一个正在运行的 MQTT Broker (如 Mosquitto 或 EMQX)。</li>
 </ul>
 </li>
 </ul>
 <h3 id="编译与运行-嵌入式主控终端"><a href="#编译与运行-嵌入式主控终端" class="headerlink" title="编译与运行 (嵌入式主控终端)"></a>编译与运行 (嵌入式主控终端)</h3><ol>
 <li><p><strong>克隆项目</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zhangwei43721/Smart_Home_System.git</span><br><span class="line"><span class="built_in">cd</span> Smart_Home_System</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zhangwei43721/Smart_Home_System.git</span><br><span class="line"><span class="built_in">cd</span> Smart_Home_System</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>配置</strong><br>在 <code>obj/Include/config.h</code> 文件中，填入您的 MQTT 服务器地址、天气 API Key 和 DeepSeek API Key。</p>
 </li>
@@ -797,22 +797,22 @@
 <blockquote>
 <p>注意编译以前，你可能需要先安装依赖，往下翻可以看到需要哪些依赖</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式一: 本地 Linux PC 编译</span></span><br><span class="line"><span class="comment"># (请先根据下方指引安装依赖)</span></span><br><span class="line">cmake ..</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二: ARM 交叉编译</span></span><br><span class="line"><span class="comment"># (需在 arm.cmake 中配置好您的工具链路径)</span></span><br><span class="line">cmake .. -DCMAKE_TOOLCHAIN_FILE=../arm.cmake</span><br><span class="line"></span><br><span class="line">make -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式一: 本地 Linux PC 编译</span></span><br><span class="line"><span class="comment"># (请先根据下方指引安装依赖)</span></span><br><span class="line">cmake ..</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二: ARM 交叉编译</span></span><br><span class="line"><span class="comment"># (需在 arm.cmake 中配置好您的工具链路径)</span></span><br><span class="line">cmake .. -DCMAKE_TOOLCHAIN_FILE=../arm.cmake</span><br><span class="line"></span><br><span class="line">make -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>运行</strong><br>可执行文件 <code>main</code> 将生成于 <code>bin</code> 目录下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../bin</span><br><span class="line">./main</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../bin</span><br><span class="line">./main</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
 <h3 id="运行-Web-控制端"><a href="#运行-Web-控制端" class="headerlink" title="运行 (Web 控制端)"></a>运行 (Web 控制端)</h3><ol>
 <li><p><strong>进入目录</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Smart-Home-MQTT-Control</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Smart-Home-MQTT-Control</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>安装依赖</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>配置</strong><br>修改代码中的 MQTT 连接配置，使其指向您的 MQTT Broker 地址（注意使用 WebSocket 端口）。</p>
 </li>
 <li><p><strong>启动</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></tbody></table></figure>
 
 <p>在浏览器中打开提示的本地地址即可访问。</p>
 </li>
@@ -821,8 +821,8 @@
 <h2 id="🛠️-构建与依赖"><a href="#🛠️-构建与依赖" class="headerlink" title="🛠️ 构建与依赖"></a>🛠️ 构建与依赖</h2><p>本项目使用 CMake 作为构建系统，能够智能检测目标平台并自动配置 LVGL 驱动及相关依赖。</p>
 <h3 id="依赖项说明"><a href="#依赖项说明" class="headerlink" title="依赖项说明"></a>依赖项说明</h3><h4 id="1-Linux-PC-平台"><a href="#1-Linux-PC-平台" class="headerlink" title="1. Linux (PC) 平台"></a>1. Linux (PC) 平台</h4><p>在此模式下，项目依赖于系统已安装的动态库。</p>
 <ul>
-<li><p><strong>安装示例 (Debian &#x2F; Ubuntu)</strong>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install build-essential cmake pkg-config \</span><br><span class="line">     libsdl2-dev libfreetype6-dev libpng-dev zlib1g-dev \</span><br><span class="line">     libssl-dev libcurl4-openssl-dev libmosquitto-dev libcjson-dev</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>安装示例 (Debian / Ubuntu)</strong>:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install build-essential cmake pkg-config \</span><br><span class="line">     libsdl2-dev libfreetype6-dev libpng-dev zlib1g-dev \</span><br><span class="line">     libssl-dev libcurl4-openssl-dev libmosquitto-dev libcjson-dev</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <h4 id="2-ARM-与-Windows-平台"><a href="#2-ARM-与-Windows-平台" class="headerlink" title="2. ARM 与 Windows 平台"></a>2. ARM 与 Windows 平台</h4><p>为了方便交叉编译和 Windows 开发，这两个平台会<strong>优先使用项目 <code>libs/</code> 目录下提供的预编译静态库</strong>。您无需额外安装依赖，只需确保编译工具链可用。</p>
 <ul>
@@ -830,12 +830,12 @@
 </ul>
 <h3 id="自动化配置"><a href="#自动化配置" class="headerlink" title="自动化配置"></a>自动化配置</h3><p><code>CMakeLists.txt</code> 会在编译前自动修改 LVGL 的配置文件 (<code>lv_conf.h</code> 等)，以适配不同平台：</p>
 <ul>
-<li><strong>PC&#x2F;Windows</strong>: 自动启用 SDL 驱动。</li>
+<li><strong>PC/Windows</strong>: 自动启用 SDL 驱动。</li>
 <li><strong>ARM</strong>: 自动启用 Framebuffer (<code>FBDEV</code>) 和 <code>EVDEV</code> 驱动，以直接与屏幕和输入设备交互。</li>
 </ul>
 <p>这个自动化过程确保了您无需手动修改 LVGL 配置即可在不同平台上无缝编译。</p>
 <hr>
-<h2 id="📂-目录结构"><a href="#📂-目录结构" class="headerlink" title="📂 目录结构"></a>📂 目录结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── Smart-Home-MQTT-Control/ # Web 控制端 (Vue + TS)</span><br><span class="line">├── arm.cmake                # ARM 交叉编译工具链文件</span><br><span class="line">├── bin/                     # 存放可执行文件及运行时资源 (字体、媒体)</span><br><span class="line">├── build/                   # 编译产物目录</span><br><span class="line">├── data/                    # 存放持久化的设备状态文件</span><br><span class="line">├── libs/                    # 第三方预编译静态库</span><br><span class="line">├── lvgl/                    # LVGL 核心库</span><br><span class="line">├── lv_drivers/              # LVGL 驱动</span><br><span class="line">├── obj/                     # 项目 C 源码</span><br><span class="line">│   ├── AI/                  # AI 聊天模块</span><br><span class="line">│   ├── data/                # 数据持久化模块</span><br><span class="line">│   ├── hardware/            # 硬件控制模块</span><br><span class="line">│   ├── http/                # HTTP API 封装 (天气等)</span><br><span class="line">│   ├── Include/             # 项目头文件</span><br><span class="line">│   ├── MQTT/                # MQTT 通信模块</span><br><span class="line">│   └── screen/              # LVGL 屏幕界面代码</span><br><span class="line">├── CMakeLists.txt           # CMake 配置文件</span><br><span class="line">├── main.c                   # 程序主入口</span><br><span class="line">└── README.md                # 本文档</span><br></pre></td></tr></table></figure><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<h2 id="📂-目录结构"><a href="#📂-目录结构" class="headerlink" title="📂 目录结构"></a>📂 目录结构</h2><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── Smart-Home-MQTT-Control/ # Web 控制端 (Vue + TS)</span><br><span class="line">├── arm.cmake                # ARM 交叉编译工具链文件</span><br><span class="line">├── bin/                     # 存放可执行文件及运行时资源 (字体、媒体)</span><br><span class="line">├── build/                   # 编译产物目录</span><br><span class="line">├── data/                    # 存放持久化的设备状态文件</span><br><span class="line">├── libs/                    # 第三方预编译静态库</span><br><span class="line">├── lvgl/                    # LVGL 核心库</span><br><span class="line">├── lv_drivers/              # LVGL 驱动</span><br><span class="line">├── obj/                     # 项目 C 源码</span><br><span class="line">│   ├── AI/                  # AI 聊天模块</span><br><span class="line">│   ├── data/                # 数据持久化模块</span><br><span class="line">│   ├── hardware/            # 硬件控制模块</span><br><span class="line">│   ├── http/                # HTTP API 封装 (天气等)</span><br><span class="line">│   ├── Include/             # 项目头文件</span><br><span class="line">│   ├── MQTT/                # MQTT 通信模块</span><br><span class="line">│   └── screen/              # LVGL 屏幕界面代码</span><br><span class="line">├── CMakeLists.txt           # CMake 配置文件</span><br><span class="line">├── main.c                   # 程序主入口</span><br><span class="line">└── README.md                # 本文档</span><br></pre></td></tr></tbody></table></figure><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
 <script src="/js/markmap.js"></script>

@@ -667,7 +667,7 @@
 <li><strong>⽐喻</strong>：SSH 就像“为你的钥匙加上指纹认证”，确保只有你能开⻔。</li>
 <li>SSH 允许在本地和远程仓库之间安全通信，并省去每次推送或拉取代码时输⼊密码的⿇烦。</li>
 </ul>
-<h4 id="Git-常⽤命令速查表"><a href="#Git-常⽤命令速查表" class="headerlink" title="Git 常⽤命令速查表"></a>Git 常⽤命令速查表</h4><table>
+<h4 id="Git-常⽤命令速查表"><a href="#Git-常⽤命令速查表" class="headerlink" title="Git 常⽤命令速查表"></a>Git 常⽤命令速查表</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">功能</th>
@@ -677,7 +677,7 @@
 </thead>
 <tbody><tr>
 <td align="left"><strong>配置用户名和邮箱</strong></td>
-<td align="left"><code>git config --global user.name &quot;你的名字&quot;</code><br><code>git config --global user.email &quot;你的邮箱&quot;</code></td>
+<td align="left"><code>git config --global user.name "你的名字"</code><br><code>git config --global user.email "你的邮箱"</code></td>
 <td align="left">设置“署名”，每次提交都会标明是谁的贡献。</td>
 </tr>
 <tr>
@@ -692,7 +692,7 @@
 </tr>
 <tr>
 <td align="left"><strong>提交到本地仓库</strong></td>
-<td align="left"><code>git commit -m &quot;提交说明&quot;</code></td>
+<td align="left"><code>git commit -m "提交说明"</code></td>
 <td align="left">把草稿正式写进日记本，并附上说明。</td>
 </tr>
 <tr>
@@ -735,12 +735,12 @@
 <td align="left"><code>git pull origin 分支名</code></td>
 <td align="left">从远程仓库拉取最新代码。</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <h4 id="SSH-配置步骤"><a href="#SSH-配置步骤" class="headerlink" title="SSH 配置步骤"></a>SSH 配置步骤</h4><p><strong>1. 配置个⼈信息</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的名字&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"你的名字"</span></span><br><span class="line">git config --global user.email <span class="string">"你的邮箱"</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>2. ⽣成 SSH 密钥</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"你的邮箱"</span></span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>-t rsa</code> ：使⽤ RSA 算法⽣成密钥。</li>
 <li><code>-C</code> ：添加备注，通常是你的邮箱地址。</li>
@@ -752,15 +752,15 @@
 </ul>
 <p><strong>4. 测试连接</strong></p>
 <ul>
-<li>测试 GitHub：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></li>
-<li>测试 Gitee：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure></li>
+<li>测试 GitHub：<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></tbody></table></figure></li>
+<li>测试 Gitee：<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <p><strong>5. 配置多个 SSH 密钥（可选）</strong></p>
 <p>如果同时使⽤ GitHub 和 Gitee，可以为它们配置不同的 SSH 密钥。 在 <code>~/.ssh/config</code> ⽂件中添加以下内容：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">Host gitee.com</span><br><span class="line">    HostName gitee.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_gitee</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">Host gitee.com</span><br><span class="line">    HostName gitee.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_gitee</span><br></pre></td></tr></tbody></table></figure>
 
 <hr>
-<h3 id="第四部分：GitHub-和-Gitee-的核⼼功能详解"><a href="#第四部分：GitHub-和-Gitee-的核⼼功能详解" class="headerlink" title="第四部分：GitHub 和 Gitee 的核⼼功能详解"></a>第四部分：GitHub 和 Gitee 的核⼼功能详解</h3><table>
+<h3 id="第四部分：GitHub-和-Gitee-的核⼼功能详解"><a href="#第四部分：GitHub-和-Gitee-的核⼼功能详解" class="headerlink" title="第四部分：GitHub 和 Gitee 的核⼼功能详解"></a>第四部分：GitHub 和 Gitee 的核⼼功能详解</h3><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">功能</th>
@@ -795,7 +795,7 @@
 </tr>
 <tr>
 <td align="left"><strong>Actions</strong></td>
-<td align="left">自动化 CI&#x2F;CD 工作流</td>
+<td align="left">自动化 CI/CD 工作流</td>
 <td align="left">不支持 Actions</td>
 </tr>
 <tr>
@@ -813,7 +813,7 @@
 <td align="left">自动消息通知</td>
 <td align="left">支持类似功能</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h3 id="第五部分：总结与对比"><a href="#第五部分：总结与对比" class="headerlink" title="第五部分：总结与对比"></a>第五部分：总结与对比</h3><ul>
 <li><p><strong>Git：核⼼⼯具</strong></p>

@@ -708,8 +708,8 @@
 <li><strong>LVGL 字体与图片</strong>: <code>libfreetype6-dev</code>, <code>libpng-dev</code>, <code>zlib1g-dev</code></li>
 <li><strong>网络与通信</strong>: <code>libssl-dev</code>, <code>libcurl4-openssl-dev</code>, <code>libmosquitto-dev</code>, <code>libcjson-dev</code></li>
 </ul>
-<p>您可以使用以下命令在Debian&#x2F;Ubuntu系统上一次性安装所有依赖：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential cmake pkg-config libsdl2-dev libfreetype6-dev libpng-dev zlib1g-dev libssl-dev libcurl4-openssl-dev libmosquitto-dev libcjson-dev</span><br></pre></td></tr></table></figure>
+<p>您可以使用以下命令在Debian/Ubuntu系统上一次性安装所有依赖：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential cmake pkg-config libsdl2-dev libfreetype6-dev libpng-dev zlib1g-dev libssl-dev libcurl4-openssl-dev libmosquitto-dev libcjson-dev</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="2-ARM-平台依赖"><a href="#2-ARM-平台依赖" class="headerlink" title="2. ARM 平台依赖"></a>2. ARM 平台依赖</h3><p>在为ARM平台交叉编译时，CMake被配置为<strong>不使用</strong>系统库，而是链接项目 <code>libs/</code> 目录下预编译好的<strong>静态库</strong>。</p>
 <p>这些库包括:</p>

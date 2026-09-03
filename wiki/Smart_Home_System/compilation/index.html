@@ -702,36 +702,36 @@
   </div></div>
 <article class="md-text content"><p>本项目使用CMake进行构建，可以轻松地在PC上进行模拟，或为嵌入式目标进行交叉编译</p>
 <h2 id="1-克隆仓库"><a href="#1-克隆仓库" class="headerlink" title="1. 克隆仓库"></a>1. 克隆仓库</h2><p>打开支持git的命令行界面，粘贴以下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zhangwei43721/Smart_Home_System.git</span><br><span class="line"><span class="built_in">cd</span> Smart_Home_System</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zhangwei43721/Smart_Home_System.git</span><br><span class="line"><span class="built_in">cd</span> Smart_Home_System</span><br></pre></td></tr></tbody></table></figure>
 
 
 <h2 id="2-在Linux-PC上模拟运行"><a href="#2-在Linux-PC上模拟运行" class="headerlink" title="2. 在Linux PC上模拟运行"></a>2. 在Linux PC上模拟运行</h2><p>这是一种无需硬件即可快速验证UI和业务逻辑的方法</p>
 <ol>
 <li><p><strong>创建构建目录</strong>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>运行CMake生成Makefile</strong>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake ..</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake ..</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>编译项目</strong>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j8</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j8</span><br></pre></td></tr></tbody></table></figure>
 <p><code>-j8</code> 表示使用8个线程并行编译，可以加快速度。</p>
 </li>
 <li><p><strong>运行可执行文件</strong>：<br>编译成功后，<code>build</code> 目录下会生成一个名为 <code>Smart_Home</code> 的可执行文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./Smart_Home</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./Smart_Home</span><br></pre></td></tr></tbody></table></figure>
 <p>此时，您应该能看到一个SDL窗口弹窗，显示项目的LVGL界面。</p>
 </li>
 </ol>
 <h2 id="3-交叉编译-嵌入式目标"><a href="#3-交叉编译-嵌入式目标" class="headerlink" title="3. 交叉编译 (嵌入式目标)"></a>3. 交叉编译 (嵌入式目标)</h2><p>当您需要为ARM等嵌入式平台编译时，需要指定交叉编译工具链。</p>
 <ol>
 <li><p><strong>准备工具链文件</strong>:<br>修改 <code>arm-gcc.cmake</code> 工具链文件，内容如下，你需要指定这些工具链到自己安装的目录下：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(CMAKE_SYSTEM_NAME Generic)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER arm-none-eabi-gcc)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER arm-none-eabi-g++)</span><br><span class="line"><span class="comment"># ... 其他工具链相关设置</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(CMAKE_SYSTEM_NAME Generic)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER arm-none-eabi-gcc)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER arm-none-eabi-g++)</span><br><span class="line"><span class="comment"># ... 其他工具链相关设置</span></span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>运行CMake并指定工具链</strong>:<br>在<code>build</code>目录下，执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake .. -DCMAKE_TOOLCHAIN_FILE=../path/to/arm-gcc.cmake</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake .. -DCMAKE_TOOLCHAIN_FILE=../path/to/arm-gcc.cmake</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>编译</strong>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></tbody></table></figure>
 <p>编译完成后，将生成适用于目标平台的二进制文件到 <code>bin/</code> 目录下，您可以通过烧录工具将其下载到硬件中运行。</p>
 </li>
 </ol>

@@ -416,10 +416,10 @@
 <p>claude –enable-auto-mode</p>
 <p>进入会话后，可以按 Shift + Tab 切换到 Auto 模式。</p>
 <h4 id="1-绕过权限弹窗并设置别名"><a href="#1-绕过权限弹窗并设置别名" class="headerlink" title="1. 绕过权限弹窗并设置别名"></a><strong>1. 绕过权限弹窗并设置别名</strong></h4><p>每次跑脚本都要点确认很烦。最省事的做法是直接在 shell 里配个别名：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> c-d=<span class="string">&quot;claude --dangerously-skip-permissions&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> c-d=<span class="string">"claude --dangerously-skip-permissions"</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>或者去编辑 <code>~/.claude/settings.json</code> 文件（注意加这行 <code>skipDangerousModePermissionPrompt: true</code>）：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;permissions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;defaultMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bypassPermissions&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;skipDangerousModePermissionPrompt&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"permissions"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"defaultMode"</span><span class="punctuation">:</span> <span class="string">"bypassPermissions"</span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"skipDangerousModePermissionPrompt"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>搞定后下一次直接输入<code>c-d</code>拉起最高权限实例，清净很多。</p>
 <h4 id="2-用-claude-init-初始化-CLAUDE-md"><a href="#2-用-claude-init-初始化-CLAUDE-md" class="headerlink" title="2. 用 claude init 初始化 CLAUDE.md"></a><strong>2. 用 <code>claude init</code> 初始化 CLAUDE.md</strong></h4><p>接手老项目，别指望 AI 自己能瞬间领悟。直接在终端敲 <code>claude init</code>，它会自己摸索代码库并生成初版 <code>CLAUDE.md</code>（这是它分析出来的代码库基本情况，方便ClaudeCode快速上手）。</p>
@@ -431,16 +431,16 @@
 <p>下次直接跑这串命令，就能无缝回到上一次对话的最后状态，上下文都在。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/04/ba3de548854c7ead238f866c197fb1f2.webp" alt="回到上次对话的命令"></p>
 <h4 id="5-别只给需求，给“反馈链路”"><a href="#5-别只给需求，给“反馈链路”" class="headerlink" title="5. 别只给需求，给“反馈链路”"></a><strong>5. 别只给需求，给“反馈链路”</strong></h4><p>没有反馈链路的提问方法:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我做一个邮箱密码登录功能</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我做一个邮箱密码登录功能</span><br></pre></td></tr></tbody></table></figure>
 
 <p>这么给 Claude Code 说，Claude Code 往往丢几行代码就觉得搞定，实际上根本跑不起来。</p>
 <p>但有反馈链路的提问方法:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">帮我做一个邮箱密码登录功能。</span><br><span class="line">做完后请自己测试这个流程：</span><br><span class="line">- 错误输入要有提示</span><br><span class="line">- 正确登录后使用 Chrome MCP 跳转到 dashboard</span><br><span class="line">- 未登录访问 dashboard 要跳回 login</span><br><span class="line">如果测试失败，请继续修复，直到这条链路跑通再告诉我完成。</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">帮我做一个邮箱密码登录功能。</span><br><span class="line">做完后请自己测试这个流程：</span><br><span class="line">- 错误输入要有提示</span><br><span class="line">- 正确登录后使用 Chrome MCP 跳转到 dashboard</span><br><span class="line">- 未登录访问 dashboard 要跳回 login</span><br><span class="line">如果测试失败，请继续修复，直到这条链路跑通再告诉我完成。</span><br></pre></td></tr></tbody></table></figure>
 
 <p>把单次对话变成一套循环闭环，让Claude Code自己跑闭环测试，他就知道他写的代码是否能达到效果，自己给代码多次迭代，可用性直接大大提高。</p>
 <h4 id="6-装上针对语言的-LSP-插件"><a href="#6-装上针对语言的-LSP-插件" class="headerlink" title="6. 装上针对语言的 LSP 插件"></a><strong>6. 装上针对语言的 LSP 插件</strong></h4><p>一定要装代码智能插件（LSP）。它能让文件一保存就自动诊断语法错误或包遗漏，不用等到最后编译才发现死胡同。</p>
 <p>在 Claude Code 里输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/plugin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/plugin</span><br></pre></td></tr></tbody></table></figure>
 
 <p>在插件的Discover（发现）页面搜索 LSP ,即可给 Claude Code 安装常用编程语言的分析工具，帮助 Claude Code 写出更正确的代码</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/04/8d17b53a47060ddf3113e73646d41b26.webp" alt="给claudecode安装LSP"></p>
@@ -450,12 +450,12 @@
 <h4 id="8-没思路时，切-Plan-模式"><a href="#8-没思路时，切-Plan-模式" class="headerlink" title="8. 没思路时，切 Plan 模式"></a><strong>8. 没思路时，切 Plan 模式</strong></h4><p>遇到复杂需求不知道从哪下手，按下 <code>Shift + Tab</code> 切到 Claude Code 内置的 Plan 模式。</p>
 <p>它会先探索代码库、跟你反复对齐思路，定好计划再动手写代码。前期对齐逻辑，后面基本不会跑偏。</p>
 <h4 id="9-抛弃“二手翻译”，直接喂报错日志"><a href="#9-抛弃“二手翻译”，直接喂报错日志" class="headerlink" title="9. 抛弃“二手翻译”，直接喂报错日志"></a><strong>9. 抛弃“二手翻译”，直接喂报错日志</strong></h4><p>用自己的解释漏掉了原始的信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">登录跳转有问题，应该是token 没存上，你帮我修一下,</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">登录跳转有问题，应该是token 没存上，你帮我修一下,</span><br></pre></td></tr></tbody></table></figure>
 
 <p>一旦这么说，大模型很容易顺着你的错觉钻牛角尖。</p>
 <p>最稳妥的做法：把第一手报错日志原封不动砸给它。</p>
 <p>你可以加上你怀疑的方向，但必须有原始信息，让它自己去排查所有可能性。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这是登录相关的控制台报错和接口返回，我怀疑是 token 存储或者路由守卫的问题，你先从这个方向排查，但也请结合日志判断真实原因。</span><br><span class="line">- 日志信息</span><br><span class="line">- 其他信息</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这是登录相关的控制台报错和接口返回，我怀疑是 token 存储或者路由守卫的问题，你先从这个方向排查，但也请结合日志判断真实原因。</span><br><span class="line">- 日志信息</span><br><span class="line">- 其他信息</span><br></pre></td></tr></tbody></table></figure>
 
 <h4 id="10-卡死的时候，果断-clear"><a href="#10-卡死的时候，果断-clear" class="headerlink" title="10. 卡死的时候，果断 /clear"></a><strong>10. 卡死的时候，果断 <code>/clear</code></strong></h4><p>如果你现在的任务和上一个任务毫无关联，就用 <code>/clear</code> 清空上下文。或者直接新开个对话，上下文堆积太多必定会导致模型变蠢。清空 AI 的脑子重来往往有奇效。</p>
 <p>在实际开发中，很多时候你开发新功能的时候不需要再了解之前的功能实现，不需要把你实现的部分给同事再说一边，和 ai 打交道也是同理</p>
@@ -466,7 +466,7 @@
 <p>以前你让Claude Code重构一个大模块，干着干着你突然想到一个问题，比如”诶那个测试文件在哪个目录来着”，你一问，Claude停下来回答你，然后上下文窗口里就多了一段完全不相关的对话，它重新开始干活的时候可能就跑偏了。</p>
 <p>这就是所谓的上下文污染，用Claude Code时间长的人应该都被坑过。</p>
 <p>要不然就是呆呆的，等到整个任务跑完，再去问，但是其实也是污染。</p>
-<p>现在打&#x2F;btw，然后说一个问题，比如我在执行过程中，突然想知道现在我这个项目的抓取流程是啥，我就可以直接敲&#x2F;btw。</p>
+<p>现在打/btw，然后说一个问题，比如我在执行过程中，突然想知道现在我这个项目的抓取流程是啥，我就可以直接敲/btw。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/v2-7ac2e25d0ac1bcab388e0d86a020b6be_1440w.jpg" alt="img"></p>
 <p>你再敲一下空格，就可以直接在后面写问题了，然后发送。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/v2-06f8fa941b0d9e600ef61b60ace934fe_1440w.jpg" alt="img"></p>
@@ -518,7 +518,7 @@
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;114514.html" title="用ai批量生成课设报告"><span class="title">用ai批量生成课设报告</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;3106.html" title="Vim技巧整理"><span class="title">Vim技巧整理</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">

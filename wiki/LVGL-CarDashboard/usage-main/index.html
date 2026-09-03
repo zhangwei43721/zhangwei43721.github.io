@@ -515,12 +515,12 @@
   </div>
   </div></div>
 <article class="md-text content"><p><code>main.c</code> 文件是整个项目的<strong>Orchestrator (编排器) 和 Bootstrap Loader (引导加载程序)</strong>。它负责在程序启动时进行所有必要的初始化，然后进入一个无限循环来驱动整个应用程序的运行。</p>
-<p>其最核心的设计是利用 C 语言的<strong>预处理器 (Preprocessor)</strong>，特别是 <code>#if USE_SDL ... #else ... #endif</code> 这样的<strong>条件编译 (Conditional Compilation)</strong> 块，来实现平台代码的抽象。这意味着同一份 <code>main.c</code> 源代码，无需任何修改，就可以被编译成面向完全不同硬件平台的两个版本：一个用于 PC&#x2F;SDL 仿真，另一个用于嵌入式 ARM&#x2F;Framebuffer 运行。</p>
+<p>其最核心的设计是利用 C 语言的<strong>预处理器 (Preprocessor)</strong>，特别是 <code>#if USE_SDL ... #else ... #endif</code> 这样的<strong>条件编译 (Conditional Compilation)</strong> 块，来实现平台代码的抽象。这意味着同一份 <code>main.c</code> 源代码，无需任何修改，就可以被编译成面向完全不同硬件平台的两个版本：一个用于 PC/SDL 仿真，另一个用于嵌入式 ARM/Framebuffer 运行。</p>
 <blockquote>
 <p><strong>关键点</strong>: <code>USE_SDL</code> 这个宏的值并不是由开发者手动修改的。它是由 <code>CMakeLists.txt</code> 在执行 <code>cmake</code> 配置阶段时，根据目标平台自动写入到 <code>lv_drv_conf.h</code> 文件中的，实现了完全的自动化。</p>
 </blockquote>
 <h3 id="核心职责"><a href="#核心职责" class="headerlink" title="核心职责"></a><strong>核心职责</strong></h3><ol>
-<li><strong>平台硬件抽象层 (HAL) 初始化</strong>: 根据编译目标，选择性地初始化显示驱动（SDL 或 Framebuffer）和输入驱动（SDL Mouse&#x2F;Keyboard 或 evdev）。</li>
+<li><strong>平台硬件抽象层 (HAL) 初始化</strong>: 根据编译目标，选择性地初始化显示驱动（SDL 或 Framebuffer）和输入驱动（SDL Mouse/Keyboard 或 evdev）。</li>
 <li><strong>LVGL 核心库初始化</strong>: 调用 <code>lv_init()</code> 启动 LVGL 引擎。</li>
 <li><strong>应用程序初始化</strong>: 创建 UI (<code>ui_init()</code>)，并启动业务逻辑相关的模块，如开机自检、时间显示、UI 状态更新定时器等。</li>
 <li><strong>主事件循环</strong>: 运行一个 <code>while(1)</code> 循环，在其中周期性地调用 LVGL 的任务处理器，并处理来自控制台的输入。</li>
@@ -556,11 +556,11 @@
 </li>
 </ol>
 <h3 id="hal-init-函数：平台抽象的核心"><a href="#hal-init-函数：平台抽象的核心" class="headerlink" title="hal_init() 函数：平台抽象的核心"></a><strong><code>hal_init()</code> 函数：平台抽象的核心</strong></h3><p>这个静态函数是实现跨平台的关键。它内部完全根据 <code>USE_SDL</code> 宏分成了两个独立的世界。</p>
-<table>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left">功能</th>
-<th align="left">PC &#x2F; SDL 平台 (<code>#if USE_SDL</code>)</th>
+<th align="left">PC / SDL 平台 (<code>#if USE_SDL</code>)</th>
 <th align="left">嵌入式 ARM 平台 (<code>#else</code>)</th>
 </tr>
 </thead>
@@ -594,12 +594,12 @@
 <td align="left">额外注册了键盘 (<code>sdl_keyboard_read</code>) 和鼠标滚轮 (<code>sdl_mousewheel_read</code>)</td>
 <td align="left">通常只有一个 <code>evdev</code> 设备</td>
 </tr>
-</tbody></table>
-<h3 id="custom-tick-get-函数：嵌入式平台的“时钟”"><a href="#custom-tick-get-函数：嵌入式平台的“时钟”" class="headerlink" title="custom_tick_get() 函数：嵌入式平台的“时钟”"></a><strong><code>custom_tick_get()</code> 函数：嵌入式平台的“时钟”</strong></h3><table>
+</tbody></table></div>
+<h3 id="custom-tick-get-函数：嵌入式平台的“时钟”"><a href="#custom-tick-get-函数：嵌入式平台的“时钟”" class="headerlink" title="custom_tick_get() 函数：嵌入式平台的“时钟”"></a><strong><code>custom_tick_get()</code> 函数：嵌入式平台的“时钟”</strong></h3><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th align="left"></th>
-<th align="left">PC &#x2F; SDL 平台</th>
+<th align="left">PC / SDL 平台</th>
 <th align="left">嵌入式 ARM 平台</th>
 </tr>
 </thead>
@@ -613,7 +613,7 @@
 <td align="left">无需额外代码。</td>
 <td align="left">当 <code>CMakeLists.txt</code> 检测到交叉编译时，它会自动在 <code>lv_conf.h</code> 中启用 <code>#define LV_TICK_CUSTOM 1</code>。这会告诉 LVGL 去调用一个名为 <code>custom_tick_get()</code> 的函数来获取时间。<code>main.c</code> 中的这个函数使用 <code>gettimeofday()</code> 系统调用来计算从程序启动开始经过的毫秒数，从而为 LVGL 提供了必需的“时钟”。</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>通过这种精巧的设计，<code>main.c</code> 成功地将平台相关的底层代码与平台无关的上层应用代码（UI 和业务逻辑）清晰地分离开来，是整个项目可移植性的基石。</p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">

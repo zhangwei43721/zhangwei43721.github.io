@@ -808,9 +808,9 @@
 <li>如果代码中请求开辟动态内存，则会在内存的堆区分配一块大小合适的区域返回给代码区的代码使用；</li>
 <li>当函数调用发生时，函数的调用关系等信息会动态地保存在内存的栈区，以供处理器在执行完被调用函数的代码时，返回母函数。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/19a1a6a1b20ea18299ff5b74feab103d.png" alt="在这里插入图片描述">程序中所使用的缓冲区可以是堆区、栈区和存放静态变量的数据区。缓冲区溢出的利用方法和缓冲区到底属于上面哪个内存区域密不可分。</li>
 </ul>
-<h2 id="STM32-内存分区"><a href="#STM32-内存分区" class="headerlink" title="STM32 内存分区"></a>STM32 内存分区</h2><p>STM32内存分为3块区域：全局&#x2F;静态变量区、栈区、堆区。</p>
+<h2 id="STM32-内存分区"><a href="#STM32-内存分区" class="headerlink" title="STM32 内存分区"></a>STM32 内存分区</h2><p>STM32内存分为3块区域：全局/静态变量区、栈区、堆区。</p>
 <ul>
-<li>其中全局&#x2F;静态变量区用于存放全局&#x2F;静态变量（包括指针变量）<ul>
+<li>其中全局/静态变量区用于存放全局/静态变量（包括指针变量）<ul>
 <li>全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的另一块区域。程序结束后由系统自动释放。</li>
 </ul>
 </li>
@@ -822,7 +822,7 @@
 <li>文字常量区：常量字符串就是存放在这里的。</li>
 <li>程序代码区：存放函数体的二进制代码。</li>
 </ul>
-<p>内存首先存放&#x2F;开辟全局变量区域，然后开辟栈区最后开辟堆区。</p>
+<p>内存首先存放/开辟全局变量区域，然后开辟栈区最后开辟堆区。</p>
 <h3 id="STM32F407内存结构"><a href="#STM32F407内存结构" class="headerlink" title="STM32F407内存结构"></a>STM32F407内存结构</h3><p>stm32F407存储器映像图：<br>STM32的内存（存储器）的地址空间大小为4G(0x0000 0000 ~ 0xFFFF FFFF)，被分为8个block（block0~block7），每个block为512Mbyte<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/ec843266f30c7bcdfcc61cab427dc4da.png" alt="在这里插入图片描述"><br>(出自STM32F407ZGT6数据手册P61)</p>
 <ul>
 <li><strong>block 0共有512M其中Reserved即为保留区，即可以使用外部flash扩展这个块的存储空间，只要地址在范围内就可以。</strong></li>
@@ -830,7 +830,7 @@
 <li>可以看到这个块也有512MB，所以这个RAM也可以通过外部扩展至512MB，当然外部扩展的肯定不如内置的好用了。</li>
 <li>它就是运行内存，就和电脑、手机上经常说的几G内存是同一个东西。它的作用就是把flash（这里只对于stm32来说）里正在运行的代码段（函数、变量等等）放进这个内存里，然后CPU对这里面的数据进行读写操作。</li>
 <li>内有SARM1（112KB，0x2000 00000 ~ 0x2001 BFFF）和SRAM2（16KB, 0x2001 C000 ~ 0x2001 FFFF）两块连续的SRAM，可供所有的AHB 主控总线访问。<ul>
-<li>为什么是两块SRAM？这是因为主总线支持并发SRAM访问，提高执行效率。例如当 CPU 对 112 KB SRAM 进行读&#x2F;写操作时，以太网MAC 可以同时对 16 KB SRAM 进行读&#x2F;写操作；或者CPU和DMA可以同时访问不同的SRAM。</li>
+<li>为什么是两块SRAM？这是因为主总线支持并发SRAM访问，提高执行效率。例如当 CPU 对 112 KB SRAM 进行读/写操作时，以太网MAC 可以同时对 16 KB SRAM 进行读/写操作；或者CPU和DMA可以同时访问不同的SRAM。</li>
 </ul>
 </li>
 <li>MCU的堆、栈也是属于这片区域的，这里所说的堆栈和数据结构的堆栈概念不能混为一谈，当然也是类似的。</li>
@@ -866,13 +866,13 @@
 <li>stack(栈)：由系统自动分配释放，存放的函数的参数值，局部变量的值。这个空间用户操作不了的。</li>
 <li>heap(堆)：由用户分配及释放，调用malloc 和free时操作的空间就是堆空间。</li>
 <li>栈是从高到低分配，堆是从低到高分配。</li>
-<li>栈区的首地址是编译器自动分配的，栈首地址&#x3D;全局区域大小+栈大小（Stack_Size）。</li>
+<li>栈区的首地址是编译器自动分配的，栈首地址=全局区域大小+栈大小（Stack_Size）。</li>
 <li>程序中如果没有动态申请内存则堆区无用，可以不用管 Heap_Size<ul>
 <li>如果程序有动态申请内存，则注意Heap_Size（即堆的首地址）一定要大于 全局区+栈区 大小，否则堆区会被覆盖导致程序出错。</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">main.cpp</span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>; 全局初始化区</span><br><span class="line"><span class="type">char</span> *p1; 全局未初始化区</span><br><span class="line">main()</span><br><span class="line">&#123;</span><br><span class="line">            </span><br><span class="line"><span class="type">int</span> b; 栈</span><br><span class="line"><span class="type">char</span> s[] = <span class="string">&quot;abc&quot;</span>; 栈</span><br><span class="line"><span class="type">char</span> *p2; 栈</span><br><span class="line"><span class="type">char</span> *p3 = <span class="string">&quot;123456&quot;</span>; <span class="number">123456</span>\<span class="number">0</span>在常量区，p3在栈上。</span><br><span class="line"><span class="type">static</span> <span class="type">int</span> c =<span class="number">0</span>； 全局（静态）初始化区</span><br><span class="line">p1 = (<span class="type">char</span> *)<span class="built_in">malloc</span>(<span class="number">10</span>); 堆</span><br><span class="line">p2 = (<span class="type">char</span> *)<span class="built_in">malloc</span>(<span class="number">20</span>); 堆</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">main.cpp</span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>; 全局初始化区</span><br><span class="line"><span class="type">char</span> *p1; 全局未初始化区</span><br><span class="line">main()</span><br><span class="line">{</span><br><span class="line">            </span><br><span class="line"><span class="type">int</span> b; 栈</span><br><span class="line"><span class="type">char</span> s[] = <span class="string">"abc"</span>; 栈</span><br><span class="line"><span class="type">char</span> *p2; 栈</span><br><span class="line"><span class="type">char</span> *p3 = <span class="string">"123456"</span>; <span class="number">123456</span>\<span class="number">0</span>在常量区，p3在栈上。</span><br><span class="line"><span class="type">static</span> <span class="type">int</span> c =<span class="number">0</span>； 全局（静态）初始化区</span><br><span class="line">p1 = (<span class="type">char</span> *)<span class="built_in">malloc</span>(<span class="number">10</span>); 堆</span><br><span class="line">p2 = (<span class="type">char</span> *)<span class="built_in">malloc</span>(<span class="number">20</span>); 堆</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>在keil编译后的控制台信息中：<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/df90dd3761eac1254e411420357eaca2.png" alt="在这里插入图片描述">从编译信息可以看出<br>我们的代码占用 FLASH 大小为：1892 字节（1556+336）<br>所用的 SRAM 大小为：1864 个字节（32+1832)</p>
 <ul>
@@ -888,11 +888,11 @@
 </ul>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/f22319512f577b04379f76bfaaf650fd.png" alt="在这里插入图片描述"></p>
 <p>最终，烧写时flash被占有的空间为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">falsh = Code + RO-Data + RW-Data</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">falsh = Code + RO-Data + RW-Data</span><br></pre></td></tr></tbody></table></figure>
 
 <p>如果这些内容比 RT1052 芯片的 FLASH 空间大，程序就无法被正常保存了。</p>
 <p>程序运行时ram被占有的空间为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ram = RW-Data + ZI-Data</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ram = RW-Data + ZI-Data</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/c44da81090014ff783efd18968c74872.png" alt="在这里插入图片描述"></p>
 <p>STM32 的 RO 区域不需要加载到 SRAM，内核直接从 FLASH 读取指令运行。</p>
@@ -909,7 +909,7 @@
 </ul>
 </li>
 </ul>
-<p>flash占用空间可以在最终生成的bin文件查看，刚好是13116字节大小。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/c0d12bf75d4900acca2b79ae6b869cab.png" alt="在这里插入图片描述"><br>ram占用空间在生成的.map文件中。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/c65e8a4dfc934e81273aebb09459006b.png" alt="在这里插入图片描述">map文件中显示ram占用的size为0x19c0，转换为10进制为6592，而生成RW-Data + ZI-Data&#x3D;180+6412&#x3D;6592.</p>
+<p>flash占用空间可以在最终生成的bin文件查看，刚好是13116字节大小。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/c0d12bf75d4900acca2b79ae6b869cab.png" alt="在这里插入图片描述"><br>ram占用空间在生成的.map文件中。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/c65e8a4dfc934e81273aebb09459006b.png" alt="在这里插入图片描述">map文件中显示ram占用的size为0x19c0，转换为10进制为6592，而生成RW-Data + ZI-Data=180+6412=6592.</p>
 <ul>
 <li>data** data的空间累加即为RW-Data</li>
 <li>.bss+STACK** .bss的空间累加+STACK即为ZI-Data</li>
@@ -935,11 +935,11 @@
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/c9ce4cd5a897112cf0686c9b9a6e10eb.png" alt="在这里插入图片描述"></p>
 <ul>
 <li>当处理器处于线程模式时，控制寄存器决定使用的堆栈和软件执行的特权级别，并指示 FPU 状态是否为活动。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/f8c1873614019316d7fede7aee2396bd.png" alt="在这里插入图片描述">在 Cortex‐M4 的 handler 模式中， CONTROL[1]（CONTROL寄存器的bit[1])总是 0</li>
-<li>当 CONTROL[1]&#x3D;0 时，只使用 MSP，此时用户程序和异常 handler 共享同一个堆栈。这也是复位后的缺省使用方式。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/b031b6c57a3069326793a73083a1c09d.png" alt="在这里插入图片描述"></li>
-<li>当 CONTROL[1]&#x3D;1 时，线程模式将不再使用 PSP，而改用 MSP（ handler 模式永远使用 MSP）。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/9ee9a3b42353e789570d2610680eee6e.png" alt="在这里插入图片描述"></li>
+<li>当 CONTROL[1]=0 时，只使用 MSP，此时用户程序和异常 handler 共享同一个堆栈。这也是复位后的缺省使用方式。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/b031b6c57a3069326793a73083a1c09d.png" alt="在这里插入图片描述"></li>
+<li>当 CONTROL[1]=1 时，线程模式将不再使用 PSP，而改用 MSP（ handler 模式永远使用 MSP）。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/9ee9a3b42353e789570d2610680eee6e.png" alt="在这里插入图片描述"></li>
 </ul>
 <p>注意，在这种情况下，进入异常时的自动压栈使用的是进程堆栈，进入异常 handler 后才自动改为 MSP，退出异常时切换回 PSP，并且从进程堆栈上弹出数据。</p>
-<p>在特权级下，可以直接对 MSP 和 PSP 执行读&#x2F;写操作，而不会混淆你所引用的R13。</p>
+<p>在特权级下，可以直接对 MSP 和 PSP 执行读/写操作，而不会混淆你所引用的R13。</p>
 <h3 id="栈的坏处"><a href="#栈的坏处" class="headerlink" title="栈的坏处"></a>栈的坏处</h3><p>栈是固定且连续的一个大小，如果使用局部变量等超出了栈的大小则会造成内存溢出，而编译器通常是发现不了的，只有当程序运行到那个函数时才会发生的。这就会引入很难查找的bug。</p>
 <h2 id="堆的管理"><a href="#堆的管理" class="headerlink" title="堆的管理"></a>堆的管理</h2><h3 id="malloc"><a href="#malloc" class="headerlink" title="malloc"></a>malloc</h3><p>当指针 p 调用 malloc 申请内存的时候，申请到的堆空间是不连续的，由于RAM中还存在局部变量，代码段和栈等等，所以动态分配的内存是取暂时空闲的内存而不是预先划出一块区域，这就是动态分配内存的好处。具体执行如下：</p>
 <ul>
@@ -948,7 +948,7 @@
 <li>注意，如果当内存不够的时候（找到最后也没找到连续的 m 块空闲内存），则返回 NULL 给 p，表示分配失败。</li>
 </ul>
 <p>堆的增长方向是向上，所以malloc申请的地址也是越来越大的，前提是连续申请且在最后一次申请后再释放内存（free）。<br>代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> * Onebyte;<span class="comment">//声明一个char指针</span></span><br><span class="line">Onebyte = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Onebyte));<span class="comment">//向堆中申请一个字节内存</span></span><br><span class="line"><span class="comment">//下面两句效果一样，若在函数里</span></span><br><span class="line"><span class="type">char</span> Onearr[<span class="number">10</span>];<span class="comment">//向栈中申请10个字节</span></span><br><span class="line"><span class="type">char</span> *Onearr = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="number">10</span>);<span class="comment">//向堆中申请10个字节</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> * Onebyte;<span class="comment">//声明一个char指针</span></span><br><span class="line">Onebyte = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Onebyte));<span class="comment">//向堆中申请一个字节内存</span></span><br><span class="line"><span class="comment">//下面两句效果一样，若在函数里</span></span><br><span class="line"><span class="type">char</span> Onearr[<span class="number">10</span>];<span class="comment">//向栈中申请10个字节</span></span><br><span class="line"><span class="type">char</span> *Onearr = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="number">10</span>);<span class="comment">//向堆中申请10个字节</span></span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="free"><a href="#free" class="headerlink" title="free"></a>free</h3><p>当 p 申请的内存用完，需要释放的时候，调用 free 函数实现。</p>
 <ul>
@@ -957,7 +957,7 @@
 <li>将这 m 个内存管理表项目的值都清零，标记释放，完成一次内存释放。</li>
 </ul>
 <p>代码</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对于上面malloc的使用</span></span><br><span class="line"><span class="built_in">free</span>(Onebyte);</span><br><span class="line"><span class="built_in">free</span>(Onearr);</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对于上面malloc的使用</span></span><br><span class="line"><span class="built_in">free</span>(Onebyte);</span><br><span class="line"><span class="built_in">free</span>(Onearr);</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="堆的坏处"><a href="#堆的坏处" class="headerlink" title="堆的坏处"></a>堆的坏处</h3><p>由于使用malloc申请内存时，不单只申请了所需的大小空间，还要额外暂用管理这部分空间的内存，而释放时又只释放申请的内存，所以使用堆会引入内存碎片。</p>
 <ul>

@@ -707,13 +707,13 @@
 <li><strong>主控</strong>：任何能够运行C代码并驱动显示屏的微控制器或开发板（如 ESP32、STM32、Raspberry Pi 等）。本项目基于 <strong>GEC6818</strong> 开发板</li>
 <li><strong>显示屏</strong>：带触摸功能的 LCD 显示屏，并已正确配置 <strong>LVGL</strong> 驱动</li>
 <li><strong>网络模块</strong>：具备网络连接能力（Wi-Fi 或以太网），用于连接 MQTT 服务器</li>
-<li><strong>可选传感器&#x2F;执行器</strong>：LED 灯、蜂鸣器、温湿度传感器、继电器模块等，用于与物理世界交互</li>
+<li><strong>可选传感器/执行器</strong>：LED 灯、蜂鸣器、温湿度传感器、继电器模块等，用于与物理世界交互</li>
 </ul>
 <h3 id="2-嵌入式端软件要求"><a href="#2-嵌入式端软件要求" class="headerlink" title="2. 嵌入式端软件要求"></a>2. 嵌入式端软件要求</h3><p>在开发主机（如 Linux PC）上安装以下软件：</p>
 <ul>
 <li><p><strong>Git</strong>：用于克隆仓库和子模块。</p>
 </li>
-<li><p><strong>CMake (&gt;&#x3D; 3.16)</strong>：用于构建项目。</p>
+<li><p><strong>CMake (&gt;= 3.16)</strong>：用于构建项目。</p>
 </li>
 <li><p><strong>GCC 或交叉编译工具链</strong>：C 编译器。</p>
 <ul>
@@ -726,7 +726,7 @@
 <li><p><strong>SDL2（可选）</strong>：在 PC 上模拟嵌入式程序运行时需要</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Debian/Ubuntu 安装示例</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install build-essential git cmake libsdl2-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Debian/Ubuntu 安装示例</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install build-essential git cmake libsdl2-dev</span><br></pre></td></tr></tbody></table></figure>
 
 <p>配置好环境后，即可<a href="/wiki/Smart_Home_System/compilation/">编译并运行</a>。</p>
 <h3 id="3-Web端软件要求"><a href="#3-Web端软件要求" class="headerlink" title="3. Web端软件要求"></a>3. Web端软件要求</h3><ul>
@@ -743,7 +743,7 @@
 <li><p><strong>优点</strong>：开箱即用，稳定可靠。</p>
 </li>
 <li><p><strong>教程参考</strong>：您可以参考这篇详细教程来学习如何连接到公共云服务：</p>
-<p><a target="_blank" rel="noopener" href="https://herui.blog.csdn.net/article/details/124878082">STM32连接 – EMQX&#x2F;阿里云&#x2F;OneNET（MQTT协议）详细教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://herui.blog.csdn.net/article/details/124878082">STM32连接 – EMQX/阿里云/OneNET（MQTT协议）详细教程</a></p>
 </li>
 </ul>
 <p><strong>选项 B：本地自行部署 (推荐局域网开发)</strong></p>
@@ -752,57 +752,57 @@
 <li><strong>推荐软件</strong>：<a target="_blank" rel="noopener" href="https://mosquitto.org/">Mosquitto</a></li>
 <li><strong>备选软件</strong>：<a target="_blank" rel="noopener" href="https://www.emqx.com/zh">EMQX</a>。请注意，EMQX 从版本 5 开始其开源协议有所变更，部分高级功能可能需要商业许可。</li>
 </ul>
-<p>下面以在 Ubuntu&#x2F;Debian 系统上安装并配置 <strong>Mosquitto</strong> 为例：</p>
+<p>下面以在 Ubuntu/Debian 系统上安装并配置 <strong>Mosquitto</strong> 为例：</p>
 <ol>
 <li><p><strong>安装 Mosquitto</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y mosquitto mosquitto-clients</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y mosquitto mosquitto-clients</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>配置密码验证 (推荐)</strong><br>为了安全，我们启用密码验证。创建或编辑配置文件 <code>/etc/mosquitto/conf.d/local.conf</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># MQTT 默认端口</span><br><span class="line">listener 1883</span><br><span class="line">protocol mqtt </span><br><span class="line"></span><br><span class="line"># WebSocket 端口 (如果需要)</span><br><span class="line">listener 8083</span><br><span class="line">protocol websockets</span><br><span class="line"></span><br><span class="line"># 禁止匿名访问</span><br><span class="line">allow_anonymous false</span><br><span class="line"># 指定密码文件路径</span><br><span class="line">password_file /etc/mosquitto/passwd</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># MQTT 默认端口</span><br><span class="line">listener 1883</span><br><span class="line">protocol mqtt </span><br><span class="line"></span><br><span class="line"># WebSocket 端口 (如果需要)</span><br><span class="line">listener 8083</span><br><span class="line">protocol websockets</span><br><span class="line"></span><br><span class="line"># 禁止匿名访问</span><br><span class="line">allow_anonymous false</span><br><span class="line"># 指定密码文件路径</span><br><span class="line">password_file /etc/mosquitto/passwd</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>创建用户和密码</strong><br>使用 <code>mosquitto_passwd</code> 工具创建一个用户（例如 <code>test</code>）。<code>-c</code> 参数表示创建新文件，仅在首次添加用户时使用。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首次创建密码文件时使用 -c</span></span><br><span class="line">sudo mosquitto_passwd -c /etc/mosquitto/passwd <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 之后再添加新用户，请不要带 -c 参数</span></span><br><span class="line"><span class="comment"># sudo mosquitto_passwd /etc/mosquitto/passwd new_user</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首次创建密码文件时使用 -c</span></span><br><span class="line">sudo mosquitto_passwd -c /etc/mosquitto/passwd <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 之后再添加新用户，请不要带 -c 参数</span></span><br><span class="line"><span class="comment"># sudo mosquitto_passwd /etc/mosquitto/passwd new_user</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>执行后，根据提示输入两次密码（例如 <code>123456</code>）。</p>
 </li>
 <li><p><strong>修改权限并重启服务</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确保密码文件归 mosquitto 用户所有</span></span><br><span class="line">sudo <span class="built_in">chown</span> mosquitto:mosquitto /etc/mosquitto/passwd</span><br><span class="line">sudo <span class="built_in">chmod</span> 640 /etc/mosquitto/passwd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 Mosquitto 服务使配置生效</span></span><br><span class="line">sudo systemctl restart mosquitto</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确保密码文件归 mosquitto 用户所有</span></span><br><span class="line">sudo <span class="built_in">chown</span> mosquitto:mosquitto /etc/mosquitto/passwd</span><br><span class="line">sudo <span class="built_in">chmod</span> 640 /etc/mosquitto/passwd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 Mosquitto 服务使配置生效</span></span><br><span class="line">sudo systemctl restart mosquitto</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
 <h4 id="步骤-2：在项目中配置-MQTT-连接信息"><a href="#步骤-2：在项目中配置-MQTT-连接信息" class="headerlink" title="步骤 2：在项目中配置 MQTT 连接信息"></a>步骤 2：在项目中配置 MQTT 连接信息</h4><p>无论您选择哪种方式部署服务器，都需要将服务器的地址、端口和凭据信息配置到项目中。</p>
 <p>编辑 <code>obj/Include/config.h</code> 文件，修改以下宏定义：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MQTT_BROKER_HOST <span class="string">&quot;192.168.1.100&quot;</span>  <span class="comment">// MQTT 服务器的 IP 地址或域名</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MQTT_BROKER_PORT 1883            <span class="comment">// 端口，默认为 1883</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MQTT_KEEPALIVE 60                <span class="comment">// 心跳超时时间</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MQTT_USERNAME <span class="string">&quot;test&quot;</span>             <span class="comment">// 用户名 (如果服务器需要)</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MQTT_PASSWORD <span class="string">&quot;123456&quot;</span>           <span class="comment">// 密码 (如果服务器需要)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MQTT_BROKER_HOST <span class="string">"192.168.1.100"</span>  <span class="comment">// MQTT 服务器的 IP 地址或域名</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MQTT_BROKER_PORT 1883            <span class="comment">// 端口，默认为 1883</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MQTT_KEEPALIVE 60                <span class="comment">// 心跳超时时间</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MQTT_USERNAME <span class="string">"test"</span>             <span class="comment">// 用户名 (如果服务器需要)</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MQTT_PASSWORD <span class="string">"123456"</span>           <span class="comment">// 密码 (如果服务器需要)</span></span></span><br></pre></td></tr></tbody></table></figure>
 
 <blockquote>
-<p><strong>提示</strong>：如果您的服务器部署在运行代码的同一台机器上，地址可以是 <code>&quot;127.0.0.1&quot;</code>。如果是局域网内的另一台设备，请填写其局域网IP地址。</p>
+<p><strong>提示</strong>：如果您的服务器部署在运行代码的同一台机器上，地址可以是 <code>"127.0.0.1"</code>。如果是局域网内的另一台设备，请填写其局域网IP地址。</p>
 </blockquote>
 <h4 id="步骤-3：测试服务器连通性"><a href="#步骤-3：测试服务器连通性" class="headerlink" title="步骤 3：测试服务器连通性"></a>步骤 3：测试服务器连通性</h4><p>在运行主项目前，您可以使用命令行工具 <code>mosquitto_sub</code> 和 <code>mosquitto_pub</code> 来验证服务器是否正常工作。</p>
 <ol>
 <li><p><strong>打开一个终端，订阅主题</strong><br>该命令会监听多个主题，等待消息。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h 127.0.0.1 -p 1883 -u <span class="built_in">test</span> -P 123456 \</span><br><span class="line">  -t <span class="string">&quot;smart_home/#&quot;</span> -q 1 -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h 127.0.0.1 -p 1883 -u <span class="built_in">test</span> -P 123456 \</span><br><span class="line">  -t <span class="string">"smart_home/#"</span> -q 1 -v</span><br></pre></td></tr></tbody></table></figure>
 
 <ul>
 <li><code>-h</code>: 主机地址</li>
 <li><code>-p</code>: 端口</li>
 <li><code>-u</code>, <code>-P</code>: 用户名和密码</li>
-<li><code>-t &quot;smart_home/#&quot;</code>: 订阅 <code>smart_home/</code>下的所有主题</li>
+<li><code>-t "smart_home/#"</code>: 订阅 <code>smart_home/</code>下的所有主题</li>
 <li><code>-v</code>: 打印主题和消息内容</li>
 </ul>
 </li>
 <li><p><strong>打开另一个终端，发布消息</strong><br>向 <code>smart_home/light</code> 主题发送一条消息。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h 127.0.0.1 -p 1883 -u <span class="built_in">test</span> -P 123456 \</span><br><span class="line">  -t <span class="string">&quot;smart_home/light&quot;</span> -m <span class="string">&quot;turn on&quot;</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h 127.0.0.1 -p 1883 -u <span class="built_in">test</span> -P 123456 \</span><br><span class="line">  -t <span class="string">"smart_home/light"</span> -m <span class="string">"turn on"</span></span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
 <p>如果在第一个终端（订阅端）能看到成功打印出 <code>smart_home/light turn on</code>，说明您的 MQTT 服务器已配置成功并正常工作：</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/9701a745682b3caecc1835a0d2433af1.png" alt="在WSL测试成功"></p>
 <h3 id="5-天气API"><a href="#5-天气API" class="headerlink" title="5. 天气API"></a>5. 天气API</h3><p>这个项目使用了<a target="_blank" rel="noopener" href="https://www.seniverse.com/">心知天气API</a> ，可以点击进入官网注册，免费使用</p>
 <p>注册并申请了免费版产品后，获得自己的私钥，配置到项目的<code>obj\Include\config.h</code>里面：</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> WEATHER_CITY &quot;guangzhou&quot;      // 城市名</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> WEATHER_API_KEY &quot;xxxxxxxxx&quot;   // 自己的私钥</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> WEATHER_CITY "guangzhou"      // 城市名</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> WEATHER_API_KEY "xxxxxxxxx"   // 自己的私钥</span></span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="6-AI-API"><a href="#6-AI-API" class="headerlink" title="6. AI API"></a>6. AI API</h3><p>这个项目使用的DeepseekAPI，需要付费使用，但已经是所有平台当中最便宜的了</p>
 <p>DeepseekAPI申请地址：<a target="_blank" rel="noopener" href="https://platform.deepseek.com/api_keys">https://platform.deepseek.com/api_keys</a></p>
 <p>实测演示一次效果花费不超过两分钱，往里面充一块钱就可以使用</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/e6ca888b50cbf1959f6790a582bdb096.png" alt="消费记录"></p>
 <p>获取到APIkey后，将APIkey配置到项目的<code>obj\Include\config.h</code>里面：</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> OPENAI_API_KEY &quot;sk-xxxxxxxxx&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> OPENAI_API_KEY "sk-xxxxxxxxx"</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>如果需要用其它平台的ai，可以：</p>
 <ul>
