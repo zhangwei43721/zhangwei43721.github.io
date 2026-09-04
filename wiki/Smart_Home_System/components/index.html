@@ -8,7 +8,7 @@
   
   <meta name="generator" content="Hexo 8.1.2">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://image.skyforever.top" crossorigin><link rel="preconnect" href="https://npm.elemecdn.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://image.skyforever.top" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -487,6 +487,42 @@
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/py32-ina219-usb-meter/software/" title="软件实现">
+  
+  
+  
+    <span class="ui-collection__content">
+      <span class="ui-collection__prefix">USB功率计</span>
+      <span class="ui-collection__title">软件实现</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/py32-ina219-usb-meter/hardware/" title="硬件实现">
+  
+  
+  
+    <span class="ui-collection__content">
+      <span class="ui-collection__prefix">USB功率计</span>
+      <span class="ui-collection__title">硬件实现</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
 <a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/stellar/articles/" title="探索号 🛰️ 文章分享">
   
   
@@ -577,24 +613,6 @@
 
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/py32-ina219-usb-meter/hardware/" title="硬件实现">
-  
-  
-  
-    <span class="ui-collection__content">
-      <span class="ui-collection__prefix">USB功率计</span>
-      <span class="ui-collection__title">硬件实现</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
 <a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/Smart_Home_System/web-overview/" title="Web端总体介绍">
   
   
@@ -638,24 +656,6 @@
     <span class="ui-collection__content">
       <span class="ui-collection__prefix">智能家居系统</span>
       <span class="ui-collection__title">源码目录结构详解</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/Smart_Home_System/api-integration/" title="第三方API集成">
-  
-  
-  
-    <span class="ui-collection__content">
-      <span class="ui-collection__prefix">智能家居系统</span>
-      <span class="ui-collection__title">第三方API集成</span>
       
       
     </span>
@@ -1285,8 +1285,8 @@
     const swiper_api = document.getElementById('swiper-api');
     if (swiper_api != undefined) {
       utils.css(`/css/plugins/swiper.css?v=1.44.0`);
-      utils.css(`https://npm.elemecdn.com/swiper@10.3/swiper-bundle.min.css`);
-      utils.js(`https://npm.elemecdn.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+      utils.css(`/css/swiper-bundle.min.css`);
+      utils.js(`/js/swiper-bundle.min.js`, { defer: true }).then(function () {
         const effect = swiper_api.getAttribute('effect') || '';
         var swiper = new Swiper('.swiper#swiper-api', {
           slidesPerView: 'auto',

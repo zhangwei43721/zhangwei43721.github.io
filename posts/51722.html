@@ -8,7 +8,7 @@
   
   <meta name="generator" content="Hexo 8.1.2">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://image.skyforever.top" crossorigin><link rel="preconnect" href="https://npm.elemecdn.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://image.skyforever.top" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -467,12 +467,12 @@
 <p>这就是所谓的上下文污染，用Claude Code时间长的人应该都被坑过。</p>
 <p>要不然就是呆呆的，等到整个任务跑完，再去问，但是其实也是污染。</p>
 <p>现在打/btw，然后说一个问题，比如我在执行过程中，突然想知道现在我这个项目的抓取流程是啥，我就可以直接敲/btw。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/v2-7ac2e25d0ac1bcab388e0d86a020b6be_1440w.jpg" alt="img"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/09/d3b573798d83115c4b29a7d3a356699a.webp" alt="img"></p>
 <p>你再敲一下空格，就可以直接在后面写问题了，然后发送。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/v2-06f8fa941b0d9e600ef61b60ace934fe_1440w.jpg" alt="img"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/09/53a5313968020fba2573116ef3f9ac38.webp" alt="img"></p>
 <p>这个回答，完全不会中断你之前发送的任务，上下两个进程，是纯粹的并行状态。</p>
 <p>回答完以后，哦我知道了，那这段就没用了，你就可以按空格或者回车，直接把这一段消除掉。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/v2-a9e4bd0d462199476bdf14bc4200bd84_1440w.jpg" alt="img"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/09/1d139e49129d6f8935ecf979e9657e73.webp" alt="img"></p>
 <p>之前的Claude的任务还是该干嘛继续干嘛，对话历史里干干净净，跟什么都没发生一样。</p>
 <p>而且几乎不费token，因为复用了当前的提示缓存。</p>
 <h4 id="13-用-worktree-开启多核并行"><a href="#13-用-worktree-开启多核并行" class="headerlink" title="13. 用 --worktree 开启多核并行"></a><strong>13. 用 <code>--worktree</code> 开启多核并行</strong></h4><p>如果你同时要修几个不相关的 Bug或者并行写不同的功能，又怕每个功能写完之后会相互冲突，用 <code>claude --worktree &lt;分支名&gt;</code> 启动。它会直接拉出一个隔离的 Git 工作区副本，几条线并行跑完全互不干扰。只要你脑子转得过来，这就是效率杀器。</p>
@@ -518,7 +518,7 @@
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;114515.html" title="校园网多设备共享"><span class="title">校园网多设备共享</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;114514.html" title="用ai批量生成课设报告"><span class="title">用ai批量生成课设报告</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
@@ -1048,8 +1048,8 @@
     const swiper_api = document.getElementById('swiper-api');
     if (swiper_api != undefined) {
       utils.css(`/css/plugins/swiper.css?v=1.44.0`);
-      utils.css(`https://npm.elemecdn.com/swiper@10.3/swiper-bundle.min.css`);
-      utils.js(`https://npm.elemecdn.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+      utils.css(`/css/swiper-bundle.min.css`);
+      utils.js(`/js/swiper-bundle.min.js`, { defer: true }).then(function () {
         const effect = swiper_api.getAttribute('effect') || '';
         var swiper = new Swiper('.swiper#swiper-api', {
           slidesPerView: 'auto',

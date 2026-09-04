@@ -8,7 +8,7 @@
   
   <meta name="generator" content="Hexo 8.1.2">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://image.skyforever.top" crossorigin><link rel="preconnect" href="https://npm.elemecdn.com" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://unpkg.com" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://image.skyforever.top" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -2624,8 +2624,8 @@
     const swiper_api = document.getElementById('swiper-api');
     if (swiper_api != undefined) {
       utils.css(`/css/plugins/swiper.css?v=1.44.0`);
-      utils.css(`https://npm.elemecdn.com/swiper@10.3/swiper-bundle.min.css`);
-      utils.js(`https://npm.elemecdn.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+      utils.css(`/css/swiper-bundle.min.css`);
+      utils.js(`/js/swiper-bundle.min.js`, { defer: true }).then(function () {
         const effect = swiper_api.getAttribute('effect') || '';
         var swiper = new Swiper('.swiper#swiper-api', {
           slidesPerView: 'auto',
@@ -2647,6 +2647,39 @@
   }, 'swiper');
 </script>
 <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
+<script defer type="text/javascript" src="/js/mermaid.min.js"></script>
+<script>
+  stellar.initPlugin(() => {
+    const els = document.querySelectorAll('.mermaid');
+    if (els.length > 0) {
+      if (false) {
+        utils.css(`/css/plugins/mermaid.css?v=1.44.0`);
+      }
+      const mermaid_config = {
+        startOnLoad: false,
+        theme:
+          "auto" == "auto" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "neutral",
+        logLevel: 3,
+        flowchart: {
+          useMaxWidth: false,
+          htmlLabels: true,
+          curve: "linear"
+        },
+        gantt: {
+          axisFormat: "%Y/%m/%d"
+        },
+        sequence: {
+          actorMargin: 50
+        }
+      }
+      mermaid.initialize(mermaid_config);
+      mermaid.run();
+    }
+  }, 'mermaid');
+</script>
 <script>
   stellar.initPlugin(() => {
     const codeElements = document.querySelectorAll('.code');
