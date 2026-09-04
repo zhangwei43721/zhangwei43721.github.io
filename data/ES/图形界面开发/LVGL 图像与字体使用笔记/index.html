@@ -807,7 +807,7 @@
 </li>
 <li><p><strong>编译</strong>：</p>
 <p>将生成的 <code>.c</code> 文件添加到你的项目 CMake 中，并确保它能被编译链接</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/541f739682026a679e9fb2e58b695262.webp" alt="image-20250917095314642"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/541f739682026a679e9fb2e58b695262.webp" alt="CMakeLists 中添加图像源文件编译"></p>
 </li>
 <li><p><strong>使用</strong>：</p>
 <p>在代码中通过 <code>LV_IMG_DECLARE</code> 声明该图像资源，然后使用 <code>lv_img_set_src</code> 将其设置给一个图像对象</p>
@@ -816,7 +816,7 @@
 <p><strong>代码示例</strong><br>以下代码演示了如何显示一个已经通过工具转换好的，名为 <code>abc</code> 的图像。</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// obj/myexample.c</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">demo_sjpg_from_array</span><span class="params">( )</span> {</span><br><span class="line">  <span class="comment">// 声明图片数据所在的数组名称</span></span><br><span class="line">  <span class="comment">//   这个宏会引用在 abc.c 文件中定义的图像数组变量</span></span><br><span class="line">  LV_IMG_DECLARE(abc);</span><br><span class="line">  <span class="type">lv_obj_t</span>* img = lv_img_create(lv_scr_act());  <span class="comment">// 创建一个图像对象</span></span><br><span class="line">  lv_img_set_src(img, &amp;abc);                    <span class="comment">// 将图像资源设置给对象</span></span><br><span class="line">  lv_obj_center(img);                           <span class="comment">// 图片居中显示</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/62ec14eba556c5717357b34fb147d660.webp" alt="image-20250917094907524"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/62ec14eba556c5717357b34fb147d660.webp" alt="LVGL 图像显示控件运行效果"></p>
 <hr>
 <h3 id="从文件系统加载-不限图像场景"><a href="#从文件系统加载-不限图像场景" class="headerlink" title="从文件系统加载 (不限图像场景)"></a><strong>从文件系统加载 (不限图像场景)</strong></h3><p>当需要显示不固定的图片（如照片、网络下载的图片）时，就需要使用此方法。它要求 LVGL 能够访问设备的文件系统。</p>
 <p><strong>核心步骤：</strong></p>
@@ -893,7 +893,7 @@
 <li><p><strong>开启 LVGL FreeType 支持</strong><br>在 <code>lv_conf.h</code> 中设置：</p>
 <figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> LV_USE_FREETYPE 1</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/d0077ece0e31616dd551af5295aa5150.webp" alt="image-20250917102811310"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/d0077ece0e31616dd551af5295aa5150.webp" alt="lv_conf.h 中启用 FreeType 字体引擎配置"></p>
 </li>
 <li><p><strong>安装 FreeType 库</strong></p>
 <ul>

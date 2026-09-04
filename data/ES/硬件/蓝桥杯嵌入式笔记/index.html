@@ -799,8 +799,8 @@
 <li>RCC-&gt;High Speed Clock (HSE)-&gt;Crystal Ceramic Resonator(外部晶振)</li>
 <li>SYS-&gt;Debug-&gt;Serial Wire（串行输出）</li>
 <li>更改下图中的值，其中系统频率为 80 MHz (80,000,000 Hz，一秒钟振动八千万次)</li>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/e39447b494ad0638b3819c5e595b974e.webp" alt="image-20250401220116028"></li>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/73b7b20dd0c52fcee1dd0e375474c37b.webp" alt="image-20250401220423306"></li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/e39447b494ad0638b3819c5e595b974e.webp" alt="STM32CubeMX 时钟树配置 80MHz"></li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/73b7b20dd0c52fcee1dd0e375474c37b.webp" alt="STM32CubeMX 项目管理与代码生成配置"></li>
 </ul>
 </li>
 </ol>
@@ -831,8 +831,7 @@
 <p><strong>注意</strong>：自定义代码需写在 <code>/* USER CODE BEGIN */</code> 与 <code>/* USER CODE END */</code> 区域之间，避免被 STM32CubeMX 自动生成代码覆盖。</p>
 <h2 id="三，按键"><a href="#三，按键" class="headerlink" title="三，按键"></a>三，按键</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/bf73e2d22828a299913320aa047734e0.webp"></p>
 <p>根据上面的文档对按键的定义，需要配置上拉输入（默认未按下按键是高电平（电平被上拉））</p>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img-image-20250404182759516-1743949216246-93.webp" alt="image-20250404182759516" style="zoom: 67%;">
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img-image-20250404182759516-1743949216246-93.webp" alt="按键 GPIO 端口引脚功能配置"></p>
 <p>多选，对应位置全部改成上拉：</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/93833e943d02c942ef26f67c8e50333f.webp"></p>
 <p>正常生成后，gpio.c 里就会有相关引脚定义</p>
@@ -1016,13 +1015,13 @@
 <p>先按之前的操作建立一个空工程</p>
 <p>选择 PA1 引脚，设置定时器 TIM2CH2（确保其他东西没有选这个定时器）</p>
 <p>这里设置 PSC=800-1；ARR=100-1；</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/e01a029e863c340e5d7981edc4c33324.webp" alt="image-20250406202158493"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/e01a029e863c340e5d7981edc4c33324.webp" alt="定时器 PWM 模式时基参数与分频配置"></p>
 <p>在主函数 while 循环附近，加上代码：</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/* USER CODE BEGIN 2 */</span></span><br><span class="line">HAL_TIM_PWM_Start(&amp;htim2,TIM_CHANNEL_2);<span class="comment">//启动PWM输出</span></span><br><span class="line">TIM2-&gt;CCR2=<span class="number">50</span>;<span class="comment">//高电平计数50</span></span><br><span class="line"> <span class="comment">/* USER CODE END 2 */</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>编译运行，测 PA1，可以看到输出了 1000HZ 的方波</p>
 <p>原理：比正常定时器多了个 CCR（compare，比较）字段，用于控制高电平占整个周期的频率</p>
-<p>.<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img-2cd19797550323886d3fd2f0fe12e5ecd2ca3fc8.png%40690w_%21web-note.webp" style="zoom: 67%;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img-2cd19797550323886d3fd2f0fe12e5ecd2ca3fc8.png%40690w_%21web-note.webp"></p>
 <h2 id="七，输入捕获测量-PWM-频率"><a href="#七，输入捕获测量-PWM-频率" class="headerlink" title="七，输入捕获测量 PWM 频率"></a>七，输入捕获测量 PWM 频率</h2><ul>
 <li><strong>PSC = 79</strong>: 预分频值为 79。</li>
 <li><strong>计算定时器计数时钟频率</strong>:<ul>
@@ -1056,7 +1055,7 @@
 <p>这里的 tim17_Ch1</p>
 <p>激活选择输入捕获</p>
 <p>PSC 设置为 80-1</p>
-<p>.<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img-image-20250406205122603-1743949216246-95.webp" alt="image-20250406205122603" style="zoom: 67%;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img-image-20250406205122603-1743949216246-95.webp" alt="TIM17 输入捕获参数配置"></p>
 <p>启用中断</p>
 <p>.<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/9eb65e49f88ace7859d0ad745af5b26e.webp"></p>
 <p>留下显示函数，用于验证是否获取频率成功</p>

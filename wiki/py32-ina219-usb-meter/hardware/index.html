@@ -27,8 +27,8 @@
 <meta property="og:description" content="开源 USB 3.0 直通功率计，支持最高 48V 宽电压输入，精准实时监测电压、电流和功率">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://image.skyforever.top/blog/2025/12/69be74b18d289fd8f1e489a06dafd663.svg">
-<meta property="article:published_time" content="2026-03-23T12:09:43.350Z">
-<meta property="article:modified_time" content="2026-03-23T12:09:43.350Z">
+<meta property="article:published_time" content="2026-09-04T04:36:38.107Z">
+<meta property="article:modified_time" content="2026-09-04T04:36:38.107Z">
 <meta property="article:author" content="Skyforever">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://image.skyforever.top/blog/2025/12/69be74b18d289fd8f1e489a06dafd663.svg"><meta name="twitter:title" content="硬件实现">
@@ -161,6 +161,24 @@
     </div>
   
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/py32-ina219-usb-meter/hardware/" title="硬件实现">
+  
+  
+  
+    <span class="ui-collection__content">
+      <span class="ui-collection__prefix">USB功率计</span>
+      <span class="ui-collection__title">硬件实现</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
   
     
 <a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/Smart_Home_System/web-overview/" title="Web端总体介绍">
@@ -324,24 +342,6 @@
 </a>
 
   
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/wiki/Smart_Home_System/dependencies/" title="项目依赖项说明">
-  
-  
-  
-    <span class="ui-collection__content">
-      <span class="ui-collection__prefix">智能家居系统</span>
-      <span class="ui-collection__title">项目依赖项说明</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
 </div></div>
   
 </widget>
@@ -363,7 +363,7 @@
     
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/py32-ina219-usb-meter/">USB功率计</a></div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2026-03-23T12:09:43.350Z">2026-03-23</time></span></div>
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2026-09-04T04:36:38.107Z">2026-09-04</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
@@ -379,7 +379,7 @@
 <article class="md-text content"><p>这个的<strong>USB 3.0 直通型功率计</strong>，设计上考虑了宽电压输入（支持快充高压），采用了“高压降压 -&gt; 低压稳压”的二级供电架构</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/69be74b18d289fd8f1e489a06dafd663.svg" alt="原理图"></p>
 <p>以下是我对各部分电流的详细解析：</p>
-<h3 id="1-USB-输入-输出-电流采样模块"><a href="#1-USB-输入-输出-电流采样模块" class="headerlink" title="1. USB 输入&#x2F;输出 &amp; 电流采样模块"></a>1. USB 输入&#x2F;输出 &amp; 电流采样模块</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/8307ab7909b87458c04cdae04122c3bf.png" alt="image-20251216194318781"></p>
+<h3 id="1-USB-输入-输出-电流采样模块"><a href="#1-USB-输入-输出-电流采样模块" class="headerlink" title="1. USB 输入&#x2F;输出 &amp; 电流采样模块"></a>1. USB 输入&#x2F;输出 &amp; 电流采样模块</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/8307ab7909b87458c04cdae04122c3bf.png" alt="USB 输入输出与电流采样电路原理图"></p>
 <p><strong>主要元件：</strong></p>
 <ul>
 <li><strong>USB1 (Type-A 公头):</strong> 功率输入端，连接充电器&#x2F;电脑。</li>
@@ -392,7 +392,7 @@
 <li><strong>电流路径：</strong> 电源正极 (<code>VBUS_IN</code>) 从 USB1 进入，经过 <code>R1</code> 采样电阻，到达 <code>VBUS_OUT</code> 后连接至 USB2。GND 共地。</li>
 <li><strong>采样方式：</strong> 采用<strong>高边采样 (High-Side Sensing)</strong>，即采样电阻串联在电源正极，这样可以保证地线的完整性，减少对数据通信的干扰。</li>
 </ul>
-<h3 id="2-主控制模块"><a href="#2-主控制模块" class="headerlink" title="2. 主控制模块"></a>2. 主控制模块</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/6d627ce169ee0db9ef4cb6a125e31768.png" alt="image-20251216194343191"></p>
+<h3 id="2-主控制模块"><a href="#2-主控制模块" class="headerlink" title="2. 主控制模块"></a>2. 主控制模块</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/6d627ce169ee0db9ef4cb6a125e31768.png" alt="PY32F002A 主控微控制器电路原理图"></p>
 <p><strong>主要元件：</strong></p>
 <ul>
 <li><strong>U1 (PY32F002AL15S6TU):</strong> 普冉(PUYA) 的 32位 Cortex-M0+ 单片机。</li>
@@ -405,7 +405,7 @@
 <li>处理数据后，通过 I2C 驱动 OLED 屏幕显示。</li>
 <li>该芯片性价比高，24MHz 主频对于刷新简单的功率显示绰绰有余。</li>
 </ul>
-<h3 id="3-降压模块-宽电压-5V"><a href="#3-降压模块-宽电压-5V" class="headerlink" title="3. 降压模块 (宽电压 -&gt; 5V)"></a>3. 降压模块 (宽电压 -&gt; 5V)</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/a610992951243ace7afddab675746781.png" alt="image-20251216194354266"></p>
+<h3 id="3-降压模块-宽电压-5V"><a href="#3-降压模块-宽电压-5V" class="headerlink" title="3. 降压模块 (宽电压 -&gt; 5V)"></a>3. 降压模块 (宽电压 -&gt; 5V)</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/a610992951243ace7afddab675746781.png" alt="LGS5148 DC-DC 降压电源电路原理图"></p>
 <p><strong>主要元件：</strong></p>
 <ul>
 <li><strong>U3 (LGS5148):</strong> 棱晶半导体的降压 DC-DC 芯片。</li>
@@ -419,7 +419,7 @@
 <li><strong>输出计算：</strong> 根据反馈电阻 R6 和 R5，输出电压 $V_{out} \approx V_{ref} \times (1 + R6&#x2F;R5)$。假设 $V_{ref}$ 为 0.8V，则输出约为 5V。</li>
 <li><strong>作用：</strong> 将 USB 线路上变化的高压（4.5V~48V）转换为稳定的 <strong>+5V 中间电压</strong>，供给后续的 LDO。</li>
 </ul>
-<h3 id="4-电流-电压检测"><a href="#4-电流-电压检测" class="headerlink" title="4. 电流&#x2F;电压检测"></a>4. 电流&#x2F;电压检测</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/98c04fba5980e90661a6f48e3cda1d18.png" alt="image-20251216194410171"></p>
+<h3 id="4-电流-电压检测"><a href="#4-电流-电压检测" class="headerlink" title="4. 电流&#x2F;电压检测"></a>4. 电流&#x2F;电压检测</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/98c04fba5980e90661a6f48e3cda1d18.png" alt="INA219 电流与电压检测芯片电路原理图"></p>
 <p><strong>主要元件：</strong></p>
 <ul>
 <li><strong>U2 (INA219AIDCNR):</strong> TI 的 I2C 接口电流&#x2F;功率监控芯片。</li>
@@ -432,7 +432,7 @@
 <li><strong>数据通信：</strong> 通过 I2C 接口将原始读数发送给主控 MCU。</li>
 <li><strong>特点：</strong> INA219 是专业的集成方案，比单纯用单片机 ADC 测量精度更高，且内置了乘法器可直接计算功率。</li>
 </ul>
-<h3 id="5-芯片供电稳压模块-LDO"><a href="#5-芯片供电稳压模块-LDO" class="headerlink" title="5. 芯片供电稳压模块 (LDO)"></a>5. 芯片供电稳压模块 (LDO)</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/2799aee0035e31cb70343831ead4f7c6.png" alt="image-20251216194506156"></p>
+<h3 id="5-芯片供电稳压模块-LDO"><a href="#5-芯片供电稳压模块-LDO" class="headerlink" title="5. 芯片供电稳压模块 (LDO)"></a>5. 芯片供电稳压模块 (LDO)</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/2799aee0035e31cb70343831ead4f7c6.png" alt="XC6206 3.3V LDO 稳压电路原理图"></p>
 <p><strong>主要元件：</strong></p>
 <ul>
 <li><strong>U4 (XC6206P332MR):</strong> 3.3V 线性稳压器 (LDO)。</li>
@@ -444,7 +444,7 @@
 <li><strong>输出：</strong> 输出稳定的 <strong>+3.3V (VCC)</strong>。</li>
 <li><strong>作用：</strong> 为 MCU、INA219 的数字接口端以及 OLED 屏幕提供干净的 3.3V 电源。采用两级降压（DC-DC + LDO）的设计既保证了高压输入的安全性，又保证了低压端的纹波噪声足够小。</li>
 </ul>
-<h3 id="6-调试接口"><a href="#6-调试接口" class="headerlink" title="6. 调试接口"></a>6. 调试接口</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/880761aa1c767c68b1d7733ff0fda06b.png" alt="image-20251216194527094"></p>
+<h3 id="6-调试接口"><a href="#6-调试接口" class="headerlink" title="6. 调试接口"></a>6. 调试接口</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/880761aa1c767c68b1d7733ff0fda06b.png" alt="SWD 调试与串口接口电路原理图"></p>
 <p><strong>主要元件：</strong></p>
 <ul>
 <li><strong>H2 (1x6P 排母&#x2F;焊盘):</strong> 调试端口。</li>
@@ -455,7 +455,7 @@
 <li><strong>SWCLK, SWDIO:</strong> SWD 接口，用于烧录 MCU 程序和仿真。</li>
 <li><strong>TX, RX:</strong> 串口，用于打印调试信息或对外数据传输。</li>
 </ul>
-<h3 id="7-显示屏接口"><a href="#7-显示屏接口" class="headerlink" title="7. 显示屏接口"></a>7. 显示屏接口</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/95d5d7d8c67525cf822f2bc40b3381cc.png" alt="image-20251216194537799"></p>
+<h3 id="7-显示屏接口"><a href="#7-显示屏接口" class="headerlink" title="7. 显示屏接口"></a>7. 显示屏接口</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/95d5d7d8c67525cf822f2bc40b3381cc.png" alt="OLED 屏幕与 I2C 接口电路原理图"></p>
 <p><strong>主要元件：</strong></p>
 <ul>
 <li><strong>OLED1 (0.91寸 OLED):</strong> I2C 接口显示屏。</li>

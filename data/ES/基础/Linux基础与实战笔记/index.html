@@ -953,7 +953,7 @@
 <li><p><strong>验证挂载</strong><br>使用<code>df -h</code>命令查看磁盘空间，如果能看到 NFS 挂载信息，则说明挂载成功。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br></pre></td></tr></tbody></table></figure>
 
-<p>输出应类似：<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/209022fad9371b6944b221b97d005364.webp" alt="image-20250725190206615"></p>
+<p>输出应类似：<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/209022fad9371b6944b221b97d005364.webp" alt="开发板挂载 NFS 网络共享目录终端输出"></p>
 <p>现在，你在 Ubuntu 的<code>~/nfs_share</code>目录中创建或修改任何文件，都会立刻出现在开发板的<code>/mnt/nfs_share</code>目录中</p>
 <p>你可以把要开发的程序直接放在共享文件夹中，这样编译完马上就可以运行,不用再用 tftp 服务麻烦的上传下载。</p>
 </li>
@@ -1283,7 +1283,7 @@
 </ul>
 <h4 id="pstree"><a href="#pstree" class="headerlink" title="pstree"></a>pstree</h4><p>查看进程树</p>
 <p>每一个进程都有其父母进程，但是<u>只有系统进程没有父母进程</u></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/06cdc02c0dc711c5f3e2ba40031df0a7.webp" alt="image-20250922203623585"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/06cdc02c0dc711c5f3e2ba40031df0a7.webp" alt="pstree 进程树结构终端显示"></p>
 <h4 id="top"><a href="#top" class="headerlink" title="top"></a><strong>top</strong></h4><ul>
 <li><p><strong>释义</strong>: 动态、实时地显示系统中各个进程的资源占用状况，类似于 Windows 的任务管理器。</p>
 </li>
@@ -1291,9 +1291,9 @@
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动top，默认按CPU使用率排序</span></span><br><span class="line">top</span><br><span class="line"></span><br><span class="line"><span class="comment"># 监视指定PID的进程</span></span><br><span class="line">top -p &lt;PID&gt;</span><br></pre></td></tr></tbody></table></figure>
 
 <p>进入界面：</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/ed24441ec24d99193d3d518193642fe7.webp" alt="image-20250922203305111"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/ed24441ec24d99193d3d518193642fe7.webp" alt="top 命令系统进程资源监控界面"></p>
 <p>按下<code>shift</code>+<code>L</code>可以查找进程号和进程：</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/4a2e28b00514889704f0c42e6c371431.webp" alt="image-20250922203511829"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/4a2e28b00514889704f0c42e6c371431.webp" alt="top 界面通过快捷键过滤和搜索进程"></p>
 </li>
 <li><p><strong>交互操作</strong>:</p>
 <ul>
