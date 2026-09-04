@@ -39,7 +39,7 @@
 <meta name="twitter:image" content="https://image.skyforever.top/blog/2026/02/1bc4ccd83bf1945ecffa93c2fbc068cf.webp"><meta name="twitter:title" content="Claude Code 使用指南">
   
   
-  <meta name="keywords" content="教程,AI编程,Claude Code,开发工具,Anthropic">
+  <meta name="keywords" content="AI编程,Claude Code,开发工具,教程,Anthropic">
 
   <!-- feed -->
   
@@ -62,7 +62,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-02-27T12:00:00+08:00","dateModified":"2026-02-27T12:00:00+08:00","datePublished":"2026-02-27T12:00:00+08:00","description":"最近 AI 编程工具界最火的莫过于 Anthropic 官方推出的 Claude Code。但国内因为网络和高昂的 API 费用，很多开发者望而却步。\n今天这篇文章，我将带你用一杯奶茶钱（7.9 元）搞定原本遥不可及的顶级 AI 编程体验，并扒一扒 Claude Code 内部隐藏的子代理机制——很多人因为不懂这个机制，白白浪费了大量 Token 和上下文！\n\n一、什么是 Claude Co...","headline":"Claude Code 使用指南","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/52013"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/52013","keywords":"教程, AI编程, Claude Code, 开发工具, Anthropic","thumbnailUrl":"https://image.skyforever.top/blog/2026/02/1bc4ccd83bf1945ecffa93c2fbc068cf.webp","image":["https://image.skyforever.top/blog/2026/02/1bc4ccd83bf1945ecffa93c2fbc068cf.webp"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-02-27T12:00:00+08:00","dateModified":"2026-02-27T12:00:00+08:00","datePublished":"2026-02-27T12:00:00+08:00","description":"最近 AI 编程工具界最火的莫过于 Anthropic 官方推出的 Claude Code。但国内因为网络和高昂的 API 费用，很多开发者望而却步。\n今天这篇文章，我将带你用一杯奶茶钱（7.9 元）搞定原本遥不可及的顶级 AI 编程体验，并扒一扒 Claude Code 内部隐藏的子代理机制——很多人因为不懂这个机制，白白浪费了大量 Token 和上下文！\n\n一、什么是 Claude Co...","headline":"Claude Code 使用指南","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/52013"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/52013","keywords":"AI编程, Claude Code, 开发工具, 教程, Anthropic","thumbnailUrl":"https://image.skyforever.top/blog/2026/02/1bc4ccd83bf1945ecffa93c2fbc068cf.webp","image":["https://image.skyforever.top/blog/2026/02/1bc4ccd83bf1945ecffa93c2fbc068cf.webp"]}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8"><link rel="stylesheet" href="/css/custom.css">
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
@@ -557,7 +557,7 @@
 </ul>
 <p>点击”保存”即可。</p>
 <blockquote>
-<p>💡 <strong>小技巧</strong>：建议多配置几个免费模型方便切换。配置好一个后直接复制，编辑模型 ID，点击”一键设置”即可快速添加其他模型。</p>
+<p><strong>小技巧</strong>：建议多配置几个免费模型方便切换。配置好一个后直接复制，编辑模型 ID，点击”一键设置”即可快速添加其他模型。</p>
 </blockquote>
 <blockquote>
 <p><strong>PS</strong>：OpenRouter 充值如需支付宝或微信，勾选 “Use checkout page”。详细教程可以<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/1902150269241893722">参阅这篇知乎文章</a>。</p>
@@ -584,7 +584,7 @@
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/02/9314e63ffa8a2b7ca642f7fd246ee8b2.png" alt="Claude Code交互模式切换界面"></p>
 <p>为了让你秒懂这三大模式的作用（Ask、Plan、Edit），我们直接结合一个非程序员也极其需要的日常痛点来实战：<strong>让 Claude Code 帮我们整理一个乱七八糟的文件夹</strong>。</p>
 <blockquote>
-<p><strong>⚠️ 注意</strong>：让 AI 整理文件前，请确保不要在包含超多文件或核心系统盘的目录执行，避免误删重要数据。</p>
+<p><strong>注意</strong>：让 AI 整理文件前，请确保不要在包含超多文件或核心系统盘的目录执行，避免误删重要数据。</p>
 </blockquote>
 <h3 id="0-先进入需要整理的文件夹"><a href="#0-先进入需要整理的文件夹" class="headerlink" title="0. 先进入需要整理的文件夹"></a>0. 先进入需要整理的文件夹</h3><p>在文件管理器里找到你需要整理文件的位置，例如我这里要整理我的博客，就打开博客文件夹</p>
 <p>点击我箭头指向的这个位置</p>
@@ -859,7 +859,7 @@
 <script src="/js/markmap.js"></script>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/%E6%95%99%E7%A8%8B/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>教程</a><a class="tag" href="/tags/AI%E7%BC%96%E7%A8%8B/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>AI编程</a><a class="tag" href="/tags/Claude-Code/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Claude Code</a><a class="tag" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>开发工具</a><a class="tag" href="/tags/Anthropic/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Anthropic</a></div>
+<div class="article-tags"><a class="tag" href="/tags/AI%E7%BC%96%E7%A8%8B/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>AI编程</a><a class="tag" href="/tags/Claude-Code/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Claude Code</a><a class="tag" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>开发工具</a><a class="tag" href="/tags/%E6%95%99%E7%A8%8B/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>教程</a><a class="tag" href="/tags/Anthropic/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Anthropic</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -891,7 +891,7 @@
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;46321.html" title="2026年如何使用AI辅助做嵌入式开发"><span class="title">2026年如何使用AI辅助做嵌入式开发</span><span class="excerpt">2026年，AI辅助嵌入式开发已经不只是&quot;帮你写代码&quot;了。从硬件方案选型、PCB设计、 固件编译烧录调试，到直接操控板子跑命令，再到自动调PID参数——本文串联一套完整的AI工具链， 展示嵌入式开发全流程如何被AI重塑。</span></a><a class="item" href="&#x2F;posts&#x2F;41826.html" title="什么是Agent，怎么用好Agent，怎么写Skill"><span class="title">什么是Agent，怎么用好Agent，怎么写Skill</span><span class="excerpt">从底层循环机制出发，讲清楚什么是 Agent、为什么 Agent 能执行任务、如何真正用好 Agent， 以及如何编写高质量的 Skill.md 来提升 AI 协作效率。</span></a><a class="item" href="&#x2F;posts&#x2F;58575.html" title="IOS小火箭教程"><span class="title">IOS小火箭教程</span></a><a class="item" href="&#x2F;posts&#x2F;61125.html" title="嘉立创EDA 核心快捷键与实用技巧速查"><span class="title">嘉立创EDA 核心快捷键与实用技巧速查</span><span class="excerpt">一份精炼的嘉立创EDA（LCEDA）核心操作速查清单，覆盖原理图与PCB设计中最常用的快捷键和技巧，助你显著提升工作效率。</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;46321.html" title="2026年如何使用AI辅助做嵌入式开发"><span class="title">2026年如何使用AI辅助做嵌入式开发</span><span class="excerpt">2026年，AI辅助嵌入式开发已经不只是&quot;帮你写代码&quot;了。从硬件方案选型、PCB设计、 固件编译烧录调试，到直接操控板子跑命令，再到自动调PID参数——本文串联一套完整的AI工具链， 展示嵌入式开发全流程如何被AI重塑。</span></a><a class="item" href="&#x2F;posts&#x2F;41826.html" title="什么是Agent，怎么用好Agent，怎么写Skill"><span class="title">什么是Agent，怎么用好Agent，怎么写Skill</span><span class="excerpt">从底层循环机制出发，讲清楚什么是 Agent、为什么 Agent 能执行任务、如何真正用好 Agent， 以及如何编写高质量的 Skill.md 来提升 AI 协作效率。</span></a><a class="item" href="&#x2F;posts&#x2F;25562.html" title="3D打印入门指南"><span class="title">3D打印入门指南</span><span class="excerpt">本文汇集了科班UP主的3D打印入坑经验，从FDM与光固化的选择、拓竹与创想机型推荐，到耗材避坑、切片参数设置，手把手带你走进3D打印的世界。</span></a><a class="item" href="&#x2F;posts&#x2F;58575.html" title="IOS小火箭教程"><span class="title">IOS小火箭教程</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">

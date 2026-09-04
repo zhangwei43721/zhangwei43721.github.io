@@ -801,7 +801,7 @@
 <p>5、僵尸态：进程死亡后都会进入到僵尸态，等待别人帮他收尸</p>
 <p>6、死亡态：父母进程回收(wait)子进程的资源就会进入死亡态</p>
 <h3 id="进程的相关-API-和说明"><a href="#进程的相关-API-和说明" class="headerlink" title="进程的相关 API 和说明"></a>进程的相关 API 和说明</h3><h4 id="进程的创建（fork-函数）"><a href="#进程的创建（fork-函数）" class="headerlink" title="进程的创建（fork 函数）"></a>进程的创建（fork 函数）</h4><p>父子进程在 <strong>fork()</strong> 之后的区别，核心就一条：</p>
-<p>👉 <strong>父进程和子进程的虚拟内存内容相同，但属于不同的进程，PID 不同，资源不共享（文件描述符除外）</strong></p>
+<p><strong>父进程和子进程的虚拟内存内容相同，但属于不同的进程，PID 不同，资源不共享（文件描述符除外）</strong></p>
 <p>具体来说：</p>
 <ol>
 <li><strong>不同点</strong><ul>

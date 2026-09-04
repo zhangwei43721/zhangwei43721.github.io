@@ -40,7 +40,7 @@
 <meta name="twitter:image" content="https://image.skyforever.top/blog/2026/02/aca346af706e9f4e355b32f098c2c06d.webp"><meta name="twitter:title" content="基于 J-Link RTT 的单片机调试打印指南">
   
   
-  <meta name="keywords" content="STM32,单片机,J-Link,RTT,嵌入式开发,调试技巧">
+  <meta name="keywords" content="J-Link,RTT,单片机,嵌入式开发,调试技巧,STM32">
 
   <!-- feed -->
   
@@ -63,7 +63,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2025-12-08T19:57:17+08:00","dateModified":"2025-12-08T19:57:17+08:00","datePublished":"2025-12-08T19:57:17+08:00","description":"不知道大家在单片机开发时，是不是跟我一样觉得特别烦：每次开始调试，不仅要插下载器（J-Link/ST-Link），还得再找个 USB 转 TTL 模块接串口看打印信息。\n这就导致板子上挂着一堆线，电脑的 USB 口经常不够用，桌面上乱糟糟的。\n其实，既然我们已经插了 J-Link 下载器，为什么不能直接用它来看打印信息呢？完全可以！今天就来介绍一下如何利用 J-Link 的 RTT 功能，扔...","headline":"基于 J-Link RTT 的单片机调试打印指南","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/41626"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/41626","keywords":"STM32, 单片机, J-Link, RTT, 嵌入式开发, 调试技巧","thumbnailUrl":"https://image.skyforever.top/blog/2026/02/aca346af706e9f4e355b32f098c2c06d.webp","image":["https://image.skyforever.top/blog/2026/02/aca346af706e9f4e355b32f098c2c06d.webp"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2025-12-08T19:57:17+08:00","dateModified":"2025-12-08T19:57:17+08:00","datePublished":"2025-12-08T19:57:17+08:00","description":"不知道大家在单片机开发时，是不是跟我一样觉得特别烦：每次开始调试，不仅要插下载器（J-Link/ST-Link），还得再找个 USB 转 TTL 模块接串口看打印信息。\n这就导致板子上挂着一堆线，电脑的 USB 口经常不够用，桌面上乱糟糟的。\n其实，既然我们已经插了 J-Link 下载器，为什么不能直接用它来看打印信息呢？完全可以！今天就来介绍一下如何利用 J-Link 的 RTT 功能，扔...","headline":"基于 J-Link RTT 的单片机调试打印指南","mainEntityOfPage":{"@type":"WebPage","@id":"http://skyforever.top/posts/41626"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"http://skyforever.top/posts/41626","keywords":"J-Link, RTT, 单片机, 嵌入式开发, 调试技巧, STM32","thumbnailUrl":"https://image.skyforever.top/blog/2026/02/aca346af706e9f4e355b32f098c2c06d.webp","image":["https://image.skyforever.top/blog/2026/02/aca346af706e9f4e355b32f098c2c06d.webp"]}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg"><meta name="theme-color" content="#f8f8f8"><link rel="stylesheet" href="/css/custom.css">
 
   <!-- icons.yml 驱动的 CSS 装饰图标 -->
@@ -414,9 +414,7 @@
 <p>其实，既然我们已经插了 J-Link 下载器，为什么不能直接用它来看打印信息呢？完全可以！今天就来介绍一下如何利用 <strong>J-Link 的 RTT 功能</strong>，扔掉串口线，<strong>真正实现“一根线”搞定下载和调试</strong>。</p>
 <h2 id="1-J-Link-仿真调试器"><a href="#1-J-Link-仿真调试器" class="headerlink" title="1. J-Link 仿真调试器"></a>1. J-Link 仿真调试器</h2><p>下载器五花八门，但我现在最常用 J-Link，原因很简单：<strong>省事</strong>。</p>
 <p>相比于又要接 SWD 下载口、又要额外接 GND/TX/RX 串口线的传统方式，J-Link 只需要原本的那四根线（VCC, GND, SWDIO, SWCLK），就能同时完成<strong>程序下载</strong>和<strong>日志打印</strong>。体积小，接线少，简直是强迫症福音，YYDS！</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/51276d74e41bc4be6dac74b171160529.png"></p>
-<center>J-Link OB ARM 仿真调试器</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/51276d74e41bc4be6dac74b171160529.png" alt="J-Link OB ARM 仿真调试器"></p>
 <h2 id="2-安装-J-Link-驱动"><a href="#2-安装-J-Link-驱动" class="headerlink" title="2. 安装 J-Link 驱动"></a>2. 安装 J-Link 驱动</h2><p><strong>下载链接</strong>：<a target="_blank" rel="noopener" href="https://www.segger.com/downloads/jlink/">https://www.segger.com/downloads/jlink/</a></p>
 <p>买回来 J-Link 后，一般卖家都会提供驱动程序，驱动安装完成后就可以下载调试程序了。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/12/407bbbbdfa6acb784c15f53f37fed135.png" alt="J-Link 驱动下载页面"></p>
@@ -499,7 +497,7 @@
 <script src="/js/markmap.js"></script>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/STM32/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>STM32</a><a class="tag" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>单片机</a><a class="tag" href="/tags/J-Link/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>J-Link</a><a class="tag" href="/tags/RTT/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>RTT</a><a class="tag" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>嵌入式开发</a><a class="tag" href="/tags/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>调试技巧</a></div>
+<div class="article-tags"><a class="tag" href="/tags/J-Link/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>J-Link</a><a class="tag" href="/tags/RTT/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>RTT</a><a class="tag" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>单片机</a><a class="tag" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>嵌入式开发</a><a class="tag" href="/tags/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>调试技巧</a><a class="tag" href="/tags/STM32/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>STM32</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -531,7 +529,7 @@
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;30908.html" title="2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程"><span class="title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span><span class="excerpt">本文详细介绍了Keil MDK5社区版的下载与安装流程，解决了AC5编译器缺失报错、CMSIS版本冲突等常见问题，并分享了代码格式化与自动保存的实用配置技巧。</span></a><a class="item" href="&#x2F;posts&#x2F;63520.html" title="如何在不使用操作系统的情况下实现多线程效果"><span class="title">如何在不使用操作系统的情况下实现多线程效果</span><span class="excerpt">通过经典的“跑马灯”案例，揭示裸机编程中从阻塞到非阻塞，再到状态机思维的三重境界。并进一步探讨如何运用该思想处理复杂长时任务，帮助您在不使用RTOS的情况下，构建高效、可扩展的嵌入式程序。</span></a><a class="item" href="&#x2F;posts&#x2F;53927.html" title="单片机裸机多任务与低功耗方案总结"><span class="title">单片机裸机多任务与低功耗方案总结</span><span class="excerpt">总结单片机裸机环境下多任务与低功耗的实现方案，涵盖前后台、软件定时器、状态机、OSAL、ltx调度器、QP&#x2F;C、协程等，并与RTOS进行对比</span></a><a class="item" href="&#x2F;posts&#x2F;43921.html" title="解决 VS Code 开发 OpenHarmony 代码跳转慢的问题"><span class="title">解决 VS Code 开发 OpenHarmony 代码跳转慢的问题</span><span class="excerpt">解决用 VS Code 编写 OpenHarmony 代码时函数跳转慢的问题，详解 compile_commands.json 编译数据库生成与 Clangd 配置方法。</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;53927.html" title="单片机裸机多任务与低功耗方案总结"><span class="title">单片机裸机多任务与低功耗方案总结</span><span class="excerpt">总结单片机裸机环境下多任务与低功耗的实现方案，涵盖前后台、软件定时器、状态机、OSAL、ltx调度器、QP&#x2F;C、协程等，并与RTOS进行对比</span></a><a class="item" href="&#x2F;posts&#x2F;63520.html" title="如何在不使用操作系统的情况下实现多线程效果"><span class="title">如何在不使用操作系统的情况下实现多线程效果</span><span class="excerpt">通过经典的“跑马灯”案例，揭示裸机编程中从阻塞到非阻塞，再到状态机思维的三重境界。并进一步探讨如何运用该思想处理复杂长时任务，帮助您在不使用RTOS的情况下，构建高效、可扩展的嵌入式程序。</span></a><a class="item" href="&#x2F;posts&#x2F;43921.html" title="解决 VS Code 开发 OpenHarmony 代码跳转慢的问题"><span class="title">解决 VS Code 开发 OpenHarmony 代码跳转慢的问题</span><span class="excerpt">解决用 VS Code 编写 OpenHarmony 代码时函数跳转慢的问题，详解 compile_commands.json 编译数据库生成与 Clangd 配置方法。</span></a><a class="item" href="&#x2F;posts&#x2F;30908.html" title="2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程"><span class="title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span><span class="excerpt">本文详细介绍了Keil MDK5社区版的下载与安装流程，解决了AC5编译器缺失报错、CMSIS版本冲突等常见问题，并分享了代码格式化与自动保存的实用配置技巧。</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">

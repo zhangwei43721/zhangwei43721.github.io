@@ -821,11 +821,7 @@
 <p>上述代码总执行次数为 <code>n * n = n^2</code>。因此，时间复杂度为 <strong>O(n²)</strong>。</p>
 </li>
 </ul>
-<center>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="http://edu.yueqian.com.cn/group1/M00/03/88/wKgP3GCJBTyAIq5hAAA-8fy9K3w031.png?token=null&amp;ts=null">
-<br><i>不同时间复杂度的增长趋势对比</i>
-</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="http://edu.yueqian.com.cn/group1/M00/03/88/wKgP3GCJBTyAIq5hAAA-8fy9K3w031.png?token=null&amp;ts=null" alt="不同时间复杂度的增长趋势对比"></p>
 <h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a><strong>空间复杂度</strong></h3><ul>
 <li><strong>概念</strong>: 衡量算法在运行过程中临时占用存储空间大小的量度，同样采用大 O 表示法。</li>
 </ul>
@@ -877,21 +873,13 @@
 <li><p><strong>“寄生”于用户数据结构</strong>: 将这个<code>list_head</code>结构作为一个<strong>成员</strong>，嵌入到任何需要被链式管理的用户数据结构中。</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span> {</span></span><br><span class="line">    <span class="comment">// --- 用户数据域 ---</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> id;</span><br><span class="line">    <span class="comment">// --- 链表逻辑域 ---</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span> <span class="title">list</span>;</span> <span class="comment">// "寄生"的内核链表节点</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
-<center>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="http://edu.yueqian.com.cn/group1/M00/00/43/rBJlJmMQDpGAaeADAAAzjlD9YqM143.png?token=null&amp;ts=null" ,="" width="450">
-<br><i>将标准链表节点嵌入用户数据结构</i>
-</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="http://edu.yueqian.com.cn/group1/M00/00/43/rBJlJmMQDpGAaeADAAAzjlD9YqM143.png?token=null&amp;ts=null" alt="将标准链表节点嵌入用户数据结构"></p>
 <h3 id="难点攻克：如何从“链”找到“数据”？"><a href="#难点攻克：如何从“链”找到“数据”？" class="headerlink" title="难点攻克：如何从“链”找到“数据”？"></a><strong>难点攻克：如何从“链”找到“数据”？</strong></h3><p>所有链表 API 操作的都是<code>list_head</code>指针，但我们最终需要的是包含业务数据的<code>student</code>结构体。如何从<code>list</code>成员的地址反向推算出其“宿主”<code>student</code>结构体的起始地址？</p>
 <p>这就是内核链表最核心的宏 <code>list_entry</code> 的作用。</p>
 <ul>
 <li><strong>原理</strong>: <code>宿主结构体地址 = 成员地址 - 成员在宿主结构体中的偏移量</code></li>
 </ul>
-<center>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="http://edu.yueqian.com.cn/group1/M00/00/43/rBJlJmMQDpGAGF7WAABqCbxNuW8845.png?token=null&amp;ts=null" ,="" width="470">
-<br><i>通过成员地址和偏移量计算宿主地址</i>
-</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="http://edu.yueqian.com.cn/group1/M00/00/43/rBJlJmMQDpGAGF7WAABqCbxNuW8845.png?token=null&amp;ts=null" alt="通过成员地址和偏移量计算宿主地址"></p>
 <ul>
 <li><p><strong>C 语言实现</strong>:</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">define</span> list_entry(ptr, type, member) \</span></span><br><span class="line"><span class="meta">     ((type *)((char *)(ptr) - (unsigned long)(&amp;((type *)0)-&gt;member)))</span></span><br></pre></td></tr></tbody></table></figure>
@@ -995,10 +983,7 @@
 <li><strong>定义</strong>: 对于树中任意节点，其<strong>左子树</strong>所有节点的值都<strong>小于</strong>该节点，其<strong>右子树</strong>所有节点的值都<strong>大于</strong>该节点。</li>
 <li><strong>价值</strong>: 平均情况下，查找、插入、删除操作的时间复杂度均为 <strong>O(log n)</strong>，效率远超线性表的 O(n)。</li>
 </ul>
-<center>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="http://edu.yueqian.com.cn/group1/M00/04/89/wKgP3GCt8PiAD_zQAACL_g4P5r0780.png?token=null&amp;ts=null" ,="" width="450">
-</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="http://edu.yueqian.com.cn/group1/M00/04/89/wKgP3GCt8PiAD_zQAACL_g4P5r0780.png?token=null&amp;ts=null" alt="二叉搜索树结构示意图"></p>
 <h2 id="6-难点攻克：二叉树的删除操作"><a href="#6-难点攻克：二叉树的删除操作" class="headerlink" title="6. 难点攻克：二叉树的删除操作"></a>6. 难点攻克：二叉树的删除操作</h2><p>BST 的插入相对简单，只需遵循规则找到空位即可。而删除操作则要复杂得多，因为它必须在删除节点后<strong>维持 BST 的有序性</strong>。</p>
 <p><strong>删除节点 <code>x</code> 的三种情况分析：</strong></p>
 <ol>
@@ -1016,29 +1001,13 @@
 </ol>
 <p><strong>图解删除双子节点 (删除节点 8)</strong></p>
 <p>假设我们要删除根节点 <code>8</code>：</p>
-<center>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/bst-delete-1.png" ,="" width="500">
-<br><i>1. 目标：删除节点 8。</i>
-</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/bst-delete-1.png" alt="1. 目标：删除节点 8。"></p>
 <p>a. 找到 <code>8</code> 的后继：在右子树 <code>{10, 14, 13}</code> 中找到最小值，即 <code>10</code>。</p>
-<center>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/bst-delete-2.png" ,="" width="500">
-<br><i>2. 找到后继节点 10。</i>
-</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/bst-delete-2.png" alt="2. 找到后继节点 10。"></p>
 <p>b. 用后继 <code>10</code> 的值覆盖 <code>8</code>。</p>
-<center>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/bst-delete-3.png" ,="" width="500">
-<br><i>3. 用后继的值覆盖待删除节点。</i>
-</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/bst-delete-3.png" alt="3. 用后继的值覆盖待删除节点。"></p>
 <p>c. 在原右子树中删除后继 <code>10</code>。此时 <code>10</code> 的删除操作属于情况 2（它有一个右孩子 <code>14</code>），将其父节点(现在是新的根<code>10</code>)直接链接到其子节点 <code>14</code>。</p>
-<center>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/bst-delete-4.png" ,="" width="500">
-<br><i>4. 递归删除后继节点，完成重构。</i>
-</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/bst-delete-4.png" alt="4. 递归删除后继节点，完成重构。"></p>
 <h3 id="代码实现：二叉树删除"><a href="#代码实现：二叉树删除" class="headerlink" title="代码实现：二叉树删除"></a><strong>代码实现：二叉树删除</strong></h3><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> {</span></span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">} bstNode;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 辅助函数：查找子树中的最小值节点</span></span><br><span class="line">bstNode* <span class="title function_">findMin</span><span class="params">(bstNode* root)</span> {</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span> (root-&gt;lchild != <span class="literal">NULL</span>) {</span><br><span class="line">        root = root-&gt;lchild;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// BST 删除函数</span></span><br><span class="line">bstNode* <span class="title function_">bstRemove</span><span class="params">(bstNode* root, <span class="type">int</span> data)</span> {</span><br><span class="line">    <span class="comment">// 1. 基线条件：树为空或未找到</span></span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> root;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 递归查找</span></span><br><span class="line">    <span class="keyword">if</span> (data &lt; root-&gt;data) {</span><br><span class="line">        root-&gt;lchild = bstRemove(root-&gt;lchild, data);</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (data &gt; root-&gt;data) {</span><br><span class="line">        root-&gt;rchild = bstRemove(root-&gt;rchild, data);</span><br><span class="line">    } <span class="keyword">else</span> { <span class="comment">// 3. 找到了要删除的节点</span></span><br><span class="line">        <span class="comment">// 情况1: 叶子节点 或 情况2: 单子节点</span></span><br><span class="line">        <span class="keyword">if</span> (root-&gt;lchild == <span class="literal">NULL</span>) {</span><br><span class="line">            bstNode *temp = root-&gt;rchild;</span><br><span class="line">            <span class="built_in">free</span>(root);</span><br><span class="line">            <span class="keyword">return</span> temp;</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (root-&gt;rchild == <span class="literal">NULL</span>) {</span><br><span class="line">            bstNode *temp = root-&gt;lchild;</span><br><span class="line">            <span class="built_in">free</span>(root);</span><br><span class="line">            <span class="keyword">return</span> temp;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 情况3: 双子节点</span></span><br><span class="line">        <span class="comment">// 找到右子树的最小值 (后继)</span></span><br><span class="line">        bstNode *temp = findMin(root-&gt;rchild);</span><br><span class="line">        <span class="comment">// 用后继的值覆盖当前节点</span></span><br><span class="line">        root-&gt;data = temp-&gt;data;</span><br><span class="line">        <span class="comment">// 在右子树中递归删除那个后继节点</span></span><br><span class="line">        root-&gt;rchild = bstRemove(root-&gt;rchild, temp-&gt;data);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <blockquote>
@@ -1176,11 +1145,7 @@
 <ul>
 <li><strong>思想</strong>: 通过不断将搜索区间<strong>折半</strong>，以对数级的速度逼近目标。每比较一次，就能排除掉一半的不可能选项。</li>
 </ul>
-<center>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/binary-search-animated.gif" width="500">
-<br><i>二分查找动态过程</i>
-</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/binary-search-animated.gif" alt="二分查找动态过程"></p>
 <ul>
 <li><strong>时间复杂度</strong>: <strong>O(log n)</strong>。对于 100 万个数据，最多只需 20 次比较；对于 10 亿个数据，也仅需约 30 次。</li>
 </ul>
@@ -1205,11 +1170,7 @@
 <ul>
 <li><strong>思想</strong>: <strong>分块 + 索引</strong>。将大数据集分割成若干“块”，为这些块建立一个“索引表”。</li>
 </ul>
-<center>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="http://edu.yueqian.com.cn/group1/M00/05/F7/wKgP3GD8CTWARY-fAACKyv3-Dyo313.PNG?token=null&amp;ts=null" width="200"> <span style="font-size: 3em; vertical-align: middle; margin: 0 20px;">➡️</span> <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/block-search.png" width="400">
-<br><i>从字典的部首检字法到分块查找</i>
-</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="http://edu.yueqian.com.cn/group1/M00/05/F7/wKgP3GD8CTWARY-fAACKyv3-Dyo313.PNG?token=null&amp;ts=null" alt="从字典的部首检字法到分块查找"> → <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/block-search.png" alt="分块查找"></p>
 <ul>
 <li><p><strong>结构</strong>:</p>
 <ol>
@@ -1252,11 +1213,7 @@
 <li><strong>开放定址法 (Open Addressing)</strong>: 如果计算出的位置已被占用，就按照某种规则（线性探测、二次探测等）去寻找下一个空位。</li>
 <li><strong>链地址法 (Chaining)</strong>: <strong>（最常用）<strong>哈希表的每个位置不再是单个元素，而是一个</strong>链表的头指针</strong>。所有哈希到同一位置的元素，都以节点的形式挂载到这个链表上。查找时，先计算哈希值定位到链表，再在链表上进行顺序查找。</li>
 </ol>
-<center>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/hash-table-chaining.png" width="500">
-<br><i>链地址法解决哈希冲突</i>
-</center>
-
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img/hash-table-chaining.png" alt="链地址法解决哈希冲突"></p>
 <h3 id="性能总结与对比"><a href="#性能总结与对比" class="headerlink" title="性能总结与对比"></a><strong>性能总结与对比</strong></h3><div class="md-table-scroll"><table>
 <thead>
 <tr>
