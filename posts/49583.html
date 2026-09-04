@@ -453,7 +453,7 @@
 <h3 id="UPG-内部工作流程"><a href="#UPG-内部工作流程" class="headerlink" title="UPG 内部工作流程"></a>UPG 内部工作流程</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/05/a7d99933a2b91c869de4f5d1cbe99a99.webp" alt="UPG 内部工作流程"></p>
 <h3 id="UPG-内部-Flash-分区与数据流向"><a href="#UPG-内部-Flash-分区与数据流向" class="headerlink" title="UPG 内部 Flash 分区与数据流向"></a>UPG 内部 Flash 分区与数据流向</h3><p>WS63 采用 <strong>AB 双分区</strong> 方案，Flash 整体布局如下图所示（总大小4MB）：</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/05/69a3505f36c1e652917121355f496d3f.webp" alt="WS63 整体 Flash 物理分区表"></p>
-<p>上图中与 UPG 相关的区域划分定义在<br><a href="build/config/target_config/ws63/param_sector/param_sector.json"><code>build/config/target_config/ws63/param_sector/param_sector.json</code></a><br>中，分区 ID 枚举见<br><a href="middleware/chips/ws63/partition/include/partition_resource_id.h"><code>middleware/chips/ws63/partition/include/partition_resource_id.h</code></a>：</p>
+<p>上图中与 UPG 相关的区域划分定义在<br><code>build/config/target_config/ws63/param_sector/param_sector.json</code><br>中，分区 ID 枚举见<br><code>middleware/chips/ws63/partition/include/partition_resource_id.h</code>：</p>
 <div class="md-table-scroll"><table>
 <thead>
 <tr>
@@ -477,19 +477,19 @@
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/05/b14e26d1274abc50bc03806b1c4fcccd.webp" alt="物理分区与 A_B 逻辑分区映射关系"></p>
 <p>物理上的 imageA (2.25M)+ fota data (1.5M)被从中问强行切分，变成了等大的两个1.93MB 区域，这也解释了为什么 fota_data 不仅仅是暂存区，它的前半部分其实是 B 区代码的运行空间。</p>
 <p><strong>下载阶段（App 中）的数据流向：</strong></p>
-<p>应用层调用 UPG 存储层接口（实现在<br> <a href="middleware/utils/update/storage/upg_storage.c"><code>middleware/utils/update/storage/upg_storage.c</code></a><br> ），将网络接收到的固件写入 Flash：</p>
+<p>应用层调用 UPG 存储层接口（实现在<br> <code>middleware/utils/update/storage/upg_storage.c</code><br> ），将网络接收到的固件写入 Flash：</p>
 <ol>
 <li><code>uapi_upg_prepare()</code> —— 擦除 <code>PARTITION_FOTA_DATA</code> 分区，并在升级标记区写入 <code>head_magic</code> 和 <code>package_length</code></li>
-<li><code>uapi_upg_write_package_sync()</code> —— 将网络接收到的固件数据按 offset 顺序写入 <strong>FOTA 区起始地址 + offset</strong>。实际的 Flash 读写由 <a href="middleware/chips/ws63/update/common/upg_common_porting.c"><code>middleware/chips/ws63/update/common/upg_common_porting.c</code></a> 中的 <code>upg_flash_write()</code> 完成</li>
+<li><code>uapi_upg_write_package_sync()</code> —— 将网络接收到的固件数据按 offset 顺序写入 <strong>FOTA 区起始地址 + offset</strong>。实际的 Flash 读写由 <code>middleware/chips/ws63/update/common/upg_common_porting.c</code> 中的 <code>upg_flash_write()</code> 完成</li>
 <li><code>uapi_upg_verify_file()</code> —— 对 FOTA 暂存区中的固件进行 ECDSA 签名 + SHA256 哈希校验</li>
 <li><code>uapi_upg_request_upgrade(true)</code> —— 在升级标记区写入 <code>head_end_magic</code> 和 <code>firmware_num</code>，标记”升级包已就绪”，然后<strong>重启</strong></li>
 </ol>
 <p><strong>升级阶段（Bootloader 中）的数据流向：</strong></p>
-<p>Bootloader 启动后（入口在<br><a href="bootloader/flashboot_ws63/startup/main.c"><code>bootloader/flashboot_ws63/startup/main.c</code></a><br>的 <code>start_fastboot()</code>），调用 <code>ws63_upg_check()</code> 检测升级标记。若标记完整，自动调用 <code>uapi_upg_start()</code>（实现在 <a href="middleware/utils/update/local_update/upg_process.c"><code>middleware/utils/update/local_update/upg_process.c</code></a>）：</p>
+<p>Bootloader 启动后（入口在<br><code>bootloader/flashboot_ws63/startup/main.c</code><br>的 <code>start_fastboot()</code>），调用 <code>ws63_upg_check()</code> 检测升级标记。若标记完整，自动调用 <code>uapi_upg_start()</code>（实现在 <code>middleware/utils/update/local_update/upg_process.c</code>）：</p>
 <ol>
 <li>从 <strong>FOTA 暂存区</strong> 读取升级包，逐个镜像处理（<code>upg_process_update()</code> → <code>upg_perform_image_task()</code>）</li>
-<li>对于全镜像升级，调用 <a href="middleware/utils/update/local_update/upg_upgrade.c"><code>middleware/utils/update/local_update/upg_upgrade.c</code></a> 中的 <code>uapi_upg_full_image_update()</code>，将 FOTA 区的数据读出，写入<strong>目标镜像分区</strong>（B 区或对应分区）</li>
-<li>如果是 AB 模式，写入完成后调用 <a href="middleware/chips/ws63/update/ab_upg/upg_ab.c"><code>middleware/chips/ws63/update/ab_upg/upg_ab.c</code></a> 中的 <code>upg_set_run_region()</code> <strong>切换启动分区</strong></li>
+<li>对于全镜像升级，调用 <code>middleware/utils/update/local_update/upg_upgrade.c</code> 中的 <code>uapi_upg_full_image_update()</code>，将 FOTA 区的数据读出，写入<strong>目标镜像分区</strong>（B 区或对应分区）</li>
+<li>如果是 AB 模式，写入完成后调用 <code>middleware/chips/ws63/update/ab_upg/upg_ab.c</code> 中的 <code>upg_set_run_region()</code> <strong>切换启动分区</strong></li>
 <li>设置 <code>complete_flag</code>，再次重启，此时从新的分区启动新固件</li>
 </ol>
 <p>OTA 动作与数据流向的整体过程如下图所示：</p>
@@ -498,7 +498,7 @@
 <blockquote>
 <p>回滚机制：AB 模式下，如果新固件连续验签失败达到阈值（3 次），Bootloader 会自动切换回另一个分区启动，实现失败回滚。</p>
 </blockquote>
-<p>核心头文件为 <a href="include/middleware/utils/upg.h"><code>include/middleware/utils/upg.h</code></a>，下面是此头文件里的相关接口说明，你也可以直接打开头文件查看内容：</p>
+<p>核心头文件为 <code>include/middleware/utils/upg.h</code>，下面是此头文件里的相关接口说明，你也可以直接打开头文件查看内容：</p>
 <div class="md-table-scroll"><table>
 <thead>
 <tr>
@@ -540,7 +540,7 @@
 </tbody></table></div>
 <h2 id="2-环境准备"><a href="#2-环境准备" class="headerlink" title="2. 环境准备"></a>2. 环境准备</h2><p>在开始编写 OTA 代码之前，必须先完成以下两项环境准备工作。否则后续生成的 OTA 升级包将无法通过设备端的签名校验。</p>
 <h3 id="2-1-用脚本生成签名密钥"><a href="#2-1-用脚本生成签名密钥" class="headerlink" title="2.1 用脚本生成签名密钥"></a>2.1 用脚本生成签名密钥</h3><p>OTA 固件包必须经过签名，Bootloader 和 UPG 模块才会允许刷入。第一次开发或更换工程时，需要生成一套专属密钥。</p>
-<p><strong>脚本位置</strong>：<a href="build/config/target_config/ws63/sign_encry/gen_all_key.sh"> <code>build/config/target_config/ws63/sign_encry/gen_all_key.sh</code> </a></p>
+<p><strong>脚本位置</strong>：<code>build/config/target_config/ws63/sign_encry/gen_all_key.sh</code></p>
 <ol>
 <li>进入 SDK 的加密配置目录：<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> build/config/target_config/ws63/sign_encry</span><br></pre></td></tr></tbody></table></figure></li>
 <li>执行一键生成密钥脚本：<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash gen_all_key.sh</span><br></pre></td></tr></tbody></table></figure>
@@ -556,7 +556,7 @@
 <ol>
 <li><p><strong>编译全量工程</strong>（回到 SDK 根目录）：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python build.py ws63-liteos-app</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p><strong>打包全量烧录包 (.fwpkg)</strong>：<br><em>(如果 build.py 没有自动生成，手动执行以下命令)</em><br><strong>脚本位置</strong>：<a href="tools/pkg/packet.py"> <code>tools/pkg/packet.py</code> </a></p>
+<li><p><strong>打包全量烧录包 (.fwpkg)</strong>：<br><em>(如果 build.py 没有自动生成，手动执行以下命令)</em><br><strong>脚本位置</strong>：<code>tools/pkg/packet.py</code></p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python tools/pkg/packet.py ws63 ws63-liteos-app <span class="string">""</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>产物路径</strong>：<code>output/ws63/fwpkg/ws63-liteos-app/ws63-liteos-app_all.fwpkg</code></p>
@@ -569,14 +569,14 @@
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/05/c105e29b76c3f7712f2c1d8c6485734c.webp" alt="工程 在 UPG外部 OTA 的代码实现"></p>
 <p>本工程中的 OTA 服务实现位于以下文件：</p>
 <ul>
-<li><strong>头文件</strong>：<code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.h</code></li>
+<li><strong>接口文件</strong>：<code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.h</code></li>
 <li><strong>实现文件</strong>：<code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.c</code></li>
 <li><strong>主程序初始化</strong>：<code>application/samples/peripheral/smart_car/apps/robot_demo/core/robot_mgr.c</code></li>
 </ul>
-<h3 id="3-1-OTA-服务接口定义"><a href="#3-1-OTA-服务接口定义" class="headerlink" title="3.1 OTA 服务接口定义"></a>3.1 OTA 服务接口定义</h3><p><strong>文件位置</strong>：<br><a href="application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.h"> <code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.h</code> </a></p>
+<h3 id="3-1-OTA-服务接口定义"><a href="#3-1-OTA-服务接口定义" class="headerlink" title="3.1 OTA 服务接口定义"></a>3.1 OTA 服务接口定义</h3><p><strong>文件位置</strong>：<br><code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.h</code></p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> OTA_SERVICE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_SERVICE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_TCP_PORT        8890</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_RECV_CHUNK_SIZE 4096</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_TCP_STACK_SIZE  16384</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_TCP_TASK_PRIORITY 23</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_MAGIC_LEN       4</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OTA_MAGIC_STR       <span class="string">"OTAx"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">enum</span> {</span></span><br><span class="line">    OTA_STATE_IDLE,       <span class="comment">// 空闲</span></span><br><span class="line">    OTA_STATE_WAITING,    <span class="comment">// TCP 监听中</span></span><br><span class="line">    OTA_STATE_RECEIVING,  <span class="comment">// 接收数据中</span></span><br><span class="line">    OTA_STATE_VERIFYING,  <span class="comment">// UPG 校验中</span></span><br><span class="line">    OTA_STATE_UPGRADING,  <span class="comment">// 已请求升级，即将重启</span></span><br><span class="line">    OTA_STATE_FAILED      <span class="comment">// 失败</span></span><br><span class="line">} <span class="type">ota_state_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">    <span class="type">ota_state_t</span> state;</span><br><span class="line">    <span class="type">uint8_t</span>     progress_percent;</span><br><span class="line">    <span class="type">uint32_t</span>    received_size;</span><br><span class="line">    <span class="type">uint32_t</span>    total_size;</span><br><span class="line">} <span class="type">ota_status_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ota_service_init</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">bool</span> <span class="title function_">ota_service_start</span><span class="params">(<span class="type">uint32_t</span> expected_size)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">ota_service_cancel</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">bool</span> <span class="title function_">ota_service_is_active</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">ota_service_get_status</span><span class="params">(<span class="type">ota_status_t</span> *out)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">/* OTA_SERVICE_H */</span></span></span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="3-2-OTA-服务核心实现"><a href="#3-2-OTA-服务核心实现" class="headerlink" title="3.2 OTA 服务核心实现"></a>3.2 OTA 服务核心实现</h3><p><strong>文件位置</strong>：<br><a href="application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.c"> <code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.c</code> </a></p>
+<h3 id="3-2-OTA-服务核心实现"><a href="#3-2-OTA-服务核心实现" class="headerlink" title="3.2 OTA 服务核心实现"></a>3.2 OTA 服务核心实现</h3><p><strong>文件位置</strong>：<br><code>application/samples/peripheral/smart_car/apps/robot_demo/services/ota_service.c</code></p>
 <p>核心逻辑分为 7 个阶段：</p>
 <h4 id="阶段-A：UPG-初始化"><a href="#阶段-A：UPG-初始化" class="headerlink" title="阶段 A：UPG 初始化"></a>阶段 A：UPG 初始化</h4><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">ota_service_init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">upg_func_t</span> s_upg_funcs = {</span><br><span class="line">        .<span class="built_in">malloc</span> = fota_upg_malloc,      <span class="comment">// osal_kmalloc</span></span><br><span class="line">        .<span class="built_in">free</span>   = fota_upg_free,        <span class="comment">// osal_kfree</span></span><br><span class="line">        .serial_putc = fota_upg_serial_putc  <span class="comment">// uapi_uart_write</span></span><br><span class="line">    };</span><br><span class="line">    uapi_upg_init(&amp;s_upg_funcs);</span><br><span class="line">    uapi_upg_reset_upgrade_flag();  <span class="comment">// 清除残留升级标志</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
@@ -593,7 +593,7 @@
 
 <h4 id="阶段-G：请求升级并重启"><a href="#阶段-G：请求升级并重启" class="headerlink" title="阶段 G：请求升级并重启"></a>阶段 G：请求升级并重启</h4><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ret = uapi_upg_request_upgrade(<span class="literal">true</span>);  <span class="comment">// true = 立即重启</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="3-3-主程序初始化"><a href="#3-3-主程序初始化" class="headerlink" title="3.3 主程序初始化"></a>3.3 主程序初始化</h3><p><strong>文件位置</strong>：<br><a href="application/samples/peripheral/smart_car/apps/robot_demo/core/robot_mgr.c"> <code>application/samples/peripheral/smart_car/apps/robot_demo/core/robot_mgr.c</code> </a></p>
+<h3 id="3-3-主程序初始化"><a href="#3-3-主程序初始化" class="headerlink" title="3.3 主程序初始化"></a>3.3 主程序初始化</h3><p><strong>文件位置</strong>：<br><code>application/samples/peripheral/smart_car/apps/robot_demo/core/robot_mgr.c</code></p>
 <p>在 <code>robot_mgr_init()</code> 中 <code>udp_service_init()</code> 之后添加：</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"../services/ota_service.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">robot_mgr_init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="comment">/* ... 其他初始化 ... */</span></span><br><span class="line">    udp_service_init();</span><br><span class="line">    ota_service_init();  <span class="comment">// &lt;-- OTA 服务初始化</span></span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
@@ -608,7 +608,7 @@
 <li><p><strong>获取 OTA 产物</strong>：<br><strong>产物路径</strong>：<code>output/ws63/upgrade/update.fwpkg</code></p>
 <p>注意区分，这个包通常只有 1MB 左右，比全量包小很多。</p>
 </li>
-<li><p><strong>执行 OTA 升级包打包脚本</strong>：<br><strong>脚本位置</strong>：<a href="build/config/target_config/ws63/build_ws63_update.py"> <code>build/config/target_config/ws63/build_ws63_update.py</code> </a></p>
+<li><p><strong>执行 OTA 升级包打包脚本</strong>：<br><strong>脚本位置</strong>：<code>build/config/target_config/ws63/build_ws63_update.py</code></p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python build/config/target_config/ws63/build_ws63_update.py --pkt app</span><br></pre></td></tr></tbody></table></figure>
 
 <p>该脚本会提取上一步编译出的 <code>.bin</code> 文件，使用【2.1】生成的私钥进行 ECDSA 签名，并打包成 UPG 格式。</p>
@@ -618,7 +618,7 @@
 <hr>
 <h3 id="4-2-远程-OTA-推送"><a href="#4-2-远程-OTA-推送" class="headerlink" title="4.2 远程 OTA 推送"></a>4.2 远程 OTA 推送</h3><p>最后一步，通过网络将 <code>update.fwpkg</code> 发送给处于局域网内的开发板。</p>
 <p>这个脚本是我自己写的，可以根据我的代码实现一个自己的脚本</p>
-<p>在我的工程里，脚本位置是：<a href="tools/ota_sender.py"> <code>tools/ota_sender.py</code> </a></p>
+<p>在我的工程里，脚本位置是：<code>tools/ota_sender.py</code></p>
 <ol>
 <li>确保开发板已连接 Wi-Fi，且你编写的网络 OTA 服务端（第3节的代码）处于监听状态。</li>
 <li>使用配套的 Python 发送端脚本推送固件：<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 格式：python ota_sender.py &lt;目标开发板IP&gt; &lt;OTA包路径&gt;</span></span><br><span class="line">python tools/ota_sender.py 192.168.111.20 output/ws63/upgrade/update.fwpkg</span><br></pre></td></tr></tbody></table></figure></li>
@@ -854,7 +854,7 @@
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;52107.html" title="Hi3863 WiFi AP 配网实现方法"><span class="title">Hi3863 WiFi AP 配网实现方法</span><span class="excerpt">总结在 HiSpark WS63（LiteOS + lwIP）平台上实现 WiFi AP 配网（Captive Portal &#x2F; 强制门户）的完整流程， 涵盖强制门户检测原理、整体架构、代码实现及开发过程中的关键问题与解决方案。</span></a><a class="item" href="&#x2F;posts&#x2F;46321.html" title="2026年如何使用AI辅助做嵌入式开发"><span class="title">2026年如何使用AI辅助做嵌入式开发</span><span class="excerpt">2026年，AI辅助嵌入式开发已经不只是&quot;帮你写代码&quot;了。从硬件方案选型、PCB设计、 固件编译烧录调试，到直接操控板子跑命令，再到自动调PID参数——本文串联一套完整的AI工具链， 展示嵌入式开发全流程如何被AI重塑。</span></a><a class="item" href="&#x2F;posts&#x2F;30908.html" title="2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程"><span class="title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span><span class="excerpt">本文详细介绍了Keil MDK5社区版的下载与安装流程，解决了AC5编译器缺失报错、CMSIS版本冲突等常见问题，并分享了代码格式化与自动保存的实用配置技巧。</span></a><a class="item" href="&#x2F;posts&#x2F;63520.html" title="如何在不使用操作系统的情况下实现多线程效果"><span class="title">如何在不使用操作系统的情况下实现多线程效果</span><span class="excerpt">通过经典的“跑马灯”案例，揭示裸机编程中从阻塞到非阻塞，再到状态机思维的三重境界。并进一步探讨如何运用该思想处理复杂长时任务，帮助您在不使用RTOS的情况下，构建高效、可扩展的嵌入式程序。</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="&#x2F;posts&#x2F;52107.html" title="Hi3863 WiFi AP 配网实现方法"><span class="title">Hi3863 WiFi AP 配网实现方法</span><span class="excerpt">总结在 HiSpark WS63（LiteOS + lwIP）平台上实现 WiFi AP 配网（Captive Portal &#x2F; 强制门户）的完整流程， 涵盖强制门户检测原理、整体架构、代码实现及开发过程中的关键问题与解决方案。</span></a><a class="item" href="&#x2F;posts&#x2F;46321.html" title="2026年如何使用AI辅助做嵌入式开发"><span class="title">2026年如何使用AI辅助做嵌入式开发</span><span class="excerpt">2026年，AI辅助嵌入式开发已经不只是&quot;帮你写代码&quot;了。从硬件方案选型、PCB设计、 固件编译烧录调试，到直接操控板子跑命令，再到自动调PID参数——本文串联一套完整的AI工具链， 展示嵌入式开发全流程如何被AI重塑。</span></a><a class="item" href="&#x2F;posts&#x2F;30908.html" title="2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程"><span class="title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span><span class="excerpt">本文详细介绍了Keil MDK5社区版的下载与安装流程，解决了AC5编译器缺失报错、CMSIS版本冲突等常见问题，并分享了代码格式化与自动保存的实用配置技巧。</span></a><a class="item" href="&#x2F;posts&#x2F;114516.html" title="提升嵌入式开发幸福感的小技巧"><span class="title">提升嵌入式开发幸福感的小技巧</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
