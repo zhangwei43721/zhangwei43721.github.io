@@ -10,7 +10,7 @@
   
   <meta name="generator" content="Hexo 8.1.2">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel="preconnect" href="https://image.skyforever.top" crossorigin><link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <link rel="preconnect" href="https://image.skyforever.top" crossorigin><link rel="preconnect" href="https://cdn.jsdmirror.com" crossorigin><link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -88,39 +88,48 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<!-- Google Analytics & Microsoft Clarity -->
+<!-- Google Analytics & Microsoft Clarity (User Interaction Lazy Load) -->
 <script>
 (function() {
-  var runDeferredAnalytics = function() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  var initialized = false;
+  var initAnalytics = function() {
+    if (initialized) return;
+    initialized = true;
+
+    // Cleanup interaction listeners immediately
+    var events = ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'];
+    events.forEach(function(evt) {
+      window.removeEventListener(evt, initAnalytics, { passive: true });
+    });
+
+    // Google Analytics (with error catch so blocked requests do not freeze the page)
     var gScript = document.createElement('script');
     gScript.async = true;
     gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
+    gScript.onerror = function() {};
     document.head.appendChild(gScript);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-JST56Q8277');
 
+    // Microsoft Clarity
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        t.onerror = function() {};
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "rp0i6z4yyg");
   };
 
-  var schedule = function() {
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(runDeferredAnalytics, { timeout: 3000 });
-    } else {
-      setTimeout(runDeferredAnalytics, 1500);
-    }
-  };
-
-  if (document.readyState === 'complete') {
-    schedule();
-  } else {
-    window.addEventListener('load', schedule);
-  }
+  // Trigger upon first user interaction, or fallback after 6s idle
+  var events = ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'];
+  events.forEach(function(evt) {
+    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
+  });
+  setTimeout(initAnalytics, 6000);
 })();
 </script>
 
@@ -619,7 +628,7 @@ var _hmt = _hmt || [];
 <h2 id="Vim-的生态与影响力"><a href="#Vim-的生态与影响力" class="headerlink" title="Vim 的生态与影响力"></a>Vim 的生态与影响力</h2><p>Vim 的影响力已经渗透到各种工具中，包括 Neovim、命令行、IDE 和浏览器扩展等。</p>
 <h2 id="Ending"><a href="#Ending" class="headerlink" title="Ending"></a>Ending</h2><p>Vim 就像开源世界中的一支铅笔，几乎每台类 Unix 系统都预置其中，其理念影响深远。希望大家能够通过学习，找到属于自己的高效编辑方式。</p>
 <p>最后，让我们缅怀 Vim 之父 Bram Moolenaar，同时关注他生前致力于的乌干达儿童慈善事业。愿大家在新的一年里效率 MAX，Happy hacking！</p>
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://cdn.jsdmirror.com/npm/d3@7"></script><script src="https://cdn.jsdmirror.com/npm/markmap-view@0.18.10"></script><script src="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
 <script src="/js/markmap.js"></script>
@@ -659,7 +668,7 @@ var _hmt = _hmt || [];
 
 <div class="lazy-icon"></div>
 
-<div id="giscus" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
+<div id="giscus" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
 
     </section>
   </div>
@@ -748,9 +757,9 @@ var _hmt = _hmt || [];
 
 
 
-<link data-stellar-page-style rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16.23/dist/katex.min.css" integrity="sha384-//SZkxyB7axjCAopkAL1E1rve+ZSPKapD89Lo/lLhcsXR+zOYl5z6zJZEFXil+q0" crossorigin="anonymous">
+<link data-stellar-page-style rel="stylesheet" href="https://cdn.jsdmirror.com/npm/katex@0.16.23/dist/katex.min.css" integrity="sha384-//SZkxyB7axjCAopkAL1E1rve+ZSPKapD89Lo/lLhcsXR+zOYl5z6zJZEFXil+q0" crossorigin="anonymous">
 
-<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"color-scheme-switch","module":"/js/runtime/extensions/color-scheme-switch.js","scope":"document","when":{"always":true},"config":{"messages":{"light":"切换到浅色模式","dark":"切换到深色模式","auto":"切换到跟随系统配色"}}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"comments","module":"/js/runtime/extensions/comments.js","scope":"region","when":{"selector":"#comments"},"config":{"provider":"giscus","options":{"data-repo":"zhangwei43721/zhangwei43721.github.io","data-repo-id":"R_kgDOOC101w","data-category":"Announcements","data-category-id":"DIC_kwDOOC10184Cv2Lm","data-mapping":"pathname","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":0,"data-input-position":"top","data-theme":"preferred_color_scheme","data-lang":"zh-CN","data-loading":null,"crossorigin":"anonymous"},"pageTitle":"Vim技巧整理","assets":{"js":"https://giscus.app/client.js"}}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .md-text img:not(.md-link-icon img):not([class*=\"emo\"]):not([alt=\"icon\"]):not([alt=\"cover\"]), .timenode p\u003eimg"},"config":{"enabled":true,"selector":".md-text img:not(.md-link-icon img):not([class*=\"emo\"]):not([alt=\"icon\"]):not([alt=\"cover\"]), .timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"reveal","module":"/js/runtime/extensions/reveal.js","scope":"region","when":{"selector":".slide-up"},"config":{"enabled":true,"duration":300,"interval":100,"distance":8,"blur":4}},{"id":"diagrams","module":"/js/runtime/extensions/diagrams.js","scope":"region","when":{"selector":".mermaid"},"config":{"theme":"neutral","provider":"mermaid","assets":{"js":"https://gcore.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"},"colorScheme":"auto"}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"复制","copied":"复制成功","denied":"未获得剪贴板权限","unsupported":"当前浏览器不支持剪贴板或页面不是 HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"card-hover","module":"/js/runtime/extensions/card-hover.js","scope":"region","when":{"selector":".card-hover"},"config":{"spotlight":true,"tilt":true,"assets":{"js":"/js/plugins/card-hover.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://gcore.jsdelivr.net/npm/swiper@10.3/swiper-bundle.min.js","css":"https://gcore.jsdelivr.net/npm/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
+<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"color-scheme-switch","module":"/js/runtime/extensions/color-scheme-switch.js","scope":"document","when":{"always":true},"config":{"messages":{"light":"切换到浅色模式","dark":"切换到深色模式","auto":"切换到跟随系统配色"}}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"comments","module":"/js/runtime/extensions/comments.js","scope":"region","when":{"selector":"#comments"},"config":{"provider":"giscus","options":{"data-repo":"zhangwei43721/zhangwei43721.github.io","data-repo-id":"R_kgDOOC101w","data-category":"Announcements","data-category-id":"DIC_kwDOOC10184Cv2Lm","data-mapping":"pathname","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":0,"data-input-position":"top","data-theme":"preferred_color_scheme","data-lang":"zh-CN","data-loading":"lazy","crossorigin":"anonymous"},"pageTitle":"Vim技巧整理","assets":{"js":"https://giscus.app/client.js"}}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://cdn.jsdmirror.com/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .md-text img:not(.md-link-icon img):not([class*=\"emo\"]):not([alt=\"icon\"]):not([alt=\"cover\"]), .timenode p\u003eimg"},"config":{"enabled":true,"selector":".md-text img:not(.md-link-icon img):not([class*=\"emo\"]):not([alt=\"icon\"]):not([alt=\"cover\"]), .timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://cdn.jsdmirror.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://cdn.jsdmirror.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"reveal","module":"/js/runtime/extensions/reveal.js","scope":"region","when":{"selector":".slide-up"},"config":{"enabled":true,"duration":300,"interval":100,"distance":8,"blur":4}},{"id":"diagrams","module":"/js/runtime/extensions/diagrams.js","scope":"region","when":{"selector":".mermaid"},"config":{"theme":"neutral","provider":"mermaid","assets":{"js":"https://gcore.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"},"colorScheme":"auto"}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"复制","copied":"复制成功","denied":"未获得剪贴板权限","unsupported":"当前浏览器不支持剪贴板或页面不是 HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"card-hover","module":"/js/runtime/extensions/card-hover.js","scope":"region","when":{"selector":".card-hover"},"config":{"spotlight":true,"tilt":true,"assets":{"js":"/js/plugins/card-hover.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://gcore.jsdelivr.net/npm/swiper@10.3/swiper-bundle.min.js","css":"https://gcore.jsdelivr.net/npm/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
 <script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0&runtime=1"></script>
 
 

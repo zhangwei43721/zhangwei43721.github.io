@@ -6,7 +6,7 @@
   
   <meta name="generator" content="Hexo 8.1.2">
   <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="preconnect" href="https://image.skyforever.top" crossorigin=""><link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin=""><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin="">
+  <link rel="preconnect" href="https://image.skyforever.top" crossorigin=""><link rel="preconnect" href="https://cdn.jsdmirror.com" crossorigin=""><link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin=""><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin="">
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -84,39 +84,48 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<!-- Google Analytics & Microsoft Clarity -->
+<!-- Google Analytics & Microsoft Clarity (User Interaction Lazy Load) -->
 <script>
 (function() {
-  var runDeferredAnalytics = function() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  var initialized = false;
+  var initAnalytics = function() {
+    if (initialized) return;
+    initialized = true;
+
+    // Cleanup interaction listeners immediately
+    var events = ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'];
+    events.forEach(function(evt) {
+      window.removeEventListener(evt, initAnalytics, { passive: true });
+    });
+
+    // Google Analytics (with error catch so blocked requests do not freeze the page)
     var gScript = document.createElement('script');
     gScript.async = true;
     gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
+    gScript.onerror = function() {};
     document.head.appendChild(gScript);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-JST56Q8277');
 
+    // Microsoft Clarity
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        t.onerror = function() {};
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "rp0i6z4yyg");
   };
 
-  var schedule = function() {
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(runDeferredAnalytics, { timeout: 3000 });
-    } else {
-      setTimeout(runDeferredAnalytics, 1500);
-    }
-  };
-
-  if (document.readyState === 'complete') {
-    schedule();
-  } else {
-    window.addEventListener('load', schedule);
-  }
+  // Trigger upon first user interaction, or fallback after 6s idle
+  var events = ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'];
+  events.forEach(function(evt) {
+    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
+  });
+  setTimeout(initAnalytics, 6000);
 })();
 </script>
 
@@ -1545,7 +1554,7 @@ var _hmt = _hmt || [];
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[AC-wlan-view] security-profile name wlan-net</span><br><span class="line"><span class="comment"># 创建一个名为 wlan-net 的安全配置文件。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-sec-prof-wlan-net] security wpa-wpa2 dot1x aes</span><br><span class="line"><span class="comment"># 配置安全模式为 WPA-WPA2，认证方式为 802.1X，数据加密方式为 AES。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-sec-prof-wlan-net] quit</span><br><span class="line"><span class="comment"># 退出安全配置文件视图。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-view] ssid-profile name wlan-net</span><br><span class="line"><span class="comment"># 创建一个名为 wlan-net 的 SSID 配置文件。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-ssid-prof-wlan-net] ssid wlan-net</span><br><span class="line"><span class="comment"># 配置无线网络的 SSID 名称为 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-ssid-prof-wlan-net] quit</span><br><span class="line"><span class="comment"># 退出 SSID 配置文件视图。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-view] vap-profile name wlan-net</span><br><span class="line"><span class="comment"># 创建一个名为 wlan-net 的 VAP（虚拟接入点）配置文件。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] forward-mode direct-forward</span><br><span class="line"><span class="comment"># 配置用户数据的转发模式为直接转发（Direct-Forward），即数据不经过无线控制器。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] service-vlan vlan-id 101</span><br><span class="line"><span class="comment"># 将无线用户的业务流量映射到 VLAN 101。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] security-profile wlan-net</span><br><span class="line"><span class="comment"># 关联安全配置文件 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] authentication-profile wlan-net</span><br><span class="line"><span class="comment"># 关联认证配置文件 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] ssid-profile wlan-net</span><br><span class="line"><span class="comment"># 关联 SSID 配置文件 wlan-net。</span></span><br><span class="line"></span><br><span class="line">[AC-wlan-vap-prof-wlan-net] quit</span><br><span class="line"><span class="comment"># 退出 VAP 配置文件视图。</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>A. 当前配置的无线信号的名称为 wlan-net<br>B. 终端接入无线网络需进行 802.1X 认证<br>C.用户数据转发方式为隧道转发（错，写的是直连）<br>D.用户的业务 VLAN 为 101</p>
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://cdn.jsdmirror.com/npm/d3@7"></script><script src="https://cdn.jsdmirror.com/npm/markmap-view@0.18.10"></script><script src="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
 <script src="/js/markmap.js"></script>
@@ -1587,7 +1596,7 @@ var _hmt = _hmt || [];
 
 <div class="lazy-icon"></div>
 
-<div id="giscus" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
+<div id="giscus" data-repo="zhangwei43721/zhangwei43721.github.io" data-repo-id="R_kgDOOC101w" data-category="Announcements" data-category-id="DIC_kwDOOC10184Cv2Lm" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
 
     </section>
   </div>
@@ -1676,9 +1685,9 @@ var _hmt = _hmt || [];
 
 
 
-<link data-stellar-page-style="" rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16.23/dist/katex.min.css" integrity="sha384-//SZkxyB7axjCAopkAL1E1rve+ZSPKapD89Lo/lLhcsXR+zOYl5z6zJZEFXil+q0" crossorigin="anonymous">
+<link data-stellar-page-style="" rel="stylesheet" href="https://cdn.jsdmirror.com/npm/katex@0.16.23/dist/katex.min.css" integrity="sha384-//SZkxyB7axjCAopkAL1E1rve+ZSPKapD89Lo/lLhcsXR+zOYl5z6zJZEFXil+q0" crossorigin="anonymous">
 
-<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"color-scheme-switch","module":"/js/runtime/extensions/color-scheme-switch.js","scope":"document","when":{"always":true},"config":{"messages":{"light":"切换到浅色模式","dark":"切换到深色模式","auto":"切换到跟随系统配色"}}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"comments","module":"/js/runtime/extensions/comments.js","scope":"region","when":{"selector":"#comments"},"config":{"provider":"giscus","options":{"data-repo":"zhangwei43721/zhangwei43721.github.io","data-repo-id":"R_kgDOOC101w","data-category":"Announcements","data-category-id":"DIC_kwDOOC10184Cv2Lm","data-mapping":"pathname","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":0,"data-input-position":"top","data-theme":"preferred_color_scheme","data-lang":"zh-CN","data-loading":null,"crossorigin":"anonymous"},"pageTitle":"华为ICT网络赛道初级知识点汇总笔记","assets":{"js":"https://giscus.app/client.js"}}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .md-text img:not(.md-link-icon img):not([class*=\"emo\"]):not([alt=\"icon\"]):not([alt=\"cover\"]), .timenode p\u003eimg"},"config":{"enabled":true,"selector":".md-text img:not(.md-link-icon img):not([class*=\"emo\"]):not([alt=\"icon\"]):not([alt=\"cover\"]), .timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"reveal","module":"/js/runtime/extensions/reveal.js","scope":"region","when":{"selector":".slide-up"},"config":{"enabled":true,"duration":300,"interval":100,"distance":8,"blur":4}},{"id":"diagrams","module":"/js/runtime/extensions/diagrams.js","scope":"region","when":{"selector":".mermaid"},"config":{"theme":"neutral","provider":"mermaid","assets":{"js":"https://gcore.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"},"colorScheme":"auto"}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"复制","copied":"复制成功","denied":"未获得剪贴板权限","unsupported":"当前浏览器不支持剪贴板或页面不是 HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"card-hover","module":"/js/runtime/extensions/card-hover.js","scope":"region","when":{"selector":".card-hover"},"config":{"spotlight":true,"tilt":true,"assets":{"js":"/js/plugins/card-hover.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://gcore.jsdelivr.net/npm/swiper@10.3/swiper-bundle.min.js","css":"https://gcore.jsdelivr.net/npm/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
+<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"color-scheme-switch","module":"/js/runtime/extensions/color-scheme-switch.js","scope":"document","when":{"always":true},"config":{"messages":{"light":"切换到浅色模式","dark":"切换到深色模式","auto":"切换到跟随系统配色"}}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"comments","module":"/js/runtime/extensions/comments.js","scope":"region","when":{"selector":"#comments"},"config":{"provider":"giscus","options":{"data-repo":"zhangwei43721/zhangwei43721.github.io","data-repo-id":"R_kgDOOC101w","data-category":"Announcements","data-category-id":"DIC_kwDOOC10184Cv2Lm","data-mapping":"pathname","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":0,"data-input-position":"top","data-theme":"preferred_color_scheme","data-lang":"zh-CN","data-loading":"lazy","crossorigin":"anonymous"},"pageTitle":"华为ICT网络赛道初级知识点汇总笔记","assets":{"js":"https://giscus.app/client.js"}}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://cdn.jsdmirror.com/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .md-text img:not(.md-link-icon img):not([class*=\"emo\"]):not([alt=\"icon\"]):not([alt=\"cover\"]), .timenode p\u003eimg"},"config":{"enabled":true,"selector":".md-text img:not(.md-link-icon img):not([class*=\"emo\"]):not([alt=\"icon\"]):not([alt=\"cover\"]), .timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://cdn.jsdmirror.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://cdn.jsdmirror.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"reveal","module":"/js/runtime/extensions/reveal.js","scope":"region","when":{"selector":".slide-up"},"config":{"enabled":true,"duration":300,"interval":100,"distance":8,"blur":4}},{"id":"diagrams","module":"/js/runtime/extensions/diagrams.js","scope":"region","when":{"selector":".mermaid"},"config":{"theme":"neutral","provider":"mermaid","assets":{"js":"https://gcore.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"},"colorScheme":"auto"}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"复制","copied":"复制成功","denied":"未获得剪贴板权限","unsupported":"当前浏览器不支持剪贴板或页面不是 HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"card-hover","module":"/js/runtime/extensions/card-hover.js","scope":"region","when":{"selector":".card-hover"},"config":{"spotlight":true,"tilt":true,"assets":{"js":"/js/plugins/card-hover.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://gcore.jsdelivr.net/npm/swiper@10.3/swiper-bundle.min.js","css":"https://gcore.jsdelivr.net/npm/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
 <script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0&amp;runtime=1"></script>
 
 
