@@ -1,1 +1,63 @@
-!function(){const t=document.getElementsByClassName("ds-ghinfo");for(var e=0;e<t.length;e++){const n=t[e],s=n.dataset.api;if(null==s)continue;const o=n.classList.contains("wiki-stars"),a=n.classList.contains("wiki-cover-release");utils.request(o?n:null,s,async t=>{const e=await t.json();function s(t){for(let e of Object.keys(t))utils.dom(n).find("[type=text]#"+e).text(t[e]),utils.dom(n).find("[type=link]#"+e).attr("href",t[e]),utils.dom(n).find("[type=img]#"+e).attr("src",t[e])}const i=n.getAttribute("index"),l=e.content||e;if(null!=i){if(l&&l.length>i){let t=l[i];t["latest-tag-name"]=t.name,s(l[i])}}else s(e);if(o&&null!=e.stargazers_count&&n.classList.add("loaded"),a){const t=n.querySelector("#latest-tag-name");if(t&&t.textContent){const s=n.querySelector(".wiki-cover-release-value"),o=l&&l.length>i?l[i]:e,a=n.dataset.repo,c=o&&o.html_url||a&&"https://github.com/"+a.split("/").map(encodeURIComponent).join("/")+"/tree/"+encodeURIComponent(t.textContent);if(!c)return void n.remove();s.textContent=n.dataset.projectName+" "+t.textContent,n.href=c,n.classList.remove("is-loading"),n.classList.add("loaded")}else n.remove()}},()=>{(o||a)&&n.remove()}).catch(()=>{})}}();
+document.currentScript.stellarMount = function (root, context) {
+  const utils = context.serviceUtils;
+
+  const els = root.getElementsByClassName('ds-ghinfo');
+    for (var i = 0; i < els.length; i++) {
+      const el = els[i];
+      const api = el.dataset.api;
+      if (api == null) {
+        continue;
+      }
+      const isWikiStars = el.classList.contains('wiki-stars');
+      const isWikiRelease = el.classList.contains('wiki-cover-release');
+      // layout
+      utils.request(isWikiStars ? el : null, api, async resp => {
+        const data = await resp.json();
+        function fill(data) {
+          for (let key of Object.keys(data)) {
+            utils.dom(el).find("[type=text]#" + key).text(data[key]);
+            utils.dom(el).find("[type=link]#" + key).attr("href", data[key]);
+            utils.dom(el).find("[type=img]#" + key).attr("src", data[key]);
+          }
+        }
+        const idx = el.getAttribute('index');
+        const arr = data.content || data;
+        if (idx != undefined) {
+          if (arr && arr.length > idx) {
+            let obj = arr[idx];
+            obj['latest-tag-name'] = obj['name'];
+            fill(arr[idx]);
+          }
+        } else {
+          fill(data);
+        }
+        if (isWikiStars && data.stargazers_count != null) {
+          el.classList.add('loaded');
+        }
+        if (isWikiRelease) {
+          const tag = el.querySelector('#latest-tag-name');
+          if (tag && tag.textContent) {
+            const value = el.querySelector('.wiki-cover-release-value');
+            const item = arr && arr.length > idx ? arr[idx] : data;
+            const repo = el.dataset.repo;
+            const url = item && item.html_url || repo && 'https://github.com/' + repo.split('/').map(encodeURIComponent).join('/') + '/tree/' + encodeURIComponent(tag.textContent);
+            if (!url) {
+              el.remove();
+              return;
+            }
+            value.textContent = el.dataset.projectName + ' ' + tag.textContent;
+            el.href = url;
+            el.classList.remove('is-loading');
+            el.classList.add('loaded');
+          } else {
+            el.remove();
+          }
+        }
+      }, () => {
+        if (isWikiStars || isWikiRelease) {
+          el.remove();
+        }
+      }).catch(() => {});
+    }
+
+};

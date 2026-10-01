@@ -1,1 +1,62 @@
-!function(){const e=document.getElementsByClassName("ds-weibo");for(var t=0;t<e.length;t++){const a=e[t],s=a.dataset.api;if(null==s)continue;const n=a.getAttribute("avatar")||def.avatar;utils.request(a,s,async e=>{const t=await e.json(),s=t.tweets||[],r=a.getAttribute("limit");s.forEach((e,s)=>{if(!(r&&s>=r)){var o='<div class="timenode" index="'+s+'">';o+='<div class="header">',o+='<div class="user-info">',o+='<img src="'+(t.user.avatar_hd||n)+'" onerror="javascript:this.src=\''+n+"';\">",o+="<span>"+t.user.nick_name+"</span>",o+="</div>",o+="<span>"+e.created_at+"</span>",o+="</div>",o+='<div class="body">',o+='<a class="body" href="'+e.url+'" target="_blank" rel="external nofollow noopener noreferrer">',o+=e.content,o+="</a>",o+='<div class="footer">',o+='<div class="flex left">',o+="</div>",o+='<div class="flex right">',o+='<div class="item reaction repost">',o+='<a class="item comments last" href="'+e.url+'#issuecomment-new" target="_blank" rel="external nofollow noopener noreferrer">',o+="<span>"+ctx.icons["weibo:repeat"]+" "+e.reposts_count+"</span>",o+="</a>",o+="</div>",o+='<a class="item comments last" href="'+e.url+'#issuecomment-new" target="_blank" rel="external nofollow noopener noreferrer">',o+="<span>"+ctx.icons["default:tocomment"]+" "+(e.comments_count||0)+"</span>",o+="</a>",o+='<div class="item reaction attitudes">',o+='<a class="item comments last" href="'+e.url+'#issuecomment-new" target="_blank" rel="external nofollow noopener noreferrer">',o+="<span>"+ctx.icons["weibo:like"]+" "+e.attitudes_count+"</span>",o+="</a>",o+="</div>",o+="</div>",o+="</div>",utils.dom(a).append(o)}})})}}();
+document.currentScript.stellarMount = function (root, context) {
+  const utils = context.serviceUtils;
+
+  const els = root.getElementsByClassName('ds-weibo');
+    for (var i = 0; i < els.length; i++) {
+      const el = els[i];
+      const api = el.dataset.api;
+      if (api == null) {
+        continue;
+      }
+      const default_avatar = el.getAttribute('avatar') || def.avatar;
+      // layout
+      utils.request(el, api, async resp => {
+        const data = await resp.json();
+        const arr = data.tweets || [];
+        const limit = el.getAttribute('limit');
+        arr.forEach((item, i) => {
+          if (limit && i >= limit) {
+            return;
+          }
+          var cell = '<div class="timenode" index="' + i + '">';
+          cell += '<div class="header">';
+          cell += '<div class="user-info">';
+          cell += '<img src="' + (data.user.avatar_hd || default_avatar) + '" onerror="javascript:this.src=\'' + default_avatar + '\';">';
+          cell += '<span>' + data.user.nick_name + '</span>';
+          cell += '</div>';
+          cell += '<span>' + item.created_at + '</span>';
+          cell += '</div>';
+          cell += '<div class="body">';
+          cell += '<a class="body" href="' + item.url + '" target="_blank" rel="external nofollow noopener noreferrer">';
+          cell += item.content;
+          cell += '</a>';
+          // cell += '</div>';
+          // 每条微博的右下角 转发 评论 点赞
+          cell += '<div class="footer">';
+          cell += '<div class="flex left">';
+          cell += '</div>';
+          cell += '<div class="flex right">';
+          cell += '<div class="item reaction repost">';
+          cell += '<a class="item comments last" href="' + item.url + '#issuecomment-new" target="_blank" rel="external nofollow noopener noreferrer">';
+          cell += '<span>' + ctx.icons['weibo:repeat'] + ' ' + item.reposts_count + '</span>';
+          cell += '</a>';
+          cell += '</div>';
+          cell += '<a class="item comments last" href="' + item.url + '#issuecomment-new" target="_blank" rel="external nofollow noopener noreferrer">';
+          cell += '<span>' + ctx.icons['default:to-comment'] + ' '
+          + (item.comments_count || 0) + '</span>';
+          cell += '</a>';
+          cell += '<div class="item reaction attitudes">';
+          cell += '<a class="item comments last" href="' + item.url + '#issuecomment-new" target="_blank" rel="external nofollow noopener noreferrer">';
+          cell += '<span>' + ctx.icons['weibo:like'] + ' ' + item.attitudes_count + '</span>';
+          cell += '</a>';
+          cell += '</div>';
+
+          cell += '</div>';
+          cell += '</div>';
+          // 右下角结束
+          utils.dom(el).append(cell);
+        });
+      });
+    }
+
+};

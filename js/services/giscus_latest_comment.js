@@ -1,1 +1,38 @@
-!function(){const t=document.getElementsByClassName("ds-giscus");for(var a=0;a<t.length;a++){const e=t[a],n=e.dataset.api;if(null==n)continue;const s=def.avatar;utils.request(e,n,async t=>{const a=await t.json(),n=e.getAttribute("limit");a.forEach((t,a)=>{if(!(n&&a>=n)){comment=t.body.length>50?t.body.substring(0,50)+"...":t.body;var o='<div class="timenode" index="'+a+'">';o+='<div class="header">',o+='<div class="user-info">',o+='<img src="'+(t.author.avatarUrl||s)+'" onerror="javascript:this.src=\''+s+"';\">",o+="<span>"+t.author.login+"</span>",o+="</div>",o+="<span>"+new Date(t.createdAt).toLocaleString()+"</span>",o+="</div>",o+='<a class="body" href="'+t.url+'" target="_blank" rel="external nofollow noopener noreferrer">',o+=comment,o+="</a>",o+="</div>",utils.dom(e).append(o)}})})}}();
+document.currentScript.stellarMount = function (root, context) {
+  const utils = context.serviceUtils;
+
+  const els = root.getElementsByClassName('ds-giscus');
+      for (var i = 0; i < els.length; i++) {
+        const el = els[i];
+        const api = el.dataset.api;
+        if (api == null) {
+          continue;
+        }
+        const default_avatar = def.avatar;
+        // layout
+        utils.request(el, api, async resp => {
+          const data = await resp.json();
+          const limit = el.getAttribute('limit');
+          data.forEach((item, i) => {
+            if (limit && i >= limit) {
+              return;
+            }
+            comment = item.body.length > 50 ? item.body.substring(0, 50) + '...' : item.body;
+            var cell = '<div class="timenode" index="' + i + '">';
+            cell += '<div class="header">';
+            cell += '<div class="user-info">';
+            cell += '<img src="' + (item.author.avatarUrl || default_avatar) + '" onerror="javascript:this.src=\'' + default_avatar + '\';">';
+            cell += '<span>' + item.author.login + '</span>';
+            cell += '</div>';
+            cell += '<span>' + new Date(item.createdAt).toLocaleString() + '</span>';
+            cell += '</div>';
+            cell += '<a class="body" href="' + item.url + '" target="_blank" rel="external nofollow noopener noreferrer">';
+            cell += comment;
+            cell += '</a>';
+            cell += '</div>';
+            utils.dom(el).append(cell);
+          });
+        });
+      }
+
+};

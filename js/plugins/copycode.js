@@ -1,1 +1,33 @@
-function createCopyButtons(t){t.forEach(t=>{if(t.querySelector(".copy-btn"))return;const e=document.createElement("div");e.className="copy-btn",e.textContent=ctx.copycode.default_text,t.appendChild(e),e.addEventListener("click",async()=>{const c=t.querySelector("pre")?.innerText||"";if(navigator.clipboard)try{await navigator.clipboard.writeText(c),e.textContent=ctx.copycode.success_text,e.classList.add("success"),hud.toast(ctx.copycode.toast,2500)}catch(t){e.textContent="未获得用户许可",e.classList.add("warning")}else e.textContent="浏览器不支持/非HTTPS",e.classList.add("warning");setTimeout(()=>{e.textContent=ctx.copycode.default_text,e.classList.remove("success","warning")},3e3)})})}void 0!==window.codeElements&&createCopyButtons(window.codeElements);
+function createCopyButtons(codeElements) {
+  codeElements.forEach((codeElement) => {
+    if (codeElement.querySelector('.copy-btn')) return;
+    // 创建复制按钮
+    const codeCopyBtn = document.createElement('button');
+    const copyIcon = ctx.icons['copy:copy'] || '';
+    codeCopyBtn.className = 'copy-btn';
+    codeCopyBtn.type = 'button';
+    codeCopyBtn.innerHTML = copyIcon;
+    codeCopyBtn.setAttribute('aria-label', ctx.copycode.label);
+    codeCopyBtn.setAttribute('title', ctx.copycode.label);
+    codeElement.appendChild(codeCopyBtn);
+
+    // 添加点击事件监听
+    codeCopyBtn.addEventListener('click', async () => {
+      const codeToCopy = codeElement.querySelector('pre')?.innerText || '';
+      if (navigator.clipboard) {
+        try {
+          await navigator.clipboard.writeText(codeToCopy);
+          hud.toast(ctx.copycode.copied, ctx.copycode.toast_ms);
+        } catch (error) {
+          hud.toast(ctx.copycode.denied, ctx.copycode.toast_ms);
+        }
+      } else {
+        hud.toast(ctx.copycode.unsupported, ctx.copycode.toast_ms);
+      }
+    });
+  });
+}
+
+if (typeof window.codeElements !== 'undefined') {
+  createCopyButtons(window.codeElements);
+}

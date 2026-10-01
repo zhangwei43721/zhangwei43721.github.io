@@ -1,1 +1,261 @@
-!function(){"use strict";var r={};function n(r){var n=r.r/255,t=r.g/255,a=r.b/255,e=Math.max(n,t,a),u=Math.min(n,t,a),l=0,i=0,s=(e+u)/2;if(e!==u){var o=e-u;switch(i=s>.5?o/(2-e-u):o/(e+u),e){case n:l=(t-a)/o+(t<a?6:0);break;case t:l=(a-n)/o+2;break;default:l=(n-t)/o+4}l/=6}return{h:l,s:i,l:s}}function t(r,n,t){if(0===n){var a=Math.round(255*t);return{r:a,g:a,b:a}}var e=function(r,n,t){return t<0&&(t+=1),t>1&&(t-=1),t<1/6?r+6*(n-r)*t:t<.5?n:t<2/3?r+(n-r)*(2/3-t)*6:r},u=t<.5?t*(1+n):t+n-t*n,l=2*t-u;return{r:Math.round(255*e(l,u,r+1/3)),g:Math.round(255*e(l,u,r)),b:Math.round(255*e(l,u,r-1/3))}}function a(r){return"rgb("+r.r+","+r.g+","+r.b+")"}r.parse=function(r){if(null==r)return null;var n=String(r).trim(),a=1;if("#"===n.charAt(0)){var e=n.slice(1);if(3!==e.length&&4!==e.length||(e=e.split("").map(function(r){return r+r}).join("")),6===e.length||8===e.length){var u=parseInt(e.slice(0,2),16),l=parseInt(e.slice(2,4),16),i=parseInt(e.slice(4,6),16);if(8===e.length&&(a=parseInt(e.slice(6,8),16)/255),!isNaN(u)&&!isNaN(l)&&!isNaN(i))return{r:u,g:l,b:i,a:a}}return null}var s=n.match(/rgba?\(\s*([\d.]+)\s*[,\s]\s*([\d.]+)\s*[,\s]\s*([\d.]+)(?:\s*[,\s/]\s*([\d.]+%?))?\s*\)/i);if(s){var o=Number(s[1]),h=Number(s[2]),c=Number(s[3]);if(!isNaN(o)&&!isNaN(h)&&!isNaN(c))return null!=s[4]&&(a="%"===s[4].charAt(s[4].length-1)?Number(s[4].slice(0,-1))/100:Number(s[4])),{r:o,g:h,b:c,a:a}}var g=n.match(/hsla?\(\s*([\d.]+)(?:deg)?\s*[,\s]\s*([\d.]+%?)\s*[,\s]\s*([\d.]+%?)(?:\s*[,\s/]\s*([\d.]+%?))?\s*\)/i);if(g){var f=Number(g[1]),d="%"===g[2].charAt(g[2].length-1)?Number(g[2].slice(0,-1))/100:Number(g[2]),b="%"===g[3].charAt(g[3].length-1)?Number(g[3].slice(0,-1))/100:Number(g[3]);if(!isNaN(f)&&!isNaN(d)&&!isNaN(b)){null!=g[4]&&(a="%"===g[4].charAt(g[4].length-1)?Number(g[4].slice(0,-1))/100:Number(g[4]));var m=t((f%360+360)%360/360,Math.max(0,Math.min(1,d)),Math.max(0,Math.min(1,b)));return{r:m.r,g:m.g,b:m.b,a:a}}}return null},r.luminance=function(r){if(null==r)return null;var n=function(r){return(r/=255)<=.03928?r/12.92:Math.pow((r+.055)/1.055,2.4)};return.2126*n(r.r)+.7152*n(r.g)+.0722*n(r.b)},r.isDark=function(n,t){var a=r.luminance(n);return null!=a&&a<(null==t?.5:t)},r.withLightness=function(r,e){if(null==r)return null;var u=n(r),l=Math.max(0,Math.min(1,e));return a(t(u.h,u.s,l))},r.lighten=function(n,t){return r.withLightness(n,null==t?.85:t)},r.darken=function(n,t){return r.withLightness(n,null==t?.3:t)},r.enhanceSaturation=function(r,a){if(null==r)return null;var e=a||{},u=null==e.minSaturation?.3:e.minSaturation,l=null==e.boostBelow?.2:e.boostBelow,i=null==e.neutralEpsilon?.02:e.neutralEpsilon,s=n(r);if(s.s>=l||s.s<i)return{r:r.r,g:r.g,b:r.b,a:null==r.a?1:r.a};var o=t(s.h,Math.max(s.s,u),s.l);return{r:o.r,g:o.g,b:o.b,a:null==r.a?1:r.a}},r.adaptiveTextColor=function(e,u){var l=u||{},i=null!=e&&"object"==typeof e?e:r.parse(e);if(null==i)return null;var s=l.style||"theme",o=null==l.threshold?r.effectiveThreshold(i):l.threshold,h=r.isDark(i,o);if("contrast"===s)return h?l.lightColor||"#ffffff":l.darkColor||"#111111";var c=n(r.enhanceSaturation(i));null!=l.saturationScale&&(c.s=c.s*Math.max(0,Math.min(1,l.saturationScale)));var g=h?null==l.lightLightness?.85:l.lightLightness:null==l.darkLightness?.3:l.darkLightness;return a(t(c.h,c.s,g))},r.effectiveThreshold=function(r,t){var a=null==t?.6:t;return n(r).s>.2?a+.05:a},r.blendToBackground=function(n,t){if(null==n)return null;var a=null==n.a?255:n.a;if(!t||a>=255)return{r:n.r,g:n.g,b:n.b};var e=null!=t&&"object"==typeof t?t:r.parse(t);if(null==e)return{r:n.r,g:n.g,b:n.b};var u=a/255,l=1-u;return{r:Math.round(n.r*u+e.r*l),g:Math.round(n.g*u+e.g*l),b:Math.round(n.b*u+e.b*l)}};var e={};r.getAverageColor=function(n,t){var a=t||{},u=a.size||64;if(e[n])return e[n].then(function(n){return r.blendToBackground(n,a.background)});var l=new Promise(function(r){var t=new Image;t.crossOrigin="anonymous",t.onload=function(){try{var n=t.naturalWidth||t.width,a=t.naturalHeight||t.height;if(!n||!a)return void r(null);var e=Math.min(1,u/Math.max(n,a)),l=Math.max(1,Math.round(n*e)),i=Math.max(1,Math.round(a*e)),s=document.createElement("canvas");s.width=l,s.height=i;var o=s.getContext("2d");o.drawImage(t,0,0,l,i);for(var h=o.getImageData(0,0,l,i).data,c=l*i,g=0,f=0,d=0,b=0,m=0;m<h.length;m+=4)g+=h[m],f+=h[m+1],d+=h[m+2],b+=h[m+3];r({r:Math.round(g/c),g:Math.round(f/c),b:Math.round(d/c),a:Math.round(b/c)})}catch(n){r(null)}},t.onerror=function(){r(null)},t.src=n});return e[n]=l,l.then(function(n){return r.blendToBackground(n,a.background)})};var u="undefined"!=typeof window?window:{};u.stellar=u.stellar||{},u.stellar.color=r}();
+/* global module */
+// 文字自适应颜色通用能力（浏览器挂载 window.stellar.color，Node 复用纯计算）
+// 由 runtime adaptive-text adapter 按需加载；图片取样与缓存由 runtime/image-color.js 负责。
+// 样式1（contrast）：背景深色 → 白色文字，背景浅色 → 深色文字。
+// 样式2（theme）：以背景图平均色为基色，背景偏暗 → lighten 到高亮度，
+//                背景偏亮 → darken 到低亮度（保留色相与饱和度）。
+(function () {
+  'use strict';
+
+  var color = {};
+
+  // 颜色字符串 → {r,g,b,a}（a 为 0~1 透明度，默认 1）；
+  // 支持 #rgb/#rrggbb/#rrggbbaa、rgb()/rgba()、hsl()/hsla()（逗号与空格/斜杠语法）。
+  // 解析失败返回 null。
+  color.parse = function (input) {
+    if (input == null) {
+      return null;
+    }
+    var str = String(input).trim();
+    var a = 1;
+    if (str.charAt(0) === '#') {
+      var hex = str.slice(1);
+      if (hex.length === 3 || hex.length === 4) {
+        hex = hex.split('').map(function (c) {
+          return c + c;
+        }).join('');
+      }
+      if (hex.length === 6 || hex.length === 8) {
+        var r = parseInt(hex.slice(0, 2), 16);
+        var g = parseInt(hex.slice(2, 4), 16);
+        var b = parseInt(hex.slice(4, 6), 16);
+        if (hex.length === 8) {
+          a = parseInt(hex.slice(6, 8), 16) / 255;
+        }
+        if (!isNaN(r) && !isNaN(g) && !isNaN(b)) {
+          return { r: r, g: g, b: b, a: a };
+        }
+      }
+      return null;
+    }
+    var m = str.match(/rgba?\(\s*([\d.]+)\s*[,\s]\s*([\d.]+)\s*[,\s]\s*([\d.]+)(?:\s*[,\s/]\s*([\d.]+%?))?\s*\)/i);
+    if (m) {
+      var r2 = Number(m[1]);
+      var g2 = Number(m[2]);
+      var b2 = Number(m[3]);
+      if (!isNaN(r2) && !isNaN(g2) && !isNaN(b2)) {
+        if (m[4] != null) {
+          a = m[4].charAt(m[4].length - 1) === '%' ? Number(m[4].slice(0, -1)) / 100 : Number(m[4]);
+        }
+        return { r: r2, g: g2, b: b2, a: a };
+      }
+    }
+    var hm = str.match(/hsla?\(\s*([\d.]+)(?:deg)?\s*[,\s]\s*([\d.]+%?)\s*[,\s]\s*([\d.]+%?)(?:\s*[,\s/]\s*([\d.]+%?))?\s*\)/i);
+    if (hm) {
+      var hue = Number(hm[1]);
+      var sat = hm[2].charAt(hm[2].length - 1) === '%' ? Number(hm[2].slice(0, -1)) / 100 : Number(hm[2]);
+      var lig = hm[3].charAt(hm[3].length - 1) === '%' ? Number(hm[3].slice(0, -1)) / 100 : Number(hm[3]);
+      if (!isNaN(hue) && !isNaN(sat) && !isNaN(lig)) {
+        if (hm[4] != null) {
+          a = hm[4].charAt(hm[4].length - 1) === '%' ? Number(hm[4].slice(0, -1)) / 100 : Number(hm[4]);
+        }
+        var h = ((hue % 360) + 360) % 360 / 360;
+        var rgb = hslToRgb(h, Math.max(0, Math.min(1, sat)), Math.max(0, Math.min(1, lig)));
+        return { r: rgb.r, g: rgb.g, b: rgb.b, a: a };
+      }
+    }
+    return null;
+  };
+
+  // WCAG 相对亮度（0~1）
+  color.luminance = function (rgb) {
+    if (rgb == null) {
+      return null;
+    }
+    var linearize = function (v) {
+      v = v / 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    };
+    return 0.2126 * linearize(rgb.r) + 0.7152 * linearize(rgb.g) + 0.0722 * linearize(rgb.b);
+  };
+
+  // 亮度是否偏暗，threshold 默认 0.5
+  color.isDark = function (rgb, threshold) {
+    var lum = color.luminance(rgb);
+    if (lum == null) {
+      return false;
+    }
+    return lum < (threshold == null ? 0.5 : threshold);
+  };
+
+  function rgbToHsl(rgb) {
+    var r = rgb.r / 255;
+    var g = rgb.g / 255;
+    var b = rgb.b / 255;
+    var max = Math.max(r, g, b);
+    var min = Math.min(r, g, b);
+    var h = 0;
+    var s = 0;
+    var l = (max + min) / 2;
+    if (max !== min) {
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      switch (max) {
+        case r:
+          h = (g - b) / d + (g < b ? 6 : 0);
+          break;
+        case g:
+          h = (b - r) / d + 2;
+          break;
+        default:
+          h = (r - g) / d + 4;
+      }
+      h /= 6;
+    }
+    return { h: h, s: s, l: l };
+  }
+
+  function hslToRgb(h, s, l) {
+    if (s === 0) {
+      var gray = Math.round(l * 255);
+      return { r: gray, g: gray, b: gray };
+    }
+    var hue2rgb = function (p, q, t) {
+      if (t < 0) {
+        t += 1;
+      }
+      if (t > 1) {
+        t -= 1;
+      }
+      if (t < 1 / 6) {
+        return p + (q - p) * 6 * t;
+      }
+      if (t < 1 / 2) {
+        return q;
+      }
+      if (t < 2 / 3) {
+        return p + (q - p) * (2 / 3 - t) * 6;
+      }
+      return p;
+    };
+    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    var p = 2 * l - q;
+    return {
+      r: Math.round(hue2rgb(p, q, h + 1 / 3) * 255),
+      g: Math.round(hue2rgb(p, q, h) * 255),
+      b: Math.round(hue2rgb(p, q, h - 1 / 3) * 255)
+    };
+  }
+
+  function rgbString(rgb) {
+    return 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
+  }
+
+  // 设定 HSL 明度目标（0~1），保留色相与饱和度
+  color.withLightness = function (rgb, lightness) {
+    if (rgb == null) {
+      return null;
+    }
+    var hsl = rgbToHsl(rgb);
+    var target = Math.max(0, Math.min(1, lightness));
+    return rgbString(hslToRgb(hsl.h, hsl.s, target));
+  };
+
+  // 浅色化：把明度调整到 lightness（默认 0.85）
+  color.lighten = function (rgb, lightness) {
+    return color.withLightness(rgb, lightness == null ? 0.85 : lightness);
+  };
+
+  // 深色化：把明度调整到 lightness（默认 0.3）
+  color.darken = function (rgb, lightness) {
+    return color.withLightness(rgb, lightness == null ? 0.3 : lightness);
+  };
+
+  // 主题色饱和度增强：平均色被大面积中性色盖过时饱和度极低（色相仍有效），
+  // 把低饱和度抬升到最低可见值（保留色相），让主题文字带出图片的主色倾向；
+  // 完全中性（无可靠色相）与已足够饱和的颜色不做处理。
+  color.enhanceSaturation = function (rgb, options) {
+    if (rgb == null) {
+      return null;
+    }
+    var opts = options || {};
+    var minS = opts.minSaturation == null ? 0.3 : opts.minSaturation;
+    var boostBelow = opts.boostBelow == null ? 0.2 : opts.boostBelow;
+    var epsilon = opts.neutralEpsilon == null ? 0.02 : opts.neutralEpsilon;
+    var hsl = rgbToHsl(rgb);
+    if (hsl.s >= boostBelow || hsl.s < epsilon) {
+      return { r: rgb.r, g: rgb.g, b: rgb.b, a: rgb.a == null ? 1 : rgb.a };
+    }
+    var out = hslToRgb(hsl.h, Math.max(hsl.s, minS), hsl.l);
+    return { r: out.r, g: out.g, b: out.b, a: rgb.a == null ? 1 : rgb.a };
+  };
+
+  // 自适应文字颜色
+  // bg：{r,g,b} 或颜色字符串
+  // options：
+  //   style           'theme'（默认）/ 'contrast'
+  //   threshold       明暗判定阈值，默认按 effectiveThreshold（彩色背景 0.65 / 中性背景 0.6，
+  //                   偏向采纳浅色文字，避免中灰背景频繁翻转）
+  //   lightColor      样式1 深色背景时的文字色，默认 #ffffff
+  //   darkColor       样式1 浅色背景时的文字色，默认 #111111
+  //   lightLightness  样式2 深色背景时的目标明度，默认 0.85
+  //   darkLightness   样式2 浅色背景时的目标明度，默认 0.3
+  //   saturationScale 样式2 饱和度缩放（0~1，默认 1）：调小更接近黑白，仅保留一点主色倾向
+  color.adaptiveTextColor = function (bg, options) {
+    var opts = options || {};
+    var rgb = (bg != null && typeof bg === 'object') ? bg : color.parse(bg);
+    if (rgb == null) {
+      return null;
+    }
+    var style = opts.style || 'theme';
+    var threshold = opts.threshold == null ? color.effectiveThreshold(rgb) : opts.threshold;
+    var dark = color.isDark(rgb, threshold);
+    if (style === 'contrast') {
+      return dark ? (opts.lightColor || '#ffffff') : (opts.darkColor || '#111111');
+    }
+    var base = color.enhanceSaturation(rgb);
+    var hsl = rgbToHsl(base);
+    if (opts.saturationScale != null) {
+      hsl.s = hsl.s * Math.max(0, Math.min(1, opts.saturationScale));
+    }
+    var target = dark
+      ? (opts.lightLightness == null ? 0.85 : opts.lightLightness)
+      : (opts.darkLightness == null ? 0.3 : opts.darkLightness);
+    return rgbString(hslToRgb(hsl.h, hsl.s, target));
+  };
+
+  // 有效明暗阈值：彩色背景（饱和度 > 0.2）更偏向浅色文字，阈值上浮 0.05；
+  // 中性灰背景保持基础阈值，避免浅灰图配浅字。
+  color.effectiveThreshold = function (rgb, base) {
+    var threshold = base == null ? 0.6 : base;
+    var hsl = rgbToHsl(rgb);
+    return hsl.s > 0.2 ? threshold + 0.05 : threshold;
+  };
+
+  // Storage units: hue degrees, saturation/lightness percent, alpha 0–1.
+  color.toHsla = function (rgba) {
+    var hsl = rgbToHsl(rgba);
+    return [hsl.h * 360, hsl.s * 100, hsl.l * 100, rgba.a / 255]
+      .map(function (value) { return Math.round(value * 10000) / 10000; });
+  };
+
+  color.validHsla = function (value) {
+    return Array.isArray(value) && value.length === 4 && value.every(function (channel, index) {
+      return Number.isFinite(channel) && channel >= 0 && channel <= [360, 100, 100, 1][index];
+    });
+  };
+
+  // Alpha is retained as metadata, but adaptive text does not composite a backdrop.
+  color.fromHsla = function (hsla) {
+    return color.validHsla(hsla) ? hslToRgb(hsla[0] / 360, hsla[1] / 100, hsla[2] / 100) : null;
+  };
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = color;
+    return;
+  }
+
+  var root = typeof window !== 'undefined' ? window : {};
+  root.stellar = root.stellar || {};
+  root.stellar.color = color;
+})();

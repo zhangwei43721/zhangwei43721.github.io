@@ -1,1 +1,50 @@
-!function(){const e=document.querySelector(".ds-twikoo");utils.onLoading(e);const t=e.dataset.api,i=parseInt(e.getAttribute("limit"))||10,a="reply"!==e.getAttribute("hide");t&&fetch(t,{method:"POST",body:JSON.stringify({event:"GET_RECENT_COMMENTS",envId:t,pageSize:i,includeReply:a}),headers:{"Content-Type":"application/json"}}).then(e=>e.json()).then(({data:t})=>{utils.onLoadSuccess(e),t.forEach((t,i)=>{let a=t.commentText;if(a&&""!==a.trim()){a=a.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;"),a=a.length>50?a.substring(0,50)+"...":a;var n='<div class="timenode" index="'+i+'">';n+='<div class="header">',n+='<div class="user-info">',n+="<span>"+t.nick+"</span>",n+="</div>",n+="<span>"+new Date(t.created).toLocaleString("zh-CN",{month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:!1})+"</span>",n+="</div>",n+='<a class="body" href="'+t.url+"#"+t.id+'">',n+=a,n+="</a>",n+="</div>",utils.dom(e).append(n)}})}).catch(()=>utils.onLoadFailure(e))}();
+document.currentScript.stellarMount = function (root, context) {
+  const utils = context.serviceUtils;
+
+  const el = root.querySelector('.ds-twikoo');
+  if (!el) return;
+      utils.onLoading(el); // 加载动画
+  
+      const api = el.dataset.api;
+      const limit = parseInt(el.getAttribute('limit')) || 10;
+      const reply = el.getAttribute('hide') !== 'reply';
+      if (!api) return;
+  
+      fetch(api, {
+        signal: context.signal,
+        method: "POST",
+        body: JSON.stringify({
+          "event": "GET_RECENT_COMMENTS",
+          "envId": api,
+          "pageSize": limit,
+          "includeReply": reply
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(res => res.json())
+      .then(({ data }) => {
+        context.signal.throwIfAborted();
+        utils.onLoadSuccess(el); // 移除动画
+        data.forEach((comment, j) => {
+          let commentText = comment.commentText;
+          if (!commentText || commentText.trim() === '') return; // 跳过空评论
+          // 转义字符
+          commentText = commentText.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+          commentText = commentText.length > 50 ? commentText.substring(0, 50) + '...' : commentText;
+          var cell = '<div class="timenode" index="' + j + '">';
+          cell += '<div class="header">';
+          cell += '<div class="user-info">';
+          cell += '<span>' + comment.nick + '</span>';
+          cell += '</div>';
+          cell += '<span>' + new Date(comment.created).toLocaleString('zh-CN', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false}) + '</span>';
+          cell += '</div>';
+          cell += '<a class="body" href="' + comment.url + '#' + comment.id + '">';
+          cell += commentText;
+          cell += '</a>';
+          cell += '</div>';
+          utils.dom(el).append(cell);
+        });
+      })
+      .catch(() => { if (!context.signal.aborted) utils.onLoadFailure(el); });
+
+};

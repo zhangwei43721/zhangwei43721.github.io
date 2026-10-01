@@ -1,1 +1,24 @@
-function videoEvents(e){for(let l=0;l<e.length;++l){let n=e[l];n.loop=!1;let t=n.parentElement;t.querySelector(".pause-btn"),t.querySelector(".play-btn");t.addEventListener("click",()=>{n.requestFullscreen?n.requestFullscreen():n.mozRequestFullScreen?n.mozRequestFullScreen():n.webkitRequestFullScreen?n.webkitRequestFullScreen():n.msRequestFullscreen&&n.msRequestFullscreen()}),document.addEventListener("fullscreenchange",()=>{var e;null!=(e=document.fullscreen||document.mozFullScreen||document.webkitIsFullScreen)&&e?(console.log("进入全屏"),n.play()):(console.log("退出全屏"),n.currentTime=0,n.pause())})}}
+function videoEvents(videos) {
+  const cleanups = [];
+  for (const video of videos) {
+    video.loop = false;
+    const container = video.parentElement;
+    const open = () => {
+      const request = video.requestFullscreen || video.mozRequestFullScreen || video.webkitRequestFullScreen || video.msRequestFullscreen;
+      request?.call(video)?.catch?.(() => {});
+    };
+    const change = () => {
+      if ((document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) === video) video.play()?.catch(() => {});
+      else { video.pause(); video.currentTime = 0; }
+    };
+    container.addEventListener('click', open);
+    const events = ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange'];
+    events.forEach(name => document.addEventListener(name, change));
+    cleanups.push(() => {
+      container.removeEventListener('click', open);
+      events.forEach(name => document.removeEventListener(name, change));
+      video.pause();
+    });
+  }
+  return () => cleanups.forEach(cleanup => cleanup());
+}

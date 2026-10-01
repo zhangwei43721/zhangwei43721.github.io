@@ -1,1 +1,316 @@
-!function(){if(window.__stellarUtilsLoaded)return;window.__stellarUtilsLoaded=!0;const e={_loadedStyles:new Set,css:(t,n,o,r)=>{if(e._loadedStyles.has(t))return null;var a,c=window.document,i=c.createElement("link");if(n)a=n;else{var l=(c.body||c.getElementsByTagName("head")[0]).childNodes;a=l[l.length-1]}var s=c.styleSheets;if(r)for(var u in r)Object.prototype.hasOwnProperty.call(r,u)&&i.setAttribute(u,r[u]);i.rel="stylesheet",i.href=t,i.media="only x",e._loadedStyles.add(t),function e(t){if(c.body)return t();setTimeout(function(){e(t)})}(function(){a.parentNode.insertBefore(i,n?a:a.nextSibling)});var d=function(e){for(var t=i.href,n=s.length;n--;)if(s[n].href===t)return e();setTimeout(function(){d(e)})};function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=o||"all"}return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=d,d(f),i},_loadedScripts:new Set,_loadedElements:new WeakSet,js:(t,n)=>new Promise((o,r)=>{if(t.startsWith("/")&&(t=ctx.root+t.substring(1)),e._loadedScripts.has(t))o();else{var a=document.createElement("script");if(a.src=t,n)for(let e of Object.keys(n))a[e]=n[e];else a.async=!0;a.onerror=r,a.onload=a.onreadystatechange=function(){const n=this.readyState;n&&"loaded"!==n&&"complete"!==n||(a.onload=a.onreadystatechange=null,e._loadedScripts.add(t),o())},document.head.appendChild(a)}}),qs:(e,t)=>(t||document).querySelector(e),qsa:(e,t)=>Array.prototype.slice.call((t||document).querySelectorAll(e)),dom:(t,n)=>{var o=[];"string"==typeof t?o=e.qsa(t,n):t&&1===t.nodeType?o=[t]:t&&"number"==typeof t.length&&(o=Array.prototype.slice.call(t));var r={length:o.length,each:function(e){return o.forEach(function(t,n){e.call(t,n,t)}),r},find:function(t){var n=[];return o.forEach(function(e){Array.prototype.push.apply(n,e.querySelectorAll(t))}),e.dom(n)},append:function(e){return o.forEach(function(t){"string"==typeof e?t.insertAdjacentHTML("beforeend",e):e&&1===e.nodeType?t.appendChild(e):e&&"number"==typeof e.length&&Array.prototype.forEach.call(e,function(e){e&&1===e.nodeType&&t.appendChild(e)})}),r},remove:function(){o.forEach(function(e){e.remove()})},addClass:function(e){return o.forEach(function(t){e.trim().split(/\s+/).forEach(function(e){e&&t.classList.add(e)})}),r},removeClass:function(e){return o.forEach(function(t){e.trim().split(/\s+/).forEach(function(e){e&&t.classList.remove(e)})}),r},toggleClass:function(e,t){return o.forEach(function(n){e.trim().split(/\s+/).forEach(function(e){e&&n.classList.toggle(e,t)})}),r},attr:function(e,t){return void 0===t?o[0]?o[0].getAttribute(e):void 0:(o.forEach(function(n){n.setAttribute(e,t)}),r)},data:function(e){return o[0]?o[0].getAttribute("data-"+e):void 0},text:function(e){return void 0===e?o[0]?o[0].textContent:void 0:(o.forEach(function(t){t.textContent=e}),r)},html:function(e){return void 0===e?o[0]?o[0].innerHTML:void 0:(o.forEach(function(t){if("string"!=typeof e&&e&&"number"==typeof e.length&&e[0]&&1===e[0].nodeType){var n=document.createDocumentFragment();Array.prototype.forEach.call(e,function(e){n.appendChild(e)}),t.replaceChildren(n)}else t.innerHTML=e}),r)},val:function(e){return void 0===e?o[0]?o[0].value:void 0:(o.forEach(function(t){t.value=e}),r)},offset:function(){var e=o[0];if(!e)return{top:0,left:0};var t=e.getBoundingClientRect();return{top:t.top+window.scrollY,left:t.left+window.scrollX}},on:function(e,t){return o.forEach(function(n){n.addEventListener(e,t)}),r},click:function(e){return r.on("click",e)},focus:function(e){return r.on("focus",e)},keydown:function(e){return r.on("keydown",e)},empty:function(){return o.forEach(function(e){e.replaceChildren()}),r}};return o.forEach(function(e,t){r[t]=e}),r},onLoading:e=>{e&&null===e.querySelector(".loading-wrap")&&e.insertAdjacentHTML("beforeend",'<div class="loading-wrap"><div class="lazy-icon"></div></div>')},onLoadSuccess:e=>{if(e){var t=e.querySelector(".loading-wrap");t&&t.remove()}},onLoadFailure:e=>{if(e){var t=e.querySelector(".loading-wrap");if(t){var n=t.querySelector("svg");n&&n.remove(),t.insertAdjacentHTML("beforeend",ctx.icons["default:warning"]),t.classList.add("error")}}},_cacheEnabled:!0,_cacheMaxEntryBytes:204800,_pendingRequests:{},_fetchShared:(t,n)=>{const o=(n&&n.method||"GET")+" "+t;if(e._pendingRequests[o])return e._pendingRequests[o].then(e=>e.clone());const r=fetch(t,n).then(e=>{if(!e.ok)throw new Error("响应失败");return e}).finally(()=>{delete e._pendingRequests[o]});return e._pendingRequests[o]=r,r.then(e=>e.clone())},_defer:e=>{window.requestIdleCallback?window.requestIdleCallback(e,{timeout:3e3}):setTimeout(e,0)},cache:{prefix:"Stellar.data_cache.v1.",enabled:()=>!!def.data_cache?.enable&&e._cacheEnabled,serviceId:(e,t)=>{if(t&&t.service)return t.service;if(e){const t=String(e.className||"").match(/\bds-([\w-]+)\b/);if(t)return t[1]}return null},ttl:(t,n)=>{const o=def.data_cache||{},r=e.cache.serviceId(t,n),a=r&&o.ttl&&null!=o.ttl[r]?o.ttl[r]:o.default_ttl;return"number"==typeof a&&a>0?a:0},shouldCache:(t,n)=>!!e.cache.enabled()&&((!n||!1!==n.cache&&"no-store"!==n.cache)&&((!n||!n.method||"GET"===n.method)&&!/[?&]t=\d{10,}/.test(t))),get:t=>{try{const n=localStorage.getItem(e.cache.prefix+t);if(!n)return null;const o=JSON.parse(n);return o&&"string"==typeof o.text&&"number"==typeof o.ts?o:null}catch(e){return console.warn("[cache] 读取失败:",t,e),null}},set:(t,n,o,r)=>{if(!(r>0))return;if(n.length>e._cacheMaxEntryBytes)return;const a=JSON.stringify({text:n,contentType:o||"application/json",ts:Date.now(),ttl:r}),c=()=>{try{return localStorage.setItem(e.cache.prefix+t,a),e.cache.trim(),!0}catch(e){return!1}};c()||(e.cache.evictOldest(t),c()||(console.warn("[cache] 写入失败，本会话禁用缓存:",t),e._cacheEnabled=!1))},trim:()=>{try{const t=def.data_cache&&def.data_cache.max_entries||200,n=[];for(let t=0;t<localStorage.length;t++){const o=localStorage.key(t);o&&0===o.indexOf(e.cache.prefix)&&n.push(o)}if(n.length<=t)return;const o=n.map(e=>{let t=0;try{const n=JSON.parse(localStorage.getItem(e)||"null");n&&"number"==typeof n.ts&&(t=n.ts)}catch(e){}return{key:e,ts:t}}).sort((e,t)=>e.ts-t.ts);for(let e=0;e<o.length-t;e++)localStorage.removeItem(o[e].key)}catch(e){console.warn("[cache] 清理失败:",e)}},evictOldest:t=>{try{let n=null,o=1/0;const r=e.cache.prefix+t;for(let t=0;t<localStorage.length;t++){const a=localStorage.key(t);if(!a||0!==a.indexOf(e.cache.prefix)||a===r)continue;let c=0;try{const e=JSON.parse(localStorage.getItem(a)||"null");e&&"number"==typeof e.ts&&(c=e.ts)}catch(e){}c<o&&(o=c,n=a)}n&&localStorage.removeItem(n)}catch(e){}},isFresh:e=>!(!e||"number"!=typeof e.ts||"number"!=typeof e.ttl)&&(e.ttl>0&&Date.now()-e.ts<1e3*e.ttl),toResponse:e=>new Response(e.text,{status:200,statusText:"OK",headers:{"Content-Type":e.contentType}})},request:(t,n,o,r,a)=>{if(t&&e._loadedElements.has(t))return;let c=0;const i=e.cache.ttl(t,a),l=e.cache.shouldCache(n,a)&&i>0,s=l?e.cache.get(n):null;let u=null,d=null;if(s){t&&(e.onLoadSuccess?.(t),u=t.innerHTML);try{d=Promise.resolve(o(e.cache.toResponse(s))).catch(e=>{console.warn("[request] 缓存渲染失败:",n,e)})}catch(e){console.warn("[request] 缓存渲染失败:",n,e)}if(e.cache.isFresh(s))return t&&e._loadedElements.add(t),Promise.resolve(s.text)}else e.onLoading?.(t);return new Promise((a,f)=>{const h=()=>{let d=!1;const p=setTimeout(()=>{d=!0,console.warn("[request] 超时:",n),++c>=3?s?a(s.text):(e.onLoadFailure?.(t),r?.(),f("请求超时")):setTimeout(h,1e3)},5e3);e._fetchShared(n).then(e=>{if(!d)return clearTimeout(p),e}).then(r=>{if(!d){if(t&&e._loadedElements.add(t),l&&r.ok){const t=r.clone(),o=r.headers.get("Content-Type")||"application/json";e._defer(()=>{t.text().then(t=>{e.cache.set(n,t,o,i)}).catch(()=>{})})}t&&null!==u&&(t.innerHTML=u),e.onLoadSuccess?.(t),o(r),a(r)}}).catch(n=>{clearTimeout(p),console.warn("[request] 错误:",n),++c>=3?s?a(s.text):(e.onLoadFailure?.(t),r?.(),f(n)):setTimeout(h,1e3)})};d?Promise.race([d,new Promise(e=>setTimeout(e,5e3))]).then(h):h()})},requestWithoutLoading:(t,n={},o=2,r=5e3)=>{const a=e.cache.ttl(null,n),c=e.cache.shouldCache(t,n)&&a>0,i=c?e.cache.get(t):null;return i&&e.cache.isFresh(i)?Promise.resolve(e.cache.toResponse(i)):new Promise((l,s)=>{let u=0;const d=()=>{let f=!1;const h=setTimeout(()=>{f=!0,++u>o?i?l(e.cache.toResponse(i)):s("timeout"):d()},r);e._fetchShared(t,n).then(n=>{if(clearTimeout(h),!f){if(c){const o=n.clone(),r=n.headers.get("Content-Type")||"application/json";e._defer(()=>{o.text().then(n=>{e.cache.set(t,n,r,a)}).catch(()=>{})})}l(n)}}).catch(t=>{clearTimeout(h),f||(++u>o?i?l(e.cache.toResponse(i)):s(t):setTimeout(d,500))})};d()})},requestAnimationFrame:e=>{window.requestAnimationFrame||(window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame),window.requestAnimationFrame(e)},dark:{},_pluginInitializers:[],_pluginCleanups:new Map,initPlugin:(t,n,o={})=>{if(!t||"function"!=typeof t)return;const r=n||t.name;if(e._pluginInitializers.some(e=>e.name===r))return;const a=()=>{try{if(e._pluginCleanups.has(r)){const t=e._pluginCleanups.get(r);"function"==typeof t&&t()}const n=t();"function"==typeof n&&e._pluginCleanups.set(r,n)}catch(e){console.error(`[Plugin ${r}] 初始化失败:`,e)}};e._pluginInitializers.push({fn:a,name:r,options:o}),"complete"===document.readyState||"interactive"===document.readyState?a():window.addEventListener("DOMContentLoaded",a,{once:!0})},cleanupPlugins:()=>{e._pluginCleanups.forEach((e,t)=>{try{e()}catch(e){console.error(`[Plugin ${t}] 清理失败:`,e)}}),e._pluginCleanups.clear()},cleanupAll:()=>{e.cleanupPlugins()}};e.dark.method={toggle:new function(){function t(e,t){this.name=t||e.name,this.run=()=>{try{e()}catch(e){console.log(e)}}}this.list=[],this.start=()=>{for(var e=0;e<this.list.length;e++)this.list[e].run()},this.push=(n,o,r=!0)=>{let a=n;r&&(a=()=>{e.requestAnimationFrame(n)});var c=new t(a,o);this.list.push(c)},this.remove=e=>{for(let t=this.list.length-1;t>=0;t--){this.list[t].name===e&&this.list.splice(t,1)}}}},e.dark=Object.assign(e.dark,{push:e.dark.method.toggle.push}),window.utils=e,window.stellar&&"function"==typeof window.stellar._flushPlugins&&window.stellar._flushPlugins()}();
+(function () {
+  // 防重复执行：utils.js 可能被重复加载，二次执行直接跳过，避免重复声明报错。
+  if (window.__stellarUtilsLoaded) return;
+  window.__stellarUtilsLoaded = true;
+
+  const utils = {
+    // 已加载样式缓存
+    _loadedStyles: new Set(),
+
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      // 如果样式已加载，直接返回 null
+      if (utils._loadedStyles.has(href)) {
+        return null;
+      }
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (Object.prototype.hasOwnProperty.call(attributes, attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      // 标记样式为已加载 (在创建元素后立即标记，防止重复创建)
+      utils._loadedStyles.add(href);
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 已加载脚本缓存
+    _loadedScripts: new Set(),
+
+    // 已加载元素缓存 (使用 WeakSet 追踪元素实例,避免重复加载)
+    _loadedElements: new WeakSet(),
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      // 如果脚本已加载，直接返回
+      if (utils._loadedScripts.has(src)) {
+        resolve();
+        return;
+      }
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        utils._loadedScripts.add(src);
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // 原生 DOM 工具：querySelector / querySelectorAll 简写
+    qs: (sel, ctx) => (ctx || document).querySelector(sel),
+    qsa: (sel, ctx) => Array.prototype.slice.call((ctx || document).querySelectorAll(sel)),
+
+    // 原生 DOM 封装：常用 DOM 操作方法子集（find/append/class/attr/事件等）
+    dom: (selector, ctx) => {
+      var els = [];
+      if (typeof selector === 'string') {
+        els = utils.qsa(selector, ctx);
+      } else if (selector && selector.nodeType === 1) {
+        els = [selector];
+      } else if (selector && typeof selector.length === 'number') {
+        els = Array.prototype.slice.call(selector);
+      }
+      var api = {
+        length: els.length,
+        each: function (fn) {
+          els.forEach(function (el, i) {
+            fn.call(el, i, el);
+          });
+          return api;
+        },
+        find: function (sel) {
+          var result = [];
+          els.forEach(function (el) {
+            Array.prototype.push.apply(result, el.querySelectorAll(sel));
+          });
+          return utils.dom(result);
+        },
+        append: function (content) {
+          els.forEach(function (el) {
+            if (typeof content === 'string') {
+              el.insertAdjacentHTML('beforeend', content);
+            } else if (content && content.nodeType === 1) {
+              el.appendChild(content);
+            } else if (content && typeof content.length === 'number') {
+              Array.prototype.forEach.call(content, function (child) {
+                if (child && child.nodeType === 1) el.appendChild(child);
+              });
+            }
+          });
+          return api;
+        },
+        remove: function () {
+          els.forEach(function (el) {
+            el.remove();
+          });
+        },
+        addClass: function (cls) {
+          els.forEach(function (el) {
+            cls.trim().split(/\s+/).forEach(function (c) {
+              if (c) el.classList.add(c);
+            });
+          });
+          return api;
+        },
+        removeClass: function (cls) {
+          els.forEach(function (el) {
+            cls.trim().split(/\s+/).forEach(function (c) {
+              if (c) el.classList.remove(c);
+            });
+          });
+          return api;
+        },
+        toggleClass: function (cls, force) {
+          els.forEach(function (el) {
+            cls.trim().split(/\s+/).forEach(function (c) {
+              if (c) el.classList.toggle(c, force);
+            });
+          });
+          return api;
+        },
+        attr: function (name, value) {
+          if (value === undefined) {
+            return els[0] ? els[0].getAttribute(name) : undefined;
+          }
+          els.forEach(function (el) {
+            el.setAttribute(name, value);
+          });
+          return api;
+        },
+        data: function (name) {
+          return els[0] ? els[0].getAttribute('data-' + name) : undefined;
+        },
+        text: function (value) {
+          if (value === undefined) {
+            return els[0] ? els[0].textContent : undefined;
+          }
+          els.forEach(function (el) {
+            el.textContent = value;
+          });
+          return api;
+        },
+        html: function (content) {
+          if (content === undefined) {
+            return els[0] ? els[0].innerHTML : undefined;
+          }
+          els.forEach(function (el) {
+            if (typeof content !== 'string' && content && typeof content.length === 'number' && content[0] && content[0].nodeType === 1) {
+              var frag = document.createDocumentFragment();
+              Array.prototype.forEach.call(content, function (child) {
+                frag.appendChild(child);
+              });
+              el.replaceChildren(frag);
+            } else {
+              el.innerHTML = content;
+            }
+          });
+          return api;
+        },
+        val: function (value) {
+          if (value === undefined) {
+            return els[0] ? els[0].value : undefined;
+          }
+          els.forEach(function (el) {
+            el.value = value;
+          });
+          return api;
+        },
+        offset: function () {
+          var el = els[0];
+          if (!el) return { top: 0, left: 0 };
+          var rect = el.getBoundingClientRect();
+          return { top: rect.top + window.scrollY, left: rect.left + window.scrollX };
+        },
+        on: function (event, cb) {
+          els.forEach(function (el) {
+            el.addEventListener(event, cb);
+          });
+          return api;
+        },
+        click: function (cb) { return api.on('click', cb); },
+        focus: function (cb) { return api.on('focus', cb); },
+        keydown: function (cb) { return api.on('keydown', cb); },
+        empty: function () {
+          els.forEach(function (el) {
+            el.replaceChildren();
+          });
+          return api;
+        }
+      };
+      els.forEach(function (el, i) {
+        api[i] = el;
+      });
+      return api;
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        if (el.querySelector('.loading-wrap') === null) {
+          el.insertAdjacentHTML('beforeend', `<div class="loading-wrap"><div class="lazy-icon"></div></div>`);
+        }
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        var wrap = el.querySelector('.loading-wrap');
+        if (wrap) wrap.remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        var wrap = el.querySelector('.loading-wrap');
+        if (wrap) {
+          var svg = wrap.querySelector('svg');
+          if (svg) svg.remove();
+          wrap.insertAdjacentHTML('beforeend', ctx.icons['default:warning']);
+          wrap.classList.add('error');
+        }
+      }
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+  };
+
+  // 自定义注入脚本可能在 type=module runtime 执行前调用 request；以 Promise 接缝排队，
+  // runtime 安装真实 adapter 后统一放行，不在经典脚本中复制任何网络或缓存算法。
+  var requestBridge = {};
+  requestBridge.ready = new Promise(function (resolve) {
+    requestBridge.resolve = resolve;
+  });
+  utils.request = function () {
+    var args = arguments;
+    return requestBridge.ready.then(function (adapter) {
+      return adapter.request.apply(null, args);
+    });
+  };
+  utils.requestWithoutLoading = function () {
+    var args = arguments;
+    return requestBridge.ready.then(function (adapter) {
+      return adapter.requestWithoutLoading.apply(null, args);
+    });
+  };
+
+  // 暴露到 window：迁移期经典核心脚本与 ESM runtime 的兼容接缝。
+  window.__stellarRequestBridge = requestBridge;
+  window.utils = utils;
+
+})();

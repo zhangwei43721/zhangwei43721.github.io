@@ -1,1 +1,79 @@
-!function(){var e;try{e=new URLSearchParams(window.location.search)}catch(e){return}var t=(e.get("kw")||"").trim();function n(){var e=document.querySelector(".l_main .md-text")||document.querySelector(".md-text");if(e){for(var n,r=new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi"),o=[],a=document.createTreeWalker(e,NodeFilter.SHOW_TEXT,{acceptNode:function(e){var t=e.parentElement;return t?t.closest("script, style, noscript, .tag-plugin.mark")?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});n=a.nextNode();)o.push(n);for(var l=0,c=0;c<o.length&&l<50;c++){var d,i=o[c],u=i.nodeValue||"",m=document.createDocumentFragment(),p=0;for(r.lastIndex=0;l<50&&null!==(d=r.exec(u));){d.index>p&&m.appendChild(document.createTextNode(u.slice(p,d.index)));var s=document.createElement("mark");s.className="tag-plugin colorful mark",s.setAttribute("color","yellow"),s.textContent=d[0],m.appendChild(s),l+=1,p=d.index+d[0].length}0!==p&&(p<u.length&&m.appendChild(document.createTextNode(u.slice(p))),i.parentNode.replaceChild(m,i))}if(!window.location.hash){var g=e.querySelector('mark.tag-plugin.mark[color="yellow"]');if(g){var h=g.getBoundingClientRect().top+window.scrollY-32;window.scrollTo({top:Math.max(0,h),behavior:"instant"})}}}}t&&("loading"!==document.readyState?n():document.addEventListener("DOMContentLoaded",n))}();
+// 搜索跳转高亮：URL 带 ?kw= 时在正文中高亮匹配词
+(function () {
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function highlightKeyword() {
+  var params;
+  try {
+    params = new URLSearchParams(window.location.search);
+  } catch (e) {
+    return;
+  }
+  var keyword = (params.get('kw') || '').trim();
+  if (!keyword) return;
+
+
+    // 优先主栏正文（避免命中 wiki 封面等其它 md-text 容器）
+    var root = document.querySelector('.site-main .md-text') || document.querySelector('.md-text');
+    if (!root) return;
+
+    var re = new RegExp(escapeRegExp(keyword), 'gi');
+    var textNodes = [];
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        var parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        // 跳过脚本/样式内容与已存在的 mark 高亮
+        if (parent.closest('script, style, noscript, .tag-plugin.mark')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while ((node = walker.nextNode())) {
+      textNodes.push(node);
+    }
+
+    var limit = 50;
+    var count = 0;
+    for (var i = 0; i < textNodes.length && count < limit; i++) {
+      var textNode = textNodes[i];
+      var text = textNode.nodeValue || '';
+      var frag = document.createDocumentFragment();
+      var lastIndex = 0;
+      var m;
+      re.lastIndex = 0;
+      while (count < limit && (m = re.exec(text)) !== null) {
+        if (m.index > lastIndex) {
+          frag.appendChild(document.createTextNode(text.slice(lastIndex, m.index)));
+        }
+        var mark = document.createElement('mark');
+        mark.className = 'tag-plugin colorful mark';
+        mark.setAttribute('color', 'yellow');
+        mark.textContent = m[0];
+        frag.appendChild(mark);
+        count += 1;
+        lastIndex = m.index + m[0].length;
+      }
+      if (lastIndex === 0) continue;
+      if (lastIndex < text.length) {
+        frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+      }
+      textNode.parentNode.replaceChild(frag, textNode);
+    }
+
+    // 无锚点时（intro / 仅标题命中）滚动到第一个匹配词，实现定位
+    if (!window.location.hash) {
+      var first = root.querySelector('mark.tag-plugin.mark[color="yellow"]');
+      if (first) {
+        var top = first.getBoundingClientRect().top + window.scrollY - 32;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+      }
+    }
+  }
+
+  window.stellar.highlightKeyword = highlightKeyword;
+})();
