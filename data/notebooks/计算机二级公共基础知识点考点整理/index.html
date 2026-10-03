@@ -74,73 +74,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg">
 <link rel="stylesheet" href="/css/custom.css">
-<!-- Baidu Tongji -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
-<script>
-(function() {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-
-  var initialized = false;
-  var initAnalytics = function() {
-    if (initialized) return;
-    initialized = true;
-
-    var events = ['scroll', 'mousemove', 'click', 'keydown'];
-    events.forEach(function(evt) {
-      window.removeEventListener(evt, initAnalytics, { passive: true });
-    });
-
-    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
-    var gScript = document.createElement('script');
-    gScript.async = true;
-    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
-    var gTimer = setTimeout(function() {
-      if (gScript && gScript.parentNode) {
-        gScript.src = '';
-        gScript.parentNode.removeChild(gScript);
-      }
-    }, 2500);
-    gScript.onload = function() { clearTimeout(gTimer); };
-    gScript.onerror = function() { clearTimeout(gTimer); };
-    document.head.appendChild(gScript);
-    gtag('js', new Date());
-    gtag('config', 'G-JST56Q8277');
-
-    // 2. Microsoft Clarity with 3s auto-abort
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        var cTimer = setTimeout(function() {
-          if (t && t.parentNode) {
-            t.src = '';
-            t.parentNode.removeChild(t);
-          }
-        }, 3000);
-        t.onload = function() { clearTimeout(cTimer); };
-        t.onerror = function() { clearTimeout(cTimer); };
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "rp0i6z4yyg");
-  };
-
-  // Trigger upon scroll/interaction, or fallback after 6s idle
-  var events = ['scroll', 'mousemove', 'click', 'keydown'];
-  events.forEach(function(evt) {
-    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
-  });
-  setTimeout(initAnalytics, 6000);
-})();
-</script>
 
 
   <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
@@ -487,7 +420,7 @@ var _hmt = _hmt || [];
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/" title="ERP系统开发实训笔记">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/" title="ERP系统开发实训笔记" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">E</span>
@@ -505,7 +438,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/" title="计算机二级公共基础知识点考点整理">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/" title="计算机二级公共基础知识点考点整理" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">计</span>
@@ -523,7 +456,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/" title="计算机二级C语言复习">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/" title="计算机二级C语言复习" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">计</span>
@@ -541,7 +474,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/C++%E5%A4%8D%E4%B9%A0/" title="C++复习">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/C++%E5%A4%8D%E4%B9%A0/" title="C++复习" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">C</span>
@@ -559,7 +492,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/" title="华为ICT网络赛道初级知识点汇总笔记">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/" title="华为ICT网络赛道初级知识点汇总笔记" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">华</span>
@@ -577,7 +510,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/Java%E5%A4%8D%E4%B9%A0/" title="Java复习">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/Java%E5%A4%8D%E4%B9%A0/" title="Java复习" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">J</span>
@@ -595,7 +528,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/" title="数据库复习">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/" title="数据库复习" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">数</span>
@@ -613,7 +546,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="操作系统入门">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="操作系统入门" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">操</span>
@@ -691,23 +624,23 @@ var _hmt = _hmt || [];
 <li>计算题部分穿插在 c 语言选择题中 30 分</li>
 <li>记忆题部分只占了 10 分，所以几乎不用看记忆部分</li>
 </ul>
-<h3 id="一-、计算题部分讲解"><a href="#一-、计算题部分讲解" class="headerlink" title="一 、计算题部分讲解"></a>一 、计算题部分讲解</h3><h3 id="1-进制转换"><a href="#1-进制转换" class="headerlink" title="1.进制转换"></a>1.进制转换</h3><p>十进制数转换为二进制</p>
+<h3 id="一-、计算题部分讲解"><a href="#一-、计算题部分讲解" class="headerlink" title="一 、计算题部分讲解" data-stellar-navigation=""></a>一 、计算题部分讲解</h3><h3 id="1-进制转换"><a href="#1-进制转换" class="headerlink" title="1.进制转换" data-stellar-navigation=""></a>1.进制转换</h3><p>十进制数转换为二进制</p>
 <p>方法：将十进制数除以 2，取余数，倒序排列。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/img-image-20250312150551529-1741763158952-1.webp" alt="进制转换图" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="446" height="466" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[37.9068,34.953,86.7979,1]}" data-stellar-image-source="https://image.skyforever.top/img-image-20250312150551529-1741763158952-1.webp"></p>
-<h3 id="2-原码反码补码偏移码的计算"><a href="#2-原码反码补码偏移码的计算" class="headerlink" title="2.原码反码补码偏移码的计算"></a>2.原码反码补码偏移码的计算</h3><h4 id="原始规则"><a href="#原始规则" class="headerlink" title="原始规则"></a>原始规则</h4><ul>
+<h3 id="2-原码反码补码偏移码的计算"><a href="#2-原码反码补码偏移码的计算" class="headerlink" title="2.原码反码补码偏移码的计算" data-stellar-navigation=""></a>2.原码反码补码偏移码的计算</h3><h4 id="原始规则"><a href="#原始规则" class="headerlink" title="原始规则" data-stellar-navigation=""></a>原始规则</h4><ul>
 <li><strong>正数：原码=反码=补码</strong></li>
 <li><strong>负数的反码：符号位为 1，原码数值位取反</strong></li>
 <li><strong>负数的补码：反码+1</strong></li>
 <li>偏移码=补码符号位取反</li>
 </ul>
-<h4 id="选择题中的绕口令"><a href="#选择题中的绕口令" class="headerlink" title="选择题中的绕口令"></a>选择题中的绕口令</h4><ul>
+<h4 id="选择题中的绕口令"><a href="#选择题中的绕口令" class="headerlink" title="选择题中的绕口令" data-stellar-navigation=""></a>选择题中的绕口令</h4><ul>
 <li>反码的反码 = 原码</li>
 <li>补码的补码＝原码</li>
 <li>补码之和 = 和的补码</li>
 <li>引入补码之后，带符号数的加减运算都可以用<strong>加法</strong>实现</li>
 <li>整数在计算机中的存储和运算，通常采用<strong>补码</strong></li>
 </ul>
-<h3 id="3-线性结构的判断"><a href="#3-线性结构的判断" class="headerlink" title="3.线性结构的判断"></a>3.线性结构的判断</h3><p><strong>线性表特点：表中的每一个数据元素：</strong></p>
+<h3 id="3-线性结构的判断"><a href="#3-线性结构的判断" class="headerlink" title="3.线性结构的判断" data-stellar-navigation=""></a>3.线性结构的判断</h3><p><strong>线性表特点：表中的每一个数据元素：</strong></p>
 <ul>
 <li><strong>除了第一个外，有且只有一个前件，</strong></li>
 <li><strong>除了最后一个外，有且只有一个后件。</strong></li>
@@ -726,7 +659,7 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <p>此题选 A，A 选项 5-6-1-3-2-4 能连成一根线，首尾不连接</p>
-<h3 id="4-栈和队列元素的增删计算"><a href="#4-栈和队列元素的增删计算" class="headerlink" title="4.栈和队列元素的增删计算"></a>4.栈和队列元素的增删计算</h3><ul>
+<h3 id="4-栈和队列元素的增删计算"><a href="#4-栈和队列元素的增删计算" class="headerlink" title="4.栈和队列元素的增删计算" data-stellar-navigation=""></a>4.栈和队列元素的增删计算</h3><ul>
 <li><p>栈的特点</p>
 <ul>
 <li>栈顶/栈底</li>
@@ -756,7 +689,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h3 id="5-栈中元素个数的计算"><a href="#5-栈中元素个数的计算" class="headerlink" title="5.栈中元素个数的计算"></a>5.栈中元素个数的计算</h3><p>需要分栈的升降序</p>
+<h3 id="5-栈中元素个数的计算"><a href="#5-栈中元素个数的计算" class="headerlink" title="5.栈中元素个数的计算" data-stellar-navigation=""></a>5.栈中元素个数的计算</h3><p>需要分栈的升降序</p>
 <ul>
 <li><p>当初始状态 top 值小于 1</p>
 <p>栈底序号为 1，序号越往上走越大</p>
@@ -766,8 +699,8 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <p>栈底的最小值会超出栈的范围（0 或者 n+1),这个栈底位置不存数据！只存栈的状态）</p>
-<h3 id="6-循环队列元素个数的计算"><a href="#6-循环队列元素个数的计算" class="headerlink" title="6.循环队列元素个数的计算"></a>6.循环队列元素个数的计算</h3><p><strong>Rear 指向队列最后一个元素的位置<br>Front 指向队列第一个元素的位置</strong></p>
-<h4 id="指针情形"><a href="#指针情形" class="headerlink" title="指针情形"></a>指针情形</h4><div class="md-table-scroll"><table>
+<h3 id="6-循环队列元素个数的计算"><a href="#6-循环队列元素个数的计算" class="headerlink" title="6.循环队列元素个数的计算" data-stellar-navigation=""></a>6.循环队列元素个数的计算</h3><p><strong>Rear 指向队列最后一个元素的位置<br>Front 指向队列第一个元素的位置</strong></p>
+<h4 id="指针情形"><a href="#指针情形" class="headerlink" title="指针情形" data-stellar-navigation=""></a>指针情形</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>指针情形</th>
@@ -787,13 +720,13 @@ var _hmt = _hmt || [];
 <td>Rear-front+总容量</td>
 </tr>
 </tbody></table></div>
-<h4 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h4><ul>
+<h4 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找" data-stellar-navigation=""></a>顺序查找</h4><ul>
 <li><p>长度为 n 的线性表，找到某个特定元素，最坏需要比较 n 次，最坏需要比较 n-1 次</p>
 </li>
 <li><p>长度为 n 的线性表，找到最大（最小）值，最坏需要比较 n 次最坏需要比较 n-1 次</p>
 </li>
 </ul>
-<h3 id="7-树中元素个数的计算"><a href="#7-树中元素个数的计算" class="headerlink" title="7.树中元素个数的计算"></a>7.树中元素个数的计算</h3><h4 id="树的特点"><a href="#树的特点" class="headerlink" title="树的特点"></a>树的特点</h4><ul>
+<h3 id="7-树中元素个数的计算"><a href="#7-树中元素个数的计算" class="headerlink" title="7.树中元素个数的计算" data-stellar-navigation=""></a>7.树中元素个数的计算</h3><h4 id="树的特点"><a href="#树的特点" class="headerlink" title="树的特点" data-stellar-navigation=""></a>树的特点</h4><ul>
 <li>父节点<ul>
 <li>在树结构中，每一个结点只有一个前件，称为父结点。</li>
 </ul>
@@ -823,13 +756,13 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="树的节点个数计算"><a href="#树的节点个数计算" class="headerlink" title="树的节点个数计算"></a>树的节点个数计算</h4><ul>
+<h4 id="树的节点个数计算"><a href="#树的节点个数计算" class="headerlink" title="树的节点个数计算" data-stellar-navigation=""></a>树的节点个数计算</h4><ul>
 <li>父节点树相加</li>
 <li>度数与对应的节点数乘积之和 +1</li>
 </ul>
-<h5 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h5><p>度为 3 的一棵树共有 30 个结点，其中度为 3、1 的结点个数分别为 3、4，则该树中的叶子结点数为（ ）。</p>
+<h5 id="例题"><a href="#例题" class="headerlink" title="例题" data-stellar-navigation=""></a>例题</h5><p>度为 3 的一棵树共有 30 个结点，其中度为 3、1 的结点个数分别为 3、4，则该树中的叶子结点数为（ ）。</p>
 <p>A. 14<br>B. 15<br>C. 16<br>D. 不可能有这样的树</p>
-<h5 id="对应解法"><a href="#对应解法" class="headerlink" title="对应解法"></a>对应解法</h5><p>根据树的基本性质：<br>树的叶子结点数（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span>）可以通过如下公式计算：</p>
+<h5 id="对应解法"><a href="#对应解法" class="headerlink" title="对应解法" data-stellar-navigation=""></a>对应解法</h5><p>根据树的基本性质：<br>树的叶子结点数（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span>）可以通过如下公式计算：</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mo>=</mo><mi>N</mi><mo>−</mo><mo>∑</mo><mo stretchy="false">(</mo><mtext>度数</mtext><mo>×</mo><mtext>该度数的结点数</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">L = N - \sum (\text{度数} \times \text{该度数的结点数})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.6em;vertical-align:-0.55em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mopen">(</span><span class="mord text"><span class="mord cjk_fallback">度数</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord cjk_fallback">该度数的结点数</span></span><span class="mclose">)</span></span></span></span></span></p>
 <p>其中，</p>
 <ul>
@@ -846,7 +779,7 @@ var _hmt = _hmt || [];
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mo>=</mo><mn>16</mn><mo>−</mo><mn>2</mn><mo>×</mo><mn>0</mn><mo>=</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">L = 16 - 2 \times 0 = 16</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">16</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">16</span></span></span></span></span></p>
 <p>所以，正确答案是：<br><strong>C. 16</strong></p>
 <hr>
-<h3 id="8-二叉树的计算"><a href="#8-二叉树的计算" class="headerlink" title="8.二叉树的计算"></a>8.二叉树的计算</h3><h4 id="基本性质"><a href="#基本性质" class="headerlink" title="基本性质"></a>基本性质</h4><ul>
+<h3 id="8-二叉树的计算"><a href="#8-二叉树的计算" class="headerlink" title="8.二叉树的计算" data-stellar-navigation=""></a>8.二叉树的计算</h3><h4 id="基本性质"><a href="#基本性质" class="headerlink" title="基本性质" data-stellar-navigation=""></a>基本性质</h4><ul>
 <li><p><strong>性质 1</strong> ：在二叉树的第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.0315em;">k</span></span></span></span> 层上，最多有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mrow><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mtext>&nbsp;</mtext><mo stretchy="false">(</mo><mi>k</mi><mo>≥</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">2^{(k-1)} \ (k \geq 1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.0315em;">k</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace">&nbsp;</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0315em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 个结点。</p>
 </li>
 <li><p><strong>性质 2</strong> ：深度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span> 的二叉树最多有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>m</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^m - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7477em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 个结点。</p>
@@ -856,7 +789,7 @@ var _hmt = _hmt || [];
 <li><p><strong>性质 4</strong> ：具有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> 个结点的二叉树，其深度至少为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">⌊</mo><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mi>n</mi><mo stretchy="false">⌋</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lfloor \log_2 n \rfloor + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⌊</span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">⌋</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">⌊</mo><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mi>n</mi><mo stretchy="false">⌋</mo></mrow><annotation encoding="application/x-tex">\lfloor \log_2 n \rfloor</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⌊</span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">⌋</span></span></span></span> 表示取 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mi>n</mi></mrow><annotation encoding="application/x-tex">\log_2 n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.9386em;vertical-align:-0.2441em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span></span></span></span> 的整数部分。</p>
 </li>
 </ul>
-<h4 id="特殊二叉树"><a href="#特殊二叉树" class="headerlink" title="特殊二叉树"></a>特殊二叉树</h4><ul>
+<h4 id="特殊二叉树"><a href="#特殊二叉树" class="headerlink" title="特殊二叉树" data-stellar-navigation=""></a>特殊二叉树</h4><ul>
 <li><strong>满二叉树</strong>：每一层上的所有结点都有两个子结点。</li>
 <li><strong>完全二叉树</strong>：<ul>
 <li>除了最后一层，每一层都达到最大节点数，最后一层只缺少右侧节点。</li>
@@ -864,7 +797,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h3 id="二叉树遍历结构"><a href="#二叉树遍历结构" class="headerlink" title="二叉树遍历结构"></a>二叉树遍历结构</h3><p>A 下面有两个子节点，左到右为 B-C</p>
+<h3 id="二叉树遍历结构"><a href="#二叉树遍历结构" class="headerlink" title="二叉树遍历结构" data-stellar-navigation=""></a>二叉树遍历结构</h3><p>A 下面有两个子节点，左到右为 B-C</p>
 <p>按照三种不同的排序排出来为（根在哪里就是什么序）：</p>
 <div class="md-table-scroll"><table>
 <thead>
@@ -885,33 +818,33 @@ var _hmt = _hmt || [];
 <td>BCA</td>
 </tr>
 </tbody></table></div>
-<h3 id="9-扇入数，扇出数，宽度"><a href="#9-扇入数，扇出数，宽度" class="headerlink" title="9.扇入数，扇出数，宽度"></a>9.扇入数，扇出数，宽度</h3><ul>
+<h3 id="9-扇入数，扇出数，宽度"><a href="#9-扇入数，扇出数，宽度" class="headerlink" title="9.扇入数，扇出数，宽度" data-stellar-navigation=""></a>9.扇入数，扇出数，宽度</h3><ul>
 <li><strong>扇入数</strong>：指一个节点的输入边的数量，即有多少个其他节点指入该节点，注意是只看本节点的入数。</li>
 <li><strong>扇出数</strong>：指一个节点的输出边的数量，即该节点往下指出多少个其他节点，注意是只看本节点的出数。</li>
 <li><strong>结构图宽度</strong>：指的是宽度最大一层的宽度</li>
 </ul>
-<h3 id="10-传统集合运算"><a href="#10-传统集合运算" class="headerlink" title="10.传统集合运算"></a>10.传统集合运算</h3><p>计算机二级考这部分的选择题，一般可以根据图的特点判断，下面后面括号里的就是特点</p>
-<h4 id="并（Union）"><a href="#并（Union）" class="headerlink" title="并（Union）"></a><strong>并（Union）</strong></h4><p>将两个集合中的所有元素合并成一个新集合，并去除重复元素（特点是行数增加）</p>
-<h4 id="交（Intersection）"><a href="#交（Intersection）" class="headerlink" title="交（Intersection）"></a><strong>交（Intersection）</strong></h4><p>返回同时属于两个集合的共同元素，即两个集合的交集（特点是行数减少）。</p>
-<h4 id="差（Difference）"><a href="#差（Difference）" class="headerlink" title="差（Difference）"></a><strong>差（Difference）</strong></h4><p>返回属于第一个集合但不属于第二个集合的元素，即集合的差集。</p>
+<h3 id="10-传统集合运算"><a href="#10-传统集合运算" class="headerlink" title="10.传统集合运算" data-stellar-navigation=""></a>10.传统集合运算</h3><p>计算机二级考这部分的选择题，一般可以根据图的特点判断，下面后面括号里的就是特点</p>
+<h4 id="并（Union）"><a href="#并（Union）" class="headerlink" title="并（Union）" data-stellar-navigation=""></a><strong>并（Union）</strong></h4><p>将两个集合中的所有元素合并成一个新集合，并去除重复元素（特点是行数增加）</p>
+<h4 id="交（Intersection）"><a href="#交（Intersection）" class="headerlink" title="交（Intersection）" data-stellar-navigation=""></a><strong>交（Intersection）</strong></h4><p>返回同时属于两个集合的共同元素，即两个集合的交集（特点是行数减少）。</p>
+<h4 id="差（Difference）"><a href="#差（Difference）" class="headerlink" title="差（Difference）" data-stellar-navigation=""></a><strong>差（Difference）</strong></h4><p>返回属于第一个集合但不属于第二个集合的元素，即集合的差集。</p>
 <p>下面的情况考的不多</p>
 <ul>
 <li>笛卡儿积：两个集合的笛卡儿积是指将每个元素与另一个集合的每个元素两两组合，形成所有可能的有序对（特点是行数和列数都增加）。</li>
 <li>商运算：两个集合做除法（特点是行数和列数都减少）。</li>
 </ul>
-<h3 id="11-数据库关系运算"><a href="#11-数据库关系运算" class="headerlink" title="11.数据库关系运算"></a>11.数据库关系运算</h3><p>除开上面的运算，还有下面的这几种运算</p>
-<h4 id="基本关系运算"><a href="#基本关系运算" class="headerlink" title="基本关系运算"></a>基本关系运算</h4><ul>
+<h3 id="11-数据库关系运算"><a href="#11-数据库关系运算" class="headerlink" title="11.数据库关系运算" data-stellar-navigation=""></a>11.数据库关系运算</h3><p>除开上面的运算，还有下面的这几种运算</p>
+<h4 id="基本关系运算"><a href="#基本关系运算" class="headerlink" title="基本关系运算" data-stellar-navigation=""></a>基本关系运算</h4><ul>
 <li><strong>选择</strong>：从关系中筛选满足特定条件的元组（<strong>行</strong>），一般用<code>σ</code>表示。</li>
 <li><strong>投影</strong>：从关系中选择特定的属性（<strong>列</strong>），一般用<code>π</code>表示。</li>
 </ul>
-<h4 id="连接运算"><a href="#连接运算" class="headerlink" title="连接运算"></a>连接运算</h4><ul>
+<h4 id="连接运算"><a href="#连接运算" class="headerlink" title="连接运算" data-stellar-navigation=""></a>连接运算</h4><ul>
 <li><strong>自然连接</strong>：基于同名属性匹配并合并两个关系的数据。</li>
 <li><strong>等值连接</strong>：通过相等条件进行连接。</li>
 <li>一般情况下，商运算得到的结果**<u>一定和除数完全相关</u>**</li>
 </ul>
-<h3 id="12-三大范式"><a href="#12-三大范式" class="headerlink" title="12.三大范式"></a>12.三大范式</h3><p>直接看本网站数据库复习的部分</p>
+<h3 id="12-三大范式"><a href="#12-三大范式" class="headerlink" title="12.三大范式" data-stellar-navigation=""></a>12.三大范式</h3><p>直接看本网站数据库复习的部分</p>
 <hr>
-<h3 id="二、记忆题部分速记"><a href="#二、记忆题部分速记" class="headerlink" title="二、记忆题部分速记"></a>二、记忆题部分速记</h3><h3 id="01-计算机系统概述"><a href="#01-计算机系统概述" class="headerlink" title="01 计算机系统概述"></a>01 计算机系统概述</h3><ul>
+<h3 id="二、记忆题部分速记"><a href="#二、记忆题部分速记" class="headerlink" title="二、记忆题部分速记" data-stellar-navigation=""></a>二、记忆题部分速记</h3><h3 id="01-计算机系统概述"><a href="#01-计算机系统概述" class="headerlink" title="01 计算机系统概述" data-stellar-navigation=""></a>01 计算机系统概述</h3><ul>
 <li>概述<ul>
 <li>计算机产生与发展<ul>
 <li>冯诺依曼<ul>
@@ -989,7 +922,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h3 id="02-存储器考点"><a href="#02-存储器考点" class="headerlink" title="02 存储器考点"></a>02 存储器考点</h3><ul>
+<h3 id="02-存储器考点"><a href="#02-存储器考点" class="headerlink" title="02 存储器考点" data-stellar-navigation=""></a>02 存储器考点</h3><ul>
 <li>存储器<ul>
 <li>★ 寄存器<ul>
 <li>分布在 CPU 内部的高速存储器</li>
@@ -1029,7 +962,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h3 id="03-机器指令"><a href="#03-机器指令" class="headerlink" title="03 机器指令"></a>03 机器指令</h3><ul>
+<h3 id="03-机器指令"><a href="#03-机器指令" class="headerlink" title="03 机器指令" data-stellar-navigation=""></a>03 机器指令</h3><ul>
 <li>机器指令<ul>
 <li>定义<ul>
 <li>计算机可直接识别和执行的命令</li>
@@ -1073,7 +1006,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h3 id="04-总线"><a href="#04-总线" class="headerlink" title="04 总线"></a>04 总线</h3><ul>
+<h3 id="04-总线"><a href="#04-总线" class="headerlink" title="04 总线" data-stellar-navigation=""></a>04 总线</h3><ul>
 <li>总线<ul>
 <li>作用<ul>
 <li>CPU 可以通过总线访问计算机内存和各种输入输出设备</li>
@@ -1114,13 +1047,13 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h3 id="05-操作系统"><a href="#05-操作系统" class="headerlink" title="05 操作系统"></a>05 操作系统</h3><h4 id="操作系统主要特征"><a href="#操作系统主要特征" class="headerlink" title="操作系统主要特征"></a>操作系统主要特征</h4><ul>
+<h3 id="05-操作系统"><a href="#05-操作系统" class="headerlink" title="05 操作系统" data-stellar-navigation=""></a>05 操作系统</h3><h4 id="操作系统主要特征"><a href="#操作系统主要特征" class="headerlink" title="操作系统主要特征" data-stellar-navigation=""></a>操作系统主要特征</h4><ul>
 <li>共享性</li>
 <li>异步性</li>
 <li>虚拟性</li>
 <li>并发性</li>
 </ul>
-<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类" data-stellar-navigation=""></a>分类</h4><ul>
 <li><strong>多道程序处理操作系统</strong>：分时操作系统、网络操作系统、嵌入式操作系统<ul>
 <li><strong>分时操作系统</strong><ul>
 <li>允许多个联机用户同时使用一个计算机系统</li>
@@ -1140,7 +1073,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h4><ol>
+<h4 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能" data-stellar-navigation=""></a>主要功能</h4><ol>
 <li><p><strong>进程管理</strong></p>
 <ul>
 <li>进程：程序在内存中运行的基本单位</li>
@@ -1204,8 +1137,8 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ol>
-<h3 id="06-I-O-控制方式"><a href="#06-I-O-控制方式" class="headerlink" title="06 I/O 控制方式"></a>06 I/O 控制方式</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>I/O 控制方式是计算机系统中用于管理和控制输入输出操作的一组技术。</p>
-<h4 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h4><ul>
+<h3 id="06-I-O-控制方式"><a href="#06-I-O-控制方式" class="headerlink" title="06 I/O 控制方式" data-stellar-navigation=""></a>06 I/O 控制方式</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述" data-stellar-navigation=""></a>概述</h4><p>I/O 控制方式是计算机系统中用于管理和控制输入输出操作的一组技术。</p>
+<h4 id="方式"><a href="#方式" class="headerlink" title="方式" data-stellar-navigation=""></a>方式</h4><ul>
 <li><p><strong>程序查询</strong></p>
 <ul>
 <li>程序主动查询 I/O 设备是否准备好</li>
@@ -1228,8 +1161,8 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h3 id="07-算法"><a href="#07-算法" class="headerlink" title="07 算法"></a>07 算法</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>算法是解决问题的方法和步骤。<br>程序可以作为算法的一种描述方法，但算法 ≠ 程序。</p>
-<h4 id="四个特点"><a href="#四个特点" class="headerlink" title="四个特点"></a>四个特点</h4><ul>
+<h3 id="07-算法"><a href="#07-算法" class="headerlink" title="07 算法" data-stellar-navigation=""></a>07 算法</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义" data-stellar-navigation=""></a>定义</h4><p>算法是解决问题的方法和步骤。<br>程序可以作为算法的一种描述方法，但算法 ≠ 程序。</p>
+<h4 id="四个特点"><a href="#四个特点" class="headerlink" title="四个特点" data-stellar-navigation=""></a>四个特点</h4><ul>
 <li><strong>确定性</strong>：每条指令有明确含义</li>
 <li><strong>可行性</strong>：在经过有限次运算后得到结果</li>
 <li><strong>有穷性</strong>：有穷时间内可以执行完<ul>
@@ -1242,12 +1175,12 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="算法的控制结构"><a href="#算法的控制结构" class="headerlink" title="算法的控制结构"></a>算法的控制结构</h4><ul>
+<h4 id="算法的控制结构"><a href="#算法的控制结构" class="headerlink" title="算法的控制结构" data-stellar-navigation=""></a>算法的控制结构</h4><ul>
 <li><strong>顺序结构</strong></li>
 <li><strong>选择结构（分支结构）</strong></li>
 <li><strong>循环结构（重复）</strong></li>
 </ul>
-<h4 id="衡量算法的优劣标准"><a href="#衡量算法的优劣标准" class="headerlink" title="衡量算法的优劣标准"></a>衡量算法的优劣标准</h4><ul>
+<h4 id="衡量算法的优劣标准"><a href="#衡量算法的优劣标准" class="headerlink" title="衡量算法的优劣标准" data-stellar-navigation=""></a>衡量算法的优劣标准</h4><ul>
 <li><strong>时间复杂度</strong>：需要运算的次数（工作量）</li>
 <li><strong>空间复杂度</strong>：<ul>
 <li><strong>程序代码所占空间</strong></li>
@@ -1262,8 +1195,8 @@ var _hmt = _hmt || [];
 </li>
 <li><em>注</em>：时间复杂度与空间复杂度没有直接关系</li>
 </ul>
-<h3 id="08-数据结构"><a href="#08-数据结构" class="headerlink" title="08 数据结构"></a>08 数据结构</h3><h4 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h4><h5 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h5><p>数据元素在逻辑上的前后件关系。<br>数据的逻辑结构与所使用的计算机无关。</p>
-<h5 id="分类-1"><a href="#分类-1" class="headerlink" title="分类"></a>分类</h5><ul>
+<h3 id="08-数据结构"><a href="#08-数据结构" class="headerlink" title="08 数据结构" data-stellar-navigation=""></a>08 数据结构</h3><h4 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构" data-stellar-navigation=""></a>逻辑结构</h4><h5 id="定义-1"><a href="#定义-1" class="headerlink" title="定义" data-stellar-navigation=""></a>定义</h5><p>数据元素在逻辑上的前后件关系。<br>数据的逻辑结构与所使用的计算机无关。</p>
+<h5 id="分类-1"><a href="#分类-1" class="headerlink" title="分类" data-stellar-navigation=""></a>分类</h5><ul>
 <li><strong>线性结构</strong><ul>
 <li><strong>特点</strong>：数据元素之间存在一对一的线性关系</li>
 <li><strong>实例</strong>：数组、线性表、栈、队列</li>
@@ -1275,8 +1208,8 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h4><h5 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h5><p>数据元素在计算机上的存储关系。<br>算法的执行效率与数据的存储结构有关。</p>
-<h5 id="分类-2"><a href="#分类-2" class="headerlink" title="分类"></a>分类</h5><ul>
+<h4 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构" data-stellar-navigation=""></a>存储结构</h4><h5 id="定义-2"><a href="#定义-2" class="headerlink" title="定义" data-stellar-navigation=""></a>定义</h5><p>数据元素在计算机上的存储关系。<br>算法的执行效率与数据的存储结构有关。</p>
+<h5 id="分类-2"><a href="#分类-2" class="headerlink" title="分类" data-stellar-navigation=""></a>分类</h5><ul>
 <li><strong>顺序存储</strong><ul>
 <li><strong>存储方式</strong>：将数据元素按照顺序依次存放在连续的存储区域中</li>
 <li><strong>特点</strong>：逻辑上相邻的元素在物理存储位置上也相邻</li>
@@ -1290,11 +1223,11 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h4><ul>
+<h4 id="关系"><a href="#关系" class="headerlink" title="关系" data-stellar-navigation=""></a>关系</h4><ul>
 <li>线性表可以采用顺序存储，也可以采用链式存储</li>
 <li>非线性表可以采用顺序存储，也可以采用链式存储</li>
 </ul>
-<h4 id="数据结构的表达"><a href="#数据结构的表达" class="headerlink" title="数据结构的表达"></a>数据结构的表达</h4><ul>
+<h4 id="数据结构的表达"><a href="#数据结构的表达" class="headerlink" title="数据结构的表达" data-stellar-navigation=""></a>数据结构的表达</h4><ul>
 <li><strong>数据元素的集合</strong>：d</li>
 <li><strong>数据的前后件关系</strong>：r</li>
 <li><strong>示例</strong>：<ul>
@@ -1303,12 +1236,12 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h3 id="09-栈与队列"><a href="#09-栈与队列" class="headerlink" title="09 栈与队列"></a>09 栈与队列</h3><h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><p>栈：只允许在一端（栈顶）插入或删除的线性表。</p>
-<h5 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h5><ul>
+<h3 id="09-栈与队列"><a href="#09-栈与队列" class="headerlink" title="09 栈与队列" data-stellar-navigation=""></a>09 栈与队列</h3><h4 id="栈"><a href="#栈" class="headerlink" title="栈" data-stellar-navigation=""></a>栈</h4><p>栈：只允许在一端（栈顶）插入或删除的线性表。</p>
+<h5 id="结构"><a href="#结构" class="headerlink" title="结构" data-stellar-navigation=""></a>结构</h5><ul>
 <li><strong>栈顶/栈底</strong></li>
 <li><strong>特点</strong>：先进后出，后进先出</li>
 </ul>
-<h5 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h5><ul>
+<h5 id="应用"><a href="#应用" class="headerlink" title="应用" data-stellar-navigation=""></a>应用</h5><ul>
 <li><strong>子程序调用</strong></li>
 <li><strong>具有记忆功能</strong><ul>
 <li><strong>函数调用</strong></li>
@@ -1316,57 +1249,57 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h5 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h5><ul>
+<h5 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式" data-stellar-navigation=""></a>存储方式</h5><ul>
 <li><strong>顺序存储</strong></li>
 <li><strong>链式存储</strong></li>
 </ul>
-<h5 id="栈中元素个数（计算题）"><a href="#栈中元素个数（计算题）" class="headerlink" title="栈中元素个数（计算题）"></a>栈中元素个数（计算题）</h5><ul>
+<h5 id="栈中元素个数（计算题）"><a href="#栈中元素个数（计算题）" class="headerlink" title="栈中元素个数（计算题）" data-stellar-navigation=""></a>栈中元素个数（计算题）</h5><ul>
 <li><strong>TOP 小于等于 0</strong></li>
 <li><strong>TOP 大于最大容量值</strong></li>
 </ul>
 <hr>
-<h4 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h4><p>队列：只允许在一端进行插入，在另一端删除的线性表。</p>
-<h5 id="结构-1"><a href="#结构-1" class="headerlink" title="结构"></a>结构</h5><ul>
+<h4 id="队列"><a href="#队列" class="headerlink" title="队列" data-stellar-navigation=""></a>队列</h4><p>队列：只允许在一端进行插入，在另一端删除的线性表。</p>
+<h5 id="结构-1"><a href="#结构-1" class="headerlink" title="结构" data-stellar-navigation=""></a>结构</h5><ul>
 <li><strong>在队尾添加记录</strong></li>
 <li><strong>在队头删除记录</strong></li>
 <li><strong>特点</strong>：先进先出，后进后出</li>
 </ul>
-<h5 id="循环队列元素个数（计算题）"><a href="#循环队列元素个数（计算题）" class="headerlink" title="循环队列元素个数（计算题）"></a>循环队列元素个数（计算题）</h5><ul>
+<h5 id="循环队列元素个数（计算题）"><a href="#循环队列元素个数（计算题）" class="headerlink" title="循环队列元素个数（计算题）" data-stellar-navigation=""></a>循环队列元素个数（计算题）</h5><ul>
 <li><strong>rear = front</strong> → 0 或 满</li>
 <li><strong>rear &gt; front</strong> → rear - front</li>
 <li><strong>rear &lt; front</strong> → rear - front + 总容量</li>
 </ul>
-<h5 id="队列的应用"><a href="#队列的应用" class="headerlink" title="队列的应用"></a>队列的应用</h5><ul>
+<h5 id="队列的应用"><a href="#队列的应用" class="headerlink" title="队列的应用" data-stellar-navigation=""></a>队列的应用</h5><ul>
 <li><strong>操作系统中的工作调度</strong><ul>
 <li>若工作的优先权相同，则采用<strong>先到先得</strong>的原则。</li>
 </ul>
 </li>
 </ul>
-<h3 id="10-查找与排序技术"><a href="#10-查找与排序技术" class="headerlink" title="10 查找与排序技术"></a>10 查找与排序技术</h3><h4 id="查找技术"><a href="#查找技术" class="headerlink" title="查找技术"></a>查找技术</h4><h5 id="顺序查找-1"><a href="#顺序查找-1" class="headerlink" title="顺序查找"></a>顺序查找</h5><ul>
+<h3 id="10-查找与排序技术"><a href="#10-查找与排序技术" class="headerlink" title="10 查找与排序技术" data-stellar-navigation=""></a>10 查找与排序技术</h3><h4 id="查找技术"><a href="#查找技术" class="headerlink" title="查找技术" data-stellar-navigation=""></a>查找技术</h4><h5 id="顺序查找-1"><a href="#顺序查找-1" class="headerlink" title="顺序查找" data-stellar-navigation=""></a>顺序查找</h5><ul>
 <li>适用于长度为 n 的线性表，查找特定元素。</li>
 <li><strong>最坏情况</strong>：需要查找 n 次。</li>
 <li><strong>平均比较次数</strong>： (n+1)/2 次。</li>
 <li>可用于查找最大（最小）值，最坏情况需要比较 n-1 次。</li>
 </ul>
-<h5 id="二分法查找（对分查找）"><a href="#二分法查找（对分查找）" class="headerlink" title="二分法查找（对分查找）"></a>二分法查找（对分查找）</h5><ul>
+<h5 id="二分法查找（对分查找）"><a href="#二分法查找（对分查找）" class="headerlink" title="二分法查找（对分查找）" data-stellar-navigation=""></a>二分法查找（对分查找）</h5><ul>
 <li>只适用于<strong>顺序存储</strong>的有序表。</li>
 <li><strong>最坏情况</strong>：查找特定元素时需要 log₂(n) 次比较。</li>
 </ul>
 <hr>
-<h4 id="排序技术"><a href="#排序技术" class="headerlink" title="排序技术"></a>排序技术</h4><h5 id="交换类排序"><a href="#交换类排序" class="headerlink" title="交换类排序"></a>交换类排序</h5><ul>
+<h4 id="排序技术"><a href="#排序技术" class="headerlink" title="排序技术" data-stellar-navigation=""></a>排序技术</h4><h5 id="交换类排序"><a href="#交换类排序" class="headerlink" title="交换类排序" data-stellar-navigation=""></a>交换类排序</h5><ul>
 <li><strong>冒泡排序</strong></li>
 <li><strong>快速排序</strong>（适用于顺序存储的线性表）</li>
 </ul>
-<h5 id="插入类排序"><a href="#插入类排序" class="headerlink" title="插入类排序"></a>插入类排序</h5><ul>
+<h5 id="插入类排序"><a href="#插入类排序" class="headerlink" title="插入类排序" data-stellar-navigation=""></a>插入类排序</h5><ul>
 <li><strong>简单插入排序</strong></li>
 <li><strong>希尔排序</strong>（每次数据元素的移动可以消除多个逆序）</li>
 </ul>
-<h5 id="选择类排序"><a href="#选择类排序" class="headerlink" title="选择类排序"></a>选择类排序</h5><ul>
+<h5 id="选择类排序"><a href="#选择类排序" class="headerlink" title="选择类排序" data-stellar-navigation=""></a>选择类排序</h5><ul>
 <li><strong>简单选择排序</strong></li>
 <li><strong>堆排序</strong>（时间复杂度最小）</li>
 </ul>
 <hr>
-<h4 id="重点-排序方法及时间复杂度"><a href="#重点-排序方法及时间复杂度" class="headerlink" title="重点-排序方法及时间复杂度"></a>重点-排序方法及时间复杂度</h4><div class="md-table-scroll"><table>
+<h4 id="重点-排序方法及时间复杂度"><a href="#重点-排序方法及时间复杂度" class="headerlink" title="重点-排序方法及时间复杂度" data-stellar-navigation=""></a>重点-排序方法及时间复杂度</h4><div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>类别</th>
@@ -1405,45 +1338,45 @@ var _hmt = _hmt || [];
 <td>O(nlog₂n)（最小）</td>
 </tr>
 </tbody></table></div>
-<h3 id="11-软件工程基础"><a href="#11-软件工程基础" class="headerlink" title="11 软件工程基础"></a>11 软件工程基础</h3><h4 id="软件的组成"><a href="#软件的组成" class="headerlink" title="软件的组成"></a>软件的组成</h4><ul>
+<h3 id="11-软件工程基础"><a href="#11-软件工程基础" class="headerlink" title="11 软件工程基础" data-stellar-navigation=""></a>11 软件工程基础</h3><h4 id="软件的组成"><a href="#软件的组成" class="headerlink" title="软件的组成" data-stellar-navigation=""></a>软件的组成</h4><ul>
 <li>软件是包括程序、数据及相关文档的完整集合。</li>
 </ul>
-<h4 id="功能分类"><a href="#功能分类" class="headerlink" title="功能分类"></a>功能分类</h4><h5 id="系统软件"><a href="#系统软件" class="headerlink" title="系统软件"></a>系统软件</h5><ul>
+<h4 id="功能分类"><a href="#功能分类" class="headerlink" title="功能分类" data-stellar-navigation=""></a>功能分类</h4><h5 id="系统软件"><a href="#系统软件" class="headerlink" title="系统软件" data-stellar-navigation=""></a>系统软件</h5><ul>
 <li>操作系统</li>
 <li>数据库管理系统</li>
 <li>编译程序</li>
 <li>汇编程序</li>
 </ul>
-<h5 id="应用软件"><a href="#应用软件" class="headerlink" title="应用软件"></a>应用软件</h5><h5 id="支撑软件"><a href="#支撑软件" class="headerlink" title="支撑软件"></a>支撑软件</h5><h4 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h4><h5 id="源于软件危机"><a href="#源于软件危机" class="headerlink" title="源于软件危机"></a>源于软件危机</h5><ul>
+<h5 id="应用软件"><a href="#应用软件" class="headerlink" title="应用软件" data-stellar-navigation=""></a>应用软件</h5><h5 id="支撑软件"><a href="#支撑软件" class="headerlink" title="支撑软件" data-stellar-navigation=""></a>支撑软件</h5><h4 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程" data-stellar-navigation=""></a>软件工程</h4><h5 id="源于软件危机"><a href="#源于软件危机" class="headerlink" title="源于软件危机" data-stellar-navigation=""></a>源于软件危机</h5><ul>
 <li>软件危机可归结为成本、质量、生产率等问题。</li>
 </ul>
-<h5 id="三要素"><a href="#三要素" class="headerlink" title="三要素"></a>三要素</h5><ol>
+<h5 id="三要素"><a href="#三要素" class="headerlink" title="三要素" data-stellar-navigation=""></a>三要素</h5><ol>
 <li>方法</li>
 <li>工具</li>
 <li>过程</li>
 </ol>
-<h5 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h5><h6 id="软件定义阶段"><a href="#软件定义阶段" class="headerlink" title="软件定义阶段"></a>软件定义阶段</h6><ul>
+<h5 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期" data-stellar-navigation=""></a>软件生命周期</h5><h6 id="软件定义阶段"><a href="#软件定义阶段" class="headerlink" title="软件定义阶段" data-stellar-navigation=""></a>软件定义阶段</h6><ul>
 <li>问题定义</li>
 <li>可行性研究</li>
 <li>需求分析</li>
 </ul>
-<h6 id="软件开发阶段"><a href="#软件开发阶段" class="headerlink" title="软件开发阶段"></a>软件开发阶段</h6><ul>
+<h6 id="软件开发阶段"><a href="#软件开发阶段" class="headerlink" title="软件开发阶段" data-stellar-navigation=""></a>软件开发阶段</h6><ul>
 <li>概要（总体）设计</li>
 <li>详细设计</li>
 <li>软件实现</li>
 <li>软件测试</li>
 </ul>
-<h6 id="软件运行维护阶段"><a href="#软件运行维护阶段" class="headerlink" title="软件运行维护阶段"></a>软件运行维护阶段</h6><ul>
+<h6 id="软件运行维护阶段"><a href="#软件运行维护阶段" class="headerlink" title="软件运行维护阶段" data-stellar-navigation=""></a>软件运行维护阶段</h6><ul>
 <li>软件生命周期中<strong>花费最多的阶段</strong>是软件运行维护阶段。</li>
 </ul>
-<h3 id="12-需求分析（做什么）"><a href="#12-需求分析（做什么）" class="headerlink" title="12 需求分析（做什么）"></a>12 需求分析（做什么）</h3><h4 id="主要任务"><a href="#主要任务" class="headerlink" title="主要任务"></a>主要任务</h4><ul>
+<h3 id="12-需求分析（做什么）"><a href="#12-需求分析（做什么）" class="headerlink" title="12 需求分析（做什么）" data-stellar-navigation=""></a>12 需求分析（做什么）</h3><h4 id="主要任务"><a href="#主要任务" class="headerlink" title="主要任务" data-stellar-navigation=""></a>主要任务</h4><ul>
 <li>确定软件系统的功能（做什么）</li>
 </ul>
-<h4 id="2-种方法"><a href="#2-种方法" class="headerlink" title="2 种方法"></a>2 种方法</h4><ul>
+<h4 id="2-种方法"><a href="#2-种方法" class="headerlink" title="2 种方法" data-stellar-navigation=""></a>2 种方法</h4><ul>
 <li>结构化分析方法</li>
 <li>面向对象的分析方法</li>
 </ul>
-<h4 id="4-个步骤"><a href="#4-个步骤" class="headerlink" title="4 个步骤"></a>4 个步骤</h4><ul>
+<h4 id="4-个步骤"><a href="#4-个步骤" class="headerlink" title="4 个步骤" data-stellar-navigation=""></a>4 个步骤</h4><ul>
 <li>需求获取</li>
 <li>需求分析<ul>
 <li>需求分析的最终结果</li>
@@ -1453,7 +1386,7 @@ var _hmt = _hmt || [];
 <li>编写软件需求规格说明书</li>
 <li>需求评审</li>
 </ul>
-<h4 id="4-种工具"><a href="#4-种工具" class="headerlink" title="4 种工具"></a>4 种工具</h4><ul>
+<h4 id="4-种工具"><a href="#4-种工具" class="headerlink" title="4 种工具" data-stellar-navigation=""></a>4 种工具</h4><ul>
 <li><strong>数据字典 DD</strong><ul>
 <li>数据字典的作用是对数据流图中出现的被命名的图形元素的确切解释。</li>
 <li>数据字典是结构化分析方法的核心。</li>
@@ -1470,7 +1403,7 @@ var _hmt = _hmt || [];
 <li><strong>判定树</strong></li>
 <li><strong>判定表</strong></li>
 </ul>
-<h3 id="13-软件设计（怎么做）"><a href="#13-软件设计（怎么做）" class="headerlink" title="13 软件设计（怎么做）"></a>13 软件设计（怎么做）</h3><h4 id="总体设计（概要设计）"><a href="#总体设计（概要设计）" class="headerlink" title="总体设计（概要设计）"></a>总体设计（概要设计）</h4><ul>
+<h3 id="13-软件设计（怎么做）"><a href="#13-软件设计（怎么做）" class="headerlink" title="13 软件设计（怎么做）" data-stellar-navigation=""></a>13 软件设计（怎么做）</h3><h4 id="总体设计（概要设计）"><a href="#总体设计（概要设计）" class="headerlink" title="总体设计（概要设计）" data-stellar-navigation=""></a>总体设计（概要设计）</h4><ul>
 <li><strong>主要任务</strong>：确定软件系统的整体结构、模块划分、接口和数据流等</li>
 <li><strong>模块的两个定性指标</strong><ul>
 <li><strong>耦合性</strong>：不同模块之间相互链接的紧密程度</li>
@@ -1485,7 +1418,7 @@ var _hmt = _hmt || [];
 </li>
 <li><strong>总体设计完成后，需要编写概要设计文档</strong></li>
 </ul>
-<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><ul>
+<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计" data-stellar-navigation=""></a>详细设计</h4><ul>
 <li><strong>主要任务</strong>：确定每个模块的算法和使用的数据结构，并用特定表达工具表示细节</li>
 <li><strong>程序流程图</strong></li>
 <li><strong>图形工具</strong><ul>
@@ -1503,10 +1436,10 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h3 id="14-软件测试（找错误）"><a href="#14-软件测试（找错误）" class="headerlink" title="14 软件测试（找错误）"></a>14 软件测试（找错误）</h3><h4 id="软件测试的目的"><a href="#软件测试的目的" class="headerlink" title="软件测试的目的"></a>软件测试的目的</h4><ul>
+<h3 id="14-软件测试（找错误）"><a href="#14-软件测试（找错误）" class="headerlink" title="14 软件测试（找错误）" data-stellar-navigation=""></a>14 软件测试（找错误）</h3><h4 id="软件测试的目的"><a href="#软件测试的目的" class="headerlink" title="软件测试的目的" data-stellar-navigation=""></a>软件测试的目的</h4><ul>
 <li>发现错误</li>
 </ul>
-<h4 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h4><ul>
+<h4 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法" data-stellar-navigation=""></a>测试方法</h4><ul>
 <li><strong>按是否被运行</strong><ul>
 <li>静态测试（不运行）</li>
 <li>动态测试（运行）</li>
@@ -1527,7 +1460,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="软件测试的四个步骤"><a href="#软件测试的四个步骤" class="headerlink" title="软件测试的四个步骤"></a>软件测试的四个步骤</h4><ol>
+<h4 id="软件测试的四个步骤"><a href="#软件测试的四个步骤" class="headerlink" title="软件测试的四个步骤" data-stellar-navigation=""></a>软件测试的四个步骤</h4><ol>
 <li><strong>单元测试</strong><ul>
 <li>依据：编码和详细设计说明书</li>
 <li>测试内容：模块的接口、局部数据结构和出错处理能力</li>
@@ -1537,32 +1470,32 @@ var _hmt = _hmt || [];
 <li><strong>系统测试</strong></li>
 <li><strong>确认测试</strong></li>
 </ol>
-<h4 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h4><ul>
+<h4 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例" data-stellar-navigation=""></a>测试用例</h4><ul>
 <li><strong>测试数据</strong></li>
 <li><strong>预期结果</strong></li>
 <li><strong>测试环境</strong></li>
 <li><strong>操作步骤</strong></li>
 </ul>
-<h4 id="其他测试原则"><a href="#其他测试原则" class="headerlink" title="其他测试原则"></a>其他测试原则</h4><ul>
+<h4 id="其他测试原则"><a href="#其他测试原则" class="headerlink" title="其他测试原则" data-stellar-navigation=""></a>其他测试原则</h4><ul>
 <li>软件测试严格执行测试计划，排除测试的随意性</li>
 <li>软件调试的目的是改正软件错误</li>
 </ul>
-<h3 id="15-数据库系统"><a href="#15-数据库系统" class="headerlink" title="15 数据库系统"></a>15 数据库系统</h3><h4 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h4><ul>
+<h3 id="15-数据库系统"><a href="#15-数据库系统" class="headerlink" title="15 数据库系统" data-stellar-navigation=""></a>15 数据库系统</h3><h4 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语" data-stellar-navigation=""></a>基本术语</h4><ul>
 <li><strong>数据库系统（DBS）</strong> 包括数据库（DB）和数据库管理系统（DBMS）</li>
 <li><strong>DBMS 是 DBS 的核心</strong></li>
 </ul>
-<h4 id="数据管理三大发展阶段"><a href="#数据管理三大发展阶段" class="headerlink" title="数据管理三大发展阶段"></a>数据管理三大发展阶段</h4><ol>
+<h4 id="数据管理三大发展阶段"><a href="#数据管理三大发展阶段" class="headerlink" title="数据管理三大发展阶段" data-stellar-navigation=""></a>数据管理三大发展阶段</h4><ol>
 <li>人工管理阶段</li>
 <li>文件系统阶段</li>
 <li>数据库系统阶段</li>
 </ol>
-<h4 id="数据库系统特点"><a href="#数据库系统特点" class="headerlink" title="数据库系统特点"></a>数据库系统特点</h4><ul>
+<h4 id="数据库系统特点"><a href="#数据库系统特点" class="headerlink" title="数据库系统特点" data-stellar-navigation=""></a>数据库系统特点</h4><ul>
 <li><strong>集成性高</strong></li>
 <li><strong>高共享低冗余</strong></li>
 <li><strong>数据独立性高</strong></li>
 <li><strong>数据的统一管理与控制</strong></li>
 </ul>
-<h4 id="数据库语言"><a href="#数据库语言" class="headerlink" title="数据库语言"></a>数据库语言</h4><ul>
+<h4 id="数据库语言"><a href="#数据库语言" class="headerlink" title="数据库语言" data-stellar-navigation=""></a>数据库语言</h4><ul>
 <li><strong>数据定义语言</strong><ul>
 <li>对概念模式内容进行说明</li>
 </ul>
@@ -1576,7 +1509,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="数据库系统三级模式"><a href="#数据库系统三级模式" class="headerlink" title="数据库系统三级模式"></a>数据库系统三级模式</h4><ul>
+<h4 id="数据库系统三级模式"><a href="#数据库系统三级模式" class="headerlink" title="数据库系统三级模式" data-stellar-navigation=""></a>数据库系统三级模式</h4><ul>
 <li><strong>内模式</strong>（物理模式）<ul>
 <li>反映物理存储形式，只有一个</li>
 </ul>
@@ -1590,24 +1523,24 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="三级模式的作用"><a href="#三级模式的作用" class="headerlink" title="三级模式的作用"></a>三级模式的作用</h4><ul>
+<h4 id="三级模式的作用"><a href="#三级模式的作用" class="headerlink" title="三级模式的作用" data-stellar-navigation=""></a>三级模式的作用</h4><ul>
 <li><strong>物理独立性</strong></li>
 <li><strong>逻辑独立性</strong></li>
 <li><strong>保持数据库的独立性</strong></li>
 </ul>
-<h3 id="16-数据库与数据模型"><a href="#16-数据库与数据模型" class="headerlink" title="16 数据库与数据模型"></a>16 数据库与数据模型</h3><h4 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h4><ul>
+<h3 id="16-数据库与数据模型"><a href="#16-数据库与数据模型" class="headerlink" title="16 数据库与数据模型" data-stellar-navigation=""></a>16 数据库与数据模型</h3><h4 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库" data-stellar-navigation=""></a>关系型数据库</h4><ul>
 <li><strong>记录（元组）</strong>：二维表中的每一行信息</li>
 <li><strong>字段（属性）</strong>：二维表中的每一列信息</li>
 <li><strong>关系（二维表）</strong>：一张二维表就是一个关系</li>
 </ul>
-<h5 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h5><ul>
+<h5 id="约束"><a href="#约束" class="headerlink" title="约束" data-stellar-navigation=""></a>约束</h5><ul>
 <li><strong>候选码</strong>：能唯一标识一行记录的字段（例如学号字段）</li>
 <li><strong>主码</strong>：从多个候选码中选出一个，以它作为唯一关键字</li>
 <li><strong>外码（外部关键字）</strong>：如果表 A 的某字段是表 B 的主码，则 A 这个字段就是外码</li>
 <li><strong>全码</strong>：极个别情况下，表的所有字段组合成主码</li>
 </ul>
 <hr>
-<h4 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h4><h5 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h5><ul>
+<h4 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型" data-stellar-navigation=""></a>数据模型</h4><h5 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念" data-stellar-navigation=""></a>基本概念</h5><ul>
 <li><strong>实体</strong>：实体是具有特定属性的对象或事物</li>
 <li><strong>属性</strong>：事物的特征</li>
 <li><strong>联系</strong>：事物之间的关系<ul>
@@ -1617,7 +1550,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h5 id="三大要素"><a href="#三大要素" class="headerlink" title="三大要素"></a>三大要素</h5><ul>
+<h5 id="三大要素"><a href="#三大要素" class="headerlink" title="三大要素" data-stellar-navigation=""></a>三大要素</h5><ul>
 <li><strong>数据结构</strong></li>
 <li><strong>数据操作</strong></li>
 <li><strong>数据约束</strong><ul>
@@ -1628,7 +1561,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h5 id="数据模型分类"><a href="#数据模型分类" class="headerlink" title="数据模型分类"></a>数据模型分类</h5><ul>
+<h5 id="数据模型分类"><a href="#数据模型分类" class="headerlink" title="数据模型分类" data-stellar-navigation=""></a>数据模型分类</h5><ul>
 <li><p><strong>概念数据模型</strong></p>
 <ul>
 <li><strong>ER 模型</strong><ul>
@@ -1656,21 +1589,21 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <hr>
-<h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><h5 id="四个阶段"><a href="#四个阶段" class="headerlink" title="四个阶段"></a>四个阶段</h5><ol>
+<h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计" data-stellar-navigation=""></a>数据库设计</h2><h5 id="四个阶段"><a href="#四个阶段" class="headerlink" title="四个阶段" data-stellar-navigation=""></a>四个阶段</h5><ol>
 <li><strong>需求分析阶段</strong> - 形成软件需求说明书</li>
 <li><strong>概念设计阶段</strong> - <strong>ER 模型</strong></li>
 <li><strong>逻辑设计阶段</strong> - <strong>ER 模型 → 关系模型</strong></li>
 <li><strong>物理设计阶段</strong></li>
 </ol>
-<h5 id="规范化"><a href="#规范化" class="headerlink" title="规范化"></a>规范化</h5><ul>
+<h5 id="规范化"><a href="#规范化" class="headerlink" title="规范化" data-stellar-navigation=""></a>规范化</h5><ul>
 <li><strong>第一范式（1NF）</strong>：关系中的每个属性都不可分</li>
 <li><strong>第二范式（2NF）</strong>：在 1NF 的基础上，消除非主属性对主码的部分依赖</li>
 <li><strong>第三范式（3NF）</strong>：在 2NF 的基础上，消除非主属性对主码的传递依赖</li>
 </ul>
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://cdn.jsdmirror.com/npm/d3@7"></script><script src="https://cdn.jsdmirror.com/npm/markmap-view@0.18.10"></script><script src="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
 
-<script src="/js/markmap.js"></script>
+
+
+
 
 
   <div class="article-tags slide-up">
@@ -1729,7 +1662,7 @@ var _hmt = _hmt || [];
       <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
     </div>
   
-  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80-%E3%80%81%E8%AE%A1%E7%AE%97%E9%A2%98%E9%83%A8%E5%88%86%E8%AE%B2%E8%A7%A3"><span class="toc-text">一 、计算题部分讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2"><span class="toc-text">1.进制转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E8%A1%A5%E7%A0%81%E5%81%8F%E7%A7%BB%E7%A0%81%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">2.原码反码补码偏移码的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%8E%9F%E5%A7%8B%E8%A7%84%E5%88%99"><span class="toc-text">原始规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E9%80%89%E6%8B%A9%E9%A2%98%E4%B8%AD%E7%9A%84%E7%BB%95%E5%8F%A3%E4%BB%A4"><span class="toc-text">选择题中的绕口令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84%E7%9A%84%E5%88%A4%E6%96%AD"><span class="toc-text">3.线性结构的判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E5%85%83%E7%B4%A0%E7%9A%84%E5%A2%9E%E5%88%A0%E8%AE%A1%E7%AE%97"><span class="toc-text">4.栈和队列元素的增删计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#5-%E6%A0%88%E4%B8%AD%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">5.栈中元素个数的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#6-%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">6.循环队列元素个数的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%8C%87%E9%92%88%E6%83%85%E5%BD%A2"><span class="toc-text">指针情形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="toc-text">顺序查找</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#7-%E6%A0%91%E4%B8%AD%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">7.树中元素个数的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%A0%91%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">树的特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%A0%91%E7%9A%84%E8%8A%82%E7%82%B9%E4%B8%AA%E6%95%B0%E8%AE%A1%E7%AE%97"><span class="toc-text">树的节点个数计算</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E4%BE%8B%E9%A2%98"><span class="toc-text">例题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%AF%B9%E5%BA%94%E8%A7%A3%E6%B3%95"><span class="toc-text">对应解法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#8-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">8.二叉树的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-text">基本性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E7%89%B9%E6%AE%8A%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">特殊二叉树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E7%BB%93%E6%9E%84"><span class="toc-text">二叉树遍历结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#9-%E6%89%87%E5%85%A5%E6%95%B0%EF%BC%8C%E6%89%87%E5%87%BA%E6%95%B0%EF%BC%8C%E5%AE%BD%E5%BA%A6"><span class="toc-text">9.扇入数，扇出数，宽度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#10-%E4%BC%A0%E7%BB%9F%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97"><span class="toc-text">10.传统集合运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%B9%B6%EF%BC%88Union%EF%BC%89"><span class="toc-text">并（Union）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E4%BA%A4%EF%BC%88Intersection%EF%BC%89"><span class="toc-text">交（Intersection）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%B7%AE%EF%BC%88Difference%EF%BC%89"><span class="toc-text">差（Difference）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#11-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97"><span class="toc-text">11.数据库关系运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%9F%BA%E6%9C%AC%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97"><span class="toc-text">基本关系运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97"><span class="toc-text">连接运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#12-%E4%B8%89%E5%A4%A7%E8%8C%83%E5%BC%8F"><span class="toc-text">12.三大范式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81%E8%AE%B0%E5%BF%86%E9%A2%98%E9%83%A8%E5%88%86%E9%80%9F%E8%AE%B0"><span class="toc-text">二、记忆题部分速记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#01-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-text">01 计算机系统概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#02-%E5%AD%98%E5%82%A8%E5%99%A8%E8%80%83%E7%82%B9"><span class="toc-text">02 存储器考点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#03-%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="toc-text">03 机器指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#04-%E6%80%BB%E7%BA%BF"><span class="toc-text">04 总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#05-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">05 操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%BB%E8%A6%81%E7%89%B9%E5%BE%81"><span class="toc-text">操作系统主要特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%88%86%E7%B1%BB"><span class="toc-text">分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="toc-text">主要功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#06-I-O-%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-text">06 I/O 控制方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%96%B9%E5%BC%8F"><span class="toc-text">方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#07-%E7%AE%97%E6%B3%95"><span class="toc-text">07 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E4%B8%AA%E7%89%B9%E7%82%B9"><span class="toc-text">四个特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84"><span class="toc-text">算法的控制结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%A1%A1%E9%87%8F%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E5%8A%A3%E6%A0%87%E5%87%86"><span class="toc-text">衡量算法的优劣标准</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#08-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">08 数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="toc-text">逻辑结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%88%86%E7%B1%BB-1"><span class="toc-text">分类</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-text">存储结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%AE%9A%E4%B9%89-2"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%88%86%E7%B1%BB-2"><span class="toc-text">分类</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%85%B3%E7%B3%BB"><span class="toc-text">关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E8%A1%A8%E8%BE%BE"><span class="toc-text">数据结构的表达</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#09-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97"><span class="toc-text">09 栈与队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%A0%88"><span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E7%BB%93%E6%9E%84"><span class="toc-text">结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%BA%94%E7%94%A8"><span class="toc-text">应用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">存储方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E6%A0%88%E4%B8%AD%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0%EF%BC%88%E8%AE%A1%E7%AE%97%E9%A2%98%EF%BC%89"><span class="toc-text">栈中元素个数（计算题）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E9%98%9F%E5%88%97"><span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E7%BB%93%E6%9E%84-1"><span class="toc-text">结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0%EF%BC%88%E8%AE%A1%E7%AE%97%E9%A2%98%EF%BC%89"><span class="toc-text">循环队列元素个数（计算题）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E9%98%9F%E5%88%97%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">队列的应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#10-%E6%9F%A5%E6%89%BE%E4%B8%8E%E6%8E%92%E5%BA%8F%E6%8A%80%E6%9C%AF"><span class="toc-text">10 查找与排序技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%9F%A5%E6%89%BE%E6%8A%80%E6%9C%AF"><span class="toc-text">查找技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE-1"><span class="toc-text">顺序查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E5%88%86%E6%B3%95%E6%9F%A5%E6%89%BE%EF%BC%88%E5%AF%B9%E5%88%86%E6%9F%A5%E6%89%BE%EF%BC%89"><span class="toc-text">二分法查找（对分查找）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%8E%92%E5%BA%8F%E6%8A%80%E6%9C%AF"><span class="toc-text">排序技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E4%BA%A4%E6%8D%A2%E7%B1%BB%E6%8E%92%E5%BA%8F"><span class="toc-text">交换类排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E6%8F%92%E5%85%A5%E7%B1%BB%E6%8E%92%E5%BA%8F"><span class="toc-text">插入类排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E9%80%89%E6%8B%A9%E7%B1%BB%E6%8E%92%E5%BA%8F"><span class="toc-text">选择类排序</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E9%87%8D%E7%82%B9-%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95%E5%8F%8A%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">重点-排序方法及时间复杂度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#11-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80"><span class="toc-text">11 软件工程基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">软件的组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%8A%9F%E8%83%BD%E5%88%86%E7%B1%BB"><span class="toc-text">功能分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6"><span class="toc-text">系统软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="toc-text">应用软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E6%94%AF%E6%92%91%E8%BD%AF%E4%BB%B6"><span class="toc-text">支撑软件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B"><span class="toc-text">软件工程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E6%BA%90%E4%BA%8E%E8%BD%AF%E4%BB%B6%E5%8D%B1%E6%9C%BA"><span class="toc-text">源于软件危机</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="toc-text">三要素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">软件生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E5%AE%9A%E4%B9%89%E9%98%B6%E6%AE%B5"><span class="toc-text">软件定义阶段</span></a></li><li class="toc-item toc-level-6"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%98%B6%E6%AE%B5"><span class="toc-text">软件开发阶段</span></a></li><li class="toc-item toc-level-6"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E8%BF%90%E8%A1%8C%E7%BB%B4%E6%8A%A4%E9%98%B6%E6%AE%B5"><span class="toc-text">软件运行维护阶段</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#12-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%EF%BC%88%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%89"><span class="toc-text">12 需求分析（做什么）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E4%B8%BB%E8%A6%81%E4%BB%BB%E5%8A%A1"><span class="toc-text">主要任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#2-%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-text">2 种方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#4-%E4%B8%AA%E6%AD%A5%E9%AA%A4"><span class="toc-text">4 个步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#4-%E7%A7%8D%E5%B7%A5%E5%85%B7"><span class="toc-text">4 种工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#13-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%EF%BC%88%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%89"><span class="toc-text">13 软件设计（怎么做）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1%EF%BC%88%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1%EF%BC%89"><span class="toc-text">总体设计（概要设计）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-text">详细设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#14-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%EF%BC%88%E6%89%BE%E9%94%99%E8%AF%AF%EF%BC%89"><span class="toc-text">14 软件测试（找错误）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-text">软件测试的目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95"><span class="toc-text">测试方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E5%9B%9B%E4%B8%AA%E6%AD%A5%E9%AA%A4"><span class="toc-text">软件测试的四个步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="toc-text">测试用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%85%B6%E4%BB%96%E6%B5%8B%E8%AF%95%E5%8E%9F%E5%88%99"><span class="toc-text">其他测试原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#15-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F"><span class="toc-text">15 数据库系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD"><span class="toc-text">基本术语</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E4%B8%89%E5%A4%A7%E5%8F%91%E5%B1%95%E9%98%B6%E6%AE%B5"><span class="toc-text">数据管理三大发展阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%89%B9%E7%82%B9"><span class="toc-text">数据库系统特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AD%E8%A8%80"><span class="toc-text">数据库语言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F"><span class="toc-text">数据库系统三级模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">三级模式的作用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#16-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-text">16 数据库与数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E7%BA%A6%E6%9D%9F"><span class="toc-text">约束</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-text">数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E4%B8%89%E5%A4%A7%E8%A6%81%E7%B4%A0"><span class="toc-text">三大要素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E5%88%86%E7%B1%BB"><span class="toc-text">数据模型分类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="toc-text">数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="toc-text">四个阶段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E8%A7%84%E8%8C%83%E5%8C%96"><span class="toc-text">规范化</span></a></li></ol></li></ol></div>
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80-%E3%80%81%E8%AE%A1%E7%AE%97%E9%A2%98%E9%83%A8%E5%88%86%E8%AE%B2%E8%A7%A3" data-stellar-navigation=""><span class="toc-text">一 、计算题部分讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2" data-stellar-navigation=""><span class="toc-text">1.进制转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E8%A1%A5%E7%A0%81%E5%81%8F%E7%A7%BB%E7%A0%81%E7%9A%84%E8%AE%A1%E7%AE%97" data-stellar-navigation=""><span class="toc-text">2.原码反码补码偏移码的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%8E%9F%E5%A7%8B%E8%A7%84%E5%88%99" data-stellar-navigation=""><span class="toc-text">原始规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E9%80%89%E6%8B%A9%E9%A2%98%E4%B8%AD%E7%9A%84%E7%BB%95%E5%8F%A3%E4%BB%A4" data-stellar-navigation=""><span class="toc-text">选择题中的绕口令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84%E7%9A%84%E5%88%A4%E6%96%AD" data-stellar-navigation=""><span class="toc-text">3.线性结构的判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E5%85%83%E7%B4%A0%E7%9A%84%E5%A2%9E%E5%88%A0%E8%AE%A1%E7%AE%97" data-stellar-navigation=""><span class="toc-text">4.栈和队列元素的增删计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#5-%E6%A0%88%E4%B8%AD%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97" data-stellar-navigation=""><span class="toc-text">5.栈中元素个数的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#6-%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97" data-stellar-navigation=""><span class="toc-text">6.循环队列元素个数的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%8C%87%E9%92%88%E6%83%85%E5%BD%A2" data-stellar-navigation=""><span class="toc-text">指针情形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE" data-stellar-navigation=""><span class="toc-text">顺序查找</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#7-%E6%A0%91%E4%B8%AD%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97" data-stellar-navigation=""><span class="toc-text">7.树中元素个数的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%A0%91%E7%9A%84%E7%89%B9%E7%82%B9" data-stellar-navigation=""><span class="toc-text">树的特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%A0%91%E7%9A%84%E8%8A%82%E7%82%B9%E4%B8%AA%E6%95%B0%E8%AE%A1%E7%AE%97" data-stellar-navigation=""><span class="toc-text">树的节点个数计算</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E4%BE%8B%E9%A2%98" data-stellar-navigation=""><span class="toc-text">例题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%AF%B9%E5%BA%94%E8%A7%A3%E6%B3%95" data-stellar-navigation=""><span class="toc-text">对应解法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#8-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E8%AE%A1%E7%AE%97" data-stellar-navigation=""><span class="toc-text">8.二叉树的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8" data-stellar-navigation=""><span class="toc-text">基本性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E7%89%B9%E6%AE%8A%E4%BA%8C%E5%8F%89%E6%A0%91" data-stellar-navigation=""><span class="toc-text">特殊二叉树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E7%BB%93%E6%9E%84" data-stellar-navigation=""><span class="toc-text">二叉树遍历结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#9-%E6%89%87%E5%85%A5%E6%95%B0%EF%BC%8C%E6%89%87%E5%87%BA%E6%95%B0%EF%BC%8C%E5%AE%BD%E5%BA%A6" data-stellar-navigation=""><span class="toc-text">9.扇入数，扇出数，宽度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#10-%E4%BC%A0%E7%BB%9F%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97" data-stellar-navigation=""><span class="toc-text">10.传统集合运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%B9%B6%EF%BC%88Union%EF%BC%89" data-stellar-navigation=""><span class="toc-text">并（Union）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E4%BA%A4%EF%BC%88Intersection%EF%BC%89" data-stellar-navigation=""><span class="toc-text">交（Intersection）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%B7%AE%EF%BC%88Difference%EF%BC%89" data-stellar-navigation=""><span class="toc-text">差（Difference）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#11-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97" data-stellar-navigation=""><span class="toc-text">11.数据库关系运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%9F%BA%E6%9C%AC%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97" data-stellar-navigation=""><span class="toc-text">基本关系运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97" data-stellar-navigation=""><span class="toc-text">连接运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#12-%E4%B8%89%E5%A4%A7%E8%8C%83%E5%BC%8F" data-stellar-navigation=""><span class="toc-text">12.三大范式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81%E8%AE%B0%E5%BF%86%E9%A2%98%E9%83%A8%E5%88%86%E9%80%9F%E8%AE%B0" data-stellar-navigation=""><span class="toc-text">二、记忆题部分速记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#01-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0" data-stellar-navigation=""><span class="toc-text">01 计算机系统概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#02-%E5%AD%98%E5%82%A8%E5%99%A8%E8%80%83%E7%82%B9" data-stellar-navigation=""><span class="toc-text">02 存储器考点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#03-%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4" data-stellar-navigation=""><span class="toc-text">03 机器指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#04-%E6%80%BB%E7%BA%BF" data-stellar-navigation=""><span class="toc-text">04 总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#05-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" data-stellar-navigation=""><span class="toc-text">05 操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%BB%E8%A6%81%E7%89%B9%E5%BE%81" data-stellar-navigation=""><span class="toc-text">操作系统主要特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%88%86%E7%B1%BB" data-stellar-navigation=""><span class="toc-text">分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD" data-stellar-navigation=""><span class="toc-text">主要功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#06-I-O-%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F" data-stellar-navigation=""><span class="toc-text">06 I/O 控制方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%A6%82%E8%BF%B0" data-stellar-navigation=""><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%96%B9%E5%BC%8F" data-stellar-navigation=""><span class="toc-text">方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#07-%E7%AE%97%E6%B3%95" data-stellar-navigation=""><span class="toc-text">07 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%AE%9A%E4%B9%89" data-stellar-navigation=""><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E4%B8%AA%E7%89%B9%E7%82%B9" data-stellar-navigation=""><span class="toc-text">四个特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84" data-stellar-navigation=""><span class="toc-text">算法的控制结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%A1%A1%E9%87%8F%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E5%8A%A3%E6%A0%87%E5%87%86" data-stellar-navigation=""><span class="toc-text">衡量算法的优劣标准</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#08-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" data-stellar-navigation=""><span class="toc-text">08 数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84" data-stellar-navigation=""><span class="toc-text">逻辑结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%AE%9A%E4%B9%89-1" data-stellar-navigation=""><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%88%86%E7%B1%BB-1" data-stellar-navigation=""><span class="toc-text">分类</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84" data-stellar-navigation=""><span class="toc-text">存储结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%AE%9A%E4%B9%89-2" data-stellar-navigation=""><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%88%86%E7%B1%BB-2" data-stellar-navigation=""><span class="toc-text">分类</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%85%B3%E7%B3%BB" data-stellar-navigation=""><span class="toc-text">关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E8%A1%A8%E8%BE%BE" data-stellar-navigation=""><span class="toc-text">数据结构的表达</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#09-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97" data-stellar-navigation=""><span class="toc-text">09 栈与队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%A0%88" data-stellar-navigation=""><span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E7%BB%93%E6%9E%84" data-stellar-navigation=""><span class="toc-text">结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%BA%94%E7%94%A8" data-stellar-navigation=""><span class="toc-text">应用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F" data-stellar-navigation=""><span class="toc-text">存储方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E6%A0%88%E4%B8%AD%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0%EF%BC%88%E8%AE%A1%E7%AE%97%E9%A2%98%EF%BC%89" data-stellar-navigation=""><span class="toc-text">栈中元素个数（计算题）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E9%98%9F%E5%88%97" data-stellar-navigation=""><span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E7%BB%93%E6%9E%84-1" data-stellar-navigation=""><span class="toc-text">结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0%EF%BC%88%E8%AE%A1%E7%AE%97%E9%A2%98%EF%BC%89" data-stellar-navigation=""><span class="toc-text">循环队列元素个数（计算题）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E9%98%9F%E5%88%97%E7%9A%84%E5%BA%94%E7%94%A8" data-stellar-navigation=""><span class="toc-text">队列的应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#10-%E6%9F%A5%E6%89%BE%E4%B8%8E%E6%8E%92%E5%BA%8F%E6%8A%80%E6%9C%AF" data-stellar-navigation=""><span class="toc-text">10 查找与排序技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%9F%A5%E6%89%BE%E6%8A%80%E6%9C%AF" data-stellar-navigation=""><span class="toc-text">查找技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE-1" data-stellar-navigation=""><span class="toc-text">顺序查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E5%88%86%E6%B3%95%E6%9F%A5%E6%89%BE%EF%BC%88%E5%AF%B9%E5%88%86%E6%9F%A5%E6%89%BE%EF%BC%89" data-stellar-navigation=""><span class="toc-text">二分法查找（对分查找）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%8E%92%E5%BA%8F%E6%8A%80%E6%9C%AF" data-stellar-navigation=""><span class="toc-text">排序技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E4%BA%A4%E6%8D%A2%E7%B1%BB%E6%8E%92%E5%BA%8F" data-stellar-navigation=""><span class="toc-text">交换类排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E6%8F%92%E5%85%A5%E7%B1%BB%E6%8E%92%E5%BA%8F" data-stellar-navigation=""><span class="toc-text">插入类排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E9%80%89%E6%8B%A9%E7%B1%BB%E6%8E%92%E5%BA%8F" data-stellar-navigation=""><span class="toc-text">选择类排序</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E9%87%8D%E7%82%B9-%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95%E5%8F%8A%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6" data-stellar-navigation=""><span class="toc-text">重点-排序方法及时间复杂度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#11-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80" data-stellar-navigation=""><span class="toc-text">11 软件工程基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%84%E6%88%90" data-stellar-navigation=""><span class="toc-text">软件的组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%8A%9F%E8%83%BD%E5%88%86%E7%B1%BB" data-stellar-navigation=""><span class="toc-text">功能分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6" data-stellar-navigation=""><span class="toc-text">系统软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6" data-stellar-navigation=""><span class="toc-text">应用软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E6%94%AF%E6%92%91%E8%BD%AF%E4%BB%B6" data-stellar-navigation=""><span class="toc-text">支撑软件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B" data-stellar-navigation=""><span class="toc-text">软件工程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E6%BA%90%E4%BA%8E%E8%BD%AF%E4%BB%B6%E5%8D%B1%E6%9C%BA" data-stellar-navigation=""><span class="toc-text">源于软件危机</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E4%B8%89%E8%A6%81%E7%B4%A0" data-stellar-navigation=""><span class="toc-text">三要素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F" data-stellar-navigation=""><span class="toc-text">软件生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E5%AE%9A%E4%B9%89%E9%98%B6%E6%AE%B5" data-stellar-navigation=""><span class="toc-text">软件定义阶段</span></a></li><li class="toc-item toc-level-6"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%98%B6%E6%AE%B5" data-stellar-navigation=""><span class="toc-text">软件开发阶段</span></a></li><li class="toc-item toc-level-6"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E8%BF%90%E8%A1%8C%E7%BB%B4%E6%8A%A4%E9%98%B6%E6%AE%B5" data-stellar-navigation=""><span class="toc-text">软件运行维护阶段</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#12-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%EF%BC%88%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%89" data-stellar-navigation=""><span class="toc-text">12 需求分析（做什么）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E4%B8%BB%E8%A6%81%E4%BB%BB%E5%8A%A1" data-stellar-navigation=""><span class="toc-text">主要任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#2-%E7%A7%8D%E6%96%B9%E6%B3%95" data-stellar-navigation=""><span class="toc-text">2 种方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#4-%E4%B8%AA%E6%AD%A5%E9%AA%A4" data-stellar-navigation=""><span class="toc-text">4 个步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#4-%E7%A7%8D%E5%B7%A5%E5%85%B7" data-stellar-navigation=""><span class="toc-text">4 种工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#13-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%EF%BC%88%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%89" data-stellar-navigation=""><span class="toc-text">13 软件设计（怎么做）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1%EF%BC%88%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1%EF%BC%89" data-stellar-navigation=""><span class="toc-text">总体设计（概要设计）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1" data-stellar-navigation=""><span class="toc-text">详细设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#14-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%EF%BC%88%E6%89%BE%E9%94%99%E8%AF%AF%EF%BC%89" data-stellar-navigation=""><span class="toc-text">14 软件测试（找错误）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E7%9B%AE%E7%9A%84" data-stellar-navigation=""><span class="toc-text">软件测试的目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95" data-stellar-navigation=""><span class="toc-text">测试方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E5%9B%9B%E4%B8%AA%E6%AD%A5%E9%AA%A4" data-stellar-navigation=""><span class="toc-text">软件测试的四个步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B" data-stellar-navigation=""><span class="toc-text">测试用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%85%B6%E4%BB%96%E6%B5%8B%E8%AF%95%E5%8E%9F%E5%88%99" data-stellar-navigation=""><span class="toc-text">其他测试原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#15-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F" data-stellar-navigation=""><span class="toc-text">15 数据库系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD" data-stellar-navigation=""><span class="toc-text">基本术语</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E4%B8%89%E5%A4%A7%E5%8F%91%E5%B1%95%E9%98%B6%E6%AE%B5" data-stellar-navigation=""><span class="toc-text">数据管理三大发展阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%89%B9%E7%82%B9" data-stellar-navigation=""><span class="toc-text">数据库系统特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AD%E8%A8%80" data-stellar-navigation=""><span class="toc-text">数据库语言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F" data-stellar-navigation=""><span class="toc-text">数据库系统三级模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BD%9C%E7%94%A8" data-stellar-navigation=""><span class="toc-text">三级模式的作用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#16-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B" data-stellar-navigation=""><span class="toc-text">16 数据库与数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93" data-stellar-navigation=""><span class="toc-text">关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E7%BA%A6%E6%9D%9F" data-stellar-navigation=""><span class="toc-text">约束</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B" data-stellar-navigation=""><span class="toc-text">数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" data-stellar-navigation=""><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E4%B8%89%E5%A4%A7%E8%A6%81%E7%B4%A0" data-stellar-navigation=""><span class="toc-text">三大要素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E5%88%86%E7%B1%BB" data-stellar-navigation=""><span class="toc-text">数据模型分类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1" data-stellar-navigation=""><span class="toc-text">数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E4%B8%AA%E9%98%B6%E6%AE%B5" data-stellar-navigation=""><span class="toc-text">四个阶段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link ui-interactive" href="#%E8%A7%84%E8%8C%83%E5%8C%96" data-stellar-navigation=""><span class="toc-text">规范化</span></a></li></ol></li></ol></div>
   <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a><a class="buttom ui-interactive" onclick="util.scrollComment()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"></path><path fill="currentColor" d="M7.25 9A.75.75 0 0 1 8 8.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 9m0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75"></path></svg></span><span>参与讨论</span></a></div>
 </widget>
 
@@ -1805,9 +1738,79 @@ var _hmt = _hmt || [];
 
 
 <!-- inject -->
+<!-- Baidu Tongji -->
+<script data-stellar-script="analytics">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.setAttribute("data-stellar-script", "analytics");
+  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
+<script data-stellar-script="analytics">
+(function() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  var initialized = false;
+  var initAnalytics = function() {
+    if (initialized) return;
+    initialized = true;
+
+    var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+    events.forEach(function(evt) {
+      window.removeEventListener(evt, initAnalytics, { passive: true });
+    });
+
+    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
+    var gScript = document.createElement('script');
+    gScript.setAttribute('data-stellar-script', 'analytics');
+    gScript.async = true;
+    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
+    var gTimer = setTimeout(function() {
+      if (gScript && gScript.parentNode) {
+        gScript.src = '';
+        gScript.parentNode.removeChild(gScript);
+      }
+    }, 2500);
+    gScript.onload = function() { clearTimeout(gTimer); };
+    gScript.onerror = function() { clearTimeout(gTimer); };
+    document.head.appendChild(gScript);
+    gtag('js', new Date());
+    gtag('config', 'G-JST56Q8277');
+
+    // 2. Microsoft Clarity with 3s auto-abort
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        t.setAttribute('data-stellar-script', 'analytics');
+        var cTimer = setTimeout(function() {
+          if (t && t.parentNode) {
+            t.src = '';
+            t.parentNode.removeChild(t);
+          }
+        }, 3000);
+        t.onload = function() { clearTimeout(cTimer); };
+        t.onerror = function() { clearTimeout(cTimer); };
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rp0i6z4yyg");
+  };
+
+  // Trigger upon interaction, or fallback after 6s idle
+  var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+  events.forEach(function(evt) {
+    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
+  });
+  setTimeout(initAnalytics, 6000);
+})();
+</script>
 
 
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-</body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"notebook\",\"note-college\"]","url":"https://blog.skyforever.top/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/","signature":"14a1016a376e13991bcbf944d5943d594223e02cd04c816c2a3e4b4a3e7e14ad"}</script></body></html>

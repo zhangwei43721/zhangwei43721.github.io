@@ -73,73 +73,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg">
 <link rel="stylesheet" href="/css/custom.css">
-<!-- Baidu Tongji -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
-<script>
-(function() {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-
-  var initialized = false;
-  var initAnalytics = function() {
-    if (initialized) return;
-    initialized = true;
-
-    var events = ['scroll', 'mousemove', 'click', 'keydown'];
-    events.forEach(function(evt) {
-      window.removeEventListener(evt, initAnalytics, { passive: true });
-    });
-
-    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
-    var gScript = document.createElement('script');
-    gScript.async = true;
-    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
-    var gTimer = setTimeout(function() {
-      if (gScript && gScript.parentNode) {
-        gScript.src = '';
-        gScript.parentNode.removeChild(gScript);
-      }
-    }, 2500);
-    gScript.onload = function() { clearTimeout(gTimer); };
-    gScript.onerror = function() { clearTimeout(gTimer); };
-    document.head.appendChild(gScript);
-    gtag('js', new Date());
-    gtag('config', 'G-JST56Q8277');
-
-    // 2. Microsoft Clarity with 3s auto-abort
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        var cTimer = setTimeout(function() {
-          if (t && t.parentNode) {
-            t.src = '';
-            t.parentNode.removeChild(t);
-          }
-        }, 3000);
-        t.onload = function() { clearTimeout(cTimer); };
-        t.onerror = function() { clearTimeout(cTimer); };
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "rp0i6z4yyg");
-  };
-
-  // Trigger upon scroll/interaction, or fallback after 6s idle
-  var events = ['scroll', 'mousemove', 'click', 'keydown'];
-  events.forEach(function(evt) {
-    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
-  });
-  setTimeout(initAnalytics, 6000);
-})();
-</script>
 
 
   <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
@@ -498,7 +431,7 @@ var _hmt = _hmt || [];
   <div class='post-list'>
     <article class='slide-up' id='cats'>
       
-      <div class="cat-item"><a class="cat" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>嵌入式</span><span class="badge">(4)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E7%89%A9%E8%81%94%E7%BD%91/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>物联网</span><span class="badge">(2)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/AI%E7%BC%96%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>AI编程</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/%E6%9E%81%E5%AE%A2DIY/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>极客DIY</span><span class="badge">(1)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E6%9E%81%E5%AE%A2DIY/%E7%A1%AC%E4%BB%B6%E8%AF%84%E6%B5%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>硬件评测</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>安全工具</span><span class="badge">(1)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/Python/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>Python</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>嵌入式开发</span><span class="badge">(4)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>调试工具</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>工具使用</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/OpenHarmony/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>OpenHarmony</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>技术教程</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/AI%E6%8A%80%E6%9C%AF/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>AI技术</span><span class="badge">(2)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/AI%E6%8A%80%E6%9C%AF/AI%E7%BC%96%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>AI编程</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/AI%E6%8A%80%E6%9C%AF/%E6%A6%82%E5%BF%B5%E8%A7%A3%E6%9E%90/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>概念解析</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>开发工具</span><span class="badge">(3)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AI%E7%BC%96%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>AI编程</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>技术教程</span><span class="badge">(2)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%8A%80%E6%9C%AF/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>计算机科学与技术</span><span class="badge">(2)</span></a></div><div class="cat-item"><a class="cat" href="/categories/%E9%9F%B3%E8%A7%86%E9%A2%91%E6%8A%80%E6%9C%AF/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>音视频技术</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat" href="/categories/%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>电子设计</span><span class="badge">(1)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>技术教程</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/Embedded/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>Embedded</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>技术教程</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat" href="/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>大学生涯</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat" href="/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>生活日常</span><span class="badge">(1)</span></a></div>
+      <div class="cat-item"><a class="cat" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%8A%80%E6%9C%AF/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>计算机科学与技术</span><span class="badge">(2)</span></a></div><div class="cat-item"><a class="cat" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>嵌入式开发</span><span class="badge">(4)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>技术教程</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>工具使用</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/OpenHarmony/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>OpenHarmony</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>调试工具</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>电子设计</span><span class="badge">(1)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>技术教程</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>开发工具</span><span class="badge">(3)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>技术教程</span><span class="badge">(2)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AI%E7%BC%96%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>AI编程</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/Embedded/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>Embedded</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat" href="/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>大学生涯</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>技术教程</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat" href="/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>生活日常</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>嵌入式</span><span class="badge">(4)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/AI%E7%BC%96%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>AI编程</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E7%89%A9%E8%81%94%E7%BD%91/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>物联网</span><span class="badge">(2)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/%E6%9E%81%E5%AE%A2DIY/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>极客DIY</span><span class="badge">(1)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E6%9E%81%E5%AE%A2DIY/%E7%A1%AC%E4%BB%B6%E8%AF%84%E6%B5%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>硬件评测</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>安全工具</span><span class="badge">(1)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/Python/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>Python</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/AI%E6%8A%80%E6%9C%AF/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category-open" aria-hidden="true"></svg>AI技术</span><span class="badge">(2)</span></a><div class="cat-children"><div class="cat-item"><a class="cat child" href="/categories/AI%E6%8A%80%E6%9C%AF/AI%E7%BC%96%E7%A8%8B/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>AI编程</span><span class="badge">(1)</span></a></div><div class="cat-item"><a class="cat child" href="/categories/AI%E6%8A%80%E6%9C%AF/%E6%A6%82%E5%BF%B5%E8%A7%A3%E6%9E%90/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>概念解析</span><span class="badge">(1)</span></a></div></div></div><div class="cat-item"><a class="cat" href="/categories/%E9%9F%B3%E8%A7%86%E9%A2%91%E6%8A%80%E6%9C%AF/"><span class="name"><svg class="icon" viewBox="0 0 1 1" data-icon="default:category" aria-hidden="true"></svg>音视频技术</span><span class="badge">(1)</span></a></div>
     </article>
   </div>
 
@@ -575,6 +508,76 @@ var _hmt = _hmt || [];
 
 
 <!-- inject -->
+<!-- Baidu Tongji -->
+<script data-stellar-script="analytics">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.setAttribute("data-stellar-script", "analytics");
+  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
+<script data-stellar-script="analytics">
+(function() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  var initialized = false;
+  var initAnalytics = function() {
+    if (initialized) return;
+    initialized = true;
+
+    var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+    events.forEach(function(evt) {
+      window.removeEventListener(evt, initAnalytics, { passive: true });
+    });
+
+    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
+    var gScript = document.createElement('script');
+    gScript.setAttribute('data-stellar-script', 'analytics');
+    gScript.async = true;
+    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
+    var gTimer = setTimeout(function() {
+      if (gScript && gScript.parentNode) {
+        gScript.src = '';
+        gScript.parentNode.removeChild(gScript);
+      }
+    }, 2500);
+    gScript.onload = function() { clearTimeout(gTimer); };
+    gScript.onerror = function() { clearTimeout(gTimer); };
+    document.head.appendChild(gScript);
+    gtag('js', new Date());
+    gtag('config', 'G-JST56Q8277');
+
+    // 2. Microsoft Clarity with 3s auto-abort
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        t.setAttribute('data-stellar-script', 'analytics');
+        var cTimer = setTimeout(function() {
+          if (t && t.parentNode) {
+            t.src = '';
+            t.parentNode.removeChild(t);
+          }
+        }, 3000);
+        t.onload = function() { clearTimeout(cTimer); };
+        t.onerror = function() { clearTimeout(cTimer); };
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rp0i6z4yyg");
+  };
+
+  // Trigger upon interaction, or fallback after 6s idle
+  var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+  events.forEach(function(evt) {
+    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
+  });
+  setTimeout(initAnalytics, 6000);
+})();
+</script>
 
 
 <script data-stellar-script="core" defer src="/js/navigation-init.js?v=2.0.0"></script>

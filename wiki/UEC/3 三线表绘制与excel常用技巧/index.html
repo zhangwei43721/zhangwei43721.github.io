@@ -71,73 +71,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg">
 <link rel="stylesheet" href="/css/custom.css">
-<!-- Baidu Tongji -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
-<script>
-(function() {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-
-  var initialized = false;
-  var initAnalytics = function() {
-    if (initialized) return;
-    initialized = true;
-
-    var events = ['scroll', 'mousemove', 'click', 'keydown'];
-    events.forEach(function(evt) {
-      window.removeEventListener(evt, initAnalytics, { passive: true });
-    });
-
-    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
-    var gScript = document.createElement('script');
-    gScript.async = true;
-    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
-    var gTimer = setTimeout(function() {
-      if (gScript && gScript.parentNode) {
-        gScript.src = '';
-        gScript.parentNode.removeChild(gScript);
-      }
-    }, 2500);
-    gScript.onload = function() { clearTimeout(gTimer); };
-    gScript.onerror = function() { clearTimeout(gTimer); };
-    document.head.appendChild(gScript);
-    gtag('js', new Date());
-    gtag('config', 'G-JST56Q8277');
-
-    // 2. Microsoft Clarity with 3s auto-abort
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        var cTimer = setTimeout(function() {
-          if (t && t.parentNode) {
-            t.src = '';
-            t.parentNode.removeChild(t);
-          }
-        }, 3000);
-        t.onload = function() { clearTimeout(cTimer); };
-        t.onerror = function() { clearTimeout(cTimer); };
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "rp0i6z4yyg");
-  };
-
-  // Trigger upon scroll/interaction, or fallback after 6s idle
-  var events = ['scroll', 'mousemove', 'click', 'keydown'];
-  events.forEach(function(evt) {
-    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
-  });
-  setTimeout(initAnalytics, 6000);
-})();
-</script>
 
 
   <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
@@ -166,7 +99,7 @@ var _hmt = _hmt || [];
 </div>
 
 </nav>
-</div><div class="brand-wrap"><a class="brand-image brand-image--icon" href="/wiki/UEC/"><img no-lazy="" src="https://image.skyforever.top/blog/2025/10/ec23b46ef5849c22890a0ae81f0d0561.webp" alt="" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></a><a class="brand-title" href="/wiki/UEC/"><div class="brand-name">大学生扫盲课</div><div class="brand-tagline cap">大学生必备技能</div></a></div><div class="brand-search">
+</div><div class="brand-wrap"><a class="brand-image brand-image--icon" href="/wiki/UEC/" data-stellar-navigation=""><img no-lazy="" src="https://image.skyforever.top/blog/2025/10/ec23b46ef5849c22890a0ae81f0d0561.webp" alt="" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></a><a class="brand-title" href="/wiki/UEC/" data-stellar-navigation=""><div class="brand-name">大学生扫盲课</div><div class="brand-tagline cap">大学生必备技能</div></a></div><div class="brand-search">
 
 <div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
   
@@ -205,7 +138,7 @@ var _hmt = _hmt || [];
   <div class="widget-body"><section class="widget-section"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/" title="首页">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/" title="首页" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">首</span>
@@ -223,7 +156,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/1%20Git%E3%80%81GitHub%20%E5%92%8C%20Gitee%20%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%EF%BC%9A%E4%BB%8E%E5%9F%BA%E7%A1%80%E5%88%B0%E8%BF%9B%E9%98%B6%E5%8A%9F%E8%83%BD/" title="1.Git、GitHub 和 Gitee 完整讲解：从基础到进阶功能">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/1%20Git%E3%80%81GitHub%20%E5%92%8C%20Gitee%20%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%EF%BC%9A%E4%BB%8E%E5%9F%BA%E7%A1%80%E5%88%B0%E8%BF%9B%E9%98%B6%E5%8A%9F%E8%83%BD/" title="1.Git、GitHub 和 Gitee 完整讲解：从基础到进阶功能" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -241,7 +174,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/2%20word%E6%8E%92%E7%89%88%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99/" title="2.Word排版介绍与论文格式书写">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/2%20word%E6%8E%92%E7%89%88%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99/" title="2.Word排版介绍与论文格式书写" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">2</span>
@@ -259,7 +192,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="/wiki/UEC/3%20%E4%B8%89%E7%BA%BF%E8%A1%A8%E7%BB%98%E5%88%B6%E4%B8%8Eexcel%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="3.三线表绘制与Excel常用技巧" aria-current="page">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="/wiki/UEC/3%20%E4%B8%89%E7%BA%BF%E8%A1%A8%E7%BB%98%E5%88%B6%E4%B8%8Eexcel%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="3.三线表绘制与Excel常用技巧" aria-current="page" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">3</span>
@@ -277,7 +210,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="4.2.Markdown基础语法">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="4.2.Markdown基础语法" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">4</span>
@@ -295,7 +228,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/4%20typora%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" title="4.1.Typora安装与配置">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/4%20typora%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" title="4.1.Typora安装与配置" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">4</span>
@@ -313,7 +246,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86/" title="5.1.CMD和PowerShell指令集">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86/" title="5.1.CMD和PowerShell指令集" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">5</span>
@@ -331,7 +264,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/5%20cmd%E7%9A%84%E8%84%9A%E6%9C%ACbat%E4%B8%8Epowershell%E7%9A%84%E8%84%9A%E6%9C%ACps1/" title="5.2.CMD脚本(BAT)与PowerShell脚本(PS1)">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/5%20cmd%E7%9A%84%E8%84%9A%E6%9C%ACbat%E4%B8%8Epowershell%E7%9A%84%E8%84%9A%E6%9C%ACps1/" title="5.2.CMD脚本(BAT)与PowerShell脚本(PS1)" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">5</span>
@@ -349,7 +282,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/6%20%E6%B8%85%E7%90%86C%E7%9B%98/" title="6.清理C盘">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/6%20%E6%B8%85%E7%90%86C%E7%9B%98/" title="6.清理C盘" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">6</span>
@@ -367,7 +300,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/7%20%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E4%B8%8E%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9/" title="7.磁盘分区与磁盘扩容">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/7%20%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E4%B8%8E%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9/" title="7.磁盘分区与磁盘扩容" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">7</span>
@@ -385,7 +318,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" title="8.1.常用搜索技巧">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" title="8.1.常用搜索技巧" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">8</span>
@@ -403,7 +336,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/" title="8.2.常用网站推荐">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/" title="8.2.常用网站推荐" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">8</span>
@@ -421,7 +354,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/9%20%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80/" title="9.编码与文件后缀">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/9%20%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80/" title="9.编码与文件后缀" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">9</span>
@@ -439,7 +372,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/10%20%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB%E5%92%8C%E6%B2%B9%E7%8C%B4%E4%BB%8B%E7%BB%8D/" title="10.浏览器插件分享和油猴介绍">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/10%20%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB%E5%92%8C%E6%B2%B9%E7%8C%B4%E4%BB%8B%E7%BB%8D/" title="10.浏览器插件分享和油猴介绍" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -457,7 +390,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/11%20uml%E5%92%8Cmermaid%E7%9A%84%E4%BB%8B%E7%BB%8D/" title="11.UML和Mermaid的介绍">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/11%20uml%E5%92%8Cmermaid%E7%9A%84%E4%BB%8B%E7%BB%8D/" title="11.UML和Mermaid的介绍" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -475,7 +408,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/12%20%E7%BD%91%E8%AF%BE%E8%87%AA%E5%8A%A8%E8%A7%82%E7%9C%8B%E4%B8%8E%E7%AD%94%E9%A2%98/" title="12.网课自动观看与答题">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/12%20%E7%BD%91%E8%AF%BE%E8%87%AA%E5%8A%A8%E8%A7%82%E7%9C%8B%E4%B8%8E%E7%AD%94%E9%A2%98/" title="12.网课自动观看与答题" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -520,7 +453,7 @@ var _hmt = _hmt || [];
   <div class="content">
     
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/UEC/">大学生扫盲课</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/UEC/" data-stellar-navigation="">大学生扫盲课</a>
 </div></div><div class="meta-row">
 <div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2024-12-27T16:00:00.000Z">2024-12-28</time></span></div>
 </div></div>
@@ -540,13 +473,13 @@ var _hmt = _hmt || [];
 <li><a target="_blank" rel="noopener" href="https://www.lanrenexcel.com/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>懒人Excel</a></li>
 </ul>
 <p>下面的内容学一个三线表就可以了，平时需要用什么公式可以在网站里查或者问ai</p>
-<h2 id="第一部分：Word-WPS-中三线表的绘制"><a href="#第一部分：Word-WPS-中三线表的绘制" class="headerlink" title="第一部分：Word/WPS 中三线表的绘制"></a>第一部分：Word/WPS 中三线表的绘制</h2><p>在一些学术性的论文，还有比赛中，经常会出现一个东西，那就是三线表。现在说明如何进行绘制（这里就不说直接用边框刷了，视频会演示一下，因为主要针对的是多次重复用，一劳永逸）。</p>
+<h2 id="第一部分：Word-WPS-中三线表的绘制"><a href="#第一部分：Word-WPS-中三线表的绘制" class="headerlink" title="第一部分：Word/WPS 中三线表的绘制" data-stellar-navigation=""></a>第一部分：Word/WPS 中三线表的绘制</h2><p>在一些学术性的论文，还有比赛中，经常会出现一个东西，那就是三线表。现在说明如何进行绘制（这里就不说直接用边框刷了，视频会演示一下，因为主要针对的是多次重复用，一劳永逸）。</p>
 <p><strong>这里说明一下用到的格式：</strong></p>
 <ul>
 <li><strong>上下边框 1.5 磅</strong></li>
 <li><strong>标题行下边框 0.75 磅</strong></li>
 </ul>
-<h3 id="绘制步骤"><a href="#绘制步骤" class="headerlink" title="绘制步骤"></a>绘制步骤</h3><ol>
+<h3 id="绘制步骤"><a href="#绘制步骤" class="headerlink" title="绘制步骤" data-stellar-navigation=""></a>绘制步骤</h3><ol>
 <li><p><strong>插入表格</strong><br>随便插入一个表格。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/eaf4e7732a86de51d21938d669332389.png" alt="Figure 1" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="515" height="180" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[211.4663,15.1436,92.3425,0.9748]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/11/eaf4e7732a86de51d21938d669332389.png"></p>
 </li>
 <li><p><strong>新建表格样式</strong><br>点击上方的【表设计】。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/22bec6d0af3640614db5729f54700fc2.png" alt="Figure 2" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="515" height="272" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[210,1.2583,94.1277,0.9623]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/11/22bec6d0af3640614db5729f54700fc2.png"></p>
@@ -564,7 +497,7 @@ var _hmt = _hmt || [];
 </li>
 </ol>
 <hr>
-<h2 id="第二部分：Excel-常⽤操作"><a href="#第二部分：Excel-常⽤操作" class="headerlink" title="第二部分：Excel 常⽤操作"></a>第二部分：Excel 常⽤操作</h2><h3 id="⼀、基本数据操作"><a href="#⼀、基本数据操作" class="headerlink" title="⼀、基本数据操作"></a>⼀、基本数据操作</h3><p><strong>1. 数据输⼊与格式化</strong></p>
+<h2 id="第二部分：Excel-常⽤操作"><a href="#第二部分：Excel-常⽤操作" class="headerlink" title="第二部分：Excel 常⽤操作" data-stellar-navigation=""></a>第二部分：Excel 常⽤操作</h2><h3 id="⼀、基本数据操作"><a href="#⼀、基本数据操作" class="headerlink" title="⼀、基本数据操作" data-stellar-navigation=""></a>⼀、基本数据操作</h3><p><strong>1. 数据输⼊与格式化</strong></p>
 <ul>
 <li><strong>批量填充</strong>：拖动单元格右下⻆的填充柄⾃动填充（数字、⽇期、公式）。</li>
 <li><strong>设置格式</strong>：右键单元格 → 设置单元格格式，调整数字、⼩数位、货币、⽇期等格式。</li>
@@ -579,7 +512,7 @@ var _hmt = _hmt || [];
 <li><strong>清除内容</strong>：选中区域 → 按 <code>Delete</code> 清除内容。</li>
 <li><strong>清除格式</strong>： 开始 → 清除 → 清除格式，仅删除格式保留内容。</li>
 </ul>
-<h3 id="⼆、排序与筛选"><a href="#⼆、排序与筛选" class="headerlink" title="⼆、排序与筛选"></a>⼆、排序与筛选</h3><p><strong>1. 排序</strong></p>
+<h3 id="⼆、排序与筛选"><a href="#⼆、排序与筛选" class="headerlink" title="⼆、排序与筛选" data-stellar-navigation=""></a>⼆、排序与筛选</h3><p><strong>1. 排序</strong></p>
 <ul>
 <li><strong>升序/降序</strong>：选中数据区域 → 点击“排序” → 选择按列升序或降序。</li>
 <li><strong>多条件排序</strong>：点击“排序” → 添加条件 → 设置优先级。</li>
@@ -589,7 +522,7 @@ var _hmt = _hmt || [];
 <li><strong>快速筛选</strong>：选中数据标题 → 数据 → 筛选，勾选需要的数据值。</li>
 <li><strong>⾼级筛选</strong>：数据 → ⾼级筛选，可设置筛选条件区域和结果输出区域。</li>
 </ul>
-<h3 id="三、数据填充与公式操作"><a href="#三、数据填充与公式操作" class="headerlink" title="三、数据填充与公式操作"></a>三、数据填充与公式操作</h3><p><strong>1. 填充序列</strong></p>
+<h3 id="三、数据填充与公式操作"><a href="#三、数据填充与公式操作" class="headerlink" title="三、数据填充与公式操作" data-stellar-navigation=""></a>三、数据填充与公式操作</h3><p><strong>1. 填充序列</strong></p>
 <ul>
 <li><strong>连续数字/⽇期</strong>：拖动填充柄时按 <code>Ctrl</code> 可快速⽣成⾃定义序列。</li>
 </ul>
@@ -603,7 +536,7 @@ var _hmt = _hmt || [];
 <li><strong>查找</strong>：按 <code>Ctrl+F</code> 输⼊内容查找。</li>
 <li><strong>替换</strong>：按 <code>Ctrl+H</code> 输⼊查找和替换内容。</li>
 </ul>
-<h3 id="四、常⽤表格设置"><a href="#四、常⽤表格设置" class="headerlink" title="四、常⽤表格设置"></a>四、常⽤表格设置</h3><p><strong>1. 表格美化</strong></p>
+<h3 id="四、常⽤表格设置"><a href="#四、常⽤表格设置" class="headerlink" title="四、常⽤表格设置" data-stellar-navigation=""></a>四、常⽤表格设置</h3><p><strong>1. 表格美化</strong></p>
 <ul>
 <li><strong>边框设置</strong>： <code>Ctrl+1</code> → 边框 → 设置线条样式。</li>
 <li><strong>条件格式</strong>： 开始 → 条件格式 → 新建规则，如按颜⾊标注⼤于某值的单元格。</li>
@@ -620,7 +553,7 @@ var _hmt = _hmt || [];
 <li><strong>⾃动调整</strong>：双击列或⾏边缘⾃动适应内容宽度。</li>
 <li><strong>⼿动调整</strong>：拖动列或⾏边界，或右键 → 设置⾏⾼/列宽。</li>
 </ul>
-<h3 id="五、数据分析与统计"><a href="#五、数据分析与统计" class="headerlink" title="五、数据分析与统计"></a>五、数据分析与统计</h3><p><strong>1. 透视表</strong></p>
+<h3 id="五、数据分析与统计"><a href="#五、数据分析与统计" class="headerlink" title="五、数据分析与统计" data-stellar-navigation=""></a>五、数据分析与统计</h3><p><strong>1. 透视表</strong></p>
 <ul>
 <li><strong>创建透视表</strong>： 插入 → 透视表，选择数据区域并添加到⾏、列、值等区域。</li>
 <li><strong>动态更新</strong>：右键透视表 → 刷新数据。</li>
@@ -637,7 +570,7 @@ var _hmt = _hmt || [];
 <ul>
 <li><strong>限制输⼊</strong>： 数据 → 数据验证，设置允许输⼊的数字范围、列表选项等。</li>
 </ul>
-<h3 id="六、图表操作"><a href="#六、图表操作" class="headerlink" title="六、图表操作"></a>六、图表操作</h3><p><strong>1. 快速创建图表</strong></p>
+<h3 id="六、图表操作"><a href="#六、图表操作" class="headerlink" title="六、图表操作" data-stellar-navigation=""></a>六、图表操作</h3><p><strong>1. 快速创建图表</strong></p>
 <ul>
 <li>选中数据 → 插⼊ → 选择图表类型（柱状图、折线图、饼图等）。</li>
 <li><strong>快捷键</strong>：选中数据后按 <code>Alt+F1</code> 创建默认图表。</li>
@@ -651,7 +584,7 @@ var _hmt = _hmt || [];
 <ul>
 <li>使⽤公式或表格引⽤动态数据源，实现图表⾃动更新。</li>
 </ul>
-<h3 id="七、⼯作表管理"><a href="#七、⼯作表管理" class="headerlink" title="七、⼯作表管理"></a>七、⼯作表管理</h3><p><strong>1. 插⼊与删除</strong></p>
+<h3 id="七、⼯作表管理"><a href="#七、⼯作表管理" class="headerlink" title="七、⼯作表管理" data-stellar-navigation=""></a>七、⼯作表管理</h3><p><strong>1. 插⼊与删除</strong></p>
 <ul>
 <li><strong>插⼊新⼯作表</strong>：点击底部“+”号，或右键 → 插⼊⼯作表。</li>
 <li><strong>删除⼯作表</strong>：右键 → 删除⼯作表。</li>
@@ -669,7 +602,7 @@ var _hmt = _hmt || [];
 <ul>
 <li><strong>同时查看多个表</strong>： 视图 → 新建窗口，然后排列窗⼝。</li>
 </ul>
-<h3 id="⼋、快捷键总结"><a href="#⼋、快捷键总结" class="headerlink" title="⼋、快捷键总结"></a>⼋、快捷键总结</h3><p><strong>1. 常⽤快捷键</strong></p>
+<h3 id="⼋、快捷键总结"><a href="#⼋、快捷键总结" class="headerlink" title="⼋、快捷键总结" data-stellar-navigation=""></a>⼋、快捷键总结</h3><p><strong>1. 常⽤快捷键</strong></p>
 <ul>
 <li><strong>选择整列</strong>： <code>Ctrl+Space</code> ； <strong>选择整⾏</strong>： <code>Shift+Space</code>。</li>
 <li><strong>保存</strong>： <code>Ctrl+S</code> ； <strong>撤销</strong>： <code>Ctrl+Z</code> ； <strong>重做</strong>： <code>Ctrl+Y</code>。</li>
@@ -682,7 +615,7 @@ var _hmt = _hmt || [];
 <li><strong>快速筛选</strong>：按 <code>Alt+下箭头</code> 调出筛选菜单。</li>
 </ul>
 <hr>
-<h2 id="第三部分：Excel-常⽤函数"><a href="#第三部分：Excel-常⽤函数" class="headerlink" title="第三部分：Excel 常⽤函数"></a>第三部分：Excel 常⽤函数</h2><h3 id="⼀、数学与统计函数"><a href="#⼀、数学与统计函数" class="headerlink" title="⼀、数学与统计函数"></a>⼀、数学与统计函数</h3><p><strong>1. 求和与计数</strong></p>
+<h2 id="第三部分：Excel-常⽤函数"><a href="#第三部分：Excel-常⽤函数" class="headerlink" title="第三部分：Excel 常⽤函数" data-stellar-navigation=""></a>第三部分：Excel 常⽤函数</h2><h3 id="⼀、数学与统计函数"><a href="#⼀、数学与统计函数" class="headerlink" title="⼀、数学与统计函数" data-stellar-navigation=""></a>⼀、数学与统计函数</h3><p><strong>1. 求和与计数</strong></p>
 <ul>
 <li><code>SUM</code> ：求和，例如 <code>=SUM(A1:A10)</code></li>
 <li><code>COUNT</code> ：计数⾮空单元格数，例如 <code>=COUNT(A1:A10)</code></li>
@@ -709,7 +642,7 @@ var _hmt = _hmt || [];
 <li><code>RAND</code> ：⽣成 0 到 1 之间的随机数，例如 <code>=RAND()</code></li>
 <li><code>RANDBETWEEN</code> ：⽣成指定范围内的随机整数，例如 <code>=RANDBETWEEN(1, 100)</code></li>
 </ul>
-<h3 id="⼆、逻辑函数"><a href="#⼆、逻辑函数" class="headerlink" title="⼆、逻辑函数"></a>⼆、逻辑函数</h3><p><strong>1. 条件判断</strong></p>
+<h3 id="⼆、逻辑函数"><a href="#⼆、逻辑函数" class="headerlink" title="⼆、逻辑函数" data-stellar-navigation=""></a>⼆、逻辑函数</h3><p><strong>1. 条件判断</strong></p>
 <ul>
 <li><code>IF</code> ：条件判断，例如 <code>=IF(A1&gt;10, "大于10", "小于等于10")</code></li>
 <li><code>IFERROR</code> ：错误处理，例如 <code>=IFERROR(A1/B1, "错误")</code></li>
@@ -720,7 +653,7 @@ var _hmt = _hmt || [];
 <li><code>OR</code> ：满⾜任意条件即可，例如 <code>=OR(A1&gt;10, B1&lt;20)</code></li>
 <li><code>NOT</code> ：取反，例如 <code>=NOT(A1&gt;10)</code></li>
 </ul>
-<h3 id="三、⽂本处理函数"><a href="#三、⽂本处理函数" class="headerlink" title="三、⽂本处理函数"></a>三、⽂本处理函数</h3><p><strong>1. 拼接与拆分</strong></p>
+<h3 id="三、⽂本处理函数"><a href="#三、⽂本处理函数" class="headerlink" title="三、⽂本处理函数" data-stellar-navigation=""></a>三、⽂本处理函数</h3><p><strong>1. 拼接与拆分</strong></p>
 <ul>
 <li><code>CONCAT</code> ：拼接多个⽂本，例如 <code>=CONCAT(A1, B1)</code></li>
 <li><code>TEXTJOIN</code> ：⽤分隔符拼接多个⽂本，例如 <code>=TEXTJOIN(",", TRUE, A1:A5)</code></li>
@@ -741,7 +674,7 @@ var _hmt = _hmt || [];
 <li><code>LEN</code> ：计算字符⻓度，例如 <code>=LEN(A1)</code></li>
 <li><code>TEXT</code> ：按格式显⽰⽂本，例如 <code>=TEXT(A1, "yyyy-mm-dd")</code></li>
 </ul>
-<h3 id="四、⽇期与时间函数"><a href="#四、⽇期与时间函数" class="headerlink" title="四、⽇期与时间函数"></a>四、⽇期与时间函数</h3><p><strong>1. ⽇期与时间提取</strong></p>
+<h3 id="四、⽇期与时间函数"><a href="#四、⽇期与时间函数" class="headerlink" title="四、⽇期与时间函数" data-stellar-navigation=""></a>四、⽇期与时间函数</h3><p><strong>1. ⽇期与时间提取</strong></p>
 <ul>
 <li><code>TODAY</code> ：获取今天的⽇期，例如 <code>=TODAY()</code></li>
 <li><code>NOW</code> ：获取当前⽇期和时间，例如 <code>=NOW()</code></li>
@@ -755,7 +688,7 @@ var _hmt = _hmt || [];
 <li><code>EDATE</code> ：计算偏移⽉的⽇期，例如 <code>=EDATE(A1, 3)</code></li>
 <li><code>EOMONTH</code> ：获取⽉末⽇期，例如 <code>=EOMONTH(A1, 0)</code></li>
 </ul>
-<h3 id="五、查找与引⽤函数"><a href="#五、查找与引⽤函数" class="headerlink" title="五、查找与引⽤函数"></a>五、查找与引⽤函数</h3><p><strong>1. 单值查找</strong></p>
+<h3 id="五、查找与引⽤函数"><a href="#五、查找与引⽤函数" class="headerlink" title="五、查找与引⽤函数" data-stellar-navigation=""></a>五、查找与引⽤函数</h3><p><strong>1. 单值查找</strong></p>
 <ul>
 <li><code>VLOOKUP</code> ：按列查找，例如 <code>=VLOOKUP(10, A1:C10, 2, FALSE)</code></li>
 <li><code>HLOOKUP</code> ：按⾏查找，例如 <code>=HLOOKUP(10, A1:C10, 2, FALSE)</code></li>
@@ -771,7 +704,7 @@ var _hmt = _hmt || [];
 <li><code>INDIRECT</code> ：动态引⽤单元格，例如 <code>=INDIRECT("A"&amp;B1)</code></li>
 <li><code>OFFSET</code> ：基于偏移量引⽤单元格，例如 <code>=OFFSET(A1, 1, 1)</code></li>
 </ul>
-<h3 id="六、其他常⽤函数"><a href="#六、其他常⽤函数" class="headerlink" title="六、其他常⽤函数"></a>六、其他常⽤函数</h3><p><strong>1. 信息函数</strong></p>
+<h3 id="六、其他常⽤函数"><a href="#六、其他常⽤函数" class="headerlink" title="六、其他常⽤函数" data-stellar-navigation=""></a>六、其他常⽤函数</h3><p><strong>1. 信息函数</strong></p>
 <ul>
 <li><code>ISNUMBER</code> ：判断是否为数字，例如 <code>=ISNUMBER(A1)</code></li>
 <li><code>ISTEXT</code> ：判断是否为⽂本，例如 <code>=ISTEXT(A1)</code></li>
@@ -785,10 +718,10 @@ var _hmt = _hmt || [];
 <ul>
 <li>使⽤动态数组函数（如 <code>UNIQUE</code> 提取唯⼀值， <code>SORT</code> 排序）。</li>
 </ul>
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://cdn.jsdmirror.com/npm/d3@7"></script><script src="https://cdn.jsdmirror.com/npm/markmap-view@0.18.10"></script><script src="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
 
-<script src="/js/markmap.js"></script>
+
+
+
 </article>
 
 
@@ -799,7 +732,7 @@ var _hmt = _hmt || [];
 </div>
     </section></div>
 
-<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 回顾上一篇</div><a href="/wiki/UEC/2%20word%E6%8E%92%E7%89%88%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99/">2.Word排版介绍与论文格式书写</a></div><div class="item" id="next"><div class="note">接下来阅读 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">4.2.Markdown基础语法</a></div></section></div>
+<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 回顾上一篇</div><a href="/wiki/UEC/2%20word%E6%8E%92%E7%89%88%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99/" data-stellar-navigation="">2.Word排版介绍与论文格式书写</a></div><div class="item" id="next"><div class="note">接下来阅读 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" data-stellar-navigation="">4.2.Markdown基础语法</a></div></section></div>
 
 
   <div class="related-wrap md-text slide-up" id="comments">
@@ -822,7 +755,7 @@ var _hmt = _hmt || [];
 
 
 
-<footer class="page-footer slide-up footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a><a href="/rss/">RSS 订阅</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0">Stellar 2.0.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+<footer class="page-footer slide-up footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a><a href="/rss/">RSS 订阅</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/" data-stellar-navigation="">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0">Stellar 2.0.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
 </div></footer>
 </main>
 <aside data-stellar-runtime-region="" id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
@@ -835,7 +768,7 @@ var _hmt = _hmt || [];
       <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
     </div>
   
-  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9AWord-WPS-%E4%B8%AD%E4%B8%89%E7%BA%BF%E8%A1%A8%E7%9A%84%E7%BB%98%E5%88%B6"><span class="toc-text">第一部分：Word/WPS 中三线表的绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%98%E5%88%B6%E6%AD%A5%E9%AA%A4"><span class="toc-text">绘制步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9AExcel-%E5%B8%B8%E2%BD%A4%E6%93%8D%E4%BD%9C"><span class="toc-text">第二部分：Excel 常⽤操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E2%BC%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C"><span class="toc-text">⼀、基本数据操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E2%BC%86%E3%80%81%E6%8E%92%E5%BA%8F%E4%B8%8E%E7%AD%9B%E9%80%89"><span class="toc-text">⼆、排序与筛选</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E5%A1%AB%E5%85%85%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%93%8D%E4%BD%9C"><span class="toc-text">三、数据填充与公式操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81%E5%B8%B8%E2%BD%A4%E8%A1%A8%E6%A0%BC%E8%AE%BE%E7%BD%AE"><span class="toc-text">四、常⽤表格设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%94%E3%80%81%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%9F%E8%AE%A1"><span class="toc-text">五、数据分析与统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%85%AD%E3%80%81%E5%9B%BE%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="toc-text">六、图表操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%83%E3%80%81%E2%BC%AF%E4%BD%9C%E8%A1%A8%E7%AE%A1%E7%90%86"><span class="toc-text">七、⼯作表管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E2%BC%8B%E3%80%81%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%80%BB%E7%BB%93"><span class="toc-text">⼋、快捷键总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9AExcel-%E5%B8%B8%E2%BD%A4%E5%87%BD%E6%95%B0"><span class="toc-text">第三部分：Excel 常⽤函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E2%BC%80%E3%80%81%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%87%BD%E6%95%B0"><span class="toc-text">⼀、数学与统计函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E2%BC%86%E3%80%81%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0"><span class="toc-text">⼆、逻辑函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81%E2%BD%82%E6%9C%AC%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-text">三、⽂本处理函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81%E2%BD%87%E6%9C%9F%E4%B8%8E%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0"><span class="toc-text">四、⽇期与时间函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%94%E3%80%81%E6%9F%A5%E6%89%BE%E4%B8%8E%E5%BC%95%E2%BD%A4%E5%87%BD%E6%95%B0"><span class="toc-text">五、查找与引⽤函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%85%AD%E3%80%81%E5%85%B6%E4%BB%96%E5%B8%B8%E2%BD%A4%E5%87%BD%E6%95%B0"><span class="toc-text">六、其他常⽤函数</span></a></li></ol></li></ol></div>
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9AWord-WPS-%E4%B8%AD%E4%B8%89%E7%BA%BF%E8%A1%A8%E7%9A%84%E7%BB%98%E5%88%B6" data-stellar-navigation=""><span class="toc-text">第一部分：Word/WPS 中三线表的绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%98%E5%88%B6%E6%AD%A5%E9%AA%A4" data-stellar-navigation=""><span class="toc-text">绘制步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9AExcel-%E5%B8%B8%E2%BD%A4%E6%93%8D%E4%BD%9C" data-stellar-navigation=""><span class="toc-text">第二部分：Excel 常⽤操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E2%BC%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C" data-stellar-navigation=""><span class="toc-text">⼀、基本数据操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E2%BC%86%E3%80%81%E6%8E%92%E5%BA%8F%E4%B8%8E%E7%AD%9B%E9%80%89" data-stellar-navigation=""><span class="toc-text">⼆、排序与筛选</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E5%A1%AB%E5%85%85%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%93%8D%E4%BD%9C" data-stellar-navigation=""><span class="toc-text">三、数据填充与公式操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81%E5%B8%B8%E2%BD%A4%E8%A1%A8%E6%A0%BC%E8%AE%BE%E7%BD%AE" data-stellar-navigation=""><span class="toc-text">四、常⽤表格设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%94%E3%80%81%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%9F%E8%AE%A1" data-stellar-navigation=""><span class="toc-text">五、数据分析与统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%85%AD%E3%80%81%E5%9B%BE%E8%A1%A8%E6%93%8D%E4%BD%9C" data-stellar-navigation=""><span class="toc-text">六、图表操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%83%E3%80%81%E2%BC%AF%E4%BD%9C%E8%A1%A8%E7%AE%A1%E7%90%86" data-stellar-navigation=""><span class="toc-text">七、⼯作表管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E2%BC%8B%E3%80%81%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%80%BB%E7%BB%93" data-stellar-navigation=""><span class="toc-text">⼋、快捷键总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9AExcel-%E5%B8%B8%E2%BD%A4%E5%87%BD%E6%95%B0" data-stellar-navigation=""><span class="toc-text">第三部分：Excel 常⽤函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E2%BC%80%E3%80%81%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%87%BD%E6%95%B0" data-stellar-navigation=""><span class="toc-text">⼀、数学与统计函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E2%BC%86%E3%80%81%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0" data-stellar-navigation=""><span class="toc-text">⼆、逻辑函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81%E2%BD%82%E6%9C%AC%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0" data-stellar-navigation=""><span class="toc-text">三、⽂本处理函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81%E2%BD%87%E6%9C%9F%E4%B8%8E%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0" data-stellar-navigation=""><span class="toc-text">四、⽇期与时间函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%94%E3%80%81%E6%9F%A5%E6%89%BE%E4%B8%8E%E5%BC%95%E2%BD%A4%E5%87%BD%E6%95%B0" data-stellar-navigation=""><span class="toc-text">五、查找与引⽤函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%85%AD%E3%80%81%E5%85%B6%E4%BB%96%E5%B8%B8%E2%BD%A4%E5%87%BD%E6%95%B0" data-stellar-navigation=""><span class="toc-text">六、其他常⽤函数</span></a></li></ol></li></ol></div>
   <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a><a class="buttom ui-interactive" onclick="util.scrollComment()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"></path><path fill="currentColor" d="M7.25 9A.75.75 0 0 1 8 8.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 9m0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75"></path></svg></span><span>参与讨论</span></a></div>
 </widget>
 
@@ -911,9 +844,79 @@ var _hmt = _hmt || [];
 
 
 <!-- inject -->
+<!-- Baidu Tongji -->
+<script data-stellar-script="analytics">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.setAttribute("data-stellar-script", "analytics");
+  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
+<script data-stellar-script="analytics">
+(function() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  var initialized = false;
+  var initAnalytics = function() {
+    if (initialized) return;
+    initialized = true;
+
+    var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+    events.forEach(function(evt) {
+      window.removeEventListener(evt, initAnalytics, { passive: true });
+    });
+
+    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
+    var gScript = document.createElement('script');
+    gScript.setAttribute('data-stellar-script', 'analytics');
+    gScript.async = true;
+    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
+    var gTimer = setTimeout(function() {
+      if (gScript && gScript.parentNode) {
+        gScript.src = '';
+        gScript.parentNode.removeChild(gScript);
+      }
+    }, 2500);
+    gScript.onload = function() { clearTimeout(gTimer); };
+    gScript.onerror = function() { clearTimeout(gTimer); };
+    document.head.appendChild(gScript);
+    gtag('js', new Date());
+    gtag('config', 'G-JST56Q8277');
+
+    // 2. Microsoft Clarity with 3s auto-abort
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        t.setAttribute('data-stellar-script', 'analytics');
+        var cTimer = setTimeout(function() {
+          if (t && t.parentNode) {
+            t.src = '';
+            t.parentNode.removeChild(t);
+          }
+        }, 3000);
+        t.onload = function() { clearTimeout(cTimer); };
+        t.onerror = function() { clearTimeout(cTimer); };
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rp0i6z4yyg");
+  };
+
+  // Trigger upon interaction, or fallback after 6s idle
+  var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+  events.forEach(function(evt) {
+    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
+  });
+  setTimeout(initAnalytics, 6000);
+})();
+</script>
 
 
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-</body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"wiki\",\"note-UEC\"]","url":"https://blog.skyforever.top/wiki/UEC/3%20%E4%B8%89%E7%BA%BF%E8%A1%A8%E7%BB%98%E5%88%B6%E4%B8%8Eexcel%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/","signature":"72588a2ebe3273133281008f8e24e93f62a4e8ba9068cd06200806adc71c846a"}</script></body></html>

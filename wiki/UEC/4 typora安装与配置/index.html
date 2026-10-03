@@ -71,73 +71,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg">
 <link rel="stylesheet" href="/css/custom.css">
-<!-- Baidu Tongji -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
-<script>
-(function() {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-
-  var initialized = false;
-  var initAnalytics = function() {
-    if (initialized) return;
-    initialized = true;
-
-    var events = ['scroll', 'mousemove', 'click', 'keydown'];
-    events.forEach(function(evt) {
-      window.removeEventListener(evt, initAnalytics, { passive: true });
-    });
-
-    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
-    var gScript = document.createElement('script');
-    gScript.async = true;
-    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
-    var gTimer = setTimeout(function() {
-      if (gScript && gScript.parentNode) {
-        gScript.src = '';
-        gScript.parentNode.removeChild(gScript);
-      }
-    }, 2500);
-    gScript.onload = function() { clearTimeout(gTimer); };
-    gScript.onerror = function() { clearTimeout(gTimer); };
-    document.head.appendChild(gScript);
-    gtag('js', new Date());
-    gtag('config', 'G-JST56Q8277');
-
-    // 2. Microsoft Clarity with 3s auto-abort
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        var cTimer = setTimeout(function() {
-          if (t && t.parentNode) {
-            t.src = '';
-            t.parentNode.removeChild(t);
-          }
-        }, 3000);
-        t.onload = function() { clearTimeout(cTimer); };
-        t.onerror = function() { clearTimeout(cTimer); };
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "rp0i6z4yyg");
-  };
-
-  // Trigger upon scroll/interaction, or fallback after 6s idle
-  var events = ['scroll', 'mousemove', 'click', 'keydown'];
-  events.forEach(function(evt) {
-    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
-  });
-  setTimeout(initAnalytics, 6000);
-})();
-</script>
 
 
   <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
@@ -166,7 +99,7 @@ var _hmt = _hmt || [];
 </div>
 
 </nav>
-</div><div class="brand-wrap"><a class="brand-image brand-image--icon" href="/wiki/UEC/"><img no-lazy="" src="https://image.skyforever.top/blog/2025/10/ec23b46ef5849c22890a0ae81f0d0561.webp" alt="" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></a><a class="brand-title" href="/wiki/UEC/"><div class="brand-name">大学生扫盲课</div><div class="brand-tagline cap">大学生必备技能</div></a></div><div class="brand-search">
+</div><div class="brand-wrap"><a class="brand-image brand-image--icon" href="/wiki/UEC/" data-stellar-navigation=""><img no-lazy="" src="https://image.skyforever.top/blog/2025/10/ec23b46ef5849c22890a0ae81f0d0561.webp" alt="" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></a><a class="brand-title" href="/wiki/UEC/" data-stellar-navigation=""><div class="brand-name">大学生扫盲课</div><div class="brand-tagline cap">大学生必备技能</div></a></div><div class="brand-search">
 
 <div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
   
@@ -205,7 +138,7 @@ var _hmt = _hmt || [];
   <div class="widget-body"><section class="widget-section"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/" title="首页">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/" title="首页" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">首</span>
@@ -223,7 +156,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/1%20Git%E3%80%81GitHub%20%E5%92%8C%20Gitee%20%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%EF%BC%9A%E4%BB%8E%E5%9F%BA%E7%A1%80%E5%88%B0%E8%BF%9B%E9%98%B6%E5%8A%9F%E8%83%BD/" title="1.Git、GitHub 和 Gitee 完整讲解：从基础到进阶功能">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/1%20Git%E3%80%81GitHub%20%E5%92%8C%20Gitee%20%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%EF%BC%9A%E4%BB%8E%E5%9F%BA%E7%A1%80%E5%88%B0%E8%BF%9B%E9%98%B6%E5%8A%9F%E8%83%BD/" title="1.Git、GitHub 和 Gitee 完整讲解：从基础到进阶功能" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -241,7 +174,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/2%20word%E6%8E%92%E7%89%88%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99/" title="2.Word排版介绍与论文格式书写">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/2%20word%E6%8E%92%E7%89%88%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99/" title="2.Word排版介绍与论文格式书写" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">2</span>
@@ -259,7 +192,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/3%20%E4%B8%89%E7%BA%BF%E8%A1%A8%E7%BB%98%E5%88%B6%E4%B8%8Eexcel%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="3.三线表绘制与Excel常用技巧">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/3%20%E4%B8%89%E7%BA%BF%E8%A1%A8%E7%BB%98%E5%88%B6%E4%B8%8Eexcel%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="3.三线表绘制与Excel常用技巧" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">3</span>
@@ -277,7 +210,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="4.2.Markdown基础语法">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="4.2.Markdown基础语法" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">4</span>
@@ -295,7 +228,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="/wiki/UEC/4%20typora%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" title="4.1.Typora安装与配置" aria-current="page">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="/wiki/UEC/4%20typora%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" title="4.1.Typora安装与配置" aria-current="page" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">4</span>
@@ -313,7 +246,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86/" title="5.1.CMD和PowerShell指令集">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86/" title="5.1.CMD和PowerShell指令集" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">5</span>
@@ -331,7 +264,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/5%20cmd%E7%9A%84%E8%84%9A%E6%9C%ACbat%E4%B8%8Epowershell%E7%9A%84%E8%84%9A%E6%9C%ACps1/" title="5.2.CMD脚本(BAT)与PowerShell脚本(PS1)">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/5%20cmd%E7%9A%84%E8%84%9A%E6%9C%ACbat%E4%B8%8Epowershell%E7%9A%84%E8%84%9A%E6%9C%ACps1/" title="5.2.CMD脚本(BAT)与PowerShell脚本(PS1)" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">5</span>
@@ -349,7 +282,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/6%20%E6%B8%85%E7%90%86C%E7%9B%98/" title="6.清理C盘">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/6%20%E6%B8%85%E7%90%86C%E7%9B%98/" title="6.清理C盘" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">6</span>
@@ -367,7 +300,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/7%20%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E4%B8%8E%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9/" title="7.磁盘分区与磁盘扩容">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/7%20%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E4%B8%8E%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9/" title="7.磁盘分区与磁盘扩容" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">7</span>
@@ -385,7 +318,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" title="8.1.常用搜索技巧">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" title="8.1.常用搜索技巧" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">8</span>
@@ -403,7 +336,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/" title="8.2.常用网站推荐">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/" title="8.2.常用网站推荐" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">8</span>
@@ -421,7 +354,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/9%20%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80/" title="9.编码与文件后缀">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/9%20%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80/" title="9.编码与文件后缀" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">9</span>
@@ -439,7 +372,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/10%20%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB%E5%92%8C%E6%B2%B9%E7%8C%B4%E4%BB%8B%E7%BB%8D/" title="10.浏览器插件分享和油猴介绍">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/10%20%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB%E5%92%8C%E6%B2%B9%E7%8C%B4%E4%BB%8B%E7%BB%8D/" title="10.浏览器插件分享和油猴介绍" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -457,7 +390,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/11%20uml%E5%92%8Cmermaid%E7%9A%84%E4%BB%8B%E7%BB%8D/" title="11.UML和Mermaid的介绍">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/11%20uml%E5%92%8Cmermaid%E7%9A%84%E4%BB%8B%E7%BB%8D/" title="11.UML和Mermaid的介绍" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -475,7 +408,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/12%20%E7%BD%91%E8%AF%BE%E8%87%AA%E5%8A%A8%E8%A7%82%E7%9C%8B%E4%B8%8E%E7%AD%94%E9%A2%98/" title="12.网课自动观看与答题">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/12%20%E7%BD%91%E8%AF%BE%E8%87%AA%E5%8A%A8%E8%A7%82%E7%9C%8B%E4%B8%8E%E7%AD%94%E9%A2%98/" title="12.网课自动观看与答题" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -520,7 +453,7 @@ var _hmt = _hmt || [];
   <div class="content">
     
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/UEC/">大学生扫盲课</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/UEC/" data-stellar-navigation="">大学生扫盲课</a>
 </div></div><div class="meta-row">
 <div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2024-12-26T16:00:00.000Z">2024-12-27</time></span></div>
 </div></div>
@@ -536,25 +469,25 @@ var _hmt = _hmt || [];
   </div>
   </div></div>
 <article class="md-text content slide-up"><p>在AI时代，是否会用 Markdown 会在很大程度上影响你和ai协同合作的效率<br>现在就连<a target="_blank" rel="noopener" href="https://blogs.windows.com/windows-insider/2025/11/21/notepad-update-begins-rolling-out-to-windows-insiders/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Windows系统的记事本都可以写markdown</a>了，说明markdown在AI时代会成为我们的标配<br>但win系统自带的软件不好用，我们这里主要还是介绍 Typora 的安装和配置。</p>
-<h2 id="一、安装和激活"><a href="#一、安装和激活" class="headerlink" title="一、安装和激活"></a>一、安装和激活</h2><p>可以在 423Down 上下载 Typora 的破解版安装包，这里我下载的是 64 位的<br>下载链接：<a target="_blank" rel="noopener" href="https://www.423down.com/15527.html" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>https://www.423down.com/15527.html</a></p>
+<h2 id="一、安装和激活"><a href="#一、安装和激活" class="headerlink" title="一、安装和激活" data-stellar-navigation=""></a>一、安装和激活</h2><p>可以在 423Down 上下载 Typora 的破解版安装包，这里我下载的是 64 位的<br>下载链接：<a target="_blank" rel="noopener" href="https://www.423down.com/15527.html" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>https://www.423down.com/15527.html</a></p>
 <p>下载好后，我们直接双击安装就行（可能安装方式有变化，以其网站提示为准）</p>
 <p>安装后，可以看到Typora的界面：</p>
 <hr>
-<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><p>需要学习typora的语法，可以看本站的此教程；<br><a href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span><strong>Markdown 语法</strong></a></p>
-<h2 id="三、插件使⽤"><a href="#三、插件使⽤" class="headerlink" title="三、插件使⽤"></a>三、插件使⽤</h2><p>有一个很好用的插件可以优化 Typora 的使用，直接按照官方给出的文档进行安装就行了，我这里也做一下示范。</p>
+<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用" data-stellar-navigation=""></a>二、使用</h2><p>需要学习typora的语法，可以看本站的此教程；<br><a href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" data-md-link="" data-stellar-navigation=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span><strong>Markdown 语法</strong></a></p>
+<h2 id="三、插件使⽤"><a href="#三、插件使⽤" class="headerlink" title="三、插件使⽤" data-stellar-navigation=""></a>三、插件使⽤</h2><p>有一个很好用的插件可以优化 Typora 的使用，直接按照官方给出的文档进行安装就行了，我这里也做一下示范。</p>
 <ul>
 <li><strong>GitHub 项目地址</strong>：<br><a target="_blank" rel="noopener" href="https://github.com/obgnail/typora_plugin" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span><strong>obgnail/typora_plugin:  Typora 插件，功能增强工具</strong></a></li>
 </ul>
 <hr>
-<h2 id="四、建议配置"><a href="#四、建议配置" class="headerlink" title="四、建议配置"></a>四、建议配置</h2><h3 id="1-基础界面配置"><a href="#1-基础界面配置" class="headerlink" title="1. 基础界面配置"></a>1. 基础界面配置</h3><p>建议将<strong>侧边栏</strong>打开。</p>
+<h2 id="四、建议配置"><a href="#四、建议配置" class="headerlink" title="四、建议配置" data-stellar-navigation=""></a>四、建议配置</h2><h3 id="1-基础界面配置"><a href="#1-基础界面配置" class="headerlink" title="1. 基础界面配置" data-stellar-navigation=""></a>1. 基础界面配置</h3><p>建议将<strong>侧边栏</strong>打开。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/f5e1871760566d74c066885a1a8f6a39.png" alt="Figure 2" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="515" height="682" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[205.4736,42.5805,95.3335,0.9842]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/11/f5e1871760566d74c066885a1a8f6a39.png"></p>
 <p>在这里进入我们的<strong>偏好设置</strong>。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/b286e63612cbbf700a192cdd0c5b08f6.png" alt="Figure 3" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="515" height="582" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[206.7544,34.2575,93.2185,0.9784]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/11/b286e63612cbbf700a192cdd0c5b08f6.png"></p>
-<h3 id="2-⽂件配置"><a href="#2-⽂件配置" class="headerlink" title="2. ⽂件配置"></a>2. ⽂件配置</h3><p>建议按照这个图片进行文件配置，这样会比较舒服。</p>
+<h3 id="2-⽂件配置"><a href="#2-⽂件配置" class="headerlink" title="2. ⽂件配置" data-stellar-navigation=""></a>2. ⽂件配置</h3><p>建议按照这个图片进行文件配置，这样会比较舒服。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/f17418f3c9d679d4d255e3e9eb74029e.png" alt="Figure 4" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="515" height="258" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[3.85,10.2049,96.2716,0.967]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/11/f17418f3c9d679d4d255e3e9eb74029e.png"></p>
-<h3 id="3-编辑器配置"><a href="#3-编辑器配置" class="headerlink" title="3. 编辑器配置"></a>3. 编辑器配置</h3><p>将<strong>成对的符号</strong>勾选上，这样我们打一个符号就不用再打第二次，直接进行书写了。换行符因人而异。</p>
+<h3 id="3-编辑器配置"><a href="#3-编辑器配置" class="headerlink" title="3. 编辑器配置" data-stellar-navigation=""></a>3. 编辑器配置</h3><p>将<strong>成对的符号</strong>勾选上，这样我们打一个符号就不用再打第二次，直接进行书写了。换行符因人而异。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/84f4b1a6bf5a16c5d625557760f2f669.png" alt="Figure 5" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="515" height="420" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[2.6985,11.6891,96.1784,0.983]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/11/84f4b1a6bf5a16c5d625557760f2f669.png"></p>
-<h3 id="4-图像配置（重要）"><a href="#4-图像配置（重要）" class="headerlink" title="4. 图像配置（重要）"></a>4. 图像配置（重要）</h3><p>图像配置是最重要的（至少对我来说）。</p>
+<h3 id="4-图像配置（重要）"><a href="#4-图像配置（重要）" class="headerlink" title="4. 图像配置（重要）" data-stellar-navigation=""></a>4. 图像配置（重要）</h3><p>图像配置是最重要的（至少对我来说）。</p>
 <p><strong>推荐设置：</strong><br>我们在这里选择插入图片的时候，将其<strong>复制到 <code>./${filename}.assets</code> 文件夹</strong>。</p>
 <ul>
 <li>这样会在我们 md 文档的同级目录新建一个文件夹（如果没有的话），然后将图片全部备份放一个进去。</li>
@@ -567,7 +500,7 @@ var _hmt = _hmt || [];
 <li>避免别人打开的时候还要去改一下图片位置，非常麻烦。</li>
 </ul>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/d66a84c4260289b65d3675eb184818ad.png" alt="Figure 6" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="515" height="258" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[196.8362,1.4311,96.4475,0.9735]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/11/d66a84c4260289b65d3675eb184818ad.png"></p>
-<h3 id="5-Markdown-配置"><a href="#5-Markdown-配置" class="headerlink" title="5. Markdown 配置"></a>5. Markdown 配置</h3><p>我们在这里可以配置 Markdown 的语法相关。</p>
+<h3 id="5-Markdown-配置"><a href="#5-Markdown-配置" class="headerlink" title="5. Markdown 配置" data-stellar-navigation=""></a>5. Markdown 配置</h3><p>我们在这里可以配置 Markdown 的语法相关。</p>
 <p><strong>建议：</strong></p>
 <ul>
 <li><strong>全部勾上</strong>（除了那个首行缩进，这是个人喜好）。</li>
@@ -575,18 +508,18 @@ var _hmt = _hmt || [];
 <li>下面的公式编号还是看个人情况，这里就不过多说了。</li>
 </ul>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/88832cf5b5d5bc35de0da5bd6aff8e1e.png" alt="Figure 7" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="515" height="732" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[205.1905,3.281,97.1136,0.9831]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/11/88832cf5b5d5bc35de0da5bd6aff8e1e.png"></p>
-<h3 id="6-导出配置"><a href="#6-导出配置" class="headerlink" title="6. 导出配置"></a>6. 导出配置</h3><p>这里是因人而异，我只配置了 PDF 的导出，这里也可以配置一下我们页面的大小，就根据个人的情况来进行自定义配置就可以。</p>
+<h3 id="6-导出配置"><a href="#6-导出配置" class="headerlink" title="6. 导出配置" data-stellar-navigation=""></a>6. 导出配置</h3><p>这里是因人而异，我只配置了 PDF 的导出，这里也可以配置一下我们页面的大小，就根据个人的情况来进行自定义配置就可以。</p>
 <p><strong>页眉页脚技巧：</strong><br>主要是可以配置一下页眉和页尾，这里的参数是 <strong>YAML</strong> 的参数。我们可以在文档开头这样使用：</p>
 <figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">5</span> <span class="string">typora安装与配置</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">左岚</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>那么导出的时候，这里的 <code>title</code> 和 <code>author</code> 就会被识别到，然后添加到对应的位置去。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/daa6319033d5232b51ec74783f1329cf.jpeg" alt="Figure 8" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="508" height="272" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[0.9354,5.3446,96.2149,1]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/11/daa6319033d5232b51ec74783f1329cf.jpeg"></p>
-<h3 id="7-外观配置"><a href="#7-外观配置" class="headerlink" title="7. 外观配置"></a>7. 外观配置</h3><p>这里推荐用<strong>经典</strong>。一体化虽然很沉浸，但是用起来有点不太方便（对我来说）。下面的那个主题我后面会说在哪里下，也会推荐几款。</p>
+<h3 id="7-外观配置"><a href="#7-外观配置" class="headerlink" title="7. 外观配置" data-stellar-navigation=""></a>7. 外观配置</h3><p>这里推荐用<strong>经典</strong>。一体化虽然很沉浸，但是用起来有点不太方便（对我来说）。下面的那个主题我后面会说在哪里下，也会推荐几款。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/ddf2bf83eee804383caed3f8e950d889.png" alt="Figure 9" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="515" height="348" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[1.1241,1.2666,97.5981,0.9775]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/11/ddf2bf83eee804383caed3f8e950d889.png"></p>
-<h3 id="8-通⽤配置"><a href="#8-通⽤配置" class="headerlink" title="8. 通⽤配置"></a>8. 通⽤配置</h3><p>把这里的<strong>自动检查更新</strong>和<strong>更新到开发版</strong>给去掉就行了，因为我们本身就用的破解的，更新了就没了。</p>
+<h3 id="8-通⽤配置"><a href="#8-通⽤配置" class="headerlink" title="8. 通⽤配置" data-stellar-navigation=""></a>8. 通⽤配置</h3><p>把这里的<strong>自动检查更新</strong>和<strong>更新到开发版</strong>给去掉就行了，因为我们本身就用的破解的，更新了就没了。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/11/0f1732d883a310486b2873096cd41cd6.png" alt="Figure 10" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="515" height="399" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[7.0323,3.0583,96.5299,0.9714]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/11/0f1732d883a310486b2873096cd41cd6.png"></p>
 <hr>
-<h2 id="五、主题美化"><a href="#五、主题美化" class="headerlink" title="五、主题美化"></a>五、主题美化</h2><p><strong>在哪里去找相关的主题呢？</strong></p>
+<h2 id="五、主题美化"><a href="#五、主题美化" class="headerlink" title="五、主题美化" data-stellar-navigation=""></a>五、主题美化</h2><p><strong>在哪里去找相关的主题呢？</strong></p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://theme.typoraio.cn/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span><strong>Themes Gallery — Typora</strong></a> （这个需要挂梯子，是官方的）</li>
 <li><a target="_blank" rel="noopener" href="https://www.typora.net/themes/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span><strong>主题 | typora中文网</strong></a> （这个直接访问就行了）</li>
@@ -607,10 +540,10 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://cdn.jsdmirror.com/npm/d3@7"></script><script src="https://cdn.jsdmirror.com/npm/markmap-view@0.18.10"></script><script src="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
 
-<script src="/js/markmap.js"></script>
+
+
+
 </article>
 
 
@@ -621,7 +554,7 @@ var _hmt = _hmt || [];
 </div>
     </section></div>
 
-<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 回顾上一篇</div><a href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">4.2.Markdown基础语法</a></div><div class="item" id="next"><div class="note">接下来阅读 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/wiki/UEC/5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86/">5.1.CMD和PowerShell指令集</a></div></section></div>
+<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 回顾上一篇</div><a href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" data-stellar-navigation="">4.2.Markdown基础语法</a></div><div class="item" id="next"><div class="note">接下来阅读 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/wiki/UEC/5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86/" data-stellar-navigation="">5.1.CMD和PowerShell指令集</a></div></section></div>
 
 
   <div class="related-wrap md-text slide-up" id="comments">
@@ -644,7 +577,7 @@ var _hmt = _hmt || [];
 
 
 
-<footer class="page-footer slide-up footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a><a href="/rss/">RSS 订阅</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0">Stellar 2.0.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+<footer class="page-footer slide-up footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a><a href="/rss/">RSS 订阅</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/" data-stellar-navigation="">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0">Stellar 2.0.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
 </div></footer>
 </main>
 <aside data-stellar-runtime-region="" id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
@@ -657,7 +590,7 @@ var _hmt = _hmt || [];
       <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
     </div>
   
-  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85%E5%92%8C%E6%BF%80%E6%B4%BB"><span class="toc-text">一、安装和激活</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81%E4%BD%BF%E7%94%A8"><span class="toc-text">二、使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81%E6%8F%92%E4%BB%B6%E4%BD%BF%E2%BD%A4"><span class="toc-text">三、插件使⽤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81%E5%BB%BA%E8%AE%AE%E9%85%8D%E7%BD%AE"><span class="toc-text">四、建议配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E5%9F%BA%E7%A1%80%E7%95%8C%E9%9D%A2%E9%85%8D%E7%BD%AE"><span class="toc-text">1. 基础界面配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E2%BD%82%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-text">2. ⽂件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E7%BC%96%E8%BE%91%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-text">3. 编辑器配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-%E5%9B%BE%E5%83%8F%E9%85%8D%E7%BD%AE%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-text">4. 图像配置（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#5-Markdown-%E9%85%8D%E7%BD%AE"><span class="toc-text">5. Markdown 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#6-%E5%AF%BC%E5%87%BA%E9%85%8D%E7%BD%AE"><span class="toc-text">6. 导出配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#7-%E5%A4%96%E8%A7%82%E9%85%8D%E7%BD%AE"><span class="toc-text">7. 外观配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#8-%E9%80%9A%E2%BD%A4%E9%85%8D%E7%BD%AE"><span class="toc-text">8. 通⽤配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BA%94%E3%80%81%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96"><span class="toc-text">五、主题美化</span></a></li></ol></div>
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85%E5%92%8C%E6%BF%80%E6%B4%BB" data-stellar-navigation=""><span class="toc-text">一、安装和激活</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81%E4%BD%BF%E7%94%A8" data-stellar-navigation=""><span class="toc-text">二、使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81%E6%8F%92%E4%BB%B6%E4%BD%BF%E2%BD%A4" data-stellar-navigation=""><span class="toc-text">三、插件使⽤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81%E5%BB%BA%E8%AE%AE%E9%85%8D%E7%BD%AE" data-stellar-navigation=""><span class="toc-text">四、建议配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E5%9F%BA%E7%A1%80%E7%95%8C%E9%9D%A2%E9%85%8D%E7%BD%AE" data-stellar-navigation=""><span class="toc-text">1. 基础界面配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E2%BD%82%E4%BB%B6%E9%85%8D%E7%BD%AE" data-stellar-navigation=""><span class="toc-text">2. ⽂件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E7%BC%96%E8%BE%91%E5%99%A8%E9%85%8D%E7%BD%AE" data-stellar-navigation=""><span class="toc-text">3. 编辑器配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-%E5%9B%BE%E5%83%8F%E9%85%8D%E7%BD%AE%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89" data-stellar-navigation=""><span class="toc-text">4. 图像配置（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#5-Markdown-%E9%85%8D%E7%BD%AE" data-stellar-navigation=""><span class="toc-text">5. Markdown 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#6-%E5%AF%BC%E5%87%BA%E9%85%8D%E7%BD%AE" data-stellar-navigation=""><span class="toc-text">6. 导出配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#7-%E5%A4%96%E8%A7%82%E9%85%8D%E7%BD%AE" data-stellar-navigation=""><span class="toc-text">7. 外观配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#8-%E9%80%9A%E2%BD%A4%E9%85%8D%E7%BD%AE" data-stellar-navigation=""><span class="toc-text">8. 通⽤配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BA%94%E3%80%81%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96" data-stellar-navigation=""><span class="toc-text">五、主题美化</span></a></li></ol></div>
   <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a><a class="buttom ui-interactive" onclick="util.scrollComment()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"></path><path fill="currentColor" d="M7.25 9A.75.75 0 0 1 8 8.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 9m0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75"></path></svg></span><span>参与讨论</span></a></div>
 </widget>
 
@@ -733,9 +666,79 @@ var _hmt = _hmt || [];
 
 
 <!-- inject -->
+<!-- Baidu Tongji -->
+<script data-stellar-script="analytics">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.setAttribute("data-stellar-script", "analytics");
+  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
+<script data-stellar-script="analytics">
+(function() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  var initialized = false;
+  var initAnalytics = function() {
+    if (initialized) return;
+    initialized = true;
+
+    var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+    events.forEach(function(evt) {
+      window.removeEventListener(evt, initAnalytics, { passive: true });
+    });
+
+    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
+    var gScript = document.createElement('script');
+    gScript.setAttribute('data-stellar-script', 'analytics');
+    gScript.async = true;
+    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
+    var gTimer = setTimeout(function() {
+      if (gScript && gScript.parentNode) {
+        gScript.src = '';
+        gScript.parentNode.removeChild(gScript);
+      }
+    }, 2500);
+    gScript.onload = function() { clearTimeout(gTimer); };
+    gScript.onerror = function() { clearTimeout(gTimer); };
+    document.head.appendChild(gScript);
+    gtag('js', new Date());
+    gtag('config', 'G-JST56Q8277');
+
+    // 2. Microsoft Clarity with 3s auto-abort
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        t.setAttribute('data-stellar-script', 'analytics');
+        var cTimer = setTimeout(function() {
+          if (t && t.parentNode) {
+            t.src = '';
+            t.parentNode.removeChild(t);
+          }
+        }, 3000);
+        t.onload = function() { clearTimeout(cTimer); };
+        t.onerror = function() { clearTimeout(cTimer); };
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rp0i6z4yyg");
+  };
+
+  // Trigger upon interaction, or fallback after 6s idle
+  var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+  events.forEach(function(evt) {
+    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
+  });
+  setTimeout(initAnalytics, 6000);
+})();
+</script>
 
 
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-</body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"wiki\",\"note-UEC\"]","url":"https://blog.skyforever.top/wiki/UEC/4%20typora%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/","signature":"72588a2ebe3273133281008f8e24e93f62a4e8ba9068cd06200806adc71c846a"}</script></body></html>

@@ -1,25 +1,21 @@
-
-
-<!DOCTYPE html><html lang="zh-CN">
-
-<head>
+<!DOCTYPE html><html lang="zh-CN"><head>
   
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0" theme-name="Stellar" theme-version="2.0.0">
   
   
   <meta name="generator" content="Hexo 8.1.2">
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel="preconnect" href="https://image.skyforever.top" crossorigin><link rel="preconnect" href="https://cdn.jsdmirror.com" crossorigin><link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="preconnect" href="https://image.skyforever.top" crossorigin=""><link rel="preconnect" href="https://cdn.jsdmirror.com" crossorigin=""><link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin=""><link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin="">
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="HandheldFriendly" content="True" >
+  <meta name="HandheldFriendly" content="True">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title data-stellar-page-meta>大学生扫盲课：9.编码与文件后缀 - Sky Blog</title>
+  <title data-stellar-page-meta="">大学生扫盲课：9.编码与文件后缀 - Sky Blog</title>
   <script data-stellar-script="core">
     (function () {
       var key = 'stellar:v2:leftbar-state';
@@ -73,73 +69,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg">
 <link rel="stylesheet" href="/css/custom.css">
-<!-- Baidu Tongji -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
-<script>
-(function() {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-
-  var initialized = false;
-  var initAnalytics = function() {
-    if (initialized) return;
-    initialized = true;
-
-    var events = ['scroll', 'mousemove', 'click', 'keydown'];
-    events.forEach(function(evt) {
-      window.removeEventListener(evt, initAnalytics, { passive: true });
-    });
-
-    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
-    var gScript = document.createElement('script');
-    gScript.async = true;
-    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
-    var gTimer = setTimeout(function() {
-      if (gScript && gScript.parentNode) {
-        gScript.src = '';
-        gScript.parentNode.removeChild(gScript);
-      }
-    }, 2500);
-    gScript.onload = function() { clearTimeout(gTimer); };
-    gScript.onerror = function() { clearTimeout(gTimer); };
-    document.head.appendChild(gScript);
-    gtag('js', new Date());
-    gtag('config', 'G-JST56Q8277');
-
-    // 2. Microsoft Clarity with 3s auto-abort
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        var cTimer = setTimeout(function() {
-          if (t && t.parentNode) {
-            t.src = '';
-            t.parentNode.removeChild(t);
-          }
-        }, 3000);
-        t.onload = function() { clearTimeout(cTimer); };
-        t.onerror = function() { clearTimeout(cTimer); };
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "rp0i6z4yyg");
-  };
-
-  // Trigger upon scroll/interaction, or fallback after 6s idle
-  var events = ['scroll', 'mousemove', 'click', 'keydown'];
-  events.forEach(function(evt) {
-    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
-  });
-  setTimeout(initAnalytics, 6000);
-})();
-</script>
 
 
   <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
@@ -147,17 +76,17 @@ var _hmt = _hmt || [];
   
   
 </head>
-<body data-page-type="content" data-page-layout="page" data-article-style="tech"><div data-stellar-runtime-region id="site-cover" class="site-cover"></div><div class="site-shell" id="start" data-regions="leftbar rightbar"><div class="site-workspace">
-<aside data-stellar-runtime-region id="leftbar-region" class="site-region site-region--leftbar" data-region="leftbar" aria-label="Leftbar"><div class="site-region__surface ui-surface"><div class="site-region__decoration" aria-hidden="true"></div><div class="site-region__viewport"><header class="site-region__header site-region__zone site-region__zone--top">
-    <div class="widget-instance widget-instance--brand" data-widget-id="leftbar:fixed:brand" data-presentation="leftbar" data-leftbar-rail>
-<header class="brand-header brand-header--regular"><div class="brand-navigation"><a class="brand-navigation__back cap" href="/wiki/"><span class="ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 4-8 8 8 8"/></svg></span><span>所有项目</span></a></div><div class="brand-navigation-rail">
+<body data-page-type="content" data-page-layout="page" data-article-style="tech"><div data-stellar-runtime-region="" id="site-cover" class="site-cover"></div><div class="site-shell" id="start" data-regions="leftbar rightbar"><div class="site-workspace">
+<aside data-stellar-runtime-region="" id="leftbar-region" class="site-region site-region--leftbar" data-region="leftbar" aria-label="Leftbar"><div class="site-region__surface ui-surface"><div class="site-region__decoration" aria-hidden="true"></div><div class="site-region__viewport"><header class="site-region__header site-region__zone site-region__zone--top">
+    <div class="widget-instance widget-instance--brand" data-widget-id="leftbar:fixed:brand" data-presentation="leftbar" data-leftbar-rail="">
+<header class="brand-header brand-header--regular"><div class="brand-navigation"><a class="brand-navigation__back cap" href="/wiki/"><span class="ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 4-8 8 8 8"></path></svg></span><span>所有项目</span></a></div><div class="brand-navigation-rail">
 <nav class="menu dis-select">
 <div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" href="&#x2F;wiki&#x2F;" title="所有项目" aria-label="所有项目">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" href="/wiki/" title="所有项目" aria-label="所有项目">
   
-  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 4-8 8 8 8"/></svg></span>
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 4-8 8 8 8"></path></svg></span>
   
   
   
@@ -168,14 +97,14 @@ var _hmt = _hmt || [];
 </div>
 
 </nav>
-</div><div class="brand-wrap"><a class="brand-image brand-image--icon" href="&#x2F;wiki&#x2F;UEC&#x2F;"><img no-lazy src="https:&#x2F;&#x2F;image.skyforever.top&#x2F;blog&#x2F;2025&#x2F;10&#x2F;ec23b46ef5849c22890a0ae81f0d0561.webp" alt="" onerror="this.onerror&#x3D;null;this.src&#x3D;&quot;&#x2F;images&#x2F;stellar-error.491ee870f4940739.svg&quot;"></a><a class="brand-title" href="&#x2F;wiki&#x2F;UEC&#x2F;"><div class="brand-name">大学生扫盲课</div><div class="brand-tagline cap">大学生必备技能</div></a></div><div class="brand-search">
+</div><div class="brand-wrap"><a class="brand-image brand-image--icon" href="/wiki/UEC/" data-stellar-navigation=""><img no-lazy="" src="https://image.skyforever.top/blog/2025/10/ec23b46ef5849c22890a0ae81f0d0561.webp" alt="" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></a><a class="brand-title" href="/wiki/UEC/" data-stellar-navigation=""><div class="brand-name">大学生扫盲课</div><div class="brand-tagline cap">大学生必备技能</div></a></div><div class="brand-search">
 
 <div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
   
     
 <button class="ui-collection__item ui-interactive card-hover card-hover--spotlight search-trigger has-hover-surface" type="button" title="搜索" aria-label="搜索" data-shell-action="open-search" data-search-instance="leftbar-brand-search" data-search-domain="wiki:note-UEC" data-search-domain-label="大学生扫盲课" data-search-domain-blog="false">
   
-  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"/><circle cx="14" cy="11" r="4"/></g></svg></span>
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
   
   
     <span class="ui-collection__content">
@@ -199,7 +128,7 @@ var _hmt = _hmt || [];
   </header>
   <div class="site-region__body site-region__zone site-region__zone--body">
     
-    <div class="widgets widget-stack widget-stack--leftbar widget-stack--body"><div class="widget-instance widget-instance--tree" data-widget-id="leftbar:0:tree" data-presentation="leftbar" data-leftbar-rail>
+    <div class="widgets widget-stack widget-stack--leftbar widget-stack--body"><div class="widget-instance widget-instance--tree" data-widget-id="leftbar:0:tree" data-presentation="leftbar" data-leftbar-rail="">
 
 
 <widget class="widget-wrapper doc-tree-widget" data-wiki="note-UEC">
@@ -207,7 +136,7 @@ var _hmt = _hmt || [];
   <div class="widget-body"><section class="widget-section"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;" title="首页">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/" title="首页" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">首</span>
@@ -225,7 +154,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;1%20Git%E3%80%81GitHub%20%E5%92%8C%20Gitee%20%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%EF%BC%9A%E4%BB%8E%E5%9F%BA%E7%A1%80%E5%88%B0%E8%BF%9B%E9%98%B6%E5%8A%9F%E8%83%BD&#x2F;" title="1.Git、GitHub 和 Gitee 完整讲解：从基础到进阶功能">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/1%20Git%E3%80%81GitHub%20%E5%92%8C%20Gitee%20%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%EF%BC%9A%E4%BB%8E%E5%9F%BA%E7%A1%80%E5%88%B0%E8%BF%9B%E9%98%B6%E5%8A%9F%E8%83%BD/" title="1.Git、GitHub 和 Gitee 完整讲解：从基础到进阶功能" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -243,7 +172,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;2%20word%E6%8E%92%E7%89%88%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99&#x2F;" title="2.Word排版介绍与论文格式书写">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/2%20word%E6%8E%92%E7%89%88%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99/" title="2.Word排版介绍与论文格式书写" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">2</span>
@@ -261,7 +190,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;3%20%E4%B8%89%E7%BA%BF%E8%A1%A8%E7%BB%98%E5%88%B6%E4%B8%8Eexcel%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7&#x2F;" title="3.三线表绘制与Excel常用技巧">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/3%20%E4%B8%89%E7%BA%BF%E8%A1%A8%E7%BB%98%E5%88%B6%E4%B8%8Eexcel%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="3.三线表绘制与Excel常用技巧" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">3</span>
@@ -279,7 +208,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95&#x2F;" title="4.2.Markdown基础语法">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="4.2.Markdown基础语法" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">4</span>
@@ -297,7 +226,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;4%20typora%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE&#x2F;" title="4.1.Typora安装与配置">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/4%20typora%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" title="4.1.Typora安装与配置" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">4</span>
@@ -315,7 +244,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86&#x2F;" title="5.1.CMD和PowerShell指令集">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/5%20cmd%E5%92%8Cpowershell%E6%8C%87%E4%BB%A4%E9%9B%86/" title="5.1.CMD和PowerShell指令集" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">5</span>
@@ -333,7 +262,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;5%20cmd%E7%9A%84%E8%84%9A%E6%9C%ACbat%E4%B8%8Epowershell%E7%9A%84%E8%84%9A%E6%9C%ACps1&#x2F;" title="5.2.CMD脚本(BAT)与PowerShell脚本(PS1)">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/5%20cmd%E7%9A%84%E8%84%9A%E6%9C%ACbat%E4%B8%8Epowershell%E7%9A%84%E8%84%9A%E6%9C%ACps1/" title="5.2.CMD脚本(BAT)与PowerShell脚本(PS1)" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">5</span>
@@ -351,7 +280,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;6%20%E6%B8%85%E7%90%86C%E7%9B%98&#x2F;" title="6.清理C盘">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/6%20%E6%B8%85%E7%90%86C%E7%9B%98/" title="6.清理C盘" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">6</span>
@@ -369,7 +298,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;7%20%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E4%B8%8E%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9&#x2F;" title="7.磁盘分区与磁盘扩容">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/7%20%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E4%B8%8E%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9/" title="7.磁盘分区与磁盘扩容" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">7</span>
@@ -387,7 +316,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;8%20%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7&#x2F;" title="8.1.常用搜索技巧">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" title="8.1.常用搜索技巧" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">8</span>
@@ -405,7 +334,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;8%20%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90&#x2F;" title="8.2.常用网站推荐">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/" title="8.2.常用网站推荐" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">8</span>
@@ -423,7 +352,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="&#x2F;wiki&#x2F;UEC&#x2F;9%20%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80&#x2F;" title="9.编码与文件后缀" aria-current="page">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="/wiki/UEC/9%20%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80/" title="9.编码与文件后缀" aria-current="page" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">9</span>
@@ -441,7 +370,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;10%20%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB%E5%92%8C%E6%B2%B9%E7%8C%B4%E4%BB%8B%E7%BB%8D&#x2F;" title="10.浏览器插件分享和油猴介绍">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/10%20%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB%E5%92%8C%E6%B2%B9%E7%8C%B4%E4%BB%8B%E7%BB%8D/" title="10.浏览器插件分享和油猴介绍" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -459,7 +388,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;11%20uml%E5%92%8Cmermaid%E7%9A%84%E4%BB%8B%E7%BB%8D&#x2F;" title="11.UML和Mermaid的介绍">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/11%20uml%E5%92%8Cmermaid%E7%9A%84%E4%BB%8B%E7%BB%8D/" title="11.UML和Mermaid的介绍" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -477,7 +406,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;wiki&#x2F;UEC&#x2F;12%20%E7%BD%91%E8%AF%BE%E8%87%AA%E5%8A%A8%E8%A7%82%E7%9C%8B%E4%B8%8E%E7%AD%94%E9%A2%98&#x2F;" title="12.网课自动观看与答题">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/UEC/12%20%E7%BD%91%E8%AF%BE%E8%87%AA%E5%8A%A8%E8%A7%82%E7%9C%8B%E4%B8%8E%E7%AD%94%E9%A2%98/" title="12.网课自动观看与答题" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">1</span>
@@ -504,25 +433,25 @@ var _hmt = _hmt || [];
   <footer class="site-region__footer">
     
     <div class="site-region__system ui-collection" data-layout="inline" data-variant="nav" data-density="compact">
-      <div class="site-region__settings"><div class="widget-instance widget-instance--settings" data-widget-id="leftbar:fixed:settings" data-presentation="leftbar" data-leftbar-rail>
-<a class="settings-widget ui-collection__item ui-interactive card-hover card-hover--spotlight" href="&#x2F;settings&#x2F;" data-profile-provider="giscus" data-profile-identity-enabled="false" data-profile-fallback-avatar="https:&#x2F;&#x2F;gcore.jsdelivr.net&#x2F;gh&#x2F;cdn-x&#x2F;placeholder@1.0.12&#x2F;avatar&#x2F;round&#x2F;3442075.svg" data-settings-placement="leftbar" data-settings-label="设置" aria-label="设置" title="设置">
+      <div class="site-region__settings"><div class="widget-instance widget-instance--settings" data-widget-id="leftbar:fixed:settings" data-presentation="leftbar" data-leftbar-rail="">
+<a class="settings-widget ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/settings/" data-profile-provider="giscus" data-profile-identity-enabled="false" data-profile-fallback-avatar="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg" data-settings-placement="leftbar" data-settings-label="设置" aria-label="设置" title="设置">
   <span class="settings-widget__avatar" aria-hidden="true">
-    <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M12.4277 2C11.3139 2 10.2995 2.6007 8.27081 3.80211L7.58466 4.20846C5.55594 5.40987 4.54158 6.01057 3.98466 7C3.42773 7.98943 3.42773 9.19084 3.42773 11.5937V12.4063C3.42773 14.8092 3.42773 16.0106 3.98466 17C4.54158 17.9894 5.55594 18.5901 7.58466 19.7915L8.27081 20.1979C10.2995 21.3993 11.3139 22 12.4277 22C13.5416 22 14.5559 21.3993 16.5847 20.1979L17.2708 19.7915C19.2995 18.5901 20.3139 17.9894 20.8708 17C21.4277 16.0106 21.4277 14.8092 21.4277 12.4063V11.5937C21.4277 9.19084 21.4277 7.98943 20.8708 7C20.3139 6.01057 19.2995 5.40987 17.2708 4.20846L16.5847 3.80211C14.5559 2.6007 13.5416 2 12.4277 2Z" clip-rule="evenodd" opacity=".5"/><path d="M12.4277 8.25C10.3567 8.25 8.67773 9.92893 8.67773 12C8.67773 14.0711 10.3567 15.75 12.4277 15.75C14.4988 15.75 16.1777 14.0711 16.1777 12C16.1777 9.92893 14.4988 8.25 12.4277 8.25Z"/></g></svg></span>
+    <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M12.4277 2C11.3139 2 10.2995 2.6007 8.27081 3.80211L7.58466 4.20846C5.55594 5.40987 4.54158 6.01057 3.98466 7C3.42773 7.98943 3.42773 9.19084 3.42773 11.5937V12.4063C3.42773 14.8092 3.42773 16.0106 3.98466 17C4.54158 17.9894 5.55594 18.5901 7.58466 19.7915L8.27081 20.1979C10.2995 21.3993 11.3139 22 12.4277 22C13.5416 22 14.5559 21.3993 16.5847 20.1979L17.2708 19.7915C19.2995 18.5901 20.3139 17.9894 20.8708 17C21.4277 16.0106 21.4277 14.8092 21.4277 12.4063V11.5937C21.4277 9.19084 21.4277 7.98943 20.8708 7C20.3139 6.01057 19.2995 5.40987 17.2708 4.20846L16.5847 3.80211C14.5559 2.6007 13.5416 2 12.4277 2Z" clip-rule="evenodd" opacity=".5"></path><path d="M12.4277 8.25C10.3567 8.25 8.67773 9.92893 8.67773 12C8.67773 14.0711 10.3567 15.75 12.4277 15.75C14.4988 15.75 16.1777 14.0711 16.1777 12C16.1777 9.92893 14.4988 8.25 12.4277 8.25Z"></path></g></svg></span>
   </span>
   <span class="settings-widget__name ui-collection__title">设置</span>
 </a>
 </div></div>
-      <button type="button" class="leftbar-state-toggle ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" aria-label="Collapse leftbar" aria-expanded="true" data-shell-action="toggle-leftbar"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.172 4.172C2 5.343 2 7.229 2 11v2c0 3.771 0 5.657 1.172 6.828S6.229 21 10 21h5V3h-5C6.229 3 4.343 3 3.172 4.172" clip-rule="evenodd" opacity=".5"/><path fill="currentColor" d="M5.5 9.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zm1 4a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5zM22 13v-2c0-3.771 0-5.657-1.172-6.828c-.974-.975-3.192-1.139-5.828-1.166v17.988c2.636-.027 4.854-.191 5.828-1.166C22 18.657 22 16.771 22 13"/></svg></span></button>
+      <button type="button" class="leftbar-state-toggle ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" aria-label="Collapse leftbar" aria-expanded="true" data-shell-action="toggle-leftbar"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.172 4.172C2 5.343 2 7.229 2 11v2c0 3.771 0 5.657 1.172 6.828S6.229 21 10 21h5V3h-5C6.229 3 4.343 3 3.172 4.172" clip-rule="evenodd" opacity=".5"></path><path fill="currentColor" d="M5.5 9.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zm1 4a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5zM22 13v-2c0-3.771 0-5.657-1.172-6.828c-.974-.975-3.192-1.139-5.828-1.166v17.988c2.636-.027 4.854-.191 5.828-1.166C22 18.657 22 16.771 22 13"></path></svg></span></button>
     </div>
   </footer></div></div></aside>
-<main data-stellar-runtime-region class="site-main" id="main">
+<main data-stellar-runtime-region="" class="site-main" id="main">
 
 
 <div class="article-banner-wrap slide-up"><div class="article banner top">
   <div class="content">
     
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/UEC/">大学生扫盲课</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/UEC/" data-stellar-navigation="">大学生扫盲课</a>
 </div></div><div class="meta-row">
 <div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2024-12-19T16:00:00.000Z">2024-12-20</time></span></div>
 </div></div>
@@ -537,14 +466,14 @@ var _hmt = _hmt || [];
     
   </div>
   </div></div>
-<article class="md-text content slide-up"><h2 id="⼀、编码"><a href="#⼀、编码" class="headerlink" title="⼀、编码"></a>⼀、编码</h2><p>编码是为了让计算机能存储和理解文字，将字符转换成计算机可以处理的二进制数字。编码方式的不同会导致相同的文本内容在存储和读取时的二进制数据不同。</p>
-<h3 id="1-什么是字符编码？"><a href="#1-什么是字符编码？" class="headerlink" title="1. 什么是字符编码？"></a>1. 什么是字符编码？</h3><p>字符编码是一种将字符映射到数字的方法。例如：</p>
+<article class="md-text content slide-up"><h2 id="⼀、编码"><a href="#⼀、编码" class="headerlink" title="⼀、编码" data-stellar-navigation=""></a>⼀、编码</h2><p>编码是为了让计算机能存储和理解文字，将字符转换成计算机可以处理的二进制数字。编码方式的不同会导致相同的文本内容在存储和读取时的二进制数据不同。</p>
+<h3 id="1-什么是字符编码？"><a href="#1-什么是字符编码？" class="headerlink" title="1. 什么是字符编码？" data-stellar-navigation=""></a>1. 什么是字符编码？</h3><p>字符编码是一种将字符映射到数字的方法。例如：</p>
 <ul>
 <li>字符 <code>A</code> 的编码可能是 <code>65</code> （⼗进制）。</li>
 <li>字符 <code>你</code> 的编码可能是⼀个较⼤的数字，⽐如 <code>20320</code>。</li>
 </ul>
 <p>计算机最终存储的都是二进制数据，编码就是将这些字符转换为数字，再转化为二进制的过程。</p>
-<h3 id="2-常⻅的编码⽅式"><a href="#2-常⻅的编码⽅式" class="headerlink" title="2. 常⻅的编码⽅式"></a>2. 常⻅的编码⽅式</h3><h4 id="（1）ASCII"><a href="#（1）ASCII" class="headerlink" title="（1）ASCII"></a>（1）ASCII</h4><ul>
+<h3 id="2-常⻅的编码⽅式"><a href="#2-常⻅的编码⽅式" class="headerlink" title="2. 常⻅的编码⽅式" data-stellar-navigation=""></a>2. 常⻅的编码⽅式</h3><h4 id="（1）ASCII"><a href="#（1）ASCII" class="headerlink" title="（1）ASCII" data-stellar-navigation=""></a>（1）ASCII</h4><ul>
 <li><strong>特点</strong>：<ul>
 <li>最早的编码⽅式之⼀，基于英语字⺟。</li>
 <li>包括 26 个⼤⼩写英⽂字⺟、数字、标点符号等，共 128 个字符。</li>
@@ -560,7 +489,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="（2）GBK"><a href="#（2）GBK" class="headerlink" title="（2）GBK"></a>（2）GBK</h4><ul>
+<h4 id="（2）GBK"><a href="#（2）GBK" class="headerlink" title="（2）GBK" data-stellar-navigation=""></a>（2）GBK</h4><ul>
 <li><strong>特点</strong>：<ul>
 <li>中⽂专⽤编码，是 GB2312 的扩展，⽀持更多汉字。</li>
 <li>使⽤多字节编码：英⽂字符 1 字节，中⽂字符 2 字节。</li>
@@ -575,7 +504,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="（3）UTF-8"><a href="#（3）UTF-8" class="headerlink" title="（3）UTF-8"></a>（3）UTF-8</h4><ul>
+<h4 id="（3）UTF-8"><a href="#（3）UTF-8" class="headerlink" title="（3）UTF-8" data-stellar-navigation=""></a>（3）UTF-8</h4><ul>
 <li><strong>特点</strong>：<ul>
 <li>⼀种全球通⽤的编码⽅式，是 Unicode 的⼀种实现。</li>
 <li><strong>变⻓编码</strong>：<ul>
@@ -597,7 +526,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="（4）UTF-16"><a href="#（4）UTF-16" class="headerlink" title="（4）UTF-16"></a>（4）UTF-16</h4><ul>
+<h4 id="（4）UTF-16"><a href="#（4）UTF-16" class="headerlink" title="（4）UTF-16" data-stellar-navigation=""></a>（4）UTF-16</h4><ul>
 <li><strong>特点</strong>：<ul>
 <li>为 Unicode 设计的编码⽅式。</li>
 <li>使⽤固定⻓度（2 字节或 4 字节）。</li>
@@ -612,7 +541,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h4 id="（5）ISO-8859-1"><a href="#（5）ISO-8859-1" class="headerlink" title="（5）ISO-8859-1"></a>（5）ISO-8859-1</h4><ul>
+<h4 id="（5）ISO-8859-1"><a href="#（5）ISO-8859-1" class="headerlink" title="（5）ISO-8859-1" data-stellar-navigation=""></a>（5）ISO-8859-1</h4><ul>
 <li><strong>特点</strong>：<ul>
 <li>单字节编码，⽀持西欧语⾔。</li>
 <li>每个字符占 1 字节。</li>
@@ -623,7 +552,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h3 id="3-为什么会有乱码？"><a href="#3-为什么会有乱码？" class="headerlink" title="3. 为什么会有乱码？"></a>3. 为什么会有乱码？</h3><p>乱码是因为文件的<strong>编码方式</strong>和打开文件的<strong>解码方式</strong>不匹配。</p>
+<h3 id="3-为什么会有乱码？"><a href="#3-为什么会有乱码？" class="headerlink" title="3. 为什么会有乱码？" data-stellar-navigation=""></a>3. 为什么会有乱码？</h3><p>乱码是因为文件的<strong>编码方式</strong>和打开文件的<strong>解码方式</strong>不匹配。</p>
 <ul>
 <li><p><strong>⽰例</strong>：</p>
 <ul>
@@ -644,38 +573,38 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <hr>
-<h2 id="⼆、⽂件后缀"><a href="#⼆、⽂件后缀" class="headerlink" title="⼆、⽂件后缀"></a>⼆、⽂件后缀</h2><p>文件后缀是文件名中表示文件类型的部分。它通常用来告诉操作系统或软件，应该用什么程序打开文件。</p>
-<h3 id="1-⽂件后缀的作⽤"><a href="#1-⽂件后缀的作⽤" class="headerlink" title="1. ⽂件后缀的作⽤"></a>1. ⽂件后缀的作⽤</h3><ul>
+<h2 id="⼆、⽂件后缀"><a href="#⼆、⽂件后缀" class="headerlink" title="⼆、⽂件后缀" data-stellar-navigation=""></a>⼆、⽂件后缀</h2><p>文件后缀是文件名中表示文件类型的部分。它通常用来告诉操作系统或软件，应该用什么程序打开文件。</p>
+<h3 id="1-⽂件后缀的作⽤"><a href="#1-⽂件后缀的作⽤" class="headerlink" title="1. ⽂件后缀的作⽤" data-stellar-navigation=""></a>1. ⽂件后缀的作⽤</h3><ul>
 <li>告诉操作系统⽂件的类型（如⽂本、图⽚、⾳频等）。</li>
 <li>让⽤⼾快速识别⽂件的⽤途。</li>
 <li>让软件根据后缀选择合适的打开⽅式。</li>
 </ul>
-<h3 id="2-常⻅的⽂件后缀及其对应类型"><a href="#2-常⻅的⽂件后缀及其对应类型" class="headerlink" title="2. 常⻅的⽂件后缀及其对应类型"></a>2. 常⻅的⽂件后缀及其对应类型</h3><h4 id="（1）⽂本⽂件"><a href="#（1）⽂本⽂件" class="headerlink" title="（1）⽂本⽂件"></a>（1）⽂本⽂件</h4><ul>
+<h3 id="2-常⻅的⽂件后缀及其对应类型"><a href="#2-常⻅的⽂件后缀及其对应类型" class="headerlink" title="2. 常⻅的⽂件后缀及其对应类型" data-stellar-navigation=""></a>2. 常⻅的⽂件后缀及其对应类型</h3><h4 id="（1）⽂本⽂件"><a href="#（1）⽂本⽂件" class="headerlink" title="（1）⽂本⽂件" data-stellar-navigation=""></a>（1）⽂本⽂件</h4><ul>
 <li><code>.txt</code> ：纯⽂本⽂件，可以⽤记事本、VS Code 等打开，编码可能是 ASCII、UTF-8、GBK 等。</li>
 <li><code>.log</code> ：⽇志⽂件，通常记录程序运⾏过程中的信息。</li>
 <li><code>.csv</code> ：逗号分隔的⽂件，⽤于存储表格数据，可以⽤ Excel 打开。</li>
 </ul>
-<h4 id="（2）⽂档⽂件"><a href="#（2）⽂档⽂件" class="headerlink" title="（2）⽂档⽂件"></a>（2）⽂档⽂件</h4><ul>
+<h4 id="（2）⽂档⽂件"><a href="#（2）⽂档⽂件" class="headerlink" title="（2）⽂档⽂件" data-stellar-navigation=""></a>（2）⽂档⽂件</h4><ul>
 <li><code>.doc</code> / <code>.docx</code> ：微软 Word ⽂档。</li>
 <li><code>.pdf</code> ：跨平台的便携⽂档格式，阅读⼀致性强。</li>
 <li><code>.md</code> ：Markdown ⽂件，⽤于轻量级的⽂本排版。</li>
 </ul>
-<h4 id="（3）代码⽂件"><a href="#（3）代码⽂件" class="headerlink" title="（3）代码⽂件"></a>（3）代码⽂件</h4><ul>
+<h4 id="（3）代码⽂件"><a href="#（3）代码⽂件" class="headerlink" title="（3）代码⽂件" data-stellar-navigation=""></a>（3）代码⽂件</h4><ul>
 <li><code>.py</code> ：Python 脚本⽂件。</li>
 <li><code>.js</code> ：JavaScript 代码⽂件。</li>
 <li><code>.html</code> ：HTML ⽹⻚⽂件。</li>
 <li><code>.json</code> ：结构化数据⽂件，常⽤于 API 数据交互。</li>
 </ul>
-<h4 id="（4）多媒体⽂件"><a href="#（4）多媒体⽂件" class="headerlink" title="（4）多媒体⽂件"></a>（4）多媒体⽂件</h4><ul>
+<h4 id="（4）多媒体⽂件"><a href="#（4）多媒体⽂件" class="headerlink" title="（4）多媒体⽂件" data-stellar-navigation=""></a>（4）多媒体⽂件</h4><ul>
 <li><code>.jpg</code> / <code>.png</code> ：图⽚⽂件。</li>
 <li><code>.mp3</code> / <code>.wav</code> ：⾳频⽂件。</li>
 <li><code>.mp4</code> / <code>.avi</code> ：视频⽂件。</li>
 </ul>
-<h4 id="（5）压缩⽂件"><a href="#（5）压缩⽂件" class="headerlink" title="（5）压缩⽂件"></a>（5）压缩⽂件</h4><ul>
+<h4 id="（5）压缩⽂件"><a href="#（5）压缩⽂件" class="headerlink" title="（5）压缩⽂件" data-stellar-navigation=""></a>（5）压缩⽂件</h4><ul>
 <li><code>.zip</code> / <code>.rar</code> ：压缩⽂件，需解压缩⼯具打开。</li>
 <li><code>.tar</code> / <code>.gz</code> ：Linux 下常⻅的压缩⽂件。</li>
 </ul>
-<h3 id="3-⽂件后缀与编码的关系"><a href="#3-⽂件后缀与编码的关系" class="headerlink" title="3. ⽂件后缀与编码的关系"></a>3. ⽂件后缀与编码的关系</h3><p>文件后缀和文件编码是两个独立的概念：</p>
+<h3 id="3-⽂件后缀与编码的关系"><a href="#3-⽂件后缀与编码的关系" class="headerlink" title="3. ⽂件后缀与编码的关系" data-stellar-navigation=""></a>3. ⽂件后缀与编码的关系</h3><p>文件后缀和文件编码是两个独立的概念：</p>
 <ul>
 <li><strong>⽂件后缀</strong>描述⽂件的类型。</li>
 <li><strong>⽂件编码</strong>描述⽂件内容的存储⽅式。</li>
@@ -693,7 +622,7 @@ var _hmt = _hmt || [];
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <hr>
-<h2 id="三、实际操作与编码问题解决"><a href="#三、实际操作与编码问题解决" class="headerlink" title="三、实际操作与编码问题解决"></a>三、实际操作与编码问题解决</h2><h3 id="1-如何查看⽂件编码？"><a href="#1-如何查看⽂件编码？" class="headerlink" title="1. 如何查看⽂件编码？"></a>1. 如何查看⽂件编码？</h3><ol>
+<h2 id="三、实际操作与编码问题解决"><a href="#三、实际操作与编码问题解决" class="headerlink" title="三、实际操作与编码问题解决" data-stellar-navigation=""></a>三、实际操作与编码问题解决</h2><h3 id="1-如何查看⽂件编码？"><a href="#1-如何查看⽂件编码？" class="headerlink" title="1. 如何查看⽂件编码？" data-stellar-navigation=""></a>1. 如何查看⽂件编码？</h3><ol>
 <li><p><strong>⽂本编辑器</strong></p>
 <ul>
 <li>⽤ VS Code 或记事本打开⽂件，底部会显⽰⽂件编码（如 UTF-8、GBK）。</li>
@@ -710,7 +639,7 @@ var _hmt = _hmt || [];
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'filename.txt'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = f.read()</span><br><span class="line">    result = chardet.detect(data)</span><br><span class="line">    <span class="built_in">print</span>(result[<span class="string">'encoding'</span>])</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
-<h3 id="2-如何转换⽂件编码？"><a href="#2-如何转换⽂件编码？" class="headerlink" title="2. 如何转换⽂件编码？"></a>2. 如何转换⽂件编码？</h3><p>使用工具或编程语言转换文件的编码。</p>
+<h3 id="2-如何转换⽂件编码？"><a href="#2-如何转换⽂件编码？" class="headerlink" title="2. 如何转换⽂件编码？" data-stellar-navigation=""></a>2. 如何转换⽂件编码？</h3><p>使用工具或编程语言转换文件的编码。</p>
 <ul>
 <li><p><strong>⼯具</strong>：</p>
 <ul>
@@ -721,12 +650,12 @@ var _hmt = _hmt || [];
 <li><p><strong>Python 代码</strong>：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 转换GBK到UTF-8</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'input.txt'</span>, <span class="string">'r'</span>, encoding=<span class="string">'gbk'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.read()</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'output.txt'</span>, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(content)</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
-<h3 id="3-编码和后缀不匹配怎么办？"><a href="#3-编码和后缀不匹配怎么办？" class="headerlink" title="3. 编码和后缀不匹配怎么办？"></a>3. 编码和后缀不匹配怎么办？</h3><ul>
+<h3 id="3-编码和后缀不匹配怎么办？"><a href="#3-编码和后缀不匹配怎么办？" class="headerlink" title="3. 编码和后缀不匹配怎么办？" data-stellar-navigation=""></a>3. 编码和后缀不匹配怎么办？</h3><ul>
 <li>修改后缀，让它与实际内容类型匹配。</li>
 <li>修改编码，让⽂件能正常被读取或编辑。</li>
 </ul>
 <hr>
-<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><ol>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结" data-stellar-navigation=""></a>四、总结</h2><ol>
 <li><strong>编码</strong>决定了⽂件内容的存储⽅式，常⻅有 ASCII、GBK、UTF-8 等。</li>
 <li><strong>⽂件后缀</strong>是⽂件类型的标识，如 <code>.txt</code> 、 <code>.html</code> 、 <code>.jpg</code> 。</li>
 <li>在处理⽂件时：<ul>
@@ -735,10 +664,10 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ol>
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://cdn.jsdmirror.com/npm/d3@7"></script><script src="https://cdn.jsdmirror.com/npm/markmap-view@0.18.10"></script><script src="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
 
-<script src="/js/markmap.js"></script>
+
+
+
 </article>
 
 
@@ -749,7 +678,7 @@ var _hmt = _hmt || [];
 </div>
     </section></div>
 
-<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 回顾上一篇</div><a href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/">8.2.常用网站推荐</a></div><div class="item" id="next"><div class="note">接下来阅读 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/wiki/UEC/10%20%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB%E5%92%8C%E6%B2%B9%E7%8C%B4%E4%BB%8B%E7%BB%8D/">10.浏览器插件分享和油猴介绍</a></div></section></div>
+<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 回顾上一篇</div><a href="/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/" data-stellar-navigation="">8.2.常用网站推荐</a></div><div class="item" id="next"><div class="note">接下来阅读 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/wiki/UEC/10%20%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB%E5%92%8C%E6%B2%B9%E7%8C%B4%E4%BB%8B%E7%BB%8D/" data-stellar-navigation="">10.浏览器插件分享和油猴介绍</a></div></section></div>
 
 
   <div class="related-wrap md-text slide-up" id="comments">
@@ -772,56 +701,56 @@ var _hmt = _hmt || [];
 
 
 
-<footer class="page-footer slide-up footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="&#x2F;">近期发布</a><a href="&#x2F;categories&#x2F;">分类</a><a href="&#x2F;tags&#x2F;">标签</a><a href="&#x2F;archives&#x2F;">时间线</a><a href="&#x2F;sitemap.xml">站点地图</a><a href="&#x2F;rss&#x2F;">RSS 订阅</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="&#x2F;wiki&#x2F;LVGL-CarDashboard&#x2F;">车载仪表盘</a><a href="&#x2F;wiki&#x2F;Smart_Home_System&#x2F;">智能家居系统</a><a href="&#x2F;wiki&#x2F;UEC&#x2F;">大学生扫盲课</a><a href="&#x2F;wiki&#x2F;py32-ina219-usb-meter&#x2F;">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="&#x2F;note&#x2F;ESI&#x2F;">嵌入式面试题</a><a href="&#x2F;note&#x2F;ES&#x2F;">嵌入式笔记</a><a href="&#x2F;note&#x2F;college&#x2F;">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0">Stellar 2.0.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" onerror="this.onerror&#x3D;null;this.src&#x3D;&quot;&#x2F;images&#x2F;stellar-error.491ee870f4940739.svg&quot;" /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
+<footer class="page-footer slide-up footnote"><hr><div class="sitemap" style="column-count:3;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">时间线</a><a href="/sitemap.xml">站点地图</a><a href="/rss/">RSS 订阅</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/LVGL-CarDashboard/">车载仪表盘</a><a href="/wiki/Smart_Home_System/">智能家居系统</a><a href="/wiki/UEC/" data-stellar-navigation="">大学生扫盲课</a><a href="/wiki/py32-ina219-usb-meter/">PY32-USB功率计</a></div><div class="sitemap-group"><span class="fs15">笔记</span><a href="/note/ESI/">嵌入式面试题</a><a href="/note/ES/">嵌入式笔记</a><a href="/note/college/">大学笔记</a></div></div><div class="text"><p>本站由 <a href="/">Skyforever</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0">Stellar 2.0.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7c7d60c27511edf9f4ae10cb62c8f4ae.png" width="13" height="13" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51142102511609">川公网安备51142102511609</a> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">蜀ICP备2024105035号</a></p>
 </div></footer>
 </main>
-<aside data-stellar-runtime-region id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
+<aside data-stellar-runtime-region="" id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
 
 
 <widget class="widget-wrapper slide-up toc" id="data-toc" collapse="false">
   
     <div class="widget-header dis-select">
       <span class="name">本文目录</span>
-      <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></span></button>
+      <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
     </div>
   
-  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E2%BC%80%E3%80%81%E7%BC%96%E7%A0%81"><span class="toc-text">⼀、编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%EF%BC%9F"><span class="toc-text">1. 什么是字符编码？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%B8%B8%E2%BB%85%E7%9A%84%E7%BC%96%E7%A0%81%E2%BD%85%E5%BC%8F"><span class="toc-text">2. 常⻅的编码⽅式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%881%EF%BC%89ASCII"><span class="toc-text">（1）ASCII</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%882%EF%BC%89GBK"><span class="toc-text">（2）GBK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%883%EF%BC%89UTF-8"><span class="toc-text">（3）UTF-8</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%884%EF%BC%89UTF-16"><span class="toc-text">（4）UTF-16</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%885%EF%BC%89ISO-8859-1"><span class="toc-text">（5）ISO-8859-1</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E4%B9%B1%E7%A0%81%EF%BC%9F"><span class="toc-text">3. 为什么会有乱码？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E2%BC%86%E3%80%81%E2%BD%82%E4%BB%B6%E5%90%8E%E7%BC%80"><span class="toc-text">⼆、⽂件后缀</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E2%BD%82%E4%BB%B6%E5%90%8E%E7%BC%80%E7%9A%84%E4%BD%9C%E2%BD%A4"><span class="toc-text">1. ⽂件后缀的作⽤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%B8%B8%E2%BB%85%E7%9A%84%E2%BD%82%E4%BB%B6%E5%90%8E%E7%BC%80%E5%8F%8A%E5%85%B6%E5%AF%B9%E5%BA%94%E7%B1%BB%E5%9E%8B"><span class="toc-text">2. 常⻅的⽂件后缀及其对应类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%881%EF%BC%89%E2%BD%82%E6%9C%AC%E2%BD%82%E4%BB%B6"><span class="toc-text">（1）⽂本⽂件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%882%EF%BC%89%E2%BD%82%E6%A1%A3%E2%BD%82%E4%BB%B6"><span class="toc-text">（2）⽂档⽂件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%883%EF%BC%89%E4%BB%A3%E7%A0%81%E2%BD%82%E4%BB%B6"><span class="toc-text">（3）代码⽂件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%884%EF%BC%89%E5%A4%9A%E5%AA%92%E4%BD%93%E2%BD%82%E4%BB%B6"><span class="toc-text">（4）多媒体⽂件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%885%EF%BC%89%E5%8E%8B%E7%BC%A9%E2%BD%82%E4%BB%B6"><span class="toc-text">（5）压缩⽂件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E2%BD%82%E4%BB%B6%E5%90%8E%E7%BC%80%E4%B8%8E%E7%BC%96%E7%A0%81%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">3. ⽂件后缀与编码的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E4%B8%8E%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="toc-text">三、实际操作与编码问题解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E2%BD%82%E4%BB%B6%E7%BC%96%E7%A0%81%EF%BC%9F"><span class="toc-text">1. 如何查看⽂件编码？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%A6%82%E4%BD%95%E8%BD%AC%E6%8D%A2%E2%BD%82%E4%BB%B6%E7%BC%96%E7%A0%81%EF%BC%9F"><span class="toc-text">2. 如何转换⽂件编码？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E7%BC%96%E7%A0%81%E5%92%8C%E5%90%8E%E7%BC%80%E4%B8%8D%E5%8C%B9%E9%85%8D%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">3. 编码和后缀不匹配怎么办？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-text">四、总结</span></a></li></ol></div>
-  <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"/><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"/><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"/></svg></span><span>回到顶部</span></a><a class="buttom ui-interactive" onclick="util.scrollComment()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M7.25 9A.75.75 0 0 1 8 8.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 9m0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75"/></svg></span><span>参与讨论</span></a></div>
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E2%BC%80%E3%80%81%E7%BC%96%E7%A0%81" data-stellar-navigation=""><span class="toc-text">⼀、编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">1. 什么是字符编码？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%B8%B8%E2%BB%85%E7%9A%84%E7%BC%96%E7%A0%81%E2%BD%85%E5%BC%8F" data-stellar-navigation=""><span class="toc-text">2. 常⻅的编码⽅式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%881%EF%BC%89ASCII" data-stellar-navigation=""><span class="toc-text">（1）ASCII</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%882%EF%BC%89GBK" data-stellar-navigation=""><span class="toc-text">（2）GBK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%883%EF%BC%89UTF-8" data-stellar-navigation=""><span class="toc-text">（3）UTF-8</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%884%EF%BC%89UTF-16" data-stellar-navigation=""><span class="toc-text">（4）UTF-16</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%885%EF%BC%89ISO-8859-1" data-stellar-navigation=""><span class="toc-text">（5）ISO-8859-1</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E4%B9%B1%E7%A0%81%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">3. 为什么会有乱码？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E2%BC%86%E3%80%81%E2%BD%82%E4%BB%B6%E5%90%8E%E7%BC%80" data-stellar-navigation=""><span class="toc-text">⼆、⽂件后缀</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E2%BD%82%E4%BB%B6%E5%90%8E%E7%BC%80%E7%9A%84%E4%BD%9C%E2%BD%A4" data-stellar-navigation=""><span class="toc-text">1. ⽂件后缀的作⽤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%B8%B8%E2%BB%85%E7%9A%84%E2%BD%82%E4%BB%B6%E5%90%8E%E7%BC%80%E5%8F%8A%E5%85%B6%E5%AF%B9%E5%BA%94%E7%B1%BB%E5%9E%8B" data-stellar-navigation=""><span class="toc-text">2. 常⻅的⽂件后缀及其对应类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%881%EF%BC%89%E2%BD%82%E6%9C%AC%E2%BD%82%E4%BB%B6" data-stellar-navigation=""><span class="toc-text">（1）⽂本⽂件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%882%EF%BC%89%E2%BD%82%E6%A1%A3%E2%BD%82%E4%BB%B6" data-stellar-navigation=""><span class="toc-text">（2）⽂档⽂件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%883%EF%BC%89%E4%BB%A3%E7%A0%81%E2%BD%82%E4%BB%B6" data-stellar-navigation=""><span class="toc-text">（3）代码⽂件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%884%EF%BC%89%E5%A4%9A%E5%AA%92%E4%BD%93%E2%BD%82%E4%BB%B6" data-stellar-navigation=""><span class="toc-text">（4）多媒体⽂件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#%EF%BC%885%EF%BC%89%E5%8E%8B%E7%BC%A9%E2%BD%82%E4%BB%B6" data-stellar-navigation=""><span class="toc-text">（5）压缩⽂件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E2%BD%82%E4%BB%B6%E5%90%8E%E7%BC%80%E4%B8%8E%E7%BC%96%E7%A0%81%E7%9A%84%E5%85%B3%E7%B3%BB" data-stellar-navigation=""><span class="toc-text">3. ⽂件后缀与编码的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E4%B8%8E%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3" data-stellar-navigation=""><span class="toc-text">三、实际操作与编码问题解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#1-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E2%BD%82%E4%BB%B6%E7%BC%96%E7%A0%81%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">1. 如何查看⽂件编码？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-%E5%A6%82%E4%BD%95%E8%BD%AC%E6%8D%A2%E2%BD%82%E4%BB%B6%E7%BC%96%E7%A0%81%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">2. 如何转换⽂件编码？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-%E7%BC%96%E7%A0%81%E5%92%8C%E5%90%8E%E7%BC%80%E4%B8%8D%E5%8C%B9%E9%85%8D%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">3. 编码和后缀不匹配怎么办？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93" data-stellar-navigation=""><span class="toc-text">四、总结</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a><a class="buttom ui-interactive" onclick="util.scrollComment()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"></path><path fill="currentColor" d="M7.25 9A.75.75 0 0 1 8 8.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 9m0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75"></path></svg></span><span>参与讨论</span></a></div>
 </widget>
 
 
 </div></div></div></div></aside>
-</div><button type="button" class="site-scrim" data-shell-action="dismiss-drawer" aria-label="Close navigation" tabindex="-1"></button><div data-stellar-runtime-region class="site-dock" role="group" aria-label="Layout panels">
+</div><button type="button" class="site-scrim" data-shell-action="dismiss-drawer" aria-label="Close navigation" tabindex="-1"></button><div data-stellar-runtime-region="" class="site-dock" role="group" aria-label="Layout panels">
   <button type="button" class="site-dock__button site-dock__button--rightbar ui-interactive" aria-label="Open rightbar" aria-controls="rightbar-region" aria-expanded="false" data-shell-action="toggle-rightbar-drawer">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg>
   </button>
   <button type="button" class="site-dock__button site-dock__button--leftbar ui-interactive" aria-label="Open leftbar" aria-controls="leftbar-region" aria-expanded="false" data-shell-action="toggle-leftbar-drawer">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"></path><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"></path></g></svg>
   </button>
 </div>
 
-<dialog data-stellar-runtime-region class="search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">
+<dialog data-stellar-runtime-region="" class="search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">
   <div class="search-dialog__panel search-wrapper" id="site-search-wrapper" searching="false">
     <div class="search-dialog__header">
       <div class="search-form" role="search">
-        <span class="search-button" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"/><circle cx="14" cy="11" r="4"/></g></svg></span>
+        <span class="search-button" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
         <input type="search" class="search-input" id="site-search-input" aria-labelledby="site-search-title" placeholder="搜索">
       </div>
       <button type="button" class="search-dialog__close" data-shell-action="close-search" aria-label="关闭搜索">×</button>
     </div>
     
-      <div class="search-dialog__scope" role="radiogroup" aria-labelledby="site-search-title" hidden>
+      <div class="search-dialog__scope" role="radiogroup" aria-labelledby="site-search-title" hidden="">
         <label class="search-dialog__scope-option" data-search-scope-option="all">
           <input class="ui-radio" type="radio" name="site-search-scope" value="all">
           <span>全站</span>
         </label>
-        <label class="search-dialog__scope-option" data-search-scope-option="blog" hidden>
+        <label class="search-dialog__scope-option" data-search-scope-option="blog" hidden="">
           <input class="ui-radio" type="radio" name="site-search-scope" value="blog">
           <span>博客</span>
         </label>
-        <label class="search-dialog__scope-option" data-search-scope-option="current" hidden>
+        <label class="search-dialog__scope-option" data-search-scope-option="current" hidden="">
           <input class="ui-radio" type="radio" name="site-search-scope" value="current">
-          <span data-search-scope-current-label></span>
+          <span data-search-scope-current-label=""></span>
         </label>
       </div>
     
@@ -847,22 +776,93 @@ var _hmt = _hmt || [];
 
 <!-- core: 迁移期 DOM/资源兼容工具；Extension 注册与生命周期由 ESM runtime 所有 -->
 <script data-stellar-script="core" src="/js/utils.js?v=2.0.0"></script>
-<script data-stellar-script="core" src="/js/main.js?v=2.0.0" defer></script>
-<script data-stellar-script="core" defer src="/js/profile.js?v=2.0.0"></script>
+<script data-stellar-script="core" src="/js/main.js?v=2.0.0" defer=""></script>
+<script data-stellar-script="core" defer="" src="/js/profile.js?v=2.0.0"></script>
 
 
 
 
 
-<link data-stellar-page-style rel="stylesheet" href="https://cdn.jsdmirror.com/npm/katex@0.16.23/dist/katex.min.css" integrity="sha384-//SZkxyB7axjCAopkAL1E1rve+ZSPKapD89Lo/lLhcsXR+zOYl5z6zJZEFXil+q0" crossorigin="anonymous">
+<link data-stellar-page-style="" rel="stylesheet" href="https://cdn.jsdmirror.com/npm/katex@0.16.23/dist/katex.min.css" integrity="sha384-//SZkxyB7axjCAopkAL1E1rve+ZSPKapD89Lo/lLhcsXR+zOYl5z6zJZEFXil+q0" crossorigin="anonymous">
 
 <script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"color-scheme-switch","module":"/js/runtime/extensions/color-scheme-switch.js","scope":"document","when":{"always":true},"config":{"messages":{"light":"切换到浅色模式","dark":"切换到深色模式","auto":"切换到跟随系统配色"}}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://cdn.jsdmirror.com/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"comments","module":"/js/runtime/extensions/comments.js","scope":"region","when":{"selector":"#comments"},"config":{"provider":"giscus","options":{"data-repo":"zhangwei43721/zhangwei43721.github.io","data-repo-id":"R_kgDOOC101w","data-category":"Announcements","data-category-id":"DIC_kwDOOC10184Cv2Lm","data-mapping":"pathname","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":0,"data-input-position":"top","data-theme":"preferred_color_scheme","data-lang":"zh-CN","data-loading":"lazy","crossorigin":"anonymous"},"pageTitle":"9.编码与文件后缀","assets":{"js":"https://giscus.app/client.js"}}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://cdn.jsdmirror.com/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .md-text img:not(.md-link-icon img):not([class*=\"emo\"]):not([alt=\"icon\"]):not([alt=\"cover\"]), .timenode p\u003eimg"},"config":{"enabled":true,"selector":".md-text img:not(.md-link-icon img):not([class*=\"emo\"]):not([alt=\"icon\"]):not([alt=\"cover\"]), .timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://cdn.jsdmirror.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://cdn.jsdmirror.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"reveal","module":"/js/runtime/extensions/reveal.js","scope":"region","when":{"selector":".slide-up"},"config":{"enabled":true,"duration":300,"interval":100,"distance":8,"blur":4}},{"id":"diagrams","module":"/js/runtime/extensions/diagrams.js","scope":"region","when":{"selector":".mermaid"},"config":{"theme":"neutral","provider":"mermaid","assets":{"js":"https://gcore.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"},"colorScheme":"auto"}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"复制","copied":"复制成功","denied":"未获得剪贴板权限","unsupported":"当前浏览器不支持剪贴板或页面不是 HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"card-hover","module":"/js/runtime/extensions/card-hover.js","scope":"region","when":{"selector":".card-hover"},"config":{"spotlight":true,"tilt":true,"assets":{"js":"/js/plugins/card-hover.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://gcore.jsdelivr.net/npm/swiper@10.3/swiper-bundle.min.js","css":"https://gcore.jsdelivr.net/npm/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
-<script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0&runtime=1"></script>
+<script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0&amp;runtime=1"></script>
 
 
 <!-- inject -->
+<!-- Baidu Tongji -->
+<script data-stellar-script="analytics">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.setAttribute("data-stellar-script", "analytics");
+  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
+<script data-stellar-script="analytics">
+(function() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  var initialized = false;
+  var initAnalytics = function() {
+    if (initialized) return;
+    initialized = true;
+
+    var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+    events.forEach(function(evt) {
+      window.removeEventListener(evt, initAnalytics, { passive: true });
+    });
+
+    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
+    var gScript = document.createElement('script');
+    gScript.setAttribute('data-stellar-script', 'analytics');
+    gScript.async = true;
+    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
+    var gTimer = setTimeout(function() {
+      if (gScript && gScript.parentNode) {
+        gScript.src = '';
+        gScript.parentNode.removeChild(gScript);
+      }
+    }, 2500);
+    gScript.onload = function() { clearTimeout(gTimer); };
+    gScript.onerror = function() { clearTimeout(gTimer); };
+    document.head.appendChild(gScript);
+    gtag('js', new Date());
+    gtag('config', 'G-JST56Q8277');
+
+    // 2. Microsoft Clarity with 3s auto-abort
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        t.setAttribute('data-stellar-script', 'analytics');
+        var cTimer = setTimeout(function() {
+          if (t && t.parentNode) {
+            t.src = '';
+            t.parentNode.removeChild(t);
+          }
+        }, 3000);
+        t.onload = function() { clearTimeout(cTimer); };
+        t.onerror = function() { clearTimeout(cTimer); };
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rp0i6z4yyg");
+  };
+
+  // Trigger upon interaction, or fallback after 6s idle
+  var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+  events.forEach(function(evt) {
+    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
+  });
+  setTimeout(initAnalytics, 6000);
+})();
+</script>
 
 
-<script data-stellar-script="core" defer src="/js/navigation-init.js?v=2.0.0"></script>
-</div></body></html>
+<script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
+</div>
 
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"wiki\",\"note-UEC\"]","url":"https://blog.skyforever.top/wiki/UEC/9%20%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80/","signature":"6983e682f7eb68754b247f863d6d87ff4db2ce9732611a3aa50f7ece390267d3"}</script></body></html>

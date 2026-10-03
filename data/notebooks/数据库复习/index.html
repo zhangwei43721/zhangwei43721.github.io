@@ -74,73 +74,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg">
 <link rel="stylesheet" href="/css/custom.css">
-<!-- Baidu Tongji -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
-<script>
-(function() {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-
-  var initialized = false;
-  var initAnalytics = function() {
-    if (initialized) return;
-    initialized = true;
-
-    var events = ['scroll', 'mousemove', 'click', 'keydown'];
-    events.forEach(function(evt) {
-      window.removeEventListener(evt, initAnalytics, { passive: true });
-    });
-
-    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
-    var gScript = document.createElement('script');
-    gScript.async = true;
-    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
-    var gTimer = setTimeout(function() {
-      if (gScript && gScript.parentNode) {
-        gScript.src = '';
-        gScript.parentNode.removeChild(gScript);
-      }
-    }, 2500);
-    gScript.onload = function() { clearTimeout(gTimer); };
-    gScript.onerror = function() { clearTimeout(gTimer); };
-    document.head.appendChild(gScript);
-    gtag('js', new Date());
-    gtag('config', 'G-JST56Q8277');
-
-    // 2. Microsoft Clarity with 3s auto-abort
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        var cTimer = setTimeout(function() {
-          if (t && t.parentNode) {
-            t.src = '';
-            t.parentNode.removeChild(t);
-          }
-        }, 3000);
-        t.onload = function() { clearTimeout(cTimer); };
-        t.onerror = function() { clearTimeout(cTimer); };
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "rp0i6z4yyg");
-  };
-
-  // Trigger upon scroll/interaction, or fallback after 6s idle
-  var events = ['scroll', 'mousemove', 'click', 'keydown'];
-  events.forEach(function(evt) {
-    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
-  });
-  setTimeout(initAnalytics, 6000);
-})();
-</script>
 
 
   <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
@@ -487,7 +420,7 @@ var _hmt = _hmt || [];
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/" title="ERP系统开发实训笔记">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/" title="ERP系统开发实训笔记" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">E</span>
@@ -505,7 +438,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/" title="计算机二级公共基础知识点考点整理">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/" title="计算机二级公共基础知识点考点整理" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">计</span>
@@ -523,7 +456,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/" title="计算机二级C语言复习">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/" title="计算机二级C语言复习" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">计</span>
@@ -541,7 +474,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/C++%E5%A4%8D%E4%B9%A0/" title="C++复习">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/C++%E5%A4%8D%E4%B9%A0/" title="C++复习" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">C</span>
@@ -559,7 +492,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/" title="华为ICT网络赛道初级知识点汇总笔记">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/" title="华为ICT网络赛道初级知识点汇总笔记" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">华</span>
@@ -577,7 +510,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/Java%E5%A4%8D%E4%B9%A0/" title="Java复习">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/Java%E5%A4%8D%E4%B9%A0/" title="Java复习" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">J</span>
@@ -595,7 +528,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/" title="数据库复习">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/" title="数据库复习" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">数</span>
@@ -613,7 +546,7 @@ var _hmt = _hmt || [];
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="操作系统入门">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/data/notebooks/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="操作系统入门" data-stellar-navigation="">
   
   
   <span class="ui-collection__initial" aria-hidden="true">操</span>
@@ -685,7 +618,7 @@ var _hmt = _hmt || [];
     
   </div>
   </div></div>
-<article class="md-text content slide-up"><h1 id="数据库标红内容摘录"><a href="#数据库标红内容摘录" class="headerlink" title="数据库标红内容摘录"></a>数据库标红内容摘录</h1><h2 id="简述数据库的三级模式结构（主要背模式的概念）"><a href="#简述数据库的三级模式结构（主要背模式的概念）" class="headerlink" title="简述数据库的三级模式结构（主要背模式的概念）"></a>简述数据库的三级模式结构（主要背模式的概念）</h2><p>对用户而言，外模式、模式和内模式分别对应一般用户模式、概念模式和物理模式，它们分别反映了看待数据库的三个角度。</p>
+<article class="md-text content slide-up"><h1 id="数据库标红内容摘录"><a href="#数据库标红内容摘录" class="headerlink" title="数据库标红内容摘录" data-stellar-navigation=""></a>数据库标红内容摘录</h1><h2 id="简述数据库的三级模式结构（主要背模式的概念）"><a href="#简述数据库的三级模式结构（主要背模式的概念）" class="headerlink" title="简述数据库的三级模式结构（主要背模式的概念）" data-stellar-navigation=""></a>简述数据库的三级模式结构（主要背模式的概念）</h2><p>对用户而言，外模式、模式和内模式分别对应一般用户模式、概念模式和物理模式，它们分别反映了看待数据库的三个角度。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/7da3a3880cd28574004baa906b8159c0.webp" alt="数据库三级模式结构图" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="921" height="484" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[192.6442,5.84,97.2982,1]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/10/7da3a3880cd28574004baa906b8159c0.webp"></p>
 <p><strong>模式也称为概念模式，是数据库中全体数据的逻辑结构和特征的描述，处于三级模式结构的中间层，不涉及数据的物理存储细节和硬件环境，与具体的应用程序、所使用的应用开发工具及高级程序设计语言无关。一个数据库只有一个模式。</strong></p>
 <p>（就是描述外模式和内模式的映射关系的部分，如你定义一张存了学生选课的信息表）</p>
@@ -693,14 +626,14 @@ var _hmt = _hmt || [];
 <p>（就是数据库用户（包括应用程序员和最终用户）最终可以看到的内容，如你给老师和学生分别定义了他们能看选课表的哪些内容）</p>
 <p>内模式又称存储模式或物理模式，是三级模式结构中的最内层，也是靠近物理存储的一层，即与实际存储数据方式有关的一层。它是对数据库存储结构的描述，是数据在数据库内部的表示方式。一个数据库只有一个内模式。</p>
 <p>（数据在数据库上存储的内容，是数据在数据库内部的表示方式，如你定义学生选课信息表的数据按照学生 id 的 B+树索引存储）（例如，记录的存储方式是顺序存储、按照 B 树结构存储还是按 hash 方法存储；索引按照什么方式组织；数据是否压缩存储，是否加密；数据的存储记录结构有何规定）。</p>
-<h2 id="三个世界指什么？它们之间有什么联系？"><a href="#三个世界指什么？它们之间有什么联系？" class="headerlink" title="三个世界指什么？它们之间有什么联系？"></a>三个世界指什么？它们之间有什么联系？</h2><p>三个世界是指现实世界、信息世界和计算机世界。</p>
+<h2 id="三个世界指什么？它们之间有什么联系？"><a href="#三个世界指什么？它们之间有什么联系？" class="headerlink" title="三个世界指什么？它们之间有什么联系？" data-stellar-navigation=""></a>三个世界指什么？它们之间有什么联系？</h2><p>三个世界是指现实世界、信息世界和计算机世界。</p>
 <ul>
 <li>现实世界，即客观存在的世界。其中存在着各种事物及它们之间的联系，每个事物都有自己的特征或性质。</li>
 <li>信息世界是现实世界在人们头脑中的反映，经过人脑的分析、归纳和抽象，形成信息，人们把这些信息进行记录、整理、归类和格式化后，就构成了信息世界。</li>
 <li>计算机世界是信息世界中信息的数据化，就是将信息用字符和数值等数据表示，便于存储在计算机中并由计算机进行识别和处理。</li>
 </ul>
 <p>对上面废话的总结：<strong>现实世界的客观事物 → 信息世界（大脑）的抽象实体属性 → 机器世界的数据记录</strong></p>
-<h2 id="举例说明什么是实体完整性和参照完整性"><a href="#举例说明什么是实体完整性和参照完整性" class="headerlink" title="举例说明什么是实体完整性和参照完整性"></a>举例说明什么是实体完整性和参照完整性</h2><p>实体完整性是指主码的值不能为空或部分为空。</p>
+<h2 id="举例说明什么是实体完整性和参照完整性"><a href="#举例说明什么是实体完整性和参照完整性" class="headerlink" title="举例说明什么是实体完整性和参照完整性" data-stellar-navigation=""></a>举例说明什么是实体完整性和参照完整性</h2><p>实体完整性是指主码的值不能为空或部分为空。</p>
 <p>例如，教材中表 1-3 的课程关系中的主码“课程号”（cno）可以唯一标识一门课程实体。如果主码中的值为空或部分为空，即主属性为空，则不符合关系键的定义条件，不能唯一标识元组及与其相对应的实体。例如，课程关系中的主码“课程号”不能为空，授课关系中的主码“教师号+课程号”不能部分为空，即“教师号”和“课程号”两个字段的取值都不能为空。</p>
 <ul>
 <li><del>（文档里的原话，看不懂思密达~）<strong>参照完整性是指如果关系 R2 的外码 X 与关系 R1 的主码相符，则 X 的每个值或者等于 R1 中主码的某一个值或者取空值。</strong></del><ul>
@@ -718,23 +651,23 @@ var _hmt = _hmt || [];
 </li>
 <li>用人话解释上面的内容：<strong>如果在学生表和选修课之间用学号建立关联，学生表是主表，选修课是<u>从表</u>，那么，在向选修课表（从表）中输入一条新记录时，系统要检查新记录的学号是否在学生表（主表）中已存在，如果存在，则允许执行输入操作，否则拒绝输入，这就是参照完整性。</strong></li>
 </ul>
-<h2 id="简述相关子查询的过程"><a href="#简述相关子查询的过程" class="headerlink" title="简述相关子查询的过程"></a>简述相关子查询的过程</h2><p>相关子查询的执行顺序是：</p>
+<h2 id="简述相关子查询的过程"><a href="#简述相关子查询的过程" class="headerlink" title="简述相关子查询的过程" data-stellar-navigation=""></a>简述相关子查询的过程</h2><p>相关子查询的执行顺序是：</p>
 <p>首先，选取父查询表中的第一行记录，子查询利用此行中相关的属性值在子查询设计的基本表中进行查询，然后，父查询根据子查询返回的结果判断父查询表中的此行是否满足查询条件。如果满足条件，则把该行放入父查询的查询结果集合中。重复执行这一过程，直到处理完父查询表中的每一行数据。（这句废话太长，直接看下面的例子理解）</p>
 <p>举个例子， 假设我们有一个名为 <code>employees</code> 的表，其中包含员工的信息（例如员工 ID、姓名、薪水等）。我们想要找出薪水高于所有员工平均薪水的员工。以下是查询语句：</p>
 <figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id, first_name, last_name, salary#</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> (<span class="keyword">SELECT</span> <span class="built_in">AVG</span>(salary) <span class="keyword">FROM</span> employees);</span><br><span class="line">#左边是主查询，右边是子查询，语句从左到右依次执行，将主查询的内容一行一行比对</span><br></pre></td></tr></tbody></table></figure>
 
 <p>这将返回薪水高于平均薪水的员工列表。</p>
-<h2 id="视图的作用"><a href="#视图的作用" class="headerlink" title="视图的作用"></a>视图的作用</h2><p><strong>提升数据操作的便捷性、提升数据的逻辑独立性、提升数据的安全性、数据集成。</strong></p>
+<h2 id="视图的作用"><a href="#视图的作用" class="headerlink" title="视图的作用" data-stellar-navigation=""></a>视图的作用</h2><p><strong>提升数据操作的便捷性、提升数据的逻辑独立性、提升数据的安全性、数据集成。</strong></p>
 <p>以下是将图片中的内容直接转换为 Markdown 格式的中文版本，保留了原文的数学符号和格式：</p>
 <hr>
-<h2 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖"></a>函数依赖</h2><p><strong>是关系模式中属性之间的一种逻辑依赖关系</strong></p>
+<h2 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖" data-stellar-navigation=""></a>函数依赖</h2><p><strong>是关系模式中属性之间的一种逻辑依赖关系</strong></p>
 <p>设有关系模式 ( R(U) )，( U ) 是属性全集，( X ) 和 ( Y ) 是 ( U ) 的子集，如果 ( X \rightarrow Y )，并且对于 ( X ) 的任何一个真子集 ( X’ )，都有 ( X’ \not\rightarrow Y )，则称 ( Y ) 对 ( X ) 完全函数依赖（Full-Functional-Dependency），记作：</p>
 <p>[<br>X \xrightarrow{f} Y<br>]</p>
 <p>如果存在 ( X ) 的某一个真子集 ( X’ )，有 ( X’ \rightarrow Y )，则称 ( Y ) 对 ( X ) 部分函数依赖（Partial-Functional-Dependency），记作：</p>
 <p>[<br>X \xrightarrow{p} Y<br>]</p>
 <p>设有关系模式 ( R(U) )，( U ) 是属性全集，( X, Y, Z ) 是 ( U ) 的子集，若 ( X \rightarrow Y )，但是 ( Y \not\rightarrow X )，而且 ( Y \rightarrow Z )（( Y \in X, Z \in Y )），则称 ( Z ) 对 ( X ) 传递函数依赖（Transitive-Functional-Dependency），记作：</p>
 <p>[<br>X \xrightarrow{t} Z<br>]</p>
-<h2 id="试述-E-R-图转换成关系模型的转换规则"><a href="#试述-E-R-图转换成关系模型的转换规则" class="headerlink" title="试述 E-R 图转换成关系模型的转换规则"></a>试述 E-R 图转换成关系模型的转换规则</h2><p><strong>答：E-R 图向关系模型的转换一般应遵循如下原则：</strong></p>
+<h2 id="试述-E-R-图转换成关系模型的转换规则"><a href="#试述-E-R-图转换成关系模型的转换规则" class="headerlink" title="试述 E-R 图转换成关系模型的转换规则" data-stellar-navigation=""></a>试述 E-R 图转换成关系模型的转换规则</h2><p><strong>答：E-R 图向关系模型的转换一般应遵循如下原则：</strong></p>
 <p><strong>（1）实体的转换。一个实体型转换为一个关系模式。实体的属性就是关系的属性，实体的码就是关系的码。</strong></p>
 <p><strong>（2）联系的转换。一个联系转化为一个关系模式，与该联系相连的各实体的码以及联系的属性转化为关系的属性，该关系的码则有几种情况：</strong></p>
 <ul>
@@ -764,26 +697,26 @@ var _hmt = _hmt || [];
 <p>​ **多对多（m:n） ：**多对多关系是指实体集 A 中的每一个实体与实体集 B 中至少有 m(m&gt;0)个实体有关系，并且实体集 B 中的每一个实体与实体集 A 中的至少 n（n&gt;0）个实体有关系。</p>
 <p>​ 例如：用户与商品的关系，一个用户可拥有多件商品。同样一件商品可被多个用户所拥有。所以这就是多对多的关系。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/055b606d556a6c37827d491507b20732.webp" alt="多对多关系图" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="526" height="159" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[138,0.0704,97.7083,1]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/10/055b606d556a6c37827d491507b20732.webp"></p>
-<h3 id="实体的转换"><a href="#实体的转换" class="headerlink" title="实体的转换"></a>实体的转换</h3><p>每个实体型转换为一个关系模式。例如，我们有一个学生实体（Student）和一个课程实体（Course）。</p>
+<h3 id="实体的转换"><a href="#实体的转换" class="headerlink" title="实体的转换" data-stellar-navigation=""></a>实体的转换</h3><p>每个实体型转换为一个关系模式。例如，我们有一个学生实体（Student）和一个课程实体（Course）。</p>
 <p>转换后的关系模式：</p>
 <ul>
 <li>学生(学号, 姓名, 年龄)</li>
 <li>课程(课程号, 课程名称, 学分)</li>
 </ul>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/0b7b02b17b7f323af0bb13d57359ff61.webp" alt="两个实体" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="405" height="199" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[132.7174,1.5521,88.2837,1]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/10/0b7b02b17b7f323af0bb13d57359ff61.webp"></p>
-<h3 id="具有相同码的关系模式可合并"><a href="#具有相同码的关系模式可合并" class="headerlink" title="具有相同码的关系模式可合并"></a>具有相同码的关系模式可合并</h3><p>如果两个关系模式具有相同的码，它们可以合并。例如，一个人有基本信息和联系信息，且码都是身份证号。</p>
+<h3 id="具有相同码的关系模式可合并"><a href="#具有相同码的关系模式可合并" class="headerlink" title="具有相同码的关系模式可合并" data-stellar-navigation=""></a>具有相同码的关系模式可合并</h3><p>如果两个关系模式具有相同的码，它们可以合并。例如，一个人有基本信息和联系信息，且码都是身份证号。</p>
 <p>转换后的关系模式可以合并为一个：</p>
 <ul>
 <li>人(身份证号, 姓名, 年龄, 邮箱, 电话)<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2025/10/cd77ad484786fa3de5197c8a0de9049b.webp" alt="合并关系" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="106" height="260" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[136.2323,1.5071,88.9597,1]}" data-stellar-image-source="https://image.skyforever.top/blog/2025/10/cd77ad484786fa3de5197c8a0de9049b.webp"></li>
 </ul>
-<h2 id="简述数据库设计的基本步骤。"><a href="#简述数据库设计的基本步骤。" class="headerlink" title="简述数据库设计的基本步骤。"></a><strong>简述数据库设计的基本步骤。</strong></h2><p><strong>主要步骤：① 需求分析 ② 概念模型设计 ③ 逻辑模型设计 ④ 物理模型设计 ⑤ 数据库的实施 ⑥ 数据库的维护</strong></p>
-<h2 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h2><p><strong>是一种能够从包括多条数据记录的结果集中进行逐条访问这些记录的机制。</strong></p>
+<h2 id="简述数据库设计的基本步骤。"><a href="#简述数据库设计的基本步骤。" class="headerlink" title="简述数据库设计的基本步骤。" data-stellar-navigation=""></a><strong>简述数据库设计的基本步骤。</strong></h2><p><strong>主要步骤：① 需求分析 ② 概念模型设计 ③ 逻辑模型设计 ④ 物理模型设计 ⑤ 数据库的实施 ⑥ 数据库的维护</strong></p>
+<h2 id="游标"><a href="#游标" class="headerlink" title="游标" data-stellar-navigation=""></a>游标</h2><p><strong>是一种能够从包括多条数据记录的结果集中进行逐条访问这些记录的机制。</strong></p>
 <p>可以将游标看作一种特殊的指针，它与某个查询结果集相关联，可以指向结果集的任意位置，可以将数据放在数组、应用程序中或其他的地方，允许数据库用户对指定位置的数据进行处理。</p>
-<h2 id="触发器（TRIGGER）"><a href="#触发器（TRIGGER）" class="headerlink" title="触发器（TRIGGER）"></a>触发器（TRIGGER）</h2><p><strong>是在满足一定条件下自动触发执行的数据库对象，如向表中插入记录、更新记录或者删除记录时被系统自动地触发并执行的特殊类型的存储过程。触发器的作用是可以对表执行复杂的完整性约束。</strong></p>
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://cdn.jsdmirror.com/npm/d3@7"></script><script src="https://cdn.jsdmirror.com/npm/markmap-view@0.18.10"></script><script src="https://cdn.jsdmirror.com/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
+<h2 id="触发器（TRIGGER）"><a href="#触发器（TRIGGER）" class="headerlink" title="触发器（TRIGGER）" data-stellar-navigation=""></a>触发器（TRIGGER）</h2><p><strong>是在满足一定条件下自动触发执行的数据库对象，如向表中插入记录、更新记录或者删除记录时被系统自动地触发并执行的特殊类型的存储过程。触发器的作用是可以对表执行复杂的完整性约束。</strong></p>
 
-<script src="/js/markmap.js"></script>
+
+
+
 
 
   <div class="article-tags slide-up">
@@ -842,7 +775,7 @@ var _hmt = _hmt || [];
       <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
     </div>
   
-  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E7%BA%A2%E5%86%85%E5%AE%B9%E6%91%98%E5%BD%95"><span class="toc-text">数据库标红内容摘录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AE%80%E8%BF%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%BB%E8%A6%81%E8%83%8C%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%89"><span class="toc-text">简述数据库的三级模式结构（主要背模式的概念）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%89%E4%B8%AA%E4%B8%96%E7%95%8C%E6%8C%87%E4%BB%80%E4%B9%88%EF%BC%9F%E5%AE%83%E4%BB%AC%E4%B9%8B%E9%97%B4%E6%9C%89%E4%BB%80%E4%B9%88%E8%81%94%E7%B3%BB%EF%BC%9F"><span class="toc-text">三个世界指什么？它们之间有什么联系？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E5%92%8C%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="toc-text">举例说明什么是实体完整性和参照完整性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AE%80%E8%BF%B0%E7%9B%B8%E5%85%B3%E5%AD%90%E6%9F%A5%E8%AF%A2%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">简述相关子查询的过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E8%A7%86%E5%9B%BE%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">视图的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96"><span class="toc-text">函数依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E8%AF%95%E8%BF%B0-E-R-%E5%9B%BE%E8%BD%AC%E6%8D%A2%E6%88%90%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><span class="toc-text">试述 E-R 图转换成关系模型的转换规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%AE%9E%E4%BD%93%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-text">实体的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%85%B7%E6%9C%89%E7%9B%B8%E5%90%8C%E7%A0%81%E7%9A%84%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%E5%8F%AF%E5%90%88%E5%B9%B6"><span class="toc-text">具有相同码的关系模式可合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AE%80%E8%BF%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4%E3%80%82"><span class="toc-text">简述数据库设计的基本步骤。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E6%B8%B8%E6%A0%87"><span class="toc-text">游标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E8%A7%A6%E5%8F%91%E5%99%A8%EF%BC%88TRIGGER%EF%BC%89"><span class="toc-text">触发器（TRIGGER）</span></a></li></ol></li></ol></div>
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E7%BA%A2%E5%86%85%E5%AE%B9%E6%91%98%E5%BD%95" data-stellar-navigation=""><span class="toc-text">数据库标红内容摘录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AE%80%E8%BF%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%BB%E8%A6%81%E8%83%8C%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%89" data-stellar-navigation=""><span class="toc-text">简述数据库的三级模式结构（主要背模式的概念）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%89%E4%B8%AA%E4%B8%96%E7%95%8C%E6%8C%87%E4%BB%80%E4%B9%88%EF%BC%9F%E5%AE%83%E4%BB%AC%E4%B9%8B%E9%97%B4%E6%9C%89%E4%BB%80%E4%B9%88%E8%81%94%E7%B3%BB%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">三个世界指什么？它们之间有什么联系？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E5%92%8C%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7" data-stellar-navigation=""><span class="toc-text">举例说明什么是实体完整性和参照完整性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AE%80%E8%BF%B0%E7%9B%B8%E5%85%B3%E5%AD%90%E6%9F%A5%E8%AF%A2%E7%9A%84%E8%BF%87%E7%A8%8B" data-stellar-navigation=""><span class="toc-text">简述相关子查询的过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E8%A7%86%E5%9B%BE%E7%9A%84%E4%BD%9C%E7%94%A8" data-stellar-navigation=""><span class="toc-text">视图的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96" data-stellar-navigation=""><span class="toc-text">函数依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E8%AF%95%E8%BF%B0-E-R-%E5%9B%BE%E8%BD%AC%E6%8D%A2%E6%88%90%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99" data-stellar-navigation=""><span class="toc-text">试述 E-R 图转换成关系模型的转换规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%AE%9E%E4%BD%93%E7%9A%84%E8%BD%AC%E6%8D%A2" data-stellar-navigation=""><span class="toc-text">实体的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%85%B7%E6%9C%89%E7%9B%B8%E5%90%8C%E7%A0%81%E7%9A%84%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%E5%8F%AF%E5%90%88%E5%B9%B6" data-stellar-navigation=""><span class="toc-text">具有相同码的关系模式可合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E7%AE%80%E8%BF%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4%E3%80%82" data-stellar-navigation=""><span class="toc-text">简述数据库设计的基本步骤。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E6%B8%B8%E6%A0%87" data-stellar-navigation=""><span class="toc-text">游标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E8%A7%A6%E5%8F%91%E5%99%A8%EF%BC%88TRIGGER%EF%BC%89" data-stellar-navigation=""><span class="toc-text">触发器（TRIGGER）</span></a></li></ol></li></ol></div>
   <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a><a class="buttom ui-interactive" onclick="util.scrollComment()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"></path><path fill="currentColor" d="M7.25 9A.75.75 0 0 1 8 8.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 9m0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75"></path></svg></span><span>参与讨论</span></a></div>
 </widget>
 
@@ -918,9 +851,79 @@ var _hmt = _hmt || [];
 
 
 <!-- inject -->
+<!-- Baidu Tongji -->
+<script data-stellar-script="analytics">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.setAttribute("data-stellar-script", "analytics");
+  hm.src = "https://hm.baidu.com/hm.js?b5a2afc20b06445af155f3af37777902";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Google Analytics & Microsoft Clarity (Mobile Protected Lazy Load) -->
+<script data-stellar-script="analytics">
+(function() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  var initialized = false;
+  var initAnalytics = function() {
+    if (initialized) return;
+    initialized = true;
+
+    var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+    events.forEach(function(evt) {
+      window.removeEventListener(evt, initAnalytics, { passive: true });
+    });
+
+    // 1. Google Analytics with 2.5s auto-abort for mobile/blocked networks
+    var gScript = document.createElement('script');
+    gScript.setAttribute('data-stellar-script', 'analytics');
+    gScript.async = true;
+    gScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JST56Q8277';
+    var gTimer = setTimeout(function() {
+      if (gScript && gScript.parentNode) {
+        gScript.src = '';
+        gScript.parentNode.removeChild(gScript);
+      }
+    }, 2500);
+    gScript.onload = function() { clearTimeout(gTimer); };
+    gScript.onerror = function() { clearTimeout(gTimer); };
+    document.head.appendChild(gScript);
+    gtag('js', new Date());
+    gtag('config', 'G-JST56Q8277');
+
+    // 2. Microsoft Clarity with 3s auto-abort
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        t.setAttribute('data-stellar-script', 'analytics');
+        var cTimer = setTimeout(function() {
+          if (t && t.parentNode) {
+            t.src = '';
+            t.parentNode.removeChild(t);
+          }
+        }, 3000);
+        t.onload = function() { clearTimeout(cTimer); };
+        t.onerror = function() { clearTimeout(cTimer); };
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rp0i6z4yyg");
+  };
+
+  // Trigger upon interaction, or fallback after 6s idle
+  var events = ['scroll', 'mousemove', 'click', 'keydown', 'touchstart'];
+  events.forEach(function(evt) {
+    window.addEventListener(evt, initAnalytics, { once: true, passive: true });
+  });
+  setTimeout(initAnalytics, 6000);
+})();
+</script>
 
 
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-</body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"notebook\",\"note-college\"]","url":"https://blog.skyforever.top/data/notebooks/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/","signature":"14a1016a376e13991bcbf944d5943d594223e02cd04c816c2a3e4b4a3e7e14ad"}</script></body></html>
