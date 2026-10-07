@@ -757,9 +757,25 @@ var _hmt = _hmt || [];
   setTimeout(initAnalytics, 6000);
 })();
 </script>
+<!-- Mobile Debugger (Eruda: activate by appending ?debug=true to URL) -->
+<script data-stellar-script="devtools">
+(function () {
+  if (!/debug=true/.test(window.location) && !localStorage.getItem('active-eruda')) return;
+  var script = document.createElement('script');
+  script.setAttribute('data-stellar-script', 'devtools');
+  script.src = 'https://cdn.jsdmirror.com/npm/eruda';
+  script.onload = function () {
+    if (window.eruda) {
+      eruda.init();
+      localStorage.setItem('active-eruda', 'true');
+    }
+  };
+  document.body.appendChild(script);
+})();
+</script>
 
 
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"wiki\",\"note-UEC\"]","url":"https://blog.skyforever.top/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/","signature":"72588a2ebe3273133281008f8e24e93f62a4e8ba9068cd06200806adc71c846a"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"wiki\",\"note-UEC\"]","url":"https://blog.skyforever.top/wiki/UEC/4%20markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/","signature":"e1f4bebd2120a247b2a94bac78b186f7f7c4443fe4d1790f578203683b6921f1"}</script></body></html>

@@ -1209,9 +1209,25 @@ var _hmt = _hmt || [];
   setTimeout(initAnalytics, 6000);
 })();
 </script>
+<!-- Mobile Debugger (Eruda: activate by appending ?debug=true to URL) -->
+<script data-stellar-script="devtools">
+(function () {
+  if (!/debug=true/.test(window.location) && !localStorage.getItem('active-eruda')) return;
+  var script = document.createElement('script');
+  script.setAttribute('data-stellar-script', 'devtools');
+  script.src = 'https://cdn.jsdmirror.com/npm/eruda';
+  script.onload = function () {
+    if (window.eruda) {
+      eruda.init();
+      localStorage.setItem('active-eruda', 'true');
+    }
+  };
+  document.body.appendChild(script);
+})();
+</script>
 
 
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"notebook\",\"note-college\"]","url":"https://blog.skyforever.top/data/notebooks/C++%E5%A4%8D%E4%B9%A0/","signature":"ee0db7f7db3862072ee8e32e13807a0e508d5bdec65d850dffebd5c312fb243d"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"notebook\",\"note-college\"]","url":"https://blog.skyforever.top/data/notebooks/C++%E5%A4%8D%E4%B9%A0/","signature":"31a2ad4c5b0acfe816da05edec1d0db85678381dafa9501c92fb676caf259459"}</script></body></html>

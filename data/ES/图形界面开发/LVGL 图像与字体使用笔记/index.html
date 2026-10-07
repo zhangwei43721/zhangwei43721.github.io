@@ -1170,9 +1170,25 @@ var _hmt = _hmt || [];
   setTimeout(initAnalytics, 6000);
 })();
 </script>
+<!-- Mobile Debugger (Eruda: activate by appending ?debug=true to URL) -->
+<script data-stellar-script="devtools">
+(function () {
+  if (!/debug=true/.test(window.location) && !localStorage.getItem('active-eruda')) return;
+  var script = document.createElement('script');
+  script.setAttribute('data-stellar-script', 'devtools');
+  script.src = 'https://cdn.jsdmirror.com/npm/eruda';
+  script.onload = function () {
+    if (window.eruda) {
+      eruda.init();
+      localStorage.setItem('active-eruda', 'true');
+    }
+  };
+  document.body.appendChild(script);
+})();
+</script>
 
 
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"notebook\",\"note-ES\"]","url":"https://blog.skyforever.top/data/ES/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/LVGL%20%E5%9B%BE%E5%83%8F%E4%B8%8E%E5%AD%97%E4%BD%93%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/","signature":"bd6434b6a73f937673c67b40392a2981d33ea79517623765e18f50b5de9f2fac"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"notebook\",\"note-ES\"]","url":"https://blog.skyforever.top/data/ES/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/LVGL%20%E5%9B%BE%E5%83%8F%E4%B8%8E%E5%AD%97%E4%BD%93%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/","signature":"cebcef2c30b327bb01676cdc05e16009cb354904619abe36f4b681062d5a9f33"}</script></body></html>

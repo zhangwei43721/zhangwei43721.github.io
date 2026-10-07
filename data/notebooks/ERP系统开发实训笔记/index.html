@@ -2216,9 +2216,25 @@ var _hmt = _hmt || [];
   setTimeout(initAnalytics, 6000);
 })();
 </script>
+<!-- Mobile Debugger (Eruda: activate by appending ?debug=true to URL) -->
+<script data-stellar-script="devtools">
+(function () {
+  if (!/debug=true/.test(window.location) && !localStorage.getItem('active-eruda')) return;
+  var script = document.createElement('script');
+  script.setAttribute('data-stellar-script', 'devtools');
+  script.src = 'https://cdn.jsdmirror.com/npm/eruda';
+  script.onload = function () {
+    if (window.eruda) {
+      eruda.init();
+      localStorage.setItem('active-eruda', 'true');
+    }
+  };
+  document.body.appendChild(script);
+})();
+</script>
 
 
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"notebook\",\"note-college\"]","url":"https://blog.skyforever.top/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/","signature":"14a1016a376e13991bcbf944d5943d594223e02cd04c816c2a3e4b4a3e7e14ad"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"notebook\",\"note-college\"]","url":"https://blog.skyforever.top/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/","signature":"959ba22a3d23951e1846a1278715a8e9943d80a9b75fb7f7f96b6d774b02c0e3"}</script></body></html>

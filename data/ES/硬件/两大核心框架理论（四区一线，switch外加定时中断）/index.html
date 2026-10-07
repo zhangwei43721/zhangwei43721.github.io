@@ -1090,9 +1090,25 @@ var _hmt = _hmt || [];
   setTimeout(initAnalytics, 6000);
 })();
 </script>
+<!-- Mobile Debugger (Eruda: activate by appending ?debug=true to URL) -->
+<script data-stellar-script="devtools">
+(function () {
+  if (!/debug=true/.test(window.location) && !localStorage.getItem('active-eruda')) return;
+  var script = document.createElement('script');
+  script.setAttribute('data-stellar-script', 'devtools');
+  script.src = 'https://cdn.jsdmirror.com/npm/eruda';
+  script.onload = function () {
+    if (window.eruda) {
+      eruda.init();
+      localStorage.setItem('active-eruda', 'true');
+    }
+  };
+  document.body.appendChild(script);
+})();
+</script>
 
 
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"notebook\",\"note-ES\"]","url":"https://blog.skyforever.top/data/ES/%E7%A1%AC%E4%BB%B6/%E4%B8%A4%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A1%86%E6%9E%B6%E7%90%86%E8%AE%BA%EF%BC%88%E5%9B%9B%E5%8C%BA%E4%B8%80%E7%BA%BF%EF%BC%8Cswitch%E5%A4%96%E5%8A%A0%E5%AE%9A%E6%97%B6%E4%B8%AD%E6%96%AD%EF%BC%89/","signature":"3fd115b2f14cd6ad011f888cde9d549996c228bd45505d7c4e8efb9553fd3bf9"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"notebook\",\"note-ES\"]","url":"https://blog.skyforever.top/data/ES/%E7%A1%AC%E4%BB%B6/%E4%B8%A4%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A1%86%E6%9E%B6%E7%90%86%E8%AE%BA%EF%BC%88%E5%9B%9B%E5%8C%BA%E4%B8%80%E7%BA%BF%EF%BC%8Cswitch%E5%A4%96%E5%8A%A0%E5%AE%9A%E6%97%B6%E4%B8%AD%E6%96%AD%EF%BC%89/","signature":"f8e992100b7ff6a90f4f8a2af1bcd7971949f8bdfa947a6dc076a2f06bb6aa14"}</script></body></html>

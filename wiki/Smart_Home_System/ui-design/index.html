@@ -772,9 +772,25 @@ var _hmt = _hmt || [];
   setTimeout(initAnalytics, 6000);
 })();
 </script>
+<!-- Mobile Debugger (Eruda: activate by appending ?debug=true to URL) -->
+<script data-stellar-script="devtools">
+(function () {
+  if (!/debug=true/.test(window.location) && !localStorage.getItem('active-eruda')) return;
+  var script = document.createElement('script');
+  script.setAttribute('data-stellar-script', 'devtools');
+  script.src = 'https://cdn.jsdmirror.com/npm/eruda';
+  script.onload = function () {
+    if (window.eruda) {
+      eruda.init();
+      localStorage.setItem('active-eruda', 'true');
+    }
+  };
+  document.body.appendChild(script);
+})();
+</script>
 
 
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"wiki\",\"Smart_Home_System\"]","url":"https://blog.skyforever.top/wiki/Smart_Home_System/ui-design/","signature":"931250cb34416c0b157e91a5e37c70c55f346e2608b3a7d7f09624263689b319"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"wiki\",\"Smart_Home_System\"]","url":"https://blog.skyforever.top/wiki/Smart_Home_System/ui-design/","signature":"f9d538449fb599bc8ba644af09040f70e5e32d75b467af655f3760b6982958de"}</script></body></html>
