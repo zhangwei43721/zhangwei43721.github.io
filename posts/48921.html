@@ -72,7 +72,7 @@
 
   
 
-  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-10-24T17:03:58+08:00","dateModified":"2026-10-24T17:03:58+08:00","datePublished":"2026-10-24T17:03:58+08:00","description":"1、基本概念一个【传输】(控制、批量、中断、等时)：由多个【事务】组成；\n一个【事务】(IN、OUT、SETUP)：由一多个【Packet】组成。\nUSB数据在【主机软件】与【USB设备特定的端点】间被传输。【主机软件】与【USB设备特定的端点】间的关联叫做【pipes】。一个USB设备可以有多个管道(pipes)。\n2 、包(Packet)包（Packet）是USB系统中信息传输的基本单元...","headline":"USB 通信协议解释","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.skyforever.top/posts/48921"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"https://blog.skyforever.top/posts/48921","image":["https://image.skyforever.top/blog/2026/10/6b175a3c5e7f3358823d06eeb364d1ef.webp"],"keywords":"USB, 通信协议, 嵌入式开发, 硬件协议","thumbnailUrl":"https://image.skyforever.top/blog/2026/10/6b175a3c5e7f3358823d06eeb364d1ef.webp"}</script>
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-10-24T17:03:58+08:00","dateModified":"2026-10-24T17:03:58+08:00","datePublished":"2026-10-24T17:03:58+08:00","description":"1、基本概念\n一次传输（控制、批量、中断、同步）：由多个事务（Transaction）组成。\n一个事务（IN、OUT、SETUP）：由一个或多个包（Packet）组成。\n\nUSB 数据在主机软件与 USB 设备特定的端点之间传输，主机软件与特定端点之间的关联叫做管道（Pipes）。一个 USB 设备可以拥有多个管道。\n\n2、包 (Packet)包（Packet）是 USB 系统中信息传输的基...","headline":"USB 通信协议解释","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.skyforever.top/posts/48921"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"https://blog.skyforever.top/posts/48921","image":["https://image.skyforever.top/blog/2026/10/6b175a3c5e7f3358823d06eeb364d1ef.webp"],"keywords":"USB, 通信协议, 嵌入式开发, 硬件协议","thumbnailUrl":"https://image.skyforever.top/blog/2026/10/6b175a3c5e7f3358823d06eeb364d1ef.webp"}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg">
@@ -440,214 +440,197 @@
     
   </div>
   </div></div>
-<article class="md-text content slide-up"><h2 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h2><p>一个【传输】(控制、批量、中断、等时)：由多个【事务】组成；</p>
-<p>一个【事务】(IN、OUT、SETUP)：由一多个【Packet】组成。</p>
-<p>USB数据在【主机软件】与【USB设备特定的端点】间被传输。【主机软件】与【USB设备特定的端点】间的关联叫做【pipes】。一个USB设备可以有多个管道(pipes)。</p>
-<h2 id="2-、包-Packet"><a href="#2-、包-Packet" class="headerlink" title="2 、包(Packet)"></a>2 、包(Packet)</h2><p>包（Packet）是USB系统中信息传输的基本单元，所有数据都是经过打包后在总线上传输的。数据在 USB总线上的传输以包为单位，包只能在帧内传输。高速USB 总线的帧周期为125us，全速以及低速 USB 总线的帧周期为 1ms。帧的起始由一个特定的包（SOF 包）表示，帧尾为 EOF。EOF不是一个包，而是一种电平状态，EOF期间不允许有数据传输。</p>
-<p>注意：虽然高速USB总线和全速/低速USB总线的帧周期不一样，但是SOF包中帧编号的增加速度是一样的，因为在高速USB系统中，SOF包中帧编号实际上取得是计数器的高11位，最低三位作为微帧编号没有使用，因此其帧编号的增加周期也为 1mS</p>
-<ul>
-<li>USB总线上的情形是怎样的？</li>
+<article class="md-text content slide-up"><h2 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h2><ul>
+<li>一次传输（控制、批量、中断、同步）：由多个事务（Transaction）组成。</li>
+<li>一个事务（IN、OUT、SETUP）：由一个或多个包（Packet）组成。</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/6b175a3c5e7f3358823d06eeb364d1ef.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p>包是USB总线上数据传输的最小单位，不能被打断或干扰，否则会引发错误。若干个数据包组成一次事务传输，一次事务传输也不能打断，属于一次事务传输的几个包必须连续，不能跨帧完成。一次传输由一次到多次事务传输构成，可以跨帧完成。  </p>
-<p>USB包由五部分组成，即同步字段（SYNC）、包标识符字段（PID）、数据字段、循环冗余校验字段（CRC）和包结尾字段（EOP），包的基本格式如下图：</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/4133af8004e8550246d01b042c4c95a4.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<h2 id="1-1-PID类型-即包类型"><a href="#1-1-PID类型-即包类型" class="headerlink" title="1.1 PID类型(即包类型)"></a>1.1 PID类型(即包类型)</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/9bce343051792b30f4d25b8d945493c1.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/ccca10077b3c1bac083dcb3f122606fb.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<h2 id="1-2-Token-Packets"><a href="#1-2-Token-Packets" class="headerlink" title="1.2 Token Packets"></a>1.2 Token Packets</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/f9ad2d643f61c09b882b017e43ed9d11.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p>此格式适用于IN、OUT、SETUP、PING。  </p>
-<p>PID 数据传输方向</p>
-<p>IN Device-&gt;Host</p>
-<p>OUT Host-&gt;Device</p>
-<p>SETUP Host-&gt;Device</p>
-<p>PING Device-&gt;Host</p>
-<h2 id="1-3-Start-of-Frame-SOF-Packets"><a href="#1-3-Start-of-Frame-SOF-Packets" class="headerlink" title="1.3 Start-of-Frame(SOF) Packets"></a>1.3 Start-of-Frame(SOF) Packets</h2><p>SOF包由Host发送给Device。</p>
+<p>USB 数据在主机软件与 USB 设备特定的端点之间传输，主机软件与特定端点之间的关联叫做管道（Pipes）。一个 USB 设备可以拥有多个管道。</p>
+<hr>
+<h2 id="2、包-Packet"><a href="#2、包-Packet" class="headerlink" title="2、包 (Packet)"></a>2、包 (Packet)</h2><p>包（Packet）是 USB 系统中信息传输的基本单元，所有数据都必须打包后才能在总线上传输，且包只能在帧内传输。高速 USB 总线的帧周期为 125μs，全速与低速 USB 总线的帧周期为 1ms。帧的起始由专门的 SOF 包标识，帧尾为 EOF（EOF 不是一个包，而是一种电平状态，期间不允许传输数据）。</p>
+<blockquote>
+<p>注意：虽然高速 USB 总线与全速/低速 USB 总线的帧周期不同，但 SOF 包中帧编号的递增速度是一样的。因为在高速 USB 系统中，SOF 包的帧编号实际取的是计数器的高 11 位，最低 3 位作为微帧（Microframe）编号未展示在帧号里，因此帧编号的递增周期同样为 1ms。</p>
+</blockquote>
+<p>USB 总线上的传输时序如下：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/6b175a3c5e7f3358823d06eeb364d1ef.webp" alt="USB 总线帧结构与包传输时序示意图" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<ul>
+<li>包是 USB 总线上数据传输的最小单位，不能被打断或干扰，否则会引发错误。</li>
+<li>若干个数据包组成一次事务传输；一次事务传输也不能被打断，属于同一次事务的几个包必须连续，不能跨帧完成。</li>
+<li>一次完整的传输由一次或多次事务传输构成，可以跨帧完成。</li>
+</ul>
+<p>USB 包由五部分组成：同步字段（SYNC）、包标识符字段（PID）、数据字段、循环冗余校验字段（CRC）和包结尾字段（EOP），基本格式如下图：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/4133af8004e8550246d01b042c4c95a4.webp" alt="USB 包（Packet）基本格式与字段组成" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<h3 id="2-1-PID-类型-即包类型"><a href="#2-1-PID-类型-即包类型" class="headerlink" title="2.1 PID 类型 (即包类型)"></a>2.1 PID 类型 (即包类型)</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/9bce343051792b30f4d25b8d945493c1.webp" alt="PID 编码表（Token 令牌类与 Data 数据类）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/ccca10077b3c1bac083dcb3f122606fb.webp" alt="PID 编码表（Handshake 握手类与 Special 特殊类）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<h3 id="2-2-Token-Packets-令牌包"><a href="#2-2-Token-Packets-令牌包" class="headerlink" title="2.2 Token Packets (令牌包)"></a>2.2 Token Packets (令牌包)</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/f9ad2d643f61c09b882b017e43ed9d11.webp" alt="Token 令牌包格式定义（Token Format）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p>此格式适用于 <code>IN</code>、<code>OUT</code>、<code>SETUP</code>、<code>PING</code>，对应的传输方向如下：</p>
+<div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th align="left">PID</th>
+<th align="left">数据传输方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>IN</code></td>
+<td align="left">Device -&gt; Host</td>
+</tr>
+<tr>
+<td align="left"><code>OUT</code></td>
+<td align="left">Host -&gt; Device</td>
+</tr>
+<tr>
+<td align="left"><code>SETUP</code></td>
+<td align="left">Host -&gt; Device</td>
+</tr>
+<tr>
+<td align="left"><code>PING</code></td>
+<td align="left">Host -&gt; Device（探测设备是否有空间接收数据）</td>
+</tr>
+</tbody></table></div>
+<h3 id="2-3-Start-of-Frame-SOF-Packets"><a href="#2-3-Start-of-Frame-SOF-Packets" class="headerlink" title="2.3 Start-of-Frame (SOF) Packets"></a>2.3 Start-of-Frame (SOF) Packets</h3><p>SOF 包由 Host 周期性发送给 Device：</p>
 <ol>
-<li><p>对于full-speed总线，每隔1.00 ms ±0.0005 ms发送一次；</p>
-</li>
-<li><p>对于high-speed总线，每隔125 μs ±0.0625 μs发送一次；</p>
-</li>
+<li>对于全速（Full-Speed）总线，每隔 <code>1.00 ms ± 0.0005 ms</code> 发送一次。</li>
+<li>对于高速（High-Speed）总线，每隔 <code>125 μs ± 0.0625 μs</code> 发送一次。</li>
 </ol>
-<p>SOF包构成如下图所示</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/8dd02c6eb611cd585f3c795d2d9e852c.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/ca8cc807bbb3e30405d3fb83645fcc72.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p>1.4 Data Packets  </p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/7438b95e9436176480736603179ae501.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p>有四种类类型的数据包：DATA0, DATA1, DATA2,and MDATA，且由PID来区分。DATA0和DATA1被定义为支持数据切换同步(data toggle synchronization)。  </p>
-<h2 id="1-5-Handshake-Packets"><a href="#1-5-Handshake-Packets" class="headerlink" title="1.5 Handshake Packets"></a>1.5 Handshake Packets</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/c2a9775da2ac3b9b3f07d91874a51865.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p>SOF 包构成如下图所示：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/8dd02c6eb611cd585f3c795d2d9e852c.webp" alt="SOF 帧起始包格式（SOF Packet Format）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/ca8cc807bbb3e30405d3fb83645fcc72.webp" alt="全速帧（1ms）与高速微帧（125μs）时序关系" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<h3 id="2-4-Data-Packets-数据包"><a href="#2-4-Data-Packets-数据包" class="headerlink" title="2.4 Data Packets (数据包)"></a>2.4 Data Packets (数据包)</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/7438b95e9436176480736603179ae501.webp" alt="Data 数据包格式（Data Packet Format）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p>共有四种类型的数据包：<code>DATA0</code>、<code>DATA1</code>、<code>DATA2</code> 和 <code>MDATA</code>，通过 PID 区分。其中 <code>DATA0</code> 和 <code>DATA1</code> 用于实现数据翻转同步（Data Toggle Synchronization）。</p>
+<h3 id="2-5-Handshake-Packets-握手包"><a href="#2-5-Handshake-Packets-握手包" class="headerlink" title="2.5 Handshake Packets (握手包)"></a>2.5 Handshake Packets (握手包)</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/c2a9775da2ac3b9b3f07d91874a51865.webp" alt="Handshake 握手包格式（Handshake Packet Format）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <ul>
-<li><p>ACK: 对于IN事务，它将由host发出；对于OUT、SETUP和PING事务，它将由device发出。</p>
-</li>
-<li><p>NAK: 在数据阶段，对于IN事务，它将由device发出；在握手阶段，对于OUT和PING事务，它也将由device发出；host从不发送NAK包。</p>
-</li>
+<li><code>ACK</code>：对于 IN 事务，由 Host 发出；对于 OUT、SETUP 和 PING 事务，由 Device 发出。</li>
+<li><code>NAK</code>：对于 IN 事务，在数据阶段由 Device 发出；对于 OUT 和 PING 事务，在握手阶段由 Device 发出。Host 从不发送 NAK 包。</li>
 </ul>
-<h2 id="2、事务-Transaction"><a href="#2、事务-Transaction" class="headerlink" title="2、事务(Transaction)"></a>2、事务(Transaction)</h2><p>在USB上数据信息的一次接收或发送的处理过程称为事务处理（Transaction）即：The delivery of service to an endpoint。一个事务由一系统packet组成，具体由哪些packet组成，它取决于具体的事务。可能由如下包组成：</p>
+<hr>
+<h2 id="3、事务-Transaction"><a href="#3、事务-Transaction" class="headerlink" title="3、事务 (Transaction)"></a>3、事务 (Transaction)</h2><p>USB 总线上完成一次数据接收或发送的处理过程称为事务处理（Transaction）。一个事务由一系列 Packet 组成，具体包含哪些包取决于事务类型，通常由以下包构成：</p>
 <ul>
-<li><p>一个token packet</p>
-</li>
-<li><p>可选的data pcket</p>
-</li>
-<li><p>可选的handshake packet</p>
-</li>
-<li><p>可选的special packet</p>
-</li>
+<li>一个 Token Packet（令牌包）</li>
+<li>可选的 Data Packet（数据包）</li>
+<li>可选的 Handshake Packet（握手包）</li>
+<li>可选的 Special Packet（特殊包）</li>
 </ul>
-<h2 id="2-1-输入（IN）事务处理"><a href="#2-1-输入（IN）事务处理" class="headerlink" title="2.1 输入（IN）事务处理"></a>2.1 输入（IN）事务处理</h2><p>输入事务处理：表示USB主机从总线上的某个USB设备接收一个数据包的过程。</p>
+<h3 id="3-1-输入-IN-事务处理"><a href="#3-1-输入-IN-事务处理" class="headerlink" title="3.1 输入 (IN) 事务处理"></a>3.1 输入 (IN) 事务处理</h3><p>输入事务处理表示 USB 主机从总线上的某个 USB 设备接收一个数据包的过程。</p>
 <ul>
-<li>【正常】的输入事务处理</li>
+<li>正常的输入事务处理：</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/f95730aa3470a6cd0e8b2a390d65dff3.png" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/f95730aa3470a6cd0e8b2a390d65dff3.png" alt="正常情况下的 IN 事务处理流程" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <ul>
-<li>【设备忙】时的输入事务处理</li>
+<li>设备忙时的输入事务处理：</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/845d1bb167b31b521a3c0c90f5d77d9d.png" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/845d1bb167b31b521a3c0c90f5d77d9d.png" alt="设备忙时的 IN 事务处理（返回 NAK）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <ul>
-<li>【设备出错】时的输入事务处理</li>
+<li>设备出错时的输入事务处理：</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/2896a642102ed310ba619382a77beef1.png" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<h2 id="2-2-输出（OUT）事务处理"><a href="#2-2-输出（OUT）事务处理" class="headerlink" title="2.2. 输出（OUT）事务处理"></a>2.2. 输出（OUT）事务处理</h2><p>输出事务处理：表示USB主机把一个数据包输出到总线上的某个USB设备接收的过程。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/2896a642102ed310ba619382a77beef1.png" alt="设备出错时的 IN 事务处理（返回 STALL）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<h3 id="3-2-输出-OUT-事务处理"><a href="#3-2-输出-OUT-事务处理" class="headerlink" title="3.2 输出 (OUT) 事务处理"></a>3.2 输出 (OUT) 事务处理</h3><p>输出事务处理表示 USB 主机把一个数据包发送到总线上某个 USB 设备的过程。</p>
 <ul>
-<li>【正常】的输出事务处理</li>
+<li>正常的输出事务处理：</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/2e90a8d4542df0ef0a115b2e5949628f.png" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/2e90a8d4542df0ef0a115b2e5949628f.png" alt="正常情况下的 OUT 事务处理流程" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <ul>
-<li>【设备忙时】的输出事务处理</li>
+<li>设备忙时的输出事务处理：</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/6aa57f751ecbb461c46256685deb9caa.png" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/6aa57f751ecbb461c46256685deb9caa.png" alt="设备忙时的 OUT 事务处理（返回 NAK）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <ul>
-<li>【设备出错】的输出事务处理</li>
+<li>设备出错时的输出事务处理：</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/c739c3b0d8ebabf09fe046a656f4d14c.png" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<h2 id="2-3-设置（SETUP）事务处理"><a href="#2-3-设置（SETUP）事务处理" class="headerlink" title="2.3 设置（SETUP）事务处理"></a>2.3 设置（SETUP）事务处理</h2><ul>
-<li>【正常】的设置事务处理</li>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/c739c3b0d8ebabf09fe046a656f4d14c.png" alt="设备出错时的 OUT 事务处理（返回 STALL）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<h3 id="3-3-设置-SETUP-事务处理"><a href="#3-3-设置-SETUP-事务处理" class="headerlink" title="3.3 设置 (SETUP) 事务处理"></a>3.3 设置 (SETUP) 事务处理</h3><ul>
+<li>正常的设置事务处理：</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/b7657de9ac7f01b99467898b05755960.png" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/b7657de9ac7f01b99467898b05755960.png" alt="正常情况下的 SETUP 事务处理流程" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <ul>
-<li>【设备忙时】的设置事务处理</li>
+<li>设备忙时的设置事务处理：</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/b62fa2bb813cb751cc7ee9e37b60ad7c.png" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/b62fa2bb813cb751cc7ee9e37b60ad7c.png" alt="设备忙时的 SETUP 事务处理（返回 NAK）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 <ul>
-<li>【设备出错】的设置事务处理</li>
+<li>设备出错时的设置事务处理：</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/65bfd4a5da7c52fad92e85794f0b89b5.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<h2 id="3、USB传输类型"><a href="#3、USB传输类型" class="headerlink" title="3、USB传输类型"></a>3、USB传输类型</h2><p>在USB的传输中，定义了4种传输类型：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/65bfd4a5da7c52fad92e85794f0b89b5.webp" alt="设备出错时的 SETUP 事务处理（返回 STALL）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<hr>
+<h2 id="4、USB-传输类型"><a href="#4、USB-传输类型" class="headerlink" title="4、USB 传输类型"></a>4、USB 传输类型</h2><p>USB 协议定义了 4 种传输类型：</p>
 <ul>
-<li><p>控制传输 (Control Transfer)</p>
-</li>
-<li><p>中断传输 (Interrupt Transfer)</p>
-</li>
-<li><p>批量传输 (Bulk Transfer)</p>
-</li>
-<li><p>同步传输 (Isochronous)</p>
-</li>
+<li>控制传输 (Control Transfer)</li>
+<li>批量传输 (Bulk Transfer)</li>
+<li>中断传输 (Interrupt Transfer)</li>
+<li>同步传输 (Isochronous Transfer)</li>
 </ul>
-<h2 id="3-1-控制传输-Control-Transfer"><a href="#3-1-控制传输-Control-Transfer" class="headerlink" title="3.1 控制传输 (Control Transfer)"></a>3.1 控制传输 (Control Transfer)</h2><p>控制传输由2～3个阶段组成：</p>
+<h3 id="4-1-控制传输-Control-Transfer"><a href="#4-1-控制传输-Control-Transfer" class="headerlink" title="4.1 控制传输 (Control Transfer)"></a>4.1 控制传输 (Control Transfer)</h3><p>控制传输由 2～3 个阶段组成：</p>
 <ol>
-<li><p>建立阶段(Setup)</p>
-</li>
-<li><p>数据阶段（无数据控制没有此阶段）(DATA)</p>
-</li>
-<li><p>状态阶段(Status)</p>
-</li>
+<li>建立阶段 (Setup Stage)</li>
+<li>数据阶段 (Data Stage，无数据控制传输没有此阶段)</li>
+<li>状态阶段 (Status Stage)</li>
 </ol>
-<p>每个阶段都由一次或多次（数据阶段）事务传输组成（Transaction）。</p>
-<p>控制数据由USB系统软件用于配置设备(在枚举时)，其它的驱动软件可以选择使用control transfer实现具体的功能，数据传输是不可丢失的。</p>
-<h2 id="3-1-1-建立阶段"><a href="#3-1-1-建立阶段" class="headerlink" title="3.1.1 建立阶段"></a>3.1.1 建立阶段</h2><p>主机从USB设备获取配置信息，并设置设备的配置值。建立阶段的数据交换包含了SETUP令牌封包、紧随其后的DATA0数据封包以及ACK握手封包。它的作用是执行一个设置（概念含糊）的数据交换，并定义此控制传输的内容(即：在Data Stage中IN或OUT的data包个数，及发送方向，在Setup Stage已经被设定)。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/3c81acd97819dfc66decc90e64d8c961.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<h2 id="3-1-2-数据阶段"><a href="#3-1-2-数据阶段" class="headerlink" title="3.1.2 数据阶段"></a>3.1.2 数据阶段</h2><p>根据数据阶段的数据传输的方向，控制传输又可分为3种类型：</p>
+<p>每个阶段都由一次或多次事务传输（Transaction）组成。控制传输主要用于设备枚举阶段读取描述符和下发配置，驱动软件也可使用控制传输实现特定命令交互，其数据传输不允许丢失。</p>
+<h4 id="4-1-1-建立阶段"><a href="#4-1-1-建立阶段" class="headerlink" title="4.1.1 建立阶段"></a>4.1.1 建立阶段</h4><p>主机向 USB 设备发起请求或下发配置参数。建立阶段包含 <code>SETUP</code> 令牌包、紧随其后的 <code>DATA0</code> 数据包以及 <code>ACK</code> 握手包，用来定义本次控制传输的请求内容（即数据阶段是 IN 还是 OUT、需要传输多少字节的数据，都在建立阶段设定好）。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/3c81acd97819dfc66decc90e64d8c961.webp" alt="控制传输建立阶段（Control SETUP Transaction）时序流程" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<h4 id="4-1-2-数据阶段"><a href="#4-1-2-数据阶段" class="headerlink" title="4.1.2 数据阶段"></a>4.1.2 数据阶段</h4><p>用来传输主机与设备之间的负载数据。根据数据传输方向，控制传输分为 3 种类型：</p>
 <ol>
-<li><p>控制读取（读取USB描述符）</p>
-</li>
-<li><p>控制写入（配置USB设备）</p>
-</li>
-<li><p>无数据控制</p>
-</li>
-</ol>
-<p>数据传输阶段：用来传输主机与设备之间的数据。</p>
-<ul>
-<li>控制读取</li>
-</ul>
-<p>是将数据从设备读到主机上，读取的数据USB设备描述符。该过程如下图的【Control Read】所示。对每一个数据信息包而言，首先，主机会发送一个IN令牌信息包，表示要读数据进来。</p>
-<p>然后，设备将数据通过DATA1/DATA0数据信息包回传给主机。最后，主机将以下列的方式加以响应：当数据已经正确接收时，主机送出ACK令牌信息包；当主机正在忙碌时，发出NAK握手信息包；当发生了错误时，主机发出STALL握手信息包。</p>
-<ul>
-<li>控制写入</li>
-</ul>
-<p>是将数据从主机传到设备上，所传的数据即为对USB设备的配置信息，该过程如下的图【Control Wirte】所示。对每一个数据信息包而言，主机将会送出一个OUT令牌信息包，表示数据要送出去。紧接着，主机将数据通过DATA1/DATA0数据信息包传递至设备。</p>
-<p>最后，设备将以下列方式加以响应：当数据已经正确接收时，设备送出ACK令牌信息包；当设备正在忙碌时，设备发出NAK握手信息包；当发生了错误时，设备发出STALL握手信息包。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/9b2ec7f6c4364658910a8d4824e9e033.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<h2 id="3-1-3-状态阶段"><a href="#3-1-3-状态阶段" class="headerlink" title="3.1.3 状态阶段"></a>3.1.3 状态阶段</h2><p>状态阶段：用来表示整个传输的过程已完全结束。</p>
-<p>状态阶段传输的方向必须与数据阶段的方向相反，即原来是IN令牌封包，这个阶段应为OUT令牌封包；反之，原来是OUT令牌封包，这个阶段应为IN令牌封包。</p>
-<p>对于【控制读取】而言，主机会送出OUT令牌封包，其后再跟着0长度的DATA1封包。而此时，设备也会做出相对应的动作，送ACK握手封包、NAK握手封包或STALL握手封包。</p>
-<p>相对地对于【控制写入】传输，主机会送出IN令牌封包，然后设备送出表示完成状态阶段的0长度的DATA1封包，主机再做出相对应的动作：送ACK握手封包、NAK握手封包或STALL握手封包。</p>
-<h2 id="3-2-批量传输-Bulk-Transfer"><a href="#3-2-批量传输-Bulk-Transfer" class="headerlink" title="3.2 批量传输 (Bulk Transfer)"></a>3.2 批量传输 (Bulk Transfer)</h2><p>用于传输大量数据，要求传输不能出错，但对时间没有要求，适用于打印机、存储设备等。</p>
-<p>批量传输是可靠的传输，需要握手包来表明传输的结果。若数据量比较大，将采用多次批量事务传输来完成全部数据的传输，传输过程中数据包的PID 按照 DATA0-DATA1-DATA0-…的方式翻转，以保证发送端和接收端的同步。</p>
-<p>USB 允许连续 3次以下的传输错误，会重试该传输，若成功则将错误次数计数器清零，否则累加该计数器。超过三次后，HOST 认为该端点功能错误（STALL），放弃该端点的传输任务。</p>
-<p>一次批量传输（Transfer）由 1 次到多次批量事务传输（Transaction）组成。</p>
-<p>翻转同步：发送端按照 DATA0-DATA1-DATA0-…的顺序发送数据包，只有成功的事务传输才会导致 PID 翻转，也就是说发送端只有在接收到 ACK 后才会翻转 PID，发送下一个数据包，否则会重试本次事务传输。同样，若在接收端发现接收到到的数据包不是按照此顺序翻转的，比如连续收到两个 DATA0，那么接收端认为第二个 DATA0 是前一个 DATA0 的重传。</p>
-<p>它通过在硬件级执行“错误检测”和“重传”来确保host与device之间“准确无误”地传输数据，即可靠传输。它由三种包组成(即IN事务或OUT事务)：</p>
-<ol>
-<li><p>token</p>
-</li>
-<li><p>data</p>
-</li>
-<li><p>handshake</p>
-</li>
-</ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/c1d72a60c1310494979b6a1b7aa8a39a.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<ol>
-<li>For IN Token (即：IN Transaction)</li>
+<li>控制读取（读取 USB 描述符）</li>
+<li>控制写入（配置 USB 设备）</li>
+<li>无数据控制</li>
 </ol>
 <ul>
-<li><p>ACK: 表示host正确无误地接收到数据</p>
-</li>
-<li><p>NAK: 指示设备暂时不能返回或接收数据 (如：设备忙)</p>
-</li>
-<li><p>STALL:指示设备永远停止，需要host软件的干预 (如：设备出错)</p>
-</li>
+<li>控制读取（Control Read）：将数据从设备读到主机（如读取设备描述符）。对每个数据包而言，主机先发送 <code>IN</code> 令牌包请求读数据，设备通过 <code>DATA1/DATA0</code> 数据包将数据回传给主机。主机正确接收后回复 <code>ACK</code>；若主机忙则回复 <code>NAK</code>；发生错误则回复 <code>STALL</code>。</li>
+<li>控制写入（Control Write）：将数据从主机传到设备（如发送配置信息）。对每个数据包而言，主机先发送 <code>OUT</code> 令牌包，紧接着通过 <code>DATA1/DATA0</code> 数据包将数据传给设备。设备正确接收后回复 <code>ACK</code>；若设备忙则回复 <code>NAK</code>；发生错误则回复 <code>STALL</code>。</li>
 </ul>
-<ol>
-<li>For OUT Token (即：OUT Transaction)</li>
-</ol>
-<p>如果接收到的数据包有误，如：CRC错误，Device不发送任何handshake包</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/9b2ec7f6c4364658910a8d4824e9e033.webp" alt="控制传输读写序列（控制写入、控制读取与无数据控制）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<h4 id="4-1-3-状态阶段"><a href="#4-1-3-状态阶段" class="headerlink" title="4.1.3 状态阶段"></a>4.1.3 状态阶段</h4><p>用来汇报整个控制传输过程已顺利结束。状态阶段的传输方向必须与数据阶段相反（原来是 IN 事务，状态阶段就用 OUT 事务；原来是 OUT 事务，状态阶段就用 IN 事务）：</p>
 <ul>
-<li><p>ACK: Device已经正确无误地接收到数据包，且通知Host可以按顺序发送下一个数据包</p>
-</li>
-<li><p>NAK: Device 已经正确无误地接收到数据包，且通知Host重传数据，由于Device临时状况(如buffer满)</p>
-</li>
-<li><p>STALL: 指示Device endpoint已经停止，且通知Host不再重传</p>
-</li>
+<li>对于控制读取：主机发送 <code>OUT</code> 令牌包，随后发送 0 长度的 <code>DATA1</code> 包，设备回应 <code>ACK</code>、<code>NAK</code> 或 <code>STALL</code> 握手包。</li>
+<li>对于控制写入：主机发送 <code>IN</code> 令牌包，设备返回表示完成的 0 长度 <code>DATA1</code> 包，主机回应 <code>ACK</code>、<code>NAK</code> 或 <code>STALL</code> 握手包。</li>
 </ul>
+<h3 id="4-2-批量传输-Bulk-Transfer"><a href="#4-2-批量传输-Bulk-Transfer" class="headerlink" title="4.2 批量传输 (Bulk Transfer)"></a>4.2 批量传输 (Bulk Transfer)</h3><p>用于传输大量数据，要求数据准确无误，但对实时性没有严格要求，常用于打印机、U 盘等大容量存储设备。</p>
+<p>一次批量传输（Transfer）由 1 次到多次批量事务（Transaction）组成。硬件层通过错误检测、握手包反馈和超次重传确保可靠传输：</p>
+<ul>
+<li>PID 翻转同步：发送端按 <code>DATA0-DATA1-DATA0-...</code> 交替翻转的顺序发送数据包。只有收到 <code>ACK</code> 确认传输成功后才会翻转 PID 发送下一包；若接收端连续收到两个相同 PID（例如连续两个 <code>DATA0</code>），则判定后一个是前一个包的重传。</li>
+<li>错误重试限制：USB 允许连续 3 次以内的传输错误并自动重试，一旦成功则将错误计数器清零；若连续失败超过 3 次，Host 判定该端点异常（STALL），放弃传输任务。</li>
+</ul>
+<p>批量事务由三种包组成（IN 事务或 OUT 事务）：</p>
 <ol>
-<li>Bulk读写序列</li>
+<li>Token（令牌包）</li>
+<li>Data（数据包）</li>
+<li>Handshake（握手包）</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/79f4ccd2b855f7bdce3a09b18f52bf87.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p>即由一系统IN事务或OUT事务组成。</p>
-<p>3.3 中断传输(Interrupt Transfer)</p>
-<p>中断传输由IN或OUT事务组成。</p>
-<p>中断传输在流程上除不支持PING 之外，其他的跟批量传输是一样的。他们之间的区别也仅在于事务传输发生的端点不一样、支持的最大包长度不一样、优先级不一样等这样一些对用户来说透明的东西。</p>
-<p>主机在排定中断传输任务时，会根据对应中断端点描述符中指定的查询间隔发起中断传输。中断传输有较高的优先级，仅次于同步传输。</p>
-<p>同样中断传输也采用PID翻转的机制来保证收发端数据同步。下图为中断传输的流程图。</p>
-<p>中断传输方式总是用于对设备的查询，以确定是否有数据需要传输。因此中断传输的方向总是从USB设备到主机。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/ae776050179fe52a7d5b660b5ff57ff5.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
-<p>DATA0或DATA1中的包含的是中断信息，而不是中断数据。</p>
-<h2 id="3-4-同步传输-Isochronous-Transfer"><a href="#3-4-同步传输-Isochronous-Transfer" class="headerlink" title="3.4 同步传输(Isochronous Transfer)"></a>3.4 同步传输(Isochronous Transfer)</h2><ol>
-<li><p>它由两种包组成：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/c1d72a60c1310494979b6a1b7aa8a39a.webp" alt="批量事务处理格式（Bulk Transaction Format）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<ol>
+<li>IN 事务（IN Transaction）握手响应：<ul>
+<li><code>ACK</code>：表示 Host 正确无误地接收到数据。</li>
+<li><code>NAK</code>：指示设备暂时无法返回数据（如设备忙）。</li>
+<li><code>STALL</code>：指示设备端点挂起，需要 Host 软件介入处理（如设备出错）。</li>
+</ul>
 </li>
-<li><p>token</p>
+<li>OUT 事务（OUT Transaction）握手响应（若收到的数据包存在 CRC 校验错误，Device 不发送任何握手包）：<ul>
+<li><code>ACK</code>：Device 已正确接收数据包，通知 Host 可以按序发送下一包。</li>
+<li><code>NAK</code>：Device 已正确接收数据包，但因临时状况（如缓冲区满）通知 Host 稍后重传。</li>
+<li><code>STALL</code>：指示 Device 端点已停止，通知 Host 不再重传。</li>
+</ul>
 </li>
-<li><p>data</p>
-</li>
+<li>Bulk 读写序列（由一系列 IN 事务或 OUT 事务组成）：</li>
 </ol>
-<p>同步传输不支持“handshake”和“重传能力”，所以它是不可靠传输。</p>
-<p>同步传输是不可靠的传输，所以它没有握手包，也不支持PID翻转。主机在排定事务传输时，同步传输有最高的优先级。</p>
-<p>同步传输适用于必须以固定速率抵达或在指定时刻抵达，可以容忍偶尔错误的数据上。实时传输一般用于麦 克风、喇叭、UVC Camera等设备。实时传输只需令牌与数据两个信息包阶段，没有握手包，故数据传错时不会重传。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/d8009e7bcd268f083f437d66545d37b2.webp" alt="图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/79f4ccd2b855f7bdce3a09b18f52bf87.webp" alt="批量传输读写序列（Bulk Reads and Writes Sequences）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<h3 id="4-3-中断传输-Interrupt-Transfer"><a href="#4-3-中断传输-Interrupt-Transfer" class="headerlink" title="4.3 中断传输 (Interrupt Transfer)"></a>4.3 中断传输 (Interrupt Transfer)</h3><p>中断传输由 IN 或 OUT 事务组成，常用于主机定期轮询设备是否有数据需要传输（如鼠标、键盘）。</p>
+<ul>
+<li>中断传输在流程上除不支持 <code>PING</code> 令牌外，其余机制与批量传输一致，同样采用 <code>DATA0/DATA1</code> PID 翻转机制保证收发端数据同步。</li>
+<li>主机在排定任务时，会根据中断端点描述符中指定的查询间隔周期性发起中断传输。</li>
+<li>中断传输具有较高的优先级，仅次于同步传输。</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/ae776050179fe52a7d5b660b5ff57ff5.webp" alt="中断事务处理格式（Interrupt Transaction Format）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<h3 id="4-4-同步传输-Isochronous-Transfer"><a href="#4-4-同步传输-Isochronous-Transfer" class="headerlink" title="4.4 同步传输 (Isochronous Transfer)"></a>4.4 同步传输 (Isochronous Transfer)</h3><p>同步传输适用于必须以固定速率或在指定时刻送达、且可以容忍偶尔出错的实时数据流，常用于麦克风、音响喇叭、UVC 摄像头等音视频设备。</p>
+<p>同步传输只包含两个包阶段：</p>
+<ol>
+<li>Token（令牌包）</li>
+<li>Data（数据包）</li>
+</ol>
+<p>由于没有握手包（Handshake），同步传输不支持重传机制，也不支持 PID 翻转，属于不可靠传输；但在主机排定总线带宽和事务传输时，同步传输享有最高的优先级。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://image.skyforever.top/blog/2026/10/d8009e7bcd268f083f437d66545d37b2.webp" alt="同步事务处理格式（Isochronous Transaction Format）" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
 
 
 
 
 </article>
-<div class="article-tags slide-up"><a class="tag" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>嵌入式开发</a><a class="tag" href="/tags/USB/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>USB</a><a class="tag" href="/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>通信协议</a><a class="tag" href="/tags/%E7%A1%AC%E4%BB%B6%E5%8D%8F%E8%AE%AE/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>硬件协议</a></div>
+<div class="article-tags slide-up"><a class="tag" href="/tags/USB/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>USB</a><a class="tag" href="/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>通信协议</a><a class="tag" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>嵌入式开发</a><a class="tag" href="/tags/%E7%A1%AC%E4%BB%B6%E5%8D%8F%E8%AE%AE/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>硬件协议</a></div>
 
 
   <div class="article-share slide-up" id="share">
@@ -702,7 +685,7 @@
       <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
     </div>
   
-  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#1%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">1、基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#2-%E3%80%81%E5%8C%85-Packet"><span class="toc-text">2 、包(Packet)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#1-1-PID%E7%B1%BB%E5%9E%8B-%E5%8D%B3%E5%8C%85%E7%B1%BB%E5%9E%8B"><span class="toc-text">1.1 PID类型(即包类型)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#1-2-Token-Packets"><span class="toc-text">1.2 Token Packets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#1-3-Start-of-Frame-SOF-Packets"><span class="toc-text">1.3 Start-of-Frame(SOF) Packets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#1-5-Handshake-Packets"><span class="toc-text">1.5 Handshake Packets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#2%E3%80%81%E4%BA%8B%E5%8A%A1-Transaction"><span class="toc-text">2、事务(Transaction)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#2-1-%E8%BE%93%E5%85%A5%EF%BC%88IN%EF%BC%89%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86"><span class="toc-text">2.1 输入（IN）事务处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#2-2-%E8%BE%93%E5%87%BA%EF%BC%88OUT%EF%BC%89%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86"><span class="toc-text">2.2. 输出（OUT）事务处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#2-3-%E8%AE%BE%E7%BD%AE%EF%BC%88SETUP%EF%BC%89%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86"><span class="toc-text">2.3 设置（SETUP）事务处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#3%E3%80%81USB%E4%BC%A0%E8%BE%93%E7%B1%BB%E5%9E%8B"><span class="toc-text">3、USB传输类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#3-1-%E6%8E%A7%E5%88%B6%E4%BC%A0%E8%BE%93-Control-Transfer"><span class="toc-text">3.1 控制传输 (Control Transfer)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#3-1-1-%E5%BB%BA%E7%AB%8B%E9%98%B6%E6%AE%B5"><span class="toc-text">3.1.1 建立阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#3-1-2-%E6%95%B0%E6%8D%AE%E9%98%B6%E6%AE%B5"><span class="toc-text">3.1.2 数据阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#3-1-3-%E7%8A%B6%E6%80%81%E9%98%B6%E6%AE%B5"><span class="toc-text">3.1.3 状态阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#3-2-%E6%89%B9%E9%87%8F%E4%BC%A0%E8%BE%93-Bulk-Transfer"><span class="toc-text">3.2 批量传输 (Bulk Transfer)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#3-4-%E5%90%8C%E6%AD%A5%E4%BC%A0%E8%BE%93-Isochronous-Transfer"><span class="toc-text">3.4 同步传输(Isochronous Transfer)</span></a></li></ol></div>
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#1%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">1、基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#2%E3%80%81%E5%8C%85-Packet"><span class="toc-text">2、包 (Packet)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-1-PID-%E7%B1%BB%E5%9E%8B-%E5%8D%B3%E5%8C%85%E7%B1%BB%E5%9E%8B"><span class="toc-text">2.1 PID 类型 (即包类型)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-2-Token-Packets-%E4%BB%A4%E7%89%8C%E5%8C%85"><span class="toc-text">2.2 Token Packets (令牌包)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-3-Start-of-Frame-SOF-Packets"><span class="toc-text">2.3 Start-of-Frame (SOF) Packets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-4-Data-Packets-%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-text">2.4 Data Packets (数据包)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#2-5-Handshake-Packets-%E6%8F%A1%E6%89%8B%E5%8C%85"><span class="toc-text">2.5 Handshake Packets (握手包)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#3%E3%80%81%E4%BA%8B%E5%8A%A1-Transaction"><span class="toc-text">3、事务 (Transaction)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-1-%E8%BE%93%E5%85%A5-IN-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86"><span class="toc-text">3.1 输入 (IN) 事务处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-2-%E8%BE%93%E5%87%BA-OUT-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86"><span class="toc-text">3.2 输出 (OUT) 事务处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#3-3-%E8%AE%BE%E7%BD%AE-SETUP-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86"><span class="toc-text">3.3 设置 (SETUP) 事务处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#4%E3%80%81USB-%E4%BC%A0%E8%BE%93%E7%B1%BB%E5%9E%8B"><span class="toc-text">4、USB 传输类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-1-%E6%8E%A7%E5%88%B6%E4%BC%A0%E8%BE%93-Control-Transfer"><span class="toc-text">4.1 控制传输 (Control Transfer)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#4-1-1-%E5%BB%BA%E7%AB%8B%E9%98%B6%E6%AE%B5"><span class="toc-text">4.1.1 建立阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#4-1-2-%E6%95%B0%E6%8D%AE%E9%98%B6%E6%AE%B5"><span class="toc-text">4.1.2 数据阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link ui-interactive" href="#4-1-3-%E7%8A%B6%E6%80%81%E9%98%B6%E6%AE%B5"><span class="toc-text">4.1.3 状态阶段</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-2-%E6%89%B9%E9%87%8F%E4%BC%A0%E8%BE%93-Bulk-Transfer"><span class="toc-text">4.2 批量传输 (Bulk Transfer)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-3-%E4%B8%AD%E6%96%AD%E4%BC%A0%E8%BE%93-Interrupt-Transfer"><span class="toc-text">4.3 中断传输 (Interrupt Transfer)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#4-4-%E5%90%8C%E6%AD%A5%E4%BC%A0%E8%BE%93-Isochronous-Transfer"><span class="toc-text">4.4 同步传输 (Isochronous Transfer)</span></a></li></ol></li></ol></div>
   <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a><a class="buttom ui-interactive" onclick="util.scrollComment()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"></path><path fill="currentColor" d="M7.25 9A.75.75 0 0 1 8 8.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 9m0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75"></path></svg></span><span>参与讨论</span></a></div>
 </widget>
 
