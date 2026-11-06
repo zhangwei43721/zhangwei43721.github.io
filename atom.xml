@@ -157,8 +157,8 @@
       <name>Skyforever</name>
     </author>
     <category term="开发工具" scheme="https://blog.skyforever.top/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    <category term="Python" scheme="https://blog.skyforever.top/tags/Python/"/>
     <category term="Linux" scheme="https://blog.skyforever.top/tags/Linux/"/>
+    <category term="Python" scheme="https://blog.skyforever.top/tags/Python/"/>
     <category term="C/C++" scheme="https://blog.skyforever.top/tags/C-C/"/>
     <category term="包管理器" scheme="https://blog.skyforever.top/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/"/>
     <category term="前端开发" scheme="https://blog.skyforever.top/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
@@ -204,8 +204,8 @@
     <category term="嵌入式" scheme="https://blog.skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     <category term="开发工具" scheme="https://blog.skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     <category term="开发环境" scheme="https://blog.skyforever.top/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
-    <category term="C/C++" scheme="https://blog.skyforever.top/tags/C-C/"/>
     <category term="VSCode" scheme="https://blog.skyforever.top/tags/VSCode/"/>
+    <category term="C/C++" scheme="https://blog.skyforever.top/tags/C-C/"/>
     <category term="OpenHarmony" scheme="https://blog.skyforever.top/tags/OpenHarmony/"/>
     <category term="Clangd" scheme="https://blog.skyforever.top/tags/Clangd/"/>
     <content>
@@ -246,9 +246,9 @@
     <category term="嵌入式" scheme="https://blog.skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     <category term="AI编程" scheme="https://blog.skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/AI%E7%BC%96%E7%A8%8B/"/>
     <category term="AI" scheme="https://blog.skyforever.top/tags/AI/"/>
+    <category term="单片机" scheme="https://blog.skyforever.top/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     <category term="EDA" scheme="https://blog.skyforever.top/tags/EDA/"/>
     <category term="PCB" scheme="https://blog.skyforever.top/tags/PCB/"/>
-    <category term="单片机" scheme="https://blog.skyforever.top/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     <category term="Claude Code" scheme="https://blog.skyforever.top/tags/Claude-Code/"/>
     <category term="Agent" scheme="https://blog.skyforever.top/tags/Agent/"/>
     <category term="物联网" scheme="https://blog.skyforever.top/tags/%E7%89%A9%E8%81%94%E7%BD%91/"/>
