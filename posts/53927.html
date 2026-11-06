@@ -40,12 +40,12 @@
 <meta property="article:author" content="Skyforever" data-stellar-page-meta="">
 <meta property="article:published_time" content="2026-05-11T16:00:00.000Z" data-stellar-page-meta="">
 <meta property="article:modified_time" content="2026-05-11T16:00:00.000Z" data-stellar-page-meta="">
+<meta property="article:tag" content="C/C++" data-stellar-page-meta="">
 <meta property="article:tag" content="RTOS" data-stellar-page-meta="">
 <meta property="article:tag" content="低功耗" data-stellar-page-meta="">
 <meta property="article:tag" content="协程" data-stellar-page-meta="">
 <meta property="article:tag" content="单片机" data-stellar-page-meta="">
 <meta property="article:tag" content="多任务" data-stellar-page-meta="">
-<meta property="article:tag" content="嵌入式" data-stellar-page-meta="">
 <meta property="article:tag" content="状态机" data-stellar-page-meta="">
 <meta property="article:tag" content="裸机" data-stellar-page-meta="">
 <meta property="article:tag" content="调度器" data-stellar-page-meta="">
@@ -53,7 +53,7 @@
 <meta name="twitter:image" content="https://image.skyforever.top/blog/2026/05/f8ee5f49559da78b7daaba6496bd6867.webp" data-stellar-page-meta=""><meta name="twitter:title" content="单片机裸机多任务与低功耗方案总结" data-stellar-page-meta="">
   
   
-  <meta name="keywords" content="单片机,裸机,多任务,调度器,低功耗,RTOS,嵌入式,协程,状态机" data-stellar-page-meta="">
+  <meta name="keywords" content="单片机,裸机,多任务,调度器,低功耗,RTOS,协程,状态机,C/C++" data-stellar-page-meta="">
 
   <!-- feed -->
   
@@ -77,7 +77,7 @@
 
   
 
-  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-05-12T00:00:00+08:00","dateModified":"2026-05-12T00:00:00+08:00","datePublished":"2026-05-12T00:00:00+08:00","description":"\n本文内出现的例程基本都是伪代码，不确保能直接运行\n\n一、简易多任务1、前后台 if else 标志位轮询如果你需要实现两个不同频率的 led 闪烁任务，那么就不能使用阻塞 delay 了，此时可以考虑使用前后台。\n例如下面这段代码，前台主循环不断轮询标志位，后台中断触发标志位，从而实现两个互不干扰的不同周期 led 闪烁任务\n12345678910111213141516171819202...","headline":"单片机裸机多任务与低功耗方案总结","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.skyforever.top/posts/53927"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"https://blog.skyforever.top/posts/53927","image":["https://image.skyforever.top/blog/2026/05/f8ee5f49559da78b7daaba6496bd6867.webp"],"keywords":"单片机, 裸机, 多任务, 调度器, 低功耗, RTOS, 嵌入式, 协程, 状态机","thumbnailUrl":"https://image.skyforever.top/blog/2026/05/f8ee5f49559da78b7daaba6496bd6867.webp"}</script>
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-05-12T00:00:00+08:00","dateModified":"2026-05-12T00:00:00+08:00","datePublished":"2026-05-12T00:00:00+08:00","description":"\n本文内出现的例程基本都是伪代码，不确保能直接运行\n\n一、简易多任务1、前后台 if else 标志位轮询如果你需要实现两个不同频率的 led 闪烁任务，那么就不能使用阻塞 delay 了，此时可以考虑使用前后台。\n例如下面这段代码，前台主循环不断轮询标志位，后台中断触发标志位，从而实现两个互不干扰的不同周期 led 闪烁任务\n12345678910111213141516171819202...","headline":"单片机裸机多任务与低功耗方案总结","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.skyforever.top/posts/53927"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"https://blog.skyforever.top/posts/53927","image":["https://image.skyforever.top/blog/2026/05/f8ee5f49559da78b7daaba6496bd6867.webp"],"keywords":"单片机, 裸机, 多任务, 调度器, 低功耗, RTOS, 协程, 状态机, C/C++","thumbnailUrl":"https://image.skyforever.top/blog/2026/05/f8ee5f49559da78b7daaba6496bd6867.webp"}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg">
@@ -590,7 +590,7 @@
 
 
 </article>
-<div class="article-tags slide-up"><a class="tag" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>嵌入式</a><a class="tag" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>单片机</a><a class="tag" href="/tags/%E5%A4%9A%E4%BB%BB%E5%8A%A1/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>多任务</a><a class="tag" href="/tags/%E7%8A%B6%E6%80%81%E6%9C%BA/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>状态机</a><a class="tag" href="/tags/%E8%A3%B8%E6%9C%BA/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>裸机</a><a class="tag" href="/tags/%E8%B0%83%E5%BA%A6%E5%99%A8/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>调度器</a><a class="tag" href="/tags/%E4%BD%8E%E5%8A%9F%E8%80%97/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>低功耗</a><a class="tag" href="/tags/RTOS/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>RTOS</a><a class="tag" href="/tags/%E5%8D%8F%E7%A8%8B/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>协程</a></div>
+<div class="article-tags slide-up"><a class="tag" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>单片机</a><a class="tag" href="/tags/C-C/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>C/C++</a><a class="tag" href="/tags/%E8%A3%B8%E6%9C%BA/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>裸机</a><a class="tag" href="/tags/%E5%A4%9A%E4%BB%BB%E5%8A%A1/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>多任务</a><a class="tag" href="/tags/%E7%8A%B6%E6%80%81%E6%9C%BA/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>状态机</a><a class="tag" href="/tags/%E8%B0%83%E5%BA%A6%E5%99%A8/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>调度器</a><a class="tag" href="/tags/%E4%BD%8E%E5%8A%9F%E8%80%97/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>低功耗</a><a class="tag" href="/tags/RTOS/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>RTOS</a><a class="tag" href="/tags/%E5%8D%8F%E7%A8%8B/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>协程</a></div>
 
 
   <div class="article-share slide-up" id="share">
@@ -609,7 +609,7 @@
 
 <div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 较新文章</div><a href="/posts/49583/">Hi3863 LiteOS OTA 如何实现</a></div><div class="item" id="next"><div class="note">较早文章 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/posts/51722/">15条高频实用的ClaudeCode技巧</a></div></section></div>
 
-<div class="related-wrap slide-up" id="related-posts"><section class="header"><div class="title cap theme">您可能感兴趣的文章</div></section><section class="body"><div class="related-posts"><a class="item" href="/posts/63520" title="如何在不使用操作系统的情况下实现多线程效果"><span class="title">如何在不使用操作系统的情况下实现多线程效果</span><span class="excerpt">通过经典的“跑马灯”案例，揭示裸机编程中从阻塞到非阻塞，再到状态机思维的三重境界。并进一步探讨如何运用该思想处理复杂长时任务，帮助您在不使用RTOS的情况下，构建高效、可扩展的嵌入式程序。</span></a><a class="item" href="/posts/39482" title="杰理芯片 USB 烧录流程拆解"><span class="title">杰理芯片 USB 烧录流程拆解</span><span class="excerpt">分析杰理芯片的 USB 烧录流程，涵盖运行态控制传输软切换、开机 USB_KEY 硬件握手、RAM Loader 上传与 JLFV 容器解析，以及低成本自制恢复下载器思路</span></a><a class="item" href="/posts/58291" title="杰理芯片网络资源汇总"><span class="title">杰理芯片网络资源汇总</span><span class="excerpt">杰理芯片性价比高但在网上极难找资料。本文汇总整理了官方在线文档、代理商规格书下载站、民间大神逆向工具链、二开硬件板子及实用交流资源。</span></a></div></section></div>
+<div class="related-wrap slide-up" id="related-posts"><section class="header"><div class="title cap theme">您可能感兴趣的文章</div></section><section class="body"><div class="related-posts"><a class="item" href="/posts/63520" title="如何在不使用操作系统的情况下实现多线程效果"><span class="title">如何在不使用操作系统的情况下实现多线程效果</span><span class="excerpt">通过经典的“跑马灯”案例，揭示裸机编程中从阻塞到非阻塞，再到状态机思维的三重境界。并进一步探讨如何运用该思想处理复杂长时任务，帮助您在不使用RTOS的情况下，构建高效、可扩展的嵌入式程序。</span></a><a class="item" href="/posts/39482" title="杰理芯片 USB 烧录流程拆解"><span class="title">杰理芯片 USB 烧录流程拆解</span><span class="excerpt">分析杰理芯片的 USB 烧录流程，涵盖运行态控制传输软切换、开机 USB_KEY 硬件握手、RAM Loader 上传与 JLFV 容器解析，以及低成本自制恢复下载器思路</span></a><a class="item" href="/posts/48921" title="USB 通信协议解释"><span class="title">USB 通信协议解释</span><span class="excerpt">从宏观到微观拆解 USB 通信协议，涵盖设备类（USB Class）、端点与管道、四种传输类型（Transfer）、事务处理（Transaction）、底层包（Packet）结构，以及描述符体系与枚举流程。</span></a></div></section></div>
 
 
   <div class="related-wrap md-text slide-up" id="comments">

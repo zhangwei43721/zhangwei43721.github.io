@@ -44,13 +44,12 @@
 <meta property="article:tag" content="RTT" data-stellar-page-meta="">
 <meta property="article:tag" content="STM32" data-stellar-page-meta="">
 <meta property="article:tag" content="单片机" data-stellar-page-meta="">
-<meta property="article:tag" content="嵌入式开发" data-stellar-page-meta="">
 <meta property="article:tag" content="调试技巧" data-stellar-page-meta="">
 <meta name="twitter:card" content="summary_large_image" data-stellar-page-meta="">
 <meta name="twitter:image" content="https://image.skyforever.top/blog/2026/02/aca346af706e9f4e355b32f098c2c06d.webp" data-stellar-page-meta=""><meta name="twitter:title" content="基于 J-Link RTT 的单片机调试打印指南" data-stellar-page-meta="">
   
   
-  <meta name="keywords" content="J-Link,RTT,单片机,嵌入式开发,调试技巧,STM32" data-stellar-page-meta="">
+  <meta name="keywords" content="J-Link,RTT,单片机,调试技巧,STM32" data-stellar-page-meta="">
 
   <!-- feed -->
   
@@ -74,7 +73,7 @@
 
   
 
-  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2025-12-08T19:57:17+08:00","dateModified":"2025-12-08T19:57:17+08:00","datePublished":"2025-12-08T19:57:17+08:00","description":"不知道大家在单片机开发时，是不是跟我一样觉得特别烦：每次开始调试，不仅要插下载器（J-Link/ST-Link），还得再找个 USB 转 TTL 模块接串口看打印信息。\n这就导致板子上挂着一堆线，电脑的 USB 口经常不够用，桌面上乱糟糟的。\n其实，既然我们已经插了 J-Link 下载器，为什么不能直接用它来看打印信息呢？完全可以！今天就来介绍一下如何利用 J-Link 的 RTT 功能，扔...","headline":"基于 J-Link RTT 的单片机调试打印指南","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.skyforever.top/posts/41626"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"https://blog.skyforever.top/posts/41626","image":["https://image.skyforever.top/blog/2026/02/aca346af706e9f4e355b32f098c2c06d.webp"],"keywords":"J-Link, RTT, 单片机, 嵌入式开发, 调试技巧, STM32","thumbnailUrl":"https://image.skyforever.top/blog/2026/02/aca346af706e9f4e355b32f098c2c06d.webp"}</script>
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2025-12-08T19:57:17+08:00","dateModified":"2025-12-08T19:57:17+08:00","datePublished":"2025-12-08T19:57:17+08:00","description":"不知道大家在单片机开发时，是不是跟我一样觉得特别烦：每次开始调试，不仅要插下载器（J-Link/ST-Link），还得再找个 USB 转 TTL 模块接串口看打印信息。\n这就导致板子上挂着一堆线，电脑的 USB 口经常不够用，桌面上乱糟糟的。\n其实，既然我们已经插了 J-Link 下载器，为什么不能直接用它来看打印信息呢？完全可以！今天就来介绍一下如何利用 J-Link 的 RTT 功能，扔...","headline":"基于 J-Link RTT 的单片机调试打印指南","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.skyforever.top/posts/41626"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"https://blog.skyforever.top/posts/41626","image":["https://image.skyforever.top/blog/2026/02/aca346af706e9f4e355b32f098c2c06d.webp"],"keywords":"J-Link, RTT, 单片机, 调试技巧, STM32","thumbnailUrl":"https://image.skyforever.top/blog/2026/02/aca346af706e9f4e355b32f098c2c06d.webp"}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg">
@@ -427,7 +426,7 @@
   <div class="content" data-text-adaptive="split">
     <div class="banner-mask banner-mask-top" aria-hidden="true"></div><div class="banner-mask banner-mask-bottom" aria-hidden="true"></div>
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/">嵌入式开发</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/">调试工具</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
 </div></div><div class="meta-row">
 <div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-12-08T11:57:17.000Z">2025-12-08</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-12-08T11:57:17.000Z">2025-12-08</time></span></div>
 </div></div>
@@ -529,7 +528,7 @@
 
 
 </article>
-<div class="article-tags slide-up"><a class="tag" href="/tags/STM32/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>STM32</a><a class="tag" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>单片机</a><a class="tag" href="/tags/J-Link/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>J-Link</a><a class="tag" href="/tags/RTT/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>RTT</a><a class="tag" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>嵌入式开发</a><a class="tag" href="/tags/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>调试技巧</a></div>
+<div class="article-tags slide-up"><a class="tag" href="/tags/STM32/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>STM32</a><a class="tag" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>单片机</a><a class="tag" href="/tags/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>调试技巧</a><a class="tag" href="/tags/J-Link/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>J-Link</a><a class="tag" href="/tags/RTT/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>RTT</a></div>
 
 
   <div class="article-share slide-up" id="share">
@@ -548,7 +547,7 @@
 
 <div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 较新文章</div><a href="/posts/25562/">3D打印入门指南</a></div><div class="item" id="next"><div class="note">较早文章 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/posts/63520/">如何在不使用操作系统的情况下实现多线程效果</a></div></section></div>
 
-<div class="related-wrap slide-up" id="related-posts"><section class="header"><div class="title cap theme">您可能感兴趣的文章</div></section><section class="body"><div class="related-posts"><a class="item" href="/posts/48921" title="USB 通信协议解释"><span class="title">USB 通信协议解释</span><span class="excerpt">从宏观到微观拆解 USB 通信协议，涵盖设备类（USB Class）、端点与管道、四种传输类型（Transfer）、事务处理（Transaction）、底层包（Packet）结构，以及描述符体系与枚举流程。</span></a><a class="item" href="/posts/43921" title="解决 VS Code 开发 OpenHarmony 代码跳转慢的问题"><span class="title">解决 VS Code 开发 OpenHarmony 代码跳转慢的问题</span><span class="excerpt">解决用 VS Code 编写 OpenHarmony 代码时函数跳转慢的问题，详解 compile_commands.json 编译数据库生成与 Clangd 配置方法。</span></a><a class="item" href="/posts/63520" title="如何在不使用操作系统的情况下实现多线程效果"><span class="title">如何在不使用操作系统的情况下实现多线程效果</span><span class="excerpt">通过经典的“跑马灯”案例，揭示裸机编程中从阻塞到非阻塞，再到状态机思维的三重境界。并进一步探讨如何运用该思想处理复杂长时任务，帮助您在不使用RTOS的情况下，构建高效、可扩展的嵌入式程序。</span></a></div></section></div>
+<div class="related-wrap slide-up" id="related-posts"><section class="header"><div class="title cap theme">您可能感兴趣的文章</div></section><section class="body"><div class="related-posts"><a class="item" href="/posts/30908" title="2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程"><span class="title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span><span class="excerpt">本文详细介绍了Keil MDK5社区版的下载与安装流程，解决了AC5编译器缺失报错、CMSIS版本冲突等常见问题，并分享了代码格式化与自动保存的实用配置技巧。</span></a><a class="item" href="/posts/114516" title="提升嵌入式开发幸福感的小技巧"><span class="title">提升嵌入式开发幸福感的小技巧</span></a><a class="item" href="/posts/39482" title="杰理芯片 USB 烧录流程拆解"><span class="title">杰理芯片 USB 烧录流程拆解</span><span class="excerpt">分析杰理芯片的 USB 烧录流程，涵盖运行态控制传输软切换、开机 USB_KEY 硬件握手、RAM Loader 上传与 JLFV 容器解析，以及低成本自制恢复下载器思路</span></a></div></section></div>
 
 
   <div class="related-wrap md-text slide-up" id="comments">
@@ -751,4 +750,4 @@ var _hmt = _hmt || [];
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://blog.skyforever.top/posts/41626","signature":"7a2949992efdd99ce2692e103fda1c9dca27a676e8d8e9e1899f542d72bdbee8"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://blog.skyforever.top/posts/41626","signature":"aadd4db44a1a80afb334579bf43613794ed4a95a5b2b6a87a339c9ccc6dc6935"}</script></body></html>

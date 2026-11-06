@@ -40,13 +40,14 @@
 <meta property="article:published_time" content="2026-11-04T06:45:00.000Z" data-stellar-page-meta="">
 <meta property="article:modified_time" content="2026-11-04T06:45:00.000Z" data-stellar-page-meta="">
 <meta property="article:tag" content="USB" data-stellar-page-meta="">
-<meta property="article:tag" content="嵌入式" data-stellar-page-meta="">
+<meta property="article:tag" content="单片机" data-stellar-page-meta="">
+<meta property="article:tag" content="固件升级" data-stellar-page-meta="">
 <meta property="article:tag" content="杰理" data-stellar-page-meta="">
 <meta property="article:tag" content="通信协议" data-stellar-page-meta="">
 <meta name="twitter:card" content="summary" data-stellar-page-meta=""><meta name="twitter:title" content="杰理芯片 USB 烧录流程拆解" data-stellar-page-meta="">
   
   
-  <meta name="keywords" content="杰理,USB,通信协议,嵌入式" data-stellar-page-meta="">
+  <meta name="keywords" content="杰理,USB,通信协议,固件升级,单片机" data-stellar-page-meta="">
 
   <!-- feed -->
   
@@ -70,7 +71,7 @@
 
   
 
-  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-11-04T14:45:00+08:00","dateModified":"2026-11-04T14:45:00+08:00","datePublished":"2026-11-04T14:45:00+08:00","description":"折腾这套纯软件 USB 烧录并把它封装成 jieli-build 技能（Skill），初衷是为了让 AI 能够独立跑通“写代码 → 编译 → 烧录 → 验证”的闭环开发。只要在固件里加上 USB 升级响应接口，插USB数据线直接直连，AI 改完代码就能自己发命令把新固件刷进板子验证，不需要每次都人工去按下载器；\n等后面有空再做一块电脑可控硬件下载器，就算 AI 写出了坏固件把板子刷成砖，也能...","headline":"杰理芯片 USB 烧录流程拆解","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.skyforever.top/posts/39482"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"https://blog.skyforever.top/posts/39482","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"],"keywords":"杰理, USB, 通信协议, 嵌入式","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"}</script>
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Skyforever","sameAs":[]},"dateCreated":"2026-11-04T14:45:00+08:00","dateModified":"2026-11-04T14:45:00+08:00","datePublished":"2026-11-04T14:45:00+08:00","description":"折腾这套纯软件 USB 烧录并把它封装成 jieli-build 技能（Skill），初衷是为了让 AI 能够独立跑通“写代码 → 编译 → 烧录 → 验证”的闭环开发。只要在固件里加上 USB 升级响应接口，插USB数据线直接直连，AI 改完代码就能自己发命令把新固件刷进板子验证，不需要每次都人工去按下载器；\n等后面有空再做一块电脑可控硬件下载器，就算 AI 写出了坏固件把板子刷成砖，也能...","headline":"杰理芯片 USB 烧录流程拆解","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.skyforever.top/posts/39482"},"publisher":{"@type":"Organization","name":"Skyforever","sameAs":[]},"url":"https://blog.skyforever.top/posts/39482","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"],"keywords":"杰理, USB, 通信协议, 固件升级, 单片机","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"}</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/cloud.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/cloud.svg">
@@ -423,7 +424,7 @@
   <div class="content">
     
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%9B%BA%E4%BB%B6%E7%83%A7%E5%BD%95/">固件烧录</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a>
 </div></div><div class="meta-row">
 <div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-11-04T06:45:00.000Z">2026-11-04</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-11-04T06:45:00.000Z">2026-11-04</time></span></div>
 </div></div>
@@ -747,7 +748,7 @@
 
 
 </article>
-<div class="article-tags slide-up"><a class="tag" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>嵌入式</a><a class="tag" href="/tags/USB/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>USB</a><a class="tag" href="/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>通信协议</a><a class="tag" href="/tags/%E6%9D%B0%E7%90%86/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>杰理</a></div>
+<div class="article-tags slide-up"><a class="tag" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>单片机</a><a class="tag" href="/tags/%E5%9B%BA%E4%BB%B6%E5%8D%87%E7%BA%A7/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>固件升级</a><a class="tag" href="/tags/USB/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>USB</a><a class="tag" href="/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>通信协议</a><a class="tag" href="/tags/%E6%9D%B0%E7%90%86/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>杰理</a></div>
 
 
   <div class="article-share slide-up" id="share">
@@ -766,7 +767,7 @@
 
 <div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/posts/53819/">用国产模型写代码，我为什么换成了 Pi Agent</a></div></section></div>
 
-<div class="related-wrap slide-up" id="related-posts"><section class="header"><div class="title cap theme">您可能感兴趣的文章</div></section><section class="body"><div class="related-posts"><a class="item" href="/posts/58291" title="杰理芯片网络资源汇总"><span class="title">杰理芯片网络资源汇总</span><span class="excerpt">杰理芯片性价比高但在网上极难找资料。本文汇总整理了官方在线文档、代理商规格书下载站、民间大神逆向工具链、二开硬件板子及实用交流资源。</span></a><a class="item" href="/posts/48921" title="USB 通信协议解释"><span class="title">USB 通信协议解释</span><span class="excerpt">从宏观到微观拆解 USB 通信协议，涵盖设备类（USB Class）、端点与管道、四种传输类型（Transfer）、事务处理（Transaction）、底层包（Packet）结构，以及描述符体系与枚举流程。</span></a><a class="item" href="/posts/46321" title="2026年如何使用AI辅助做嵌入式开发"><span class="title">2026年如何使用AI辅助做嵌入式开发</span><span class="excerpt">2026年，AI辅助嵌入式开发已经不只是"帮你写代码"了。从硬件方案选型、PCB设计、 固件编译烧录调试，到直接操控板子跑命令，再到自动调PID参数——本文串联一套完整的AI工具链， 展示嵌入式开发全流程如何被AI重塑。</span></a></div></section></div>
+<div class="related-wrap slide-up" id="related-posts"><section class="header"><div class="title cap theme">您可能感兴趣的文章</div></section><section class="body"><div class="related-posts"><a class="item" href="/posts/48921" title="USB 通信协议解释"><span class="title">USB 通信协议解释</span><span class="excerpt">从宏观到微观拆解 USB 通信协议，涵盖设备类（USB Class）、端点与管道、四种传输类型（Transfer）、事务处理（Transaction）、底层包（Packet）结构，以及描述符体系与枚举流程。</span></a><a class="item" href="/posts/58291" title="杰理芯片网络资源汇总"><span class="title">杰理芯片网络资源汇总</span><span class="excerpt">杰理芯片性价比高但在网上极难找资料。本文汇总整理了官方在线文档、代理商规格书下载站、民间大神逆向工具链、二开硬件板子及实用交流资源。</span></a><a class="item" href="/posts/46321" title="2026年如何使用AI辅助做嵌入式开发"><span class="title">2026年如何使用AI辅助做嵌入式开发</span><span class="excerpt">2026年，AI辅助嵌入式开发已经不只是"帮你写代码"了。从硬件方案选型、PCB设计、 固件编译烧录调试，到直接操控板子跑命令，再到自动调PID参数——本文串联一套完整的AI工具链， 展示嵌入式开发全流程如何被AI重塑。</span></a></div></section></div>
 
 
   <div class="related-wrap md-text slide-up" id="comments">
@@ -969,4 +970,4 @@ var _hmt = _hmt || [];
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://blog.skyforever.top/posts/39482","signature":"f4fa27b24fa31d163ad1f4ea67701a861abc576fb8a913c0804ef6e7d3ae3a8b"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://blog.skyforever.top/posts/39482","signature":"b37462bd30129179d4f60b287401b645b5fcef8b6954f8282fe5b23b161e6ac8"}</script></body></html>
