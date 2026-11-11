@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/posts/114515</loc>
+    
+    <lastmod>2023-11-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/posts/58575</loc>
     
     <lastmod>2025-03-05</lastmod>
@@ -29,9 +38,9 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/posts/114515</loc>
+    <loc>https://blog.skyforever.top/posts/61125</loc>
     
-    <lastmod>2023-11-23</lastmod>
+    <lastmod>2025-11-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -47,27 +56,9 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/posts/61125</loc>
-    
-    <lastmod>2025-11-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/posts/30908</loc>
     
     <lastmod>2025-10-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/posts/114521</loc>
-    
-    <lastmod>2025-09-20</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -83,81 +74,18 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/posts/114521</loc>
+    
+    <lastmod>2025-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/posts/63520</loc>
     
     <lastmod>2025-11-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/posts/114516</loc>
-    
-    <lastmod>2025-08-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/posts/43991</loc>
-    
-    <lastmod>2025-11-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/posts/11491</loc>
-    
-    <lastmod>2025-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/posts/28982</loc>
-    
-    <lastmod>2025-03-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/posts/51722</loc>
-    
-    <lastmod>2026-04-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/posts/114520</loc>
-    
-    <lastmod>2025-09-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/posts/0</loc>
-    
-    <lastmod>1970-01-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/posts/58559</loc>
-    
-    <lastmod>2025-03-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -173,7 +101,97 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/posts/43991</loc>
+    
+    <lastmod>2025-11-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/posts/114516</loc>
+    
+    <lastmod>2025-08-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/posts/28982</loc>
+    
+    <lastmod>2025-03-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/posts/11491</loc>
+    
+    <lastmod>2025-09-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/posts/114520</loc>
+    
+    <lastmod>2025-09-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/posts/51722</loc>
+    
+    <lastmod>2026-04-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/posts/46321</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/posts/47291</loc>
+    
+    <lastmod>2026-11-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/posts/58559</loc>
+    
+    <lastmod>2025-03-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/posts/49583</loc>
+    
+    <lastmod>2026-05-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/posts/52107</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -191,24 +209,6 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/posts/53819</loc>
-    
-    <lastmod>2026-11-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/posts/49583</loc>
-    
-    <lastmod>2026-05-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/posts/37648</loc>
     
     <lastmod>2026-05-26</lastmod>
@@ -218,18 +218,9 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/posts/52107</loc>
+    <loc>https://blog.skyforever.top/posts/53819</loc>
     
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/posts/61842</loc>
-    
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -245,18 +236,18 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/posts/41626</loc>
+    <loc>https://blog.skyforever.top/posts/61842</loc>
     
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/posts/33643</loc>
+    <loc>https://blog.skyforever.top/posts/41626</loc>
     
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2025-12-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -272,9 +263,9 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/posts/34640</loc>
+    <loc>https://blog.skyforever.top/posts/33643</loc>
     
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -290,9 +281,9 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/posts/53927</loc>
+    <loc>https://blog.skyforever.top/posts/34640</loc>
     
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-10-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -308,18 +299,18 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/posts/43921</loc>
+    <loc>https://blog.skyforever.top/posts/53927</loc>
     
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-05-11</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/posts/38247</loc>
+    <loc>https://blog.skyforever.top/posts/43921</loc>
     
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-07-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -338,6 +329,15 @@
     <loc>https://blog.skyforever.top/posts/39482</loc>
     
     <lastmod>2026-11-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/posts/38247</loc>
+    
+    <lastmod>2026-02-27</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -371,6 +371,15 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/rss/</loc>
+    
+    <lastmod>2026-10-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/page/</loc>
     
     <lastmod>2013-12-26</lastmod>
@@ -380,18 +389,18 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/ESI/C%E8%AF%AD%E8%A8%80%E6%95%B4%E7%90%86/</loc>
+    <loc>https://blog.skyforever.top/data/PM/%E5%91%A8%E8%BE%89%E6%A8%A1%E5%9E%8B/</loc>
     
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>2026-08-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/rss/</loc>
+    <loc>https://blog.skyforever.top/data/ESI/C%E8%AF%AD%E8%A8%80%E6%95%B4%E7%90%86/</loc>
     
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2025-11-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -443,15 +452,6 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/ESI/%E6%96%87%E4%BB%B6IO/</loc>
-    
-    <lastmod>2025-11-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/data/ESI/%E6%A8%A1%E7%94%B5%E6%95%B0%E7%94%B5%E4%B8%8E%E7%A1%AC%E4%BB%B6/</loc>
     
     <lastmod>2025-11-21</lastmod>
@@ -461,18 +461,18 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/ESI/STM32/</loc>
+    <loc>https://blog.skyforever.top/data/ESI/%E6%96%87%E4%BB%B6IO/</loc>
     
-    <lastmod>2025-11-22</lastmod>
+    <lastmod>2025-11-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/PM/%E5%91%A8%E8%BE%89%E6%A8%A1%E5%9E%8B/</loc>
+    <loc>https://blog.skyforever.top/bookmark/bookmarks/</loc>
     
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-10-05</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -497,9 +497,18 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/notebooks/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/</loc>
+    <loc>https://blog.skyforever.top/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/</loc>
     
-    <lastmod>2024-04-17</lastmod>
+    <lastmod>2024-09-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/data/ESI/STM32/</loc>
+    
+    <lastmod>2025-11-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -515,18 +524,18 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/notebooks/%E5%8D%8E%E4%B8%BAICT%E7%BD%91%E7%BB%9C%E8%B5%9B%E9%81%93%E5%88%9D%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://blog.skyforever.top/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/</loc>
     
-    <lastmod>2024-09-05</lastmod>
+    <lastmod>2025-03-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/</loc>
+    <loc>https://blog.skyforever.top/data/notebooks/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/</loc>
     
-    <lastmod>2025-03-06</lastmod>
+    <lastmod>2024-04-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -542,70 +551,7 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/features/</loc>
-    
-    <lastmod>2026-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/</loc>
-    
-    <lastmod>2026-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/usage-cmake/</loc>
-    
-    <lastmod>2026-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/</loc>
-    
-    <lastmod>2025-03-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/usage-main/</loc>
-    
-    <lastmod>2026-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/usage-obj/</loc>
-    
-    <lastmod>2026-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/usage-ui/</loc>
-    
-    <lastmod>2026-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/usage/</loc>
+    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/build-system/</loc>
     
     <lastmod>2026-10-01</lastmod>
     
@@ -615,15 +561,6 @@
   
   <url>
     <loc>https://blog.skyforever.top/wiki/Smart_Home_System/api-integration/</loc>
-    
-    <lastmod>2026-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/build-system/</loc>
     
     <lastmod>2026-10-01</lastmod>
     
@@ -659,7 +596,16 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/components/</loc>
+    <loc>https://blog.skyforever.top/data/notebooks/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/</loc>
+    
+    <lastmod>2025-03-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/data-persistence/</loc>
     
     <lastmod>2026-10-01</lastmod>
     
@@ -677,7 +623,7 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/data-persistence/</loc>
+    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/components/</loc>
     
     <lastmod>2026-10-01</lastmod>
     
@@ -713,25 +659,7 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/</loc>
-    
-    <lastmod>2026-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/wiki/Smart_Home_System/peripheral-control/</loc>
-    
-    <lastmod>2026-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/ui-design/</loc>
     
     <lastmod>2026-10-01</lastmod>
     
@@ -749,7 +677,16 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/web-setup/</loc>
+    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/</loc>
+    
+    <lastmod>2026-10-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/ui-design/</loc>
     
     <lastmod>2026-10-01</lastmod>
     
@@ -767,9 +704,72 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/wiki/UEC/10%20%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB%E5%92%8C%E6%B2%B9%E7%8C%B4%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>https://blog.skyforever.top/wiki/Smart_Home_System/web-setup/</loc>
     
-    <lastmod>2024-12-18</lastmod>
+    <lastmod>2026-10-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/features/</loc>
+    
+    <lastmod>2026-10-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/</loc>
+    
+    <lastmod>2026-10-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/usage-cmake/</loc>
+    
+    <lastmod>2026-10-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/usage/</loc>
+    
+    <lastmod>2026-10-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/usage-obj/</loc>
+    
+    <lastmod>2026-10-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/usage-ui/</loc>
+    
+    <lastmod>2026-10-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/wiki/LVGL-CarDashboard/usage-main/</loc>
+    
+    <lastmod>2026-10-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -794,9 +794,9 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/wiki/UEC/11%20uml%E5%92%8Cmermaid%E7%9A%84%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>https://blog.skyforever.top/wiki/UEC/10%20%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB%E5%92%8C%E6%B2%B9%E7%8C%B4%E4%BB%8B%E7%BB%8D/</loc>
     
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -806,6 +806,15 @@
     <loc>https://blog.skyforever.top/wiki/UEC/2%20word%E6%8E%92%E7%89%88%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E4%B9%A6%E5%86%99/</loc>
     
     <lastmod>2024-12-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/wiki/UEC/11%20uml%E5%92%8Cmermaid%E7%9A%84%E4%BB%8B%E7%BB%8D/</loc>
+    
+    <lastmod>2024-12-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -848,15 +857,6 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/wiki/UEC/5%20cmd%E7%9A%84%E8%84%9A%E6%9C%ACbat%E4%B8%8Epowershell%E7%9A%84%E8%84%9A%E6%9C%ACps1/</loc>
-    
-    <lastmod>2024-12-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/wiki/UEC/6%20%E6%B8%85%E7%90%86C%E7%9B%98/</loc>
     
     <lastmod>2024-12-23</lastmod>
@@ -875,6 +875,15 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/wiki/UEC/5%20cmd%E7%9A%84%E8%84%9A%E6%9C%ACbat%E4%B8%8Epowershell%E7%9A%84%E8%84%9A%E6%9C%ACps1/</loc>
+    
+    <lastmod>2024-12-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/wiki/UEC/8%20%E5%B8%B8%E7%94%A8%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</loc>
     
     <lastmod>2024-12-21</lastmod>
@@ -884,9 +893,9 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/bookmark/bookmarks/</loc>
+    <loc>https://blog.skyforever.top/wiki/UEC/</loc>
     
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -905,15 +914,6 @@
     <loc>https://blog.skyforever.top/wiki/UEC/9%20%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80/</loc>
     
     <lastmod>2024-12-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/wiki/UEC/</loc>
-    
-    <lastmod>2026-10-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -947,24 +947,6 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2025-05-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/data/ES/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/LVGL%20%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2025-09-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/data/ES/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/LVGL%20%E5%9B%BE%E5%83%8F%E4%B8%8E%E5%AD%97%E4%BD%93%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2025-09-17</lastmod>
@@ -974,45 +956,9 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://blog.skyforever.top/data/ES/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/LVGL%20%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E7%AC%94%E8%AE%B0/</loc>
     
-    <lastmod>2025-08-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/%E5%86%85%E6%A0%B8%E9%93%BE%E8%A1%A8%E7%94%A8%E6%B3%95/</loc>
-    
-    <lastmod>2025-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/Linux%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2025-07-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/%E6%96%87%E4%BB%B6IO%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2025-08-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2025-07-20</lastmod>
+    <lastmod>2025-09-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1037,24 +983,6 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/ES/%E7%A1%AC%E4%BB%B6/%E6%95%B0%E7%94%B5%E5%9F%BA%E7%A1%80/</loc>
-    
-    <lastmod>2025-10-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2025-07-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/data/ES/%E7%A1%AC%E4%BB%B6/%E6%A8%A1%E7%94%B5%E5%9F%BA%E7%A1%80/</loc>
     
     <lastmod>2025-10-27</lastmod>
@@ -1064,9 +992,18 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/ES/%E8%BF%9B%E9%98%B6/MQTT%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://blog.skyforever.top/data/ES/%E7%A1%AC%E4%BB%B6/%E6%95%B0%E7%94%B5%E5%9F%BA%E7%A1%80/</loc>
     
-    <lastmod>2025-10-23</lastmod>
+    <lastmod>2025-10-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80-%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2025-08-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1091,6 +1028,69 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/C%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2025-07-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/%E5%86%85%E6%A0%B8%E9%93%BE%E8%A1%A8%E7%94%A8%E6%B3%95/</loc>
+    
+    <lastmod>2025-08-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/Linux%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2025-07-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2025-07-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/data/ES/%E5%9F%BA%E7%A1%80/%E6%96%87%E4%BB%B6IO%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2025-08-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/data/notebooks/ERP%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2025-05-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/data/ES/%E8%BF%9B%E9%98%B6/MQTT%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2025-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/data/ES/%E8%BF%9B%E9%98%B6/%E7%BA%BF%E7%A8%8B/</loc>
     
     <lastmod>2025-09-25</lastmod>
@@ -1100,18 +1100,18 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/ES/%E8%BF%9B%E9%98%B6/%E8%BF%9B%E7%A8%8B/</loc>
+    <loc>https://blog.skyforever.top/data/ES/%E8%BF%9B%E9%98%B6/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
     
-    <lastmod>2025-09-22</lastmod>
+    <lastmod>2025-10-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/data/ES/%E8%BF%9B%E9%98%B6/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
+    <loc>https://blog.skyforever.top/data/ES/%E8%BF%9B%E9%98%B6/%E8%BF%9B%E7%A8%8B/</loc>
     
-    <lastmod>2025-10-09</lastmod>
+    <lastmod>2025-09-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1155,6 +1155,27 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/tags/%E6%A0%A1%E5%9B%AD%E7%BD%91/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/OpenWrt/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/tags/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1184,62 +1205,6 @@
   
   <url>
     <loc>https://blog.skyforever.top/tags/Vim/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E6%A0%A1%E5%9B%AD%E7%BD%91/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/OpenWrt/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/GitHub/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E9%95%9C%E5%83%8F/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E5%8A%A0%E9%80%9F/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/hosts/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/Watt-Toolkit/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1288,6 +1253,41 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/tags/GitHub/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E9%95%9C%E5%83%8F/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E5%8A%A0%E9%80%9F/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/hosts/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/Watt-Toolkit/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/tags/STM32/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1323,27 +1323,6 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/Markdown/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/tags/Git/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1359,6 +1338,27 @@
   
   <url>
     <loc>https://blog.skyforever.top/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/Markdown/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1393,6 +1393,13 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/tags/VSCode/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/tags/LVGL/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1414,14 +1421,14 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/VSCode/</loc>
+    <loc>https://blog.skyforever.top/tags/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</loc>
+    <loc>https://blog.skyforever.top/tags/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1435,7 +1442,7 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/</loc>
+    <loc>https://blog.skyforever.top/tags/Hexo/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1456,20 +1463,6 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/Hexo/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/tags/%E7%89%A9%E8%81%94%E7%BD%91/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1477,49 +1470,28 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/3D%E6%89%93%E5%8D%B0/</loc>
+    <loc>https://blog.skyforever.top/tags/%E8%93%9D%E7%89%99%E8%8A%AF%E7%89%87/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/FDM/</loc>
+    <loc>https://blog.skyforever.top/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/%E6%8B%93%E7%AB%B9/</loc>
+    <loc>https://blog.skyforever.top/tags/%E4%BD%8E%E5%8A%9F%E8%80%97/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/%E5%88%9B%E6%83%B3%E4%B8%89%E7%BB%B4/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E5%BB%BA%E6%A8%A1/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E5%88%87%E7%89%87%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/Pi-Agent/</loc>
+    <loc>https://blog.skyforever.top/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1575,34 +1547,6 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/OSINT/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/GhostTrack/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/tags/WiFi/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1645,6 +1589,97 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/tags/3D%E6%89%93%E5%8D%B0/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/FDM/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E6%8B%93%E7%AB%B9/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E5%88%9B%E6%83%B3%E4%B8%89%E7%BB%B4/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E5%BB%BA%E6%A8%A1/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E5%88%87%E7%89%87%E8%BD%AF%E4%BB%B6/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/OSINT/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/GhostTrack/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/Pi-Agent/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/USB/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E7%A1%AC%E4%BB%B6%E5%8D%8F%E8%AE%AE/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/tags/1Panel/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1673,27 +1708,6 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/USB/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E7%A1%AC%E4%BB%B6%E5%8D%8F%E8%AE%AE/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/tags/J-Link/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1702,6 +1716,20 @@
   
   <url>
     <loc>https://blog.skyforever.top/tags/RTT/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/Skill/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/Prompt/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1757,27 +1785,6 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/Skill/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/Prompt/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/Codespaces/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/tags/%E5%8C%BB%E4%BF%9D/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1806,14 +1813,28 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/%E8%B0%83%E5%BA%A6%E5%99%A8/</loc>
+    <loc>https://blog.skyforever.top/tags/Codespaces/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/%E4%BD%8E%E5%8A%9F%E8%80%97/</loc>
+    <loc>https://blog.skyforever.top/tags/%E6%9D%B0%E7%90%86/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/%E8%B0%83%E5%BA%A6%E5%99%A8/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1834,28 +1855,14 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/tags/%E6%9D%B0%E7%90%86/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E8%93%9D%E7%89%99%E8%8A%AF%E7%89%87/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.skyforever.top/tags/Clangd/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.skyforever.top/tags/Anthropic/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1884,13 +1891,6 @@
   
   <url>
     <loc>https://blog.skyforever.top/tags/Function-Calling/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/tags/Anthropic/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1934,6 +1934,13 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1942,13 +1949,6 @@
   
   <url>
     <loc>https://blog.skyforever.top/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1969,14 +1969,14 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://blog.skyforever.top/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://blog.skyforever.top/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1990,6 +1990,13 @@
   </url>
   
   <url>
+    <loc>https://blog.skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.skyforever.top/categories/AI%E7%BC%96%E7%A8%8B/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1997,7 +2004,7 @@
   </url>
   
   <url>
-    <loc>https://blog.skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://blog.skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/AI%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2012,13 +2019,6 @@
   
   <url>
     <loc>https://blog.skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.skyforever.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/AI%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
