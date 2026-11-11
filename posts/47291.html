@@ -233,24 +233,6 @@
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/114515/" title="校园网多设备共享">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">校</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">校园网多设备共享</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
 <a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/114514/" title="用ai批量生成课设报告">
   
   
@@ -277,6 +259,24 @@
     <span class="ui-collection__content">
       
       <span class="ui-collection__title">IOS小火箭教程</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/114515/" title="校园网多设备共享">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">校</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">校园网多设备共享</span>
       
       
     </span>
@@ -323,42 +323,6 @@
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/30908/" title="2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">2</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/114521/" title="为博客搭建免费图床">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">为</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">为博客搭建免费图床</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
 <a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/61125/" title="嘉立创EDA 核心快捷键与实用技巧速查">
   
   
@@ -377,6 +341,24 @@
 
   
     
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/30908/" title="2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">2</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
 <a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/11721/" title="图形化Git使用指南">
   
   
@@ -385,6 +367,24 @@
     <span class="ui-collection__content">
       
       <span class="ui-collection__title">图形化Git使用指南</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/63520/" title="如何在不使用操作系统的情况下实现多线程效果">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">如</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">如何在不使用操作系统的情况下实现多线程效果</span>
       
       
     </span>
@@ -548,7 +548,7 @@
 <p>到了 BLE 5.0 引入 2M PHY 后，物理层符号速率翻倍，配合大 MTU 和短间隔，实际传输速度能跑到上百 KB/s。不过 2M PHY 发射功耗更高、通信距离也会缩短，按实际需求开启即可。</p>
 <h2 id="配对与安全"><a href="#配对与安全" class="headerlink" title="配对与安全"></a>配对与安全</h2><p>BLE 4.0 和 4.1 的旧版配对机制存在容易被抓包破解的漏洞，到了 BLE 4.2 引入基于 ECDH 密钥交换的 LE Secure Connections 后才算真正安全。在单片机端写代码时需要注意四个细节：</p>
 <ul>
-<li>配对方式有三种，没屏幕也没按键的传感器只能用 Just Works（只加密不认证，防不住中间人攻击）；一方带屏幕或键盘可以用 6 位数字配对码（Passkey Entry）；双方都有屏幕则用数字比对（Numeric Comparison），安全性最高。</li>
+<li>配对方式有三种：Just Works（只加密不认证，防不住中间人攻击）；一方带屏幕或键盘可以用 6 位数字配对码（Passkey Entry）；双方都有屏幕则用数字比对（Numeric Comparison），安全性最高。</li>
 <li>开启绑定（Bonding）后，配对交换的长期密钥（LTK）要存进片上 Flash，下次重连直接恢复加密跳过配对。写 Flash 时一定要加校验，防止掉电写坏半截数据导致后续永远连不上。</li>
 <li>敏感特征值要在 GATT 表里配置访问权限（比如要求链路加密或带认证后才允许读写），中心设备没完成加密就来读写时协议栈会自动拒绝并返回认证不足错误。</li>
 <li>BLE 链路层加密只保护空中无线电这一段，数据进了手机操作系统就是明文。如果要传敏感业务配置或密钥，最好在应用层载荷里再套一层对称加密或签名。</li>
@@ -567,7 +567,7 @@
 <td align="left">外挂串口 AT 模块</td>
 <td align="left">常见串口透传模块，主控 MCU 靠 UART 控制</td>
 <td align="left">不用学蓝牙协议栈，几天就能调通，射频认证现成</td>
-<td align="left">功耗受模块休眠机制制约，只能用固定 AT 指令集</td>
+<td align="left">蓝牙连接状态不由主控直接管理，功耗受休眠机制制约，只能用固定 AT 指令集</td>
 </tr>
 <tr>
 <td align="left">双芯片架构（MCU + 蓝牙芯片）</td>
@@ -585,7 +585,7 @@
 <p>如果只是给现有的成熟单片机产品加个手机近场配参功能，外挂串口 AT 模块最省事，不用动原来的工程架构，通过串口发几条指令就能透传数据：</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MCU 通过串口初始化 BLE 透传模块的典型流程</span></span><br><span class="line"><span class="comment">// 1. 查询模块固件版本</span></span><br><span class="line">at_send(<span class="string">"AT+VER?\r\n"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 配置广播名称与广播间隔（单位 ms）</span></span><br><span class="line">at_send(<span class="string">"AT+NAME=ESS-GW01\r\n"</span>);</span><br><span class="line">at_send(<span class="string">"AT+ADVINT=400\r\n"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 配置自定义服务 UUID（具体指令视模块厂家固件而定）</span></span><br><span class="line">at_send(<span class="string">"AT+SERVUUID=0xFFF0\r\n"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 进入透传模式，周期性向中心设备推送传感器数据</span></span><br><span class="line">at_send(<span class="string">"AT+SEND=10,23.5,45.2\r\n"</span>);</span><br></pre></td></tr></tbody></table></figure>
 
-<p>用串口 AT 模块主要防三个坑。第一是模块休眠后串口唤醒有延迟，主控发的第一条指令很容易丢，发数据前要先拉唤醒脚或做应答握手；第二是空中蓝牙接收突发速率可能比串口波特率快，大批下发数据时要做好分包流控；第三是同一款模块不同批次可能刷了不同版本的固件，量产采购前必须让厂家锁死固件版本。</p>
+<p>用串口 AT 模块主要防四个坑。第一是蓝牙状态不是主控自己管理的，到底连上没有、什么时候断开了、当前处于指令模式还是透传模式，全靠解析串口上报的字符串（比如 <code>+CONNECTED</code>）或者读状态引脚来猜，一旦串口丢字节或者透传数据里刚好撞上状态关键字，主控和模块的状态机就会失步，同步状态跟玄学一样；第二是模块休眠后串口唤醒有延迟，主控发的第一条指令很容易丢，发数据前要先拉唤醒脚或做应答握手；第三是空中蓝牙接收突发速率可能比串口波特率快，大批下发数据时要做好分包流控；第四是同一款模块不同批次可能刷了不同版本的固件，量产采购前必须让厂家锁死固件版本。</p>
 <p>如果是从头画板子做新产品，或者追求极致的成本和纽扣电池续航，直接选单颗带 BLE 的 SoC（比如沁恒 CH58x/CH59x、杰理、ESP32-C3 或 nRF52）把业务代码和协议栈跑在一起划算得多，没必要为了省几行代码多花钱买两颗芯片。</p>
 <h2 id="常用调试工具"><a href="#常用调试工具" class="headerlink" title="常用调试工具"></a>常用调试工具</h2><p>调 BLE 协议和排查断连问题，平时备好这三样工具就够了：</p>
 <ul>
@@ -820,4 +820,4 @@ var _hmt = _hmt || [];
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://blog.skyforever.top/posts/47291","signature":"54580c6b34697998e3cfcef07c6287620b1f27585467f4cc4e00f01b84faf9d5"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://blog.skyforever.top/posts/47291","signature":"20440ecce6a754490259fa2809b3555bd370d32a2fdefbe1161d7236ad1dc438"}</script></body></html>
