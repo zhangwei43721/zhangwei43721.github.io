@@ -233,24 +233,6 @@
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/58575/" title="IOS小火箭教程">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">I</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">IOS小火箭教程</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
 <a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/114514/" title="用ai批量生成课设报告">
   
   
@@ -259,24 +241,6 @@
     <span class="ui-collection__content">
       
       <span class="ui-collection__title">用ai批量生成课设报告</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/3106/" title="Vim技巧整理">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">V</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">Vim技巧整理</span>
       
       
     </span>
@@ -305,6 +269,24 @@
 
   
     
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/58575/" title="IOS小火箭教程">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">I</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">IOS小火箭教程</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
 <a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/46597/" title="解决 GitHub 无法访问问题">
   
   
@@ -313,6 +295,24 @@
     <span class="ui-collection__content">
       
       <span class="ui-collection__title">解决 GitHub 无法访问问题</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/3106/" title="Vim技巧整理">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">V</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">Vim技巧整理</span>
       
       
     </span>
@@ -377,14 +377,14 @@
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/63520/" title="如何在不使用操作系统的情况下实现多线程效果">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/11721/" title="图形化Git使用指南">
   
   
-  <span class="ui-collection__initial" aria-hidden="true">如</span>
+  <span class="ui-collection__initial" aria-hidden="true">图</span>
   
     <span class="ui-collection__content">
       
-      <span class="ui-collection__title">如何在不使用操作系统的情况下实现多线程效果</span>
+      <span class="ui-collection__title">图形化Git使用指南</span>
       
       
     </span>
@@ -442,7 +442,7 @@
 <article class="md-text content slide-up"><p>真正上手之后才发现，BLE 和经典蓝牙是完全不同的两套东西。</p>
 <h2 id="常见误解"><a href="#常见误解" class="headerlink" title="常见误解"></a>常见误解</h2><p>我以前以为 BLE 只是省电版的蓝牙。其实 BLE 是专门为小数据量、周期性上报、靠纽扣电池长期工作设计的协议，它的省电来自绝大多数时间都在睡眠的连接机制，而不是物理层射频比经典蓝牙更省电。</p>
 <p>我以前还觉得 BLE 传输速率太低传不了数据。BLE 4.2 的实际有效吞吐通常在每秒几 KB 到几十 KB，上报温湿度绰绰有余，但用来做固件升级就比较吃力，所以做 BLE OTA 必须专门设计 Flash 擦写时序和流控。</p>
-<p>还有个坑是以为 BLE 连上就能直接收发数据。实际上能不能读某个数据、能不能收到主动推送，取决于设备端有没有暴露对应服务，以及手机客户端有没有往特征值的 <code>CCC</code> 描述符（<code>0x2902</code>）里写值打开通知开关。手机 App 连上设备却收不到数据，九成是没开这个通知开关。</p>
+<p>还有个问题是以为 BLE 连上就能直接收发数据。实际上能不能读某个数据、能不能收到主动推送，取决于设备端有没有暴露对应服务，以及手机客户端有没有往特征值的 <code>CCC</code> 描述符（<code>0x2902</code>）里写值打开通知开关。手机 App 连上设备却收不到数据，九成是没开这个通知开关。</p>
 <h2 id="协议栈分层"><a href="#协议栈分层" class="headerlink" title="协议栈分层"></a>协议栈分层</h2><p>BLE 协议栈自上而下可以分为六层，和常见的网络协议对比着记更容易理解：</p>
 <div class="md-table-scroll"><table>
 <thead>
@@ -507,7 +507,7 @@
 </ul>
 <p>这套结构和 Modbus 寄存器映射很像，服务相当于功能码分组，特征值相当于保持寄存器，描述符相当于配置字。区别在于 Modbus 寄存器表是双方提前写死的静态表，而 BLE 的 GATT 表是设备端自己定义好，客户端连上后通过服务发现（Service Discovery）动态读出来的，客户端事先不需要知道表长什么样。</p>
 <h2 id="连接与数据流"><a href="#连接与数据流" class="headerlink" title="连接与数据流"></a>连接与数据流</h2><p>BLE 通信分为广播和连接两个阶段，搞清楚这两个阶段分别干什么，遇到连上了没数据就知道从哪查起。</p>
-<p>在广播阶段，外围设备在 37、38、39 三个广播信道上周期性发广播包，里面装着设备名称、标志位和部分服务 UUID。中心设备扫到广播后，感兴趣就发起连接请求。广播间隔通常设在 <code>100 ms ~ 1 s</code> 之间，间隔拉得越长越省电，但手机扫到它的平均等待时间也越久。</p>
+<p>在广播阶段，外围设备在 37/38/39 三个广播信道上周期性发广播包，里面装着设备名称、标志位和部分服务 UUID。中心设备扫到广播后，感兴趣就发起连接请求。广播间隔通常设在 <code>100 ms ~ 1 s</code> 之间，间隔拉得越长越省电，但手机扫到它的平均等待时间也越久。</p>
 <p>进入连接阶段后，双方按照约定好的连接间隔（Connection Interval，范围 <code>7.5 ms ~ 4 s</code>）周期性醒来收发数据。GATT 层的读、写、打开通知开关，全都在这个阶段通过 ATT 报文完成：</p>
 <pre class="mermaid">sequenceDiagram
     participant C as 中心设备 (App)
@@ -525,30 +525,32 @@
     end
     Note over C,P: 双方均可主动断开连接</pre>
 
-<p>主动推送数据时的通知（Notification）和指示（Indication）有一点核心差别：</p>
+<p>主动推送数据时的通知（Notification）和指示（Indication）差别：</p>
 <ul>
 <li>通知是发出去就完事了，不需要客户端回复，速度快但极端情况下可能丢包；</li>
-<li>指示是发出去后必须等客户端回一个确认包，设备端收到确认才能发下一条，可靠但吞吐慢。平时上报温湿度等数据用通知，关键控制命令的回执用指示。</li>
+<li>指示是发出去后必须等客户端回一个确认包，设备端收到确认才能发下一条，可靠但吞吐慢。</li>
+<li>平时上报温湿度等数据用通知，关键控制命令的回执用指示。</li>
 </ul>
-<h2 id="连接参数与功耗"><a href="#连接参数与功耗" class="headerlink" title="连接参数与功耗"></a>连接参数与功耗</h2><p>一颗纽扣电池能不能撑一年，主要看下面三个连接参数怎么配：</p>
+<h2 id="连接参数与功耗"><a href="#连接参数与功耗" class="headerlink" title="连接参数与功耗"></a>连接参数与功耗</h2><p>一颗纽扣电池能不能撑一年，主要看下面三个连接参数怎么配置：</p>
 <ul>
 <li>连接间隔（Connection Interval）决定了两次通信事件相隔多久，范围 <code>7.5 ms ~ 4 s</code>。假设每次唤醒收发耗时 5 ms，间隔设为 1 s 时射频占空比只有 0.5%，设成 100 ms 占空比就涨到 5%，功耗直接差出十倍。</li>
 <li>从机延迟（Slave Latency）允许外围设备在没有数据要发时直接跳过若干个连接事件继续睡觉。比如设成 4，代表设备最多可以连续跳过 4 次唤醒，到第 5 个连接间隔再起来跟主机打个招呼，平时没数据时能省下大量电。</li>
 <li>监管超时（Supervision Timeout）定义了双方多久没收到任何回应才判定断开连接，一般设在 5 s 以上，必须大于 <code>(1 + 从机延迟) × 连接间隔 × 2</code>。</li>
 </ul>
 <p>这三个参数的调整权在中心设备（比如手机或网关）手里，外围设备只能发连接参数更新请求表达偏好，同不同意由中心设备决定。这也是为什么同一个蓝牙设备连不同手机或网关时功耗有差异。</p>
-<p>在实际物联网项目里，比较省电的做法是平时让设备请求 <code>500 ms ~ 1 s</code> 的长间隔加上 <code>4</code> 的从机延迟，应付日常慢速上报；等到要读历史记录或升固件时，由手机或网关主动把连接间隔切到 <code>15 ~ 30 ms</code>，传完大块数据再切回长间隔。<br>比较经典的实现是用 做的<a target="_blank" rel="noopener" href="https://doc.zh-jieli.com/AC63/zh-cn/release_v2.3.0/module_demo/spple/FindMy.html" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Airtag</a>，每两秒才向周围的iPhone发送一次广播，一个纽扣电池可以维持一年的设备续航</p>
-<h2 id="实际吞吐量计算"><a href="#实际吞吐量计算" class="headerlink" title="实际吞吐量计算"></a>实际吞吐量计算</h2><p>BLE 4.2 默认单包有效载荷很短，<code>ATT_MTU</code> 默认只有 23 字节，扣掉 3 字节的 ATT 协议头，一包最多只能塞 20 字节的用户数据（即便打开底层数据长度扩展 DLE 把物理包扩到 251 字节，上层依然受 <code>ATT_MTU</code> 限制）。如果按默认 20 字节一包、连接间隔 100 ms 来传 4 KB 的固件，光来回发 200 多包就要耗掉 20 多秒。</p>
+<p>在实际项目里，比较省电的做法是平时让设备请求 <code>500 ms ~ 1 s</code> 的长间隔加上 <code>4</code> 的从机延迟，应付日常慢速上报；等到要读历史记录或升固件时，由手机或网关主动把连接间隔切到 <code>15 ~ 30 ms</code>，传完大块数据再切回长间隔。</p>
+<p>比较经典的实现是用杰理芯片做的<a target="_blank" rel="noopener" href="https://doc.zh-jieli.com/AC63/zh-cn/release_v2.3.0/module_demo/spple/FindMy.html" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Airtag</a>，每两秒才向周围的iPhone发送一次广播，一个纽扣电池可以维持一年的设备续航</p>
+<h2 id="实际吞吐量计算"><a href="#实际吞吐量计算" class="headerlink" title="实际吞吐量计算"></a>实际吞吐量计算</h2><p>BLE 4.2 默认单包有效载荷很短，<code>ATT_MTU</code> 默认只有 23 字节，扣掉 3 字节的 ATT 协议头，一包最多只能塞 20 字节的用户数据（即便打开底层数据长度扩展 DLE 把物理包扩到 251 字节，上层依然受 <code>ATT_MTU</code> 限制）。<br>如果按默认 20 字节一包、连接间隔 100 ms 来传 4 KB 的固件，光来回发 200 多包就要耗掉 20 多秒。</p>
 <p>提升手段有三个：</p>
 <ul>
-<li>连接建立后立刻协商把 <code>ATT_MTU</code> 调大（BLE 4.2 及以上最高支持 517 字节），这样 4 KB 数据发 8 包左右就能传完。</li>
-<li>传大文件期间把连接间隔缩短到 <code>15 ~ 30 ms</code>。</li>
-<li>每次发通知尽量把单个 MTU 塞满，别拆成三五个字节发一次。</li>
+<li>提高 ATT MTU：连接后双方协商 MTU，最大到 517（BLE 4.2+）。4 KB 固件从 200 多次降到 8 次左右。</li>
+<li>缩短连接间隔：传输期间用 15~30 ms 间隔。</li>
+<li>减少应用层开销：一次通知尽量装满一个 MTU，不要一个字节发一次。</li>
 </ul>
-<p>到了 BLE 5.0 引入 2M PHY 后，物理层符号速率翻倍，配合大 MTU 和短间隔，实际传输速度能跑到上百 KB/s。不过 2M PHY 发射功耗更高、通信距离也会缩短，按实际需求开启即可。</p>
+<p>到了 BLE 5.0 引入 2M PHY 后，物理层速率翻倍，配合大 MTU 和短间隔，实际传输速度能跑到上百 KB/s。不过 2M PHY 发射功耗更高、通信距离也会缩短，按实际需求开启即可。</p>
 <h2 id="配对与安全"><a href="#配对与安全" class="headerlink" title="配对与安全"></a>配对与安全</h2><p>BLE 4.0 和 4.1 的旧版配对机制存在容易被抓包破解的漏洞，到了 BLE 4.2 引入基于 ECDH 密钥交换的 LE Secure Connections 后才算真正安全。在单片机端写代码时需要注意四个细节：</p>
 <ul>
-<li>配对方式有三种：Just Works（只加密不认证，防不住中间人攻击）；一方带屏幕或键盘可以用 6 位数字配对码（Passkey Entry）；双方都有屏幕则用数字比对（Numeric Comparison），安全性最高。</li>
+<li>配对方式有三种：Just Works（只加密不认证，防不住中间人攻击）；一方带屏幕或键盘可以用<br><u>6 位数字配对码（Passkey Entry）</u>；双方都有屏幕则用<u>数字比对（Numeric Comparison）</u>，安全性最高。</li>
 <li>开启绑定（Bonding）后，配对交换的长期密钥（LTK）要存进片上 Flash，下次重连直接恢复加密跳过配对。写 Flash 时一定要加校验，防止掉电写坏半截数据导致后续永远连不上。</li>
 <li>敏感特征值要在 GATT 表里配置访问权限（比如要求链路加密或带认证后才允许读写），中心设备没完成加密就来读写时协议栈会自动拒绝并返回认证不足错误。</li>
 <li>BLE 链路层加密只保护空中无线电这一段，数据进了手机操作系统就是明文。如果要传敏感业务配置或密钥，最好在应用层载荷里再套一层对称加密或签名。</li>
@@ -571,7 +573,7 @@
 </tr>
 <tr>
 <td align="left">双芯片架构（MCU + 蓝牙芯片）</td>
-<td align="left">主控 MCU 搭配 BlueNRG、nRF52 或 ESP32-C3</td>
+<td align="left">主控 MCU 搭配 nRF52 、ESP32-C3 之类的蓝牙芯片</td>
 <td align="left">主控算力与蓝牙分离，GATT 表与低功耗完全可控</td>
 <td align="left">两颗芯片物料成本高，需要维护两套固件</td>
 </tr>
@@ -585,7 +587,11 @@
 <p>如果只是给现有的成熟单片机产品加个手机近场配参功能，外挂串口 AT 模块最省事，不用动原来的工程架构，通过串口发几条指令就能透传数据：</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MCU 通过串口初始化 BLE 透传模块的典型流程</span></span><br><span class="line"><span class="comment">// 1. 查询模块固件版本</span></span><br><span class="line">at_send(<span class="string">"AT+VER?\r\n"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 配置广播名称与广播间隔（单位 ms）</span></span><br><span class="line">at_send(<span class="string">"AT+NAME=ESS-GW01\r\n"</span>);</span><br><span class="line">at_send(<span class="string">"AT+ADVINT=400\r\n"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 配置自定义服务 UUID（具体指令视模块厂家固件而定）</span></span><br><span class="line">at_send(<span class="string">"AT+SERVUUID=0xFFF0\r\n"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 进入透传模式，周期性向中心设备推送传感器数据</span></span><br><span class="line">at_send(<span class="string">"AT+SEND=10,23.5,45.2\r\n"</span>);</span><br></pre></td></tr></tbody></table></figure>
 
-<p>用串口 AT 模块主要防四个坑。第一是蓝牙状态不是主控自己管理的，到底连上没有、什么时候断开了、当前处于指令模式还是透传模式，全靠解析串口上报的字符串（比如 <code>+CONNECTED</code>）或者读状态引脚来猜，一旦串口丢字节或者透传数据里刚好撞上状态关键字，主控和模块的状态机就会失步，同步状态跟玄学一样；第二是模块休眠后串口唤醒有延迟，主控发的第一条指令很容易丢，发数据前要先拉唤醒脚或做应答握手；第三是空中蓝牙接收突发速率可能比串口波特率快，大批下发数据时要做好分包流控；第四是同一款模块不同批次可能刷了不同版本的固件，量产采购前必须让厂家锁死固件版本。</p>
+<p>用串口 AT 模块主要防四个坑。</p>
+<p>第一是蓝牙状态不是主控自己管理的，到底连上没有、什么时候断开了、当前处于指令模式还是透传模式，全靠解析串口上报的字符串（比如 <code>+CONNECTED</code>）或者读状态引脚来猜，一旦串口丢字节或者透传数据里刚好撞上状态关键字，主控和模块的状态机就会失步，同步状态跟玄学一样；</p>
+<p>第二是模块休眠后串口唤醒有延迟，主控发的第一条指令很容易丢，发数据前要先拉唤醒脚或做应答握手；</p>
+<p>第三是空中蓝牙接收突发速率可能比串口波特率快，大批下发数据时要做好分包流控；</p>
+<p>第四是同一款模块不同批次可能刷了不同版本的固件，量产采购前必须让厂家锁死固件版本。</p>
 <p>如果是从头画板子做新产品，或者追求极致的成本和纽扣电池续航，直接选单颗带 BLE 的 SoC（比如沁恒 CH58x/CH59x、杰理、ESP32-C3 或 nRF52）把业务代码和协议栈跑在一起划算得多，没必要为了省几行代码多花钱买两颗芯片。</p>
 <h2 id="常用调试工具"><a href="#常用调试工具" class="headerlink" title="常用调试工具"></a>常用调试工具</h2><p>调 BLE 协议和排查断连问题，平时备好这三样工具就够了：</p>
 <ul>
@@ -820,4 +826,4 @@ var _hmt = _hmt || [];
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://blog.skyforever.top/posts/47291","signature":"0aa8718003c233d662aeae3c2e05ec73e63264f562c669ef24b8489ec64e282b"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://blog.skyforever.top/posts/47291","signature":"462273a3d3e9b099603fecd00fde25f8dca6a8e71e208051ed7a8ee319a5b353"}</script></body></html>
