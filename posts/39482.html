@@ -269,32 +269,14 @@
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/114514/" title="用ai批量生成课设报告">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/3106/" title="Vim技巧整理">
   
   
-  <span class="ui-collection__initial" aria-hidden="true">用</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">用ai批量生成课设报告</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/114515/" title="校园网多设备共享">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">校</span>
+  <span class="ui-collection__initial" aria-hidden="true">V</span>
   
     <span class="ui-collection__content">
       
-      <span class="ui-collection__title">校园网多设备共享</span>
+      <span class="ui-collection__title">Vim技巧整理</span>
       
       
     </span>
@@ -313,6 +295,24 @@
     <span class="ui-collection__content">
       
       <span class="ui-collection__title">解决 GitHub 无法访问问题</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/114514/" title="用ai批量生成课设报告">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">用</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">用ai批量生成课设报告</span>
       
       
     </span>
@@ -359,14 +359,14 @@
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/11721/" title="图形化Git使用指南">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/30908/" title="2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程">
   
   
-  <span class="ui-collection__initial" aria-hidden="true">图</span>
+  <span class="ui-collection__initial" aria-hidden="true">2</span>
   
     <span class="ui-collection__content">
       
-      <span class="ui-collection__title">图形化Git使用指南</span>
+      <span class="ui-collection__title">2025最新 Keil MDK5 社区版安装、激活与配置全保姆级教程</span>
       
       
     </span>
@@ -377,14 +377,14 @@
 
   
     
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/43991/" title="基于 VScode 的 Git 使用指南">
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/posts/11721/" title="图形化Git使用指南">
   
   
-  <span class="ui-collection__initial" aria-hidden="true">基</span>
+  <span class="ui-collection__initial" aria-hidden="true">图</span>
   
     <span class="ui-collection__content">
       
-      <span class="ui-collection__title">基于 VScode 的 Git 使用指南</span>
+      <span class="ui-collection__title">图形化Git使用指南</span>
       
       
     </span>
@@ -457,14 +457,13 @@
 <li>软件 USB 指令触发发生在第 3 步应用固件正常运行阶段。当板子已经开机跑起 <code>App</code> 并连上电脑 USB 时，电脑发一条私有 USB 指令给 <code>App</code>，<code>App</code> 收到后往芯片保留区写一个软升级标记，再主动触发整芯片复位退回第 1 步。<code>Mask ROM</code> 重新跑起来一看有标记，就主动停在下载模式。</li>
 </ul>
 <pre class="mermaid">flowchart TD
-    A["芯片上电：第1步运行出厂Mask ROM"] --&gt;|在此阶段发0x16EF硬件波形| G["停在Mask ROM：进入UBOOT1.00下载模式"]
-    A --&gt;|不发波形：正常往下引导| C["第2步：运行Flash Bootloader"]
-    C --&gt; D["第3步：运行Flash App应用固件"]
-    D --&gt;|App留有接口：电脑发0xFC/0xFE软触发指令| E["App写软升级标记并复位回第1步Mask ROM"]
-    E --&gt;|Mask ROM读到标记| G
-    D --&gt;|App无接口或死机：下载器断电重上电| A
-    G --&gt; H["电脑上传RAM Loader到内存并调用"]
-    H --&gt; I["RAM Loader擦写Flash，完成后重启跑新固件"]</pre>
+    A["第1步：上电运行出厂Mask ROM"] --&gt;|流程一：上电瞬间发0x16EF硬件波形| G["进入UBOOT1.00下载模式"]
+    A --&gt;|流程二：不发波形，正常引导| C["第2步：运行Flash Bootloader"]
+    C --&gt; D["第3步：运行Flash App固件"]
+    D --&gt;|电脑发0xFC/0xFE软触发指令| E["App写升级标记并触发软复位"]
+    E --&gt; G
+    G --&gt; H["电脑上传RAM Loader到内存并运行"]
+    H --&gt; I["擦写Flash，完成后重启跑新固件"]</pre>
 
 <p>这里还有一个关键设计，有些芯片出厂自带的 <code>Mask ROM</code> 极其精简，它只懂“往内存（RAM）里写数据”和“跳过去执行”，自己根本没有擦写 Flash 的驱动。所以进入 <code>UBOOT1.00</code> 下载模式后，电脑还得先传一段临时加载程序（<code>RAM Loader</code>）到芯片 RAM 里跑起来，由这个临时小工接管 USB 去完成真正的 Flash 擦写，<a target="_blank" rel="noopener" href="https://github.com/kagaimiq/jl-uboot-tool/blob/adb3f18889e88ac512ce0a3c4d8cc3d3cb30696a/docs/what-is-uboot.md#uboot100" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>大佬 kagaimiq 对 UBOOT1.00 下载阶段的文档</a>详细拆解了这套分工。</p>
 <p>整个过程涉及的四段程序职责对比如下：</p>
@@ -522,7 +521,7 @@
 <li>再次等待 <code>DP</code> 线变回高电平（若未变高则退回上一步重发负脉冲），确认无误后再断开下载器并把 <code>DM</code>、<code>DP</code> 切回电脑。</li>
 </ol>
 <h3 id="2-2-芯片复位"><a href="#2-2-芯片复位" class="headerlink" title="2.2 芯片复位"></a>2.2 芯片复位</h3><p>由于 <code>Mask ROM</code> 只在刚上电复位的极短窗口期内监听 <code>0x16EF</code> 波形，一旦芯片已经跑进第 2 步或第 3 步，再发波形它也听不见。所以硬件下载器最稳妥的做法就是直接切断杰理芯片电源，等电容放完电再重新上电握手（<a target="_blank" rel="noopener" href="https://doc.zh-jieli.com/Tools/zh-cn/dev_tools/forced_upgrade/upgrade_and_download.html#id3" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>官方强制升级工具操作说明</a>提到默认按下升级键会断电至少 <code>250 ms</code>）。</p>
-<p>另一种复位办法是拉低芯片的长按复位引脚（比如 AC701N 默认将 <code>PB1</code> 配为长按 8 秒低电平硬件复位）。但要是坏固件在初始化复位引脚之前就崩了，长按复位同样没用，所以硬件下载器一律走断电重启最靠谱。</p>
+<p>另一种复位办法是拉低芯片的复位引脚。但要是坏固件在初始化复位引脚之前就崩了，复位同样没用，所以硬件下载器一律走断电重启最靠谱。</p>
 <h2 id="3、软件触发下载"><a href="#3、软件触发下载" class="headerlink" title="3、软件触发下载"></a>3、软件触发下载</h2><p>再看发生在启动第 3 步（应用固件 <code>App</code> 正常运行阶段）的软件触发方式。平时改代码调试时，如果每次刷机都要靠硬件断电打脉冲未免太折腾；只要让正在运行的 <code>App</code> 固件听懂一条“切换到下载模式”的 USB 请求，电脑脚本就能随时让板子自己重启进 <code>Mask ROM</code> 下载模式。</p>
 <p>需要注意，板子能枚举出普通 USB 串口、声卡或 U 盘，不代表这个升级接口已经打开。接入只需要四步：</p>
 <ol>
@@ -988,4 +987,4 @@ var _hmt = _hmt || [];
 <script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
 </div>
 
-<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://blog.skyforever.top/posts/39482","signature":"486b034dbdf51a877619e2c41195b3271807bf503824bcabca413ff84778d4c7"}</script></body></html>
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://blog.skyforever.top/posts/39482","signature":"906efbdc2413d1a95c3d5937eec769f9eb3e82539b9ea99fa343a2261a2b4d33"}</script></body></html>
